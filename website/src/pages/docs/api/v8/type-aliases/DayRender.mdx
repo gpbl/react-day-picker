@@ -1,0 +1,24 @@
+<SectionTitle>TypeAlias (undefined)</SectionTitle>
+
+# DayRender
+
+---
+
+<a id="undefined" name="undefined"></a>
+
+<SignatureMemberIdentifier>**DayRender**: `Object`</SignatureMemberIdentifier>
+
+## Type declaration
+
+| Member            | Type                                                                                                                                                                                                      | Description                                                         |
+| :---------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------ |
+| `activeModifiers` | [`ActiveModifiers`](/docs/api/type-aliases/ActiveModifiers.md)                                                                                                                                            | The modifiers active for the given day.                             |
+| `buttonProps`     | [`StyledComponent`](/docs/api/type-aliases/StyledComponent.md) & `Pick`\<[`ButtonProps`](/docs/api/type-aliases/ButtonProps.md), `"disabled"` \| `"aria-selected"` \| `"tabIndex"`\> & `DayEventHandlers` | The props to apply to the button element (when `isButton` is true). |
+| `divProps`        | [`StyledComponent`](/docs/api/type-aliases/StyledComponent.md)                                                                                                                                            | The props to apply to the div element (when `isButton` is false).   |
+| `isButton`        | `boolean`                                                                                                                                                                                                 | Whether the day should be rendered a `button` instead of a `div`    |
+| `isHidden`        | `boolean`                                                                                                                                                                                                 | Whether the day should be hidden.                                   |
+| `selectedDays`    | `SelectedDays`                                                                                                                                                                                            | -                                                                   |
+
+## Source
+
+node_modules/.pnpm/react-day-picker@8.10.0_date-fns@3.3.1_react@18.2.0/node_modules/react-day-picker/src/hooks/useDayRender/useDayRender.tsx:21

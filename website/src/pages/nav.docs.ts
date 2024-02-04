@@ -1,71 +1,71 @@
-import type { DocsNavProps } from '@/components/DocsNav';
+import type { DocsNavProps } from "@/components/DocsNav";
 
-export const docsNav: DocsNavProps['routes'] = [
+export const docsNav: DocsNavProps["routes"] = [
   {
-    pages: [{ title: 'Introduction', slug: '' }]
+    pages: [{ title: "Introduction", slug: "" }],
   },
   {
-    label: 'Getting Started',
+    label: "Getting Started",
     pages: [
-      { title: 'License', slug: 'docs/license' },
-      { title: 'Installation', slug: 'docs/installation' },
-      { title: 'Upgrading', slug: 'docs/upgrading' },
-      { title: 'Community', slug: 'docs/community' },
-      { title: 'Funding', slug: 'docs/funding' }
-    ]
+      { title: "License", slug: "license" },
+      { title: "Installation", slug: "installation" },
+      { title: "Upgrading", slug: "upgrading" },
+      { title: "Community", slug: "community" },
+      { title: "Funding", slug: "funding" },
+    ],
   },
   {
-    label: 'Customization',
+    label: "Customization",
     pages: [
-      { title: 'Months Navigation', slug: 'docs/navigation' },
-      { title: 'Calendar Options', slug: 'docs/calendar-options' },
-      { title: 'Styling', slug: 'docs/styling' }
-    ]
+      { title: "Months Navigation", slug: "navigation" },
+      { title: "Calendar Options", slug: "calendar-options" },
+      { title: "Styling", slug: "styling" },
+    ],
   },
   {
-    label: 'Selecting Days',
+    label: "Selecting Days",
     pages: [
-      { title: 'Selection Modes', slug: 'docs/selection-modes' },
-      { title: 'Custom Selections', slug: 'docs/custom-selections' }
-    ]
+      { title: "Selection Modes", slug: "selection-modes" },
+      { title: "Custom Selections", slug: "custom-selections" },
+    ],
   },
   {
-    label: 'Internationalization',
+    label: "Internationalization",
     pages: [
-      { title: 'Localization', slug: 'docs/localization' },
-      { title: 'Labels', slug: 'docs/labels' },
-      { title: 'Formatters', slug: 'docs/formatters' },
-      { title: 'Date formats', slug: 'docs/date-formats' }
-    ]
+      { title: "Localization", slug: "localization" },
+      { title: "Labels", slug: "labels" },
+      { title: "Formatters", slug: "formatters" },
+      { title: "Date formats", slug: "date-formats" },
+    ],
   },
   {
-    label: 'Advanced Guides',
+    label: "Advanced Guides",
     pages: [
-      { title: 'Custom Components', slug: 'docs/custom-components' },
-      { title: 'Custom Modifiers', slug: 'docs/custom-modifiers' }
-    ]
+      { title: "Custom Components", slug: "custom-components" },
+      { title: "Custom Modifiers", slug: "custom-modifiers" },
+    ],
   },
   {
-    label: 'Development',
+    label: "Development",
     pages: [
-      { title: 'Contributing', slug: 'docs/contributing' },
-      { title: 'DayPicker Architecture', slug: 'docs/architecture' },
-      { title: 'Credits', slug: 'docs/credits' }
-    ]
-  }
+      { title: "Contributing", slug: "contributing" },
+      { title: "DayPicker Architecture", slug: "architecture" },
+      { title: "Credits", slug: "credits" },
+    ],
+  },
 ];
 
-export const api: DocsNavProps['routes'] = [
+export const api: DocsNavProps["routes"] = [
   {
-    pages: [{ title: 'Index', slug: 'api' }]
+    pages: [{ title: "Index", slug: "api" }],
   },
   {
-    label: 'Props',
+    label: "Props",
     pages: [
       {
-        title: 'DayPickerProps',
-        slug: 'api/daypickerprops'
-      }
-    ]
-  }
+        title: "DayPickerProps",
+        slug: "api/daypickerprops",
+      },
+    ],
+  },
 ];

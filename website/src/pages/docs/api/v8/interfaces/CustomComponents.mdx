@@ -1,0 +1,378 @@
+<SectionTitle>Interface (undefined)</SectionTitle>
+
+# CustomComponents
+
+<Description>
+  Map of the components that can be changed using the `components` prop.
+</Description>
+
+---
+
+Map of the components that can be changed using the `components` prop.
+
+## See
+
+https://github.com/gpbl/react-day-picker/tree/main/src/components
+
+## Properties
+
+<a id="caption" name="caption"></a>
+
+### Caption?
+
+<SignatureMemberIdentifier>
+  **Caption**?: (`props`) => `null` \| `Element`
+</SignatureMemberIdentifier>
+
+The component for the caption element.
+
+#### Parameters
+
+| Parameter | Type                                                   |
+| :-------- | :----------------------------------------------------- |
+| `props`   | [`CaptionProps`](/docs/api/interfaces/CaptionProps.md) |
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+node_modules/.pnpm/react-day-picker@8.10.0_date-fns@3.3.1_react@18.2.0/node_modules/react-day-picker/src/types/DayPickerBase.ts:389
+
+---
+
+<a id="captionlabel" name="captionlabel"></a>
+
+### CaptionLabel?
+
+<SignatureMemberIdentifier>
+  **CaptionLabel**?: (`props`) => `null` \| `Element`
+</SignatureMemberIdentifier>
+
+The component for the caption element.
+
+#### Parameters
+
+| Parameter | Type                                                             |
+| :-------- | :--------------------------------------------------------------- |
+| `props`   | [`CaptionLabelProps`](/docs/api/interfaces/CaptionLabelProps.md) |
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+node_modules/.pnpm/react-day-picker@8.10.0_date-fns@3.3.1_react@18.2.0/node_modules/react-day-picker/src/types/DayPickerBase.ts:391
+
+---
+
+<a id="day" name="day"></a>
+
+### Day?
+
+<SignatureMemberIdentifier>
+  **Day**?: (`props`) => `null` \| `Element`
+</SignatureMemberIdentifier>
+
+The component for the day element.
+
+Each `Day` in DayPicker should render one of the following, according to
+the return value of [useDayRender](/docs/api/functions/useDayRender.md).
+
+- an empty `Fragment`, to render if `isHidden` is true
+- a `button` element, when the day is interactive, e.g. is selectable
+- a `div` or a `span` element, when the day is not interactive
+
+#### Parameters
+
+| Parameter | Type                                           |
+| :-------- | :--------------------------------------------- |
+| `props`   | [`DayProps`](/docs/api/interfaces/DayProps.md) |
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+node_modules/.pnpm/react-day-picker@8.10.0_date-fns@3.3.1_react@18.2.0/node_modules/react-day-picker/src/types/DayPickerBase.ts:403
+
+---
+
+<a id="daycontent" name="daycontent"></a>
+
+### DayContent?
+
+<SignatureMemberIdentifier>
+  **DayContent**?: (`props`) => `null` \| `Element`
+</SignatureMemberIdentifier>
+
+The component for the content of the day element.
+
+#### Parameters
+
+| Parameter | Type                                                         |
+| :-------- | :----------------------------------------------------------- |
+| `props`   | [`DayContentProps`](/docs/api/interfaces/DayContentProps.md) |
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+node_modules/.pnpm/react-day-picker@8.10.0_date-fns@3.3.1_react@18.2.0/node_modules/react-day-picker/src/types/DayPickerBase.ts:405
+
+---
+
+<a id="dropdown" name="dropdown"></a>
+
+### Dropdown?
+
+<SignatureMemberIdentifier>
+  **Dropdown**?: (`props`) => `null` \| `Element`
+</SignatureMemberIdentifier>
+
+The component for the drop-down elements.
+
+#### Parameters
+
+| Parameter | Type                                                     |
+| :-------- | :------------------------------------------------------- |
+| `props`   | [`DropdownProps`](/docs/api/interfaces/DropdownProps.md) |
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+node_modules/.pnpm/react-day-picker@8.10.0_date-fns@3.3.1_react@18.2.0/node_modules/react-day-picker/src/types/DayPickerBase.ts:407
+
+---
+
+<a id="footer" name="footer"></a>
+
+### Footer?
+
+<SignatureMemberIdentifier>
+  **Footer**?: (`props`) => `null` \| `Element`
+</SignatureMemberIdentifier>
+
+The component for the table footer.
+
+#### Parameters
+
+| Parameter | Type                                                 |
+| :-------- | :--------------------------------------------------- |
+| `props`   | [`FooterProps`](/docs/api/interfaces/FooterProps.md) |
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+node_modules/.pnpm/react-day-picker@8.10.0_date-fns@3.3.1_react@18.2.0/node_modules/react-day-picker/src/types/DayPickerBase.ts:409
+
+---
+
+<a id="head" name="head"></a>
+
+### Head?
+
+<SignatureMemberIdentifier>
+  **Head**?: () => `null` \| `Element`
+</SignatureMemberIdentifier>
+
+The component for the table’s head.
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+node_modules/.pnpm/react-day-picker@8.10.0_date-fns@3.3.1_react@18.2.0/node_modules/react-day-picker/src/types/DayPickerBase.ts:411
+
+---
+
+<a id="headrow" name="headrow"></a>
+
+### HeadRow?
+
+<SignatureMemberIdentifier>
+  **HeadRow**?: () => `null` \| `Element`
+</SignatureMemberIdentifier>
+
+The component for the table’s head row.
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+node_modules/.pnpm/react-day-picker@8.10.0_date-fns@3.3.1_react@18.2.0/node_modules/react-day-picker/src/types/DayPickerBase.ts:413
+
+---
+
+<a id="icondropdown" name="icondropdown"></a>
+
+### IconDropdown?
+
+<SignatureMemberIdentifier>
+  **IconDropdown**?: (`props`) => `null` \| `Element`
+</SignatureMemberIdentifier>
+
+The component for the small icon in the drop-downs.
+
+#### Parameters
+
+| Parameter | Type                                                           |
+| :-------- | :------------------------------------------------------------- |
+| `props`   | [`StyledComponent`](/docs/api/type-aliases/StyledComponent.md) |
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+node_modules/.pnpm/react-day-picker@8.10.0_date-fns@3.3.1_react@18.2.0/node_modules/react-day-picker/src/types/DayPickerBase.ts:415
+
+---
+
+<a id="iconleft" name="iconleft"></a>
+
+### IconLeft?
+
+<SignatureMemberIdentifier>
+  **IconLeft**?: (`props`) => `null` \| `Element`
+</SignatureMemberIdentifier>
+
+The arrow left icon (used for the Navigation buttons).
+
+#### Parameters
+
+| Parameter | Type                                                           |
+| :-------- | :------------------------------------------------------------- |
+| `props`   | [`StyledComponent`](/docs/api/type-aliases/StyledComponent.md) |
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+node_modules/.pnpm/react-day-picker@8.10.0_date-fns@3.3.1_react@18.2.0/node_modules/react-day-picker/src/types/DayPickerBase.ts:419
+
+---
+
+<a id="iconright" name="iconright"></a>
+
+### IconRight?
+
+<SignatureMemberIdentifier>
+  **IconRight**?: (`props`) => `null` \| `Element`
+</SignatureMemberIdentifier>
+
+The arrow right icon (used for the Navigation buttons).
+
+#### Parameters
+
+| Parameter | Type                                                           |
+| :-------- | :------------------------------------------------------------- |
+| `props`   | [`StyledComponent`](/docs/api/type-aliases/StyledComponent.md) |
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+node_modules/.pnpm/react-day-picker@8.10.0_date-fns@3.3.1_react@18.2.0/node_modules/react-day-picker/src/types/DayPickerBase.ts:417
+
+---
+
+<a id="months" name="months"></a>
+
+### Months?
+
+<SignatureMemberIdentifier>
+  **Months**?: (`props`) => `null` \| `Element`
+</SignatureMemberIdentifier>
+
+The component wrapping the month grids.
+
+#### Parameters
+
+| Parameter | Type                                                   |
+| :-------- | :----------------------------------------------------- |
+| `props`   | [`MonthsProps`](/docs/api/type-aliases/MonthsProps.md) |
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+node_modules/.pnpm/react-day-picker@8.10.0_date-fns@3.3.1_react@18.2.0/node_modules/react-day-picker/src/types/DayPickerBase.ts:421
+
+---
+
+<a id="row" name="row"></a>
+
+### Row?
+
+<SignatureMemberIdentifier>
+  **Row**?: (`props`) => `null` \| `Element`
+</SignatureMemberIdentifier>
+
+The component for the table rows.
+
+#### Parameters
+
+| Parameter | Type                                           |
+| :-------- | :--------------------------------------------- |
+| `props`   | [`RowProps`](/docs/api/interfaces/RowProps.md) |
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+node_modules/.pnpm/react-day-picker@8.10.0_date-fns@3.3.1_react@18.2.0/node_modules/react-day-picker/src/types/DayPickerBase.ts:423
+
+---
+
+<a id="weeknumber" name="weeknumber"></a>
+
+### WeekNumber?
+
+<SignatureMemberIdentifier>
+  **WeekNumber**?: (`props`) => `null` \| `Element`
+</SignatureMemberIdentifier>
+
+The component for the week number in the table rows.
+
+#### Parameters
+
+| Parameter | Type                                                         |
+| :-------- | :----------------------------------------------------------- |
+| `props`   | [`WeekNumberProps`](/docs/api/interfaces/WeekNumberProps.md) |
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+node_modules/.pnpm/react-day-picker@8.10.0_date-fns@3.3.1_react@18.2.0/node_modules/react-day-picker/src/types/DayPickerBase.ts:425
+
+---
+
+Generated using [TypeDoc](https://typedoc.org) and [typedoc-plugin-markdown](https://typedoc-plugin-markdown.org).

@@ -8,13 +8,7 @@ import type {
   PropsSingle,
 } from "./types/props";
 
-import "./style.css";
-
-/**
- * Map of the props supported by selection modes.
- *
- * @category Selection Modes
- */
+/** Map of the props supported by selection modes. */
 export interface ModePropsMap {
   single: PropsSingle;
   multi: PropsMulti;
@@ -22,7 +16,6 @@ export interface ModePropsMap {
   none: object;
 }
 
-/** @category Selection Modes */
 export interface ModeProp<T> {
   mode?: T | undefined;
 }
@@ -30,7 +23,6 @@ export interface ModeProp<T> {
 /**
  * Defines the props accepted by the DayPicker component.
  *
- * @category Component
  * @see https://react-day-picker.dev/api/daypickerprops
  */
 export type DayPickerProps<T extends Mode> = PropsBase &
@@ -40,7 +32,6 @@ export type DayPickerProps<T extends Mode> = PropsBase &
 /**
  * Render the date picker component.
  *
- * @category Component
  * @see https://react-day-picker.js.org
  */
 export function DayPicker<T extends Mode = "none">(props: DayPickerProps<T>) {

@@ -1,0 +1,78 @@
+{
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint",
+      "orta.vscode-jest",
+      "andys8.jest-snippets",
+      "esbenp.prettier-vscode",
+      "streetsidesoftware.code-spell-checker",
+      "stkb.rewrap",
+    ],
+  },
+  "folders": [
+    {
+      "path": ".",
+    },
+  ],
+  "settings": {
+    "cSpell.enabled": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.tabSize": 2,
+    "npm.packageManager": "pnpm",
+    "jest.disabledWorkspaceFolders": ["website", "scripts"],
+    "jest.runMode": {
+      "type": "on-save",
+      "testFileOnly": true,
+    },
+    "[handlebars]": {
+      "editor.defaultFormatter": null,
+      "editor.formatOnSave": false,
+    },
+    "workbench.colorCustomizations": {
+      "activityBar.background": "#005994",
+      "activityBar.foreground": "#d8d8d8",
+      "activityBar.inactiveForeground": "#d8d8d877",
+      "activityBarBadge.background": "#dd006f",
+      "activityBarBadge.foreground": "#e7e7e7",
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "tsImportSorter.configuration.nodeProtocol": "always",
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Next.js: debug server-side",
+        "type": "node-terminal",
+        "request": "launch",
+        "command": "pnpm --filter website run dev",
+      },
+      {
+        "name": "Next.js: debug client-side",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://localhost:2001",
+      },
+      {
+        "name": "Next.js: debug full stack",
+        "type": "node-terminal",
+        "request": "launch",
+        "command": "pnpm --filter website run dev",
+        "serverReadyAction": {
+          "pattern": "started server on .+, url: (https?://.+)",
+          "uriFormat": "%s",
+          "action": "debugWithChrome",
+        },
+      },
+    ],
+    "compounds": [],
+  },
+}

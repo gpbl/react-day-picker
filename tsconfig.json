@@ -1,21 +1,11 @@
 {
+  "extends": "./tsconfig-base.json",
   "compilerOptions": {
-    "target": "ES5",
-    "moduleResolution": "node",
-    "strict": true,
-    "jsx": "react-jsx",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "declaration": false,
-    "isolatedModules": false,
-    "outDir": "./dist",
-    "noEmit": true,
     "paths": {
-      "@/test/*": ["./test/*"]
+      "@/test/*": ["./test/*"],
     },
     "types": ["node", "jest", "@testing-library/jest-dom"],
-    "lib": ["dom", "dom.iterable", "esnext"]
+    "lib": ["dom", "dom.iterable", "esnext"],
   },
-  "exclude": ["node_modules"],
-  "include": ["src", "test", "examples", "typedoc-theme"]
+  "include": ["src/**/*", "test"],
 }

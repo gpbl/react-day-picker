@@ -5,7 +5,6 @@ import { Box } from "@radix-ui/themes";
 export function Pre(props: PropsWithChildren) {
   return (
     <Box
-      {...props}
       p="4"
       my="5"
       style={{
@@ -17,6 +16,9 @@ export function Pre(props: PropsWithChildren) {
       }}
     >
       <pre
+        {...props}
+        data-theme="light"
+        data-language="tsx"
         style={{
           fontSize: "var(--font-size-2) ",
           fontFamily: "var(--font-mono)",

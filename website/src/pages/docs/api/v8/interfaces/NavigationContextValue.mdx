@@ -1,0 +1,155 @@
+<SectionTitle>Interface (undefined)</SectionTitle>
+
+# NavigationContextValue
+
+<Description>
+  Represents the value of the
+  [NavigationContext](/docs/api/variables/NavigationContext.md).
+</Description>
+
+---
+
+Represents the value of the [NavigationContext](/docs/api/variables/NavigationContext.md).
+
+## Properties
+
+<a id="currentmonth" name="currentmonth"></a>
+
+### currentMonth
+
+<SignatureMemberIdentifier>**currentMonth**: `Date`</SignatureMemberIdentifier>
+
+The month to display in the calendar. When `numberOfMonths` is greater than one, is the first of the displayed months.
+
+#### Source
+
+node_modules/.pnpm/react-day-picker@8.10.0_date-fns@3.3.1_react@18.2.0/node_modules/react-day-picker/src/contexts/Navigation/NavigationContext.tsx:14
+
+---
+
+<a id="displaymonths" name="displaymonths"></a>
+
+### displayMonths
+
+<SignatureMemberIdentifier>
+  **displayMonths**: `Date`[]
+</SignatureMemberIdentifier>
+
+The months rendered by DayPicker. DayPicker can render multiple months via `numberOfMonths`.
+
+#### Source
+
+node_modules/.pnpm/react-day-picker@8.10.0_date-fns@3.3.1_react@18.2.0/node_modules/react-day-picker/src/contexts/Navigation/NavigationContext.tsx:16
+
+---
+
+<a id="gotodate" name="gotodate"></a>
+
+### goToDate
+
+<SignatureMemberIdentifier>
+  **goToDate**: (`date`, `refDate`?) => `void`
+</SignatureMemberIdentifier>
+
+Navigate to the specified date.
+
+#### Parameters
+
+| Parameter  | Type   |
+| :--------- | :----- |
+| `date`     | `Date` |
+| `refDate`? | `Date` |
+
+#### Returns
+
+`void`
+
+#### Source
+
+node_modules/.pnpm/react-day-picker@8.10.0_date-fns@3.3.1_react@18.2.0/node_modules/react-day-picker/src/contexts/Navigation/NavigationContext.tsx:20
+
+---
+
+<a id="gotomonth" name="gotomonth"></a>
+
+### goToMonth
+
+<SignatureMemberIdentifier>
+  **goToMonth**: (`month`) => `void`
+</SignatureMemberIdentifier>
+
+Navigate to the specified month.
+
+#### Parameters
+
+| Parameter | Type   |
+| :-------- | :----- |
+| `month`   | `Date` |
+
+#### Returns
+
+`void`
+
+#### Source
+
+node_modules/.pnpm/react-day-picker@8.10.0_date-fns@3.3.1_react@18.2.0/node_modules/react-day-picker/src/contexts/Navigation/NavigationContext.tsx:18
+
+---
+
+<a id="isdatedisplayed" name="isdatedisplayed"></a>
+
+### isDateDisplayed
+
+<SignatureMemberIdentifier>
+  **isDateDisplayed**: (`day`) => `boolean`
+</SignatureMemberIdentifier>
+
+Whether the given day is included in the displayed months.
+
+#### Parameters
+
+| Parameter | Type   |
+| :-------- | :----- |
+| `day`     | `Date` |
+
+#### Returns
+
+`boolean`
+
+#### Source
+
+node_modules/.pnpm/react-day-picker@8.10.0_date-fns@3.3.1_react@18.2.0/node_modules/react-day-picker/src/contexts/Navigation/NavigationContext.tsx:26
+
+---
+
+<a id="nextmonth" name="nextmonth"></a>
+
+### nextMonth?
+
+<SignatureMemberIdentifier>**nextMonth**?: `Date`</SignatureMemberIdentifier>
+
+The next month to display.
+
+#### Source
+
+node_modules/.pnpm/react-day-picker@8.10.0_date-fns@3.3.1_react@18.2.0/node_modules/react-day-picker/src/contexts/Navigation/NavigationContext.tsx:22
+
+---
+
+<a id="previousmonth" name="previousmonth"></a>
+
+### previousMonth?
+
+<SignatureMemberIdentifier>
+  **previousMonth**?: `Date`
+</SignatureMemberIdentifier>
+
+The previous month to display.
+
+#### Source
+
+node_modules/.pnpm/react-day-picker@8.10.0_date-fns@3.3.1_react@18.2.0/node_modules/react-day-picker/src/contexts/Navigation/NavigationContext.tsx:24
+
+---
+
+Generated using [TypeDoc](https://typedoc.org) and [typedoc-plugin-markdown](https://typedoc-plugin-markdown.org).

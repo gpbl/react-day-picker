@@ -1,5 +1,6 @@
 import { Text, Heading, Box, Badge, Flex } from "@radix-ui/themes";
 import { DocsNavItem } from "./DocsNavItem";
+import { usePathname } from "next/navigation";
 
 export interface DocsNavProps {
   routes: {
@@ -15,6 +16,7 @@ export interface DocsNavProps {
 }
 
 export function DocsNav({ routes }: DocsNavProps) {
+  const pathName = usePathname() ?? "/";
   return (
     <Box>
       {routes.map((section, i) => (
@@ -30,8 +32,8 @@ export function DocsNav({ routes }: DocsNavProps) {
           {section.pages.map((page) => (
             <DocsNavItem
               key={page.slug}
-              href={page.slug}
-              // active={currentPageSlug === page.slug}
+              href={page.slug ? "./docs/" + page.slug : "/"}
+              active={pathName.replace("/docs/", "") === page.slug}
             >
               <Flex gap="2" align="center">
                 {page.icon}

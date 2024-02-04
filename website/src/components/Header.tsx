@@ -1,22 +1,21 @@
-import * as React from "react";
+"use client";
+
+import Link from "next/link";
 
 import { classNames } from "@/utils/classNames";
-
 import { GitHubLogoIcon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { Flex, IconButton, Text, Tooltip } from "@radix-ui/themes";
 
 import styles from "./Header.module.css";
-import { useMobileMenuContext } from "./MobileMenu";
-import { ThemeToggle } from "./ThemeToggle";
 import { HeaderLink } from "./HeaderLink";
 import { Logo } from "./Logo";
+import { ThemeToggle } from "./ThemeToggle";
 import { VersionToggle } from "./VersionToggle";
-import { useRouter } from "next/router";
-
-import Link from "next/link";
+import { ReactNode, useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export interface HeaderProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
   gitHubLink?: string;
   ghost?: boolean;
 }
@@ -24,12 +23,10 @@ export interface HeaderProps {
 type ScrollState = "at-top" | "scrolling-up" | "scrolling-down";
 
 export function Header({ children, gitHubLink, ghost }: HeaderProps) {
-  const mobileMenu = useMobileMenuContext();
-  const router = useRouter();
+  const pathName = usePathname() ?? "";
+  const [scrollState, setScrollState] = useState<ScrollState>("at-top");
 
-  const [scrollState, setScrollState] = React.useState<ScrollState>("at-top");
-
-  React.useEffect(() => {
+  useEffect(() => {
     let previousScrollY = window.scrollY;
 
     const handleScroll = () => {
@@ -53,7 +50,7 @@ export function Header({ children, gitHubLink, ghost }: HeaderProps) {
   return (
     <div
       data-scroll-state={scrollState}
-      data-mobile-menu-open={mobileMenu.open}
+      data-mobile-menu-open={false}
       className={classNames(styles.HeaderRoot, ghost ? styles.ghost : "")}
     >
       <div className={styles.HeaderInner}>
@@ -95,27 +92,28 @@ export function Header({ children, gitHubLink, ghost }: HeaderProps) {
         <div className={styles.HeaderLinksContainer}>
           <HeaderLink
             href="/"
-            active={router.asPath === "/" || router.asPath.startsWith("/docs")}
+            active={
+              !pathName.startsWith("/docs/api") &&
+              (pathName.startsWith("/docs") || pathName === "/")
+            }
           >
             Documentation
           </HeaderLink>
           <HeaderLink
-            href="/api/next/index"
-            active={
-              router.asPath === "/api" || router.asPath.startsWith("/api")
-            }
+            href="/docs/api"
+            active={pathName.startsWith("/docs/api")}
           >
             API Reference
           </HeaderLink>
           <HeaderLink
             href="/playground"
-            active={router.asPath.startsWith("/playground")}
+            active={pathName.startsWith("/playground")}
           >
             Playground
           </HeaderLink>
           <HeaderLink
             href="/examples"
-            active={router.asPath.startsWith("/examples")}
+            active={pathName.startsWith("/examples")}
           >
             Examples
           </HeaderLink>
@@ -165,8 +163,10 @@ export function Header({ children, gitHubLink, ghost }: HeaderProps) {
               size="3"
               variant="ghost"
               color="gray"
-              data-state={mobileMenu.open ? "open" : "closed"}
-              onClick={() => mobileMenu.setOpen((open: boolean) => !open)}
+              data-state={"closed"}
+              onClick={() => {
+                // return mobileMenu.setOpen((open: boolean) => !open);
+              }}
               className={styles.MobileMenuButton}
             >
               <HamburgerMenuIcon width="18" height="18" />

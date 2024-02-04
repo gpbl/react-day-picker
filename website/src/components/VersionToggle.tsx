@@ -4,7 +4,6 @@ import { ChevronDownIcon } from "@radix-ui/react-icons";
 import packageJson from "react-day-picker/package.json" assert { type: "json" };
 
 export function VersionToggle() {
-  console.log(packageJson);
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger>

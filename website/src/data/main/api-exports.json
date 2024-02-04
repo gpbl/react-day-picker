@@ -17,14 +17,14 @@
         "kind": "Interface",
         "url": "interfaces/CaptionLabelProps.md",
         "deprecated": false,
-        "summary": "The props for the [CaptionLabel](/api/main/functions/CaptionLabel.md) component."
+        "summary": "The props for the [CaptionLabel](/docs/api/functions/CaptionLabel.md) component."
       },
       {
         "name": "CaptionProps",
         "kind": "Interface",
         "url": "interfaces/CaptionProps.md",
         "deprecated": false,
-        "summary": "Represent the props of the [Caption](/api/main/functions/Caption.md) component."
+        "summary": "Represent the props of the [Caption](/docs/api/functions/Caption.md) component."
       },
       {
         "name": "CustomComponents",
@@ -38,70 +38,70 @@
         "kind": "Interface",
         "url": "interfaces/DayContentProps.md",
         "deprecated": false,
-        "summary": "Represent the props for the [DayContent](/api/main/functions/DayContent.md) component."
+        "summary": "Represent the props for the [DayContent](/docs/api/functions/DayContent.md) component."
       },
       {
         "name": "DayPickerBase",
         "kind": "Interface",
         "url": "interfaces/DayPickerBase.md",
         "deprecated": false,
-        "summary": "The base props for the [DayPicker](/api/main/functions/DayPicker.md) component and the [DayPickerContext](/api/main/variables/DayPickerContext.md)."
+        "summary": "The base props for the [DayPicker](/docs/api/functions/DayPicker.md) component and the [DayPickerContext](/docs/api/variables/DayPickerContext.md)."
       },
       {
         "name": "DayPickerContextValue",
         "kind": "Interface",
         "url": "interfaces/DayPickerContextValue.md",
         "deprecated": false,
-        "summary": "The value of the [DayPickerContext](/api/main/variables/DayPickerContext.md) extends the props from DayPicker\nwith default and cleaned up values."
+        "summary": "The value of the [DayPickerContext](/docs/api/variables/DayPickerContext.md) extends the props from DayPicker\nwith default and cleaned up values."
       },
       {
         "name": "DayPickerDefaultProps",
         "kind": "Interface",
         "url": "interfaces/DayPickerDefaultProps.md",
         "deprecated": false,
-        "summary": "The props for the [DayPicker](/api/main/functions/DayPicker.md) component when using `mode=\"default\"` or `undefined`."
+        "summary": "The props for the [DayPicker](/docs/api/functions/DayPicker.md) component when using `mode=\"default\"` or `undefined`."
       },
       {
         "name": "DayPickerMultipleProps",
         "kind": "Interface",
         "url": "interfaces/DayPickerMultipleProps.md",
         "deprecated": false,
-        "summary": "The props for the [DayPicker](/api/main/functions/DayPicker.md) component when using `mode=\"multiple\"`."
+        "summary": "The props for the [DayPicker](/docs/api/functions/DayPicker.md) component when using `mode=\"multiple\"`."
       },
       {
         "name": "DayPickerProviderProps",
         "kind": "Interface",
         "url": "interfaces/DayPickerProviderProps.md",
         "deprecated": false,
-        "summary": "The props for the [DayPickerProvider](/api/main/functions/DayPickerProvider.md)."
+        "summary": "The props for the [DayPickerProvider](/docs/api/functions/DayPickerProvider.md)."
       },
       {
         "name": "DayPickerRangeProps",
         "kind": "Interface",
         "url": "interfaces/DayPickerRangeProps.md",
         "deprecated": false,
-        "summary": "The props for the [DayPicker](/api/main/functions/DayPicker.md) component when using `mode=\"range\"`."
+        "summary": "The props for the [DayPicker](/docs/api/functions/DayPicker.md) component when using `mode=\"range\"`."
       },
       {
         "name": "DayPickerSingleProps",
         "kind": "Interface",
         "url": "interfaces/DayPickerSingleProps.md",
         "deprecated": false,
-        "summary": "The props for the [DayPicker](/api/main/functions/DayPicker.md) component when using `mode=\"single\"`."
+        "summary": "The props for the [DayPicker](/docs/api/functions/DayPicker.md) component when using `mode=\"single\"`."
       },
       {
         "name": "DayProps",
         "kind": "Interface",
         "url": "interfaces/DayProps.md",
         "deprecated": false,
-        "summary": "Represent the props used by the [Day](/api/main/functions/Day.md) component."
+        "summary": "Represent the props used by the [Day](/docs/api/functions/Day.md) component."
       },
       {
         "name": "DropdownProps",
         "kind": "Interface",
         "url": "interfaces/DropdownProps.md",
         "deprecated": false,
-        "summary": "The props for the [Dropdown](/api/main/functions/Dropdown.md) component."
+        "summary": "The props for the [Dropdown](/docs/api/functions/Dropdown.md) component."
       },
       {
         "name": "FooterProps",
@@ -115,28 +115,28 @@
         "kind": "Interface",
         "url": "interfaces/NavigationContextValue.md",
         "deprecated": false,
-        "summary": "Represents the value of the [NavigationContext](/api/main/variables/NavigationContext.md)."
+        "summary": "Represents the value of the [NavigationContext](/docs/api/variables/NavigationContext.md)."
       },
       {
         "name": "RootContext",
         "kind": "Interface",
         "url": "interfaces/RootContext.md",
         "deprecated": false,
-        "summary": "The props of [RootProvider](/api/main/functions/RootProvider.md)."
+        "summary": "The props of [RootProvider](/docs/api/functions/RootProvider.md)."
       },
       {
         "name": "RowProps",
         "kind": "Interface",
         "url": "interfaces/RowProps.md",
         "deprecated": false,
-        "summary": "The props for the [Row](/api/main/functions/Row.md) component."
+        "summary": "The props for the [Row](/docs/api/functions/Row.md) component."
       },
       {
         "name": "SelectMultipleContextValue",
         "kind": "Interface",
         "url": "interfaces/SelectMultipleContextValue.md",
         "deprecated": false,
-        "summary": "Represents the value of a [SelectMultipleContext](/api/main/variables/SelectMultipleContext.md)."
+        "summary": "Represents the value of a [SelectMultipleContext](/docs/api/variables/SelectMultipleContext.md)."
       },
       {
         "name": "SelectMultipleProviderInternalProps",
@@ -150,7 +150,7 @@
         "kind": "Interface",
         "url": "interfaces/SelectRangeContextValue.md",
         "deprecated": false,
-        "summary": "Represents the value of a [SelectRangeContext](/api/main/variables/SelectRangeContext.md)."
+        "summary": "Represents the value of a [SelectRangeContext](/docs/api/variables/SelectRangeContext.md)."
       },
       {
         "name": "SelectRangeProviderInternalProps",
@@ -171,7 +171,7 @@
         "kind": "Interface",
         "url": "interfaces/SelectSingleContextValue.md",
         "deprecated": false,
-        "summary": "Represents the value of a [SelectSingleContext](/api/main/variables/SelectSingleContext.md)."
+        "summary": "Represents the value of a [SelectSingleContext](/docs/api/variables/SelectSingleContext.md)."
       },
       {
         "name": "SelectSingleProviderInternal",
@@ -199,14 +199,14 @@
         "kind": "Interface",
         "url": "interfaces/UseInputValue.md",
         "deprecated": false,
-        "summary": "Represent the value returned by [useInput](/api/main/functions/useInput.md)."
+        "summary": "Represent the value returned by [useInput](/docs/api/functions/useInput.md)."
       },
       {
         "name": "WeekNumberProps",
         "kind": "Interface",
         "url": "interfaces/WeekNumberProps.md",
         "deprecated": false,
-        "summary": "The props for the [WeekNumber](/api/main/functions/WeekNumber.md) component."
+        "summary": "The props for the [WeekNumber](/docs/api/functions/WeekNumber.md) component."
       }
     ]
   },
@@ -217,14 +217,14 @@
         "kind": "TypeAlias",
         "url": "type-aliases/ActiveModifiers.md",
         "deprecated": false,
-        "summary": "The modifiers that are matching a day in the calendar. Use the [useActiveModifiers](/api/main/functions/useActiveModifiers.md) hook to get the modifiers for a day.\n\n```\nconst activeModifiers: ActiveModifiers = {\n selected: true,\n customModifier: true\n}\n```"
+        "summary": "The modifiers that are matching a day in the calendar. Use the [useActiveModifiers](/docs/api/functions/useActiveModifiers.md) hook to get the modifiers for a day.\n\n```\nconst activeModifiers: ActiveModifiers = {\n selected: true,\n customModifier: true\n}\n```"
       },
       {
         "name": "ButtonProps",
         "kind": "TypeAlias",
         "url": "type-aliases/ButtonProps.md",
         "deprecated": false,
-        "summary": "The props for the [Button](/api/main/functions/Button.md) component."
+        "summary": "The props for the [Button](/docs/api/functions/Button.md) component."
       },
       {
         "name": "CaptionLayout",
@@ -245,7 +245,7 @@
         "kind": "TypeAlias",
         "url": "type-aliases/CustomModifiers.md",
         "deprecated": false,
-        "summary": "A map of matchers used as custom modifiers by DayPicker component. This is\nthe same as []], but it accepts only array of [[Matcher](/api/main/type-aliases/DayModifiers.md)s."
+        "summary": "A map of matchers used as custom modifiers by DayPicker component. This is\nthe same as []], but it accepts only array of [[Matcher](/docs/api/type-aliases/DayModifiers.md)s."
       },
       {
         "name": "DateAfter",
@@ -280,7 +280,7 @@
         "kind": "TypeAlias",
         "url": "type-aliases/DateRange.md",
         "deprecated": false,
-        "summary": "A matcher to match a range of dates. The range can be open. Differently from [DateInterval](/api/main/type-aliases/DateInterval.md), the dates here are included."
+        "summary": "A matcher to match a range of dates. The range can be open. Differently from [DateInterval](/docs/api/type-aliases/DateInterval.md), the dates here are included."
       },
       {
         "name": "DayClickEventHandler",
@@ -308,14 +308,14 @@
         "kind": "TypeAlias",
         "url": "type-aliases/DayLabel.md",
         "deprecated": false,
-        "summary": "Return the ARIA label for the [Day](/api/main/functions/Day.md) component."
+        "summary": "Return the ARIA label for the [Day](/docs/api/functions/Day.md) component."
       },
       {
         "name": "DayModifiers",
         "kind": "TypeAlias",
         "url": "type-aliases/DayModifiers.md",
         "deprecated": false,
-        "summary": "The custom modifiers passed to the [DayPickerBase.modifiers](/api/main/interfaces/DayPickerBase.md#modifiers)."
+        "summary": "The custom modifiers passed to the [DayPickerBase.modifiers](/docs/api/interfaces/DayPickerBase.md#modifiers)."
       },
       {
         "name": "DayMouseEventHandler",
@@ -357,7 +357,7 @@
         "kind": "TypeAlias",
         "url": "type-aliases/DaySelectionMode.md",
         "deprecated": false,
-        "summary": "Selection modes supported by DayPicker.\n\n- `single`: use DayPicker to select single days.\n- `multiple`: allow selecting multiple days.\n- `range`: use DayPicker to select a range of days\n- `default`: disable the built-in selection behavior. Customize what is\n  selected by using [DayPickerBase.onDayClick](/api/main/interfaces/DayPickerBase.md#ondayclick)."
+        "summary": "Selection modes supported by DayPicker.\n\n- `single`: use DayPicker to select single days.\n- `multiple`: allow selecting multiple days.\n- `range`: use DayPicker to select a range of days\n- `default`: disable the built-in selection behavior. Customize what is\n  selected by using [DayPickerBase.onDayClick](/docs/api/interfaces/DayPickerBase.md#ondayclick)."
       },
       {
         "name": "DayTouchEventHandler",
@@ -371,7 +371,7 @@
         "kind": "TypeAlias",
         "url": "type-aliases/FocusContextValue.md",
         "deprecated": false,
-        "summary": "Represents the value of the [FocusContext](/api/main/variables/FocusContext.md)."
+        "summary": "Represents the value of the [FocusContext](/docs/api/variables/FocusContext.md)."
       },
       {
         "name": "FocusProviderProps",
@@ -392,14 +392,14 @@
         "kind": "TypeAlias",
         "url": "type-aliases/InputDayPickerProps.md",
         "deprecated": false,
-        "summary": "The props to attach to the DayPicker component when using [useInput](/api/main/functions/useInput.md)."
+        "summary": "The props to attach to the DayPicker component when using [useInput](/docs/api/functions/useInput.md)."
       },
       {
         "name": "InputProps",
         "kind": "TypeAlias",
         "url": "type-aliases/InputProps.md",
         "deprecated": false,
-        "summary": "The props to attach to the input field when using [useInput](/api/main/functions/useInput.md)."
+        "summary": "The props to attach to the input field when using [useInput](/docs/api/functions/useInput.md)."
       },
       {
         "name": "InternalModifiers",
@@ -427,7 +427,7 @@
         "kind": "TypeAlias",
         "url": "type-aliases/Matcher.md",
         "deprecated": false,
-        "summary": "A value or a function that matches a specific day.\n\n\nMatchers are passed to DayPicker via [DayPickerBase.disabled](/api/main/interfaces/DayPickerBase.md#disabled),\n[]] or [[DayPickerProps.selected](/api/main/interfaces/DayPickerBase.md#hidden) and are used to\ndetermine if a day should get a [Modifier](/api/main/type-aliases/Modifier.md).\n\nMatchers can be of different types:\n\n```\n// will always match the day\nconst booleanMatcher: Matcher = true;\n\n // will match the today's date\nconst dateMatcher: Matcher = new Date();\n\n// will match the days in the array\nconst arrayMatcher: Matcher = [new Date(2019, 1, 2), new Date(2019, 1, 4)];\n\n// will match days after the 2nd of February 2019\nconst afterMatcher: DateAfter = { after: new Date(2019, 1, 2) };\n // will match days before the 2nd of February 2019 }\nconst beforeMatcher: DateBefore = { before: new Date(2019, 1, 2) };\n\n// will match Sundays\nconst dayOfWeekMatcher: DayOfWeek = {\n dayOfWeek: 0\n};\n\n// will match the included days, except the two dates\nconst intervalMatcher: DateInterval = {\n   after: new Date(2019, 1, 2),\n   before: new Date(2019, 1, 5)\n};\n\n// will match the included days, including the two dates\nconst rangeMatcher: DateRange = {\n   from: new Date(2019, 1, 2),\n   to: new Date(2019, 1, 5)\n};\n\n// will match when the function return true\nconst functionMatcher: Matcher = (day: Date) => {\n return day.getMonth() === 2 // match when month is March\n};\n```"
+        "summary": "A value or a function that matches a specific day.\n\n\nMatchers are passed to DayPicker via [DayPickerBase.disabled](/docs/api/interfaces/DayPickerBase.md#disabled),\n[]] or [[DayPickerProps.selected](/docs/api/interfaces/DayPickerBase.md#hidden) and are used to\ndetermine if a day should get a [Modifier](/docs/api/type-aliases/Modifier.md).\n\nMatchers can be of different types:\n\n```\n// will always match the day\nconst booleanMatcher: Matcher = true;\n\n // will match the today's date\nconst dateMatcher: Matcher = new Date();\n\n// will match the days in the array\nconst arrayMatcher: Matcher = [new Date(2019, 1, 2), new Date(2019, 1, 4)];\n\n// will match days after the 2nd of February 2019\nconst afterMatcher: DateAfter = { after: new Date(2019, 1, 2) };\n // will match days before the 2nd of February 2019 }\nconst beforeMatcher: DateBefore = { before: new Date(2019, 1, 2) };\n\n// will match Sundays\nconst dayOfWeekMatcher: DayOfWeek = {\n dayOfWeek: 0\n};\n\n// will match the included days, except the two dates\nconst intervalMatcher: DateInterval = {\n   after: new Date(2019, 1, 2),\n   before: new Date(2019, 1, 5)\n};\n\n// will match the included days, including the two dates\nconst rangeMatcher: DateRange = {\n   from: new Date(2019, 1, 2),\n   to: new Date(2019, 1, 5)\n};\n\n// will match when the function return true\nconst functionMatcher: Matcher = (day: Date) => {\n return day.getMonth() === 2 // match when month is March\n};\n```"
       },
       {
         "name": "Modifier",
@@ -469,7 +469,7 @@
         "kind": "TypeAlias",
         "url": "type-aliases/MonthsProps.md",
         "deprecated": false,
-        "summary": "The props for the [Months](/api/main/functions/Months.md) component."
+        "summary": "The props for the [Months](/docs/api/functions/Months.md) component."
       },
       {
         "name": "NavButtonLabel",
@@ -578,42 +578,42 @@
         "kind": "Variable",
         "url": "variables/DayPickerContext.md",
         "deprecated": false,
-        "summary": "The DayPicker context shares the props passed to DayPicker within internal\nand custom components. It is used to set the default values and perform\none-time calculations required to render the days.\n\nAccess to this context from the [useDayPicker](/api/main/functions/useDayPicker.md) hook."
+        "summary": "The DayPicker context shares the props passed to DayPicker within internal\nand custom components. It is used to set the default values and perform\none-time calculations required to render the days.\n\nAccess to this context from the [useDayPicker](/docs/api/functions/useDayPicker.md) hook."
       },
       {
         "name": "FocusContext",
         "kind": "Variable",
         "url": "variables/FocusContext.md",
         "deprecated": false,
-        "summary": "The Focus context shares details about the focused day for the keyboard\n\nAccess this context from the [useFocusContext](/api/main/functions/useFocusContext.md) hook."
+        "summary": "The Focus context shares details about the focused day for the keyboard\n\nAccess this context from the [useFocusContext](/docs/api/functions/useFocusContext.md) hook."
       },
       {
         "name": "NavigationContext",
         "kind": "Variable",
         "url": "variables/NavigationContext.md",
         "deprecated": false,
-        "summary": "The Navigation context shares details and methods to navigate the months in DayPicker.\nAccess this context from the [useNavigation](/api/main/functions/useNavigation.md) hook."
+        "summary": "The Navigation context shares details and methods to navigate the months in DayPicker.\nAccess this context from the [useNavigation](/docs/api/functions/useNavigation.md) hook."
       },
       {
         "name": "SelectMultipleContext",
         "kind": "Variable",
         "url": "variables/SelectMultipleContext.md",
         "deprecated": false,
-        "summary": "The SelectMultiple context shares details about the selected days when in\nmultiple selection mode.\n\nAccess this context from the [useSelectMultiple](/api/main/functions/useSelectMultiple.md) hook."
+        "summary": "The SelectMultiple context shares details about the selected days when in\nmultiple selection mode.\n\nAccess this context from the [useSelectMultiple](/docs/api/functions/useSelectMultiple.md) hook."
       },
       {
         "name": "SelectRangeContext",
         "kind": "Variable",
         "url": "variables/SelectRangeContext.md",
         "deprecated": false,
-        "summary": "The SelectRange context shares details about the selected days when in\nrange selection mode.\n\nAccess this context from the [useSelectRange](/api/main/functions/useSelectRange.md) hook."
+        "summary": "The SelectRange context shares details about the selected days when in\nrange selection mode.\n\nAccess this context from the [useSelectRange](/docs/api/functions/useSelectRange.md) hook."
       },
       {
         "name": "SelectSingleContext",
         "kind": "Variable",
         "url": "variables/SelectSingleContext.md",
         "deprecated": false,
-        "summary": "The SelectSingle context shares details about the selected days when in\nsingle selection mode.\n\nAccess this context from the [useSelectSingle](/api/main/functions/useSelectSingle.md) hook."
+        "summary": "The SelectSingle context shares details about the selected days when in\nsingle selection mode.\n\nAccess this context from the [useSelectSingle](/docs/api/functions/useSelectSingle.md) hook."
       }
     ]
   },
@@ -631,7 +631,7 @@
         "kind": "Function",
         "url": "functions/Caption.md",
         "deprecated": false,
-        "summary": "Render the caption of a month. The caption has a different layout when\nsetting the [DayPickerBase.captionLayout](/api/main/interfaces/DayPickerBase.md#captionlayout) prop."
+        "summary": "Render the caption of a month. The caption has a different layout when\nsetting the [DayPickerBase.captionLayout](/docs/api/interfaces/DayPickerBase.md#captionlayout) prop."
       },
       {
         "name": "CaptionDropdowns",
@@ -680,7 +680,7 @@
         "kind": "Function",
         "url": "functions/DayPickerProvider.md",
         "deprecated": false,
-        "summary": "The provider for the [DayPickerContext](/api/main/variables/DayPickerContext.md), assigning the defaults from the\ninitial DayPicker props."
+        "summary": "The provider for the [DayPickerContext](/docs/api/variables/DayPickerContext.md), assigning the defaults from the\ninitial DayPicker props."
       },
       {
         "name": "Dropdown",
@@ -694,7 +694,7 @@
         "kind": "Function",
         "url": "functions/FocusProvider.md",
         "deprecated": false,
-        "summary": "The provider for the [FocusContext](/api/main/variables/FocusContext.md)."
+        "summary": "The provider for the [FocusContext](/docs/api/variables/FocusContext.md)."
       },
       {
         "name": "Footer",
@@ -750,7 +750,7 @@
         "kind": "Function",
         "url": "functions/NavigationProvider.md",
         "deprecated": false,
-        "summary": "Provides the values for the [NavigationContext](/api/main/variables/NavigationContext.md)."
+        "summary": "Provides the values for the [NavigationContext](/docs/api/variables/NavigationContext.md)."
       },
       {
         "name": "RootProvider",
@@ -771,7 +771,7 @@
         "kind": "Function",
         "url": "functions/SelectMultipleProvider.md",
         "deprecated": false,
-        "summary": "Provides the values for the [SelectMultipleContext](/api/main/variables/SelectMultipleContext.md)."
+        "summary": "Provides the values for the [SelectMultipleContext](/docs/api/variables/SelectMultipleContext.md)."
       },
       {
         "name": "SelectMultipleProviderInternal",
@@ -785,7 +785,7 @@
         "kind": "Function",
         "url": "functions/SelectRangeProvider.md",
         "deprecated": false,
-        "summary": "Provides the values for the [SelectRangeProvider](/api/main/functions/SelectRangeProvider.md)."
+        "summary": "Provides the values for the [SelectRangeProvider](/docs/api/functions/SelectRangeProvider.md)."
       },
       {
         "name": "SelectRangeProviderInternal",
@@ -799,7 +799,7 @@
         "kind": "Function",
         "url": "functions/SelectSingleProvider.md",
         "deprecated": false,
-        "summary": "Provides the values for the [SelectSingleProvider](/api/main/functions/SelectSingleProvider.md)."
+        "summary": "Provides the values for the [SelectSingleProvider](/docs/api/functions/SelectSingleProvider.md)."
       },
       {
         "name": "SelectSingleProviderInternal",
@@ -827,63 +827,63 @@
         "kind": "Function",
         "url": "functions/isDateAfterType.md",
         "deprecated": false,
-        "summary": "Returns true if `value` is of type [DateAfter](/api/main/type-aliases/DateAfter.md)."
+        "summary": "Returns true if `value` is of type [DateAfter](/docs/api/type-aliases/DateAfter.md)."
       },
       {
         "name": "isDateBeforeType",
         "kind": "Function",
         "url": "functions/isDateBeforeType.md",
         "deprecated": false,
-        "summary": "Returns true if `value` is of type [DateBefore](/api/main/type-aliases/DateBefore.md)."
+        "summary": "Returns true if `value` is of type [DateBefore](/docs/api/type-aliases/DateBefore.md)."
       },
       {
         "name": "isDateInterval",
         "kind": "Function",
         "url": "functions/isDateInterval.md",
         "deprecated": false,
-        "summary": "Returns true if `matcher` is of type [DateInterval](/api/main/type-aliases/DateInterval.md)."
+        "summary": "Returns true if `matcher` is of type [DateInterval](/docs/api/type-aliases/DateInterval.md)."
       },
       {
         "name": "isDateRange",
         "kind": "Function",
         "url": "functions/isDateRange.md",
         "deprecated": false,
-        "summary": "Returns true if `value` is a [DateRange](/api/main/type-aliases/DateRange.md) type."
+        "summary": "Returns true if `value` is a [DateRange](/docs/api/type-aliases/DateRange.md) type."
       },
       {
         "name": "isDayOfWeekType",
         "kind": "Function",
         "url": "functions/isDayOfWeekType.md",
         "deprecated": false,
-        "summary": "Returns true if `value` is a [DayOfWeek](/api/main/type-aliases/DayOfWeek.md) type."
+        "summary": "Returns true if `value` is a [DayOfWeek](/docs/api/type-aliases/DayOfWeek.md) type."
       },
       {
         "name": "isDayPickerDefault",
         "kind": "Function",
         "url": "functions/isDayPickerDefault.md",
         "deprecated": false,
-        "summary": "Returns true when the props are of type [DayPickerDefaultProps](/api/main/interfaces/DayPickerDefaultProps.md)."
+        "summary": "Returns true when the props are of type [DayPickerDefaultProps](/docs/api/interfaces/DayPickerDefaultProps.md)."
       },
       {
         "name": "isDayPickerMultiple",
         "kind": "Function",
         "url": "functions/isDayPickerMultiple.md",
         "deprecated": false,
-        "summary": "Returns true when the props are of type [DayPickerMultipleProps](/api/main/interfaces/DayPickerMultipleProps.md)."
+        "summary": "Returns true when the props are of type [DayPickerMultipleProps](/docs/api/interfaces/DayPickerMultipleProps.md)."
       },
       {
         "name": "isDayPickerRange",
         "kind": "Function",
         "url": "functions/isDayPickerRange.md",
         "deprecated": false,
-        "summary": "Returns true when the props are of type [DayPickerRangeProps](/api/main/interfaces/DayPickerRangeProps.md)."
+        "summary": "Returns true when the props are of type [DayPickerRangeProps](/docs/api/interfaces/DayPickerRangeProps.md)."
       },
       {
         "name": "isDayPickerSingle",
         "kind": "Function",
         "url": "functions/isDayPickerSingle.md",
         "deprecated": false,
-        "summary": "Returns true when the props are of type [DayPickerSingleProps](/api/main/interfaces/DayPickerSingleProps.md)."
+        "summary": "Returns true when the props are of type [DayPickerSingleProps](/docs/api/interfaces/DayPickerSingleProps.md)."
       },
       {
         "name": "isMatch",
@@ -904,21 +904,21 @@
         "kind": "Function",
         "url": "functions/useDayPicker.md",
         "deprecated": false,
-        "summary": "Hook to access the [DayPickerContextValue](/api/main/interfaces/DayPickerContextValue.md).\n\nUse the DayPicker context to access to the props passed to DayPicker inside\ninternal or custom components."
+        "summary": "Hook to access the [DayPickerContextValue](/docs/api/interfaces/DayPickerContextValue.md).\n\nUse the DayPicker context to access to the props passed to DayPicker inside\ninternal or custom components."
       },
       {
         "name": "useDayRender",
         "kind": "Function",
         "url": "functions/useDayRender.md",
         "deprecated": false,
-        "summary": "Return props and data used to render the [Day](/api/main/functions/Day.md) component.\n\nUse this hook when creating a component to replace the built-in `Day`\ncomponent."
+        "summary": "Return props and data used to render the [Day](/docs/api/functions/Day.md) component.\n\nUse this hook when creating a component to replace the built-in `Day`\ncomponent."
       },
       {
         "name": "useFocusContext",
         "kind": "Function",
         "url": "functions/useFocusContext.md",
         "deprecated": false,
-        "summary": "Hook to access the [FocusContextValue](/api/main/type-aliases/FocusContextValue.md). Use this hook to handle the\nfocus state of the elements.\n\nThis hook is meant to be used inside internal or custom components."
+        "summary": "Hook to access the [FocusContextValue](/docs/api/type-aliases/FocusContextValue.md). Use this hook to handle the\nfocus state of the elements.\n\nThis hook is meant to be used inside internal or custom components."
       },
       {
         "name": "useInput",
@@ -932,28 +932,28 @@
         "kind": "Function",
         "url": "functions/useNavigation.md",
         "deprecated": false,
-        "summary": "Hook to access the [NavigationContextValue](/api/main/interfaces/NavigationContextValue.md). Use this hook to navigate\nbetween months or years in DayPicker.\n\nThis hook is meant to be used inside internal or custom components."
+        "summary": "Hook to access the [NavigationContextValue](/docs/api/interfaces/NavigationContextValue.md). Use this hook to navigate\nbetween months or years in DayPicker.\n\nThis hook is meant to be used inside internal or custom components."
       },
       {
         "name": "useSelectMultiple",
         "kind": "Function",
         "url": "functions/useSelectMultiple.md",
         "deprecated": false,
-        "summary": "Hook to access the [SelectMultipleContextValue](/api/main/interfaces/SelectMultipleContextValue.md).\n\nThis hook is meant to be used inside internal or custom components."
+        "summary": "Hook to access the [SelectMultipleContextValue](/docs/api/interfaces/SelectMultipleContextValue.md).\n\nThis hook is meant to be used inside internal or custom components."
       },
       {
         "name": "useSelectRange",
         "kind": "Function",
         "url": "functions/useSelectRange.md",
         "deprecated": false,
-        "summary": "Hook to access the [SelectRangeContextValue](/api/main/interfaces/SelectRangeContextValue.md).\n\nThis hook is meant to be used inside internal or custom components."
+        "summary": "Hook to access the [SelectRangeContextValue](/docs/api/interfaces/SelectRangeContextValue.md).\n\nThis hook is meant to be used inside internal or custom components."
       },
       {
         "name": "useSelectSingle",
         "kind": "Function",
         "url": "functions/useSelectSingle.md",
         "deprecated": false,
-        "summary": "Hook to access the [SelectSingleContextValue](/api/main/interfaces/SelectSingleContextValue.md).\n\nThis hook is meant to be used inside internal or custom components."
+        "summary": "Hook to access the [SelectSingleContextValue](/docs/api/interfaces/SelectSingleContextValue.md).\n\nThis hook is meant to be used inside internal or custom components."
       }
     ]
   }

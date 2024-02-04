@@ -1,0 +1,41 @@
+<SectionTitle>Function (undefined)</SectionTitle>
+
+# useDayRender()
+
+<Description>
+Return props and data used to render the [Day](/docs/api/functions/Day.md) component.
+
+Use this hook when creating a component to replace the built-in `Day`
+component.
+
+</Description>
+
+---
+
+<a id="undefined" name="undefined"></a>
+
+<SignatureMemberIdentifier>
+  **useDayRender**(`day`, `displayMonth`, `buttonRef`):
+  [`DayRender`](/docs/api/type-aliases/DayRender.md)
+</SignatureMemberIdentifier>
+
+Return props and data used to render the [Day](/docs/api/functions/Day.md) component.
+
+Use this hook when creating a component to replace the built-in `Day`
+component.
+
+## Parameters
+
+| Parameter      | Type                               | Description                                                                                         |
+| :------------- | :--------------------------------- | :-------------------------------------------------------------------------------------------------- |
+| `day`          | `Date`                             | The date to render.                                                                                 |
+| `displayMonth` | `Date`                             | The month where the date is displayed (if not the same as `date`, it means it is an "outside" day). |
+| `buttonRef`    | `RefObject`\<`HTMLButtonElement`\> | A ref to the button element that will be target of focus when rendered (if required).               |
+
+## Returns
+
+[`DayRender`](/docs/api/type-aliases/DayRender.md)
+
+## Source
+
+node_modules/.pnpm/react-day-picker@8.10.0_date-fns@3.3.1_react@18.2.0/node_modules/react-day-picker/src/hooks/useDayRender/useDayRender.tsx:43

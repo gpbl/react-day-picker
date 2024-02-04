@@ -9,5 +9,3 @@ export * from "./formatters";
 export * from "./labels";
 
 export * from "./types";
-
-import "./style.css";

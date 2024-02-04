@@ -8,6 +8,26 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+:root {
+  --header-height: 48px;
+}
+
+.radix-themes[data-is-root-theme="true"] {
+  min-height: 100vh;
+}
+
+:root,
+.light,
+.light-theme {
+  --theme-toggle-sun-icon-display: block;
+  --theme-toggle-moon-icon-display: none;
+}
+.dark,
+.dark-theme {
+  --theme-toggle-sun-icon-display: none;
+  --theme-toggle-moon-icon-display: block;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -15,7 +35,7 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
-
+/* 
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -30,4 +50,4 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-}
+} */

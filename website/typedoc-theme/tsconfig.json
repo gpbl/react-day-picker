@@ -12,7 +12,7 @@
     "sourceMap": false,
     "strictNullChecks": true,
     "target": "ES2022",
-    "outDir": "./dist"
+    "outDir": "./dist",
   },
-  "exclude": ["./dist", "./test", "**/*.spec.ts"]
+  "exclude": ["./dist", "./test", "**/*.spec.ts"],
 }

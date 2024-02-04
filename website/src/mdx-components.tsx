@@ -36,9 +36,9 @@ import {
 /** All the components used to generate the MDX pages. */
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
-    // ...components,
+    ...components,
 
-    DayPicker,
+    // DayPicker,
 
     // All examples are available under `Examples` to consume in the docs
     Examples,
@@ -77,7 +77,11 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       }
       const href2 = href.replace(".md", "");
 
-      return <NextLink href={href2} {...restProps}></NextLink>;
+      return (
+        <Link asChild>
+          <NextLink href={href2} {...restProps}></NextLink>
+        </Link>
+      );
     },
 
     blockquote: function blockquote(props: PropsWithChildren) {
@@ -237,7 +241,21 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     },
 
     pre: function pre(props: PropsWithChildren) {
-      return <Pre {...props} />;
+      return (
+        <Box
+          p="4"
+          my="5"
+          style={{
+            overflow: "auto",
+            boxShadow: "0 0 0 1px var(--slate-a5)",
+            borderRadius: "var(--radius-2)",
+            fontSize: "var(--font-size-2)",
+            backgroundColor: "var(--slate-a2)",
+          }}
+        >
+          <pre {...props} />
+        </Box>
+      );
     },
 
     strong: function strong(props: PropsWithChildren) {
@@ -255,6 +273,5 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         </Table.Root>
       );
     },
-    ...components,
   };
 }

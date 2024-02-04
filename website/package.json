@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --port 2001",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start --port 2000",
+    "lint": "next lint",
+    "build-typedoc-theme": "rm -rf ./typedoc-theme/dist && pnpm tsc -p ./typedoc-theme/tsconfig.json && cp -R ./typedoc-theme/src/resources ./typedoc-theme/dist",
+    "generate-api-pages": "pnpm run build-typedoc-theme && pnpm typedoc"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.0",
@@ -21,13 +23,20 @@
     "@types/mdx": "^2.0.11",
     "next": "14.1.0",
     "react": "^18",
-    "react-day-picker": "workspace:9.0.0-next.1",
+    "react-day-picker": "workspace:*",
     "react-dom": "^18",
     "react-remove-scroll": "^2.5.7",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-pretty-code": "^0.12.6",
     "rehype-slug": "^6.0.0",
-    "remark-gfm": "^4.0.0"
+    "remark-frontmatter": "^5.0.0",
+    "remark-gfm": "^4.0.0",
+    "remark-mdx-frontmatter": "^4.0.0",
+    "shiki": "1.0.0-beta.5",
+    "shikiji": "^0.10.0",
+    "tm-themes": "^1.1.1",
+    "typedoc": "^0.25.7",
+    "typedoc-plugin-markdown": "next"
   },
   "devDependencies": {
     "@types/node": "^20",
