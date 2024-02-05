@@ -16,7 +16,13 @@ export default function App({
   const pathName = usePathname() ?? "/";
 
   return (
-    <Layout isDocPage={pathName === "/" || pathName.startsWith("/docs")}>
+    <Layout
+      isDocPage={
+        pathName === "/" ||
+        pathName.startsWith("/docs") ||
+        pathName.startsWith("/v8")
+      }
+    >
       <Component {...pageProps} />
     </Layout>
   );

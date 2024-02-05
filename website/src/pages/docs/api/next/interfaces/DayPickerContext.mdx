@@ -1,0 +1,1351 @@
+# DayPickerContext\<T\>
+
+## Extends
+
+- [`PropsBase`](/docs/api/next/interfaces/PropsBase.md)
+
+## Type parameters
+
+| Type parameter |
+| :------ |
+| `T` extends [`Mode`](/docs/api/next/type-aliases/Mode.md) |
+
+## Properties
+
+<a id="isoweek" name="isoweek"></a>
+
+### ISOWeek?
+
+> **ISOWeek**?: `boolean`
+
+Use ISO week dates instead of the locale setting. Setting this prop will
+ignore `weekStartsOn` and `firstWeekContainsDate`.
+
+#### Default Value
+
+```ts
+falses
+```
+
+#### See
+
+https://en.wikipedia.org/wiki/ISO_week_date
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`ISOWeek`](/docs/api/next/interfaces/PropsBase.md#isoweek)
+
+#### Source
+
+[src/types/props.ts:149](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L149)
+
+***
+
+<a id="autofocus" name="autofocus"></a>
+
+### autoFocus?
+
+> **autoFocus**?: `boolean`
+
+When a selection mode is set, DayPicker will focus the first selected day
+(if set) or the today's date (if not disabled).
+
+Use this prop when you need to focus DayPicker after a user actions, for
+improved accessibility.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`autoFocus`](/docs/api/next/interfaces/PropsBase.md#autofocus)
+
+#### Source
+
+[src/types/props.ts:164](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L164)
+
+***
+
+<a id="captionlayout" name="captionlayout"></a>
+
+### ~~captionLayout?~~
+
+> **captionLayout**?: [`CaptionLayout`](/docs/api/next/type-aliases/CaptionLayout.md)
+
+Change the layout of the caption.
+
+- `buttons`: display prev/right buttons
+- `dropdown`: display dropdowns to change the month and the year
+
+**Note:** the `dropdown` layout is available only when `fromDate`,
+`fromMonth` or`fromYear` and `toDate`, `toMonth` or `toYear` are set.
+
+#### Deprecated
+
+To show the dropdowns, use [dropdownNavigation](/docs/api/next/interfaces/PropsBase.md#dropdownnavigation). To hide
+  the navigation buttons, set [hideNavigation](/docs/api/next/interfaces/PropsBase.md#hidenavigation).
+
+#### Default Value
+
+```ts
+buttons
+```
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`captionLayout`](/docs/api/next/interfaces/PropsBase.md#captionlayout)
+
+#### Source
+
+[src/types/props.ts:319](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L319)
+
+***
+
+<a id="classname" name="classname"></a>
+
+### className?
+
+> **className**?: `string`
+
+The CSS class to add to the container element.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`className`](/docs/api/next/interfaces/PropsBase.md#classname)
+
+#### Source
+
+[src/types/props.ts:36](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L36)
+
+***
+
+<a id="classnames" name="classnames"></a>
+
+### classNames
+
+> **classNames**: [`ClassNames`](/docs/api/next/type-aliases/ClassNames.md)
+
+Change the class names used by DayPicker.
+
+Use this prop when you need to change the default class names — for example
+when using CSS modules.
+
+#### Overrides
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`classNames`](/docs/api/next/interfaces/PropsBase.md#classnames)
+
+#### Source
+
+[src/contexts/DayPickerContext/DayPickerContext.tsx:22](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/DayPickerContext/DayPickerContext.tsx#L22)
+
+***
+
+<a id="components" name="components"></a>
+
+### components?
+
+> **components**?: [`CustomComponents`](/docs/api/next/type-aliases/CustomComponents.md)
+
+Change the components used for rendering the calendar elements.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`components`](/docs/api/next/interfaces/PropsBase.md#components)
+
+#### Source
+
+[src/types/props.ts:152](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L152)
+
+***
+
+<a id="dataattributes" name="dataattributes"></a>
+
+### dataAttributes
+
+> **dataAttributes**: `DataAttributes`
+
+The `data-*` attributes passed to `DayPicker`.
+
+#### Source
+
+[src/contexts/DayPickerContext/DayPickerContext.tsx:24](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/DayPickerContext/DayPickerContext.tsx#L24)
+
+***
+
+<a id="defaultmonth" name="defaultmonth"></a>
+
+### defaultMonth?
+
+> **defaultMonth**?: `Date`
+
+The initial month to show in the calendar. Use this prop to let DayPicker
+control the current month. If you need to set the month programmatically,
+use `month` and `onMonthChange`.
+
+#### Default Value
+
+```ts
+The current month
+```
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`defaultMonth`](/docs/api/next/interfaces/PropsBase.md#defaultmonth)
+
+#### Source
+
+[src/types/props.ts:67](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L67)
+
+***
+
+<a id="defaultselected" name="defaultselected"></a>
+
+### defaultSelected
+
+> **defaultSelected**: [`Selected`](/docs/api/next/type-aliases/Selected.md)\<[`Mode`](/docs/api/next/type-aliases/Mode.md)\>
+
+The default selected value.
+
+#### Source
+
+[src/contexts/DayPickerContext/DayPickerContext.tsx:39](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/DayPickerContext/DayPickerContext.tsx#L39)
+
+***
+
+<a id="dir" name="dir"></a>
+
+### dir?
+
+> **dir**?: `string`
+
+The text direction of the calendar. Use `ltr` for left-to-right (default)
+or `rtl` for right-to-left.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`dir`](/docs/api/next/interfaces/PropsBase.md#dir)
+
+#### Source
+
+[src/types/props.ts:198](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L198)
+
+***
+
+<a id="disablenavigation" name="disablenavigation"></a>
+
+### disableNavigation?
+
+> **disableNavigation**?: `boolean`
+
+Disable the navigation between months. This prop won't hide the navigation:
+to hide the navigation, use [hideNavigation](/docs/api/next/interfaces/PropsBase.md#hidenavigation).
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`disableNavigation`](/docs/api/next/interfaces/PropsBase.md#disablenavigation)
+
+#### Source
+
+[src/types/props.ts:110](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L110)
+
+***
+
+<a id="disabled" name="disabled"></a>
+
+### disabled?
+
+> **disabled**?: [`Matcher`](/docs/api/next/type-aliases/Matcher.md) \| [`Matcher`](/docs/api/next/type-aliases/Matcher.md)[]
+
+Apply the `disabled` modifier to the matching days.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`disabled`](/docs/api/next/interfaces/PropsBase.md#disabled)
+
+#### Source
+
+[src/types/props.ts:166](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L166)
+
+***
+
+<a id="dropdownnavigation" name="dropdownnavigation"></a>
+
+### dropdownNavigation?
+
+> **dropdownNavigation**?: `boolean` \| `"month"` \| `"year"`
+
+Show dropdowns to navigate between months or years.
+
+- `true`: display the dropdowns for both month and year.
+- `month`: display the dropdown for the month.
+- `year`: display the dropdown for the year.
+- `false`: hide the dropdowns.
+
+**Note:** showing the dropdown will default [fromYear](/docs/api/next/interfaces/PropsBase.md#fromyear) to the 100
+years ago, and [toYear](/docs/api/next/interfaces/PropsBase.md#toyear) to the current year.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`dropdownNavigation`](/docs/api/next/interfaces/PropsBase.md#dropdownnavigation)
+
+#### Source
+
+[src/types/props.ts:122](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L122)
+
+***
+
+<a id="firstweekcontainsdate" name="firstweekcontainsdate"></a>
+
+### firstWeekContainsDate?
+
+> **firstWeekContainsDate**?: `1` \| `4`
+
+The day of January, which is always in the first week of the year.
+
+#### See
+
+ - https://date-fns.org/docs/getWeek
+ - https://en.wikipedia.org/wiki/Week#Numbering
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`firstWeekContainsDate`](/docs/api/next/interfaces/PropsBase.md#firstweekcontainsdate)
+
+#### Source
+
+[src/types/props.ts:230](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L230)
+
+***
+
+<a id="fixedweeks" name="fixedweeks"></a>
+
+### fixedWeeks?
+
+> **fixedWeeks**?: `boolean`
+
+Display always 6 weeks per each month, regardless the month’s number of
+weeks. Weeks will be filled with the days from the next month.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`fixedWeeks`](/docs/api/next/interfaces/PropsBase.md#fixedweeks)
+
+#### Source
+
+[src/types/props.ts:128](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L128)
+
+***
+
+<a id="footer" name="footer"></a>
+
+### footer?
+
+> **footer**?: `ReactNode`
+
+Content to add to the table footer element.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`footer`](/docs/api/next/interfaces/PropsBase.md#footer)
+
+#### Source
+
+[src/types/props.ts:155](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L155)
+
+***
+
+<a id="formatters" name="formatters"></a>
+
+### formatters
+
+> **formatters**: [`Formatters`](/docs/api/next/type-aliases/Formatters.md)
+
+Formatters used to format dates to strings. Use this prop to override the
+default functions.
+
+#### Overrides
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`formatters`](/docs/api/next/interfaces/PropsBase.md#formatters)
+
+#### Source
+
+[src/contexts/DayPickerContext/DayPickerContext.tsx:25](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/DayPickerContext/DayPickerContext.tsx#L25)
+
+***
+
+<a id="fromdate" name="fromdate"></a>
+
+### fromDate
+
+> **fromDate**: `undefined` \| `Date`
+
+The earliest day to start the month navigation.
+
+#### Overrides
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`fromDate`](/docs/api/next/interfaces/PropsBase.md#fromdate)
+
+#### Source
+
+[src/contexts/DayPickerContext/DayPickerContext.tsx:26](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/DayPickerContext/DayPickerContext.tsx#L26)
+
+***
+
+<a id="frommonth" name="frommonth"></a>
+
+### fromMonth?
+
+> **fromMonth**?: `Date`
+
+The earliest month to start the month navigation.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`fromMonth`](/docs/api/next/interfaces/PropsBase.md#frommonth)
+
+#### Source
+
+[src/types/props.ts:87](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L87)
+
+***
+
+<a id="fromyear" name="fromyear"></a>
+
+### fromYear?
+
+> **fromYear**?: `number`
+
+The earliest year to start the month navigation.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`fromYear`](/docs/api/next/interfaces/PropsBase.md#fromyear)
+
+#### Source
+
+[src/types/props.ts:91](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L91)
+
+***
+
+<a id="hidden" name="hidden"></a>
+
+### hidden?
+
+> **hidden**?: [`Matcher`](/docs/api/next/type-aliases/Matcher.md) \| [`Matcher`](/docs/api/next/type-aliases/Matcher.md)[]
+
+Apply the `hidden` modifier to the matching days. Will hide them from the
+calendar.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`hidden`](/docs/api/next/interfaces/PropsBase.md#hidden)
+
+#### Source
+
+[src/types/props.ts:171](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L171)
+
+***
+
+<a id="hidenavigation" name="hidenavigation"></a>
+
+### hideNavigation?
+
+> **hideNavigation**?: `boolean`
+
+Hide the navigation buttons. This prop won't disable the navigation: to
+disable the navigation, use [disableNavigation](/docs/api/next/interfaces/PropsBase.md#disablenavigation).
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`hideNavigation`](/docs/api/next/interfaces/PropsBase.md#hidenavigation)
+
+#### Source
+
+[src/types/props.ts:105](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L105)
+
+***
+
+<a id="hideweekdayrow" name="hideweekdayrow"></a>
+
+### hideWeekdayRow?
+
+> **hideWeekdayRow**?: `boolean`
+
+Hide the row displaying the weekday row header.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`hideWeekdayRow`](/docs/api/next/interfaces/PropsBase.md#hideweekdayrow)
+
+#### Source
+
+[src/types/props.ts:130](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L130)
+
+***
+
+<a id="id" name="id"></a>
+
+### id
+
+> **id**: `string`
+
+A unique id to replace the random generated ids – used by DayPicker for
+accessibility.
+
+#### Overrides
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`id`](/docs/api/next/interfaces/PropsBase.md#id)
+
+#### Source
+
+[src/contexts/DayPickerContext/DayPickerContext.tsx:27](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/DayPickerContext/DayPickerContext.tsx#L27)
+
+***
+
+<a id="labels" name="labels"></a>
+
+### labels
+
+> **labels**: [`Labels`](/docs/api/next/type-aliases/Labels.md)
+
+Labels creators to override the defaults. Use this prop to customize the
+aria-label attributes in DayPicker.
+
+#### Overrides
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`labels`](/docs/api/next/interfaces/PropsBase.md#labels)
+
+#### Source
+
+[src/contexts/DayPickerContext/DayPickerContext.tsx:28](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/DayPickerContext/DayPickerContext.tsx#L28)
+
+***
+
+<a id="lang" name="lang"></a>
+
+### lang?
+
+> **lang**?: `string`
+
+Add the language tag to the container element.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`lang`](/docs/api/next/interfaces/PropsBase.md#lang)
+
+#### Source
+
+[src/types/props.ts:210](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L210)
+
+***
+
+<a id="locale" name="locale"></a>
+
+### locale?
+
+> **locale**?: `Locale`
+
+The date-fns locale object used to localize dates.
+
+#### Default Value
+
+```ts
+en-US
+```
+
+#### See
+
+https://date-fns.org/docs/Locale
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`locale`](/docs/api/next/interfaces/PropsBase.md#locale)
+
+#### Source
+
+[src/types/props.ts:218](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L218)
+
+***
+
+<a id="max" name="max"></a>
+
+### max
+
+> **max**: `undefined` \| `number`
+
+#### Source
+
+[src/contexts/DayPickerContext/DayPickerContext.tsx:29](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/DayPickerContext/DayPickerContext.tsx#L29)
+
+***
+
+<a id="min" name="min"></a>
+
+### min
+
+> **min**: `undefined` \| `number`
+
+#### Source
+
+[src/contexts/DayPickerContext/DayPickerContext.tsx:30](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/DayPickerContext/DayPickerContext.tsx#L30)
+
+***
+
+<a id="mode" name="mode"></a>
+
+### mode
+
+> **mode**: `T`
+
+#### Source
+
+[src/contexts/DayPickerContext/DayPickerContext.tsx:31](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/DayPickerContext/DayPickerContext.tsx#L31)
+
+***
+
+<a id="modifiers" name="modifiers"></a>
+
+### modifiers?
+
+> **modifiers**?: `Record`\<`string`, `undefined` \| [`Matcher`](/docs/api/next/type-aliases/Matcher.md) \| [`Matcher`](/docs/api/next/type-aliases/Matcher.md)[]\>
+
+Add modifiers to the matching days.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`modifiers`](/docs/api/next/interfaces/PropsBase.md#modifiers)
+
+#### Source
+
+[src/types/props.ts:180](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L180)
+
+***
+
+<a id="modifiersclassnames" name="modifiersclassnames"></a>
+
+### modifiersClassNames?
+
+> **modifiersClassNames**?: [`ModifiersClassNames`](/docs/api/next/type-aliases/ModifiersClassNames.md)
+
+Change the class name for the day matching the `modifiers`.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`modifiersClassNames`](/docs/api/next/interfaces/PropsBase.md#modifiersclassnames)
+
+#### Source
+
+[src/types/props.ts:45](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L45)
+
+***
+
+<a id="modifiersstyles" name="modifiersstyles"></a>
+
+### modifiersStyles?
+
+> **modifiersStyles**?: [`ModifiersStyles`](/docs/api/next/type-aliases/ModifiersStyles.md)
+
+Change the inline style for the day matching the `modifiers`.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`modifiersStyles`](/docs/api/next/interfaces/PropsBase.md#modifiersstyles)
+
+#### Source
+
+[src/types/props.ts:52](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L52)
+
+***
+
+<a id="month" name="month"></a>
+
+### month?
+
+> **month**?: `Date`
+
+The month displayed in the calendar.
+
+As opposed to `PropsBase.defaultMonth}, use this prop with
+`PropsBase.onMonthChange\} to change the month programmatically.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`month`](/docs/api/next/interfaces/PropsBase.md#month)
+
+#### Source
+
+[src/types/props.ts:74](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L74)
+
+***
+
+<a id="nonce" name="nonce"></a>
+
+### nonce?
+
+> **nonce**?: `string`
+
+A cryptographic nonce ("number used once") which can be used by Content
+Security Policy for the inline `style` attributes.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`nonce`](/docs/api/next/interfaces/PropsBase.md#nonce)
+
+#### Source
+
+[src/types/props.ts:204](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L204)
+
+***
+
+<a id="numberofmonths" name="numberofmonths"></a>
+
+### numberOfMonths
+
+> **numberOfMonths**: `number`
+
+The number of displayed months.
+
+#### Default Value
+
+```ts
+1
+```
+
+#### Overrides
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`numberOfMonths`](/docs/api/next/interfaces/PropsBase.md#numberofmonths)
+
+#### Source
+
+[src/contexts/DayPickerContext/DayPickerContext.tsx:32](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/DayPickerContext/DayPickerContext.tsx#L32)
+
+***
+
+<a id="ondayblur" name="ondayblur"></a>
+
+### onDayBlur?
+
+> **onDayBlur**?: [`DayFocusEventHandler`](/docs/api/next/type-aliases/DayFocusEventHandler.md)
+
+Event handler when a day is blurred.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`onDayBlur`](/docs/api/next/interfaces/PropsBase.md#ondayblur)
+
+#### Source
+
+[src/types/props.ts:257](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L257)
+
+***
+
+<a id="ondayclick" name="ondayclick"></a>
+
+### onDayClick?
+
+> **onDayClick**?: [`DayMouseEventHandler`](/docs/api/next/type-aliases/DayMouseEventHandler.md)
+
+Event handler when a day is clicked.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`onDayClick`](/docs/api/next/interfaces/PropsBase.md#ondayclick)
+
+#### Source
+
+[src/types/props.ts:251](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L251)
+
+***
+
+<a id="ondayfocus" name="ondayfocus"></a>
+
+### onDayFocus?
+
+> **onDayFocus**?: [`DayFocusEventHandler`](/docs/api/next/type-aliases/DayFocusEventHandler.md)
+
+Event handler when a day is focused.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`onDayFocus`](/docs/api/next/interfaces/PropsBase.md#ondayfocus)
+
+#### Source
+
+[src/types/props.ts:254](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L254)
+
+***
+
+<a id="ondaykeydown" name="ondaykeydown"></a>
+
+### onDayKeyDown?
+
+> **onDayKeyDown**?: [`DayKeyboardEventHandler`](/docs/api/next/type-aliases/DayKeyboardEventHandler.md)
+
+Event handler when a key is pressed on a day.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`onDayKeyDown`](/docs/api/next/interfaces/PropsBase.md#ondaykeydown)
+
+#### Source
+
+[src/types/props.ts:266](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L266)
+
+***
+
+<a id="ondaykeypress" name="ondaykeypress"></a>
+
+### onDayKeyPress?
+
+> **onDayKeyPress**?: [`DayKeyboardEventHandler`](/docs/api/next/type-aliases/DayKeyboardEventHandler.md)
+
+Event handler when a key is pressed and released on a day.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`onDayKeyPress`](/docs/api/next/interfaces/PropsBase.md#ondaykeypress)
+
+#### Source
+
+[src/types/props.ts:272](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L272)
+
+***
+
+<a id="ondaykeyup" name="ondaykeyup"></a>
+
+### onDayKeyUp?
+
+> **onDayKeyUp**?: [`DayKeyboardEventHandler`](/docs/api/next/type-aliases/DayKeyboardEventHandler.md)
+
+Event handler when a key is released on a day.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`onDayKeyUp`](/docs/api/next/interfaces/PropsBase.md#ondaykeyup)
+
+#### Source
+
+[src/types/props.ts:269](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L269)
+
+***
+
+<a id="ondaymouseenter" name="ondaymouseenter"></a>
+
+### onDayMouseEnter?
+
+> **onDayMouseEnter**?: [`DayMouseEventHandler`](/docs/api/next/type-aliases/DayMouseEventHandler.md)
+
+Event handler when the mouse enters a day.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`onDayMouseEnter`](/docs/api/next/interfaces/PropsBase.md#ondaymouseenter)
+
+#### Source
+
+[src/types/props.ts:260](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L260)
+
+***
+
+<a id="ondaymouseleave" name="ondaymouseleave"></a>
+
+### onDayMouseLeave?
+
+> **onDayMouseLeave**?: [`DayMouseEventHandler`](/docs/api/next/type-aliases/DayMouseEventHandler.md)
+
+Event handler when the mouse leaves a day.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`onDayMouseLeave`](/docs/api/next/interfaces/PropsBase.md#ondaymouseleave)
+
+#### Source
+
+[src/types/props.ts:263](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L263)
+
+***
+
+<a id="ondaypointerenter" name="ondaypointerenter"></a>
+
+### onDayPointerEnter?
+
+> **onDayPointerEnter**?: [`DayPointerEventHandler`](/docs/api/next/type-aliases/DayPointerEventHandler.md)
+
+Event handler when a pointer enters a day.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`onDayPointerEnter`](/docs/api/next/interfaces/PropsBase.md#ondaypointerenter)
+
+#### Source
+
+[src/types/props.ts:275](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L275)
+
+***
+
+<a id="ondaypointerleave" name="ondaypointerleave"></a>
+
+### onDayPointerLeave?
+
+> **onDayPointerLeave**?: [`DayPointerEventHandler`](/docs/api/next/type-aliases/DayPointerEventHandler.md)
+
+Event handler when a pointer leaves a day.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`onDayPointerLeave`](/docs/api/next/interfaces/PropsBase.md#ondaypointerleave)
+
+#### Source
+
+[src/types/props.ts:278](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L278)
+
+***
+
+<a id="ondaytouchcancel" name="ondaytouchcancel"></a>
+
+### onDayTouchCancel?
+
+> **onDayTouchCancel**?: [`DayTouchEventHandler`](/docs/api/next/type-aliases/DayTouchEventHandler.md)
+
+Event handler when a touch is cancelled on a day.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`onDayTouchCancel`](/docs/api/next/interfaces/PropsBase.md#ondaytouchcancel)
+
+#### Source
+
+[src/types/props.ts:281](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L281)
+
+***
+
+<a id="ondaytouchend" name="ondaytouchend"></a>
+
+### onDayTouchEnd?
+
+> **onDayTouchEnd**?: [`DayTouchEventHandler`](/docs/api/next/type-aliases/DayTouchEventHandler.md)
+
+Event handler when a touch ends on a day.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`onDayTouchEnd`](/docs/api/next/interfaces/PropsBase.md#ondaytouchend)
+
+#### Source
+
+[src/types/props.ts:284](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L284)
+
+***
+
+<a id="ondaytouchmove" name="ondaytouchmove"></a>
+
+### onDayTouchMove?
+
+> **onDayTouchMove**?: [`DayTouchEventHandler`](/docs/api/next/type-aliases/DayTouchEventHandler.md)
+
+Event handler when a touch moves on a day.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`onDayTouchMove`](/docs/api/next/interfaces/PropsBase.md#ondaytouchmove)
+
+#### Source
+
+[src/types/props.ts:287](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L287)
+
+***
+
+<a id="ondaytouchstart" name="ondaytouchstart"></a>
+
+### onDayTouchStart?
+
+> **onDayTouchStart**?: [`DayTouchEventHandler`](/docs/api/next/type-aliases/DayTouchEventHandler.md)
+
+Event handler when a touch starts on a day.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`onDayTouchStart`](/docs/api/next/interfaces/PropsBase.md#ondaytouchstart)
+
+#### Source
+
+[src/types/props.ts:290](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L290)
+
+***
+
+<a id="onmonthchange" name="onmonthchange"></a>
+
+### onMonthChange?
+
+> **onMonthChange**?: [`MonthChangeEventHandler`](/docs/api/next/type-aliases/MonthChangeEventHandler.md)
+
+Event fired when the user navigates between months.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`onMonthChange`](/docs/api/next/interfaces/PropsBase.md#onmonthchange)
+
+#### Source
+
+[src/types/props.ts:248](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L248)
+
+***
+
+<a id="onnextclick" name="onnextclick"></a>
+
+### onNextClick?
+
+> **onNextClick**?: [`MonthChangeEventHandler`](/docs/api/next/type-aliases/MonthChangeEventHandler.md)
+
+Event handler when the next month button is clicked.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`onNextClick`](/docs/api/next/interfaces/PropsBase.md#onnextclick)
+
+#### Source
+
+[src/types/props.ts:293](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L293)
+
+***
+
+<a id="onprevclick" name="onprevclick"></a>
+
+### onPrevClick?
+
+> **onPrevClick**?: [`MonthChangeEventHandler`](/docs/api/next/type-aliases/MonthChangeEventHandler.md)
+
+Event handler when the previous month button is clicked.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`onPrevClick`](/docs/api/next/interfaces/PropsBase.md#onprevclick)
+
+#### Source
+
+[src/types/props.ts:296](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L296)
+
+***
+
+<a id="onselect" name="onselect"></a>
+
+### onSelect
+
+> **onSelect**: `undefined` \| [`SelectHandler`](/docs/api/next/type-aliases/SelectHandler.md)\<[`Mode`](/docs/api/next/type-aliases/Mode.md)\>
+
+The function that handles the day selection.
+
+#### Source
+
+[src/contexts/DayPickerContext/DayPickerContext.tsx:41](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/DayPickerContext/DayPickerContext.tsx#L41)
+
+***
+
+<a id="onweeknumberclick" name="onweeknumberclick"></a>
+
+### onWeekNumberClick?
+
+> **onWeekNumberClick**?: [`WeekNumberClickEventHandler`](/docs/api/next/type-aliases/WeekNumberClickEventHandler.md)
+
+Event handler when a week number is clicked. Requires [showWeekNumber](/docs/api/next/interfaces/PropsBase.md#showweeknumber)
+to be set.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`onWeekNumberClick`](/docs/api/next/interfaces/PropsBase.md#onweeknumberclick)
+
+#### Source
+
+[src/types/props.ts:302](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L302)
+
+***
+
+<a id="pagednavigation" name="pagednavigation"></a>
+
+### pagedNavigation?
+
+> **pagedNavigation**?: `boolean`
+
+Paginate the month navigation displaying the `numberOfMonths` at time.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`pagedNavigation`](/docs/api/next/interfaces/PropsBase.md#pagednavigation)
+
+#### Source
+
+[src/types/props.ts:95](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L95)
+
+***
+
+<a id="required" name="required"></a>
+
+### required
+
+> **required**: `boolean`
+
+#### Source
+
+[src/contexts/DayPickerContext/DayPickerContext.tsx:33](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/DayPickerContext/DayPickerContext.tsx#L33)
+
+***
+
+<a id="reversemonths" name="reversemonths"></a>
+
+### reverseMonths?
+
+> **reverseMonths**?: `boolean`
+
+Render the months in reversed order (when [numberOfMonths](/docs/api/next/interfaces/PropsBase.md#numberofmonths) is set) to
+display the most recent month first.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`reverseMonths`](/docs/api/next/interfaces/PropsBase.md#reversemonths)
+
+#### Source
+
+[src/types/props.ts:100](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L100)
+
+***
+
+<a id="selected" name="selected"></a>
+
+### selected
+
+> **selected**: [`Selected`](/docs/api/next/type-aliases/Selected.md)\<[`Mode`](/docs/api/next/type-aliases/Mode.md)\>
+
+The currently selected value.
+
+#### Source
+
+[src/contexts/DayPickerContext/DayPickerContext.tsx:37](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/DayPickerContext/DayPickerContext.tsx#L37)
+
+***
+
+<a id="showoutsidedays" name="showoutsidedays"></a>
+
+### showOutsideDays?
+
+> **showOutsideDays**?: `boolean`
+
+Show the outside days (days falling in the next or the previous month).
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`showOutsideDays`](/docs/api/next/interfaces/PropsBase.md#showoutsidedays)
+
+#### Source
+
+[src/types/props.ts:132](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L132)
+
+***
+
+<a id="showweeknumber" name="showweeknumber"></a>
+
+### showWeekNumber?
+
+> **showWeekNumber**?: `boolean`
+
+Show the week numbers column. Weeks are numbered according to the local
+week index.
+
+- To use ISO week numbering, use the `ISOWeek` prop.
+- To change how the week numbers are displayed, use the `Formatters` prop.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`showWeekNumber`](/docs/api/next/interfaces/PropsBase.md#showweeknumber)
+
+#### Source
+
+[src/types/props.ts:140](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L140)
+
+***
+
+<a id="style" name="style"></a>
+
+### style?
+
+> **style**?: `CSSProperties`
+
+Style to apply to the container element.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`style`](/docs/api/next/interfaces/PropsBase.md#style)
+
+#### Source
+
+[src/types/props.ts:48](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L48)
+
+***
+
+<a id="styles" name="styles"></a>
+
+### styles?
+
+> **styles**?: `Partial`\<[`Styles`](/docs/api/next/type-aliases/Styles.md)\>
+
+Change the inline styles of the HTML elements.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`styles`](/docs/api/next/interfaces/PropsBase.md#styles)
+
+#### Source
+
+[src/types/props.ts:50](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L50)
+
+***
+
+<a id="title" name="title"></a>
+
+### title?
+
+> **title**?: `string`
+
+Add a `title` attribute to the container element.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`title`](/docs/api/next/interfaces/PropsBase.md#title)
+
+#### Source
+
+[src/types/props.ts:207](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L207)
+
+***
+
+<a id="todate" name="todate"></a>
+
+### toDate
+
+> **toDate**: `undefined` \| `Date`
+
+The latest day to end the month navigation.
+
+#### Overrides
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`toDate`](/docs/api/next/interfaces/PropsBase.md#todate)
+
+#### Source
+
+[src/contexts/DayPickerContext/DayPickerContext.tsx:34](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/DayPickerContext/DayPickerContext.tsx#L34)
+
+***
+
+<a id="tomonth" name="tomonth"></a>
+
+### toMonth?
+
+> **toMonth**?: `Date`
+
+The latest month to end the month navigation.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`toMonth`](/docs/api/next/interfaces/PropsBase.md#tomonth)
+
+#### Source
+
+[src/types/props.ts:89](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L89)
+
+***
+
+<a id="toyear" name="toyear"></a>
+
+### toYear?
+
+> **toYear**?: `number`
+
+The latest year to end the month navigation.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`toYear`](/docs/api/next/interfaces/PropsBase.md#toyear)
+
+#### Source
+
+[src/types/props.ts:93](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L93)
+
+***
+
+<a id="today" name="today"></a>
+
+### today
+
+> **today**: `Date`
+
+The today’s date. Default is the current date. This date will get the
+`today` modifier to style the day.
+
+#### Overrides
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`today`](/docs/api/next/interfaces/PropsBase.md#today)
+
+#### Source
+
+[src/contexts/DayPickerContext/DayPickerContext.tsx:35](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/DayPickerContext/DayPickerContext.tsx#L35)
+
+***
+
+<a id="useadditionaldayofyeartokens" name="useadditionaldayofyeartokens"></a>
+
+### useAdditionalDayOfYearTokens?
+
+> **useAdditionalDayOfYearTokens**?: `boolean`
+
+Enable `YY` and `YYYY` for day of year tokens when formatting or parsing
+dates.
+
+#### See
+
+https://date-fns.org/docs/Unicode-Tokens
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`useAdditionalDayOfYearTokens`](/docs/api/next/interfaces/PropsBase.md#useadditionaldayofyeartokens)
+
+#### Source
+
+[src/types/props.ts:244](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L244)
+
+***
+
+<a id="useadditionalweekyeartokens" name="useadditionalweekyeartokens"></a>
+
+### useAdditionalWeekYearTokens?
+
+> **useAdditionalWeekYearTokens**?: `boolean`
+
+Enable `DD` and `DDDD` for week year tokens when formatting or parsing
+dates.
+
+#### See
+
+https://date-fns.org/docs/Unicode-Tokens
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`useAdditionalWeekYearTokens`](/docs/api/next/interfaces/PropsBase.md#useadditionalweekyeartokens)
+
+#### Source
+
+[src/types/props.ts:237](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L237)
+
+***
+
+<a id="weekstartson" name="weekstartson"></a>
+
+### weekStartsOn?
+
+> **weekStartsOn**?: `0` \| `2` \| `3` \| `1` \| `4` \| `5` \| `6`
+
+The index of the first day of the week (0 - Sunday). Overrides the locale's
+one.
+
+#### Inherited from
+
+[`PropsBase`](/docs/api/next/interfaces/PropsBase.md).[`weekStartsOn`](/docs/api/next/interfaces/PropsBase.md#weekstartson)
+
+#### Source
+
+[src/types/props.ts:223](https://github.com/gpbl/react-day-picker/blob/next/src/types/props.ts#L223)

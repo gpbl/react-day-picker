@@ -1,8 +1,4 @@
-/**
- * Render the chevron icon used in the navigation buttons and dropdowns.
- *
- * @category Custom Components
- */
+/** Render the chevron icon used in the navigation buttons and dropdowns. */
 export function Chevron(props: {
   size?: number;
   orientation?: "up" | "down" | "left" | "right";

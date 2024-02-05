@@ -1,10 +1,6 @@
 import { useDayPicker } from "../contexts/DayPickerContext";
 
-/**
- * Render the column header with the weekday name (e.g. "Mo", "Tu", etc.)
- *
- * @category Custom Components
- */
+/** Render the column header with the weekday name (e.g. "Mo", "Tu", etc.) */
 export function WeekdayColumnHeader(props: {
   ["aria-colindex"]?: number | undefined;
   ["aria-label"]?: string | undefined;

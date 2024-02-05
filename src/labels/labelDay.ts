@@ -2,11 +2,7 @@ import { format } from "date-fns/format";
 
 import { Modifiers } from "../types/modifiers";
 
-/**
- * Return the default ARIA label for the day button.
- *
- * @category Labels
- */
+/** Return the default ARIA label for the day button. */
 export function labelDay(
   date: Date,
   modifiers: Modifiers,

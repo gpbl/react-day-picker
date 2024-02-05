@@ -10,11 +10,7 @@ export interface MonthCaptionProps {
   /** The index where this month is displayed. */
   index: number;
 }
-/**
- * Render the caption of a month in the calendar.
- *
- * @category Custom Components
- */
+/** Render the caption of a month in the calendar. */
 export function MonthCaption(props: MonthCaptionProps) {
   const {
     classNames,

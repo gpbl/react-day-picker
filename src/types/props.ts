@@ -403,7 +403,6 @@ export type Mode = "none" | "single" | "multi" | "range";
  *
  * @deprecated Replaced by {@link PropsBase.dropdownNavigation} and
  *   {@link PropsBase.hideNavigation}.
- * @category Deprecated Exports
  */
 export type CaptionLayout = "dropdown" | "buttons" | "dropdown-buttons";
 
@@ -433,5 +432,5 @@ export type SelectHandler<T extends Mode> = (
   /** The modifiers for the day that triggered the selection. */
   modifiers: Modifiers,
   /** The event that made the selection. */
-  e: MouseEvent | KeyboardEvent
+  e: MouseEvent | KeyboardEvent,
 ) => void;

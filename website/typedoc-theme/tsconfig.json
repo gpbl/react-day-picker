@@ -4,7 +4,7 @@
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "lib": ["ES2022", "dom"],
-    "module": "ESNext",
+    "module": "CommonJS",
     "moduleResolution": "Node",
     "noImplicitAny": false,
     "noUnusedLocals": true,

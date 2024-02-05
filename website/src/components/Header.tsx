@@ -13,6 +13,7 @@ import { ThemeToggle } from "./ThemeToggle";
 import { VersionToggle } from "./VersionToggle";
 import { ReactNode, useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { useVersion } from "@/utils/VersionContext";
 
 export interface HeaderProps {
   children?: ReactNode;
@@ -24,6 +25,7 @@ type ScrollState = "at-top" | "scrolling-up" | "scrolling-down";
 
 export function Header({ children, gitHubLink, ghost }: HeaderProps) {
   const pathName = usePathname() ?? "";
+  const { version } = useVersion();
   const [scrollState, setScrollState] = useState<ScrollState>("at-top");
 
   useEffect(() => {
@@ -100,7 +102,7 @@ export function Header({ children, gitHubLink, ghost }: HeaderProps) {
             Documentation
           </HeaderLink>
           <HeaderLink
-            href="/docs/api"
+            href={`/docs/api/${version}`}
             active={pathName.startsWith("/docs/api")}
           >
             API Reference

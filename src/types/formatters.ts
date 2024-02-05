@@ -8,11 +8,7 @@ import {
   formatYearDropdown,
 } from "../formatters/formatYearDropdown";
 
-/**
- * Represent a map of formatters used to render localized content.
- *
- * @category Formatters
- */
+/** Represent a map of formatters used to render localized content. */
 export type Formatters = {
   /** Format the caption of a month grid. */
   formatCaption: typeof formatCaption;

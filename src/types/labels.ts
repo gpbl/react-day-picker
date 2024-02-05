@@ -7,11 +7,7 @@ import { labelWeekNumber } from "../labels/labelWeekNumber";
 import { labelWeekNumberHeader } from "../labels/labelWeekNumberHeader";
 import { labelYearDropdown } from "../labels/labelYearDropdown";
 
-/**
- * Map of functions returning ARIA labels for the relative elements.
- *
- * @category Labels
- */
+/** Map of functions returning ARIA labels for the relative elements. */
 export type Labels = {
   /** Return the label for the month dropdown. */
   labelMonthDropdown: typeof labelMonthDropdown;

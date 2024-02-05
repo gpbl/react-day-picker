@@ -17,7 +17,7 @@ import { getFormatters } from "./utils/getFormatters";
 import { getFromToDate } from "./utils/getFromToDate";
 import { getLabels } from "./utils/getLabels";
 
-/** @category Contexts */
+/* */
 export interface DayPickerContext<T extends Mode> extends PropsBase {
   classNames: ClassNames;
   /** The `data-*` attributes passed to `DayPicker`. */
@@ -46,8 +46,6 @@ const dayPickerContext = createContext<DayPickerContext<Mode> | null>(null);
 /**
  * The provider for the `dayPickerContext`, storing the props and setting its
  * defaults. Must be the root of all the providers.
- *
- * @category Contexts
  */
 export const DayPickerProvider = <T extends Mode>(
   props: PropsWithChildren<DayPickerProps<T>>,
@@ -85,11 +83,7 @@ export const DayPickerProvider = <T extends Mode>(
   );
 };
 
-/**
- * Use this hook to access to the DayPicker context within Custom Components.
- *
- * @category Contexts
- */
+/** Use this hook to access to the DayPicker context within Custom Components. */
 export function useDayPicker() {
   const context = useContext(dayPickerContext);
   if (!context)

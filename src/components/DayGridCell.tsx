@@ -3,11 +3,7 @@ import { type HTMLAttributes } from "react";
 import type { CalendarDay } from "../classes";
 import type { Modifiers } from "../types/modifiers";
 
-/**
- * Render the gridcell of a day in the calendar.
- *
- * @category Custom Components
- */
+/** Render the gridcell of a day in the calendar. */
 export function DayGridCell(props: DayGridCellProps) {
   const { children, htmlAttributes } = props;
   return <div {...htmlAttributes}>{children}</div>;

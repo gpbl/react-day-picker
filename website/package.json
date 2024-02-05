@@ -8,7 +8,7 @@
     "start": "next start --port 2000",
     "lint": "next lint",
     "build-typedoc-theme": "rm -rf ./typedoc-theme/dist && pnpm tsc -p ./typedoc-theme/tsconfig.json && cp -R ./typedoc-theme/src/resources ./typedoc-theme/dist",
-    "generate-api-pages": "pnpm run build-typedoc-theme && pnpm typedoc"
+    "generate-api-pages": "pnpm run build-typedoc-theme && TYPEDOC_BRANCH=main pnpm typedoc && TYPEDOC_BRANCH=next pnpm typedoc"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.0",
@@ -22,8 +22,10 @@
     "@tailwindcss/typography": "^0.5.10",
     "@types/mdx": "^2.0.11",
     "next": "14.1.0",
+    "next-themes": "^0.2.1",
     "react": "^18",
     "react-day-picker": "workspace:*",
+    "react-day-picker-v8": "npm:react-day-picker@8",
     "react-dom": "^18",
     "react-remove-scroll": "^2.5.7",
     "rehype-autolink-headings": "^7.1.0",

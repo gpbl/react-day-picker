@@ -18,7 +18,7 @@ import { getWeeks } from "./utils/getWeeks";
 import { Week, Month } from "../../classes";
 import { DropdownOption } from "../../components/custom-components";
 
-/** @category Contexts */
+/* */
 export interface CalendarContext {
   /** All the unique dates displayed to the calendar. */
   dates: Date[];
@@ -80,11 +80,7 @@ export interface CalendarContext {
 
 const calendarContext = createContext<CalendarContext | undefined>(undefined);
 
-/**
- * The provider for the `calendarContext`, storing the calendar state.
- *
- * @category Contexts
- */
+/** The provider for the `calendarContext`, storing the calendar state. */
 export function CalendarProvider(providerProps: { children?: ReactNode }) {
   const dayPicker = useDayPicker();
 
@@ -191,8 +187,6 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
 /**
  * Use this hook to access to the dates displayed in the calendar and to
  * navigate between months.
- *
- * @category Contexts
  */
 export function useCalendar(): CalendarContext {
   const context = useContext(calendarContext);

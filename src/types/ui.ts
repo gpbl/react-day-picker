@@ -1,6 +1,6 @@
 import { CSSProperties } from "react";
 
-/** @category Styling */
+/* */
 export enum UI {
   /** Represents the root element. */
   Root = "rdp",
@@ -61,12 +61,12 @@ export enum UI {
   HideWeekdays = "hide_weekdays",
 }
 
-/** @category Styling */
+/* */
 export type Styles = {
   [uiElement in UI]: CSSProperties | undefined;
 };
 
-/** @category Styling */
+/* */
 export type ClassNames = {
   [uiElement in UI]: string;
 };

@@ -8,11 +8,7 @@ import { FocusProvider } from "./FocusContext";
 import { ModifiersProvider } from "./ModifiersContext";
 import { SelectionProvider } from "./SelectionContext";
 
-/**
- * Provide the value for all the contexts.
- *
- * @category Contexts
- */
+/** Provide the value for all the contexts. */
 export const ContextProviders: FunctionComponent<
   PropsWithChildren<DayPickerProps<Mode>>
 > = <T extends Mode>(props: PropsWithChildren<DayPickerProps<T>>) => {

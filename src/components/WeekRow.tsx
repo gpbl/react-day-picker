@@ -5,11 +5,7 @@ import { useDayPicker } from "../contexts/DayPickerContext";
 import { WeekNumberRowHeader as DefaultWeekNumberRowHeader } from "./WeekNumberRowHeader";
 import { DayGridCellWrapper } from "./DayGridCellWrapper";
 
-/**
- * Render a row in the calendar, with the days and the week number.
- *
- * @category Custom Components
- */
+/** Render a row in the calendar, with the days and the week number. */
 export function WeekRow(props: WeekRowProps) {
   const { styles, classNames, showWeekNumber, components } = useDayPicker();
 

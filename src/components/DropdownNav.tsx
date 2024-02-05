@@ -3,11 +3,7 @@ import { useDayPicker } from "../contexts/DayPickerContext";
 import { MonthsDropdown } from "./MonthsDropdown";
 import { YearsDropdown } from "./YearsDropdown";
 
-/**
- * Render the dropdowns to navigate between months.
- *
- * @category Custom Components
- */
+/** Render the dropdowns to navigate between months. */
 export function DropdownNav(props: {
   /** The month where the dropdown navigation is displayed. */
   month: Month;

@@ -1,10 +1,6 @@
 import type { HTMLProps } from "react";
 
-/**
- * Component wrapping the month grids.
- *
- * @category Custom Components
- */
+/** Component wrapping the month grids. */
 export function Months(
   props: Pick<HTMLProps<HTMLElement>, "children" | "className" | "style">,
 ) {

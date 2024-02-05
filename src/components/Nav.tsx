@@ -3,11 +3,7 @@ import { useDayPicker } from "../contexts/DayPickerContext";
 import { Button as DefaultButton } from "./Button";
 import { Chevron as DefaultChevron } from "./Chevron";
 
-/**
- * Render the navigation buttons to change the month.
- *
- * @category Custom Components
- */
+/** Render the navigation buttons to change the month. */
 export function Nav() {
   const {
     classNames,

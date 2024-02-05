@@ -1,8 +1,22 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
+
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { IconButton, Tooltip } from "@radix-ui/themes";
 
 export const ThemeToggle = () => {
-  // const [theme, setTheme] = setState(;
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
   return (
     <>
       <style>{`
@@ -21,11 +35,7 @@ export const ThemeToggle = () => {
           size="3"
           variant="ghost"
           color="gray"
-          onClick={() => {
-            // setTheme((prev) =>
-            //   prev === Theme.DARK ? Theme.LIGHT : Theme.DARK
-            // );
-          }}
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
         >
           <SunIcon
             width="18"

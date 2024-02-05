@@ -29,6 +29,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "next.config.mjs",
+    "typedoc.mjs",
   ],
   "exclude": ["node_modules"],
 }

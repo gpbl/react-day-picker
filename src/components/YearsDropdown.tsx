@@ -8,11 +8,7 @@ import { useCalendar } from "../contexts/CalendarContext";
 import { useDayPicker } from "../contexts/DayPickerContext";
 import { Dropdown as DefaultDropdown } from "./Dropdown";
 
-/**
- * Render the dropdown to change the year.
- *
- * @category Custom Components
- */
+/** Render the dropdown to change the year. */
 export function YearsDropdown(props: {
   /** The month where the dropdown is displayed. */
   month: Month;

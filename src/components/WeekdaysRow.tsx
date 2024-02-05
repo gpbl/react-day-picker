@@ -2,11 +2,7 @@ import { useDayPicker } from "../contexts/DayPickerContext";
 import { WeekdayColumnHeader as DefaultWeekdayColumnHeader } from "./WeekdayColumnHeader";
 import { getWeekdays } from "./utils/getWeekdays";
 
-/**
- * Render the row with the weekday names.
- *
- * @category Custom Components
- */
+/** Render the row with the weekday names. */
 export function WeekdaysRow() {
   const {
     classNames,

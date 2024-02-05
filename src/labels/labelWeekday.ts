@@ -1,10 +1,6 @@
 import { format } from "date-fns/format";
 
-/**
- * Return he default ARIA label for the Weekday element.
- *
- * @category Labels
- */
+/** Return he default ARIA label for the Weekday element. */
 export function labelWeekday(
   date: Date,
   options?: Parameters<typeof format>[2],

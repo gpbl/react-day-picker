@@ -1,6 +1,5 @@
 import type { Modifiers } from "./modifiers";
 
-/** @category Event Handlers */
 export type DayEventHandler<T> = (
   /** The date that has triggered the event. */
   date: Date,
@@ -14,52 +13,27 @@ export type DayEventHandler<T> = (
  * The event handler when a day is clicked.
  *
  * @deprecated Use {@link DayMouseEventHandler} instead.
- * @category Deprecated Exports
  */
 export type DayClickEventHandler = DayEventHandler<React.MouseEvent>;
 
-/**
- * The event handler when a day is focused.
- *
- * @category Event Handlers
- */
+/** The event handler when a day is focused. */
 export type DayFocusEventHandler = DayEventHandler<
   React.FocusEvent | React.KeyboardEvent
 >;
 
-/**
- * The event handler when a day gets a keyboard event.
- *
- * @category Event Handlers
- */
+/** The event handler when a day gets a keyboard event. */
 export type DayKeyboardEventHandler = DayEventHandler<React.KeyboardEvent>;
 
-/**
- * The event handler when a day gets a mouse event.
- *
- * @category Event Handlers
- */
+/** The event handler when a day gets a mouse event. */
 export type DayMouseEventHandler = DayEventHandler<React.MouseEvent>;
 
-/**
- * The event handler when a day gets a pointer event.
- *
- * @category Event Handlers
- */
+/** The event handler when a day gets a pointer event. */
 export type DayPointerEventHandler = DayEventHandler<React.PointerEvent>;
 
-/**
- * The event handler when a month is changed in the calendar.
- *
- * @category Event Handlers
- */
+/** The event handler when a month is changed in the calendar. */
 export type MonthChangeEventHandler = (month: Date) => void;
 
-/**
- * The event handler when the week number is clicked.
- *
- * @category Event Handlers
- */
+/** The event handler when the week number is clicked. */
 export type WeekNumberClickEventHandler = (
   /** The week number that has been clicked. */
   weekNumber: number,
@@ -69,9 +43,5 @@ export type WeekNumberClickEventHandler = (
   e: React.MouseEvent,
 ) => void;
 
-/**
- * The event handler when a day gets a touch event.
- *
- * @category Event Handlers
- */
+/** The event handler when a day gets a touch event. */
 export type DayTouchEventHandler = DayEventHandler<React.TouchEvent>;

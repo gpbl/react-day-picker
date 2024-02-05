@@ -5,8 +5,9 @@ import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import { bundledLanguages, getHighlighter } from "shiki";
 
 /**
- * @typedef {import('next').NextConfig} NextConfig
- * @typedef {Array<((config: NextConfig) => NextConfig)>} NextConfigPlugins
+ * @typedef {import("next").NextConfig} NextConfig
+ *
+ * @typedef {((config: NextConfig) => NextConfig)[]} NextConfigPlugins
  */
 import createMDX from "@next/mdx";
 
@@ -16,25 +17,16 @@ const nextConfig = {
   reactStrictMode: true,
 };
 
-/** @type {import('rehype-pretty-code').Options} */
+/** @type {import("rehype-pretty-code").Options} */
 const prettyCodeOptions = {
   keepBackground: false,
-  theme: "github-light",
-  // getHighlighter: async (options) => {
-  //   const highlighter = await getHighlighter({
-  //     ...options,
-  //     paths: {
-  //       themes: "https://cdn.jsdelivr.net/npm/shiki@latest/themes",
-  //       wasm: "https://cdn.jsdelivr.net/npm/shiki@latest/dist",
-  //       languages: "https://cdn.jsdelivr.net/npm/shiki@latest/languages",
-  //     },
-  //     langs: bundledLanguages,
-  //   });
-  //   return highlighter;
-  // },
+  theme: {
+    dark: "github-dark-dimmed",
+    light: "github-light",
+  },
 };
 
-/** @type {import('@next/mdx').Options} */
+/** @type {import("@next/mdx").Options} */
 const mdxOptions = {
   remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkGfm],
   rehypePlugins: [[rehypePrettyCode, prettyCodeOptions]],

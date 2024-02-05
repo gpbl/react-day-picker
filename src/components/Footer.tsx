@@ -1,10 +1,6 @@
 import { HTMLProps } from "react";
 
-/**
- * Component wrapping the footer.
- *
- * @category Custom Components
- */
+/** Component wrapping the footer. */
 export function Footer(
   props: Pick<HTMLProps<HTMLElement>, "children" | "className" | "style">,
 ) {

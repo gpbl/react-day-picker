@@ -1,0 +1,18 @@
+# ActiveModifiers
+
+<a id="undefined" name="undefined"></a>
+
+> **ActiveModifiers**: `Record`\<[`Modifier`](/docs/api/main/type-aliases/Modifier.md), `true`\> & `Partial`\<`Record`\<[`InternalModifier`](/docs/api/main/enumerations/InternalModifier.md), `true`\>\>
+
+The modifiers that are matching a day in the calendar. Use the [useActiveModifiers](/docs/api/main/functions/useActiveModifiers.md) hook to get the modifiers for a day.
+
+```
+const activeModifiers: ActiveModifiers = {
+ selected: true,
+ customModifier: true
+}
+```
+
+## Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/Modifiers.ts:44

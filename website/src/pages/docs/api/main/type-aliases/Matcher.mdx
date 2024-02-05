@@ -1,0 +1,59 @@
+# Matcher
+
+<a id="undefined" name="undefined"></a>
+
+> **Matcher**: `boolean` \| (`date`) => `boolean` \| `Date` \| `Date`[] \| [`DateRange`](/docs/api/main/type-aliases/DateRange.md) \| [`DateBefore`](/docs/api/main/type-aliases/DateBefore.md) \| [`DateAfter`](/docs/api/main/type-aliases/DateAfter.md) \| [`DateInterval`](/docs/api/main/type-aliases/DateInterval.md) \| [`DayOfWeek`](/docs/api/main/type-aliases/DayOfWeek.md)
+
+A value or a function that matches a specific day.
+
+Matchers are passed to DayPicker via [DayPickerBase.disabled](/docs/api/main/interfaces/DayPickerBase.md#disabled),
+[]] or [[DayPickerProps.selected](/docs/api/main/interfaces/DayPickerBase.md#hidden) and are used to
+determine if a day should get a [Modifier](/docs/api/main/type-aliases/Modifier.md).
+
+Matchers can be of different types:
+
+```
+// will always match the day
+const booleanMatcher: Matcher = true;
+
+ // will match the today's date
+const dateMatcher: Matcher = new Date();
+
+// will match the days in the array
+const arrayMatcher: Matcher = [new Date(2019, 1, 2), new Date(2019, 1, 4)];
+
+// will match days after the 2nd of February 2019
+const afterMatcher: DateAfter = { after: new Date(2019, 1, 2) };
+ // will match days before the 2nd of February 2019 }
+const beforeMatcher: DateBefore = { before: new Date(2019, 1, 2) };
+
+// will match Sundays
+const dayOfWeekMatcher: DayOfWeek = {
+ dayOfWeek: 0
+};
+
+// will match the included days, except the two dates
+const intervalMatcher: DateInterval = {
+   after: new Date(2019, 1, 2),
+   before: new Date(2019, 1, 5)
+};
+
+// will match the included days, including the two dates
+const rangeMatcher: DateRange = {
+   from: new Date(2019, 1, 2),
+   to: new Date(2019, 1, 5)
+};
+
+// will match when the function return true
+const functionMatcher: Matcher = (day: Date) => {
+ return day.getMonth() === 2 // match when month is March
+};
+```
+
+## See
+
+[isMatch](/docs/api/main/functions/isMatch.md)
+
+## Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/types/Matchers.ts:52

@@ -9,8 +9,6 @@ import { WeekRow as DefaultWeekRow } from "./WeekRow";
 /**
  * Render the grid with the weekday header row and the weeks for the given
  * month.
- *
- * @category Custom Components
  */
 export function MonthGrid(props: {
   ["aria-labelledby"]?: string;
