@@ -1,35 +1,50 @@
 import { PropsWithChildren } from "react";
 
-import { Box, Flex } from "@radix-ui/themes";
+import { Box, Flex, Heading, Separator } from "@radix-ui/themes";
 
-import { DocsNav } from "./DocsNav";
+import { DocsNav, DocsNavProps } from "./DocsNav";
 import { DocsPageWrapper } from "./DocsPageWrapper";
 import { SideNav } from "./SideNav";
-import { docsNav } from "@/pages/nav.docs";
-import { apiNav } from "@/pages/nav.api";
-import { usePathname } from "next/navigation";
+import { Frontmatter } from "@/types/frontmatter";
+import { SectionTitle } from "./SectionTitle";
+import { Description } from "./Description";
+import { Navigation } from "@/types/docs";
 
-export function DocsPage(props: PropsWithChildren<{ pathName: string }>) {
-  const pathName = usePathname();
-
-  const routes = [];
-
-  if (pathName?.startsWith("/docs/api")) {
-    routes.push(...apiNav());
-  } else if (pathName?.startsWith("/docs") || pathName === "/") {
-    routes.push(...docsNav);
-  }
-
+export function DocPage(
+  props: PropsWithChildren<{
+    navigation: Navigation;
+    frontmatter: Frontmatter;
+  }>,
+) {
+  const { frontmatter } = props;
   return (
     <Flex>
       <SideNav>
         <Box pt="4" px="4" pb="9">
-          <DocsNav routes={routes} />
+          <DocsNav navigation={props.navigation} />
         </Box>
       </SideNav>
-
       <DocsPageWrapper>
-        <Box>{props.children}</Box>
+        <Box>
+          {frontmatter.section && (
+            <SectionTitle>{frontmatter.section}</SectionTitle>
+          )}
+          {frontmatter.title && (
+            <Heading
+              asChild
+              size="8"
+              mb="3"
+              style={{ scrollMarginTop: "var(--space-9)" }}
+            >
+              <h1>{frontmatter.title}</h1>
+            </Heading>
+          )}
+          {frontmatter.description && (
+            <Description>{frontmatter.description}</Description>
+          )}
+          <Separator size="4" my="6" style={{ marginInline: "auto" }} />
+          {props.children}
+        </Box>
         {/* <DocsPagination allRoutes={allColorsRoutes} /> */}
         {/* <EditPageLink /> */}
       </DocsPageWrapper>

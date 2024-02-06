@@ -1,0 +1,95 @@
+---
+section: Customization
+description: Change the appearance of the HTML elements, such as headings, grid cells and buttons.
+sort: 3
+---
+
+# Styling
+
+---
+
+## Importing the default styles
+
+To work with the default styles, add `react-day-picker/style.css` into your app.
+
+- If you are using a React framework, such as Next.js or Gatsby, or a bundler like Webpack, import the CSS file from your APP JavaScript or TypeScript file:
+  ```tsx title="app.jsx"
+  import "react-day-picker/style.css";
+  ```
+- If you are using a CDN, add the following link to your HTML file:
+  ```html
+  <link rel="stylesheet" href="https://unpkg.com/react-day-picker/style.css" />
+  ```
+- When using CSS modules, import `style.module.css` and pass the class names to the `classNames` prop.
+  ```tsx
+  import { DayPicker } from "react-day-picker";
+  import dayPickerClassNames from "react-day-picker/style.css";
+  // ...
+  <DayPicker classNames={dayPickerClassNames} />;
+  ```
+
+From here, you have different options to customize the appearance of the calendar, depending on your project setup.
+
+## Setting a dark or a light mode
+
+> TODO: this section is still incomplete.
+
+## Use `rdp-` CSS Variables for basic customization
+
+The default styles use CSS variables to make it easier to customize the base appearance of the calendar. You can override the CSS variables to change the appearance of the calendar.
+
+```css title="global.css"
+:root {
+  --rdp-accent-color: indigo;
+  --rdp-background-color: gray;
+}
+```
+
+The following table lists the CSS variables used by DayPicker:
+
+> TODO: this section is still incomplete.
+
+## Override the default style
+
+To further customize the styles, override the DayPicker CSS. For example, to change the background color of the day cells, add this style sheet to your `global.css` or `app.css`.
+
+```css title="global.css"
+/* Change the background color of the day cell. */
+.rdp-day {
+  background-color: #f0f0f0;
+}
+```
+
+## Integrating with Tailwind CSS
+
+> TODO: this section is still incomplete.
+
+```tsx filename="App.tsx" {4}
+import { DayPicker } from "react-day-picker";
+import "react-day-picker/style.css";
+
+import "./App.css"; // Import your custom styles to override the default CSS
+
+function App() {
+  return <DayPicker />;
+}
+```
+
+## Inline Styles support
+
+To change the appearance of any DayPicker element via inline-styles use the `styles` prop.
+
+Using inline styles won't override the default class names. Mouse hover effects cannot be styled inline.
+
+```tsx
+const monthCaptionStyle = {
+  borderBottom: "1px solid currentColor",
+  paddingBottom: "0.5em",
+};
+// ...
+<DayPicker
+  styles={{
+    month_caption: monthCaptionStyle,
+  }}
+/>;
+```

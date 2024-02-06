@@ -4,26 +4,29 @@ import "@radix-ui/themes/styles.css";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Layout from "@/components/layout";
-import { usePathname } from "next/navigation";
+import { getAllFrontmatter } from "@/lib/mdx";
+
+export async function getStaticProps() {
+  return {
+    props: {
+      title: "test",
+      description: "xxx",
+      allFrontmatters: getAllFrontmatter(),
+    },
+  };
+}
 
 export default function App({
   Component,
   pageProps,
 }: {
-  Component: React.ComponentType<any>;
+  Component: React.ComponentType<any> & {
+    getLayout?: (page: React.ReactNode, props: any) => React.ReactNode;
+  };
   pageProps: any;
 }) {
-  const pathName = usePathname() ?? "/";
-
+  const getPageLayout = Component.getLayout ?? ((page) => page);
   return (
-    <Layout
-      isDocPage={
-        pathName === "/" ||
-        pathName.startsWith("/docs") ||
-        pathName.startsWith("/v8")
-      }
-    >
-      <Component {...pageProps} />
-    </Layout>
+    <Layout>{getPageLayout(<Component {...pageProps} />, pageProps)}</Layout>
   );
 }

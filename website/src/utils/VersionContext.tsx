@@ -1,4 +1,10 @@
-import { PropsWithChildren, createContext, useContext, useState } from "react";
+import {
+  PropsWithChildren,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 export type Version = "main" | "next";
 
@@ -14,6 +20,16 @@ export const VersionContext = createContext<VersionContextProps>({
 
 export function VersionProvider({ children }: PropsWithChildren) {
   const [version, setVersion] = useState<Version>("main");
+
+  useEffect(() => {
+    const defaultVersion =
+      (localStorage.getItem("version") as Version) || "main";
+    setVersion(defaultVersion);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("version", version);
+  }, [version]);
 
   return (
     <VersionContext.Provider value={{ version, setVersion }}>

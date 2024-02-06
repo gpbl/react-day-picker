@@ -93,10 +93,9 @@ export function Header({ children, gitHubLink, ghost }: HeaderProps) {
 
         <div className={styles.HeaderLinksContainer}>
           <HeaderLink
-            href="/"
+            href="/docs"
             active={
-              !pathName.startsWith("/docs/api") &&
-              (pathName.startsWith("/docs") || pathName === "/")
+              !pathName.startsWith("/docs/api") && pathName.startsWith("/docs")
             }
           >
             Documentation

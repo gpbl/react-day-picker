@@ -42,10 +42,32 @@ code[data-theme*=" "] span {
   background-color: var(--shiki-light-bg);
 }
 
-@media (prefers-color-scheme: dark) {
-  code[data-theme*=" "],
-  code[data-theme*=" "] span {
-    color: var(--shiki-dark);
-    background-color: var(--shiki-dark-bg);
-  }
+html.dark code[data-theme*=" "],
+html.dark code[data-theme*=" "] span {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg);
+}
+
+.DocToc {
+  overflow: auto;
+  /* box-shadow: 0 0 0 1px var(--slate-a5); */
+  border-radius: var(--radius-2);
+  font-size: var(--font-size-2);
+  background-color: var(--slate-a2);
+  @apply my-10 py-4;
+}
+
+.DocToc > ol {
+  @apply pl-8;
+}
+
+.DocToc:before {
+  content: "Table of Contents";
+  display: block;
+  font-size: var(--font-size-1);
+  font-weight: bold;
+  color: var(--slate-12);
+  margin-bottom: var(--space-2);
+  margin-left: var(--space-4);
+  text-transform: uppercase;
 }

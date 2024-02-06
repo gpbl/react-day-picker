@@ -11,7 +11,7 @@
   margin-left: var(--space-4);
 }
 
-.List .List {
+.ul .ul {
   margin-top: var(--space-2);
   margin-bottom: 0;
 }

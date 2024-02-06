@@ -1,0 +1,132 @@
+# NavigationContextValue
+
+Represents the value of the [NavigationContext](/docs/api/main/variables/NavigationContext.md).
+
+## Properties
+
+<a id="currentmonth" name="currentmonth"></a>
+
+### currentMonth
+
+> **currentMonth**: `Date`
+
+The month to display in the calendar. When `numberOfMonths` is greater than one, is the first of the displayed months.
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/contexts/Navigation/NavigationContext.tsx:14
+
+***
+
+<a id="displaymonths" name="displaymonths"></a>
+
+### displayMonths
+
+> **displayMonths**: `Date`[]
+
+The months rendered by DayPicker. DayPicker can render multiple months via `numberOfMonths`.
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/contexts/Navigation/NavigationContext.tsx:16
+
+***
+
+<a id="gotodate" name="gotodate"></a>
+
+### goToDate
+
+> **goToDate**: (`date`, `refDate`?) => `void`
+
+Navigate to the specified date.
+
+#### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `date` | `Date` |
+| `refDate`? | `Date` |
+
+#### Returns
+
+`void`
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/contexts/Navigation/NavigationContext.tsx:20
+
+***
+
+<a id="gotomonth" name="gotomonth"></a>
+
+### goToMonth
+
+> **goToMonth**: (`month`) => `void`
+
+Navigate to the specified month.
+
+#### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `month` | `Date` |
+
+#### Returns
+
+`void`
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/contexts/Navigation/NavigationContext.tsx:18
+
+***
+
+<a id="isdatedisplayed" name="isdatedisplayed"></a>
+
+### isDateDisplayed
+
+> **isDateDisplayed**: (`day`) => `boolean`
+
+Whether the given day is included in the displayed months.
+
+#### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `day` | `Date` |
+
+#### Returns
+
+`boolean`
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/contexts/Navigation/NavigationContext.tsx:26
+
+***
+
+<a id="nextmonth" name="nextmonth"></a>
+
+### nextMonth?
+
+> **nextMonth**?: `Date`
+
+The next month to display.
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/contexts/Navigation/NavigationContext.tsx:22
+
+***
+
+<a id="previousmonth" name="previousmonth"></a>
+
+### previousMonth?
+
+> **previousMonth**?: `Date`
+
+The previous month to display.
+
+#### Source
+
+node\_modules/.pnpm/react-day-picker@8.10.0\_date-fns@3.3.1\_react@18.2.0/node\_modules/react-day-picker/src/contexts/Navigation/NavigationContext.tsx:24

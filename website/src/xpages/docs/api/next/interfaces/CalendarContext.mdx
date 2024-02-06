@@ -1,0 +1,251 @@
+# CalendarContext
+
+## Properties
+
+<a id="dates" name="dates"></a>
+
+### dates
+
+> **dates**: `Date`[]
+
+All the unique dates displayed to the calendar.
+
+#### Source
+
+[src/contexts/CalendarContext/CalendarContext.tsx:24](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/CalendarContext/CalendarContext.tsx#L24)
+
+***
+
+<a id="days" name="days"></a>
+
+### days
+
+> **days**: [`CalendarDay`](/docs/api/next/classes/CalendarDay.md)[]
+
+All the days displayed in the calendar. As opposite from
+[CalendarContext.dates](/docs/api/next/interfaces/CalendarContext.md#dates), it may return duplicated dates when shown
+outside the month.
+
+#### Source
+
+[src/contexts/CalendarContext/CalendarContext.tsx:30](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/CalendarContext/CalendarContext.tsx#L30)
+
+***
+
+<a id="dropdown" name="dropdown"></a>
+
+### dropdown
+
+> **dropdown**: `Object`
+
+The options to use in the years or months dropdowns.
+
+#### Type declaration
+
+| Member | Type | Description |
+| :------ | :------ | :------ |
+| `months` | `undefined` \| [`DropdownOption`](/docs/api/next/type-aliases/DropdownOption.md)[] | The options to use in the months dropdown. |
+| `years` | `undefined` \| [`DropdownOption`](/docs/api/next/type-aliases/DropdownOption.md)[] | The options to use in the years dropdown. |
+
+#### Source
+
+[src/contexts/CalendarContext/CalendarContext.tsx:52](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/CalendarContext/CalendarContext.tsx#L52)
+
+***
+
+<a id="firstmonth" name="firstmonth"></a>
+
+### firstMonth
+
+> **firstMonth**: `Date`
+
+The month displayed as first the calendar. When
+[PropsBase.numberOfMonths](/docs/api/next/interfaces/PropsBase.md#numberofmonths) is greater than `1`, it is the first of the
+displayed months.
+
+#### Source
+
+[src/contexts/CalendarContext/CalendarContext.tsx:40](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/CalendarContext/CalendarContext.tsx#L40)
+
+***
+
+<a id="gotoday" name="gotoday"></a>
+
+### goToDay
+
+> **goToDay**: (`day`) => `void`
+
+Navigate to the specified date. If the second parameter (refDate) is
+provided and the date is before the refDate, then the month is set to one
+month before the date.
+
+#### Parameters
+
+| Parameter | Type | Description |
+| :------ | :------ | :------ |
+| `day` | [`CalendarDay`](/docs/api/next/classes/CalendarDay.md) | The date to navigate to. |
+
+#### Returns
+
+`void`
+
+#### Source
+
+[src/contexts/CalendarContext/CalendarContext.tsx:76](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/CalendarContext/CalendarContext.tsx#L76)
+
+***
+
+<a id="gotomonth" name="gotomonth"></a>
+
+### goToMonth
+
+> **goToMonth**: (`month`) => `void`
+
+Navigate to the specified month. Will fire the
+[PropsBase.onMonthChange](/docs/api/next/interfaces/PropsBase.md#onmonthchange) callback.
+
+#### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `month` | `Date` |
+
+#### Returns
+
+`void`
+
+#### Source
+
+[src/contexts/CalendarContext/CalendarContext.tsx:62](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/CalendarContext/CalendarContext.tsx#L62)
+
+***
+
+<a id="gotonextmonth" name="gotonextmonth"></a>
+
+### goToNextMonth
+
+> **goToNextMonth**: () => `void`
+
+Navigate to the next month.
+
+#### Returns
+
+`void`
+
+#### Source
+
+[src/contexts/CalendarContext/CalendarContext.tsx:64](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/CalendarContext/CalendarContext.tsx#L64)
+
+***
+
+<a id="gotopreviousmonth" name="gotopreviousmonth"></a>
+
+### goToPreviousMonth
+
+> **goToPreviousMonth**: () => `void`
+
+Navigate to the previous month.
+
+#### Returns
+
+`void`
+
+#### Source
+
+[src/contexts/CalendarContext/CalendarContext.tsx:66](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/CalendarContext/CalendarContext.tsx#L66)
+
+***
+
+<a id="isdaydisplayed" name="isdaydisplayed"></a>
+
+### isDayDisplayed
+
+> **isDayDisplayed**: (`day`) => `boolean`
+
+Whether the given date is included in the displayed months.
+
+#### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `day` | [`CalendarDay`](/docs/api/next/classes/CalendarDay.md) |
+
+#### Returns
+
+`boolean`
+
+#### Source
+
+[src/contexts/CalendarContext/CalendarContext.tsx:78](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/CalendarContext/CalendarContext.tsx#L78)
+
+***
+
+<a id="lastmonth" name="lastmonth"></a>
+
+### lastMonth
+
+> **lastMonth**: `Date`
+
+The month displayed as last the calendar. When
+[PropsBase.numberOfMonths](/docs/api/next/interfaces/PropsBase.md#numberofmonths) is greater than `1`, it is the last of the
+displayed months.
+
+#### Source
+
+[src/contexts/CalendarContext/CalendarContext.tsx:46](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/CalendarContext/CalendarContext.tsx#L46)
+
+***
+
+<a id="months-1" name="months-1"></a>
+
+### months
+
+> **months**: [`Month`](/docs/api/next/classes/Month.md)[]
+
+The months displayed in the calendar.
+
+#### Source
+
+[src/contexts/CalendarContext/CalendarContext.tsx:34](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/CalendarContext/CalendarContext.tsx#L34)
+
+***
+
+<a id="nextmonth" name="nextmonth"></a>
+
+### nextMonth
+
+> **nextMonth**: `undefined` \| `Date`
+
+The next month to display.
+
+#### Source
+
+[src/contexts/CalendarContext/CalendarContext.tsx:48](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/CalendarContext/CalendarContext.tsx#L48)
+
+***
+
+<a id="previousmonth" name="previousmonth"></a>
+
+### previousMonth
+
+> **previousMonth**: `undefined` \| `Date`
+
+The previous month to display.
+
+#### Source
+
+[src/contexts/CalendarContext/CalendarContext.tsx:50](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/CalendarContext/CalendarContext.tsx#L50)
+
+***
+
+<a id="weeks" name="weeks"></a>
+
+### weeks
+
+> **weeks**: [`Week`](/docs/api/next/classes/Week.md)[]
+
+The months displayed in the calendar.
+
+#### Source
+
+[src/contexts/CalendarContext/CalendarContext.tsx:32](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/CalendarContext/CalendarContext.tsx#L32)

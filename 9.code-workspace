@@ -45,6 +45,7 @@
     "[typescript]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode",
     },
+    "tsImportSorter.configuration.configurationFileName": "import-sorter.json",
   },
   "launch": {
     "version": "0.2.0",

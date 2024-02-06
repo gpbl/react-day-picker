@@ -9,7 +9,7 @@ const apiPages = apiExports.map((category) => {
     pages:
       category[categoryKey]?.map((item) => ({
         title: item.name,
-        slug: `docs/api/` + item.url.replace(/\.mdx?$/, ""),
+        slug: `docs/api/next/` + item.url.replace(/\.mdx?$/, ""),
         deprecated: item.deprecated,
         // icon and preview are not available in the original data
       })) ?? [],
@@ -19,7 +19,7 @@ const apiPages = apiExports.map((category) => {
 export function apiNav(): DocsNavProps["routes"] {
   return [
     {
-      pages: [{ title: "Index", slug: "api/next/index" }],
+      pages: [{ title: "Index", slug: "docs/api/next/index" }],
     },
     ...apiPages,
   ];

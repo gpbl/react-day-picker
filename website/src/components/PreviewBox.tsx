@@ -1,8 +1,8 @@
-import { Box, Flex } from '@radix-ui/themes';
-import { PropsWithChildren } from 'react';
+import { Box, Flex } from "@radix-ui/themes";
+import { PropsWithChildren } from "react";
 
 export function PreviewBox(
-  props: PropsWithChildren<{ preview?: React.ReactNode }>
+  props: PropsWithChildren<{ preview?: React.ReactNode }>,
 ) {
   return (
     <>
