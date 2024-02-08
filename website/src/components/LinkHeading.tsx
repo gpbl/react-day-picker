@@ -22,11 +22,7 @@ export function LinkHeading({
       underline="hover"
       {...props}
     >
-      <a
-        id={id}
-        href={`#${id}`}
-        className={classNames(className, styles.LinkHeading)}
-      >
+      <a href={`#${id}`} className={classNames(className, styles.LinkHeading)}>
         {children}
 
         <Link2Icon aria-hidden />

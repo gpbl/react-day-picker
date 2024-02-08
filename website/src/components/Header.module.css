@@ -17,20 +17,20 @@
 }
 
 /* Faster transition when the header gains background (and slower when it loses it) */
-.HeaderRoot[data-scroll-state='scrolling-down'] .HeaderInner {
+.HeaderRoot[data-scroll-state="scrolling-down"] .HeaderInner {
   transition-duration: 30ms, 120ms;
 }
 
-.HeaderRoot:not(.ghost[data-scroll-state='at-top']) > .HeaderInner {
+.HeaderRoot:not(.ghost[data-scroll-state="at-top"]) > .HeaderInner {
   background-color: var(--color-background);
   box-shadow: 0 1px var(--slate-a4);
 }
 
-:where([data-mobile-menu-open='false']) .HeaderLinksContainer {
+:where([data-mobile-menu-open="false"]) .HeaderLinksContainer {
   display: none;
 }
 
-:where([data-mobile-menu-open='true']) .HeaderLinksContainer {
+:where([data-mobile-menu-open="true"]) .HeaderLinksContainer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,7 +59,7 @@
 }
 
 @media (max-width: 519px) {
-  [data-mobile-menu-open='true'] .HeaderThemeToggleContainer {
+  [data-mobile-menu-open="true"] .HeaderThemeToggleContainer {
     display: none;
   }
 }

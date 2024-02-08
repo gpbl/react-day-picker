@@ -1,14 +1,12 @@
 ---
-section: Customization
-description: Configure how users can navigate between months.
 sort: 2
 ---
 
+_Customization_
+
 # Months Navigation
 
----
-
-> **TODO**: This section is still a draft.
+> Configure how users can navigate between months.
 
 ## Change the Default Month
 
@@ -20,11 +18,11 @@ DayPicker displays the month of the current date. To change the default month, s
   ```
 </PreviewBox>
 
-## Control the Current Month
+### Control the Current Month
 
-DayPicker controls the displayed month and stores it in its internal state. To control the current month, set it in your component’s state.
+DayPicker controls the displayed month and stores it in its internal state. To control the current month, like with a <b>Go to today</b> button, set it in your component’s state.
 
-To control the current month, use `month` (as opposed to `defaultMonth`) and `onMonthChange` to handle the current month.
+Use the `month` (as opposed to `defaultMonth`) and `onMonthChange` to handle the current month.
 
 <PreviewBox preview={<Examples.Controlled />}>
   
@@ -56,7 +54,7 @@ Set the `dropdownNavigation` to display a combobox to change the month and/or th
   ```
 </PreviewBox>
 
-## Disable or hide the Navigation
+## Disable the Navigation
 
 To disable the navigation between months, use `disableNavigation`.
 
@@ -66,7 +64,9 @@ To disable the navigation between months, use `disableNavigation`.
   ```
 </PreviewBox>
 
-Hide the navigation buttons with the `hideNavigation` prop. This will not disable the navigation.
+## Hide the Navigation.
+
+Hide the navigation buttons with the `hideNavigation` prop.
 
 <PreviewBox preview={<Examples.HideNavigation />}>
   ```tsx
@@ -78,11 +78,9 @@ Hide the navigation buttons with the `hideNavigation` prop. This will not disabl
 
 Use `numberOfMonths` to render more than one month in the calendar.
 
-<PreviewBox preview={<Examples.MultipleMonths />}>
-  ```tsx
-  <DayPicker numberOfMonths={2} />
-  ```
-</PreviewBox>
+```tsx caption="render:MultipleMonths"
+<DayPicker numberOfMonths={2} />
+```
 
 ### Paged Navigation
 

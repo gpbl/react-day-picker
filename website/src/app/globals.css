@@ -61,7 +61,7 @@ html.dark code[data-theme*=" "] span {
   @apply pl-8;
 }
 
-.DocToc:before {
+.DocToc > ol:before {
   content: "Table of Contents";
   display: block;
   font-size: var(--font-size-1);

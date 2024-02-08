@@ -1,30 +1,19 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import "@/app/globals.css";
 import "react-day-picker/style.css";
 import "@radix-ui/themes/styles.css";
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import Layout from "@/components/layout";
-import { getAllFrontmatter } from "@/lib/mdx";
 
-export async function getStaticProps() {
-  return {
-    props: {
-      title: "test",
-      description: "xxx",
-      allFrontmatters: getAllFrontmatter(),
-    },
-  };
-}
-
-export default function App({
-  Component,
-  pageProps,
-}: {
-  Component: React.ComponentType<any> & {
+interface AppProps {
+  Component: React.ComponentType & {
     getLayout?: (page: React.ReactNode, props: any) => React.ReactNode;
   };
   pageProps: any;
-}) {
+}
+
+export default function App(props: AppProps) {
+  const { Component, pageProps } = props;
   const getPageLayout = Component.getLayout ?? ((page) => page);
   return (
     <Layout>{getPageLayout(<Component {...pageProps} />, pageProps)}</Layout>

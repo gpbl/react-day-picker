@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { createContext, PropsWithChildren } from "react";
 
 import type { MDXComponents } from "mdx/types";
@@ -7,7 +8,6 @@ import { DayPicker } from "react-day-picker";
 import { Description } from "@/components/Description";
 import { LinkHeading } from "@/components/LinkHeading";
 import listStyles from "@/components/listStyles.module.css";
-import { Pre } from "@/components/Pre";
 import { PreviewBox } from "@/components/PreviewBox";
 import { SectionTitle } from "@/components/SectionTitle";
 import { SignatureMemberIdentifier } from "@/components/SignatureMemberIdentifier";
@@ -60,8 +60,11 @@ export const components: MDXComponents = {
   TabsTrigger: Tabs.Trigger,
 
   // HTML components
-  a: function a(props: PropsWithChildren<{ href?: string }>) {
+  a: function a(
+    props: PropsWithChildren<{ href?: string; id?: string; name?: string }>,
+  ) {
     const { href = "", ...restProps } = props;
+
     if (href.startsWith("http")) {
       return (
         <Link
@@ -73,18 +76,15 @@ export const components: MDXComponents = {
         />
       );
     }
-    const href2 = href.replace(".md", "");
 
     return (
       <Link asChild>
-        <NextLink href={href2} {...restProps}></NextLink>
+        <NextLink href={href.replace(/.md$/, "")} {...restProps}></NextLink>
       </Link>
     );
   },
 
-  blockquote: function blockquote(props: PropsWithChildren) {
-    return <Blockquote {...props} />;
-  },
+  blockquote: (props: PropsWithChildren) => <Blockquote {...props} />,
 
   code: function code(props: JSX.IntrinsicElements["code"]) {
     const isInline = typeof props.children === "string";
@@ -94,15 +94,36 @@ export const components: MDXComponents = {
     return <code {...props}>{props.children}</code>;
   },
 
-  em: function em(props: PropsWithChildren) {
-    return <Em {...props} />;
-  },
+  em: (props: PropsWithChildren) => <Em {...props} />,
 
   figcaption: function figcaption(
     props: PropsWithChildren<{
       "data-rehype-pretty-code-title"?: "";
+      "data-rehype-pretty-code-caption"?: "";
     }>,
   ) {
+    if ("data-rehype-pretty-code-caption" in props) {
+      const caption = props.children as string;
+      if (caption.startsWith("render:")) {
+        const [, ExampleName] = caption.split(":");
+        const Component = Examples[ExampleName as keyof typeof Examples];
+        if (!Component) {
+          if (process.env.NODE_ENV === "development") {
+            console.warn(`No example found for "${ExampleName}"`);
+          }
+          return <></>;
+        }
+        return (
+          <Flex justify="center" mb="7">
+            <Component />
+          </Flex>
+        );
+      }
+      if (process.env.NODE_ENV === "development") {
+        console.warn(`Rendering caption is not supported yet.`);
+      }
+      return <></>;
+    }
     if ("data-rehype-pretty-code-title" in props) {
       const { children, ...restProps } = props;
       return (
@@ -128,146 +149,84 @@ export const components: MDXComponents = {
     return <figcaption {...props} />;
   },
 
-  h1: function h1(props: PropsWithChildren) {
-    return (
-      <Heading asChild size="8" mb="3">
-        <h1 {...props} style={{ scrollMarginTop: "var(--space-9)" }}>
-          {props.children}
-        </h1>
-      </Heading>
-    );
-  },
+  h1: (props) => (
+    <Heading asChild size="8" mb="3">
+      <h1 {...props} />
+    </Heading>
+  ),
 
-  h2: function h2(props: PropsWithChildren<{ id?: string }>) {
+  h2: (props: PropsWithChildren<{ id?: string }>) => {
     const { children, id } = props;
     return (
-      <Heading
-        size="6"
-        mt="8"
-        mb="3"
-        asChild
-        {...props}
-        id={id}
-        style={{ scrollMarginTop: "var(--space-9)" }}
-        data-heading
-      >
+      <Heading asChild size="6" mt="8" mb="3" {...props} id={id} data-heading>
         <h2>{id ? <LinkHeading id={id}>{children}</LinkHeading> : children}</h2>
       </Heading>
     );
   },
 
-  h3: function h3(props: PropsWithChildren<{ id?: string }>) {
+  h3: (props: PropsWithChildren<{ id?: string }>) => {
     const { children, id } = props;
     return (
-      <Heading
-        size="5"
-        mt="8"
-        mb="3"
-        asChild
-        {...props}
-        id={id}
-        style={{ scrollMarginTop: "var(--space-9)" }}
-        data-heading
-      >
+      <Heading asChild size="5" mt="8" mb="3" {...props} id={id} data-heading>
         <h3>{id ? <LinkHeading id={id}>{children}</LinkHeading> : children}</h3>
       </Heading>
     );
   },
+  h4: (props: PropsWithChildren) => (
+    <Heading asChild size="4" mt="6" mb="3">
+      <h4 {...props} />
+    </Heading>
+  ),
+  hr: (props: PropsWithChildren) => (
+    <Separator size="4" my="6" {...props} style={{ marginInline: "auto" }} />
+  ),
+  img: (props: JSX.IntrinsicElements["img"]) => (
+    <Box my="6">
+      {/* eslint-disable-next-line jsx-a11y/alt-text, @next/next/no-img-element */}
+      <img {...props} className="max-w-full align-middle" />
+    </Box>
+  ),
+  kbd: (props: PropsWithChildren) => <Kbd {...props} />,
+  li: (props: PropsWithChildren) => (
+    <li className={listStyles.li}>
+      <Text {...props} />
+    </li>
+  ),
 
-  h4: function h4(props: PropsWithChildren) {
-    const { children } = props;
-    return (
-      <Heading asChild size="4" mt="6" mb="3" {...props}>
-        <h4 style={{ scrollMarginTop: "var(--space-9)" }}>{children}</h4>
-      </Heading>
-    );
-  },
-
-  hr: function hr(props: PropsWithChildren) {
-    return (
-      <Separator size="4" {...props} my="6" style={{ marginInline: "auto" }} />
-    );
-  },
-
-  img: function img(props: JSX.IntrinsicElements["img"]) {
-    return (
-      <Box my="6">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          alt={props.alt}
-          {...props}
-          style={{
-            maxWidth: "100%",
-            verticalAlign: "middle",
-          }}
-        />
-      </Box>
-    );
-  },
-
-  kbd: function kbd(props: PropsWithChildren) {
-    return <Kbd {...props} />;
-  },
-
-  li: function li(props: PropsWithChildren) {
-    return (
-      <li className={listStyles.li}>
-        <Text {...props} />
-      </li>
-    );
-  },
-
-  ol: function ol({ children, ...props }: PropsWithChildren) {
-    return <ol className={listStyles.ul}>{children}</ol>;
-  },
-
-  p: function p(props: PropsWithChildren) {
-    return <Text mb="5" size="3" as="p" {...props} />;
-  },
-
-  pre: function pre(props: PropsWithChildren) {
-    return (
-      <Box
-        p="4"
-        my="6"
-        style={{
-          overflow: "auto",
-          boxShadow: "0 0 0 1px var(--slate-a5)",
-          borderRadius: "var(--radius-2)",
-          fontSize: "var(--font-size-2)",
-          backgroundColor: "var(--slate-a2)",
-        }}
-      >
-        <pre {...props} />
-      </Box>
-    );
-  },
-
-  strong: function strong(props: PropsWithChildren) {
-    return <Strong {...props} />;
-  },
-
-  ul: function ul(props: PropsWithChildren) {
-    return <ul {...props} className={listStyles.ul} />;
-  },
-
-  table: function table(props: PropsWithChildren) {
-    return (
-      <Table.Root className={tableStyles.Table} {...props}>
-        {props.children}
-      </Table.Root>
-    );
-  },
+  ol: (props: PropsWithChildren) => <ol className={listStyles.ul} {...props} />,
+  p: (props: PropsWithChildren) => <Text mb="5" size="3" as="p" {...props} />,
+  pre: (props: PropsWithChildren) => (
+    <Box
+      p="4"
+      my="6"
+      style={{
+        overflow: "auto",
+        boxShadow: "0 0 0 1px var(--slate-a5)",
+        borderRadius: "var(--radius-2)",
+        fontSize: "var(--font-size-2)",
+        backgroundColor: "var(--slate-a2)",
+      }}
+    >
+      <pre {...props} />
+    </Box>
+  ),
+  strong: (props: PropsWithChildren) => <Strong {...props} />,
+  ul: (props: PropsWithChildren) => <ul {...props} className={listStyles.ul} />,
+  table: (props: PropsWithChildren) => (
+    <Table.Root className={tableStyles.Table} {...props}>
+      {props.children}
+    </Table.Root>
+  ),
 };
+
 export const FrontmatterContext = createContext<Frontmatter>({} as Frontmatter);
 
 export function MDXProvider(
   props: PropsWithChildren<{ frontmatter: Frontmatter }>,
 ) {
-  const { frontmatter, children } = props;
   return (
-    <FrontmatterContext.Provider value={frontmatter}>
-      {children}
+    <FrontmatterContext.Provider value={props.frontmatter}>
+      {props.children}
     </FrontmatterContext.Provider>
   );
 }

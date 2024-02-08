@@ -1,14 +1,14 @@
 ---
-section: Customization
-description: Change the appearance of the HTML elements, such as headings, grid cells and buttons.
 sort: 3
 ---
 
+_Customization_
+
 # Styling
 
----
+> Change the appearance of the HTML elements, such as headings, grid cells and buttons.
 
-## Importing the default styles
+## Importing the Default Styles
 
 To work with the default styles, add `react-day-picker/style.css` into your app.
 
@@ -17,11 +17,11 @@ To work with the default styles, add `react-day-picker/style.css` into your app.
   import "react-day-picker/style.css";
   ```
 - If you are using a CDN, add the following link to your HTML file:
-  ```html
+  ```html title="index.html"
   <link rel="stylesheet" href="https://unpkg.com/react-day-picker/style.css" />
   ```
 - When using CSS modules, import `style.module.css` and pass the class names to the `classNames` prop.
-  ```tsx
+  ```tsx title="MyComponent.jsx"
   import { DayPicker } from "react-day-picker";
   import dayPickerClassNames from "react-day-picker/style.css";
   // ...
@@ -30,11 +30,11 @@ To work with the default styles, add `react-day-picker/style.css` into your app.
 
 From here, you have different options to customize the appearance of the calendar, depending on your project setup.
 
-## Setting a dark or a light mode
+## Setting a Dark or a Light Mode
 
 > TODO: this section is still incomplete.
 
-## Use `rdp-` CSS Variables for basic customization
+## Using the `rdp-` CSS Variables
 
 The default styles use CSS variables to make it easier to customize the base appearance of the calendar. You can override the CSS variables to change the appearance of the calendar.
 
@@ -49,7 +49,7 @@ The following table lists the CSS variables used by DayPicker:
 
 > TODO: this section is still incomplete.
 
-## Override the default style
+## Overriding the Style via CSS
 
 To further customize the styles, override the DayPicker CSS. For example, to change the background color of the day cells, add this style sheet to your `global.css` or `app.css`.
 
@@ -60,7 +60,7 @@ To further customize the styles, override the DayPicker CSS. For example, to cha
 }
 ```
 
-## Integrating with Tailwind CSS
+## Integration with Tailwind CSS
 
 > TODO: this section is still incomplete.
 
@@ -75,7 +75,7 @@ function App() {
 }
 ```
 
-## Inline Styles support
+## Basic Inline Styles Support
 
 To change the appearance of any DayPicker element via inline-styles use the `styles` prop.
 

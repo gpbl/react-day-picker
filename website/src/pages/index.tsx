@@ -1,6 +1,6 @@
 import { GetServerSideProps } from "next";
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async () => {
   return {
     redirect: {
       destination: "/docs",
@@ -10,5 +10,5 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 export default function Home() {
-  return <div />;
+  return <></>;
 }

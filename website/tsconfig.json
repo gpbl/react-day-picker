@@ -17,7 +17,7 @@
         "name": "next",
       },
     ],
-    "types": ["node", "jest", "@testing-library/jest-dom"],
+    "types": ["node", "jest", "@testing-library/jest-dom", "./mdx.d.ts"],
     "paths": {
       "@/test/*": ["../test/*"],
       "@/*": ["./src/*"],

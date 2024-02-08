@@ -1,0 +1,4 @@
+.docPage [data-heading="true"],
+.docPage a[name][id]:not([href]) {
+  scroll-margin-top: calc(var(--header-height) + 2rem);
+}
