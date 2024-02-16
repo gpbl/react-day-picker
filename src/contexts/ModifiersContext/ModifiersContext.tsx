@@ -14,22 +14,17 @@ import { dateMatchModifiers } from "./utils/dateMatchModifiers";
 /** A record with `data-*` attributes passed to `DayPicker`. */
 export type DataAttributes = Record<`data-${string}`, unknown>;
 
-/**
- * The `DayPickerProps` with their default values. Use this type within internal
- * components to use safe props and avoid all conditionals.
- */
+/** Access the modifiers of the calendar. */
 export interface ModifiersContext {
   /** Return the modifiers of the specified day. */
   getModifiers: (day: CalendarDay) => Modifiers;
+  /** A map of all the modifiers. */
   modifiersMap: ModifiersMap;
 }
 
 const modifiersContext = createContext<ModifiersContext | undefined>(undefined);
 
-/**
- * The provider for the `modifiersContext`, storing the state of the day
- * modifiers.
- */
+/** @private */
 export function ModifiersProvider({ children }: { children: ReactNode }) {
   const dayPicker = useDayPicker();
   const calendar = useCalendar();
@@ -140,8 +135,13 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
   );
 }
 
-/** Use this hook to access to the DayPicker context within custom components. */
-export function useModifiers() {
+/**
+ * Use this hook to access the {@link ModifiersContext} from custom components.
+ *
+ * @group Custom Components Hooks
+ * @see http://localhost:2001/docs/custom-components
+ */
+export function useModifiers(): ModifiersContext {
   const context = useContext(modifiersContext);
   if (!context)
     throw new Error(`useProps must be used within a PropsProvider.`);

@@ -19,7 +19,7 @@ export function MonthsDropdown(props: {
     labels: { labelMonthDropdown },
   } = useDayPicker();
 
-  const { dropdown, goToMonth } = useCalendar();
+  const { dropdownOptions: dropdown, goToMonth } = useCalendar();
 
   const Dropdown = components?.Dropdown ?? DefaultDropdown;
 

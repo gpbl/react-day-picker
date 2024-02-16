@@ -1,0 +1,8 @@
+.Callout {
+  align-items: center;
+}
+
+.Callout p {
+  @apply m-0;
+  @apply text-xs;
+}

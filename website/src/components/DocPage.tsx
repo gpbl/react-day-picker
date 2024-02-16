@@ -1,78 +1,113 @@
-import { PropsWithChildren } from "react";
-
-import { Navigation } from "@/types/docs";
-import { Frontmatter } from "@/types/frontmatter";
-import { Box, Flex, Heading, Separator } from "@radix-ui/themes";
+import { Doc, Navigation } from "@/lib/docs";
+import { Box, Flex, Heading, Separator, Text } from "@radix-ui/themes";
 import { Toc } from "@stefanprobst/rehype-extract-toc";
 
-import { Description } from "./Description";
+import styles from "./DocPage.module.css";
 import { DocsNav } from "./DocsNav";
-import { SectionTitle } from "./SectionTitle";
-import { SideNav } from "./SideNav";
 import { TableOfContent } from "./TableOfContent";
 
-import styles from "./DocPage.module.css";
+export interface DocPageProps {
+  navigation: Navigation;
+  doc: Doc;
+  toc: Toc;
+  children: React.ReactNode;
+}
 
-export function DocPage(
-  props: PropsWithChildren<{
-    navigation: Navigation;
-    frontmatter: Frontmatter;
-    toc: Toc;
-  }>,
-) {
-  const { frontmatter } = props;
+export function DocPage(props: DocPageProps) {
+  const { doc, navigation, toc } = props;
+
+  const isMainDocs = doc.slug[0] !== "api";
+  const isApiMainDocs = doc.slug[0] === "api" && doc.slug[1] === "main";
+
   return (
     <Flex className={styles.docPage}>
       <Box style={{ width: 250 }}>
-        <SideNav>
-          <Box pt="4" px="4" pb="9">
-            <DocsNav navigation={props.navigation} />
-          </Box>
-        </SideNav>
-      </Box>
-      <Box
-        style={{ width: "100%", marginInlineStart: "7.5%" }}
-        className="flex flex-1 md:ms-9"
-      >
-        <Box className="max-w-screen-md my-20 flex-1">
-          {frontmatter.section && (
-            <SectionTitle>{frontmatter.section}</SectionTitle>
-          )}
-          {frontmatter.title && (
-            <Heading
-              asChild
-              size="8"
-              mb="3"
-              style={{ scrollMarginTop: "var(--header-height)" }}
-            >
-              <h1>{frontmatter.title}</h1>
-            </Heading>
-          )}
-          {frontmatter.description && (
-            <Description>{frontmatter.description}</Description>
-          )}
-          <Separator size="4" my="6" color="gray" />
-
-          {props.toc.length > 0 && (
-            <Box mb="9" className="lg:hidden">
-              <TableOfContent toc={props.toc} />
+        <Box
+          display={{ initial: "none", md: "block" }}
+          style={{ width: 250, flexShrink: 0 }}
+        >
+          <Box
+            position="fixed"
+            left="0"
+            bottom="0"
+            style={{
+              zIndex: 1,
+              top: "var(--header-height)",
+              overflowX: "hidden",
+              width: "inherit",
+            }}
+          >
+            <Box pt="4" px="4" pb="9">
+              <DocsNav
+                navigation={
+                  isMainDocs
+                    ? navigation.docs
+                    : isApiMainDocs
+                      ? navigation.apiMain
+                      : navigation.apiNext
+                }
+              />
             </Box>
-          )}
-          {props.children}
-          {/* <DocsPagination allRoutes={allColorsRoutes} /> */}
-          {/* <EditPageLink /> */}
+          </Box>
         </Box>
-        {props.toc.length > 0 && (
-          <Box mt="9" className="hidden lg:block">
-            <Box
-              className="ms-20 mt-9 me-10 py-4 px-4"
-              style={{ borderLeft: "1px solid var(--slate-a5)" }}
-            >
-              <TableOfContent toc={props.toc} />
-            </Box>
-          </Box>
-        )}
       </Box>
+      <main>
+        <Box
+          style={{ marginInlineStart: "7.5%" }}
+          className="flex flex-1 md:ms-9 w-full "
+        >
+          <Box className="max-w-screen-md my-20 flex-1">
+            <header>
+              {doc.section && (
+                <Text
+                  as="p"
+                  size="4"
+                  style={{ color: "var(--accent-a9)" }}
+                  weight="bold"
+                  mb="2"
+                  {...props}
+                >
+                  {doc.section}
+                </Text>
+              )}
+              {doc.title && (
+                <Heading as="h1" size="8" mb="3">
+                  {doc.title}
+                </Heading>
+              )}
+              {doc.description && (
+                <Text as="p" size="5" mt="2" mb="2" color="gray">
+                  {doc.description}
+                </Text>
+              )}
+              <Separator size="4" my="6" color="gray" />
+            </header>
+
+            {toc.length > 0 && (
+              // Show the table of content on mobile
+              <Box mb="9" className="lg:hidden">
+                <TableOfContent toc={toc} />
+              </Box>
+            )}
+
+            {props.children}
+
+            {/* <DocsPagination allRoutes={allColorsRoutes} /> */}
+            {/* <EditPageLink /> */}
+          </Box>
+          {toc.length > 0 && (
+            // Show the table of content on desktop
+            <Box mt="9" className="hidden lg:block sticky top-12">
+              <Box
+                className="ms-20 mt-9 me-10 py-4 px-4 border-l"
+                style={{ borderColor: "var(--slate-a5)" }}
+              >
+                <TableOfContent toc={toc} />
+              </Box>
+            </Box>
+          )}
+        </Box>
+      </main>
     </Flex>
   );
 }

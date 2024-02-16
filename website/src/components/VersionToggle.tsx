@@ -4,7 +4,7 @@ import { ChevronDownIcon } from "@radix-ui/react-icons";
 import v8PackageJson from "react-day-picker-v8/package.json" assert { type: "json" };
 import v9PackageJson from "react-day-picker/package.json" assert { type: "json" };
 
-import { useVersion } from "@/utils/VersionContext";
+import { useVersion } from "@/lib/version";
 import { usePathname, useRouter } from "next/navigation";
 
 export function VersionToggle() {

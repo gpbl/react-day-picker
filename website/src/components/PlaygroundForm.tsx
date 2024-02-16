@@ -103,7 +103,7 @@ export function PropsForm(props: {
               onValueChange={(value) => {
                 return onChange(
                   "dropdownNavigation",
-                  value === "true" ? true : value === "off" ? false : value
+                  value === "true" ? true : value === "off" ? false : value,
                 );
               }}
             >

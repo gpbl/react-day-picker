@@ -83,7 +83,11 @@ export const DayPickerProvider = <T extends Mode>(
   );
 };
 
-/** Use this hook to access to the DayPicker context within Custom Components. */
+/**
+ * Use this hook to access to the DayPicker context within Custom Components.
+ *
+ * @group Custom Components Hooks
+ */
 export function useDayPicker() {
   const context = useContext(dayPickerContext);
   if (!context)

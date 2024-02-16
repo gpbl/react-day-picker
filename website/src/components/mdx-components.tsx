@@ -1,17 +1,13 @@
-/* eslint-disable no-console */
-import { createContext, PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 
 import type { MDXComponents } from "mdx/types";
 import NextLink from "next/link";
 import { DayPicker } from "react-day-picker";
 
-import { Description } from "@/components/Description";
 import { LinkHeading } from "@/components/LinkHeading";
 import listStyles from "@/components/listStyles.module.css";
-import { PreviewBox } from "@/components/PreviewBox";
-import { SectionTitle } from "@/components/SectionTitle";
-import { SignatureMemberIdentifier } from "@/components/SignatureMemberIdentifier";
-import { Step, Steps } from "@/components/Steps";
+import { CodeBlock } from "@/components/CodeBlock";
+import { Steps } from "@/components/Steps";
 import tableStyles from "@/components/tableStyles.module.css";
 
 import * as Examples from "@/examples";
@@ -32,7 +28,8 @@ import {
   Tabs,
   Text,
 } from "@radix-ui/themes";
-import { Frontmatter } from "@/types/frontmatter";
+import { Callout } from "./Callout";
+import { LinkCard } from "./LinkCard";
 
 /** All the components used to generate the MDX pages. */
 export const components: MDXComponents = {
@@ -42,22 +39,21 @@ export const components: MDXComponents = {
   Examples,
 
   // Custom components
-  PreviewBox,
-  Description,
-  SectionTitle,
+  CodeBlock: CodeBlock,
   Steps,
-  Step,
-
-  SignatureMemberIdentifier,
 
   // Radix UI components
   Text,
+  Flex,
   Card,
   Box,
   Tabs: Tabs.Root,
   TabsList: Tabs.List,
   TabsContent: Tabs.Content,
   TabsTrigger: Tabs.Trigger,
+
+  Callout,
+  LinkCard,
 
   // HTML components
   a: function a(
@@ -69,7 +65,10 @@ export const components: MDXComponents = {
       return (
         <Link
           {...restProps}
-          style={{ textDecoration: "underline" }}
+          style={{
+            textDecoration: "underline",
+            textDecorationColor: "currentcolor",
+          }}
           href={href}
           target="_blank"
           rel="noopener"
@@ -78,13 +77,21 @@ export const components: MDXComponents = {
     }
 
     return (
-      <Link asChild>
-        <NextLink href={href.replace(/.md$/, "")} {...restProps}></NextLink>
+      <Link
+        asChild
+        style={{
+          textDecoration: "underline",
+          textDecorationColor: "currentcolor",
+        }}
+      >
+        <NextLink href={href.replace(/.mdx?$/, "")} {...restProps}></NextLink>
       </Link>
     );
   },
 
-  blockquote: (props: PropsWithChildren) => <Blockquote {...props} />,
+  blockquote: (props: PropsWithChildren) => (
+    <Blockquote size="3" my="3" {...props} />
+  ),
 
   code: function code(props: JSX.IntrinsicElements["code"]) {
     const isInline = typeof props.children === "string";
@@ -106,6 +113,7 @@ export const components: MDXComponents = {
       const caption = props.children as string;
       if (caption.startsWith("render:")) {
         const [, ExampleName] = caption.split(":");
+        // eslint-disable-next-line import/namespace
         const Component = Examples[ExampleName as keyof typeof Examples];
         if (!Component) {
           if (process.env.NODE_ENV === "development") {
@@ -158,7 +166,7 @@ export const components: MDXComponents = {
   h2: (props: PropsWithChildren<{ id?: string }>) => {
     const { children, id } = props;
     return (
-      <Heading asChild size="6" mt="8" mb="3" {...props} id={id} data-heading>
+      <Heading asChild size="7" mt="9" mb="5" {...props} id={id} data-heading>
         <h2>{id ? <LinkHeading id={id}>{children}</LinkHeading> : children}</h2>
       </Heading>
     );
@@ -194,22 +202,24 @@ export const components: MDXComponents = {
   ),
 
   ol: (props: PropsWithChildren) => <ol className={listStyles.ul} {...props} />,
-  p: (props: PropsWithChildren) => <Text mb="5" size="3" as="p" {...props} />,
-  pre: (props: PropsWithChildren) => (
-    <Box
-      p="4"
-      my="6"
-      style={{
-        overflow: "auto",
-        boxShadow: "0 0 0 1px var(--slate-a5)",
-        borderRadius: "var(--radius-2)",
-        fontSize: "var(--font-size-2)",
-        backgroundColor: "var(--slate-a2)",
-      }}
-    >
-      <pre {...props} />
-    </Box>
-  ),
+  p: (props: PropsWithChildren) => <p {...props} />,
+  pre: (props: PropsWithChildren) => {
+    return (
+      <Box
+        p="4"
+        my="6"
+        style={{
+          overflow: "auto",
+          boxShadow: "0 0 0 1px var(--slate-a5)",
+          borderRadius: "var(--radius-2)",
+          fontSize: "var(--font-size-2)",
+          backgroundColor: "var(--slate-a2)",
+        }}
+      >
+        <pre {...props} />
+      </Box>
+    );
+  },
   strong: (props: PropsWithChildren) => <Strong {...props} />,
   ul: (props: PropsWithChildren) => <ul {...props} className={listStyles.ul} />,
   table: (props: PropsWithChildren) => (
@@ -218,15 +228,3 @@ export const components: MDXComponents = {
     </Table.Root>
   ),
 };
-
-export const FrontmatterContext = createContext<Frontmatter>({} as Frontmatter);
-
-export function MDXProvider(
-  props: PropsWithChildren<{ frontmatter: Frontmatter }>,
-) {
-  return (
-    <FrontmatterContext.Provider value={props.frontmatter}>
-      {props.children}
-    </FrontmatterContext.Provider>
-  );
-}

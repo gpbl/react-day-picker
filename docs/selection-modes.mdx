@@ -41,7 +41,7 @@ You can also implement your own selection logic by setting up a **custom selecti
 
 When using `mode="single"` (the default), users can select only one day from the calendar:
 
-<PreviewBox preview={<Examples.Single />}>
+<CodeBlock preview={<Examples.Single />}>
 
 ```tsx
 const [selectedDay, setSelectedDay] = useState<Date | undefined>();
@@ -49,13 +49,13 @@ const [selectedDay, setSelectedDay] = useState<Date | undefined>();
 <DayPicker selected={selectedDay} onSelect={setSelectedDay} />;
 ```
 
-</PreviewBox>
+</CodeBlock>
 
 ### Required Selection
 
 To make a selection required, use the `required` prop. Setting this prop won't allow the user to unselect the selected day.
 
-<PreviewBox preview={<Examples.SingleRequired/>}>
+<CodeBlock preview={<Examples.SingleRequired/>}>
 
 ```tsx
 const [selectedDay, setSelectedDay] = useState<Date>(new Date());
@@ -67,13 +67,13 @@ const [selectedDay, setSelectedDay] = useState<Date>(new Date());
 />;
 ```
 
-</PreviewBox>
+</CodeBlock>
 
 ## Selecting Multiple Days
 
 Use `mode="multiple"` to allow the selection of multiple days.
 
-<PreviewBox preview={<Examples.Multiple/>}>
+<CodeBlock preview={<Examples.Multiple/>}>
 
 ```tsx
 const initialDays: Date[] = [];
@@ -86,13 +86,13 @@ const [days, setDays] = useState<Date[]>(initialDays);
 />;
 ```
 
-</PreviewBox>
+</CodeBlock>
 
 ### Limiting the Selections
 
 Use `required` or the `min` and `max` props to limit the amount of days that can be selected.
 
-<PreviewBox preview={<Examples.MultipleMinMax/>}>
+<CodeBlock preview={<Examples.MultipleMinMax/>}>
 
 ```tsx
 const [selected, setSelected] = useState();
@@ -106,13 +106,13 @@ const [selected, setSelected] = useState();
 />;
 ```
 
-</PreviewBox>
+</CodeBlock>
 
 ## Selecting a Range of days
 
 Use `mode="range"` and `onSelect` to allow the selection of a range of days.
 
-<PreviewBox preview={<Examples.Range/>}>
+<CodeBlock preview={<Examples.Range/>}>
 
 ```tsx
 import { addDays } from "date-fns";
@@ -126,13 +126,13 @@ const [range, setRange] = useState(defaultSelected);
 <DayPicker mode="range" selected={range} onSelect={setRange} />;
 ```
 
-</PreviewBox>
+</CodeBlock>
 
 ### Limiting the range size
 
 Use the `min` and `max` props to limit the amount of days in the range.
 
-<PreviewBox preview={<Examples.RangeMinMax/>}>
+<CodeBlock preview={<Examples.RangeMinMax/>}>
 
 ```tsx
 const [range, setRange] = useState();
@@ -140,27 +140,27 @@ const [range, setRange] = useState();
 <DayPicker mode="range" min={3} max={6} selected={range} onSelect={setRange} />;
 ```
 
-</PreviewBox>
+</CodeBlock>
 
 ## Disabling days
 
 Use the `disabled` prop to disable the days in the selection mode.
 
-<PreviewBox preview={<Examples.Disabled />}>
+<CodeBlock preview={<Examples.Disabled />}>
   ```tsx
   <DayPicker />
   ```
-</PreviewBox>
+</CodeBlock>
 
 ## Turning off selection mode
 
 Use the `min` and `max` props to limit the amount of days in the range.
 
-<PreviewBox preview={<Examples.None />}>
+<CodeBlock preview={<Examples.None />}>
   ```tsx
   <DayPicker mode="presentation" />
   ```
-</PreviewBox>
+</CodeBlock>
 
 ## Custom Selections
 

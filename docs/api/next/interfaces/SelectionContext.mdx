@@ -1,95 +1,18 @@
-# SelectionContext
+---
+section: Interface
+title: SelectionContext
+---
+
+# Interface: SelectionContext
+
+Share the selected days and the selection methods across the components.
 
 ## Properties
 
-<a id="excluded" name="excluded"></a>
-
-### excluded
-
-> **excluded**: [`Matcher`](/docs/api/next/type-aliases/Matcher.md)[]
-
-#### Source
-
-[src/contexts/SelectionContext/SelectionContext.tsx:29](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/SelectionContext/SelectionContext.tsx#L29)
-
-***
-
-<a id="isexcluded" name="isexcluded"></a>
-
-### isExcluded
-
-> **isExcluded**: (`date`) => `boolean`
-
-#### Parameters
-
-| Parameter | Type |
-| :------ | :------ |
-| `date` | `Date` |
-
-#### Returns
-
-`boolean`
-
-#### Source
-
-[src/contexts/SelectionContext/SelectionContext.tsx:30](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/SelectionContext/SelectionContext.tsx#L30)
-
-***
-
-<a id="isselected" name="isselected"></a>
-
-### isSelected
-
-> **isSelected**: (`date`) => `boolean`
-
-#### Parameters
-
-| Parameter | Type |
-| :------ | :------ |
-| `date` | `Date` |
-
-#### Returns
-
-`boolean`
-
-#### Source
-
-[src/contexts/SelectionContext/SelectionContext.tsx:28](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/SelectionContext/SelectionContext.tsx#L28)
-
-***
-
-<a id="selected" name="selected"></a>
-
-### selected
-
-> **selected**: [`Selected`](/docs/api/next/type-aliases/Selected.md)\<[`Mode`](/docs/api/next/type-aliases/Mode.md)\>
-
-The currently selected value.
-
-#### Source
-
-[src/contexts/SelectionContext/SelectionContext.tsx:22](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/SelectionContext/SelectionContext.tsx#L22)
-
-***
-
-<a id="setselected" name="setselected"></a>
-
-### setSelected
-
-> **setSelected**: (`date`, `modifiers`, `e`) => `void`
-
-#### Parameters
-
-| Parameter | Type |
-| :------ | :------ |
-| `date` | `Date` |
-| `modifiers` | [`Modifiers`](/docs/api/next/type-aliases/Modifiers.md) |
-| `e` | `MouseEvent`\<`Element`, `MouseEvent`\> \| `KeyboardEvent`\<`Element`\> |
-
-#### Returns
-
-`void`
-
-#### Source
-
-[src/contexts/SelectionContext/SelectionContext.tsx:23](https://github.com/gpbl/react-day-picker/blob/next/src/contexts/SelectionContext/SelectionContext.tsx#L23)
+| Property | Type | Description |
+| :------ | :------ | :------ |
+| `excluded` | [`Matcher`](/docs/api/next/type-aliases/Matcher.mdx)[] | The excluded days. |
+| `isExcluded` | (`date`: `Date`) => `boolean` | Return `true` if the given day is excluded. |
+| `isSelected` | (`date`: `Date`) => `boolean` | Return `true` if the given day is selected. |
+| `selected` | [`Selected`](/docs/api/next/type-aliases/Selected.mdx)\<[`Mode`](/docs/api/next/type-aliases/Mode.mdx)\> | The currently selected value. |
+| `setSelected` | (`date`: `Date`, `modifiers`: [`Modifiers`](/docs/api/next/type-aliases/Modifiers.mdx), `e`: `MouseEvent`\<`Element`, `MouseEvent`\> \| `KeyboardEvent`\<`Element`\>) => `void` | Set the selected days. |

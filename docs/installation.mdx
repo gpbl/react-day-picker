@@ -4,50 +4,45 @@ sort: 1
 
 _Getting Started_
 
-# Installing DayPicker
+# Installing
 
-> Get DayPicker from npm. Requires React 18+ and date-fns.
+Get DayPicker from npm. Requires [React 18+](https://react.dev) and [date-fns](https://date-fns.org/).
 
-DayPicker requires React 18+ and [date-fns](http://date-fns.org/). If you are using an older version of React, you can use DayPicker 7.x.
+<Steps>
 
-### Install the Packages
+### Install from npm
 
-Add `react-day-picker` and `date-fns` to your project:
+Run `npm install` to add DayPicker to your package.json:
 
 ```bash
 npm install react-day-picker date-fns --save
 ```
 
-### Include the Base Style
+### Import the Base Style
 
-Import the CSS file from the `react-day-picker` package:
+Import the CSS file from the package into your application.
 
-```jsx title="App.jsx"
+```jsx title="app.js"
 import "react-day-picker/style.css";
 ```
 
-### Start using DayPicker
+<Callout icon="info-circle">
+  Read more about styling and other ways for importing the base style in the
+  [Styling Guide](styling.mdx).
+</Callout>
 
-Import `DayPicker` in your code to start building your calendar:
+### Implement your first date picker
 
-```js
+Now you can use the `DayPicker` component in your application:
+
+```jsx title="app.js"
+import { useState } from "react";
 import { DayPicker } from "react-day-picker";
 
-export default function MyApp() {
-  const [selected, setSelected] = useState(new Date());
-
-  return (
-    <div role="application">
-      <DayPicker selected={selected} onSelect={setSelected} />
-      <p>Picked Day: {selected.toLocaleDateString()}</p>
-    </div>
-  );
+export default function App() {
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  return <DayPicker selected={selectedDate} onSelected={setSelectedDate} />;
 }
 ```
 
-### Discover DayPicker
-
-Continue reading the [documentation](/docs/navigation) to understand about the customization options and the other features.
-
-- For a quick overview, check out the [examples](/docs/examples).
-- To learn how to customize the calendar, read the [styling guide](/docs/styling).
+</Steps>

@@ -12,11 +12,11 @@ _Customization_
 
 DayPicker displays the month of the current date. To change the default month, set the `defaultMonth` prop.
 
-<PreviewBox preview={<Examples.DefaultMonth />}>
+<CodeBlock preview={<Examples.DefaultMonth />}>
   ```tsx
   <DayPicker defaultMonth={new Date(1979, 8)} />
   ```
-</PreviewBox>
+</CodeBlock>
 
 ### Control the Current Month
 
@@ -24,7 +24,7 @@ DayPicker controls the displayed month and stores it in its internal state. To c
 
 Use the `month` (as opposed to `defaultMonth`) and `onMonthChange` to handle the current month.
 
-<PreviewBox preview={<Examples.Controlled />}>
+<CodeBlock preview={<Examples.Controlled />}>
   
   ```tsx
   const [month, setMonth] = useState(new Date());
@@ -32,47 +32,47 @@ Use the `month` (as opposed to `defaultMonth`) and `onMonthChange` to handle the
   <DayPicker month={month} onMonthChange={setMonth} />
   ```
 
-</PreviewBox>
+</CodeBlock>
 
 ## Limit the Month Navigation
 
 As default, DayPicker can navigate indefinitely in the past or in the future. To limit the navigable months between two years, use `fromYear` or `toYear`. You can also limit the navigation with `fromDate`/`toDate` and `fromMonth` and `toMonth`.
 
-<PreviewBox preview={<Examples.FromToYear />}>
+<CodeBlock preview={<Examples.FromToYear />}>
   ```tsx
   <DayPicker defaultMonth={new Date(2024, 1)} fromYear={2024} toYear={2026} />
   ```
-</PreviewBox>
+</CodeBlock>
 
 ## Dropdowns Navigation
 
 Set the `dropdownNavigation` to display a combobox to change the month and/or the year.
 
-<PreviewBox preview={<Examples.Dropdown />}>
+<CodeBlock preview={<Examples.Dropdown />}>
   ```tsx
   <DayPicker dropdownNavigation />
   ```
-</PreviewBox>
+</CodeBlock>
 
 ## Disable the Navigation
 
 To disable the navigation between months, use `disableNavigation`.
 
-<PreviewBox preview={<Examples.DisableNavigation />}>
+<CodeBlock preview={<Examples.DisableNavigation />}>
   ```tsx
   <DayPicker disableNavigation />
   ```
-</PreviewBox>
+</CodeBlock>
 
 ## Hide the Navigation.
 
 Hide the navigation buttons with the `hideNavigation` prop.
 
-<PreviewBox preview={<Examples.HideNavigation />}>
+<CodeBlock preview={<Examples.HideNavigation />}>
   ```tsx
   <DayPicker hideNavigation />
   ```
-</PreviewBox>
+</CodeBlock>
 
 ## Multiple Months
 
@@ -86,8 +86,8 @@ Use `numberOfMonths` to render more than one month in the calendar.
 
 When rendering multiple months, toggle `pagedNavigation` to navigate the given number of months per time.
 
-<PreviewBox preview={<Examples.MultipleMonthsPaged />}>
+<CodeBlock preview={<Examples.MultipleMonthsPaged />}>
   ```tsx
   <DayPicker numberOfMonths={2} pagedNavigation />
   ```
-</PreviewBox>
+</CodeBlock>

@@ -6,9 +6,7 @@
     "dev": "next dev --port 2001",
     "build": "next build",
     "start": "next start --port 2000",
-    "lint": "next lint",
-    "build-typedoc-theme": "rm -rf ./typedoc-theme/dist && pnpm tsc -p ./typedoc-theme/tsconfig.json && cp -R ./typedoc-theme/src/resources ./typedoc-theme/dist",
-    "generate-api-pages": "pnpm run build-typedoc-theme && TYPEDOC_BRANCH=main pnpm typedoc && TYPEDOC_BRANCH=next pnpm typedoc"
+    "lint": "next lint"
   },
   "dependencies": {
     "@jsdevtools/rehype-toc": "^3.0.2",
@@ -43,11 +41,7 @@
     "remark-gfm": "^4.0.0",
     "remark-mdx-frontmatter": "^4.0.0",
     "remark-slug": "^7.0.1",
-    "shiki": "1.0.0-beta.5",
-    "shikiji": "^0.10.0",
-    "tm-themes": "^1.1.1",
-    "typedoc": "^0.25.7",
-    "typedoc-plugin-markdown": "next"
+    "shiki": "1.0.0-beta.5"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -1,77 +1,58 @@
 import React from "react";
 
 import { getMDXComponent } from "mdx-bundler/client";
-import { GetStaticPaths, GetStaticPathsResult } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 
-import { DocPage } from "@/components/DocPage";
 import { components } from "@/components/mdx-components";
-import { getAllFrontmatter, getMdxBySlug } from "@/lib/mdx";
-import { Navigation } from "@/types/docs";
-import type { Frontmatter } from "@/types/frontmatter";
+import { Doc, getDocs, getDocsNavigation, Navigation } from "@/lib/docs";
+import { getMdxBySlug } from "@/lib/mdx";
 import type { Toc } from "@stefanprobst/rehype-extract-toc";
 
-import { getDocNavigationForSlug } from "./getDocNavigationForSlug";
-
-export interface PageProps {
+interface PageProps {
+  doc: Doc;
+  /** All the docs with their frontmatter */
+  allDocs: Doc[];
+  /** The table of contents for the current page */
   toc: Toc | null;
-  frontmatter: Frontmatter;
   navigation: Navigation;
   code: string;
 }
 
-export default function Page({ code }: PageProps) {
-  const Component = React.useMemo(() => getMDXComponent(code), [code]);
-  return <Component components={components} />;
-}
-
-Page.getLayout = (page: React.ReactNode, props: PageProps) => (
-  <DocPage
-    navigation={props.navigation}
-    frontmatter={props.frontmatter}
-    toc={props.toc ?? []}
-  >
-    {page}
-  </DocPage>
-);
-
-export const getStaticPaths: GetStaticPaths = () => {
-  const allFrontmatters = getAllFrontmatter();
-
-  const staticPaths: GetStaticPathsResult = {
-    paths: allFrontmatters.map((frontmatter) => {
-      const slugs = frontmatter.slug.split("/");
-      const lastSlug = slugs[slugs.length - 1];
-      if (lastSlug === "README" || lastSlug === "index") {
-        slugs.pop();
-        slugs.push("");
-      }
-      return {
-        params: {
-          slug: slugs,
-        },
-      };
+export const getStaticPaths = (async () => {
+  const docs = getDocs();
+  return {
+    paths: docs.map((doc) => {
+      return { params: { slug: doc.slug } };
     }),
     fallback: false,
   };
-  return staticPaths;
-};
+}) satisfies GetStaticPaths;
 
-export const getStaticProps = async (context: { params: any }) => {
-  const allFrontmatters = getAllFrontmatter();
-  const slug = context.params.slug ?? ["README"];
-  const { code, toc, frontmatter: mdxFrontmatter } = await getMdxBySlug(slug);
-  const frontmatter =
-    allFrontmatters.find(
-      (frontmatter) => frontmatter.slug === slug.join("/"),
-    ) ?? mdxFrontmatter;
+export const getStaticProps = (async (context) => {
+  const allDocs = getDocs();
+  const slug = (context.params?.slug as string[]) ?? [""];
+  const { code, toc } = await getMdxBySlug(slug);
 
-  if (!frontmatter) {
-    if (process.env.NODE_ENV === "development") {
-      console.warn("No frontmatter found in for " + slug);
-    }
-  }
+  const doc = Object.values(allDocs).find(
+    (doc) => doc.slug.join("/") === slug.join("/"),
+  )!;
 
-  const navigation = getDocNavigationForSlug(slug);
-  const props: PageProps = { toc, navigation, frontmatter, code };
+  const navigation = getDocsNavigation();
+
+  const props: PageProps = {
+    navigation,
+    allDocs,
+    doc,
+    toc,
+    code,
+  };
   return { props };
-};
+}) satisfies GetStaticProps<PageProps>;
+
+export default function Page(props: PageProps) {
+  const Component = React.useMemo(
+    () => getMDXComponent(props.code),
+    [props.code],
+  );
+  return <Component components={components} />;
+}

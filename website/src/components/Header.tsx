@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-import { classNames } from "@/utils/classNames";
+import { clx } from "@/lib/clx";
+import { useVersion } from "@/lib/version";
 import { GitHubLogoIcon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { Flex, IconButton, Text, Tooltip } from "@radix-ui/themes";
 
@@ -11,50 +13,14 @@ import { HeaderLink } from "./HeaderLink";
 import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
 import { VersionToggle } from "./VersionToggle";
-import { ReactNode, useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
-import { useVersion } from "@/utils/VersionContext";
+import { PropsWithChildren } from "react";
 
-export interface HeaderProps {
-  children?: ReactNode;
-  gitHubLink?: string;
-  ghost?: boolean;
-}
-
-type ScrollState = "at-top" | "scrolling-up" | "scrolling-down";
-
-export function Header({ children, gitHubLink, ghost }: HeaderProps) {
+export function Header(props: PropsWithChildren) {
   const pathName = usePathname() ?? "";
   const { version } = useVersion();
-  const [scrollState, setScrollState] = useState<ScrollState>("at-top");
-
-  useEffect(() => {
-    let previousScrollY = window.scrollY;
-
-    const handleScroll = () => {
-      const direction =
-        previousScrollY < window.scrollY ? "scrolling-down" : "scrolling-up";
-      const state = window.scrollY < 30 ? "at-top" : direction;
-      previousScrollY = window.scrollY;
-      setScrollState(state);
-    };
-
-    if (ghost) {
-      addEventListener("scroll", handleScroll, { passive: true });
-    } else {
-      removeEventListener("scroll", handleScroll);
-    }
-
-    handleScroll();
-    return () => removeEventListener("scroll", handleScroll);
-  }, [ghost]);
 
   return (
-    <div
-      data-scroll-state={scrollState}
-      data-mobile-menu-open={false}
-      className={classNames(styles.HeaderRoot, ghost ? styles.ghost : "")}
-    >
+    <div className={clx(styles.HeaderRoot)}>
       <div className={styles.HeaderInner}>
         <Flex
           display={{ xs: "none" }}
@@ -112,12 +78,6 @@ export function Header({ children, gitHubLink, ghost }: HeaderProps) {
           >
             Playground
           </HeaderLink>
-          <HeaderLink
-            href="/examples"
-            active={pathName.startsWith("/examples")}
-          >
-            Examples
-          </HeaderLink>
         </div>
 
         <Flex
@@ -130,18 +90,24 @@ export function Header({ children, gitHubLink, ghost }: HeaderProps) {
           right="0"
           pr="4"
         >
-          {children}
+          {props.children}
 
           <VersionToggle />
-          {gitHubLink && (
-            <Tooltip content="View GitHub ">
-              <IconButton asChild size="3" variant="ghost" color="gray">
-                <a href={gitHubLink} target="_blank" rel="noreferrer">
-                  <GitHubLogoIcon width="18" height="18" />
-                </a>
-              </IconButton>
-            </Tooltip>
-          )}
+          <Tooltip content="View DayPicker on GitHub ">
+            <IconButton asChild size="3" variant="ghost" color="gray">
+              <a
+                href={
+                  version === "main"
+                    ? "http://github.com/gpbl/react-day-picker"
+                    : "https://github.com/gpbl/react-day-picker/tree/next"
+                }
+                target="_blank"
+                rel="noreferrer"
+              >
+                <GitHubLogoIcon width="18" height="18" />
+              </a>
+            </IconButton>
+          </Tooltip>
           <ThemeToggle />
         </Flex>
 
@@ -166,7 +132,7 @@ export function Header({ children, gitHubLink, ghost }: HeaderProps) {
               color="gray"
               data-state={"closed"}
               onClick={() => {
-                // return mobileMenu.setOpen((open: boolean) => !open);
+                // open menu
               }}
               className={styles.MobileMenuButton}
             >

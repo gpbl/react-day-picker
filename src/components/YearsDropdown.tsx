@@ -19,7 +19,7 @@ export function YearsDropdown(props: {
     labels: { labelYearDropdown },
   } = useDayPicker();
 
-  const { dropdown, goToMonth } = useCalendar();
+  const { dropdownOptions: dropdown, goToMonth } = useCalendar();
 
   const handleChange: ChangeEventHandler<HTMLSelectElement> = (e) => {
     const month = setYear(

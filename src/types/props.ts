@@ -28,8 +28,6 @@ import type { ClassNames, Styles } from "./ui";
  *
  * These props are used to change the navigation, the styling and the behavior
  * of the calendar.
- *
- * @category Component
  */
 export interface PropsBase {
   /** The CSS class to add to the container element. */
@@ -319,11 +317,7 @@ export interface PropsBase {
   captionLayout?: CaptionLayout;
 }
 
-/**
- * The props for the single selection mode.
- *
- * @category Component
- */
+/** The props for the single selection mode. */
 export interface PropsSingle {
   /** Makes the selection required. */
   required?: boolean;
@@ -335,11 +329,7 @@ export interface PropsSingle {
   onSelect?: SelectHandler<"single"> | undefined;
 }
 
-/**
- * The props for the multi selection mode.
- *
- * @category Component
- */
+/** The props for the multi selection mode. */
 export interface PropsMulti {
   /** The selected dates. */
   selected?: Selected<"multi"> | undefined;
@@ -355,11 +345,7 @@ export interface PropsMulti {
   max?: number;
 }
 
-/**
- * The props for the range selection mode.
- *
- * @category Component
- */
+/** The props for the range selection mode. */
 export interface PropsRange {
   /** The selected range. */
   selected?: Selected<"range"> | undefined;
@@ -378,8 +364,6 @@ export interface PropsRange {
 /**
  * The components that can be changed using the {@link PropsBase.components}
  * components prop.
- *
- * @category Component
  */
 export type CustomComponents = {
   [key in keyof typeof components]?: (typeof components)[key];
@@ -393,7 +377,6 @@ export type CustomComponents = {
  * - `multi`: multiple days can be selected.
  * - `range`: a range of days can be selected.
  *
- * @category Component
  * @see https://react-day-picker.dev/docs/selection-modes
  */
 export type Mode = "none" | "single" | "multi" | "range";
@@ -406,11 +389,7 @@ export type Mode = "none" | "single" | "multi" | "range";
  */
 export type CaptionLayout = "dropdown" | "buttons" | "dropdown-buttons";
 
-/**
- * The selected value when in selection mode.
- *
- * @category Component
- */
+/** The selected value when in selection mode. */
 export type Selected<T extends Mode> = T extends "single"
   ? Date
   : T extends "multi"
@@ -419,11 +398,7 @@ export type Selected<T extends Mode> = T extends "single"
       ? DateRange
       : undefined;
 
-/**
- * The callback called when the user select a days from the calendar.
- *
- * @category Component
- */
+/** The callback called when the user select a days from the calendar. */
 export type SelectHandler<T extends Mode> = (
   /** The new selected value. */
   selected: Selected<T>,

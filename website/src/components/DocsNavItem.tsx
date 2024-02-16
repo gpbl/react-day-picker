@@ -1,7 +1,7 @@
 import React from "react";
 
 import styles from "./DocsNavItem.module.css";
-import { classNames } from "@/utils/classNames";
+import { clx } from "@/lib/clx";
 import Link from "next/link";
 
 export interface DocsNavItemProps {
@@ -11,19 +11,11 @@ export interface DocsNavItemProps {
   href: string;
   className?: string;
 }
-export function DocsNavItem({
-  active,
-  disabled,
-  href,
-  ...props
-}: DocsNavItemProps) {
-  const className = classNames(styles.DocsNavItem, active && styles.active);
+export function DocsNavItem(props: DocsNavItemProps) {
+  const { active, disabled, href, ...restProps } = props;
+  const className = clx(styles.DocsNavItem, active && styles.active);
   const isExternal = href.startsWith("http");
   const ref = React.useRef<HTMLAnchorElement>(null);
-
-  React.useEffect(() => {
-    // TODO: Scroll active links into view when in a Scroll Area
-  }, [active]);
 
   if (disabled) {
     return <span ref={ref} className={className} {...props} />;
@@ -37,7 +29,7 @@ export function DocsNavItem({
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        {...props}
+        {...restProps}
       >
         {props.children}
       </a>
@@ -45,7 +37,7 @@ export function DocsNavItem({
   }
 
   return (
-    <Link href={`/${href}`} ref={ref} className={className} {...props}>
+    <Link href={`/${href}`} ref={ref} className={className} {...restProps}>
       {props.children}
     </Link>
   );

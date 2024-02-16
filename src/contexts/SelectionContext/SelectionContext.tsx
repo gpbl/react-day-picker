@@ -16,17 +16,21 @@ import { useControlledValue } from "../../utils/useControlledValue";
 import { dateMatchModifiers } from "../ModifiersContext/utils/dateMatchModifiers";
 import { addToRange } from "./utils/addToRange";
 
-/* */
+/** Share the selected days and the selection methods across the components. */
 export interface SelectionContext {
   /** The currently selected value. */
   selected: Selected<Mode> | undefined;
+  /** Set the selected days. */
   setSelected: (
     date: Date,
     modifiers: Modifiers,
     e: MouseEvent | KeyboardEvent,
   ) => void;
+  /** Return `true` if the given day is selected. */
   isSelected: (date: Date) => boolean;
+  /** The excluded days. */
   excluded: Matcher[];
+  /** Return `true` if the given day is excluded. */
   isExcluded: (date: Date) => boolean;
 }
 
@@ -39,7 +43,7 @@ const contextValue: SelectionContext = {
 };
 const selectionContext = createContext<SelectionContext>(contextValue);
 
-/** The provider for the `selectionContext`, storing the calendar state. */
+/** @private */
 export function SelectionProvider(providerProps: PropsWithChildren) {
   const { required, min, max, onSelect, mode, ...dayPicker } = useDayPicker();
 
@@ -206,10 +210,12 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
 }
 
 /**
- * Use this hook to access to the dates displayed in the calendar and to
- * navigate between months.
+ * Use this hook to access the {@link SelectionContext} from custom components.
+ *
+ * @group Custom Components Hooks
+ * @see http://localhost:2001/docs/custom-components
  */
-export function useSelection() {
+export function useSelection(): SelectionContext {
   const context = useContext(selectionContext);
   if (!context) {
     throw new Error(`useSelection must be used within a SelectionProvider.`);

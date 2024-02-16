@@ -44,7 +44,7 @@ export * from "./Single";
 export * from "./SingleRequired";
 export * from "./Spanish";
 export * from "./SpanishWeekStartsOn";
-// export * from "./Start";
+export * from "./Start";
 // export * from "./StylingCss";
 // export * from "./StylingCssModules";
 // export * from "./StylingInline";

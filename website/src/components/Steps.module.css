@@ -1,0 +1,29 @@
+.Steps {
+  /* Define & Initialize Counter */
+  counter-reset: step-counter;
+}
+
+.Steps > h3 {
+  position: relative;
+}
+
+.Steps > h3:before {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  background-color: var(--accent-3);
+  border: 2px solid var(--accent-8);
+  position: absolute;
+  transform: translateX(calc(-100% - 1rem)) translateY(calc(-0.2rem));
+  font-size: 0.875em;
+  margin-right: 1em;
+  /* Increment Counter */
+  counter-increment: step-counter;
+
+  /* Display Counter */
+  content: counter(step-counter);
+}

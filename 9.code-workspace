@@ -13,8 +13,22 @@
     {
       "path": ".",
     },
+    {
+      "path": "website",
+    },
+    {
+      "path": "typedoc",
+    },
+    {
+      "path": "docs",
+    },
   ],
   "settings": {
+    "files.exclude": {
+      "website": true,
+      "docs": true,
+      "typedoc": true,
+    },
     "cSpell.enabled": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
@@ -41,7 +55,7 @@
       "editor.defaultFormatter": "esbenp.prettier-vscode",
     },
     "tsImportSorter.configuration.nodeProtocol": "always",
-    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.tsdk": "v9/node_modules/typescript/lib",
     "[typescript]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode",
     },

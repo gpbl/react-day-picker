@@ -102,6 +102,24 @@ importers:
         specifier: ^5.3.3
         version: 5.3.3
 
+  typedoc:
+    dependencies:
+      react-day-picker:
+        specifier: workspace:*
+        version: link:..
+      react-day-picker-v8:
+        specifier: npm:react-day-picker@8
+        version: /react-day-picker@8.10.0(date-fns@3.3.1)(react@18.2.0)
+      typedoc:
+        specifier: ^0.25.8
+        version: 0.25.8(typescript@5.3.3)
+      typedoc-plugin-frontmatter:
+        specifier: 0.0.3-next.0
+        version: 0.0.3-next.0(typedoc-plugin-markdown@4.0.0-next.53)
+      typedoc-plugin-markdown:
+        specifier: 4.0.0-next.53
+        version: 4.0.0-next.53(typedoc@0.25.8)
+
   website:
     dependencies:
       '@jsdevtools/rehype-toc':
@@ -203,18 +221,6 @@ importers:
       shiki:
         specifier: 1.0.0-beta.5
         version: 1.0.0-beta.5
-      shikiji:
-        specifier: ^0.10.0
-        version: 0.10.2
-      tm-themes:
-        specifier: ^1.1.1
-        version: 1.1.1
-      typedoc:
-        specifier: ^0.25.7
-        version: 0.25.7(typescript@5.3.3)
-      typedoc-plugin-markdown:
-        specifier: next
-        version: 4.0.0-next.50(typedoc@0.25.7)
     devDependencies:
       '@types/node':
         specifier: ^20
@@ -8325,10 +8331,6 @@ packages:
     dependencies:
       any-promise: 1.3.0
 
-  /tm-themes@1.1.1:
-    resolution: {integrity: sha512-Cvmlo8TXNOLLxPKo+CU7dGbc7aCTvl91lmxB/Z1Jl5py/p8HvtahzbWhNKyIsFN2MAsSIoFHjyYAVH21L2Rulw==}
-    dev: false
-
   /tmpl@1.0.5:
     resolution: {integrity: sha512-3f0uOEAQwIqGuWW2MVzYg8fV/QNnc/IpuJNG837rLuczAaLVHslWHZQj4IGiEl5Hs3kkbhwL9Ab7Hrsmuj+Smw==}
     dev: true
@@ -8535,16 +8537,25 @@ packages:
       is-typed-array: 1.1.12
     dev: true
 
-  /typedoc-plugin-markdown@4.0.0-next.50(typedoc@0.25.7):
-    resolution: {integrity: sha512-iHrO2HnN+jY6SE3U4Yti1Uhl+75wz2i8NY+9steqzZsvvD1liC/4DkAk7DP/4doqPeiX0BM4PW0fkzs9jH/V1Q==}
+  /typedoc-plugin-frontmatter@0.0.3-next.0(typedoc-plugin-markdown@4.0.0-next.53):
+    resolution: {integrity: sha512-Hr7IeFcYEQBTRdVet6GeL9gPMPJ4mvwLFbCZ7psXZjsR27BJO3Xqp1QL+isolDAhcRZ5lzumeKsNmPcH7vBtQg==}
+    peerDependencies:
+      typedoc-plugin-markdown: '>=4.0.0-next.13'
+    dependencies:
+      typedoc-plugin-markdown: 4.0.0-next.53(typedoc@0.25.8)
+      yaml: 2.3.4
+    dev: false
+
+  /typedoc-plugin-markdown@4.0.0-next.53(typedoc@0.25.8):
+    resolution: {integrity: sha512-vESy94SQV77EaDALA7WvLYPGtPKAuDtqhtShZA6sNs+OxkW8Uh+DoZ5Q6gpgu0MnIkLijHnv038kNP87Gl2vpw==}
     peerDependencies:
       typedoc: 0.25.x
     dependencies:
-      typedoc: 0.25.7(typescript@5.3.3)
+      typedoc: 0.25.8(typescript@5.3.3)
     dev: false
 
-  /typedoc@0.25.7(typescript@5.3.3):
-    resolution: {integrity: sha512-m6A6JjQRg39p2ZVRIN3NKXgrN8vzlHhOS+r9ymUYtcUP/TIQPvWSq7YgE5ZjASfv5Vd5BW5xrir6Gm2XNNcOow==}
+  /typedoc@0.25.8(typescript@5.3.3):
+    resolution: {integrity: sha512-mh8oLW66nwmeB9uTa0Bdcjfis+48bAjSH3uqdzSuSawfduROQLlXw//WSNZLYDdhmMVB7YcYZicq6e8T0d271A==}
     engines: {node: '>= 16'}
     hasBin: true
     peerDependencies:

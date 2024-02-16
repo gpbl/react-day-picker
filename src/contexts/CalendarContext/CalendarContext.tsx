@@ -18,7 +18,7 @@ import { getWeeks } from "./utils/getWeeks";
 import { Week, Month } from "../../classes";
 import { DropdownOption } from "../../components/custom-components";
 
-/* */
+/** Share the calendar state and navigation methods across the components. */
 export interface CalendarContext {
   /** All the unique dates displayed to the calendar. */
   dates: Date[];
@@ -49,7 +49,7 @@ export interface CalendarContext {
   /** The previous month to display. */
   previousMonth: Date | undefined;
   /** The options to use in the years or months dropdowns. */
-  dropdown: {
+  dropdownOptions: {
     /** The options to use in the months dropdown. */
     months: DropdownOption[] | undefined;
     /** The options to use in the years dropdown. */
@@ -80,7 +80,7 @@ export interface CalendarContext {
 
 const calendarContext = createContext<CalendarContext | undefined>(undefined);
 
-/** The provider for the `calendarContext`, storing the calendar state. */
+/** @private */
 export function CalendarProvider(providerProps: { children?: ReactNode }) {
   const dayPicker = useDayPicker();
 
@@ -171,7 +171,7 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
     goToDay,
     isDayDisplayed,
 
-    dropdown: {
+    dropdownOptions: {
       months: getDropdownMonths(dayPicker),
       years: getDropdownYears(dayPicker),
     },
@@ -185,8 +185,10 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
 }
 
 /**
- * Use this hook to access to the dates displayed in the calendar and to
- * navigate between months.
+ * Use this hook to access the {@link CalendarContext} from custom components.
+ *
+ * @group Custom Components Hooks
+ * @see http://localhost:2001/docs/custom-components
  */
 export function useCalendar(): CalendarContext {
   const context = useContext(calendarContext);

@@ -2,7 +2,11 @@ import type { CSSProperties } from "react";
 
 import type { CalendarDay } from "../classes/CalendarDay";
 
-/** The name of the modifiers that are used internally by DayPicker. */
+/**
+ * The name of the modifiers that are used internally by DayPicker.
+ *
+ * @deprecated Test deprecation message.
+ */
 export type InternalModifier =
   | "disabled"
   | "excluded"

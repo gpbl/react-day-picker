@@ -1,14 +1,17 @@
-# Matcher
+---
+section: TypeAlias
+title: Matcher
+---
 
-<a id="undefined" name="undefined"></a>
+# Type alias: Matcher
 
-> **Matcher**: `boolean` \| (`date`) => `boolean` \| `Date` \| `Date`[] \| [`DateRange`](/docs/api/main/type-aliases/DateRange.md) \| [`DateBefore`](/docs/api/main/type-aliases/DateBefore.md) \| [`DateAfter`](/docs/api/main/type-aliases/DateAfter.md) \| [`DateInterval`](/docs/api/main/type-aliases/DateInterval.md) \| [`DayOfWeek`](/docs/api/main/type-aliases/DayOfWeek.md)
+> **Matcher**: `boolean` \| (`date`) => `boolean` \| `Date` \| `Date`[] \| [`DateRange`](/docs/api/main/type-aliases/DateRange.mdx) \| [`DateBefore`](/docs/api/main/type-aliases/DateBefore.mdx) \| [`DateAfter`](/docs/api/main/type-aliases/DateAfter.mdx) \| [`DateInterval`](/docs/api/main/type-aliases/DateInterval.mdx) \| [`DayOfWeek`](/docs/api/main/type-aliases/DayOfWeek.mdx)
 
 A value or a function that matches a specific day.
 
-Matchers are passed to DayPicker via [DayPickerBase.disabled](/docs/api/main/interfaces/DayPickerBase.md#disabled),
-[]] or [[DayPickerProps.selected](/docs/api/main/interfaces/DayPickerBase.md#hidden) and are used to
-determine if a day should get a [Modifier](/docs/api/main/type-aliases/Modifier.md).
+Matchers are passed to DayPicker via [DayPickerBase.disabled](/docs/api/main/interfaces/DayPickerBase.mdx),
+[]] or [[DayPickerProps.selected](/docs/api/main/interfaces/DayPickerBase.mdx) and are used to
+determine if a day should get a [Modifier](/docs/api/main/type-aliases/Modifier.mdx).
 
 Matchers can be of different types:
 
@@ -52,7 +55,7 @@ const functionMatcher: Matcher = (day: Date) => {
 
 ## See
 
-[isMatch](/docs/api/main/functions/isMatch.md)
+[isMatch](/docs/api/main/functions/isMatch.mdx)
 
 ## Source
 
