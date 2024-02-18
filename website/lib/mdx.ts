@@ -13,10 +13,10 @@ import { autoFrontmatterRegExp } from "@/lib/docs";
 
 export const DOCS_PATH = path.join(process.cwd(), "../docs");
 
-export async function getMdxBySlug(slugs: string[] | undefined) {
-  const slug = slugs?.join("/") ?? "index";
+export async function getMdxBySlug(slug: string[] | undefined) {
+  const slugStr = slug?.join("/") ?? "index";
 
-  const paths = [`${slug}.mdx`, `${slug}/index.mdx`];
+  const paths = [`${slugStr}.mdx`, `${slugStr}/index.mdx`];
   let source;
   for (const p of paths) {
     try {
@@ -28,11 +28,14 @@ export async function getMdxBySlug(slugs: string[] | undefined) {
   }
 
   if (!source) {
-    throw new Error(`No MDX file found for slug "${slug}"`);
+    throw new Error(`No MDX file found for slug "${slugStr}"`);
   }
 
-  const { code } = await bundleMDX({
-    source: source.replace(autoFrontmatterRegExp, ""),
+  // Remove autofrontmatter
+  const sourceWithoutFrontmatter = source.replace(autoFrontmatterRegExp, "");
+
+  const mdx = await bundleMDX({
+    source: sourceWithoutFrontmatter,
     mdxOptions: (options) => {
       options.remarkPlugins = [...(options.remarkPlugins || []), [remarkGfm]];
       options.rehypePlugins = [
@@ -56,9 +59,9 @@ export async function getMdxBySlug(slugs: string[] | undefined) {
       return options;
     },
   });
-  const { toc } = getMDXExport(code);
+  const mdxExports = getMDXExport(mdx.code);
   return {
-    toc: toc ?? [],
-    code,
+    toc: mdxExports.toc ?? [],
+    code: mdx.code,
   };
 }

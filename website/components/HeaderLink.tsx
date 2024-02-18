@@ -4,8 +4,7 @@ import Link from "next/link";
 
 interface HeaderLinkProps extends React.ComponentPropsWithoutRef<"a"> {
   active?: boolean;
-  children: React.ReactNode;
-  href?: string;
+  href: string;
 }
 
 export function HeaderLink(props: HeaderLinkProps) {

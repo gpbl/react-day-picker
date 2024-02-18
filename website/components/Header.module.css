@@ -11,29 +11,7 @@
   z-index: 2;
   user-select: none;
   box-shadow: 0 1px transparent;
-  transition:
-    background-color 180ms,
-    box-shadow 180ms;
-}
-
-/* Faster transition when the header gains background (and slower when it loses it) */
-.HeaderRoot[data-scroll-state="scrolling-down"] .HeaderInner {
-  transition-duration: 30ms, 120ms;
-}
-
-.HeaderRoot:not(.ghost[data-scroll-state="at-top"]) > .HeaderInner {
-  background-color: var(--color-background);
-  box-shadow: 0 1px var(--slate-a4);
-}
-
-:where([data-mobile-menu-open="false"]) .HeaderLinksContainer {
-  display: none;
-}
-
-:where([data-mobile-menu-open="true"]) .HeaderLinksContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: var(--color-page-background);
 }
 
 .HeaderLinksContainer {

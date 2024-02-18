@@ -8,14 +8,15 @@ import "@/app/shiki.css";
 import { ThemeProvider } from "next-themes";
 import { usePathname } from "next/navigation";
 
-import { DocPage } from "@/components/DocPage";
 import { Header } from "@/components/Header";
 import { VersionProvider } from "@/lib/version";
 import { Theme } from "@radix-ui/themes";
+import { DocsLayout } from "@/components/DocsLayout";
+import { type DocStaticProps } from "./docs/[[...slug]]";
 
 interface AppProps {
-  Component: React.ComponentType<PropsWithChildren>;
-  pageProps: PropsWithChildren;
+  Component: React.ComponentType<DocStaticProps>;
+  pageProps: DocStaticProps;
 }
 
 export default function App(props: AppProps) {
@@ -30,9 +31,9 @@ export default function App(props: AppProps) {
         <Theme>
           <Header />
           {isDocPage ? (
-            <DocPage {...pageProps}>
+            <DocsLayout pageProps={pageProps}>
               <Component {...pageProps} />
-            </DocPage>
+            </DocsLayout>
           ) : (
             <Component {...pageProps} />
           )}

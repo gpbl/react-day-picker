@@ -1,19 +1,19 @@
 import React from "react";
 
-import styles from "./DocsNavItem.module.css";
+import styles from "./SidebarLink.module.css";
 import { clx } from "@/lib/clx";
 import Link from "next/link";
 
-export interface DocsNavItemProps {
+export interface SidebarLinkProps {
   children: React.ReactNode;
   active?: boolean;
   disabled?: boolean;
   href: string;
   className?: string;
 }
-export function DocsNavItem(props: DocsNavItemProps) {
+export function SidebarLink(props: SidebarLinkProps) {
   const { active, disabled, href, ...restProps } = props;
-  const className = clx(styles.DocsNavItem, active && styles.active);
+  const className = clx(styles.link, active && styles.active);
   const isExternal = href.startsWith("http");
   const ref = React.useRef<HTMLAnchorElement>(null);
 

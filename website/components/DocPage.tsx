@@ -3,7 +3,7 @@ import { Box, Flex, Heading, Separator, Text } from "@radix-ui/themes";
 import { Toc } from "@stefanprobst/rehype-extract-toc";
 
 import styles from "./DocPage.module.css";
-import { DocsNav } from "./DocsNav";
+import { Sidebar } from "./Sidebar";
 import { TableOfContent } from "./TableOfContent";
 
 export interface DocPageProps {
@@ -38,10 +38,10 @@ export function DocPage(props: DocPageProps) {
             }}
           >
             <Box pt="4" px="4" pb="9">
-              <DocsNav
-                navigation={
+              <Sidebar
+                sections={
                   isMainDocs
-                    ? navigation.docs
+                    ? navigation.guides
                     : isApiMainDocs
                       ? navigation.apiMain
                       : navigation.apiNext

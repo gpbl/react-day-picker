@@ -1,21 +1,32 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 import { getMDXComponent } from "mdx-bundler/client";
 import { GetStaticPaths, GetStaticProps } from "next";
 
 import { components } from "@/components/mdx-components";
-import { Doc, getDocs, getDocsNavigation, Navigation } from "@/lib/docs";
+import {
+  type Doc,
+  getDocs,
+  getDocsNavigation,
+  type Navigation,
+} from "@/lib/docs";
 import { getMdxBySlug } from "@/lib/mdx";
 import type { Toc } from "@stefanprobst/rehype-extract-toc";
 
-interface PageProps {
+export interface DocStaticProps {
+  /** The current doc with its frontmatter */
   doc: Doc;
-  /** All the docs with their frontmatter */
-  allDocs: Doc[];
   /** The table of contents for the current page */
   toc: Toc | null;
-  navigation: Navigation;
+  /** The side navigation for the current page, grouped by section. */
+  sideNav: Record<string, Doc[]>;
+  /** The compiled MDX code */
   code: string;
+}
+
+export default function Docs(props: DocStaticProps) {
+  const Component = useMemo(() => getMDXComponent(props.code), [props.code]);
+  return <Component components={components} />;
 }
 
 export const getStaticPaths = (async () => {
@@ -39,20 +50,18 @@ export const getStaticProps = (async (context) => {
 
   const navigation = getDocsNavigation();
 
-  const props: PageProps = {
-    navigation,
-    allDocs,
+  const sideNavKey: keyof Navigation =
+    doc.slug[0] !== "api"
+      ? "guides"
+      : doc.slug[1] === "next"
+        ? "apiNext"
+        : "apiMain";
+
+  const props: DocStaticProps = {
+    sideNav: navigation[sideNavKey] ?? [],
     doc,
     toc,
     code,
   };
   return { props };
-}) satisfies GetStaticProps<PageProps>;
-
-export default function Page(props: PageProps) {
-  const Component = React.useMemo(
-    () => getMDXComponent(props.code),
-    [props.code],
-  );
-  return <Component components={components} />;
-}
+}) satisfies GetStaticProps<DocStaticProps>;

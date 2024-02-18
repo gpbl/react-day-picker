@@ -23,12 +23,11 @@ function renderToc(toc: Toc, maxDepth?: number) {
         .map((entry) => (
           <li
             key={entry.id}
-            className={`my-1 ${entry.depth > 2 ? "mx-3" : ""}`}
+            className={`my-1 ${entry.depth > 2 ? "mx-4" : ""}`}
           >
-            <Text asChild size="2">
+            <Text asChild size="1">
               <Link href={`#${entry.id}`}>{entry.value}</Link>
             </Text>
-
             {entry.children && renderToc(entry.children, maxDepth)}
           </li>
         ))}

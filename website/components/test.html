@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 200px;
+  background-color: #f5f5f5;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+}
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <h2>Sidebar</h2>
+  <p>This is a sticky sidebar.</p>
+</div>
+
+<div class="main-content">
+  <h2>Main Content</h2>
+  <p>Scroll the page.</p>
+  <!-- Add enough content here so that the page scrolls -->
+</div>
+
+</body>
+</html>

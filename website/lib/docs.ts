@@ -6,7 +6,7 @@ import matter from "gray-matter";
 
 export type Navigation = {
   /** The navigation for the main docs. */
-  docs: Record<DocSectionName, Doc[]>;
+  guides: Record<DocSectionName, Doc[]>;
   /** The navigation for the API docs (main branch). */
   apiMain: Record<APISectionName, Doc[]>;
   /** The navigation for the API docs (next branch). */
@@ -159,5 +159,5 @@ export function getDocsNavigation(): Navigation {
     }
   });
 
-  return { docs: sortedDocs, apiNext, apiMain };
+  return { guides: sortedDocs, apiNext, apiMain: apiMain };
 }
