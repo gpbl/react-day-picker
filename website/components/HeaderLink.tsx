@@ -1,6 +1,6 @@
+import Link from "next/link";
 import * as React from "react";
 import styles from "./HeaderLink.module.css";
-import Link from "next/link";
 
 interface HeaderLinkProps extends React.ComponentPropsWithoutRef<"a"> {
   active?: boolean;

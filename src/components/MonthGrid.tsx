@@ -11,7 +11,6 @@ import { WeekRow as DefaultWeekRow } from "./WeekRow";
  * month.
  */
 export function MonthGrid(props: {
-  ["aria-labelledby"]?: string;
   /** The month where the grid is displayed. */
   month: Month;
   /** The index where this month is displayed. */

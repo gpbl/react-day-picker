@@ -46,7 +46,7 @@ export function MonthCaption(props: MonthCaptionProps) {
           }
         />
       ) : (
-        <span className={classNames.caption_label}>
+        <span className={classNames.caption_label} aria-live="polite">
           {formatCaption(props.month.date, { locale })}
         </span>
       )}

@@ -3,6 +3,7 @@
   "compilerOptions": {
     "outDir": "./dist/esm",
     "module": "ES2020"
-  }
+  },
+  "include": ["src"],
+  "exclude": ["**/*.test.*"]
 }
-

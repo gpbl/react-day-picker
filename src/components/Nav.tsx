@@ -11,6 +11,7 @@ export function Nav() {
     labels: { labelNext, labelPrevious },
     locale,
     components,
+    id,
   } = useDayPicker();
 
   const calendar = useCalendar();
@@ -19,23 +20,27 @@ export function Nav() {
   const Chevron = components?.Chevron ?? DefaultChevron;
 
   return (
-    <div className={classNames.nav} style={styles?.nav}>
+    <div role="toolbar" className={classNames.nav} style={styles?.nav}>
       <Button
+        type="button"
         name="previous-month"
         className={classNames.button_previous}
         tabIndex={calendar.previousMonth ? undefined : -1}
         aria-disabled={calendar.previousMonth ? undefined : true}
         aria-label={labelPrevious(calendar.previousMonth, { locale })}
+        aria-controls={id}
         onClick={calendar.goToPreviousMonth}
       >
         <Chevron />
       </Button>
       <Button
+        type="button"
         name="next-month"
         className={classNames.button_next}
         tabIndex={calendar.nextMonth ? undefined : -1}
         aria-disabled={calendar.nextMonth ? undefined : true}
         aria-label={labelNext(calendar.nextMonth, { locale })}
+        aria-controls={id}
         onClick={calendar.goToNextMonth}
       >
         <Chevron orientation="right" />

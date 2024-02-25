@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { IconButton, Tooltip } from "@radix-ui/themes";
 
-export const ThemeToggle = () => {
+export function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
@@ -30,8 +30,12 @@ export const ThemeToggle = () => {
         }
       `}</style>
 
-      <Tooltip content="Toggle theme">
+      <Tooltip
+        content={`Toggle ${theme === "dark" ? "light" : "dark"} theme`}
+        role="presentation"
+      >
         <IconButton
+          aria-label={`Toggle ${theme === "dark" ? "light" : "dark"} theme`}
           size="3"
           variant="ghost"
           color="gray"
@@ -51,4 +55,4 @@ export const ThemeToggle = () => {
       </Tooltip>
     </>
   );
-};
+}

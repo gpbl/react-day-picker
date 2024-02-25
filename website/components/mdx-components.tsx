@@ -4,10 +4,10 @@ import type { MDXComponents } from "mdx/types";
 import NextLink from "next/link";
 import { DayPicker } from "react-day-picker";
 
-import { LinkHeading } from "@/components/LinkHeading";
-import listStyles from "@/components/listStyles.module.css";
 import { CodeBlock } from "@/components/CodeBlock";
+import { LinkHeading } from "@/components/LinkHeading";
 import { Steps } from "@/components/Steps";
+import listStyles from "@/components/listStyles.module.css";
 import tableStyles from "@/components/tableStyles.module.css";
 
 import * as Examples from "@/examples";
@@ -103,6 +103,17 @@ export const components: MDXComponents = {
 
   em: (props: PropsWithChildren) => <Em {...props} />,
 
+  div: function div(props: PropsWithChildren) {
+    const { children, ...restProps } = props;
+    if ("data-rehype-pretty-code-title" in props) {
+      return (
+        <div {...restProps}>
+          <CodeBlockTitle>{props.children}</CodeBlockTitle>
+        </div>
+      );
+    }
+    return <div {...restProps}>{children}</div>;
+  },
   figcaption: function figcaption(
     props: PropsWithChildren<{
       "data-rehype-pretty-code-title"?: "";
@@ -111,7 +122,7 @@ export const components: MDXComponents = {
   ) {
     if ("data-rehype-pretty-code-caption" in props) {
       const caption = props.children as string;
-      if (caption.startsWith("render:")) {
+      if (caption.startsWith("render")) {
         const [, ExampleName] = caption.split(":");
         // eslint-disable-next-line import/namespace
         const Component = Examples[ExampleName as keyof typeof Examples];
@@ -133,30 +144,16 @@ export const components: MDXComponents = {
       return <></>;
     }
     if ("data-rehype-pretty-code-title" in props) {
+      // Add the filename or the title to the code
       const { children, ...restProps } = props;
       return (
-        <figcaption {...restProps} className="mt-4">
-          <Flex mb="-8" width="auto" p="2">
-            <Text
-              size="1"
-              style={{
-                color: "var(--slate-a11)",
-                backgroundColor: "var(--slate-2)",
-                boxShadow: "0 0 0 1px var(--slate-a5)",
-                borderRadius: "var(--radius-2)",
-                padding: "var(--space-1) var(--space-2)",
-                fontFamily: "var(--font-mono)",
-              }}
-            >
-              <code>{children}</code>
-            </Text>
-          </Flex>
+        <figcaption {...restProps}>
+          <CodeBlockTitle>{children}</CodeBlockTitle>
         </figcaption>
       );
     }
     return <figcaption {...props} />;
   },
-
   h1: (props) => (
     <Heading asChild size="8" mb="3">
       <h1 {...props} />
@@ -202,16 +199,17 @@ export const components: MDXComponents = {
   ),
 
   ol: (props: PropsWithChildren) => <ol className={listStyles.ul} {...props} />,
-  p: (props: PropsWithChildren) => <p {...props} />,
+  p: (props: PropsWithChildren) => <Text as="p" my="4" {...props} />,
   pre: (props: PropsWithChildren) => {
     return (
       <Box
         p="4"
-        my="6"
+        my="8"
+        mx="auto"
+        className="overflow-auto rounded-md border border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-900"
         style={{
-          overflow: "auto",
-          boxShadow: "0 0 0 1px var(--slate-a5)",
-          borderRadius: "var(--radius-2)",
+          // boxShadow: "0 0 0 1px var(--slate-a5)",
+          // borderRadius: "var(--radius-2)",
           fontSize: "var(--font-size-2)",
           backgroundColor: "var(--slate-a2)",
         }}
@@ -228,3 +226,23 @@ export const components: MDXComponents = {
     </Table.Root>
   ),
 };
+
+function CodeBlockTitle(props: PropsWithChildren) {
+  return (
+    <Flex mt="6" mb="-9" ml="4" width="auto" p="2">
+      <Text
+        size="1"
+        style={{
+          color: "var(--slate-a11)",
+          backgroundColor: "var(--slate-2)",
+          boxShadow: "0 0 0 1px var(--slate-a5)",
+          borderRadius: "var(--radius-2)",
+          padding: "var(--space-1) var(--space-2)",
+          fontFamily: "var(--font-mono)",
+        }}
+      >
+        <code>{props.children}</code>
+      </Text>
+    </Flex>
+  );
+}

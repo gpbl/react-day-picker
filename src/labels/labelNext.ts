@@ -8,5 +8,5 @@ export function labelNext(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   options?: Parameters<typeof format>[2],
 ) {
-  return "Go to the Next Month";
+  return "Next Month";
 }

@@ -20,7 +20,7 @@ import { getLabels } from "./utils/getLabels";
 /* */
 export interface DayPickerContext<T extends Mode> extends PropsBase {
   classNames: ClassNames;
-  /** The `data-*` attributes passed to `DayPicker`. */
+  /** The `data-*` attributes passed to `<DayPicker />`. */
   dataAttributes: DataAttributes;
   formatters: Formatters;
   fromDate: Date | undefined;

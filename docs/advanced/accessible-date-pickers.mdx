@@ -1,0 +1,47 @@
+---
+sort: 1
+---
+
+_Advanced Guides_
+
+# Accessible Date Pickers
+
+> Some notes for creating an accessible date pickers
+
+DayPicker follows the ARIA guidelines for date pickers, including keyboard navigation, focus management, and labeling. However, as developer you will need to adapt DayPicker to your specific use cases.
+
+See the following examples for guidance on how to create accessible date pickers with DayPicker.
+
+## Examples
+
+### Date Picker inline
+
+In this scenario, you can use the `application` role.
+
+```tsx caption="render:DatePickerModal"
+<DayPicker mode="single" />
+```
+
+#### Explanation
+
+TODO
+
+### Date Picker in a Popover
+
+TODO
+
+#### Explanation
+
+TODO
+
+### Modal Dialog with Input Field
+
+In this scenario, an input field precedes date selection within a modal dialog:
+
+```tsx
+<DayPickermode="single"  />
+```
+
+#### Explanation
+
+TODO

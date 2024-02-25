@@ -1,15 +1,14 @@
 import fs from "node:fs";
 import path from "node:path";
 
+import { autoFrontmatterRegExp } from "@/lib/docs";
+import rehypeToc from "@stefanprobst/rehype-extract-toc";
+import rehypeTocExport from "@stefanprobst/rehype-extract-toc/mdx";
 import { bundleMDX } from "mdx-bundler";
 import { getMDXExport } from "mdx-bundler/client";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
-
-import rehypeToc from "@stefanprobst/rehype-extract-toc";
-import rehypeTocExport from "@stefanprobst/rehype-extract-toc/mdx";
-import { autoFrontmatterRegExp } from "@/lib/docs";
 
 export const DOCS_PATH = path.join(process.cwd(), "../docs");
 
@@ -31,7 +30,7 @@ export async function getMdxBySlug(slug: string[] | undefined) {
     throw new Error(`No MDX file found for slug "${slugStr}"`);
   }
 
-  // Remove autofrontmatter
+  // Remove content that is already in the frontmatter
   const sourceWithoutFrontmatter = source.replace(autoFrontmatterRegExp, "");
 
   const mdx = await bundleMDX({

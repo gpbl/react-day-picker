@@ -12,7 +12,7 @@ exports[`should match the snapshot 1`] = `
       class="nav"
     >
       <button
-        aria-label="Go to the Previous Month"
+        aria-label="Previous Month"
         class="button_previous"
         name="previous-month"
       >
@@ -27,7 +27,7 @@ exports[`should match the snapshot 1`] = `
         </svg>
       </button>
       <button
-        aria-label="Go to the Next Month"
+        aria-label="Next Month"
         class="button_next"
         name="next-month"
       >

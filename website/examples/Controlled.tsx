@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import { addMonths, isSameMonth } from 'date-fns';
-import { DayPicker } from 'react-day-picker';
+import { Button, Flex } from "@radix-ui/themes";
+import { addMonths, isSameMonth } from "date-fns";
+import { DayPicker } from "react-day-picker";
 
 /**
- * Programmatically control the displayed month, such as creating a "Go to Today" button.
+ * Programmatically control the displayed month, such as creating a "Go to
+ * Today" button.
  *
  * @exampleTitle Go to Today Button
  */
@@ -14,12 +16,14 @@ export function Controlled() {
   const [month, setMonth] = useState<Date>(nextMonth);
 
   const footer = (
-    <button
-      disabled={isSameMonth(today, month)}
-      onClick={() => setMonth(today)}
-    >
-      Go to Today
-    </button>
+    <Flex justify="center" pt="4">
+      <Button
+        disabled={isSameMonth(today, month)}
+        onClick={() => setMonth(today)}
+      >
+        Go to Today
+      </Button>
+    </Flex>
   );
 
   return <DayPicker month={month} onMonthChange={setMonth} footer={footer} />;

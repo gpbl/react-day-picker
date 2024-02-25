@@ -11,7 +11,7 @@ import { useSelection } from "../../contexts/SelectionContext";
 import type { InternalModifier, Modifiers, ModifiersMap } from "../../types";
 import { dateMatchModifiers } from "./utils/dateMatchModifiers";
 
-/** A record with `data-*` attributes passed to `DayPicker`. */
+/** A record with `data-*` attributes passed to `<DayPicker />`. */
 export type DataAttributes = Record<`data-${string}`, unknown>;
 
 /** Access the modifiers of the calendar. */

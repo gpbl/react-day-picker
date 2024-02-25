@@ -1,4 +1,4 @@
-import { Doc, Navigation } from "@/lib/docs";
+import { Doc, DocsNavigation } from "@/lib/docs";
 import { Box, Flex, Heading, Separator, Text } from "@radix-ui/themes";
 import { Toc } from "@stefanprobst/rehype-extract-toc";
 
@@ -7,7 +7,7 @@ import { Sidebar } from "./Sidebar";
 import { TableOfContent } from "./TableOfContent";
 
 export interface DocPageProps {
-  navigation: Navigation;
+  navigation: DocsNavigation;
   doc: Doc;
   toc: Toc;
   children: React.ReactNode;
@@ -39,7 +39,7 @@ export function DocPage(props: DocPageProps) {
           >
             <Box pt="4" px="4" pb="9">
               <Sidebar
-                sections={
+                navigation={
                   isMainDocs
                     ? navigation.guides
                     : isApiMainDocs
@@ -54,9 +54,9 @@ export function DocPage(props: DocPageProps) {
       <main>
         <Box
           style={{ marginInlineStart: "7.5%" }}
-          className="flex flex-1 md:ms-9 w-full "
+          className="flex w-full flex-1 md:ms-9 "
         >
-          <Box className="max-w-screen-md my-20 flex-1">
+          <Box className="my-20 max-w-screen-md flex-1">
             <header>
               {doc.section && (
                 <Text
@@ -97,9 +97,9 @@ export function DocPage(props: DocPageProps) {
           </Box>
           {toc.length > 0 && (
             // Show the table of content on desktop
-            <Box mt="9" className="hidden lg:block sticky top-12">
+            <Box mt="9" className="sticky top-12 hidden lg:block">
               <Box
-                className="ms-20 mt-9 me-10 py-4 px-4 border-l"
+                className="me-10 ms-20 mt-9 border-l px-4 py-4"
                 style={{ borderColor: "var(--slate-a5)" }}
               >
                 <TableOfContent toc={toc} />

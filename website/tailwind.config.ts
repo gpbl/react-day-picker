@@ -6,11 +6,18 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
+      spacing: {
+        header: "var(--header-height)",
+        sidebar: "var(--sidebar-width)",
+        "header-full": "var(--header-full)",
+        breadcrumbs: "var(--breadcrumbs-height)",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
+        "page-background": "var(--color-page-background)",
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -49,5 +56,5 @@ export default {
       },
     },
   },
-  plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],
+  plugins: [require("@tailwindcss/typography")],
 } satisfies Config;

@@ -32,7 +32,6 @@ export type DayPickerProps<T extends Mode> = PropsBase &
 /**
  * Render the date picker component.
  *
- * @author xxx
  * @see https://react-day-picker.js.org
  */
 export function DayPicker<T extends Mode = "none">(props: DayPickerProps<T>) {

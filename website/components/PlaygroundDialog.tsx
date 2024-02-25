@@ -5,7 +5,7 @@ import { Box } from "@radix-ui/themes";
 export function PlaygroundDialog(props: PropsWithChildren) {
   return (
     <Box
-      className="m-6 min-w-[300px] max-w-[400px] p-4 sticky overflow-y-auto"
+      className="sticky m-6 min-w-[300px] max-w-[400px] overflow-y-auto p-4"
       style={{
         maxHeight: "calc(100vh - var(--header-height) - 3rem)",
         top: "calc(var(--header-height) + 1rem)",

@@ -8,15 +8,16 @@ import "@/app/shiki.css";
 import { ThemeProvider } from "next-themes";
 import { usePathname } from "next/navigation";
 
-import { Header } from "@/components/Header";
-import { VersionProvider } from "@/lib/version";
-import { Theme } from "@radix-ui/themes";
 import { DocsLayout } from "@/components/DocsLayout";
-import { type DocStaticProps } from "./docs/[[...slug]]";
+import { Header } from "@/components/Header";
+import { SidebarProvider } from "@/lib/sidebar";
+import { VersionProvider } from "@/lib/versions";
+import { type DocsStaticProps } from "@/pages/docs/[[...slug]]";
+import { Theme } from "@radix-ui/themes";
 
 interface AppProps {
-  Component: React.ComponentType<DocStaticProps>;
-  pageProps: DocStaticProps;
+  Component: React.ComponentType<DocsStaticProps>;
+  pageProps: DocsStaticProps;
 }
 
 export default function App(props: AppProps) {
@@ -28,16 +29,18 @@ export default function App(props: AppProps) {
   return (
     <VersionProvider>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <Theme>
-          <Header />
-          {isDocPage ? (
-            <DocsLayout pageProps={pageProps}>
+        <SidebarProvider>
+          <Theme>
+            <Header />
+            {isDocPage ? (
+              <DocsLayout pageProps={pageProps}>
+                <Component {...pageProps} />
+              </DocsLayout>
+            ) : (
               <Component {...pageProps} />
-            </DocsLayout>
-          ) : (
-            <Component {...pageProps} />
-          )}
-        </Theme>
+            )}
+          </Theme>
+        </SidebarProvider>
       </ThemeProvider>
     </VersionProvider>
   );

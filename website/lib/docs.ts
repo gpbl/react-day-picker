@@ -4,7 +4,7 @@ import path from "node:path";
 import { glob } from "glob";
 import matter from "gray-matter";
 
-export type Navigation = {
+export type DocsNavigation = {
   /** The navigation for the main docs. */
   guides: Record<DocSectionName, Doc[]>;
   /** The navigation for the API docs (main branch). */
@@ -90,7 +90,7 @@ export function getDocs(): Doc[] {
 
     const title = data.title ?? firstHeading ?? slug[slug.length - 1];
     return {
-      sort: data.sort ? parseInt(data.sort) : -1,
+      sort: data.sort ? parseInt(data.sort) : 100,
       section: data.section ?? section ?? slug[0],
       description: data.description ?? description ?? "",
       title,
@@ -108,8 +108,7 @@ export function getDocBySlug(slug: string[]): Doc | null {
   return allDocs.find((doc) => doc.slug.join("/") === slug.join("/")) ?? null;
 }
 
-export function getDocsNavigation(): Navigation {
-  const docsArray = getDocs();
+export function getDocsNavigation(docsArray: Doc[]): DocsNavigation {
   const grouped = docsArray.reduce(
     (groups, doc) => {
       const key = doc.section;
@@ -145,7 +144,6 @@ export function getDocsNavigation(): Navigation {
         if (!docs[section]) {
           docs[section] = [];
         }
-
         docs[section].push(doc);
       }
     });

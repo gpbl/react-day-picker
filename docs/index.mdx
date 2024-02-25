@@ -1,5 +1,5 @@
 ---
-navigationLabel: Introduction
+navigationLabel: Get Started
 sort: 1
 ---
 
@@ -7,22 +7,53 @@ _Introduction_
 
 # React DayPicker
 
-> DayPicker is a flexible date picker component for React.
+> DayPicker is a React component to build date pickers, calendars, and date inputs for web applications.
 
-Use DayPicker to build date pickers, calendars, and date inputs in your React applications. DayPicker is a lightweight and fully customizable library that provides a great user experience for selecting dates.
-
-<Flex justify="center" my="7">
-  <Examples.Start />
+<Flex justify="center" mb="9">
+  <Card size="3">
+    <Examples.Start />
+  </Card>
 </Flex>
 
-## Main features
+Use React DayPicker to create date pickers, calendars, and date inputs in your [React](https://react.dev) applications.
 
 - **Customizable**: DayPicker is fully customizable. You can change the appearance, the behavior, and the localization.
-- **Accessible**: DayPicker is built with accessibility in mind. It follows the WAI-ARIA guidelines and is tested with screen readers.
+- **Accessible**: follows the WAI-ARIA guidelines and is tested with screen readers.
 - **Lightweight**: DayPicker is a small library with no dependencies. It's easy to integrate and use in your React applications.
 - **Flexible**: DayPicker is designed to be flexible and to fit your needs. You can use it to build date pickers, calendars, and date inputs.
 - **Modern**: DayPicker is built with modern technologies and follows the latest best practices in web development.
 
-## Getting Started
+## Installation
 
-Get start with DayPicker by [installing the package](/docs/installation) and [creating your first date picker](/docs/examples).
+DayPicker is available as an npm package and requires [date-fns](https://date-fns.org) as a peer dependency.
+
+```sh
+npm install react-day-picker date-fns
+```
+
+## Usage
+
+To use DayPicker, import the `<DayPicker />` component and its default style:
+
+```tsx title="App.jsx" caption="render:Start"
+import { DayPicker } from "react-day-picker";
+import "react-day-picker/style.css";
+
+import { useState } from "react";
+
+export function App() {
+  const [selected, setSelected] = useState();
+
+  return (
+    <div role="application" aria-label="Date Picker">
+      <DayPicker mode="single" selected={selected} onSelect={setSelected} />
+    </div>
+  );
+}
+```
+
+## Learn More
+
+- Playground
+- [Getting Started](/docs/getting-started)
+- [API](/docs/api)
