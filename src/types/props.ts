@@ -376,8 +376,6 @@ export type CustomComponents = {
  * - `single`: only one day can be selected.
  * - `multi`: multiple days can be selected.
  * - `range`: a range of days can be selected.
- *
- * @see https://react-day-picker.dev/docs/selection-modes
  */
 export type Mode = "none" | "single" | "multi" | "range";
 

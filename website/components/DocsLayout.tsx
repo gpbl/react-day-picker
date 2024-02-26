@@ -64,7 +64,7 @@ export function DocsLayout(props: DocsLayoutProps) {
                     borderColor: "var(--gray-a5)",
                   }}
                 >
-                  {toc && toc.length > 0 && <TableOfContent toc={toc} />}
+                  {toc && toc.length > 3 && <TableOfContent toc={toc} />}
                 </Box>
               </Box>
             </Flex>

@@ -1,16 +1,14 @@
 ---
-sort: 1
+sort: 5
 ---
 
-_Customization_
+_Getting Started_
 
 # Styling
 
-> Change the appearance of the HTML elements, such as headings, grid cells and buttons.
+> DayPicker comes with a minimal style inspired by MacOS date pickers and it's designed to be easily customized.
 
-## Default Style
-
-DayPicker comes with a minimal style inspired by MacOS date pickers and it's designed to be easily customized.
+## Importing the Default Style
 
 To start with the included style, import `react-day-picker/style.css` into your app. This will add the `.rdp` class names used by DayPicker.
 
@@ -34,11 +32,13 @@ If you are using a CDN, add the following link to your HTML file:
 
 When using CSS modules, you can import `style.module.css`. Pass the class names to the `classNames` prop.
 
-```tsx title="MyComponent.jsx"
+```tsx title="DatePicker.jsx"
 import { DayPicker } from "react-day-picker";
 import dayPickerClassNames from "react-day-picker/style.module.css";
-// ...
-<DayPicker classNames={dayPickerClassNames} />;
+
+export function DatePicker() {
+  return <DayPicker classNames={dayPickerClassNames} />;
+}
 ```
 
 From here, you have different options to customize the appearance of the calendar, depending on your project setup.

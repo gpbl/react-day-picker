@@ -5,5 +5,5 @@
 
 .Callout p {
   @apply m-0;
-  /* @apply text-sm; */
+  @apply text-sm;
 }

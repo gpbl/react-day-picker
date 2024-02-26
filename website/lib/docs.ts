@@ -24,11 +24,8 @@ export type Frontmatter = {
 export type DocSectionName =
   | "Introduction"
   | "Getting Started"
-  | "Customization"
-  | "Selecting Days"
-  | "Internationalization"
   | "Advanced Guides"
-  | "Development";
+  | "About DayPicker";
 
 export type APISectionName = "Functions" | "Interfaces";
 
@@ -43,15 +40,11 @@ export type Doc = {
 };
 
 const DOCS_PATH = path.join(process.cwd(), "../docs");
-
 const DOCS_SORTBY = [
   "Introduction",
   "Getting Started",
-  "Customization",
-  "Selecting Days",
-  "Internationalization",
   "Advanced Guides",
-  "Development",
+  "About DayPicker",
 ];
 
 /**
@@ -69,7 +62,6 @@ export const autoFrontmatterRegExp =
 
 export function getDocs(): Doc[] {
   const filenames = glob.sync(`${DOCS_PATH}/**/*.{md,mdx}`);
-
   const docs = filenames.map((filename) => {
     const slug = filename
       .replace(DOCS_PATH, "")
@@ -89,7 +81,8 @@ export function getDocs(): Doc[] {
     const { data } = matter(content) as { data: Frontmatter };
 
     const title = data.title ?? firstHeading ?? slug[slug.length - 1];
-    return {
+
+    const doc: Doc = {
       sort: data.sort ? parseInt(data.sort) : 100,
       section: data.section ?? section ?? slug[0],
       description: data.description ?? description ?? "",
@@ -98,6 +91,7 @@ export function getDocs(): Doc[] {
       slug,
       path: `docs/${slug.join("/")}`.replace(/\/$/, ""),
     };
+    return doc;
   });
 
   return docs;
@@ -156,6 +150,5 @@ export function getDocsNavigation(docsArray: Doc[]): DocsNavigation {
       sortedDocs[section] = docs[section];
     }
   });
-
   return { guides: sortedDocs, apiNext, apiMain: apiMain };
 }

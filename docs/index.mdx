@@ -1,51 +1,22 @@
 ---
 section: Introduction
 description: DayPicker is a React component to build date pickers, calendars, and date inputs for web applications.
-navigationLabel: Get Started
+navigationLabel: Introduction
 sort: 1
 ---
 
 # React DayPicker
 
 <Flex justify="center" mb="8" mt="-2">
-  <Card size="3">
-    <Examples.Start />
-  </Card>
+  <Examples.Start />
 </Flex>
 
-Use React DayPicker to create date pickers, calendars, and date inputs in your [React](https://react.dev) applications.
-
-- **Customizable**: DayPicker is fully customizable. You can change the appearance, the behavior, and the localization.
-- **Accessible**: follows the WAI-ARIA guidelines and is tested with screen readers.
-- **Lightweight**: DayPicker is a small library with no dependencies. It's easy to integrate and use in your React applications.
-- **Flexible**: DayPicker is designed to be flexible and to fit your needs. You can use it to build date pickers, calendars, and date inputs.
-- **Modern**: DayPicker is built with modern technologies and follows the latest best practices in web development.
-
-## Installation
-
-DayPicker is available as an npm package and requires [date-fns](https://date-fns.org) as a peer dependency.
-
-```sh
-npm install react-day-picker date-fns
-```
-
-<Callout icon="info">
-  See the [Upgrading Guide](/docs/upgrading) if you are upgrading from a
-  previous version.
-</Callout>
-
-## Usage
-
-To use DayPicker, import the `<DayPicker />` component and its default style:
-
-```tsx title="App.jsx" caption="render:Start"
-import { DayPicker } from "react-day-picker";
-import "react-day-picker/style.css";
-
+```tsx
 import { useState } from "react";
+import { DayPicker } from "react-day-picker";
 
-export function App() {
-  const [selected, setSelected] = useState();
+export function Start() {
+  const [selected, setSelected] = useState<Date>();
 
   return (
     <div role="application" aria-label="Date Picker">
@@ -55,8 +26,24 @@ export function App() {
 }
 ```
 
-## Learn More
+## Features
 
-- Playground
-- [Getting Started](/docs/getting-started)
-- [API](/docs/api)
+Use React DayPicker to create date pickers, calendars, and date inputs in your [React](https://react.dev) applications.
+
+- **Customizable**: DayPicker is fully customizable. You can change the appearance, the behavior, and the localization.
+- **Accessible**: follows the WAI-ARIA guidelines and is tested with screen readers.
+- **Lightweight**: DayPicker is a small library with no dependencies. It's easy to integrate and use in your React applications.
+- **Flexible**: DayPicker is designed to be flexible and to fit your needs. You can use it to build date pickers, calendars, and date inputs.
+- **Modern**: DayPicker is built with modern technologies and follows the latest best practices in web development.
+
+## Community
+
+Ask for help and share your experience with DayPicker in the [GitHub Discussions](/).
+
+## License
+
+DayPicker is released under the [MIT License](./development/license).
+
+## Funding
+
+Consider supporting DayPicker with a donation. DayPicker is an open-source project that is developed and maintained by one person. If you find it useful, please consider sponsoring the project.
