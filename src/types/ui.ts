@@ -1,10 +1,6 @@
 import { CSSProperties } from "react";
 
-/**
- * The UI elements that can be styled.
- *
- * @deprecated
- */
+/** The UI elements that can be styled. */
 export enum UI {
   /** Represents the root element. */
   Root = "rdp",

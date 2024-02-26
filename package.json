@@ -32,14 +32,10 @@
       }
     },
     "./style.css": {
-      "import": "./src/style.css",
-      "require": "./src/style.css",
       "default": "./src/style.css",
       "types": "./src/style.d.ts"
     },
     "./style.module.css": {
-      "import": "./src/style.css",
-      "require": "./src/style.css",
       "default": "./src/style.css",
       "types": "./src/style.d.ts"
     },
