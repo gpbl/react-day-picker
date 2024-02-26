@@ -50,6 +50,7 @@ export default {
       },
       fontFamily: {
         sans: ["Inter", ...defaultTheme.fontFamily.sans],
+        mono: ["JetBrains Mono", ...defaultTheme.fontFamily.mono],
       },
       maxWidth: {
         "8xl": "88rem",

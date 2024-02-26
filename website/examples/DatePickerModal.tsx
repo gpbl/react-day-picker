@@ -4,8 +4,10 @@ import {
   Flex,
   Heading,
   IconButton,
+  Separator,
   Text,
   TextField,
+  VisuallyHidden,
 } from "@radix-ui/themes";
 import { useEffect, useId, useRef, useState } from "react";
 import { DayPicker } from "react-day-picker";
@@ -40,13 +42,6 @@ export function DatePickerModal() {
     };
   }, [isDialogOpen]);
 
-  // Function to handle Enter keypress on the input field
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (isDialogOpen) return;
-    if (event.key !== "Enter") return;
-    dialogRef.current?.showModal();
-  };
-
   const handleSelect = (date: Date) => {
     setSelectedDate(date);
     dialogRef.current?.close();
@@ -55,61 +50,63 @@ export function DatePickerModal() {
   return (
     <Flex align="center">
       <Box>
-        <Text weight="bold" as="label" htmlFor="input" className="pr-3">
-          Your Birthday:
+        <Text weight="bold" as="label" htmlFor="booking-input" className="pr-3">
+          Booking Date:
         </Text>
       </Box>
       <TextField.Root size={"3"}>
         <TextField.Input
-          id="input"
+          id="booking-input"
           type="text"
-          onKeyDown={handleKeyDown}
-          onClick={toggleDialog}
-          readOnly
-          aria-controls="dialog"
-          aria-haspopup="dialog"
-          aria-expanded={isDialogOpen}
           value={selectedDate ? selectedDate.toDateString() : ""}
+          readOnly
         />
         <TextField.Slot>
           <IconButton
             variant="ghost"
             onClick={toggleDialog}
-            aria-live="assertive"
             aria-controls="dialog"
             aria-haspopup="dialog"
             aria-expanded={isDialogOpen}
+            aria-label=" Open calendar to choose booking date"
           >
             <CalendarIcon width="24" height="24" />
           </IconButton>
         </TextField.Slot>
       </TextField.Root>
-
+      <VisuallyHidden aria-live="assertive" aria-atomic="true">
+        {selectedDate !== undefined && (
+          <>Selected: {selectedDate.toDateString()}</>
+        )}
+      </VisuallyHidden>
       <dialog
         id={dialogId}
         onClose={() => setIsDialogOpen(false)}
         ref={dialogRef}
-        className="rounded-md p-8 pt-20"
+        role="dialog"
+        aria-model="true"
+        className="rounded-md p-6"
         aria-labelledby={headerId}
-        aria-describedby="dialog-description"
       >
+        <Box>
+          <Flex justify="between" align="center">
+            <Heading id={headerId}>Date Picker</Heading>
+            <IconButton
+              variant="ghost"
+              onClick={toggleDialog}
+              aria-label="Close Date Picker Dialog"
+            >
+              <Cross2Icon width="24" height="24" />
+            </IconButton>
+          </Flex>
+          <Separator size="4" my="4" color="gray" />
+        </Box>
         <DayPicker
           autoFocus
           mode="single"
           selected={selectedDate}
           onSelect={handleSelect}
         />
-        <Flex
-          justify="between"
-          className="absolute left-0 right-0 top-4 mb-8 border-b px-4"
-        >
-          <Heading id={headerId} className="mb-4">
-            Date Picker
-          </Heading>
-          <IconButton variant="ghost" onClick={toggleDialog}>
-            <Cross2Icon width="24" height="24" />
-          </IconButton>
-        </Flex>
       </dialog>
     </Flex>
   );

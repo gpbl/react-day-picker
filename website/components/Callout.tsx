@@ -7,9 +7,9 @@ import styles from "./Callout.module.css";
 
 export function Callout(props: PropsWithChildren<{ icon?: "info" }>) {
   return (
-    <RadixCallout.Root className={styles.Callout} size="1">
+    <RadixCallout.Root className={styles.Callout}>
       <RadixCallout.Icon>
-        <InfoCircledIcon />
+        <InfoCircledIcon width="22" height="22" />
       </RadixCallout.Icon>
       <Box>{props.children}</Box>
     </RadixCallout.Root>

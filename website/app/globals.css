@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --breadcrumbs-height: 36px;
+  --breadcrumbs-height: 48px;
   --header-height: 48px;
-  --header-full: 84px; /* Includes breadcrumbs */
+  --header-full: 96px; /* Includes breadcrumbs */
   --sidebar-width: 256px;
 }
 
 code {
-  font-size: 13px;
+  @apply font-mono;
 }
 
 @layer utilities {

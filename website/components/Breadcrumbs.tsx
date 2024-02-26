@@ -5,18 +5,19 @@ import {
   Cross1Icon,
   HamburgerMenuIcon,
 } from "@radix-ui/react-icons";
-import { Button, Flex, Text } from "@radix-ui/themes";
+import { Flex, IconButton, Text } from "@radix-ui/themes";
 
 export interface DocBreadcrumbsProps {
   doc: Doc;
 }
 
-export function DocBreadcrumbs(props: DocBreadcrumbsProps) {
+export function Breadcrumbs(props: DocBreadcrumbsProps) {
   const sidebar = useSidebar();
   return (
     <Flex py="2" align="center" gap="1" asChild wrap="nowrap">
-      <nav aria-label="Breadcrumbs">
-        <Button
+      <nav aria-label="Breadcrumbs" className="h-breadcrumbs">
+        <IconButton
+          size="3"
           className="xl:hidden"
           variant="ghost"
           onClick={() => sidebar.setIsOpen(!sidebar.isOpen)}
@@ -25,11 +26,11 @@ export function DocBreadcrumbs(props: DocBreadcrumbsProps) {
           aria-expanded={sidebar.isOpen}
         >
           {sidebar.isOpen ? (
-            <Cross1Icon width="18" height="18" />
+            <Cross1Icon width="22" height="22" />
           ) : (
-            <HamburgerMenuIcon width="18" height="18" />
+            <HamburgerMenuIcon width="22" height="22" />
           )}
-        </Button>
+        </IconButton>
         <ChevronRightIcon width="18" height="18" />
         <Text size="2">{props.doc.section}</Text>
         <ChevronRightIcon width="18" height="18" />

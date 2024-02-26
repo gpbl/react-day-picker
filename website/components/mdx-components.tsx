@@ -133,7 +133,7 @@ export const components: MDXComponents = {
           return <></>;
         }
         return (
-          <Flex justify="center" mb="7">
+          <Flex justify="center">
             <Component />
           </Flex>
         );
@@ -204,7 +204,8 @@ export const components: MDXComponents = {
     return (
       <Box
         p="4"
-        my="8"
+        my="2"
+        mb="8"
         mx="auto"
         className="overflow-auto rounded-md border border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-900"
         style={{
@@ -229,19 +230,23 @@ export const components: MDXComponents = {
 
 function CodeBlockTitle(props: PropsWithChildren) {
   return (
-    <Flex mt="6" mb="-9" ml="4" width="auto" p="2">
+    <Flex mt="-2">
       <Text
         size="1"
         style={{
-          color: "var(--slate-a11)",
           backgroundColor: "var(--slate-2)",
-          boxShadow: "0 0 0 1px var(--slate-a5)",
-          borderRadius: "var(--radius-2)",
+          border: "1px solid var(--slate-a4)",
+          borderTopLeftRadius: "var(--radius-2)",
+          borderTopRightRadius: "var(--radius-2)",
           padding: "var(--space-1) var(--space-2)",
-          fontFamily: "var(--font-mono)",
+          transform: "translateY(calc(1em - 3px)) translateX(1em)",
+          borderBottom: 0,
+          minWidth: "120px",
+          paddingBlock: "var(--space-1) var(--space-2)",
+          fontWeight: "bold",
         }}
       >
-        <code>{props.children}</code>
+        {props.children}
       </Text>
     </Flex>
   );

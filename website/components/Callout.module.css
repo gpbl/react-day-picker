@@ -1,8 +1,9 @@
 .Callout {
+  @apply my-2;
   align-items: center;
 }
 
 .Callout p {
   @apply m-0;
-  @apply text-xs;
+  /* @apply text-sm; */
 }

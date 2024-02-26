@@ -2,7 +2,7 @@ import { DocsStaticProps } from "@/pages/docs/[[...slug]]";
 import { Box, Flex, Separator } from "@radix-ui/themes";
 
 import { useSidebar } from "@/lib/sidebar";
-import { DocBreadcrumbs } from "./DocBreadcrumbs";
+import { Breadcrumbs } from "./Breadcrumbs";
 import { DocHeader } from "./DocHeader";
 import { Sidebar } from "./Sidebar";
 import { TableOfContent } from "./TableOfContent";
@@ -20,16 +20,19 @@ export function DocsLayout(props: DocsLayoutProps) {
     <Box>
       {/* Breadcrumbs */}
       <Box
-        className="fixed inset-x-0 top-header z-10 h-breadcrumbs w-full border-b bg-page-background px-4 xl:hidden"
+        className="fixed inset-x-0 top-header z-10 w-full border-b bg-page-background px-4 xl:hidden"
         style={{ borderColor: "var(--gray-a5)" }}
       >
-        <DocBreadcrumbs doc={doc} />
+        <Breadcrumbs doc={doc} />
       </Box>
 
       {/* Sidebar */}
       <Box
-        className={`b-0 shadow-sidebar fixed top-header-full z-10 h-full w-full transform overflow-auto bg-page-background p-4 transition-transform duration-200 ease-in-out sm:w-sidebar xl:top-header xl:block xl:translate-x-0 xl:shadow-none ${sidebar.isOpen ? "translate-x-0" : "-translate-x-full"}`}
-        style={{ height: "calc(100vh - var(--header-height))" }}
+        className={`b-0 sm:shadow-sidebar pt-0transition-transform fixed top-header-full z-10 h-full w-full transform scroll-pb-32 overflow-auto bg-page-background p-4 duration-200 ease-in-out sm:w-sidebar xl:top-header xl:block xl:translate-x-0 xl:shadow-none ${sidebar.isOpen ? "translate-x-0" : "-translate-x-full"}`}
+        style={{
+          height: "calc(100vh - var(--header-full))",
+          marginTop: 1,
+        }}
       >
         <Sidebar navigation={navigation} />
       </Box>
@@ -41,6 +44,7 @@ export function DocsLayout(props: DocsLayoutProps) {
           className="max-w-screen-lg xl:max-w-screen-xl"
           p={{ initial: "4", lg: "8", xl: "9" }}
           asChild
+          style={{ maxWidth: "120ch" }}
         >
           <main>
             <Flex>
