@@ -4,6 +4,7 @@
     "paths": {
       "@/test/*": ["./test/*"],
     },
+    "noEmit": true,
     "types": ["node", "jest", "@testing-library/jest-dom"],
     "lib": ["dom", "dom.iterable", "esnext"],
   },

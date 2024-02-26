@@ -21,12 +21,12 @@ describe("dropdown", () => {
     const { result } = renderHook(useCalendar, {
       fromDate: undefined,
     });
-    expect(result.current.dropdown.months).toBeUndefined();
+    expect(result.current.dropdownOptions.months).toBeUndefined();
   });
 
   it("should return undefined if no toDate is provided", () => {
     const { result } = renderHook(useCalendar, { toDate: undefined });
-    expect(result.current.dropdown.months).toBeUndefined();
+    expect(result.current.dropdownOptions.months).toBeUndefined();
   });
 
   it("should return an array of months between the fromDate and toDate", () => {
@@ -35,7 +35,7 @@ describe("dropdown", () => {
       toDate: new Date(2023, 2, 1),
     };
     const { result } = renderHook(useCalendar, dayPicker);
-    const months = result.current.dropdown.months;
+    const months = result.current.dropdownOptions.months;
     expect(months).toHaveLength(12);
     expect(months?.[0]).toEqual([0, "January"]);
     expect(months?.[months.length - 1]).toEqual([11, "December"]);

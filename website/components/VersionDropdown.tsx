@@ -1,8 +1,8 @@
 import { ChevronDownIcon } from "@radix-ui/react-icons";
 import { Button, DropdownMenu } from "@radix-ui/themes";
 
-import v8PackageJson from "react-day-picker-v8/package.json" assert { type: "json" };
 import v9PackageJson from "react-day-picker/package.json" assert { type: "json" };
+import v8PackageJson from "react-day-picker@8/package.json" assert { type: "json" };
 
 import { useVersion } from "@/lib/versions";
 import { usePathname, useRouter } from "next/navigation";

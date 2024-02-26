@@ -56,41 +56,29 @@ export const components: MDXComponents = {
   LinkCard,
 
   // HTML components
-  a: function a(
-    props: PropsWithChildren<{ href?: string; id?: string; name?: string }>,
-  ) {
+  a: function a(props) {
     const { href = "", ...restProps } = props;
-
-    if (href.startsWith("http")) {
-      return (
-        <Link
-          {...restProps}
-          style={{
-            textDecoration: "underline",
-            textDecorationColor: "currentcolor",
-          }}
-          href={href}
-          target="_blank"
-          rel="noopener"
-        />
-      );
-    }
+    const isExternal = href.startsWith("http");
 
     return (
-      <Link
-        asChild
-        style={{
-          textDecoration: "underline",
-          textDecorationColor: "currentcolor",
-        }}
-      >
-        <NextLink href={href.replace(/.mdx?$/, "")} {...restProps}></NextLink>
+      <Link asChild underline="always">
+        <NextLink
+          {...restProps}
+          href={!isExternal ? href.replace(/.mdx?$/, "") : href}
+          target={isExternal ? "_blank" : undefined}
+          rel={isExternal ? "noopener" : undefined}
+          ref={undefined}
+        >
+          {props.children}
+        </NextLink>
       </Link>
     );
   },
 
-  blockquote: (props: PropsWithChildren) => (
-    <Blockquote size="3" my="3" {...props} />
+  blockquote: (props) => (
+    <Blockquote size="3" my="3">
+      {props.children}
+    </Blockquote>
   ),
 
   code: function code(props: JSX.IntrinsicElements["code"]) {
@@ -101,25 +89,21 @@ export const components: MDXComponents = {
     return <code {...props}>{props.children}</code>;
   },
 
-  em: (props: PropsWithChildren) => <Em {...props} />,
+  em: (props) => <Em>{props.children}</Em>,
 
-  div: function div(props: PropsWithChildren) {
+  div: function div(props) {
     const { children, ...restProps } = props;
     if ("data-rehype-pretty-code-title" in props) {
       return (
         <div {...restProps}>
-          <CodeBlockTitle>{props.children}</CodeBlockTitle>
+          <CodeBlockTitle>{children}</CodeBlockTitle>
         </div>
       );
     }
     return <div {...restProps}>{children}</div>;
   },
-  figcaption: function figcaption(
-    props: PropsWithChildren<{
-      "data-rehype-pretty-code-title"?: "";
-      "data-rehype-pretty-code-caption"?: "";
-    }>,
-  ) {
+
+  figcaption: function figcaption(props) {
     if ("data-rehype-pretty-code-caption" in props) {
       const caption = props.children as string;
       if (caption.startsWith("render")) {
@@ -148,7 +132,7 @@ export const components: MDXComponents = {
       const { children, ...restProps } = props;
       return (
         <figcaption {...restProps}>
-          <CodeBlockTitle>{children}</CodeBlockTitle>
+          <CodeBlockTitle>{props.children}</CodeBlockTitle>
         </figcaption>
       );
     }
@@ -160,47 +144,52 @@ export const components: MDXComponents = {
     </Heading>
   ),
 
-  h2: (props: PropsWithChildren<{ id?: string }>) => {
+  h2: (props) => {
     const { children, id } = props;
     return (
-      <Heading asChild size="7" mt="9" mb="5" {...props} id={id} data-heading>
+      <Heading asChild size="7" mt="9" mb="5" id={id}>
         <h2>{id ? <LinkHeading id={id}>{children}</LinkHeading> : children}</h2>
       </Heading>
     );
   },
 
-  h3: (props: PropsWithChildren<{ id?: string }>) => {
+  h3: (props) => {
     const { children, id } = props;
     return (
-      <Heading asChild size="5" mt="8" mb="3" {...props} id={id} data-heading>
+      <Heading asChild size="5" mt="8" mb="3" id={id}>
         <h3>{id ? <LinkHeading id={id}>{children}</LinkHeading> : children}</h3>
       </Heading>
     );
   },
-  h4: (props: PropsWithChildren) => (
+
+  h4: (props) => (
     <Heading asChild size="4" mt="6" mb="3">
       <h4 {...props} />
     </Heading>
   ),
-  hr: (props: PropsWithChildren) => (
-    <Separator size="4" my="6" {...props} style={{ marginInline: "auto" }} />
-  ),
+
+  hr: () => <Separator size="4" my="6" style={{ marginInline: "auto" }} />,
+
   img: (props: JSX.IntrinsicElements["img"]) => (
     <Box my="6">
       {/* eslint-disable-next-line jsx-a11y/alt-text, @next/next/no-img-element */}
       <img {...props} className="max-w-full align-middle" />
     </Box>
   ),
-  kbd: (props: PropsWithChildren) => <Kbd {...props} />,
-  li: (props: PropsWithChildren) => (
-    <li className={listStyles.li}>
-      <Text {...props} />
-    </li>
+
+  kbd: (props) => <Kbd>{props.children}</Kbd>,
+
+  li: (props) => <li className={listStyles.li} {...props} />,
+
+  ol: (props) => <ol className={listStyles.ul} {...props} />,
+
+  p: (props) => (
+    <Text as="p" my="4">
+      {props.children}
+    </Text>
   ),
 
-  ol: (props: PropsWithChildren) => <ol className={listStyles.ul} {...props} />,
-  p: (props: PropsWithChildren) => <Text as="p" my="4" {...props} />,
-  pre: (props: PropsWithChildren) => {
+  pre: (props) => {
     return (
       <Box
         p="4"
@@ -219,12 +208,13 @@ export const components: MDXComponents = {
       </Box>
     );
   },
-  strong: (props: PropsWithChildren) => <Strong {...props} />,
-  ul: (props: PropsWithChildren) => <ul {...props} className={listStyles.ul} />,
-  table: (props: PropsWithChildren) => (
-    <Table.Root className={tableStyles.Table} {...props}>
-      {props.children}
-    </Table.Root>
+
+  strong: (props) => <Strong>{props.children}</Strong>,
+
+  ul: (props) => <ul {...props} className={listStyles.ul} />,
+
+  table: (props) => (
+    <Table.Root className={tableStyles.Table}>{props.children}</Table.Root>
   ),
 };
 
