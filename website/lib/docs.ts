@@ -17,13 +17,14 @@ export type Frontmatter = {
   title?: string;
   description?: string;
   sort?: string;
+  toc?: boolean;
   navigationLabel?: string;
   section?: string;
 };
 
 export type DocSectionName =
   | "Introduction"
-  | "Getting Started"
+  | "Using DayPicker"
   | "Advanced Guides"
   | "About DayPicker";
 
@@ -35,6 +36,7 @@ export type Doc = {
   navigationLabel?: string;
   description: string;
   section: string;
+  toc: boolean;
   sort: number;
   path: string;
 };
@@ -42,7 +44,7 @@ export type Doc = {
 const DOCS_PATH = path.join(process.cwd(), "../docs");
 const DOCS_SORTBY = [
   "Introduction",
-  "Getting Started",
+  "Using DayPicker",
   "Advanced Guides",
   "About DayPicker",
 ];
@@ -83,6 +85,7 @@ export function getDocs(): Doc[] {
     const title = data.title ?? firstHeading ?? slug[slug.length - 1];
 
     const doc: Doc = {
+      toc: data.toc ?? true,
       sort: data.sort ? parseInt(data.sort) : 100,
       section: data.section ?? section ?? slug[0],
       description: data.description ?? description ?? "",

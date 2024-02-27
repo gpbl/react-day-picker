@@ -1,0 +1,6 @@
+.figcaption {
+}
+
+.figcaption + div {
+  @apply mt-1;
+}

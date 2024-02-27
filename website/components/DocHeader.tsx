@@ -21,7 +21,7 @@ export function DocHeader({ doc }: { doc: Doc }) {
         </Heading>
       )}
       {doc.description && (
-        <Text as="p" size="5" mt="2" mb="2" color="gray">
+        <Text as="p" size="5" mt="2" color="gray">
           {doc.description}
         </Text>
       )}

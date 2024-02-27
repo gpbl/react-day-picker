@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { PropsWithChildren } from "react";
 
 import type { MDXComponents } from "mdx/types";
@@ -7,11 +8,13 @@ import { DayPicker } from "react-day-picker";
 import { CodeBlock } from "@/components/CodeBlock";
 import { LinkHeading } from "@/components/LinkHeading";
 import { Steps } from "@/components/Steps";
+import codeBlockStyles from "@/components/codeBlockStyles.module.css";
 import listStyles from "@/components/listStyles.module.css";
 import tableStyles from "@/components/tableStyles.module.css";
 
 import * as Examples from "@/examples";
 
+import { ExternalLinkIcon } from "@radix-ui/react-icons";
 import {
   Blockquote,
   Box,
@@ -21,7 +24,6 @@ import {
   Flex,
   Heading,
   Kbd,
-  Link,
   Separator,
   Strong,
   Table,
@@ -61,17 +63,31 @@ export const components: MDXComponents = {
     const isExternal = href.startsWith("http");
 
     return (
-      <Link asChild underline="always">
+      <Text
+        color="indigo"
+        asChild
+        style={{
+          textDecoration: "underline",
+          textDecorationStyle: "solid",
+          textUnderlineOffset: "0.2em",
+        }}
+      >
         <NextLink
           {...restProps}
           href={!isExternal ? href.replace(/.mdx?$/, "") : href}
           target={isExternal ? "_blank" : undefined}
           rel={isExternal ? "noopener" : undefined}
           ref={undefined}
+          aria-description={isExternal ? "(opens in a new tab)" : undefined}
         >
           {props.children}
+          {isExternal && (
+            <Box display="inline-block" asChild ml="1">
+              <ExternalLinkIcon aria-hidden />
+            </Box>
+          )}
         </NextLink>
-      </Link>
+      </Text>
     );
   },
 
@@ -95,7 +111,7 @@ export const components: MDXComponents = {
     const { children, ...restProps } = props;
     if ("data-rehype-pretty-code-title" in props) {
       return (
-        <div {...restProps}>
+        <div {...restProps} className={codeBlockStyles.figcaption}>
           <CodeBlockTitle>{children}</CodeBlockTitle>
         </div>
       );
@@ -117,7 +133,7 @@ export const components: MDXComponents = {
           return <></>;
         }
         return (
-          <Flex justify="center">
+          <Flex justify="center" py="4">
             <Component />
           </Flex>
         );
@@ -127,15 +143,17 @@ export const components: MDXComponents = {
       }
       return <></>;
     }
+
+    // Add the filename or the title to the code
     if ("data-rehype-pretty-code-title" in props) {
-      // Add the filename or the title to the code
       const { children, ...restProps } = props;
       return (
-        <figcaption {...restProps}>
-          <CodeBlockTitle>{props.children}</CodeBlockTitle>
+        <figcaption {...restProps} className={codeBlockStyles.figcaption}>
+          <CodeBlockTitle>{children}</CodeBlockTitle>
         </figcaption>
       );
     }
+
     return <figcaption {...props} />;
   },
   h1: (props) => (
@@ -147,7 +165,7 @@ export const components: MDXComponents = {
   h2: (props) => {
     const { children, id } = props;
     return (
-      <Heading asChild size="7" mt="9" mb="5" id={id}>
+      <Heading asChild size="7" mt="8" mb="6" id={id}>
         <h2>{id ? <LinkHeading id={id}>{children}</LinkHeading> : children}</h2>
       </Heading>
     );
@@ -193,18 +211,16 @@ export const components: MDXComponents = {
     return (
       <Box
         p="4"
-        my="2"
-        mb="8"
+        my="6"
         mx="auto"
         className="overflow-auto rounded-md border border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-900"
         style={{
-          // boxShadow: "0 0 0 1px var(--slate-a5)",
-          // borderRadius: "var(--radius-2)",
-          fontSize: "var(--font-size-2)",
           backgroundColor: "var(--slate-a2)",
         }}
       >
-        <pre {...props} />
+        <Text size="2" asChild>
+          <pre {...props} />
+        </Text>
       </Box>
     );
   },
@@ -220,24 +236,10 @@ export const components: MDXComponents = {
 
 function CodeBlockTitle(props: PropsWithChildren) {
   return (
-    <Flex mt="-2">
-      <Text
-        size="1"
-        style={{
-          backgroundColor: "var(--slate-2)",
-          border: "1px solid var(--slate-a4)",
-          borderTopLeftRadius: "var(--radius-2)",
-          borderTopRightRadius: "var(--radius-2)",
-          padding: "var(--space-1) var(--space-2)",
-          transform: "translateY(calc(1em - 3px)) translateX(1em)",
-          borderBottom: 0,
-          minWidth: "120px",
-          paddingBlock: "var(--space-1) var(--space-2)",
-          fontWeight: "bold",
-        }}
-      >
-        {props.children}
+    <Box pt="4" px="4">
+      <Text size="1">
+        <code>./{props.children}</code>
       </Text>
-    </Flex>
+    </Box>
   );
 }

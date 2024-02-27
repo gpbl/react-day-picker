@@ -28,20 +28,21 @@ export function DocsLayout(props: DocsLayoutProps) {
 
       {/* Sidebar */}
       <Box
-        className={`b-0 sm:shadow-sidebar pt-0transition-transform fixed top-header-full z-10 h-full w-full transform scroll-pb-32 overflow-auto bg-page-background p-4 duration-200 ease-in-out sm:w-sidebar xl:top-header xl:block xl:translate-x-0 xl:shadow-none ${sidebar.isOpen ? "translate-x-0" : "-translate-x-full"}`}
+        className={`b-0 sm:shadow-sidebar fixed top-header-full z-10 h-full w-full transform scroll-pb-32 overflow-auto bg-page-background transition-transform duration-200 ease-in-out sm:w-sidebar xl:top-header xl:block xl:translate-x-0 xl:shadow-none ${sidebar.isOpen ? "translate-x-0" : "-translate-x-full"}`}
         style={{
           height: "calc(100vh - var(--header-full))",
           marginTop: 1,
         }}
       >
-        <Sidebar navigation={navigation} />
+        <Box p="4">
+          <Sidebar navigation={navigation} />
+        </Box>
       </Box>
 
       {/* Content */}
       <Box className="mt-header-full xl:ms-sidebar xl:mt-header">
         <Box
           mx="auto"
-          className="max-w-screen-lg xl:max-w-screen-xl"
           p={{ initial: "4", lg: "8", xl: "9" }}
           asChild
           style={{ maxWidth: "120ch" }}
@@ -51,7 +52,7 @@ export function DocsLayout(props: DocsLayoutProps) {
               {/* Main content */}
               <Box className="w-full flex-auto overflow-auto px-2 py-4 md:pe-8 xl:pe-12">
                 <DocHeader doc={doc} />
-                <Separator size="4" mt="6" mb="9" color="gray" />
+                <Separator size="4" mt="4" mb="6" color="gray" />
                 {props.children}
               </Box>
 
@@ -64,7 +65,9 @@ export function DocsLayout(props: DocsLayoutProps) {
                     borderColor: "var(--gray-a5)",
                   }}
                 >
-                  {toc && toc.length > 3 && <TableOfContent toc={toc} />}
+                  {doc.toc && toc && toc.length > 3 && (
+                    <TableOfContent toc={toc} />
+                  )}
                 </Box>
               </Box>
             </Flex>
