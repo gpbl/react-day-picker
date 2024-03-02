@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -17,10 +21,19 @@
         "name": "next"
       }
     ],
-    "types": ["node", "jest", "@testing-library/jest-dom", "./mdx.d.ts"],
+    "types": [
+      "node",
+      "jest",
+      "@testing-library/jest-dom",
+      "./mdx.d.ts"
+    ],
     "paths": {
-      "@/test/*": ["../test/*"],
-      "@/*": ["./*"]
+      "@/test/*": [
+        "../test/*"
+      ],
+      "@/*": [
+        "./*"
+      ]
     }
   },
   "include": [
@@ -29,7 +42,10 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "next.config.mjs",
-    "typedoc.mjs"
+    "typedoc.mjs",
+    "build/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

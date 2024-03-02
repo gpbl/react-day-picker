@@ -24,7 +24,7 @@ import "react-day-picker/style.css";
 
 export function App() {
   const [selected, setSelected] = React.useState<Date>();
-  return <DayPicker selected={selected} onSelect={spetSelected} />;
+  return <DayPicker selected={selected} onSelect={selected} />;
 }
 ```
 

@@ -4,7 +4,7 @@ const nextConfig = {
   reactStrictMode: true,
   distDir: "build",
   cleanDistDir: true,
-  output: "export",
+  output: process.env.NODE_ENV === "production" ? "export" : undefined,
 };
 
 export default nextConfig;
