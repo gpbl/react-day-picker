@@ -45,17 +45,17 @@ export function DocsLayout(props: DocsLayoutProps) {
           <DocHeader doc={doc} />
           <Separator size="4" my="8" mt="4" />
           <article>{props.children}</article>
-          {doc.pagination && (
-            <>
-              <Separator size="4" my="4" mt="8" />
-              <Pagination
-                nextDoc={nextDoc}
-                previousDoc={previousDoc}
-                currentDoc={doc}
-              />
-            </>
-          )}
         </main>
+        {doc.pagination && (
+          <nav>
+            <Separator size="4" my="4" mt="8" />
+            <Pagination
+              nextDoc={nextDoc}
+              previousDoc={previousDoc}
+              currentDoc={doc}
+            />
+          </nav>
+        )}
       </Box>
 
       {/* toc */}

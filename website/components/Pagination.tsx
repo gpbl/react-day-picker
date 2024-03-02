@@ -14,14 +14,14 @@ export function Pagination(props: PaginationProps) {
   const nextPageTitle = nextDoc?.navigationLabel || nextDoc?.title;
 
   return (
-    <Flex asChild justify="between" wrap="wrap-reverse" width="100%" gap="4">
+    <Flex asChild width="100%" gap="4" wrap="wrap-reverse">
       <section aria-label="Page navigation">
-        <Box shrink="0" grow="1">
+        <Box style={{ flex: "1 0 30%" }}>
           {previousDoc?.path && (
-            <Card size="2" asChild>
+            <Card size="2" asChild variant="ghost">
               <Link
                 href={"/" + previousDoc?.path}
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", whiteSpace: "nowrap" }}
                 aria-label={`Previous page: ${prevPageTitle}`}
               >
                 <Text as="div" align="left" color="gray" size="2">
@@ -37,12 +37,12 @@ export function Pagination(props: PaginationProps) {
             </Card>
           )}
         </Box>
-        <Box shrink="0" grow="1">
+        <Box style={{ flex: "1 0 30%" }}>
           {nextDoc?.path && (
-            <Card size="2" asChild>
+            <Card size="2" asChild variant="ghost">
               <Link
                 href={"/" + nextDoc?.path}
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", whiteSpace: "nowrap" }}
                 aria-label={`Next page: ${nextPageTitle}`}
               >
                 <Text as="div" align="right" color="gray">
