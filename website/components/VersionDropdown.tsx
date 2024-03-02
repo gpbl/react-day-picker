@@ -24,8 +24,7 @@ export function VersionDropdown() {
     }
   };
 
-  const pkgVersion =
-    version === "main" ? v8PackageJson.version : v9PackageJson.version;
+  const pkgVersion = version === "main" ? "8" : v9PackageJson.version;
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger>
@@ -40,7 +39,7 @@ export function VersionDropdown() {
       </DropdownMenu.Trigger>
       <DropdownMenu.Content>
         <DropdownMenu.Item
-          shortcut={v8PackageJson.version}
+          shortcut={"8"}
           onClick={handleLatestClick}
           aria-description="Press Enter to choose this version"
         >
