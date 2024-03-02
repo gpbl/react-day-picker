@@ -46,7 +46,7 @@
   },
   "scripts": {
     "prepublish": "pnpm build",
-    "build-website": "pnpm run build && pnpm --filter website run build",
+    "build-website": "pnpm run build && pnpm --filter website run build && rm -rf website/build/cache",
     "build:cjs": "tsc --project tsconfig-cjs.json",
     "build-typedoc-theme": "rm -rf ./typedoc-theme/dist && tsc -p ./typedoc-theme/tsconfig.json && cp -R ./typedoc-theme/src/resources ./typedoc-theme/dist",
     "build:esm": "tsc --project tsconfig-esm.json",

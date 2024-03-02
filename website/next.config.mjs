@@ -2,7 +2,8 @@
 const nextConfig = {
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
   reactStrictMode: true,
-  output: "standalone",
+  distDir: "build",
+  cleanDistDir: true,
 };
 
 export default nextConfig;
