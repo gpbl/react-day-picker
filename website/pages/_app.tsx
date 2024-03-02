@@ -6,13 +6,11 @@ import "@/app/radix-config.css";
 import "@/app/shiki.css";
 
 import { ThemeProvider } from "next-themes";
-import { usePathname } from "next/navigation";
 
-import { DocsLayout } from "@/components/DocsLayout";
 import { Header } from "@/components/Header";
 import { SidebarProvider } from "@/lib/sidebar";
 import { VersionProvider } from "@/lib/versions";
-import { type DocsStaticProps } from "@/pages/docs/[[...slug]]";
+import { type DocsStaticProps } from "@/pages/[[...slug]]";
 import { Theme } from "@radix-ui/themes";
 
 interface AppProps {
@@ -23,22 +21,13 @@ interface AppProps {
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
 
-  const pathname = usePathname();
-  const isDocPage = pathname?.startsWith("/docs");
-
   return (
     <VersionProvider>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <SidebarProvider>
           <Theme>
             <Header />
-            {isDocPage ? (
-              <DocsLayout pageProps={pageProps}>
-                <Component {...pageProps} />
-              </DocsLayout>
-            ) : (
-              <Component {...pageProps} />
-            )}
+            <Component {...pageProps} />
           </Theme>
         </SidebarProvider>
       </ThemeProvider>

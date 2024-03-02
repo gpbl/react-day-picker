@@ -1,14 +1,23 @@
-.ul {
+.ul,
+.ol {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
   padding-left: var(--space-4);
-  list-style-type: unset;
   margin: var(--space-4) var(--space-2);
 }
 
-.ul li {
-  margin-left: var(--space-4);
+.ul {
+  list-style-type: disc;
+}
+
+.ol {
+  list-style-type: decimal;
+}
+
+.ul li,
+.ol li {
+  margin-left: var(--space-2);
 }
 
 .ul .ul {

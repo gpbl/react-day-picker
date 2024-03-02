@@ -14,13 +14,13 @@ export function VersionDropdown() {
   const handleLatestClick = () => {
     setVersion("main");
     if (pathName.includes("/api")) {
-      router.push("/docs/api/main");
+      router.push("/api/main");
     }
   };
   const handleNextClick = () => {
     setVersion("next");
     if (pathName.includes("/api")) {
-      router.push("/docs/api/next");
+      router.push("/api/next");
     }
   };
 

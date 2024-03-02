@@ -84,8 +84,8 @@ export const components: MDXComponents = {
         >
           {props.children}
           {isExternal && (
-            <Box display="inline-block" asChild ml="1">
-              <ExternalLinkIcon aria-hidden />
+            <Box display="inline-block" asChild ml="1" aria-hidden>
+              <ExternalLinkIcon />
             </Box>
           )}
         </NextLink>
@@ -201,7 +201,7 @@ export const components: MDXComponents = {
 
   li: (props) => <li className={listStyles.li} {...props} />,
 
-  ol: (props) => <ol className={listStyles.ul} {...props} />,
+  ol: (props) => <ol className={listStyles.ol} {...props} />,
 
   p: (props) => (
     <Text as="p" my="4">

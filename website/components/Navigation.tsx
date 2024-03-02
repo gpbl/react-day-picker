@@ -6,13 +6,16 @@ export function Navigation() {
   return (
     <>
       <Link asChild size="2">
-        <NextLink href={"/docs"} aria-description="Open the DayPicker guides">
+        <NextLink
+          href={"/start"}
+          aria-description="Open the DayPicker documentation"
+        >
           Documentation
         </NextLink>
       </Link>
       <Link asChild size="2">
         <NextLink
-          href={"/docs/api/main"}
+          href="/api/main"
           aria-description="Open the DayPicker API reference"
         >
           API reference

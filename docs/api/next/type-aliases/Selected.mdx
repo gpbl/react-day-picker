@@ -1,0 +1,20 @@
+---
+section: TypeAlias
+title: Selected
+---
+
+# Type alias: Selected\<T\>
+
+> **Selected**\<`T`\>: `T` extends `"single"` ? `Date` : `T` extends `"multi"` ? `Date`[] : `T` extends `"range"` ? [`DateRange`](/docs/api/next/type-aliases/DateRange.mdx) : `undefined`
+
+The selected value when in selection mode.
+
+## Type parameters
+
+| Type parameter |
+| :------ |
+| `T` extends [`Mode`](/docs/api/next/type-aliases/Mode.mdx) |
+
+## Source
+
+[src/types/props.ts:391](https://github.com/gpbl/react-day-picker/blob/45cca307e/src/types/props.ts#L391)

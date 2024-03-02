@@ -184,12 +184,7 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
   );
 }
 
-/**
- * Use this hook to access the {@link CalendarContext} from custom components.
- *
- * @group Custom Components Hooks
- * @see http://localhost:2001/docs/custom-components
- */
+/** Use this hook to access the {@link CalendarContext} from custom components. */
 export function useCalendar(): CalendarContext {
   const context = useContext(calendarContext);
   if (!context)

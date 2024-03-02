@@ -13,7 +13,6 @@ import { Flex, IconButton, Text } from "@radix-ui/themes";
 import { useSidebar } from "@/lib/sidebar";
 import { Navigation } from "./Navigation";
 import { ThemeToggle } from "./ThemeToggle";
-import { VersionDropdown } from "./VersionDropdown";
 
 export function Header() {
   const { version } = useVersion();
@@ -93,9 +92,9 @@ export function Header() {
             gap="4"
             display={{ initial: "flex", xs: "flex" }}
           >
-            <div className="hidden sm:inline-block">
+            {/* <div className="hidden sm:inline-block">
               <VersionDropdown />
-            </div>
+            </div> */}
             <IconButton
               aria-label="Open DayPicker on GitHub"
               asChild

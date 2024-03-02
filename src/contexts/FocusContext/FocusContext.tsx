@@ -131,12 +131,7 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
   );
 }
 
-/**
- * Use this hook to access the {@link FocusContext} from custom components.
- *
- * @group Custom Components Hooks
- * @see http://localhost:2001/docs/custom-components
- */
+/** Use this hook to access the {@link FocusContext} from custom components. */
 export function useFocus(): FocusContext {
   const context = useContext(focusContext);
   if (!context) {

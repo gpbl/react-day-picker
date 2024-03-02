@@ -1,0 +1,157 @@
+# API Reference v8.10.0
+
+## Enumerations
+
+| Enumeration | Description |
+| :------ | :------ |
+| [InternalModifier](/docs/api/main/enumerations/InternalModifier.mdx) | The name of the modifiers that are used internally by DayPicker. |
+
+## Interfaces
+
+| Interface | Description |
+| :------ | :------ |
+| [CaptionLabelProps](/docs/api/main/interfaces/CaptionLabelProps.mdx) | The props for the [CaptionLabel](/docs/api/main/functions/CaptionLabel.mdx) component. |
+| [CaptionProps](/docs/api/main/interfaces/CaptionProps.mdx) | Represent the props of the [Caption](/docs/api/main/functions/Caption.mdx) component. |
+| [CustomComponents](/docs/api/main/interfaces/CustomComponents.mdx) | Map of the components that can be changed using the `components` prop. |
+| [DayContentProps](/docs/api/main/interfaces/DayContentProps.mdx) | Represent the props for the [DayContent](/docs/api/main/functions/DayContent.mdx) component. |
+| [DayPickerBase](/docs/api/main/interfaces/DayPickerBase.mdx) | The base props for the [DayPicker](/docs/api/main/functions/DayPicker.mdx) component and the [DayPickerContext](/docs/api/main/variables/DayPickerContext.mdx). |
+| [DayPickerContextValue](/docs/api/main/interfaces/DayPickerContextValue.mdx) | The value of the [DayPickerContext](/docs/api/main/variables/DayPickerContext.mdx) extends the props from DayPicker<br />with default and cleaned up values. |
+| [DayPickerDefaultProps](/docs/api/main/interfaces/DayPickerDefaultProps.mdx) | The props for the [DayPicker](/docs/api/main/functions/DayPicker.mdx) component when using `mode="default"` or `undefined`. |
+| [DayPickerMultipleProps](/docs/api/main/interfaces/DayPickerMultipleProps.mdx) | The props for the [DayPicker](/docs/api/main/functions/DayPicker.mdx) component when using `mode="multiple"`. |
+| [DayPickerProviderProps](/docs/api/main/interfaces/DayPickerProviderProps.mdx) | The props for the [DayPickerProvider](/docs/api/main/functions/DayPickerProvider.mdx). |
+| [DayPickerRangeProps](/docs/api/main/interfaces/DayPickerRangeProps.mdx) | The props for the [DayPicker](/docs/api/main/functions/DayPicker.mdx) component when using `mode="range"`. |
+| [DayPickerSingleProps](/docs/api/main/interfaces/DayPickerSingleProps.mdx) | The props for the [DayPicker](/docs/api/main/functions/DayPicker.mdx) component when using `mode="single"`. |
+| [DayProps](/docs/api/main/interfaces/DayProps.mdx) | Represent the props used by the [Day](/docs/api/main/functions/Day.mdx) component. |
+| [DropdownProps](/docs/api/main/interfaces/DropdownProps.mdx) | The props for the [Dropdown](/docs/api/main/functions/Dropdown.mdx) component. |
+| [FooterProps](/docs/api/main/interfaces/FooterProps.mdx) | - |
+| [NavigationContextValue](/docs/api/main/interfaces/NavigationContextValue.mdx) | Represents the value of the [NavigationContext](/docs/api/main/variables/NavigationContext.mdx). |
+| [RootContext](/docs/api/main/interfaces/RootContext.mdx) | The props of [RootProvider](/docs/api/main/functions/RootProvider.mdx). |
+| [RowProps](/docs/api/main/interfaces/RowProps.mdx) | The props for the [Row](/docs/api/main/functions/Row.mdx) component. |
+| [SelectMultipleContextValue](/docs/api/main/interfaces/SelectMultipleContextValue.mdx) | Represents the value of a [SelectMultipleContext](/docs/api/main/variables/SelectMultipleContext.mdx). |
+| [SelectRangeContextValue](/docs/api/main/interfaces/SelectRangeContextValue.mdx) | Represents the value of a [SelectRangeContext](/docs/api/main/variables/SelectRangeContext.mdx). |
+| [SelectRangeProviderProps](/docs/api/main/interfaces/SelectRangeProviderProps.mdx) | - |
+| [SelectSingleContextValue](/docs/api/main/interfaces/SelectSingleContextValue.mdx) | Represents the value of a [SelectSingleContext](/docs/api/main/variables/SelectSingleContext.mdx). |
+| [SelectSingleProviderProps](/docs/api/main/interfaces/SelectSingleProviderProps.mdx) | - |
+| [UseInputOptions](/docs/api/main/interfaces/UseInputOptions.mdx) | - |
+| [UseInputValue](/docs/api/main/interfaces/UseInputValue.mdx) | Represent the value returned by [useInput](/docs/api/main/functions/useInput.mdx). |
+| [WeekNumberProps](/docs/api/main/interfaces/WeekNumberProps.mdx) | The props for the [WeekNumber](/docs/api/main/functions/WeekNumber.mdx) component. |
+
+## Type Aliases
+
+| Type alias | Description |
+| :------ | :------ |
+| [ActiveModifiers](/docs/api/main/type-aliases/ActiveModifiers.mdx) | The modifiers that are matching a day in the calendar. Use the [useActiveModifiers](/docs/api/main/functions/useActiveModifiers.mdx) hook to get the modifiers for a day.<br /><br />` const activeModifiers: ActiveModifiers = {  selected: true,  customModifier: true } ` |
+| [ButtonProps](/docs/api/main/type-aliases/ButtonProps.mdx) | The props for the [Button](/docs/api/main/functions/Button.mdx) component. |
+| [CaptionLayout](/docs/api/main/type-aliases/CaptionLayout.mdx) | The layout of the caption:<br /><br />- `dropdown`: display dropdowns for choosing the month and the year.<br />- `buttons`: display previous month / next month buttons.<br />- `dropdown-buttons`: display both month / year dropdowns and previous month / next month buttons. |
+| [ClassNames](/docs/api/main/type-aliases/ClassNames.mdx) | The class names of each element. |
+| [CustomModifiers](/docs/api/main/type-aliases/CustomModifiers.mdx) | A map of matchers used as custom modifiers by DayPicker component. This is<br />the same as []], but it accepts only array of [[Matcher](/docs/api/main/type-aliases/DayModifiers.mdx)s. |
+| [DateAfter](/docs/api/main/type-aliases/DateAfter.mdx) | A matcher to match a day falling after the specified date, with the date not included. |
+| [DateBefore](/docs/api/main/type-aliases/DateBefore.mdx) | A matcher to match a day falling before the specified date, with the date not included. |
+| [DateFormatter](/docs/api/main/type-aliases/DateFormatter.mdx) | - |
+| [DateInterval](/docs/api/main/type-aliases/DateInterval.mdx) | A matcher to match a day falling before and/or after two dates, where the dates are not included. |
+| [DateRange](/docs/api/main/type-aliases/DateRange.mdx) | A matcher to match a range of dates. The range can be open. Differently from [DateInterval](/docs/api/main/type-aliases/DateInterval.mdx), the dates here are included. |
+| [DayClickEventHandler](/docs/api/main/type-aliases/DayClickEventHandler.mdx) | - |
+| [DayFocusEventHandler](/docs/api/main/type-aliases/DayFocusEventHandler.mdx) | - |
+| [DayKeyboardEventHandler](/docs/api/main/type-aliases/DayKeyboardEventHandler.mdx) | - |
+| [DayLabel](/docs/api/main/type-aliases/DayLabel.mdx) | - |
+| [DayModifiers](/docs/api/main/type-aliases/DayModifiers.mdx) | The custom modifiers passed to the [DayPickerBase.modifiers](/docs/api/main/interfaces/DayPickerBase.mdx). |
+| [DayMouseEventHandler](/docs/api/main/type-aliases/DayMouseEventHandler.mdx) | - |
+| [DayOfWeek](/docs/api/main/type-aliases/DayOfWeek.mdx) | A matcher to match a date being one of the specified days of the week (`0-6`, where `0` is Sunday). |
+| [DayPickerProps](/docs/api/main/type-aliases/DayPickerProps.mdx) | - |
+| [DayPointerEventHandler](/docs/api/main/type-aliases/DayPointerEventHandler.mdx) | - |
+| [DayRender](/docs/api/main/type-aliases/DayRender.mdx) | - |
+| [DaySelectionMode](/docs/api/main/type-aliases/DaySelectionMode.mdx) | Selection modes supported by DayPicker.<br /><br />- `single`: use DayPicker to select single days.<br />- `multiple`: allow selecting multiple days.<br />- `range`: use DayPicker to select a range of days<br />- `default`: disable the built-in selection behavior. Customize what is<br />  selected by using [DayPickerBase.onDayClick](/docs/api/main/interfaces/DayPickerBase.mdx). |
+| [DayTouchEventHandler](/docs/api/main/type-aliases/DayTouchEventHandler.mdx) | - |
+| [FocusContextValue](/docs/api/main/type-aliases/FocusContextValue.mdx) | Represents the value of the [FocusContext](/docs/api/main/variables/FocusContext.mdx). |
+| [FocusProviderProps](/docs/api/main/type-aliases/FocusProviderProps.mdx) | - |
+| [Formatters](/docs/api/main/type-aliases/Formatters.mdx) | Represent a map of formatters used to render localized content. |
+| [InputDayPickerProps](/docs/api/main/type-aliases/InputDayPickerProps.mdx) | The props to attach to the DayPicker component when using [useInput](/docs/api/main/functions/useInput.mdx). |
+| [InputProps](/docs/api/main/type-aliases/InputProps.mdx) | The props to attach to the input field when using [useInput](/docs/api/main/functions/useInput.mdx). |
+| [InternalModifiers](/docs/api/main/type-aliases/InternalModifiers.mdx) | Map of matchers used for the internal modifiers. |
+| [InternalModifiersElement](/docs/api/main/type-aliases/InternalModifiersElement.mdx) | These elements must not be in the `styles` or `classNames` records as they are styled via the `modifiersStyles` or `modifiersClassNames` pop |
+| [Labels](/docs/api/main/type-aliases/Labels.mdx) | Map of functions to translate ARIA labels for the relative elements. |
+| [Matcher](/docs/api/main/type-aliases/Matcher.mdx) | A value or a function that matches a specific day.<br /><br /><br />Matchers are passed to DayPicker via [DayPickerBase.disabled](/docs/api/main/interfaces/DayPickerBase.mdx),<br />[]] or [[DayPickerProps.selected](/docs/api/main/interfaces/DayPickerBase.mdx) and are used to<br />determine if a day should get a [Modifier](/docs/api/main/type-aliases/Modifier.mdx).<br /><br />Matchers can be of different types:<br /><br />` // will always match the day const booleanMatcher: Matcher = true;   // will match the today's date const dateMatcher: Matcher = new Date();  // will match the days in the array const arrayMatcher: Matcher = [new Date(2019, 1, 2), new Date(2019, 1, 4)];  // will match days after the 2nd of February 2019 const afterMatcher: DateAfter = { after: new Date(2019, 1, 2) };  // will match days before the 2nd of February 2019 } const beforeMatcher: DateBefore = { before: new Date(2019, 1, 2) };  // will match Sundays const dayOfWeekMatcher: DayOfWeek = {  dayOfWeek: 0 };  // will match the included days, except the two dates const intervalMatcher: DateInterval = {    after: new Date(2019, 1, 2),    before: new Date(2019, 1, 5) };  // will match the included days, including the two dates const rangeMatcher: DateRange = {    from: new Date(2019, 1, 2),    to: new Date(2019, 1, 5) };  // will match when the function return true const functionMatcher: Matcher = (day: Date) => {  return day.getMonth() === 2 // match when month is March }; ` |
+| [Modifier](/docs/api/main/type-aliases/Modifier.mdx) | A _modifier_ represents different styles or states of a day displayed in the calendar. |
+| [Modifiers](/docs/api/main/type-aliases/Modifiers.mdx) | The modifiers used by DayPicker. |
+| [ModifiersClassNames](/docs/api/main/type-aliases/ModifiersClassNames.mdx) | The classnames to assign to each day element matching a modifier. |
+| [ModifiersStyles](/docs/api/main/type-aliases/ModifiersStyles.mdx) | The style to apply to each day element matching a modifier. |
+| [MonthChangeEventHandler](/docs/api/main/type-aliases/MonthChangeEventHandler.mdx) | - |
+| [MonthsProps](/docs/api/main/type-aliases/MonthsProps.mdx) | The props for the [Months](/docs/api/main/functions/Months.mdx) component. |
+| [NavButtonLabel](/docs/api/main/type-aliases/NavButtonLabel.mdx) | - |
+| [SelectMultipleEventHandler](/docs/api/main/type-aliases/SelectMultipleEventHandler.mdx) | - |
+| [SelectMultipleModifiers](/docs/api/main/type-aliases/SelectMultipleModifiers.mdx) | Represent the modifiers that are changed by the multiple selection. |
+| [SelectMultipleProviderProps](/docs/api/main/type-aliases/SelectMultipleProviderProps.mdx) | - |
+| [SelectRangeEventHandler](/docs/api/main/type-aliases/SelectRangeEventHandler.mdx) | - |
+| [SelectRangeModifiers](/docs/api/main/type-aliases/SelectRangeModifiers.mdx) | Represent the modifiers that are changed by the range selection. |
+| [SelectSingleEventHandler](/docs/api/main/type-aliases/SelectSingleEventHandler.mdx) | - |
+| [StyledComponent](/docs/api/main/type-aliases/StyledComponent.mdx) | Props of a component that can be styled via classNames or inline-styles. |
+| [StyledElement](/docs/api/main/type-aliases/StyledElement.mdx) | The style (either via class names or via in-line styles) of an element. |
+| [Styles](/docs/api/main/type-aliases/Styles.mdx) | The inline-styles of each styled element, to use with the `styles` prop. Day<br />modifiers, such as `today` or `hidden`, should be styled using the<br />`modifiersStyles` prop. |
+| [WeekNumberClickEventHandler](/docs/api/main/type-aliases/WeekNumberClickEventHandler.mdx) | - |
+| [WeekNumberFormatter](/docs/api/main/type-aliases/WeekNumberFormatter.mdx) | - |
+| [WeekNumberLabel](/docs/api/main/type-aliases/WeekNumberLabel.mdx) | - |
+| [WeekdayLabel](/docs/api/main/type-aliases/WeekdayLabel.mdx) | - |
+
+## Variables
+
+| Variable | Description |
+| :------ | :------ |
+| [DayPickerContext](/docs/api/main/variables/DayPickerContext.mdx) | The DayPicker context shares the props passed to DayPicker within internal<br />and custom components. It is used to set the default values and perform<br />one-time calculations required to render the days.<br /><br />Access to this context from the [useDayPicker](/docs/api/main/functions/useDayPicker.mdx) hook. |
+| [FocusContext](/docs/api/main/variables/FocusContext.mdx) | The Focus context shares details about the focused day for the keyboard<br /><br />Access this context from the [useFocusContext](/docs/api/main/functions/useFocusContext.mdx) hook. |
+| [NavigationContext](/docs/api/main/variables/NavigationContext.mdx) | The Navigation context shares details and methods to navigate the months in DayPicker.<br />Access this context from the [useNavigation](/docs/api/main/functions/useNavigation.mdx) hook. |
+| [SelectMultipleContext](/docs/api/main/variables/SelectMultipleContext.mdx) | The SelectMultiple context shares details about the selected days when in<br />multiple selection mode.<br /><br />Access this context from the [useSelectMultiple](/docs/api/main/functions/useSelectMultiple.mdx) hook. |
+| [SelectRangeContext](/docs/api/main/variables/SelectRangeContext.mdx) | The SelectRange context shares details about the selected days when in<br />range selection mode.<br /><br />Access this context from the [useSelectRange](/docs/api/main/functions/useSelectRange.mdx) hook. |
+| [SelectSingleContext](/docs/api/main/variables/SelectSingleContext.mdx) | The SelectSingle context shares details about the selected days when in<br />single selection mode.<br /><br />Access this context from the [useSelectSingle](/docs/api/main/functions/useSelectSingle.mdx) hook. |
+
+## Functions
+
+| Function | Description |
+| :------ | :------ |
+| [Button](/docs/api/main/functions/Button.mdx) | Render a button HTML element applying the reset class name. |
+| [Caption](/docs/api/main/functions/Caption.mdx) | Render the caption of a month. The caption has a different layout when<br />setting the [DayPickerBase.captionLayout](/docs/api/main/interfaces/DayPickerBase.mdx) prop. |
+| [CaptionDropdowns](/docs/api/main/functions/CaptionDropdowns.mdx) | Render a caption with the dropdowns to navigate between months and years. |
+| [CaptionLabel](/docs/api/main/functions/CaptionLabel.mdx) | Render the caption for the displayed month. This component is used when `captionLayout="buttons"`. |
+| [CaptionNavigation](/docs/api/main/functions/CaptionNavigation.mdx) | Render a caption with a button-based navigation. |
+| [Day](/docs/api/main/functions/Day.mdx) | The content of a day cell – as a button or span element according to its<br />modifiers. |
+| [DayContent](/docs/api/main/functions/DayContent.mdx) | Render the content of the day cell. |
+| [DayPicker](/docs/api/main/functions/DayPicker.mdx) | DayPicker render a date picker component to let users pick dates from a<br />calendar. See http://react-day-picker.js.org for updated documentation and<br />examples.<br /><br />### Customization<br /><br />DayPicker offers different customization props. For example,<br /><br />- show multiple months using `numberOfMonths`<br />- display a dropdown to navigate the months via `captionLayout`<br />- display the week numbers with `showWeekNumbers`<br />- disable or hide days with `disabled` or `hidden`<br /><br />### Controlling the months<br /><br />Change the initially displayed month using the `defaultMonth` prop. The<br />displayed months are controlled by DayPicker and stored in its internal<br />state. To control the months yourself, use `month` instead of `defaultMonth`<br />and use the `onMonthChange` event to set it.<br /><br />To limit the months the user can navigate to, use<br />`fromDate`/`fromMonth`/`fromYear` or `toDate`/`toMonth`/`toYear`.<br /><br />### Selection modes<br /><br />DayPicker supports different selection mode that can be toggled using the<br />`mode` prop:<br /><br />- `mode="single"`: only one day can be selected. Use `required` to make the<br />  selection required. Use the `onSelect` event handler to get the selected<br />  days.<br />- `mode="multiple"`: users can select one or more days. Limit the amount of<br />  days that can be selected with the `min` or the `max` props.<br />- `mode="range"`: users can select a range of days. Limit the amount of days<br />  in the range with the `min` or the `max` props.<br />- `mode="default"` (default): the built-in selections are disabled. Implement<br />  your own selection mode with `onDayClick`.<br /><br />The selection modes should cover the most common use cases. In case you<br />need a more refined way of selecting days, use `mode="default"`. Use the<br />`selected` props and add the day event handlers to add/remove days from the<br />selection.<br /><br />### Modifiers<br /><br />A _modifier_ represents different styles or states for the days displayed in<br />the calendar (like "selected" or "disabled"). Define custom modifiers using<br />the `modifiers` prop.<br /><br />### Formatters and custom component<br /><br />You can customize how the content is displayed in the date picker by using<br />either the formatters or replacing the internal components.<br /><br />For the most common cases you want to use the `formatters` prop to change how<br />the content is formatted in the calendar. Use the `components` prop to<br />replace the internal components, like the navigation icons.<br /><br />### Styling<br /><br />DayPicker comes with a default, basic style in `react-day-picker/style` – use<br />it as template for your own style.<br /><br />If you are using CSS modules, pass the imported styles object the<br />`classNames` props.<br /><br />You can also style the elements via inline styles using the `styles` prop.<br /><br />### Form fields<br /><br />If you need to bind the date picker to a form field, you can use the<br />`useInput` hooks for a basic behavior. See the `useInput` source as an<br />example to bind the date picker with form fields.<br /><br />### Localization<br /><br />To localize DayPicker, import the locale from `date-fns` package and use the<br />`locale` prop.<br /><br />For example, to use Spanish locale:<br /><br />` import { es } from 'date-fns/locale'; <DayPicker locale={es} /> ` |
+| [DayPickerProvider](/docs/api/main/functions/DayPickerProvider.mdx) | The provider for the [DayPickerContext](/docs/api/main/variables/DayPickerContext.mdx), assigning the defaults from the<br />initial DayPicker props. |
+| [Dropdown](/docs/api/main/functions/Dropdown.mdx) | Render a styled select component – displaying a caption and a custom<br />drop-down icon. |
+| [FocusProvider](/docs/api/main/functions/FocusProvider.mdx) | The provider for the [FocusContext](/docs/api/main/variables/FocusContext.mdx). |
+| [Footer](/docs/api/main/functions/Footer.mdx) | Render the Footer component (empty as default). |
+| [Head](/docs/api/main/functions/Head.mdx) | Render the table head. |
+| [HeadRow](/docs/api/main/functions/HeadRow.mdx) | Render the HeadRow component - i.e. the table head row with the weekday names. |
+| [IconDropdown](/docs/api/main/functions/IconDropdown.mdx) | Render the icon in the styled drop-down. |
+| [IconLeft](/docs/api/main/functions/IconLeft.mdx) | Render the "previous month" button in the navigation. |
+| [IconRight](/docs/api/main/functions/IconRight.mdx) | Render the "next month" button in the navigation. |
+| [Months](/docs/api/main/functions/Months.mdx) | Render the wrapper for the month grids. |
+| [NavigationProvider](/docs/api/main/functions/NavigationProvider.mdx) | Provides the values for the [NavigationContext](/docs/api/main/variables/NavigationContext.mdx). |
+| [RootProvider](/docs/api/main/functions/RootProvider.mdx) | Provide the value for all the context providers. |
+| [Row](/docs/api/main/functions/Row.mdx) | Render a row in the calendar, with the days and the week number. |
+| [SelectMultipleProvider](/docs/api/main/functions/SelectMultipleProvider.mdx) | Provides the values for the [SelectMultipleContext](/docs/api/main/variables/SelectMultipleContext.mdx). |
+| [SelectMultipleProviderInternal](/docs/api/main/functions/SelectMultipleProviderInternal.mdx) | - |
+| [SelectRangeProvider](/docs/api/main/functions/SelectRangeProvider.mdx) | Provides the values for the [SelectRangeProvider](/docs/api/main/functions/SelectRangeProvider.mdx). |
+| [SelectRangeProviderInternal](/docs/api/main/functions/SelectRangeProviderInternal.mdx) | - |
+| [SelectSingleProvider](/docs/api/main/functions/SelectSingleProvider.mdx) | Provides the values for the [SelectSingleProvider](/docs/api/main/functions/SelectSingleProvider.mdx). |
+| [SelectSingleProviderInternal](/docs/api/main/functions/SelectSingleProviderInternal.mdx) | - |
+| [WeekNumber](/docs/api/main/functions/WeekNumber.mdx) | Render the week number element. If `onWeekNumberClick` is passed to DayPicker, it<br />renders a button, otherwise a span element. |
+| [addToRange](/docs/api/main/functions/addToRange.mdx) | Add a day to an existing range.<br /><br />The returned range takes in account the `undefined` values and if the added<br />day is already present in the range. |
+| [isDateAfterType](/docs/api/main/functions/isDateAfterType.mdx) | Returns true if `value` is of type [DateAfter](/docs/api/main/type-aliases/DateAfter.mdx). |
+| [isDateBeforeType](/docs/api/main/functions/isDateBeforeType.mdx) | Returns true if `value` is of type [DateBefore](/docs/api/main/type-aliases/DateBefore.mdx). |
+| [isDateInterval](/docs/api/main/functions/isDateInterval.mdx) | Returns true if `matcher` is of type [DateInterval](/docs/api/main/type-aliases/DateInterval.mdx). |
+| [isDateRange](/docs/api/main/functions/isDateRange.mdx) | Returns true if `value` is a [DateRange](/docs/api/main/type-aliases/DateRange.mdx) type. |
+| [isDayOfWeekType](/docs/api/main/functions/isDayOfWeekType.mdx) | Returns true if `value` is a [DayOfWeek](/docs/api/main/type-aliases/DayOfWeek.mdx) type. |
+| [isDayPickerDefault](/docs/api/main/functions/isDayPickerDefault.mdx) | Returns true when the props are of type [DayPickerDefaultProps](/docs/api/main/interfaces/DayPickerDefaultProps.mdx). |
+| [isDayPickerMultiple](/docs/api/main/functions/isDayPickerMultiple.mdx) | Returns true when the props are of type [DayPickerMultipleProps](/docs/api/main/interfaces/DayPickerMultipleProps.mdx). |
+| [isDayPickerRange](/docs/api/main/functions/isDayPickerRange.mdx) | Returns true when the props are of type [DayPickerRangeProps](/docs/api/main/interfaces/DayPickerRangeProps.mdx). |
+| [isDayPickerSingle](/docs/api/main/functions/isDayPickerSingle.mdx) | Returns true when the props are of type [DayPickerSingleProps](/docs/api/main/interfaces/DayPickerSingleProps.mdx). |
+| [isMatch](/docs/api/main/functions/isMatch.mdx) | Returns whether a day matches against at least one of the given Matchers.<br /><br />` const day = new Date(2022, 5, 19); const matcher1: DateRange = {    from: new Date(2021, 12, 21),    to: new Date(2021, 12, 30) } const matcher2: DateRange = {    from: new Date(2022, 5, 1),    to: new Date(2022, 5, 23) }  const isMatch(day, [matcher1, matcher2]); // true, since day is in the matcher1 range. ` |
+| [useActiveModifiers](/docs/api/main/functions/useActiveModifiers.mdx) | Return the active modifiers for the specified day.<br /><br />This hook is meant to be used inside internal or custom components. |
+| [useDayPicker](/docs/api/main/functions/useDayPicker.mdx) | Hook to access the [DayPickerContextValue](/docs/api/main/interfaces/DayPickerContextValue.mdx).<br /><br />Use the DayPicker context to access to the props passed to DayPicker inside<br />internal or custom components. |
+| [useDayRender](/docs/api/main/functions/useDayRender.mdx) | Return props and data used to render the [Day](/docs/api/main/functions/Day.mdx) component.<br /><br />Use this hook when creating a component to replace the built-in `Day`<br />component. |
+| [useFocusContext](/docs/api/main/functions/useFocusContext.mdx) | Hook to access the [FocusContextValue](/docs/api/main/type-aliases/FocusContextValue.mdx). Use this hook to handle the<br />focus state of the elements.<br /><br />This hook is meant to be used inside internal or custom components. |
+| [useInput](/docs/api/main/functions/useInput.mdx) | Return props and setters for binding an input field to DayPicker. |
+| [useNavigation](/docs/api/main/functions/useNavigation.mdx) | Hook to access the [NavigationContextValue](/docs/api/main/interfaces/NavigationContextValue.mdx). Use this hook to navigate<br />between months or years in DayPicker.<br /><br />This hook is meant to be used inside internal or custom components. |
+| [useSelectMultiple](/docs/api/main/functions/useSelectMultiple.mdx) | Hook to access the [SelectMultipleContextValue](/docs/api/main/interfaces/SelectMultipleContextValue.mdx).<br /><br />This hook is meant to be used inside internal or custom components. |
+| [useSelectRange](/docs/api/main/functions/useSelectRange.mdx) | Hook to access the [SelectRangeContextValue](/docs/api/main/interfaces/SelectRangeContextValue.mdx).<br /><br />This hook is meant to be used inside internal or custom components. |
+| [useSelectSingle](/docs/api/main/functions/useSelectSingle.mdx) | Hook to access the [SelectSingleContextValue](/docs/api/main/interfaces/SelectSingleContextValue.mdx).<br /><br />This hook is meant to be used inside internal or custom components. |

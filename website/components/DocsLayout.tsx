@@ -1,4 +1,4 @@
-import { DocsStaticProps } from "@/pages/docs/[[...slug]]";
+import { DocsStaticProps } from "@/pages/[[...slug]]";
 import { Box, Separator } from "@radix-ui/themes";
 
 import { useSidebar } from "@/lib/sidebar";
@@ -41,21 +41,21 @@ export function DocsLayout(props: DocsLayoutProps) {
 
       {/* Content */}
       <Box className="mt-header xl:mt-header" p="4">
-        <main className="mx-auto mb-12 max-w-article-max-w md:mt-12 lg:mr-toc-width xl:mx-auto xl:mt-12 xl:p-4">
+        <main className="mx-auto mb-4 max-w-article-max-w md:mt-12 lg:mr-toc-width xl:mx-auto xl:mt-12 xl:p-4">
           <DocHeader doc={doc} />
           <Separator size="4" my="8" mt="4" />
           <article>{props.children}</article>
+          {doc.pagination && (
+            <nav>
+              <Separator size="4" my="4" mt="8" />
+              <Pagination
+                nextDoc={nextDoc}
+                previousDoc={previousDoc}
+                currentDoc={doc}
+              />
+            </nav>
+          )}
         </main>
-        {doc.pagination && (
-          <nav>
-            <Separator size="4" my="4" mt="8" />
-            <Pagination
-              nextDoc={nextDoc}
-              previousDoc={previousDoc}
-              currentDoc={doc}
-            />
-          </nav>
-        )}
       </Box>
 
       {/* toc */}
@@ -66,7 +66,7 @@ export function DocsLayout(props: DocsLayoutProps) {
           borderColor: "var(--gray-a5)",
         }}
       >
-        {doc.toc && toc && toc.length > 1 && <TableOfContent toc={toc} />}
+        {doc.toc && toc && toc.length > 0 && <TableOfContent toc={toc} />}
       </Box>
     </Box>
   );

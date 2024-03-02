@@ -95,7 +95,7 @@ export function getDocs(): Doc[] {
       title,
       navigationLabel: data.navigationLabel ?? "",
       slug,
-      path: `docs/${slug.join("/")}`.replace(/\/$/, ""),
+      path: `${slug.join("/")}`.replace(/\/$/, ""),
     };
     return doc;
   });

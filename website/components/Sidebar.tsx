@@ -30,7 +30,7 @@ export function Sidebar(props: SidebarProps) {
               weight={isDocumentation ? "bold" : "regular"}
             >
               <NextLink
-                href={"/docs"}
+                href={"/start"}
                 aria-description="Open the DayPicker guides"
               >
                 Documentation
@@ -45,7 +45,7 @@ export function Sidebar(props: SidebarProps) {
               weight={isApi ? "bold" : "regular"}
             >
               <NextLink
-                href={"/docs/api/main"}
+                href={"/api/main"}
                 aria-description="Open the DayPicker API reference"
               >
                 API reference

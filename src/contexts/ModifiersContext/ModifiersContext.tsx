@@ -135,12 +135,7 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
   );
 }
 
-/**
- * Use this hook to access the {@link ModifiersContext} from custom components.
- *
- * @group Custom Components Hooks
- * @see http://localhost:2001/docs/custom-components
- */
+/** Use this hook to access the {@link ModifiersContext} from custom components. */
 export function useModifiers(): ModifiersContext {
   const context = useContext(modifiersContext);
   if (!context)

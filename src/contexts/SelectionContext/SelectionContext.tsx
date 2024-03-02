@@ -209,12 +209,7 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
   );
 }
 
-/**
- * Use this hook to access the {@link SelectionContext} from custom components.
- *
- * @group Custom Components Hooks
- * @see http://localhost:2001/docs/custom-components
- */
+/** Use this hook to access the {@link SelectionContext} from custom components. */
 export function useSelection(): SelectionContext {
   const context = useContext(selectionContext);
   if (!context) {

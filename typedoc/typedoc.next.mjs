@@ -8,7 +8,7 @@ const options = {
   tsconfig: "../tsconfig-esm.json",
   entryPoints: ["../src/index.ts"],
   out: `../docs/api/next`,
-  publicPath: `/docs/api/next`,
+  publicPath: `/api/next`,
 };
 
 export default options;
