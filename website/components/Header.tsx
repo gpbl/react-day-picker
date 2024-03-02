@@ -3,83 +3,82 @@
 import NextLink from "next/link";
 
 import { useVersion } from "@/lib/versions";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import { Box, Flex, IconButton, Link, Text, Tooltip } from "@radix-ui/themes";
+import {
+  Cross1Icon,
+  GitHubLogoIcon,
+  HamburgerMenuIcon,
+} from "@radix-ui/react-icons";
+import { Flex, IconButton, Text } from "@radix-ui/themes";
 
-import { Logo } from "./Logo";
+import { useSidebar } from "@/lib/sidebar";
+import { Navigation } from "./Navigation";
 import { ThemeToggle } from "./ThemeToggle";
 import { VersionDropdown } from "./VersionDropdown";
 
 export function Header() {
   const { version } = useVersion();
+  const sidebar = useSidebar();
 
   return (
-    <Box
+    <Flex
       position="fixed"
-      className="left-0 right-0 top-0 z-20 h-header border-b bg-page-background"
+      className="left-0 right-0 top-0 z-30 h-header border-b bg-page-background pl-4"
       style={{
-        // backgroundColor: "var(--color-page-background)",
         borderColor: "var(--gray-a5)",
+        paddingInlineStart: "1rem",
       }}
       asChild
     >
       <nav>
-        <Flex
-          align="center"
-          position="absolute"
-          top="0"
-          bottom="0"
-          left="0"
-          pl="4"
-          asChild
-          gap="2"
-          wrap="nowrap"
-        >
-          <NextLink
-            href="/"
-            aria-label="React DayPicker"
-            aria-description="Goes to the home page"
-          >
-            <Logo />
-            <Text style={{ fontSize: "var(--font-size-4)" }}>
-              React <b>DayPicker</b>
-            </Text>
-          </NextLink>
-        </Flex>
+        {/* Logo and hamburger menu */}
 
         <Flex
-          display={{ initial: "none", sm: "flex" }}
+          position="absolute"
           align="center"
           gap="4"
-          justify="center"
-          className="h-full"
+          wrap="nowrap"
+          className="h-header"
+          width={{ initial: "100%", sm: "auto" }}
         >
-          <Link asChild size="2">
+          <IconButton
+            size="3"
+            className="xl:hidden"
+            variant="ghost"
+            onClick={() => sidebar.setIsOpen(!sidebar.isOpen)}
+            aria-label="Toggle sidebar"
+            aria-controls={sidebar.id}
+            aria-expanded={sidebar.isOpen}
+          >
+            {sidebar.isOpen ? (
+              <Cross1Icon width="22" height="22" />
+            ) : (
+              <HamburgerMenuIcon width="22" height="22" />
+            )}
+          </IconButton>
+          <Flex asChild gap="2">
             <NextLink
-              href={"/docs"}
-              aria-description="Open the DayPicker guides"
+              href="/"
+              aria-label="React DayPicker"
+              aria-description="Goes to the home page"
             >
-              Documentation
+              <Text size="4">
+                React <b>DayPicker</b>
+              </Text>
             </NextLink>
-          </Link>
-          <Link asChild size="2">
-            <NextLink
-              href={"/docs/api/main"}
-              aria-description="Open the DayPicker API reference"
-            >
-              API reference
-            </NextLink>
-          </Link>
-          <Link asChild size="2">
-            <NextLink
-              href={"/playground"}
-              aria-description="Open a page for playing with the DayPicker props"
-            >
-              Playground
-            </NextLink>
-          </Link>
+          </Flex>
         </Flex>
 
+        <Flex
+          display={{ initial: "none", md: "flex" }}
+          width="100%"
+          mx="auto"
+          align="center"
+          justify="center"
+          className="h-header max-w-article-max-w"
+          gap={{ sm: "4", md: "8" }}
+        >
+          <Navigation />
+        </Flex>
         <Flex
           align="center"
           gap="4"
@@ -89,37 +88,37 @@ export function Header() {
           right="0"
           pr="4"
         >
-          <VersionDropdown />
           <Flex
             align="center"
             gap="4"
-            display={{ initial: "none", xs: "flex" }}
+            display={{ initial: "flex", xs: "flex" }}
           >
-            <Tooltip content="Open DayPicker on GitHub" role="presentation">
-              <IconButton
-                aria-label="Open DayPicker on GitHub"
-                asChild
-                size="3"
-                variant="ghost"
-                color="gray"
+            <div className="hidden sm:inline-block">
+              <VersionDropdown />
+            </div>
+            <IconButton
+              aria-label="Open DayPicker on GitHub"
+              asChild
+              size="3"
+              variant="ghost"
+              color="gray"
+            >
+              <a
+                href={
+                  version === "main"
+                    ? "http://github.com/gpbl/react-day-picker"
+                    : "https://github.com/gpbl/react-day-picker/tree/next"
+                }
+                target="_blank"
+                rel="noreferrer"
               >
-                <a
-                  href={
-                    version === "main"
-                      ? "http://github.com/gpbl/react-day-picker"
-                      : "https://github.com/gpbl/react-day-picker/tree/next"
-                  }
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <GitHubLogoIcon width="18" height="18" />
-                </a>
-              </IconButton>
-            </Tooltip>
+                <GitHubLogoIcon width="22" height="22" />
+              </a>
+            </IconButton>
             <ThemeToggle />
           </Flex>
         </Flex>
       </nav>
-    </Box>
+    </Flex>
   );
 }

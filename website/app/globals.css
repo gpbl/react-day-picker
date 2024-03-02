@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --breadcrumbs-height: 48px;
   --header-height: 48px;
-  --header-full: 96px; /* Includes breadcrumbs */
   --sidebar-width: 256px;
+  --article-max-width: 80ch;
+  --toc-width: 14rem;
 }
 
 code {

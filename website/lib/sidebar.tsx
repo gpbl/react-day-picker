@@ -27,10 +27,10 @@ export function SidebarProvider({ children }: PropsWithChildren) {
 
   useEffect(() => {
     const close = () => setIsOpen(false);
-    router.events.on("routeChangeStart", close);
+    router.events.on("routeChangeComplete", close);
     window.addEventListener("resize", close);
     return () => {
-      router.events.off("routeChangeStart", close);
+      router.events.off("routeChangeComplete", close);
       window.removeEventListener("resize", close);
     };
   }, [router.events]);

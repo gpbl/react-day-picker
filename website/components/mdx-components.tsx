@@ -22,6 +22,7 @@ import {
   Code,
   Em,
   Flex,
+  Grid,
   Heading,
   Kbd,
   Separator,
@@ -48,6 +49,7 @@ export const components: MDXComponents = {
   Text,
   Flex,
   Card,
+  Grid,
   Box,
   Tabs: Tabs.Root,
   TabsList: Tabs.List,
@@ -165,7 +167,7 @@ export const components: MDXComponents = {
   h2: (props) => {
     const { children, id } = props;
     return (
-      <Heading asChild size="7" mt="8" mb="6" id={id}>
+      <Heading asChild size="7" mt="6" mb="4" id={id}>
         <h2>{id ? <LinkHeading id={id}>{children}</LinkHeading> : children}</h2>
       </Heading>
     );

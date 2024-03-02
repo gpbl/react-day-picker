@@ -80,13 +80,13 @@ export function DatePickerModal() {
         )}
       </VisuallyHidden>
       <dialog
-        id={dialogId}
-        onClose={() => setIsDialogOpen(false)}
         ref={dialogRef}
-        role="dialog"
-        aria-model="true"
+        id={dialogId}
         className="rounded-md p-6"
+        role="dialog"
+        aria-modal
         aria-labelledby={headerId}
+        onClose={() => setIsDialogOpen(false)}
       >
         <Box>
           <Flex justify="between" align="center">

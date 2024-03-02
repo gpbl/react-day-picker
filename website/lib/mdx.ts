@@ -1,14 +1,18 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import { autoFrontmatterRegExp } from "@/lib/docs";
-import rehypeToc from "@stefanprobst/rehype-extract-toc";
-import rehypeTocExport from "@stefanprobst/rehype-extract-toc/mdx";
 import { bundleMDX } from "mdx-bundler";
 import { getMDXExport } from "mdx-bundler/client";
 import rehypePrettyCode from "rehype-pretty-code";
+
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
+import remarkGithub from "remark-github";
+import remarkInclude from "./remark-include.mjs";
+
+import { autoFrontmatterRegExp } from "@/lib/docs";
+import rehypeToc from "@stefanprobst/rehype-extract-toc";
+import rehypeTocExport from "@stefanprobst/rehype-extract-toc/mdx";
 
 export const DOCS_PATH = path.join(process.cwd(), "../docs");
 
@@ -32,11 +36,15 @@ export async function getMdxBySlug(slug: string[] | undefined) {
 
   // Remove content that is already in the frontmatter
   const sourceWithoutFrontmatter = source.replace(autoFrontmatterRegExp, "");
-
   const mdx = await bundleMDX({
     source: sourceWithoutFrontmatter,
     mdxOptions: (options) => {
-      options.remarkPlugins = [...(options.remarkPlugins || []), [remarkGfm]];
+      options.remarkPlugins = [
+        ...(options.remarkPlugins || []),
+        remarkInclude,
+        [remarkGithub, { repository: "gpbl/react-day-picker" }],
+        remarkGfm,
+      ];
       options.rehypePlugins = [
         ...(options.rehypePlugins || []),
         [rehypeSlug, { behavior: "append" }],
@@ -47,7 +55,7 @@ export async function getMdxBySlug(slug: string[] | undefined) {
           {
             keepBackground: false,
             theme: {
-              dark: "github-dark-dimmed",
+              dark: "github-dark",
               light: "github-light",
             },
             filterMetaString: (string: string) =>

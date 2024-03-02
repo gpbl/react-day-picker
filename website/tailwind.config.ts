@@ -7,10 +7,11 @@ export default {
   theme: {
     extend: {
       spacing: {
+        "article-max-w": "var(--article-max-width)",
         header: "var(--header-height)",
         sidebar: "var(--sidebar-width)",
-        "header-full": "var(--header-full)",
         breadcrumbs: "var(--breadcrumbs-height)",
+        "toc-width": "var(--toc-width)",
       },
       colors: {
         border: "hsl(var(--border))",

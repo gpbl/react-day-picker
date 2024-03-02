@@ -1,18 +1,21 @@
 ---
-sort: 5
+sort: 2
 ---
 
 _Using DayPicker_
 
-# Styling
+# Styling and CSS
 
-DayPicker comes with a minimal style inspired by MacOS date pickers and it's designed to be easily customized.
+DayPicker comes with a minimal style inspired by MacOS date pickers, designed to be extended and customized.
 
-## Importing the Default Style
+You can also use your own styles, or use a CSS framework like [Tailwind CSS](https://tailwindcss.com) or [Bootstrap](https://getbootstrap.com) to style the calendar.
 
-To start with the included style, import `react-day-picker/style.css` into your app. This will add the `.rdp` class names used by DayPicker.
+## Using the Default Styles
 
-### Using a React framework
+To start with the included styles, import `react-day-picker/style.css` into your app. This will add the `.rdp` class names used by DayPicker.
+
+<details>
+<summary>Using a bundler or a React framework</summary>
 
 If you are using a React framework, such as [Next.js](http://nextjs.org) or [Gatsby](https://www.gatsbyjs.com), or a bundler like Webpack with [css-loader](https://webpack.js.org/loaders/css-loader/), import the CSS file from your app's main JavaScript or TypeScript file:
 
@@ -20,7 +23,10 @@ If you are using a React framework, such as [Next.js](http://nextjs.org) or [Gat
 import "react-day-picker/style.css";
 ```
 
-### From a CDN
+</details>
+
+<details>
+<summary>Importing from a CDN</summary>
 
 If you are using a CDN, add the following link to your HTML file:
 
@@ -28,7 +34,10 @@ If you are using a CDN, add the following link to your HTML file:
 <link rel="stylesheet" href="https://unpkg.com/react-day-picker/style.css" />
 ```
 
-### Usage with CSS Modules
+</details>
+
+<details>
+<summary>Importing the CSS Module</summary>
 
 When using CSS modules, you can import `style.module.css`. Pass the class names to the `classNames` prop.
 
@@ -41,13 +50,13 @@ export function DatePicker() {
 }
 ```
 
-From here, you have different options to customize the appearance of the calendar, depending on your project setup.
+</details>
 
-## Setting a Dark or a Light Mode
+### Dark/Light Mode
 
 > TODO: this section is still incomplete.
 
-## Using the `rdp-` CSS Variables
+### CSS Variables
 
 The default styles use CSS variables to make it easier to customize the base appearance of the calendar. You can override the CSS variables to change the appearance of the calendar.
 
@@ -62,33 +71,19 @@ The following table lists the CSS variables used by DayPicker:
 
 > TODO: this section is still incomplete.
 
-## Overriding the Style via CSS
+---
 
-To further customize the styles, override the DayPicker CSS. For example, to change the background color of the day cells, add this style sheet to your `global.css` or `app.css`.
+## Custom Styles
 
-```css title="global.css"
-/* Change the background color of the day cell. */
-.rdp-day {
-  background-color: #f0f0f0;
-}
-```
+Use the `classNames` prop to use other classnames instead of the default ones.
 
-## Integration with Tailwind CSS
+### Tailwind CSS
 
 > TODO: this section is still incomplete.
 
-```tsx filename="App.tsx" {4}
-import { DayPicker } from "react-day-picker";
-import "react-day-picker/style.css";
+### Custom CSS
 
-import "./App.css"; // Import your custom styles to override the default CSS
-
-function App() {
-  return <DayPicker />;
-}
-```
-
-## Basic Inline Styles Support
+### Inline Styles
 
 To change the appearance of any DayPicker element via inline-styles use the `styles` prop.
 

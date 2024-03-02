@@ -1,6 +1,6 @@
 import type { KeyboardEvent, MouseEvent } from "react";
 
-import type { Locale } from "date-fns/types";
+import type { Locale } from "date-fns";
 
 import * as components from "../components/custom-components";
 

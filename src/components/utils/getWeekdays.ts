@@ -1,5 +1,5 @@
 import { addDays } from "date-fns/addDays";
-import type { Locale } from "date-fns/locale/types";
+import type { Locale } from "date-fns";
 import { startOfISOWeek } from "date-fns/startOfISOWeek";
 import { startOfWeek } from "date-fns/startOfWeek";
 

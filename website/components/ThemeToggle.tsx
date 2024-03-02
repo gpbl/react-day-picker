@@ -42,13 +42,13 @@ export function ThemeToggle() {
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
         >
           <SunIcon
-            width="18"
-            height="18"
+            width="22"
+            height="22"
             style={{ display: "var(--theme-toggle-sun-icon-display)" }}
           />
           <MoonIcon
-            width="18"
-            height="18"
+            width="22"
+            height="22"
             style={{ display: "var(--theme-toggle-moon-icon-display)" }}
           />
         </IconButton>

@@ -18,6 +18,7 @@ export type Frontmatter = {
   description?: string;
   sort?: string;
   toc?: boolean;
+  pagination?: boolean;
   navigationLabel?: string;
   section?: string;
 };
@@ -37,6 +38,7 @@ export type Doc = {
   description: string;
   section: string;
   toc: boolean;
+  pagination: boolean;
   sort: number;
   path: string;
 };
@@ -86,6 +88,7 @@ export function getDocs(): Doc[] {
 
     const doc: Doc = {
       toc: data.toc ?? true,
+      pagination: data.pagination ?? true,
       sort: data.sort ? parseInt(data.sort) : 100,
       section: data.section ?? section ?? slug[0],
       description: data.description ?? description ?? "",

@@ -1,6 +1,7 @@
 import { Doc } from "@/lib/docs";
 import { useSidebar } from "@/lib/sidebar";
-import { Box, Heading, Text } from "@radix-ui/themes";
+import { Box, Flex, Heading, Separator, Text } from "@radix-ui/themes";
+import NextLink from "next/link";
 import { usePathname } from "next/navigation";
 import { SidebarLink } from "./SidebarLink";
 
@@ -10,9 +11,65 @@ export interface SidebarProps {
 
 export function Sidebar(props: SidebarProps) {
   const pathName = usePathname()?.replace(/^\//, "") ?? "";
+  const isDocumentation =
+    pathName.startsWith("docs") && !pathName.includes("/api/");
+
+  const isApi = pathName.includes("/api/");
+  const isPlayground = pathName.startsWith("playground");
+
   const { id } = useSidebar();
   return (
-    <Box asChild>
+    <>
+      <Box display={{ md: "none" }}>
+        <Flex direction="row" gap="4" wrap="nowrap">
+          <Box asChild>
+            <Text
+              color="indigo"
+              asChild
+              size="3"
+              weight={isDocumentation ? "bold" : "regular"}
+            >
+              <NextLink
+                href={"/docs"}
+                aria-description="Open the DayPicker guides"
+              >
+                Documentation
+              </NextLink>
+            </Text>
+          </Box>
+          <Box asChild>
+            <Text
+              color="indigo"
+              asChild
+              size="3"
+              weight={isApi ? "bold" : "regular"}
+            >
+              <NextLink
+                href={"/docs/api/main"}
+                aria-description="Open the DayPicker API reference"
+              >
+                API reference
+              </NextLink>
+            </Text>
+          </Box>
+          <Box asChild>
+            <Text
+              color="indigo"
+              asChild
+              size="3"
+              weight={isPlayground ? "bold" : "regular"}
+            >
+              <NextLink
+                href={"/playground"}
+                aria-description="Open a page for playing with the DayPicker props"
+              >
+                Playground
+              </NextLink>
+            </Text>
+          </Box>
+        </Flex>
+        <Separator size="4" my="4" color="gray" />
+      </Box>
       <ul>
         {Object.keys(props.navigation).map((section, i) => {
           return (
@@ -46,6 +103,6 @@ export function Sidebar(props: SidebarProps) {
           );
         })}
       </ul>
-    </Box>
+    </>
   );
 }

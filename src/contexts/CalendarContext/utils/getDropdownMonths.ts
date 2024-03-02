@@ -1,7 +1,7 @@
 import { addMonths } from "date-fns/addMonths";
 import { isBefore } from "date-fns/isBefore";
 import { startOfMonth } from "date-fns/startOfMonth";
-import type { Month } from "date-fns/types";
+import type { Month } from "date-fns";
 
 import type { DropdownOption } from "../../../components/custom-components";
 import type { Formatters, Mode } from "../../../types";

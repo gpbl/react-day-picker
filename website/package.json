@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hashicorp/remark-plugins": "^4.1.1",
     "@jsdevtools/rehype-toc": "^3.0.2",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
@@ -36,7 +37,10 @@
     "rehype-slug": "^6.0.0",
     "remark-frontmatter": "^5.0.0",
     "remark-gfm": "^4.0.0",
-    "shiki": "^1.1.7"
+    "remark-github": "^12.0.0",
+    "remark-include": "^2.0.0",
+    "shiki": "^1.1.7",
+    "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.20",
@@ -47,6 +51,7 @@
     "eslint-config-next": "14.1.0",
     "prettier-plugin-organize-imports": "^3.2.4",
     "prettier-plugin-tailwindcss": "^0.5.11",
+    "remark": "^15.0.1",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3"
   }
