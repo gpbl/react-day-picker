@@ -121,7 +121,12 @@ export function getDocsNavigation(docsArray: Doc[]): DocsNavigation {
     {} as Record<string, Doc[]>,
   );
   Object.keys(grouped).forEach((key) => {
-    grouped[key].sort((a, b) => a.sort - b.sort);
+    grouped[key].sort((a, b) => {
+      if (a.sort === b.sort) {
+        return a.title.localeCompare(b.title);
+      }
+      return a.sort - b.sort;
+    });
   });
 
   const docs: Record<string, Doc[]> = {};
@@ -135,7 +140,7 @@ export function getDocsNavigation(docsArray: Doc[]): DocsNavigation {
           apiNext[section] = [];
         }
         apiNext[section].push(doc);
-      } else if (doc.slug.join("/").startsWith("api/main")) {
+      } else if (doc.slug.join("/").startsWith("api/latest")) {
         if (!apiMain[section]) {
           apiMain[section] = [];
         }

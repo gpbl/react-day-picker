@@ -34,7 +34,6 @@ export function PropsForm(props: {
     firstWeekContainsDate,
   } = props.dayPickerProps;
 
-  console.log("PlaygroundForm: formProps = ", props.dayPickerProps);
   return (
     <form>
       <Flex gap="2" direction="column">

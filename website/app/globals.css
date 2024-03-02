@@ -20,3 +20,7 @@ code {
       4px 0 6px -2px rgba(0, 0, 0, 0.05);
   }
 }
+.dark .rdp {
+  --rdp-accent-color: var(--rdp-accent-color-dark);
+  --rdp-background-color: var(--rdp-background-color-dark);
+}

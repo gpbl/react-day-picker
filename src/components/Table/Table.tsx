@@ -59,7 +59,7 @@ export function Table(props: TableProps): JSX.Element {
           />
         ))}
       </tbody>
-      <FooterComponent displayMonth={props.displayMonth} />
+      <FooterComponent />
     </table>
   );
 }

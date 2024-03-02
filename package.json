@@ -58,8 +58,8 @@
   },
   "files": [
     "docs",
-    "dist/**",
-    "src/**"
+    "dist",
+    "src"
   ],
   "peerDependencies": {
     "date-fns": "^3.1.0",

@@ -45,7 +45,7 @@ export function Sidebar(props: SidebarProps) {
               weight={isApi ? "bold" : "regular"}
             >
               <NextLink
-                href={"/api/main"}
+                href={"/api/latest"}
                 aria-description="Open the DayPicker API reference"
               >
                 API reference

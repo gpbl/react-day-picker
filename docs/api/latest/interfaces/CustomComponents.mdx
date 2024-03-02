@@ -1,0 +1,31 @@
+---
+section: Interface
+title: CustomComponents
+---
+
+# Interface: CustomComponents
+
+Map of the components that can be changed using the `components` prop.
+
+## See
+
+https://github.com/gpbl/react-day-picker/tree/main/src/components
+
+## Properties
+
+| Property | Type | Description |
+| :------ | :------ | :------ |
+| `Caption?` | (`props`: [`CaptionProps`](/api/latest/interfaces/CaptionProps.mdx)) => `null` \| `Element` | The component for the caption element. |
+| `CaptionLabel?` | (`props`: [`CaptionLabelProps`](/api/latest/interfaces/CaptionLabelProps.mdx)) => `null` \| `Element` | The component for the caption element. |
+| `Day?` | (`props`: [`DayProps`](/api/latest/interfaces/DayProps.mdx)) => `null` \| `Element` | The component for the day element.<br /><br />Each `Day` in DayPicker should render one of the following, according to<br />the return value of [useDayRender](/api/latest/functions/useDayRender.mdx).<br /><br />- An empty `Fragment`, to render if `isHidden` is true<br />- A `button` element, when the day is interactive, e.g. is selectable<br />- A `div` or a `span` element, when the day is not interactive |
+| `DayContent?` | (`props`: [`DayContentProps`](/api/latest/interfaces/DayContentProps.mdx)) => `null` \| `Element` | The component for the content of the day element. |
+| `Dropdown?` | (`props`: [`DropdownProps`](/api/latest/interfaces/DropdownProps.mdx)) => `null` \| `Element` | The component for the drop-down elements. |
+| `Footer?` | (`props`: [`FooterProps`](/api/latest/interfaces/FooterProps.mdx)) => `null` \| `Element` | The component for the table footer. |
+| `Head?` | () => `null` \| `Element` | The component for the table’s head. |
+| `HeadRow?` | () => `null` \| `Element` | The component for the table’s head row. |
+| `IconDropdown?` | (`props`: [`StyledComponent`](/api/latest/type-aliases/StyledComponent.mdx)) => `null` \| `Element` | The component for the small icon in the drop-downs. |
+| `IconLeft?` | (`props`: [`StyledComponent`](/api/latest/type-aliases/StyledComponent.mdx)) => `null` \| `Element` | The arrow left icon (used for the Navigation buttons). |
+| `IconRight?` | (`props`: [`StyledComponent`](/api/latest/type-aliases/StyledComponent.mdx)) => `null` \| `Element` | The arrow right icon (used for the Navigation buttons). |
+| `Months?` | (`props`: [`MonthsProps`](/api/latest/type-aliases/MonthsProps.mdx)) => `null` \| `Element` | The component wrapping the month grids. |
+| `Row?` | (`props`: [`RowProps`](/api/latest/interfaces/RowProps.mdx)) => `null` \| `Element` | The component for the table rows. |
+| `WeekNumber?` | (`props`: [`WeekNumberProps`](/api/latest/interfaces/WeekNumberProps.mdx)) => `null` \| `Element` | The component for the week number in the table rows. |

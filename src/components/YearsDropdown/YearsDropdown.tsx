@@ -18,7 +18,7 @@ export interface YearsDropdownProps {
  * Render a dropdown to change the year. Take in account the `nav.fromDate` and
  * `toDate` from context.
  */
-export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
+export function YearsDropdown(props: YearsDropdownProps) {
   const { displayMonth } = props;
   const {
     fromDate,
@@ -34,8 +34,8 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
   const years: Date[] = [];
 
   // Dropdown should appear only when both from/toDate is set
-  if (!fromDate) return <></>;
-  if (!toDate) return <></>;
+  if (!fromDate) return null;
+  if (!toDate) return null;
 
   const fromYear = fromDate.getFullYear();
   const toYear = toDate.getFullYear();

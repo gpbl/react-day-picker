@@ -70,7 +70,8 @@
   border: var(--rdp-outline);
 }
 
-.rdp-button:hover:not([disabled]):not(.rdp-day_selected) {
+.rdp-button:hover:not([disabled]):not(.rdp-day_selected),
+.rdp-button:hover:not([disabled]):not(.rdp-day_selected)[type='button'] {
   background-color: var(--rdp-background-color);
 }
 
@@ -269,7 +270,9 @@
 }
 
 .rdp-day_selected,
+.rdp-day_selected[type='button'],
 .rdp-day_selected:focus-visible,
+.rdp-day_selected:focus-visible[type='button'],
 .rdp-day_selected:hover {
   color: var(--rdp-selected-color);
   opacity: 1;
@@ -280,6 +283,7 @@
   opacity: 0.5;
 }
 
+.rdp-day_selected:focus-visible,
 .rdp-day_selected:focus-visible {
   /* Since the background is the same use again the outline */
   outline: var(--rdp-outline);

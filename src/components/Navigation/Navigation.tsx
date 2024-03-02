@@ -25,7 +25,7 @@ export interface NavigationProps {
 }
 
 /** A component rendering the navigation buttons or the drop-downs. */
-export function Navigation(props: NavigationProps): JSX.Element {
+export function Navigation(props: NavigationProps) {
   const {
     dir,
     locale,
@@ -36,7 +36,7 @@ export function Navigation(props: NavigationProps): JSX.Element {
   } = useDayPicker();
 
   if (!props.nextMonth && !props.previousMonth) {
-    return <></>;
+    return null;
   }
 
   const previousLabel = labelPrevious(props.previousMonth, { locale });

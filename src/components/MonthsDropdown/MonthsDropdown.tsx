@@ -14,7 +14,7 @@ export interface MonthsDropdownProps {
 }
 
 /** Render the dropdown to navigate between months. */
-export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
+export function MonthsDropdown(props: MonthsDropdownProps) {
   const {
     fromDate,
     toDate,
@@ -27,8 +27,8 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
   } = useDayPicker();
 
   // Dropdown should appear only when both from/toDate is set
-  if (!fromDate) return <></>;
-  if (!toDate) return <></>;
+  if (!fromDate) return null;
+  if (!toDate) return null;
 
   const dropdownMonths: Date[] = [];
 

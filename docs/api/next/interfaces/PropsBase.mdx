@@ -5,14 +5,14 @@ title: PropsBase
 
 # Interface: PropsBase
 
-The base props for the [DayPicker](/docs/api/next/functions/DayPicker.mdx) component.
+The base props for the [DayPicker](/api/next/functions/DayPicker.mdx) component.
 
 These props are used to change the navigation, the styling and the behavior
 of the calendar.
 
 ## Extended by
 
-- [`DayPickerContext`](/docs/api/next/interfaces/DayPickerContext.mdx)
+- [`DayPickerContext`](/api/next/interfaces/DayPickerContext.mdx)
 
 ## Properties
 
@@ -20,59 +20,59 @@ of the calendar.
 | :------ | :------ | :------ |
 | `ISOWeek?` | `boolean` | Use ISO week dates instead of the locale setting. Setting this prop will<br />ignore `weekStartsOn` and `firstWeekContainsDate`.<br /><br />**Default Value**<br />` falses `<br /><br />**See**<br />https://en.wikipedia.org/wiki/ISO_week_date |
 | `autoFocus?` | `boolean` | When a selection mode is set, DayPicker will focus the first selected day<br />(if set) or the today's date (if not disabled).<br /><br />Use this prop when you need to focus DayPicker after a user actions, for<br />improved accessibility. |
-| ~~`captionLayout?`~~ | [`CaptionLayout`](/docs/api/next/type-aliases/CaptionLayout.mdx) | Change the layout of the caption.<br /><br />- `buttons`: display prev/right buttons<br />- `dropdown`: display dropdowns to change the month and the year<br /><br />**Note:** the `dropdown` layout is available only when `fromDate`,<br />`fromMonth` or`fromYear` and `toDate`, `toMonth` or `toYear` are set.<br /><br />**Deprecated**<br />To show the dropdowns, use [dropdownNavigation](/docs/api/next/interfaces/PropsBase.mdx). To hide<br />  the navigation buttons, set [hideNavigation](/docs/api/next/interfaces/PropsBase.mdx).<br /><br />**Default Value**<br />` buttons ` |
+| ~~`captionLayout?`~~ | [`CaptionLayout`](/api/next/type-aliases/CaptionLayout.mdx) | Change the layout of the caption.<br /><br />- `buttons`: display prev/right buttons<br />- `dropdown`: display dropdowns to change the month and the year<br /><br />**Note:** the `dropdown` layout is available only when `fromDate`,<br />`fromMonth` or`fromYear` and `toDate`, `toMonth` or `toYear` are set.<br /><br />**Deprecated**<br />To show the dropdowns, use [dropdownNavigation](/api/next/interfaces/PropsBase.mdx). To hide<br />  the navigation buttons, set [hideNavigation](/api/next/interfaces/PropsBase.mdx).<br /><br />**Default Value**<br />` buttons ` |
 | `className?` | `string` | The CSS class to add to the container element. |
-| `classNames?` | `Partial`\<[`ClassNames`](/docs/api/next/type-aliases/ClassNames.mdx)\> | Change the class names used by DayPicker.<br /><br />Use this prop when you need to change the default class names — for example<br />when using CSS modules. |
-| `components?` | [`CustomComponents`](/docs/api/next/type-aliases/CustomComponents.mdx) | Change the components used for rendering the calendar elements. |
+| `classNames?` | `Partial`\<[`ClassNames`](/api/next/type-aliases/ClassNames.mdx)\> | Change the class names used by DayPicker.<br /><br />Use this prop when you need to change the default class names — for example<br />when using CSS modules. |
+| `components?` | [`CustomComponents`](/api/next/type-aliases/CustomComponents.mdx) | Change the components used for rendering the calendar elements. |
 | `defaultMonth?` | `Date` | The initial month to show in the calendar. Use this prop to let DayPicker<br />control the current month. If you need to set the month programmatically,<br />use `month` and `onMonthChange`.<br /><br />**Default Value**<br />` The current month ` |
 | `dir?` | `string` | The text direction of the calendar. Use `ltr` for left-to-right (default)<br />or `rtl` for right-to-left. |
-| `disableNavigation?` | `boolean` | Disable the navigation between months. This prop won't hide the navigation:<br />to hide the navigation, use [hideNavigation](/docs/api/next/interfaces/PropsBase.mdx). |
-| `disabled?` | [`Matcher`](/docs/api/next/type-aliases/Matcher.mdx) \| [`Matcher`](/docs/api/next/type-aliases/Matcher.mdx)[] | Apply the `disabled` modifier to the matching days. |
-| `dropdownNavigation?` | `boolean` \| `"month"` \| `"year"` | Show dropdowns to navigate between months or years.<br /><br />- `true`: display the dropdowns for both month and year.<br />- `month`: display the dropdown for the month.<br />- `year`: display the dropdown for the year.<br />- `false`: hide the dropdowns.<br /><br />**Note:** showing the dropdown will default [fromYear](/docs/api/next/interfaces/PropsBase.mdx) to the 100<br />years ago, and [toYear](/docs/api/next/interfaces/PropsBase.mdx) to the current year. |
+| `disableNavigation?` | `boolean` | Disable the navigation between months. This prop won't hide the navigation:<br />to hide the navigation, use [hideNavigation](/api/next/interfaces/PropsBase.mdx). |
+| `disabled?` | [`Matcher`](/api/next/type-aliases/Matcher.mdx) \| [`Matcher`](/api/next/type-aliases/Matcher.mdx)[] | Apply the `disabled` modifier to the matching days. |
+| `dropdownNavigation?` | `boolean` \| `"month"` \| `"year"` | Show dropdowns to navigate between months or years.<br /><br />- `true`: display the dropdowns for both month and year.<br />- `month`: display the dropdown for the month.<br />- `year`: display the dropdown for the year.<br />- `false`: hide the dropdowns.<br /><br />**Note:** showing the dropdown will default [fromYear](/api/next/interfaces/PropsBase.mdx) to the 100<br />years ago, and [toYear](/api/next/interfaces/PropsBase.mdx) to the current year. |
 | `firstWeekContainsDate?` | `1` \| `4` | The day of January, which is always in the first week of the year.<br /><br />**See**<br /> - https://date-fns.org/docs/getWeek<br /> - https://en.wikipedia.org/wiki/Week#Numbering<br /> |
 | `fixedWeeks?` | `boolean` | Display always 6 weeks per each month, regardless the month’s number of<br />weeks. Weeks will be filled with the days from the next month. |
 | `footer?` | `ReactNode` | Content to add to the table footer element. |
-| `formatters?` | `Partial`\<[`Formatters`](/docs/api/next/type-aliases/Formatters.mdx)\> | Formatters used to format dates to strings. Use this prop to override the<br />default functions. |
+| `formatters?` | `Partial`\<[`Formatters`](/api/next/type-aliases/Formatters.mdx)\> | Formatters used to format dates to strings. Use this prop to override the<br />default functions. |
 | `fromDate?` | `Date` | The earliest day to start the month navigation. |
 | `fromMonth?` | `Date` | The earliest month to start the month navigation. |
 | `fromYear?` | `number` | The earliest year to start the month navigation. |
-| `hidden?` | [`Matcher`](/docs/api/next/type-aliases/Matcher.mdx) \| [`Matcher`](/docs/api/next/type-aliases/Matcher.mdx)[] | Apply the `hidden` modifier to the matching days. Will hide them from the<br />calendar. |
-| `hideNavigation?` | `boolean` | Hide the navigation buttons. This prop won't disable the navigation: to<br />disable the navigation, use [disableNavigation](/docs/api/next/interfaces/PropsBase.mdx). |
+| `hidden?` | [`Matcher`](/api/next/type-aliases/Matcher.mdx) \| [`Matcher`](/api/next/type-aliases/Matcher.mdx)[] | Apply the `hidden` modifier to the matching days. Will hide them from the<br />calendar. |
+| `hideNavigation?` | `boolean` | Hide the navigation buttons. This prop won't disable the navigation: to<br />disable the navigation, use [disableNavigation](/api/next/interfaces/PropsBase.mdx). |
 | `hideWeekdayRow?` | `boolean` | Hide the row displaying the weekday row header. |
 | `id?` | `string` | A unique id to replace the random generated ids – used by DayPicker for<br />accessibility. |
-| `labels?` | `Partial`\<[`Labels`](/docs/api/next/type-aliases/Labels.mdx)\> | Labels creators to override the defaults. Use this prop to customize the<br />aria-label attributes in DayPicker. |
+| `labels?` | `Partial`\<[`Labels`](/api/next/type-aliases/Labels.mdx)\> | Labels creators to override the defaults. Use this prop to customize the<br />aria-label attributes in DayPicker. |
 | `lang?` | `string` | Add the language tag to the container element. |
 | `locale?` | `Locale` | The date-fns locale object used to localize dates.<br /><br />**Default Value**<br />` en-US `<br /><br />**See**<br />https://date-fns.org/docs/Locale |
-| `modifiers?` | `Record`\<`string`, `undefined` \| [`Matcher`](/docs/api/next/type-aliases/Matcher.mdx) \| [`Matcher`](/docs/api/next/type-aliases/Matcher.mdx)[]\> | Add modifiers to the matching days. |
-| `modifiersClassNames?` | [`ModifiersClassNames`](/docs/api/next/type-aliases/ModifiersClassNames.mdx) | Change the class name for the day matching the `modifiers`. |
-| `modifiersStyles?` | [`ModifiersStyles`](/docs/api/next/type-aliases/ModifiersStyles.mdx) | Change the inline style for the day matching the `modifiers`. |
+| `modifiers?` | `Record`\<`string`, `undefined` \| [`Matcher`](/api/next/type-aliases/Matcher.mdx) \| [`Matcher`](/api/next/type-aliases/Matcher.mdx)[]\> | Add modifiers to the matching days. |
+| `modifiersClassNames?` | [`ModifiersClassNames`](/api/next/type-aliases/ModifiersClassNames.mdx) | Change the class name for the day matching the `modifiers`. |
+| `modifiersStyles?` | [`ModifiersStyles`](/api/next/type-aliases/ModifiersStyles.mdx) | Change the inline style for the day matching the `modifiers`. |
 | `month?` | `Date` | The month displayed in the calendar.<br /><br />As opposed to `PropsBase.defaultMonth}, use this prop with `PropsBase.onMonthChange\} to change the month programmatically. |
 | `nonce?` | `string` | A cryptographic nonce ("number used once") which can be used by Content<br />Security Policy for the inline `style` attributes. |
 | `numberOfMonths?` | `number` | The number of displayed months.<br /><br />**Default Value**<br />` 1 ` |
-| `onDayBlur?` | [`DayFocusEventHandler`](/docs/api/next/type-aliases/DayFocusEventHandler.mdx) | Event handler when a day is blurred. |
-| `onDayClick?` | [`DayMouseEventHandler`](/docs/api/next/type-aliases/DayMouseEventHandler.mdx) | Event handler when a day is clicked. |
-| `onDayFocus?` | [`DayFocusEventHandler`](/docs/api/next/type-aliases/DayFocusEventHandler.mdx) | Event handler when a day is focused. |
-| `onDayKeyDown?` | [`DayKeyboardEventHandler`](/docs/api/next/type-aliases/DayKeyboardEventHandler.mdx) | Event handler when a key is pressed on a day. |
-| `onDayKeyPress?` | [`DayKeyboardEventHandler`](/docs/api/next/type-aliases/DayKeyboardEventHandler.mdx) | Event handler when a key is pressed and released on a day. |
-| `onDayKeyUp?` | [`DayKeyboardEventHandler`](/docs/api/next/type-aliases/DayKeyboardEventHandler.mdx) | Event handler when a key is released on a day. |
-| `onDayMouseEnter?` | [`DayMouseEventHandler`](/docs/api/next/type-aliases/DayMouseEventHandler.mdx) | Event handler when the mouse enters a day. |
-| `onDayMouseLeave?` | [`DayMouseEventHandler`](/docs/api/next/type-aliases/DayMouseEventHandler.mdx) | Event handler when the mouse leaves a day. |
-| `onDayPointerEnter?` | [`DayPointerEventHandler`](/docs/api/next/type-aliases/DayPointerEventHandler.mdx) | Event handler when a pointer enters a day. |
-| `onDayPointerLeave?` | [`DayPointerEventHandler`](/docs/api/next/type-aliases/DayPointerEventHandler.mdx) | Event handler when a pointer leaves a day. |
-| `onDayTouchCancel?` | [`DayTouchEventHandler`](/docs/api/next/type-aliases/DayTouchEventHandler.mdx) | Event handler when a touch is cancelled on a day. |
-| `onDayTouchEnd?` | [`DayTouchEventHandler`](/docs/api/next/type-aliases/DayTouchEventHandler.mdx) | Event handler when a touch ends on a day. |
-| `onDayTouchMove?` | [`DayTouchEventHandler`](/docs/api/next/type-aliases/DayTouchEventHandler.mdx) | Event handler when a touch moves on a day. |
-| `onDayTouchStart?` | [`DayTouchEventHandler`](/docs/api/next/type-aliases/DayTouchEventHandler.mdx) | Event handler when a touch starts on a day. |
-| `onMonthChange?` | [`MonthChangeEventHandler`](/docs/api/next/type-aliases/MonthChangeEventHandler.mdx) | Event fired when the user navigates between months. |
-| `onNextClick?` | [`MonthChangeEventHandler`](/docs/api/next/type-aliases/MonthChangeEventHandler.mdx) | Event handler when the next month button is clicked. |
-| `onPrevClick?` | [`MonthChangeEventHandler`](/docs/api/next/type-aliases/MonthChangeEventHandler.mdx) | Event handler when the previous month button is clicked. |
-| `onWeekNumberClick?` | [`WeekNumberClickEventHandler`](/docs/api/next/type-aliases/WeekNumberClickEventHandler.mdx) | Event handler when a week number is clicked. Requires [showWeekNumber](/docs/api/next/interfaces/PropsBase.mdx)<br />to be set. |
+| `onDayBlur?` | [`DayFocusEventHandler`](/api/next/type-aliases/DayFocusEventHandler.mdx) | Event handler when a day is blurred. |
+| `onDayClick?` | [`DayMouseEventHandler`](/api/next/type-aliases/DayMouseEventHandler.mdx) | Event handler when a day is clicked. |
+| `onDayFocus?` | [`DayFocusEventHandler`](/api/next/type-aliases/DayFocusEventHandler.mdx) | Event handler when a day is focused. |
+| `onDayKeyDown?` | [`DayKeyboardEventHandler`](/api/next/type-aliases/DayKeyboardEventHandler.mdx) | Event handler when a key is pressed on a day. |
+| `onDayKeyPress?` | [`DayKeyboardEventHandler`](/api/next/type-aliases/DayKeyboardEventHandler.mdx) | Event handler when a key is pressed and released on a day. |
+| `onDayKeyUp?` | [`DayKeyboardEventHandler`](/api/next/type-aliases/DayKeyboardEventHandler.mdx) | Event handler when a key is released on a day. |
+| `onDayMouseEnter?` | [`DayMouseEventHandler`](/api/next/type-aliases/DayMouseEventHandler.mdx) | Event handler when the mouse enters a day. |
+| `onDayMouseLeave?` | [`DayMouseEventHandler`](/api/next/type-aliases/DayMouseEventHandler.mdx) | Event handler when the mouse leaves a day. |
+| `onDayPointerEnter?` | [`DayPointerEventHandler`](/api/next/type-aliases/DayPointerEventHandler.mdx) | Event handler when a pointer enters a day. |
+| `onDayPointerLeave?` | [`DayPointerEventHandler`](/api/next/type-aliases/DayPointerEventHandler.mdx) | Event handler when a pointer leaves a day. |
+| `onDayTouchCancel?` | [`DayTouchEventHandler`](/api/next/type-aliases/DayTouchEventHandler.mdx) | Event handler when a touch is cancelled on a day. |
+| `onDayTouchEnd?` | [`DayTouchEventHandler`](/api/next/type-aliases/DayTouchEventHandler.mdx) | Event handler when a touch ends on a day. |
+| `onDayTouchMove?` | [`DayTouchEventHandler`](/api/next/type-aliases/DayTouchEventHandler.mdx) | Event handler when a touch moves on a day. |
+| `onDayTouchStart?` | [`DayTouchEventHandler`](/api/next/type-aliases/DayTouchEventHandler.mdx) | Event handler when a touch starts on a day. |
+| `onMonthChange?` | [`MonthChangeEventHandler`](/api/next/type-aliases/MonthChangeEventHandler.mdx) | Event fired when the user navigates between months. |
+| `onNextClick?` | [`MonthChangeEventHandler`](/api/next/type-aliases/MonthChangeEventHandler.mdx) | Event handler when the next month button is clicked. |
+| `onPrevClick?` | [`MonthChangeEventHandler`](/api/next/type-aliases/MonthChangeEventHandler.mdx) | Event handler when the previous month button is clicked. |
+| `onWeekNumberClick?` | [`WeekNumberClickEventHandler`](/api/next/type-aliases/WeekNumberClickEventHandler.mdx) | Event handler when a week number is clicked. Requires [showWeekNumber](/api/next/interfaces/PropsBase.mdx)<br />to be set. |
 | `pagedNavigation?` | `boolean` | Paginate the month navigation displaying the `numberOfMonths` at time. |
-| `reverseMonths?` | `boolean` | Render the months in reversed order (when [numberOfMonths](/docs/api/next/interfaces/PropsBase.mdx) is set) to<br />display the most recent month first. |
+| `reverseMonths?` | `boolean` | Render the months in reversed order (when [numberOfMonths](/api/next/interfaces/PropsBase.mdx) is set) to<br />display the most recent month first. |
 | `showOutsideDays?` | `boolean` | Show the outside days (days falling in the next or the previous month). |
 | `showWeekNumber?` | `boolean` | Show the week numbers column. Weeks are numbered according to the local<br />week index.<br /><br />- To use ISO week numbering, use the `ISOWeek` prop.<br />- To change how the week numbers are displayed, use the `Formatters` prop. |
 | `style?` | `CSSProperties` | Style to apply to the container element. |
-| `styles?` | `Partial`\<[`Styles`](/docs/api/next/type-aliases/Styles.mdx)\> | Change the inline styles of the HTML elements. |
+| `styles?` | `Partial`\<[`Styles`](/api/next/type-aliases/Styles.mdx)\> | Change the inline styles of the HTML elements. |
 | `title?` | `string` | Add a `title` attribute to the container element. |
 | `toDate?` | `Date` | The latest day to end the month navigation. |
 | `toMonth?` | `Date` | The latest month to end the month navigation. |

@@ -1,0 +1,20 @@
+---
+section: Interface
+title: NavigationContextValue
+---
+
+# Interface: NavigationContextValue
+
+Represents the value of the [NavigationContext](/api/latest/variables/NavigationContext.mdx).
+
+## Properties
+
+| Property | Type | Description |
+| :------ | :------ | :------ |
+| `currentMonth` | `Date` | The month to display in the calendar. When `numberOfMonths` is greater than<br />one, is the first of the displayed months. |
+| `displayMonths` | `Date`[] | The months rendered by DayPicker. DayPicker can render multiple months via<br />`numberOfMonths`. |
+| `goToDate` | (`date`: `Date`, `refDate`?: `Date`) => `void` | Navigate to the specified date. |
+| `goToMonth` | (`month`: `Date`) => `void` | Navigate to the specified month. |
+| `isDateDisplayed` | (`day`: `Date`) => `boolean` | Whether the given day is included in the displayed months. |
+| `nextMonth?` | `Date` | The next month to display. |
+| `previousMonth?` | `Date` | The previous month to display. |

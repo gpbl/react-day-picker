@@ -1,0 +1,26 @@
+---
+section: Interface
+title: UseInputOptions
+---
+
+# Interface: UseInputOptions
+
+## Extends
+
+- `Pick`\<[`DayPickerBase`](/api/latest/interfaces/DayPickerBase.mdx), `"locale"` \| `"fromDate"` \| `"toDate"` \| `"fromMonth"` \| `"toMonth"` \| `"fromYear"` \| `"toYear"` \| `"today"`\>
+
+## Properties
+
+| Property | Type | Description | Inherited from |
+| :------ | :------ | :------ | :------ |
+| `defaultSelected?` | `Date` | The initially selected date | - |
+| `format?` | `string` | The format string for formatting the input field. See<br />https://date-fns.org/docs/format for a list of format strings.<br /><br />**Default Value**<br />` PP ` | - |
+| `fromDate?` | `Date` | The earliest day to start the month navigation. | `Pick.fromDate` |
+| `fromMonth?` | `Date` | The earliest month to start the month navigation. | `Pick.fromMonth` |
+| `fromYear?` | `number` | The earliest year to start the month navigation. | `Pick.fromYear` |
+| `locale?` | `Locale` | The date-fns locale object used to localize dates.<br /><br />**Default Value**<br />` en-US ` | `Pick.locale` |
+| `required?` | `boolean` | Make the selection required. | - |
+| `toDate?` | `Date` | The latest day to end the month navigation. | `Pick.toDate` |
+| `toMonth?` | `Date` | The latest month to end the month navigation. | `Pick.toMonth` |
+| `toYear?` | `number` | The latest year to end the month navigation. | `Pick.toYear` |
+| `today?` | `Date` | The today’s date. Default is the current date. This Date will get the<br />`today` modifier to style the day. | `Pick.today` |

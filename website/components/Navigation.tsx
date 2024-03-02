@@ -15,7 +15,7 @@ export function Navigation() {
       </Link>
       <Link asChild size="2">
         <NextLink
-          href="/api/main"
+          href="/api/latest"
           aria-description="Open the DayPicker API reference"
         >
           API reference

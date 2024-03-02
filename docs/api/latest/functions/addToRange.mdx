@@ -1,0 +1,28 @@
+---
+section: Function
+title: addToRange
+---
+
+# Function: addToRange()
+
+> **addToRange**(`day`, `range`?): [`DateRange`](/api/latest/type-aliases/DateRange.mdx) \| `undefined`
+
+Add a day to an existing range.
+
+The returned range takes in account the `undefined` values and if the added
+day is already present in the range.
+
+## Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `day` | `Date` |
+| `range`? | [`DateRange`](/api/latest/type-aliases/DateRange.mdx) |
+
+## Returns
+
+[`DateRange`](/api/latest/type-aliases/DateRange.mdx) \| `undefined`
+
+## Source
+
+[src/contexts/SelectRange/utils/addToRange.ts:11](https://github.com/gpbl/react-day-picker/blob/a8bfa5451/src/contexts/SelectRange/utils/addToRange.ts#L11)

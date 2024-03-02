@@ -34,6 +34,6 @@ const options = {
   enumMembersFormat: "table",
   typeDeclarationFormat: "table",
   indexFormat: "table",
-};
+}
 
-export default options;
+export default options

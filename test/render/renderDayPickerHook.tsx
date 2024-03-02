@@ -32,10 +32,10 @@ export function renderDayPickerHook<TResult>(
   }
 ): RenderHookResult<TResult> {
   const returnVal = { current: undefined as TResult };
-  function Test(): JSX.Element {
+  function Test() {
     const hookResult: TResult = hook();
     returnVal.current = hookResult;
-    return <></>;
+    return null;
   }
   render(
     <RootProvider {...dayPickerProps}>

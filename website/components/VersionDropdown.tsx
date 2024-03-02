@@ -14,7 +14,7 @@ export function VersionDropdown() {
   const handleLatestClick = () => {
     setVersion("main");
     if (pathName.includes("/api")) {
-      router.push("/api/main");
+      router.push("/api/latest");
     }
   };
   const handleNextClick = () => {

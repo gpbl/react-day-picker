@@ -1,4 +1,3 @@
-import { Flex } from "@radix-ui/themes";
 import { PropsWithChildren } from "react";
 
 type CodeBlockProps = PropsWithChildren<{
@@ -8,11 +7,11 @@ export function CodeBlock(props: CodeBlockProps) {
   return (
     <>
       {props.children}
-      {props.preview && (
+      {/* {props.preview && (
         <Flex justify="center" mb="5">
           {props.preview}
         </Flex>
-      )}
+      )} */}
     </>
   );
 }
