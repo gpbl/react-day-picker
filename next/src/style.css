@@ -1,0 +1,348 @@
+.rdp {
+  --rdp-months-gap: 2rem;
+  --rdp-cell-size: 2.75rem;
+  --rdp-font-small: 0.8125rem;
+  --rdp-font-medium: 1rem;
+  --rdp-font-large: 1.25rem;
+  --rdp-opacity: 0.5;
+
+  --rdp-accent: #007aff;
+  --rdp-background: #e0efff;
+
+  --rdp-accent-dark: #0a84ff;
+  --rdp-background-dark: #02203d;
+
+  --rdp-outline: 2px solid var(--rdp-accent); /* Outline border for focused elements */
+  --rdp-outline-selected: 3px solid var(--rdp-accent); /* Outline border for focused _and_ selected elements */
+
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.rdp * {
+  box-sizing: border-box;
+}
+
+.months_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rdp-months-gap);
+  justify-content: center;
+}
+
+.caption {
+  display: flex;
+  align-items: center;
+}
+
+.multiple_months .caption {
+  position: relative;
+  display: block;
+  text-align: center;
+}
+
+.caption_dropdowns,
+.dropdown_nav {
+  position: relative;
+  display: inline-flex;
+}
+
+.caption_dropdowns::after,
+.dropdown_root::after {
+  position: absolute;
+  top: 50%;
+  right: 5px; /* Position the arrow on the right side */
+  transform: translateY(-50%); /* Center the arrow vertically */
+  pointer-events: none; /* Make it non-clickable */
+}
+
+.caption_label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0.125em 0.25em;
+  white-space: nowrap;
+  color: currentColor;
+  border: 0;
+  border: 2px solid transparent;
+}
+
+.caption_label svg {
+  margin: 0 0 0 5px;
+}
+
+.nav {
+  inset-block-start: 0;
+  position: absolute;
+  inset-inline-end: 0;
+  white-space: nowrap;
+  padding: 0.25em;
+}
+
+.multiple_months .caption_start .nav {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 0;
+  transform: translateY(-50%);
+}
+
+.multiple_months .caption_end .nav {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-end: 0;
+  transform: translateY(-50%);
+}
+
+.button_next,
+.button_previous {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  align-items: center;
+  appearance: none;
+  background: none;
+  border: 0;
+  border-radius: 100%;
+  color: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  padding: 0.25em;
+  position: relative;
+}
+
+.button_next > svg,
+.button_previous > svg,
+.caption_label > svg {
+  fill: var(--rdp-accent);
+}
+
+.button_next:disabled,
+.button_next[aria-disabled="true"],
+.button_previous:disabled,
+.button_previous[aria-disabled="true"] {
+  opacity: var(--rdp-opacity);
+  cursor: default;
+}
+
+.rdp[dir="rtl"] .button_next {
+  transform: rotate(180deg);
+}
+
+.rdp[dir="rtl"] .button_previous {
+  transform: rotate(180deg);
+  transform-origin: 50%;
+}
+
+/* ---------- */
+/* Dropdowns  */
+/* ---------- */
+
+.dropdown_year, /* Remove in v10 as .dropdown_root is added anyway */
+.dropdown_month, /* Remove in v10 as .dropdown_root is added anyway */
+.dropdown_root {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.dropdown {
+  appearance: none;
+  position: absolute;
+  z-index: 2;
+  inset-block-start: 0;
+  bottom: 0;
+  inset-inline-start: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  cursor: inherit;
+  opacity: 0;
+  border: none;
+  background-color: transparent;
+  line-height: inherit;
+
+  font: revert;
+  font-size: revert;
+  font-size: 1rem;
+}
+
+.dropdown[disabled],
+.dropdown[aria-disabled="true"] {
+  opacity: unset;
+  color: unset;
+}
+/* 
+.dropdown:focus-visible:not([disabled]):not([aria-disabled='true'])
+  + .caption_label,
+.dropdown:focus-visible:not([disabled]):not([aria-disabled='true'])
+  + .caption_label {
+  background-color: var(--rdp-background);
+  border: var(--rdp-outline);
+  border-radius: 6px;
+} */
+
+.dropdown_icon {
+  margin: 0 0 0 5px;
+}
+
+.head {
+}
+
+.head_row,
+.row {
+  display: flex;
+  padding: 0 10px;
+}
+
+.head_cell {
+  text-transform: uppercase;
+  width: var(--rdp-cell-size);
+  height: var(--rdp-cell-size);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer {
+  margin: 0.5em 0;
+}
+
+.cell {
+  width: var(--rdp-cell-size);
+  height: var(--rdp-cell-size);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.day {
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: var(--rdp-cell-size);
+  height: var(--rdp-cell-size);
+  border: 2px solid transparent;
+  border-radius: 100%;
+  font-size: var(--rdp-font-medium);
+}
+
+.day:focus {
+  outline: 2px solid #5b9dd9;
+  outline-offset: -2px;
+  outline: -webkit-focus-ring-color auto 1px;
+  outline: -moz-mac-focusring auto 1px;
+}
+
+.day_today:not(.day_outside) {
+  color: var(--rdp-accent);
+}
+
+.day_selected,
+.day_selected.day_outside {
+  opacity: 1;
+  /* outline: none; */
+  /* color: var(--rdp-accent); */
+  background-color: var(--rdp-background);
+  font-size: var(--rdp-font-large);
+  font-weight: 600;
+  border-color: var(--rdp-accent);
+}
+
+.day_selected:focus-visible {
+  outline-offset: -1px;
+}
+
+.day_outside {
+  opacity: var(--rdp-opacity);
+}
+
+.day_disabled {
+  opacity: var(--rdp-opacity);
+  cursor: default;
+}
+
+.day_excluded:not(.day_selected) {
+  opacity: var(--rdp-opacity);
+  cursor: default;
+}
+
+.day_hidden {
+  visibility: hidden;
+}
+
+.day_range_start:not(.day_range_end) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.day_range_end:not(.day_range_start) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.rdp[dir="rtl"] .day_range_start:not(.day_range_end) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.rdp[dir="rtl"] .day_range_end:not(.day_range_start) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.day_range_end.day_range_start {
+  border-radius: 100%;
+}
+
+.day_range_middle {
+  border-radius: 0;
+}
+
+.weeknumber_rowheader {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: var(--rdp-cell-size);
+  border: 2px solid transparent;
+  border-radius: 100%;
+  font-size: var(--rdp-font-small);
+  font-weight: 500;
+  opacity: var(--rdp-opacity);
+}
+
+.weekday_columnheader {
+  text-align: center;
+  opacity: var(--rdp-opacity);
+  text-transform: uppercase;
+  font-size: var(--rdp-font-small);
+  font-weight: 500;
+  padding: 0.25rem 0 0.5rem;
+}
+
+.hide_weekdays .weekday_columnheader {
+  padding: 0;
+}
+
+.weekdays_row,
+.week_row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.with_weeknumber .weekdays_row,
+.with_weeknumber .week_row {
+  grid-template-columns: repeat(8, 1fr);
+}
+
+.month_caption {
+  margin-bottom: 0.5em;
+  font-size: var(--rdp-font-large);
+  font-weight: 600;
+}

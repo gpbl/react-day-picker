@@ -22,11 +22,15 @@
     {
       "path": "docs",
     },
+    {
+      "path": "next",
+    },
   ],
   "settings": {
     "files.exclude": {
       "website": true,
       "docs": true,
+      "next": true,
       "typedoc": true,
     },
     "cSpell.enabled": true,

@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import { DayPicker } from 'react-day-picker';
+import { DayPicker } from "react-day-picker";
 
 export function SingleRequired() {
   const [selectedDay, setSelectedDay] = useState<Date>(new Date());

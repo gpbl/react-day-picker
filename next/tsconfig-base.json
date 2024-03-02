@@ -3,12 +3,10 @@
     "target": "ES2018",
     "lib": ["DOM", "ESNext", "DOM.Iterable"],
     "jsx": "react-jsx",
-    "module": "ES2020",
+    "module": "ESNext",
     "moduleResolution": "Node",
     "sourceMap": true,
     "declaration": true,
-    "baseUrl": "./website/node_modules/react-day-picker-v8/src",
-    "rootDir": "./website/node_modules/react-day-picker-v8/src",
     "outDir": "./dist",
     "importHelpers": true,
     "esModuleInterop": true,
@@ -16,7 +14,5 @@
     "strict": true,
     "alwaysStrict": true,
     "skipLibCheck": true
-  },
-  "include": ["./website/node_modules/react-day-picker-v8/src"],
-  "exclude": ["**/*.test.*"]
+  }
 }

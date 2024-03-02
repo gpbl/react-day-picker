@@ -2,6 +2,7 @@
   "$schema": "https://json.schemastore.org/prettierrc",
   "tabWidth": 2,
   "useTabs": false,
+  "singleQuote": false,
   "plugins": [
     "prettier-plugin-jsdoc"
   ]

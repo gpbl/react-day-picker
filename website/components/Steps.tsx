@@ -1,7 +1,3 @@
-import { clx } from "@/lib/clx";
-
-import styles from "./Steps.module.css";
-
 export function Steps({ ...props }) {
   return (
     <div

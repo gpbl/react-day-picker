@@ -2,3 +2,4 @@ packages:
   - "."
   - "typedoc"
   - "website"
+  - "next"

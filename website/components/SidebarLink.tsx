@@ -1,8 +1,8 @@
 import React from "react";
 
-import styles from "./SidebarLink.module.css";
 import { clx } from "@/lib/clx";
 import Link from "next/link";
+import styles from "./SidebarLink.module.css";
 
 export interface SidebarLinkProps {
   children: React.ReactNode;
