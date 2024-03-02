@@ -10,7 +10,7 @@ import { DateRange } from '../../../types/Matchers';
  */
 export function addToRange(
   day: Date,
-  range?: DateRange,
+  range?: DateRange
 ): DateRange | undefined {
   const { from, to } = range || {};
   if (from && to) {

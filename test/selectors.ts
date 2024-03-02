@@ -14,7 +14,7 @@ export function getAllSelectedDays() {
     .getElementsByTagName('button');
 
   return Array.from(buttons).filter(
-    (button) => button.getAttribute('aria-selected') === 'true',
+    (button) => button.getAttribute('aria-selected') === 'true'
   );
 }
 

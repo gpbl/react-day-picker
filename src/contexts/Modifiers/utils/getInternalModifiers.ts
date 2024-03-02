@@ -22,7 +22,7 @@ const {
 export function getInternalModifiers(
   dayPicker: DayPickerContextValue,
   selectMultiple: SelectMultipleContextValue,
-  selectRange: SelectRangeContextValue,
+  selectRange: SelectRangeContextValue
 ) {
   const internalModifiers: InternalModifiers = {
     [Selected]: matcherToArray(dayPicker.selected),
@@ -44,11 +44,11 @@ export function getInternalModifiers(
 
   if (isDayPickerMultiple(dayPicker)) {
     internalModifiers[Disabled] = internalModifiers[Disabled].concat(
-      selectMultiple.modifiers[Disabled],
+      selectMultiple.modifiers[Disabled]
     );
   } else if (isDayPickerRange(dayPicker)) {
     internalModifiers[Disabled] = internalModifiers[Disabled].concat(
-      selectRange.modifiers[Disabled],
+      selectRange.modifiers[Disabled]
     );
     internalModifiers[RangeStart] = selectRange.modifiers[RangeStart];
     internalModifiers[RangeMiddle] = selectRange.modifiers[RangeMiddle];

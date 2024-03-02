@@ -15,7 +15,7 @@ export function CaptionDropdowns(props: CaptionProps): JSX.Element {
 
   const handleMonthChange: MonthChangeEventHandler = (newMonth) => {
     goToMonth(
-      addMonths(newMonth, props.displayIndex ? -props.displayIndex : 0),
+      addMonths(newMonth, props.displayIndex ? -props.displayIndex : 0)
     );
   };
   const CaptionLabelComponent = components?.CaptionLabel ?? CaptionLabel;

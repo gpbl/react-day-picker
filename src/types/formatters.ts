@@ -7,7 +7,7 @@ export type DateFormatter = (
   date: Date,
   options?: {
     locale?: Locale;
-  },
+  }
 ) => ReactNode;
 
 /** Represent a map of formatters used to render localized content. */
@@ -31,5 +31,5 @@ export type WeekNumberFormatter = (
   weekNumber: number,
   options?: {
     locale?: Locale;
-  },
+  }
 ) => ReactNode;

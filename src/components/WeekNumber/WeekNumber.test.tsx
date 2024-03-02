@@ -42,7 +42,7 @@ describe('with "onWeekNumberClick" prop', () => {
       expect(dayPickerProps.onWeekNumberClick).toHaveBeenCalledWith(
         props.number,
         props.dates,
-        expect.anything(),
+        expect.anything()
       );
     });
   });

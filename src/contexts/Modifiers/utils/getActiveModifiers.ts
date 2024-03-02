@@ -10,7 +10,7 @@ export function getActiveModifiers(
   /** The modifiers to match for the given date. */
   modifiers: Modifiers,
   /** The month where the day is displayed, to add the "outside" modifiers. */
-  displayMonth?: Date,
+  displayMonth?: Date
 ): ActiveModifiers {
   const matchedModifiers = Object.keys(modifiers).reduce(
     (result: string[], key: string): string[] => {
@@ -20,7 +20,7 @@ export function getActiveModifiers(
       }
       return result;
     },
-    [],
+    []
   );
   const activeModifiers: ActiveModifiers = {};
   matchedModifiers.forEach((modifier) => (activeModifiers[modifier] = true));

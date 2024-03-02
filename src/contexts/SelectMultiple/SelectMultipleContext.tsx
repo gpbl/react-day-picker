@@ -43,7 +43,7 @@ export type SelectMultipleProviderProps = {
 
 /** Provides the values for the {@link SelectMultipleContext}. */
 export function SelectMultipleProvider(
-  props: SelectMultipleProviderProps,
+  props: SelectMultipleProviderProps
 ): JSX.Element {
   if (!isDayPickerMultiple(props.initialProps)) {
     const emptyContextValue: SelectMultipleContextValue = {
@@ -82,14 +82,14 @@ export function SelectMultipleProviderInternal({
     initialProps.onDayClick?.(day, activeModifiers, e);
 
     const isMinSelected = Boolean(
-      activeModifiers.selected && min && selected?.length === min,
+      activeModifiers.selected && min && selected?.length === min
     );
     if (isMinSelected) {
       return;
     }
 
     const isMaxSelected = Boolean(
-      !activeModifiers.selected && max && selected?.length === max,
+      !activeModifiers.selected && max && selected?.length === max
     );
     if (isMaxSelected) {
       return;
@@ -99,7 +99,7 @@ export function SelectMultipleProviderInternal({
 
     if (activeModifiers.selected) {
       const index = selectedDays.findIndex((selectedDay) =>
-        isSameDay(day, selectedDay),
+        isSameDay(day, selectedDay)
       );
       selectedDays.splice(index, 1);
     } else {
@@ -116,7 +116,7 @@ export function SelectMultipleProviderInternal({
     modifiers.disabled.push((day: Date) => {
       const isMaxSelected = max && selected.length > max - 1;
       const isSelected = selected.some((selectedDay) =>
-        isSameDay(selectedDay, day),
+        isSameDay(selectedDay, day)
       );
       return Boolean(isMaxSelected && !isSelected);
     });
@@ -144,7 +144,7 @@ export function useSelectMultiple(): SelectMultipleContextValue {
   const context = useContext(SelectMultipleContext);
   if (!context) {
     throw new Error(
-      'useSelectMultiple must be used within a SelectMultipleProvider',
+      'useSelectMultiple must be used within a SelectMultipleProvider'
     );
   }
   return context;

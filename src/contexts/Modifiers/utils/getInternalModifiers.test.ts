@@ -34,10 +34,10 @@ test.each(internalModifiers)(
     const modifiers = getInternalModifiers(
       { ...defaultDayPickerContext, [propName]: value },
       defaultSelectMultipleContext,
-      defaultSelectRangeContext,
+      defaultSelectRangeContext
     );
     expect(modifiers[propName]).toStrictEqual([value]);
-  },
+  }
 );
 
 describe('when navigation is limited by "fromDate"', () => {
@@ -50,7 +50,7 @@ describe('when navigation is limited by "fromDate"', () => {
     const modifiers = getInternalModifiers(
       dayPickerContext,
       defaultSelectMultipleContext,
-      defaultSelectRangeContext,
+      defaultSelectRangeContext
     );
     expect(modifiers.disabled).toStrictEqual([{ before: fromDate }]);
   });
@@ -66,7 +66,7 @@ describe('when navigation is limited by "toDate"', () => {
     const modifiers = getInternalModifiers(
       dayPickerContext,
       defaultSelectMultipleContext,
-      defaultSelectRangeContext,
+      defaultSelectRangeContext
     );
     expect(modifiers.disabled).toStrictEqual([{ after: toDate }]);
   });
@@ -88,7 +88,7 @@ describe('when in multiple select mode', () => {
     const modifiers = getInternalModifiers(
       dayPickerContext,
       selectMultipleContext,
-      defaultSelectRangeContext,
+      defaultSelectRangeContext
     );
     expect(modifiers.disabled).toStrictEqual([disabledDate]);
   });
@@ -117,31 +117,31 @@ describe('when in range select mode', () => {
     internalModifiers = getInternalModifiers(
       dayPickerContext,
       defaultSelectMultipleContext,
-      selectRangeContext,
+      selectRangeContext
     );
   });
 
   test('should add the Disabled modifier from the SelectRange context', () => {
     expect(internalModifiers[Disabled]).toStrictEqual(
-      selectRangeContext.modifiers[Disabled],
+      selectRangeContext.modifiers[Disabled]
     );
   });
 
   test('should add the RangeStart modifier from the SelectRange context', () => {
     expect(internalModifiers[RangeStart]).toStrictEqual(
-      selectRangeContext.modifiers[RangeStart],
+      selectRangeContext.modifiers[RangeStart]
     );
   });
 
   test('should add the RangeEnd modifier from the SelectRange context', () => {
     expect(internalModifiers[RangeEnd]).toStrictEqual(
-      selectRangeContext.modifiers[RangeEnd],
+      selectRangeContext.modifiers[RangeEnd]
     );
   });
 
   test('should add the RangeMiddle modifier from the SelectRange context', () => {
     expect(internalModifiers[RangeMiddle]).toStrictEqual(
-      selectRangeContext.modifiers[RangeMiddle],
+      selectRangeContext.modifiers[RangeMiddle]
     );
   });
 });

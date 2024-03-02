@@ -16,12 +16,12 @@ const today = new Date(2010, 5, 23);
 function renderHook(
   date: Date,
   activeModifiers: ActiveModifiers,
-  dayPickerProps?: DayPickerProps,
+  dayPickerProps?: DayPickerProps
 ) {
   return renderDayPickerHook(
     () => useDayEventHandlers(date, activeModifiers),
     dayPickerProps,
-    mockedContexts,
+    mockedContexts
   );
 }
 
@@ -66,7 +66,7 @@ describe.each(tests)('when calling "%s"', (eventName, dayEventName) => {
     expect(dayPickerProps[dayEventName]).toHaveBeenCalledWith(
       date,
       activeModifiers,
-      mouseEvent,
+      mouseEvent
     );
   });
 });
@@ -86,7 +86,7 @@ describe.each<'single' | 'multiple' | 'range'>(['single', 'multiple', 'range'])(
       result.current.onClick?.(mouseEvent);
       expect(dayPickerProps.onDayClick).toHaveBeenCalledTimes(1);
     });
-  },
+  }
 );
 
 describe('when calling "onFocus"', () => {
@@ -165,6 +165,6 @@ describe('when calling "onKeyDown"', () => {
           });
         });
       });
-    },
+    }
   );
 });

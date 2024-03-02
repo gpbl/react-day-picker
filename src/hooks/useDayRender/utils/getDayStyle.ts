@@ -9,7 +9,7 @@ import { ActiveModifiers } from '../../../types/Modifiers';
  */
 export function getDayStyle(
   dayPicker: Pick<DayPickerContextValue, 'modifiersStyles' | 'styles'>,
-  activeModifiers: ActiveModifiers,
+  activeModifiers: ActiveModifiers
 ): CSSProperties {
   let style: CSSProperties = {
     ...dayPicker.styles.day,

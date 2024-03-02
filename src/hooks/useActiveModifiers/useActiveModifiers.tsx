@@ -15,7 +15,7 @@ export function useActiveModifiers(
    * The month where the date is displayed. If not the same as `date`, the day
    * is an "outside day".
    */
-  displayMonth?: Date,
+  displayMonth?: Date
 ): ActiveModifiers {
   const modifiers = useModifiers();
   const activeModifiers = getActiveModifiers(day, modifiers, displayMonth);

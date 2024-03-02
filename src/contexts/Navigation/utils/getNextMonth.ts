@@ -18,7 +18,7 @@ export function getNextMonth(
     pagedNavigation?: boolean;
     today?: Date;
     disableNavigation?: boolean;
-  },
+  }
 ): Date | undefined {
   if (options.disableNavigation) {
     return undefined;

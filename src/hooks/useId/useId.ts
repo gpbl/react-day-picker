@@ -127,7 +127,7 @@ function useId(idFromProps: string | number): string | number;
 function useId(idFromProps: string | undefined | null): string | undefined;
 function useId(idFromProps: number | undefined | null): number | undefined;
 function useId(
-  idFromProps: string | number | undefined | null,
+  idFromProps: string | number | undefined | null
 ): string | number | undefined;
 function useId(): string | undefined;
 

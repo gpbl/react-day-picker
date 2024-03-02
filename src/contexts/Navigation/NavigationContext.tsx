@@ -53,7 +53,7 @@ export function NavigationProvider(props: {
 
   const isDateDisplayed = (date: Date) => {
     return displayMonths.some((displayMonth) =>
-      isSameMonth(date, displayMonth),
+      isSameMonth(date, displayMonth)
     );
   };
 

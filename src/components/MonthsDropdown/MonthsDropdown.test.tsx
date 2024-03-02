@@ -70,7 +70,7 @@ describe('when "fromDate" and "toDate" are in the same year', () => {
   });
   test('the last month should be the toMonth month', () => {
     expect(options?.[options.length - 1]).toHaveValue(
-      String(toDate.getMonth()),
+      String(toDate.getMonth())
     );
   });
 });

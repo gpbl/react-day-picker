@@ -29,11 +29,11 @@ export function ModifiersProvider(props: ModifiersProviderProps): JSX.Element {
   const internalModifiers: InternalModifiers = getInternalModifiers(
     dayPicker,
     selectMultiple,
-    selectRange,
+    selectRange
   );
 
   const customModifiers: CustomModifiers = getCustomModifiers(
-    dayPicker.modifiers,
+    dayPicker.modifiers
   );
 
   const modifiers: Modifiers = {

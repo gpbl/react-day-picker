@@ -14,7 +14,7 @@ function isInternalModifier(modifier: string): modifier is InternalModifier {
  */
 export function getDayClassNames(
   dayPicker: Pick<DayPickerContextValue, 'modifiersClassNames' | 'classNames'>,
-  activeModifiers: ActiveModifiers,
+  activeModifiers: ActiveModifiers
 ) {
   const classNames: string[] = [dayPicker.classNames.day];
   Object.keys(activeModifiers).forEach((modifier) => {

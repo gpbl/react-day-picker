@@ -17,7 +17,7 @@ export function Month(props: MonthProps) {
   const { displayMonths } = useNavigation();
 
   const captionId = useId(
-    dayPicker.id ? `${dayPicker.id}-${props.displayIndex}` : undefined,
+    dayPicker.id ? `${dayPicker.id}-${props.displayIndex}` : undefined
   );
 
   const tableId = dayPicker.id

@@ -21,7 +21,7 @@ export function daysToMonthWeeks(
     locale?: Locale;
     weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
     firstWeekContainsDate?: 1 | 4;
-  },
+  }
 ): MonthWeek[] {
   const toWeek = options?.ISOWeek
     ? endOfISOWeek(toDate)
@@ -43,7 +43,7 @@ export function daysToMonthWeeks(
       : getWeek(date, options);
 
     const existingWeek = result.find(
-      (value) => value.weekNumber === weekNumber,
+      (value) => value.weekNumber === weekNumber
     );
     if (existingWeek) {
       existingWeek.dates.push(date);

@@ -17,7 +17,7 @@ function setup(dayPickerProps: DayPickerProps = {}) {
         <HeadRow />
       </thead>
     </table>,
-    dayPickerProps,
+    dayPickerProps
   );
   container = view.container.firstChild?.firstChild as HTMLTableRowElement;
   thElements = Array.from(container.getElementsByTagName('th'));
@@ -47,7 +47,7 @@ describe('when rendered', () => {
 
   test('tr element should have the `head_row` class', () => {
     expect(container.firstChild).toHaveClass(
-      dayPickerProps.classNames.head_row,
+      dayPickerProps.classNames.head_row
     );
   });
   test('should render 7 head elements', () => {

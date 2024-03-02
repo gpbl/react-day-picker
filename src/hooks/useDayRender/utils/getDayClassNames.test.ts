@@ -18,7 +18,7 @@ test('should include the day class name', () => {
   };
   const activeModifiers: ActiveModifiers = {};
   expect(getDayClassNames(dayPicker, activeModifiers)).toContain(
-    defaultClassNames.day,
+    defaultClassNames.day
   );
 });
 
@@ -33,7 +33,7 @@ describe('when using "modifiersClassNames" for a custom modifier', () => {
   const activeModifiers: ActiveModifiers = { foo: true };
   test('should return the custom class name for the modifier', () => {
     expect(getDayClassNames(dayPicker, activeModifiers)).toContain(
-      modifierClassName,
+      modifierClassName
     );
   });
 });
@@ -51,13 +51,13 @@ describe.each(internalModifiers)(
     const activeModifiers: ActiveModifiers = { [internalModifier]: true };
     test('should return the custom class name for the modifier', () => {
       expect(getDayClassNames(dayPicker, activeModifiers)).toContain(
-        modifierClassName,
+        modifierClassName
       );
     });
     test('should not include the default class name for the modifier', () => {
       expect(getDayClassNames(dayPicker, activeModifiers)).not.toContain(
-        defaultClassNames.day_selected,
+        defaultClassNames.day_selected
       );
     });
-  },
+  }
 );

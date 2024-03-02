@@ -32,7 +32,7 @@ export interface SelectSingleProviderProps {
 
 /** Provides the values for the {@link SelectSingleProvider}. */
 export function SelectSingleProvider(
-  props: SelectSingleProviderProps,
+  props: SelectSingleProviderProps
 ): JSX.Element {
   if (!isDayPickerSingle(props.initialProps)) {
     const emptyContextValue: SelectSingleContextValue = {
@@ -92,7 +92,7 @@ export function useSelectSingle(): SelectSingleContextValue {
   const context = useContext(SelectSingleContext);
   if (!context) {
     throw new Error(
-      'useSelectSingle must be used within a SelectSingleProvider',
+      'useSelectSingle must be used within a SelectSingleProvider'
     );
   }
   return context;

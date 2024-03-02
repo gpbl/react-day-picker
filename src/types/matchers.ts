@@ -95,7 +95,7 @@ export function isDateInterval(matcher: unknown): matcher is DateInterval {
     matcher &&
       typeof matcher === 'object' &&
       'before' in matcher &&
-      'after' in matcher,
+      'after' in matcher
   );
 }
 

@@ -13,7 +13,7 @@ function setup(dayPickerProps: DayPickerProps = {}) {
     <table>
       <Head />
     </table>,
-    dayPickerProps,
+    dayPickerProps
   );
   container = view.container.firstChild as HTMLTableCellElement;
 }

@@ -14,7 +14,7 @@ export function CaptionNavigation(props: CaptionProps): JSX.Element {
     useNavigation();
 
   const displayIndex = displayMonths.findIndex((month) =>
-    isSameMonth(props.displayMonth, month),
+    isSameMonth(props.displayMonth, month)
   );
 
   const isFirst = displayIndex === 0;

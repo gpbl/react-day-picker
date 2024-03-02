@@ -51,7 +51,7 @@ describe('when onDayClick is called', () => {
       today,
       today,
       activeModifiers,
-      event,
+      event
     );
   });
   test('should call the `onDayClick` event handler', () => {
@@ -59,7 +59,7 @@ describe('when onDayClick is called', () => {
     expect(dayPickerProps.onDayClick).toHaveBeenCalledWith(
       today,
       activeModifiers,
-      event,
+      event
     );
   });
 });
@@ -78,7 +78,7 @@ describe('if a selected day is not required', () => {
       undefined,
       today,
       activeModifiers,
-      event,
+      event
     );
   });
 });

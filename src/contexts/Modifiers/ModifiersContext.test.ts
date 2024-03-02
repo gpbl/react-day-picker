@@ -39,6 +39,6 @@ describe('when rendered with custom modifiers', () => {
       expect(result.current[internalModifier]).toEqual([
         dayModifiers[internalModifier],
       ]);
-    },
+    }
   );
 });

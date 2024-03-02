@@ -13,7 +13,7 @@ function renderHook(dayPickerProps: DayPickerProps) {
   return renderDayPickerHook(
     () => useSelectedDays(),
     dayPickerProps,
-    mockedContexts,
+    mockedContexts
   );
 }
 

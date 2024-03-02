@@ -12,7 +12,7 @@ export interface DayPickerDefaultProps extends DayPickerBase {
 
 /** Returns true when the props are of type {@link DayPickerDefaultProps}. */
 export function isDayPickerDefault(
-  props: DayPickerProps,
+  props: DayPickerProps
 ): props is DayPickerDefaultProps {
   return props.mode === undefined || props.mode === 'default';
 }

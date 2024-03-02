@@ -6,7 +6,7 @@ let root: HTMLElement;
 
 beforeEach(() => {
   const view = customRender(
-    <IconLeft className="foo" style={{ color: 'red' }} />,
+    <IconLeft className="foo" style={{ color: 'red' }} />
   );
   root = view.container.firstChild as HTMLElement;
 });

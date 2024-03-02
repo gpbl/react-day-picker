@@ -46,7 +46,7 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
   const handleChange: ChangeEventHandler<HTMLSelectElement> = (e) => {
     const newMonth = setYear(
       startOfMonth(displayMonth),
-      Number(e.target.value),
+      Number(e.target.value)
     );
     props.onChange(newMonth);
   };

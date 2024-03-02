@@ -29,13 +29,13 @@ function renderHook(
     multiple: SelectMultipleContextValue;
     range: SelectRangeContextValue;
     focus: FocusContextValue;
-  },
+  }
 ) {
   const buttonRef = createRef<HTMLButtonElement>();
   return renderDayPickerHook(
     () => useDayRender(date, displayMonth, buttonRef),
     dayPickerProps,
-    contexts,
+    contexts
   );
 }
 
@@ -45,13 +45,13 @@ describe('when rendering the today’s date', () => {
   test('the div should include the default class name', () => {
     const result = renderHook(date, displayMonth);
     expect(result.current.divProps.className?.split(' ')).toContain(
-      defaultClassNames.day,
+      defaultClassNames.day
     );
   });
   test('the button should include the default class name', () => {
     const result = renderHook(date, displayMonth);
     expect(result.current.buttonProps.className?.split(' ')).toContain(
-      defaultClassNames.day,
+      defaultClassNames.day
     );
   });
   test('the button should not have "aria-selected"', () => {
@@ -81,7 +81,7 @@ describe('when rendering the today’s date', () => {
     (eventName) => {
       const result = renderHook(date, displayMonth);
       expect(result.current.buttonProps[eventName]).toBeDefined();
-    },
+    }
   );
   test('should return the day active modifiers', () => {
     const result = renderHook(date, displayMonth);
@@ -155,13 +155,13 @@ describe('when "modifiersStyles" is passed in', () => {
   test('the div props should include the modifiers style', () => {
     const result = renderHook(date, date, dayPickerProps);
     expect(result.current.divProps.style).toStrictEqual(
-      dayPickerProps.modifiersStyles.foo,
+      dayPickerProps.modifiersStyles.foo
     );
   });
   test('the button props should include the modifiers style', () => {
     const result = renderHook(date, date, dayPickerProps);
     expect(result.current.buttonProps.style).toStrictEqual(
-      dayPickerProps.modifiersStyles.foo,
+      dayPickerProps.modifiersStyles.foo
     );
   });
 });
@@ -173,13 +173,13 @@ describe('when "styles.day" is passed in', () => {
   test('the div props should include the style', () => {
     const result = renderHook(date, date, dayPickerProps);
     expect(result.current.divProps.style).toStrictEqual(
-      dayPickerProps.styles.day,
+      dayPickerProps.styles.day
     );
   });
   test('the button props should include the style', () => {
     const result = renderHook(date, date, dayPickerProps);
     expect(result.current.buttonProps.style).toStrictEqual(
-      dayPickerProps.styles.day,
+      dayPickerProps.styles.day
     );
   });
 });
@@ -193,12 +193,12 @@ describe('when "modifiersClassNames" is passed in', () => {
   const result = renderHook(date, date, dayPickerProps);
   test('the div props should include the modifiers classNames', () => {
     expect(result.current.divProps.className).toContain(
-      dayPickerProps.modifiersClassNames.foo,
+      dayPickerProps.modifiersClassNames.foo
     );
   });
   test('the button props should include the modifiers classNames', () => {
     expect(result.current.buttonProps.className).toContain(
-      dayPickerProps.modifiersClassNames.foo,
+      dayPickerProps.modifiersClassNames.foo
     );
   });
 });
@@ -211,12 +211,12 @@ describe('when "classNames.day" is passed in', () => {
   const result = renderHook(date, date, dayPickerProps);
   test('the div props should include the class name', () => {
     expect(result.current.divProps.className).toContain(
-      dayPickerProps.classNames.day,
+      dayPickerProps.classNames.day
     );
   });
   test('the button props should include the class name', () => {
     expect(result.current.buttonProps.className).toContain(
-      dayPickerProps.classNames.day,
+      dayPickerProps.classNames.day
     );
   });
 });
@@ -232,7 +232,7 @@ describe('when the day is not target of focus', () => {
     tomorrow,
     tomorrow,
     {},
-    { ...mockedContexts, focus: focusContext },
+    { ...mockedContexts, focus: focusContext }
   );
   test('the button should have tabIndex -1', () => {
     expect(result.current.buttonProps.tabIndex).toBe(-1);
@@ -249,7 +249,7 @@ describe('when the day is target of focus', () => {
     date,
     date,
     {},
-    { ...mockedContexts, focus: focusContext },
+    { ...mockedContexts, focus: focusContext }
   );
   test('the button should have tabIndex 0', () => {
     expect(result.current.buttonProps.tabIndex).toBe(0);
@@ -266,7 +266,7 @@ describe('when the day is target of focus but outside', () => {
     date,
     date,
     { modifiers: { outside: date } },
-    { ...mockedContexts, focus: focusContext },
+    { ...mockedContexts, focus: focusContext }
   );
   test('the button should have tabIndex -1', () => {
     expect(result.current.buttonProps.tabIndex).toBe(-1);
@@ -283,7 +283,7 @@ describe('when the day is focused', () => {
     date,
     date,
     {},
-    { ...mockedContexts, focus: focusContext },
+    { ...mockedContexts, focus: focusContext }
   );
 
   test('the button should have tabIndex 0', () => {

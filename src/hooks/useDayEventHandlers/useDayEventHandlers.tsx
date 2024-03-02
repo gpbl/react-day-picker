@@ -69,7 +69,7 @@ export type DayEventHandlers = Pick<HTMLProps<HTMLButtonElement>, EventName>;
  */
 export function useDayEventHandlers(
   date: Date,
-  activeModifiers: ActiveModifiers,
+  activeModifiers: ActiveModifiers
 ): DayEventHandlers {
   const dayPicker = useDayPicker();
   const single = useSelectSingle();

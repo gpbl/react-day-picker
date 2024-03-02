@@ -53,7 +53,7 @@ describe('when rendered with custom styles or classnames', () => {
     };
     const view = customRender(
       <CaptionDropdowns displayMonth={today} />,
-      dayPickerProps,
+      dayPickerProps
     );
     container = view.container;
   });
@@ -86,7 +86,7 @@ describe('when a month is selected', () => {
     beforeEach(async () => {
       await user.selectOptions(
         getMonthDropdown(),
-        newMonth.getMonth().toString(),
+        newMonth.getMonth().toString()
       );
     });
     test('should call the `onMonthChange` callback', () => {
@@ -98,7 +98,7 @@ describe('when a month is selected', () => {
     beforeEach(async () => {
       await user.selectOptions(
         getYearDropdown(),
-        newYear.getFullYear().toString(),
+        newYear.getFullYear().toString()
       );
     });
     test('should call the `onMonthChange` callback', () => {

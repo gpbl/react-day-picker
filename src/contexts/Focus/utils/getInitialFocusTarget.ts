@@ -13,7 +13,7 @@ import { Modifiers } from '../../../types/Modifiers';
  */
 export function getInitialFocusTarget(
   displayMonths: Date[],
-  modifiers: Modifiers,
+  modifiers: Modifiers
 ) {
   const firstDayInMonth = startOfMonth(displayMonths[0]);
   const lastDayInMonth = endOfMonth(displayMonths[displayMonths.length - 1]);

@@ -9,7 +9,7 @@ export function customRender(
   /** The element to render. */
   element: ReactElement,
   /** The initial DayPicker props to pass to the Root Provider. */
-  dayPickerProps: DayPickerProps = {},
+  dayPickerProps: DayPickerProps = {}
 ) {
   return render(<RootProvider {...dayPickerProps}>{element}</RootProvider>);
 }

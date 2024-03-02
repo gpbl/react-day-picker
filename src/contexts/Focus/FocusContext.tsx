@@ -51,7 +51,7 @@ export type FocusContextValue = {
  * Access this context from the {@link useFocusContext} hook.
  */
 export const FocusContext = createContext<FocusContextValue | undefined>(
-  undefined,
+  undefined
 );
 
 export type FocusProviderProps = { children: ReactNode };
@@ -66,7 +66,7 @@ export function FocusProvider(props: FocusProviderProps): JSX.Element {
 
   const initialFocusTarget = getInitialFocusTarget(
     navigation.displayMonths,
-    modifiers,
+    modifiers
   );
 
   // TODO: cleanup and test obscure code below

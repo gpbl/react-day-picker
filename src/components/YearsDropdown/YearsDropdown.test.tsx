@@ -86,7 +86,7 @@ describe('when "fromDate" and "toDate" are not in the same year', () => {
   });
   test('the last option should be "toDate"s year', () => {
     expect(options?.[options.length - 1]).toHaveValue(
-      `${toDate.getFullYear()}`,
+      `${toDate.getFullYear()}`
     );
   });
   test('should select the displayed year', () => {

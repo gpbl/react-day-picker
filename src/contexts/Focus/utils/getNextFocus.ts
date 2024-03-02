@@ -70,7 +70,7 @@ export function getNextFocus(focusedDay: Date, options: FocusDayOptions): Date {
 
   let newFocusedDay = moveFns[moveBy](
     focusedDay,
-    direction === 'after' ? 1 : -1,
+    direction === 'after' ? 1 : -1
   );
 
   if (direction === 'before' && fromDate) {

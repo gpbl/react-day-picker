@@ -33,7 +33,7 @@ describe.each<0 | 1 | 2 | 3 | 4 | 5 | 6>([0, 1, 2, 3, 4, 5, 6])(
     test('the first date should be weekStartsOn', () => {
       expect(result[0].getDay()).toBe(weekStartsOn);
     });
-  },
+  }
 );
 
 describe('when using ISO week', () => {

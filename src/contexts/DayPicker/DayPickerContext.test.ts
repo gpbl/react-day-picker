@@ -29,7 +29,7 @@ function renderHook(props?: DayPickerProps) {
 
 describe('when rendered without props', () => {
   const testPropNames = Object.keys(defaults).filter(
-    (key) => key !== 'today',
+    (key) => key !== 'today'
   ) as DefaultContextProps[];
   test.each(testPropNames)('should use the %s default value', (propName) => {
     const result = renderHook();
@@ -144,7 +144,7 @@ describe('when passing "modifiersClassNames" from props', () => {
   test('should return the custom "modifiersClassNames"', () => {
     const result = renderHook({ modifiersClassNames });
     expect(result.current.modifiersClassNames).toStrictEqual(
-      modifiersClassNames,
+      modifiersClassNames
     );
   });
 });

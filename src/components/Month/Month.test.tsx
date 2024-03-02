@@ -138,15 +138,15 @@ describe('when dir is ltr', () => {
         setup(monthProps, dayPickerProps);
       });
       test.each(expected)(`the root should have the %s class`, (name) =>
-        expect(root).toHaveClass(testClassNames[name]),
+        expect(root).toHaveClass(testClassNames[name])
       );
       test.each(expected)(`the root should have the %s style`, (name) =>
-        expect(root).toHaveStyle(testStyles[name]),
+        expect(root).toHaveStyle(testStyles[name])
       );
       test.each(notExpected)(`the root should not have the %s class`, (name) =>
-        expect(root).not.toHaveClass(testClassNames[name]),
+        expect(root).not.toHaveClass(testClassNames[name])
       );
-    },
+    }
   );
 });
 
@@ -217,14 +217,14 @@ describe('when dir is rtl', () => {
         setup(monthProps, dayPickerProps);
       });
       test.each(expected)(`the root should have the %s class`, (name) =>
-        expect(root).toHaveClass(testClassNames[name]),
+        expect(root).toHaveClass(testClassNames[name])
       );
       test.each(expected)(`the root should have the %s style`, (name) =>
-        expect(root).toHaveStyle(testStyles[name]),
+        expect(root).toHaveStyle(testStyles[name])
       );
       test.each(notExpected)(`the root should not have the %s class`, (name) =>
-        expect(root).not.toHaveClass(testClassNames[name]),
+        expect(root).not.toHaveClass(testClassNames[name])
       );
-    },
+    }
   );
 });

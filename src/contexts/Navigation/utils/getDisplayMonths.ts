@@ -12,7 +12,7 @@ export function getDisplayMonths(
   }: {
     reverseMonths?: boolean;
     numberOfMonths: number;
-  },
+  }
 ): Date[] {
   const start = startOfMonth(month);
   const end = startOfMonth(addMonths(start, numberOfMonths));

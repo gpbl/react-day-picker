@@ -10,7 +10,7 @@ export function parseFromToProps(
   props: Pick<
     DayPickerBase,
     'fromYear' | 'toYear' | 'fromDate' | 'toDate' | 'fromMonth' | 'toMonth'
-  >,
+  >
 ): { fromDate: Date | undefined; toDate: Date | undefined } {
   const { fromYear, toYear, fromMonth, toMonth } = props;
   let { fromDate, toDate } = props;

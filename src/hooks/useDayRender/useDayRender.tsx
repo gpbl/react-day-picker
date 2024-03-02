@@ -49,7 +49,7 @@ export function useDayRender(
    * A ref to the button element that will be target of focus when rendered (if
    * required).
    */
-  buttonRef: RefObject<HTMLButtonElement>,
+  buttonRef: RefObject<HTMLButtonElement>
 ): DayRender {
   const dayPicker = useDayPicker();
   const focusContext = useFocusContext();
@@ -57,7 +57,7 @@ export function useDayRender(
   const eventHandlers = useDayEventHandlers(day, activeModifiers);
   const selectedDays = useSelectedDays();
   const isButton = Boolean(
-    dayPicker.onDayClick || dayPicker.mode !== 'default',
+    dayPicker.onDayClick || dayPicker.mode !== 'default'
   );
 
   // Focus the button if the day is focused according to the focus context
@@ -80,7 +80,7 @@ export function useDayRender(
   const style = getDayStyle(dayPicker, activeModifiers);
   const isHidden = Boolean(
     (activeModifiers.outside && !dayPicker.showOutsideDays) ||
-      activeModifiers.hidden,
+      activeModifiers.hidden
   );
 
   const DayContentComponent = dayPicker.components?.DayContent ?? DayContent;

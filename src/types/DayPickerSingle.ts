@@ -18,7 +18,7 @@ export interface DayPickerSingleProps extends DayPickerBase {
 
 /** Returns true when the props are of type {@link DayPickerSingleProps}. */
 export function isDayPickerSingle(
-  props: DayPickerProps | DayPickerContextValue,
+  props: DayPickerProps | DayPickerContextValue
 ): props is DayPickerSingleProps {
   return props.mode === 'single';
 }

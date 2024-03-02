@@ -54,7 +54,7 @@ export interface SelectRangeProviderProps {
 
 /** Provides the values for the {@link SelectRangeProvider}. */
 export function SelectRangeProvider(
-  props: SelectRangeProviderProps,
+  props: SelectRangeProviderProps
 ): JSX.Element {
   if (!isDayPickerRange(props.initialProps)) {
     const emptyContextValue: SelectRangeContextValue = {

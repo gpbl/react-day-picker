@@ -29,7 +29,7 @@ export function renderDayPickerHook<TResult>(
     multiple: SelectMultipleContextValue;
     range: SelectRangeContextValue;
     focus: FocusContextValue;
-  },
+  }
 ): RenderHookResult<TResult> {
   const returnVal = { current: undefined as TResult };
   function Test(): JSX.Element {
@@ -52,7 +52,7 @@ export function renderDayPickerHook<TResult>(
       ) : (
         <Test />
       )}
-    </RootProvider>,
+    </RootProvider>
   );
   return returnVal;
 }

@@ -12,7 +12,7 @@ describe('when in the same month', () => {
   const displayMonth = date;
   test('should return the active modifiers', () => {
     const result = renderDayPickerHook<ActiveModifiers>(() =>
-      useActiveModifiers(date, displayMonth),
+      useActiveModifiers(date, displayMonth)
     );
     expect(result).toBeDefined();
   });
@@ -22,7 +22,7 @@ describe('when not in the same display month', () => {
   const displayMonth = addMonths(date, 1);
   test('should return the outside modifier', () => {
     const result = renderDayPickerHook<ActiveModifiers>(() =>
-      useActiveModifiers(date, displayMonth),
+      useActiveModifiers(date, displayMonth)
     );
     expect(result.current.outside).toBe(true);
   });

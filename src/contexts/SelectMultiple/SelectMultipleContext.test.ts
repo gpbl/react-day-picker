@@ -21,7 +21,7 @@ freezeBeforeAll(today);
 function renderHook(props?: Partial<DayPickerProps>) {
   return renderDayPickerHook<SelectMultipleContextValue>(
     useSelectMultiple,
-    props,
+    props
   );
 }
 
@@ -72,7 +72,7 @@ describe('when days are selected', () => {
       expect(dayPickerProps.onDayClick).toHaveBeenCalledWith(
         clickedDay,
         activeModifiers,
-        event,
+        event
       );
     });
     test('should call `onSelect` with the clicked day selected', () => {
@@ -80,7 +80,7 @@ describe('when days are selected', () => {
         [...selected, clickedDay],
         clickedDay,
         activeModifiers,
-        event,
+        event
       );
     });
   });
@@ -99,7 +99,7 @@ describe('when days are selected', () => {
       expect(dayPickerProps.onDayClick).toHaveBeenCalledWith(
         clickedDay,
         activeModifiers,
-        event,
+        event
       );
     });
     test('should call `onSelect` without the clicked day selected', () => {
@@ -108,7 +108,7 @@ describe('when days are selected', () => {
         expectedSelected,
         clickedDay,
         activeModifiers,
-        event,
+        event
       );
     });
   });
@@ -149,7 +149,7 @@ describe('when the maximum number of days are selected', () => {
       expect(dayPickerProps.onDayClick).toHaveBeenCalledWith(
         clickedDay,
         activeModifiers,
-        event,
+        event
       );
     });
     test('should not call `onSelect`', () => {
@@ -180,7 +180,7 @@ describe('when the minimum number of days are selected', () => {
       expect(dayPickerProps.onDayClick).toHaveBeenCalledWith(
         clickedDay,
         activeModifiers,
-        event,
+        event
       );
     });
     test('should not call `onSelect`', () => {

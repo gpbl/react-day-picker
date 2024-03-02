@@ -28,12 +28,12 @@ export function getMonthWeeks(
     weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
     firstWeekContainsDate?: 1 | 4;
     ISOWeek?: boolean;
-  },
+  }
 ): MonthWeek[] {
   const weeksInMonth: MonthWeek[] = daysToMonthWeeks(
     startOfMonth(month),
     endOfMonth(month),
-    options,
+    options
   );
 
   if (options?.useFixedWeeks) {
@@ -46,7 +46,7 @@ export function getMonthWeeks(
       const extraWeeks = daysToMonthWeeks(
         addWeeks(lastDate, 1),
         toDate,
-        options,
+        options
       );
       weeksInMonth.push(...extraWeeks);
     }

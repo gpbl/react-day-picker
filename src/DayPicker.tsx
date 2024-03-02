@@ -102,7 +102,7 @@ export function DayPicker(
     | DayPickerDefaultProps
     | DayPickerSingleProps
     | DayPickerMultipleProps
-    | DayPickerRangeProps,
+    | DayPickerRangeProps
 ): JSX.Element {
   return (
     <RootProvider {...props}>

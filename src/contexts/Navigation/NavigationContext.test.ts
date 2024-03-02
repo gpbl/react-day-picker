@@ -115,12 +115,12 @@ describe(`when the number of months is ${numberOfMonths} and the navigation is p
   });
   test(`the previous month should be the ${numberOfMonths} months before today's month`, () => {
     expect(result.current.previousMonth).toEqual(
-      subMonths(todaysMonth, numberOfMonths),
+      subMonths(todaysMonth, numberOfMonths)
     );
   });
   test(`the next month should be ${numberOfMonths} months after today's month`, () => {
     expect(result.current.nextMonth).toEqual(
-      addMonths(todaysMonth, numberOfMonths),
+      addMonths(todaysMonth, numberOfMonths)
     );
   });
 });

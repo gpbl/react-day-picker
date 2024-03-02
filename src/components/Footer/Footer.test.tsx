@@ -6,7 +6,7 @@ import { Footer } from './Footer';
 customRender(
   <table role="grid">
     <Footer />
-  </table>,
+  </table>
 );
 test('should not render anything as default', () => {
   expect(queryTableFooter()).toBeNull();
@@ -18,7 +18,7 @@ describe('when using the `footer` prop', () => {
       <table role="grid">
         <Footer />
       </table>,
-      { footer: 'footer_foo' },
+      { footer: 'footer_foo' }
     );
   });
   test('should render the table footer', () => {

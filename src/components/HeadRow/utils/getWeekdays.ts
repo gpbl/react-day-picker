@@ -9,7 +9,7 @@ export function getWeekdays(
   /** The index of the first day of the week (0 - Sunday). */
   weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6,
   /** Use ISOWeek instead of locale/ */
-  ISOWeek?: boolean,
+  ISOWeek?: boolean
 ): Date[] {
   const start = ISOWeek
     ? startOfISOWeek(new Date())

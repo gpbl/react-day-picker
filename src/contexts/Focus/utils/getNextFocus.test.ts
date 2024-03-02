@@ -110,7 +110,7 @@ describe.each(tests)(
       });
       expect(format(nextFocus, 'yyyy-MM-dd')).toBe(expectedNextFocus);
     });
-  },
+  }
 );
 
 describe('when reaching the "fromDate"', () => {
@@ -234,10 +234,10 @@ describe.each(modifiersTest)(
         modifiers,
       });
       expect(format(nextFocus, 'yyyy-MM-dd')).toBe(
-        modifierTest.expectedNextFocus,
+        modifierTest.expectedNextFocus
       );
     });
-  },
+  }
 );
 
 test('should avoid infinite recursion', () => {

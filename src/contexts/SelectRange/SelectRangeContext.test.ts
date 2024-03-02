@@ -59,7 +59,7 @@ describe('when no days are selected', () => {
       expect(initialProps.onDayClick).toHaveBeenCalledWith(
         day,
         activeModifiers,
-        stubEvent,
+        stubEvent
       );
     });
     test('should call "onSelect" with the clicked day as the "from" prop', () => {
@@ -67,7 +67,7 @@ describe('when no days are selected', () => {
         { from: day, to: undefined },
         day,
         activeModifiers,
-        stubEvent,
+        stubEvent
       );
     });
   });
@@ -148,7 +148,7 @@ describe('when a complete range of days is selected', () => {
       expect(dayPickerProps.onDayClick).toHaveBeenCalledWith(
         day,
         activeModifiers,
-        stubEvent,
+        stubEvent
       );
     });
     test('should call "onSelect" with the day selected', () => {
@@ -156,7 +156,7 @@ describe('when a complete range of days is selected', () => {
         { from: day, to },
         day,
         activeModifiers,
-        stubEvent,
+        stubEvent
       );
     });
   });
@@ -218,7 +218,7 @@ describe('when the max number of the selected days is reached', () => {
       expect(dayPickerProps.onDayClick).toHaveBeenCalledWith(
         day,
         activeModifiers,
-        stubEvent,
+        stubEvent
       );
     });
   });
@@ -247,7 +247,7 @@ describe('when the minimum number of days are selected', () => {
         { from: day, to },
         day,
         activeModifiers,
-        stubEvent,
+        stubEvent
       );
     });
   });
@@ -266,7 +266,7 @@ describe('when the minimum number of days are selected', () => {
       expect(dayPickerProps.onDayClick).toHaveBeenCalledWith(
         day,
         activeModifiers,
-        stubEvent,
+        stubEvent
       );
     });
     test('should call "onSelect" with an undefined range', () => {
@@ -274,7 +274,7 @@ describe('when the minimum number of days are selected', () => {
         undefined,
         day,
         activeModifiers,
-        stubEvent,
+        stubEvent
       );
     });
   });
@@ -295,7 +295,7 @@ describe('when the minimum number of days are selected', () => {
         { from: day, to: undefined },
         day,
         activeModifiers,
-        stubEvent,
+        stubEvent
       );
     });
   });
