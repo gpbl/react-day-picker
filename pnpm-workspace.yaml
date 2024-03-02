@@ -1,4 +1,5 @@
 packages:
   - "."
   - "typedoc"
+  - "react-day-picker"
   - "website"
