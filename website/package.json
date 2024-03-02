@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --port 2001",
-    "build": "next build",
+    "build": "pnpm --filter . run build && next build",
     "start": "next start --port 2000",
     "lint": "next lint"
   },
