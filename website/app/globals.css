@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --header-height: 48px;
-  --sidebar-width: 256px;
+  --header-height: 3rem;
+  --sidebar-width: 16rem;
   --article-max-width: 80ch;
   --toc-width: 14rem;
 }

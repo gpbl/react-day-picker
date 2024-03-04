@@ -10,9 +10,10 @@ export interface SidebarLinkProps {
   disabled?: boolean;
   href: string;
   className?: string;
+  autoFocus?: boolean;
 }
 export function SidebarLink(props: SidebarLinkProps) {
-  const { active, disabled, href, ...restProps } = props;
+  const { active, disabled, href, autoFocus, ...restProps } = props;
   const className = clx(styles.link, active && styles.active);
   const isExternal = href.startsWith("http");
   const ref = React.useRef<HTMLAnchorElement>(null);
@@ -23,16 +24,17 @@ export function SidebarLink(props: SidebarLinkProps) {
 
   if (isExternal) {
     return (
-      <a
+      <Link
         ref={ref}
         className={className}
         href={href}
+        autoFocus={autoFocus}
         target="_blank"
         rel="noopener noreferrer"
         {...restProps}
       >
         {props.children}
-      </a>
+      </Link>
     );
   }
 

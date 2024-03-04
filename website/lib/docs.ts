@@ -82,18 +82,18 @@ export function getDocs(): Doc[] {
     const firstHeading = frontmatterMatch ? frontmatterMatch[6]?.trim() : null;
     const description = frontmatterMatch ? frontmatterMatch[8]?.trim() : null;
 
-    const { data } = matter(content) as { data: Frontmatter };
+    const { data: frontmatter } = matter(content) as { data: Frontmatter };
 
-    const title = data.title ?? firstHeading ?? slug[slug.length - 1];
+    const title = frontmatter.title ?? firstHeading ?? slug[slug.length - 1];
 
     const doc: Doc = {
-      toc: data.toc ?? true,
-      pagination: data.pagination ?? true,
-      sort: data.sort ? parseInt(data.sort) : 100,
-      section: data.section ?? section ?? slug[0],
-      description: data.description ?? description ?? "",
+      toc: frontmatter.toc ?? true,
+      pagination: frontmatter.pagination ?? true,
+      sort: frontmatter.sort ? parseInt(frontmatter.sort) : 100,
+      section: frontmatter.section ?? section ?? slug[0],
+      description: frontmatter.description ?? description ?? "",
       title,
-      navigationLabel: data.navigationLabel ?? "",
+      navigationLabel: frontmatter.navigationLabel ?? "",
       slug,
       path: `${slug.join("/")}`.replace(/\/$/, ""),
     };

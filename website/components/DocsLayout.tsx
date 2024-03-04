@@ -28,11 +28,26 @@ export function DocsLayout(props: DocsLayoutProps) {
     <Box>
       {/* Sidebar */}
       <Box
-        className={`b-0 sm:shadow-sidebar fixed top-header z-10 h-full w-full transform overflow-auto bg-page-background pb-4 transition-transform duration-200 ease-in-out sm:w-sidebar xl:top-header xl:block xl:translate-x-0 xl:shadow-none ${sidebar.isOpen ? "translate-x-0" : "-translate-x-full"}`}
-        style={{
-          height: "calc(100vh - var(--header-height))",
-          marginTop: 1,
-        }}
+        className={`
+        b-0
+        fixed 
+        top-header 
+        z-10 
+        h-full 
+        w-full 
+        transform 
+        overflow-auto 
+        bg-page-background 
+        pb-4 
+        transition-transform 
+        duration-200 
+        ease-in-out 
+        sm:w-sidebar 
+        xl:translate-x-0 
+        xl:shadow-none 
+        ${sidebar.isOpen ? "shadow-sidebar translate-x-0" : "-translate-x-full shadow-none"}
+      `}
+        style={{ height: "calc(100vh - var(--header-height))" }}
       >
         <Box p="4">
           <Sidebar navigation={navigation} />
@@ -41,28 +56,48 @@ export function DocsLayout(props: DocsLayoutProps) {
 
       {/* Content */}
       <Box className="mt-header xl:mt-header" p="4">
-        <main className="mx-auto mb-4 max-w-article-max-w md:mt-12 lg:mr-toc-width xl:mx-auto xl:mt-12 xl:p-4">
+        <main
+          className={`
+        mx-auto
+        mb-4 
+        max-w-article-max-w 
+        p-2
+        md:p-4 
+        lg:mr-toc-width 
+        xl:mx-auto
+        `}
+        >
           <DocHeader doc={doc} />
           <Separator size="4" my="8" mt="4" />
           <article>{props.children}</article>
           {doc.pagination && (
-            <nav>
+            <Box>
               <Separator size="4" my="4" mt="8" />
               <Pagination
                 nextDoc={nextDoc}
                 previousDoc={previousDoc}
                 currentDoc={doc}
               />
-            </nav>
+            </Box>
           )}
         </main>
       </Box>
 
       {/* toc */}
       <Box
-        className="xxl:right-24 fixed right-0 hidden w-toc-width border-l px-6 lg:block xl:right-8"
+        className={`
+          xxl:right-24 
+          fixed 
+          right-0 
+          hidden 
+          w-toc-width 
+          border-l 
+          px-6 
+          lg:block 
+          xl:right-8
+        `}
         style={{
-          top: "calc(var(--header-height) + 5rem)",
+          top: "calc(var(--header-height) + 2rem)",
           borderColor: "var(--gray-a5)",
         }}
       >

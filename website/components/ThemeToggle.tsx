@@ -36,19 +36,18 @@ export function ThemeToggle() {
       >
         <IconButton
           aria-label={`Toggle ${theme === "dark" ? "light" : "dark"} theme`}
-          size="3"
           variant="ghost"
           color="gray"
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
         >
           <SunIcon
-            width="22"
-            height="22"
+            width="18"
+            height="18"
             style={{ display: "var(--theme-toggle-sun-icon-display)" }}
           />
           <MoonIcon
-            width="22"
-            height="22"
+            width="18"
+            height="18"
             style={{ display: "var(--theme-toggle-moon-icon-display)" }}
           />
         </IconButton>

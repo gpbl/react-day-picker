@@ -1,7 +1,6 @@
 import { Link, Text } from "@radix-ui/themes";
-import { Toc } from "@stefanprobst/rehype-extract-toc";
+import { Toc, TocEntry } from "@stefanprobst/rehype-extract-toc";
 import { useId } from "react";
-
 export function TableOfContent(props: { toc: Toc }) {
   const headingId = useId();
 
@@ -15,21 +14,24 @@ export function TableOfContent(props: { toc: Toc }) {
   );
 }
 
+function TocEntry({ entry, maxDepth }: { entry: TocEntry; maxDepth?: number }) {
+  return (
+    <li key={entry.id} className={`my-1 ${entry.depth > 2 ? "mx-4" : ""}`}>
+      <Text asChild size="1">
+        <Link href={`#${entry.id}`}>{entry.value}</Link>
+      </Text>
+      {entry.children && renderToc(entry.children, maxDepth)}
+    </li>
+  );
+}
+
 function renderToc(toc: Toc, maxDepth?: number) {
   return (
     <ul>
       {toc
         .filter((entry) => !maxDepth || entry.depth <= maxDepth)
         .map((entry) => (
-          <li
-            key={entry.id}
-            className={`my-1 ${entry.depth > 2 ? "mx-4" : ""}`}
-          >
-            <Text asChild size="1">
-              <Link href={`#${entry.id}`}>{entry.value}</Link>
-            </Text>
-            {entry.children && renderToc(entry.children, maxDepth)}
-          </li>
+          <TocEntry key={entry.id} entry={entry} maxDepth={maxDepth} />
         ))}
     </ul>
   );

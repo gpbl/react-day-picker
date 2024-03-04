@@ -6,20 +6,20 @@ import {
   useState,
 } from "react";
 
-export type Version = "main" | "next";
+export type Version = "latest" | "next";
 
 interface VersionContextProps {
-  version: string;
+  version: Version;
   setVersion: React.Dispatch<React.SetStateAction<Version>>;
 }
 
 export const VersionContext = createContext<VersionContextProps>({
-  version: "main",
+  version: "latest",
   setVersion: () => {},
 });
 
 export function VersionProvider({ children }: PropsWithChildren) {
-  const [version, setVersion] = useState<Version>("main");
+  const [version, setVersion] = useState<Version>("latest");
 
   useEffect(() => {
     const defaultVersion =

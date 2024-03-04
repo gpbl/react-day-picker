@@ -15,7 +15,7 @@ const options = {
   plugin: [
     "typedoc-plugin-markdown",
     "typedoc-plugin-frontmatter",
-    "./plugin/index.mjs",
+    // "./plugin/index.mjs",
   ],
 
   excludePrivate: true,
@@ -34,6 +34,9 @@ const options = {
   enumMembersFormat: "table",
   typeDeclarationFormat: "table",
   indexFormat: "table",
+
+  // @ts-expect-error Types are wrong
+  frontmatterGlobals: {},
 }
 
 export default options

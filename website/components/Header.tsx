@@ -2,16 +2,16 @@
 
 import NextLink from "next/link";
 
-import { useVersion } from "@/lib/versions";
+import { Version, useVersion } from "@/lib/versions";
 import {
   Cross1Icon,
   GitHubLogoIcon,
   HamburgerMenuIcon,
 } from "@radix-ui/react-icons";
-import { Flex, IconButton, Text } from "@radix-ui/themes";
+import { Box, Flex, IconButton, Link, Text } from "@radix-ui/themes";
 
 import { useSidebar } from "@/lib/sidebar";
-import { Navigation } from "./Navigation";
+import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
 
 export function Header() {
@@ -30,7 +30,6 @@ export function Header() {
     >
       <nav>
         {/* Logo and hamburger menu */}
-
         <Flex
           position="absolute"
           align="center"
@@ -54,30 +53,19 @@ export function Header() {
               <HamburgerMenuIcon width="22" height="22" />
             )}
           </IconButton>
-          <Flex asChild gap="2">
-            <NextLink
-              href="/"
-              aria-label="React DayPicker"
-              aria-description="Goes to the home page"
-            >
+          <Flex asChild gap="2" align="center">
+            <NextLink href="/" aria-label="React DayPicker">
+              <Box display={{ initial: "none", xs: "inline" }}>
+                <Logo />
+              </Box>
               <Text size="4">
-                React <b>DayPicker</b>
+                <Box display={{ initial: "none", xs: "inline" }}>React</Box>{" "}
+                <b>DayPicker</b>
               </Text>
             </NextLink>
           </Flex>
         </Flex>
 
-        <Flex
-          display={{ initial: "none", md: "flex" }}
-          width="100%"
-          mx="auto"
-          align="center"
-          justify="center"
-          className="h-header max-w-article-max-w"
-          gap={{ sm: "4", md: "8" }}
-        >
-          <Navigation />
-        </Flex>
         <Flex
           align="center"
           gap="4"
@@ -92,32 +80,60 @@ export function Header() {
             gap="4"
             display={{ initial: "flex", xs: "flex" }}
           >
-            {/* <div className="hidden sm:inline-block">
-              <VersionDropdown />
-            </div> */}
-            <IconButton
-              aria-label="Open DayPicker on GitHub"
-              asChild
-              size="3"
-              variant="ghost"
-              color="gray"
-            >
-              <a
-                href={
-                  version === "main"
-                    ? "http://github.com/gpbl/react-day-picker"
-                    : "https://github.com/gpbl/react-day-picker/tree/next"
-                }
-                target="_blank"
-                rel="noreferrer"
+            <Box display={{ initial: "none", xs: "block" }}>
+              <Link
+                asChild
+                underline="hover"
+                color="gray"
+                size={{ initial: "2", md: "3" }}
               >
-                <GitHubLogoIcon width="22" height="22" />
-              </a>
-            </IconButton>
-            <ThemeToggle />
+                <NextLink href="/">Docs</NextLink>
+              </Link>
+            </Box>
+            <Box>
+              <Link
+                asChild
+                underline="hover"
+                color="gray"
+                size={{ initial: "2", md: "3" }}
+              >
+                <NextLink href="/api/latest">API</NextLink>
+              </Link>
+            </Box>
+            <Box>
+              <Link
+                asChild
+                underline="hover"
+                color="gray"
+                size={{ initial: "2", md: "3" }}
+              >
+                <NextLink href="/playground">Playground</NextLink>
+              </Link>
+            </Box>
+            <Flex>
+              <GitHub version={version} />
+            </Flex>
+            <Flex>
+              <ThemeToggle />
+            </Flex>
           </Flex>
         </Flex>
       </nav>
     </Flex>
+  );
+}
+function GitHub({ version }: { version: Version }) {
+  const href = `http://github.com/gpbl/react-day-picker${version === "latest" ? "" : "/tree/next"}`;
+  return (
+    <IconButton
+      aria-label="Open DayPicker on GitHub"
+      asChild
+      variant="ghost"
+      color="gray"
+    >
+      <a href={href} target="_blank" rel="noreferrer">
+        <GitHubLogoIcon width="18" height="18" />
+      </a>
+    </IconButton>
   );
 }

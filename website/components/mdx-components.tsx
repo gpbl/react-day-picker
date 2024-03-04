@@ -25,6 +25,7 @@ import {
   Grid,
   Heading,
   Kbd,
+  Link,
   Separator,
   Strong,
   Table,
@@ -65,13 +66,14 @@ export const components: MDXComponents = {
     const isExternal = href.startsWith("http");
 
     return (
-      <Text
-        color="indigo"
+      <Link
         asChild
+        underline="always"
         style={{
-          textDecoration: "underline",
+          textDecoration: "underline !important",
           textDecorationStyle: "solid",
           textUnderlineOffset: "0.2em",
+          textDecorationColor: "unset",
         }}
       >
         <NextLink
@@ -84,12 +86,12 @@ export const components: MDXComponents = {
         >
           {props.children}
           {isExternal && (
-            <Box display="inline-block" asChild ml="1" aria-hidden>
-              <ExternalLinkIcon />
-            </Box>
+            <Flex asChild display="inline-flex" ml="1" aria-hidden>
+              <ExternalLinkIcon width="12" height="12" />
+            </Flex>
           )}
         </NextLink>
-      </Text>
+      </Link>
     );
   },
 
