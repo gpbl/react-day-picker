@@ -1,4 +1,6 @@
-# DayPicker
+⚠️ This is the documentation for the upcoming version of DayPicker. If you are looking for the current version, see [../README.md](../README.md).
+
+# DayPicker Next
 
 **DayPicker is a React component to build date pickers, calendars, and date inputs for web applications.**
 
@@ -13,7 +15,7 @@ See **[daypicker.dev](https://daypicker.dev)** for guides, examples and API refe
 1. Install the package and its peer dependencies
 
 ```bash
-npm install react-day-picker date-fns --save
+npm install react-day-picker@next date-fns --save
 ```
 
 2. Import the component and its style:

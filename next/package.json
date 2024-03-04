@@ -1,9 +1,9 @@
 {
-  "name": "react-day-picker",
+  "name": "react-day-picker-next",
   "version": "9.0.0-alpha.1",
-  "description": "Customizable Date Picker component for React",
+  "description": "DayPicker is a customizable date picker component for React",
   "author": "Giampaolo Bellavite <io@gpbl.dev>",
-  "homepage": "https://react-day-picker.dev",
+  "homepage": "https://daypicker.dev",
   "license": "MIT",
   "repository": {
     "type": "git",

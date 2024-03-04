@@ -3,7 +3,7 @@
   "version": "8.10.0",
   "description": "Customizable Date Picker for React",
   "author": "Giampaolo Bellavite <io@gpbl.dev>",
-  "homepage": "https://react-day-picker.dev",
+  "homepage": "https://daypicker.dev",
   "license": "MIT",
   "repository": {
     "type": "git",
