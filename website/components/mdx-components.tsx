@@ -33,6 +33,7 @@ import {
   Text,
 } from "@radix-ui/themes";
 import { Callout } from "./Callout";
+import { Details, Summary } from "./Details";
 import { LinkCard } from "./LinkCard";
 
 /** All the components used to generate the MDX pages. */
@@ -110,6 +111,8 @@ export const components: MDXComponents = {
   },
 
   em: (props) => <Em>{props.children}</Em>,
+
+  details: (props) => <Details {...props} />,
 
   div: function div(props) {
     const { children, ...restProps } = props;
@@ -230,6 +233,8 @@ export const components: MDXComponents = {
   },
 
   strong: (props) => <Strong>{props.children}</Strong>,
+
+  summary: (props) => <Summary {...props} />,
 
   ul: (props) => <ul {...props} className={listStyles.ul} />,
 

@@ -272,7 +272,7 @@
 .rdp-day_selected,
 .rdp-day_selected[type='button'],
 .rdp-day_selected:focus-visible,
-.rdp-day_selected:focus-visible[type='button'],
+  .rdp-day_selected:focus-visible[type='button'],
 .rdp-day_selected:hover {
   color: var(--rdp-selected-color);
   opacity: 1;

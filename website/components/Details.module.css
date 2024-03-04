@@ -1,0 +1,27 @@
+.Details {
+  margin: 10px;
+}
+
+.Details[open] {
+  /* background-color: #e0e0e0; */
+}
+
+.Summary {
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.Summary::-webkit-details-marker {
+  display: none;
+}
+
+.Summary:before {
+  content: "▶";
+  padding-right: 5px;
+  font-size: 14px;
+}
+
+.Details[open] .Summary:before {
+  content: "▼";
+}
