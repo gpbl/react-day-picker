@@ -12,7 +12,7 @@ import { renderDayPickerHook } from '../../../test/render';
 import { freezeBeforeAll } from '../../../test/utils';
 
 import { isMatch } from '../../contexts/Modifiers/utils/isMatch';
-import { DayPickerRangeProps } from '../../types/DayPickerRange';
+import { PropsRange } from '../../types/DayPickerRange';
 import { ActiveModifiers } from '../../types/Modifiers';
 
 import { SelectRangeContextValue, useSelectRange } from './SelectRangeContext';
@@ -30,7 +30,7 @@ describe('when is not a multiple select DayPicker', () => {
   });
 });
 
-const initialProps: DayPickerRangeProps = {
+const initialProps: PropsRange = {
   mode: 'range',
   onDayClick: jest.fn(),
   onSelect: jest.fn(),
@@ -75,7 +75,7 @@ describe('when no days are selected', () => {
 
 describe('when only the "from" day is selected', () => {
   const selected = { from, to: undefined };
-  const dayPickerProps: DayPickerRangeProps = {
+  const dayPickerProps: PropsRange = {
     ...initialProps,
     selected,
   };
@@ -95,7 +95,7 @@ describe('when only the "from" day is selected', () => {
 
 describe('when only the "to" day is selected', () => {
   const selected = { from: undefined, to };
-  const dayPickerProps: DayPickerRangeProps = {
+  const dayPickerProps: PropsRange = {
     ...initialProps,
     selected,
   };
@@ -115,7 +115,7 @@ describe('when only the "to" day is selected', () => {
 
 describe('when a complete range of days is selected', () => {
   const selected = { from, to };
-  const dayPickerProps: DayPickerRangeProps = {
+  const dayPickerProps: PropsRange = {
     ...initialProps,
     selected,
   };
@@ -165,7 +165,7 @@ describe('when a complete range of days is selected', () => {
 describe('when "from" and "to" are the same', () => {
   const date = new Date();
   const selected = { from: date, to: date };
-  const dayPickerProps: DayPickerRangeProps = {
+  const dayPickerProps: PropsRange = {
     ...initialProps,
     selected,
   };
@@ -187,7 +187,7 @@ describe('when the max number of the selected days is reached', () => {
   const from = today;
   const to = addDays(today, 6);
   const selected = { from, to };
-  const dayPickerProps: DayPickerRangeProps = {
+  const dayPickerProps: PropsRange = {
     ...initialProps,
     selected,
     max: 7,
@@ -226,7 +226,7 @@ describe('when the max number of the selected days is reached', () => {
 
 describe('when the minimum number of days are selected', () => {
   const selected = { from, to };
-  const dayPickerProps: DayPickerRangeProps = {
+  const dayPickerProps: PropsRange = {
     ...initialProps,
     selected,
     min: Math.abs(differenceInCalendarDays(to, from)),

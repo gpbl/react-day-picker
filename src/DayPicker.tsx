@@ -1,17 +1,17 @@
-import { DayPickerDefaultProps } from './types/DayPickerDefault';
-import { DayPickerMultipleProps } from './types/DayPickerMultiple';
-import { DayPickerRangeProps } from './types/DayPickerRange';
-import { DayPickerSingleProps } from './types/DayPickerSingle';
+import { PropsDefault } from './types/PropsDefault';
+import { PropsMulti } from './types/PropsMulti';
+import { PropsRange } from './types/PropsRange';
+import { PropsSingle } from './types/PropsSingle';
 
 import { Root } from './components/Root';
 import { RootProvider } from './contexts/RootProvider';
 
 /** Defines the props accepted by the DayPicker component. */
 export type DayPickerProps =
-  | DayPickerDefaultProps
-  | DayPickerSingleProps
-  | DayPickerMultipleProps
-  | DayPickerRangeProps;
+  | PropsDefault
+  | PropsSingle
+  | PropsMulti
+  | PropsRange;
 
 /**
  * Render the date picker component.
@@ -19,11 +19,7 @@ export type DayPickerProps =
  * @see https://daypicker.dev
  */
 export function DayPicker(
-  props:
-    | DayPickerDefaultProps
-    | DayPickerSingleProps
-    | DayPickerMultipleProps
-    | DayPickerRangeProps
+  props: PropsDefault | PropsSingle | PropsMulti | PropsRange
 ): JSX.Element {
   return (
     <RootProvider {...props}>

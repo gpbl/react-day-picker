@@ -39,34 +39,35 @@ import { ClassNames, StyledComponent, Styles } from './Styles';
  * - `multiple`: allow selecting multiple days.
  * - `range`: use DayPicker to select a range of days
  * - `default`: disable the built-in selection behavior. Customize what is
- *   selected by using {@link DayPickerBase.onDayClick}.
+ *   selected by using {@link PropsBase.onDayClick}.
  */
-export type DaySelectionMode = 'single' | 'multiple' | 'range' | 'default';
+export type Mode = 'single' | 'multiple' | 'range' | 'default';
+/** @deprecated Use {@link Mode} instead. */
+export type DaySelectionMode = Mode;
 
 /**
- * The base props for the {@link DayPicker} component and the
- * {@link DayPickerContext}.
+ * The base props for the {@link DayPicker} component.
+ *
+ * These props are used to change the navigation, the styling and the behavior
+ * of the calendar.
  */
-export interface DayPickerBase {
-  /**
-   * The CSS class to add to the container element. To change the name of the
-   * class instead, use `classNames.root`.
-   */
+export interface PropsBase {
+  /** The CSS class to add to the container element. */
   className?: string;
   /**
-   * Change the class names of the HTML elements.
+   * Change the class names used by DayPicker.
    *
    * Use this prop when you need to change the default class names — for example
-   * when using CSS modules.
+   * when importing the style via CSS modules or when using a CSS framework.
    */
-  classNames?: ClassNames;
+  classNames?: Partial<ClassNames>;
   /** Change the class name for the day matching the {@link modifiers}. */
   modifiersClassNames?: ModifiersClassNames;
 
   /** Style to apply to the container element. */
   style?: CSSProperties;
   /** Change the inline styles of the HTML elements. */
-  styles?: Styles;
+  styles?: Partial<Styles>;
   /** Change the inline style for the day matching the {@link modifiers}. */
   modifiersStyles?: ModifiersStyles;
 
@@ -77,9 +78,10 @@ export interface DayPickerBase {
   id?: string;
 
   /**
-   * The initial month to show in the calendar. Use this prop to let DayPicker
-   * control the current month. If you need to set the month programmatically,
-   * use {@link month]] and [[onMonthChange}.
+   * The initial month to show in the calendar.
+   *
+   * Use this prop to let DayPicker control the current month. If you need to
+   * set the month programmatically, use {@link month} and {@link onMonthChange}.
    *
    * @defaultValue The current month
    */
@@ -87,18 +89,26 @@ export interface DayPickerBase {
   /**
    * The month displayed in the calendar.
    *
-   * As opposed to {@link DayPickerBase.defaultMonth}, use this prop with
-   * {@link DayPickerBase.onMonthChange} to change the month programmatically.
+   * As opposed to {@link PropsBase.defaultMonth}, use this prop with
+   * {@link PropsBase.onMonthChange} to change the month programmatically.
    */
   month?: Date;
   /** Event fired when the user navigates between months. */
   onMonthChange?: MonthChangeEventHandler;
+
   /**
    * The number of displayed months.
    *
    * @defaultValue 1
    */
   numberOfMonths?: number;
+  /**
+   * Paginate the month navigation displaying the {@link numberOfMonths} at time.
+   *
+   * @defaultValue false
+   */
+  pagedNavigation?: boolean;
+
   /** The earliest day to start the month navigation. */
   fromDate?: Date;
   /** The latest day to end the month navigation. */
@@ -111,18 +121,13 @@ export interface DayPickerBase {
   fromYear?: number;
   /** The latest year to end the month navigation. */
   toYear?: number;
+
   /**
    * Disable the navigation between months.
    *
    * @defaultValue false
    */
   disableNavigation?: boolean;
-  /**
-   * Paginate the month navigation displaying the {@link numberOfMonths} at time.
-   *
-   * @defaultValue false
-   */
-  pagedNavigation?: boolean;
   /**
    * Render the months in reversed order (when {@link numberOfMonths} is greater
    * than `1`) to display the most recent month first.
@@ -146,104 +151,101 @@ export interface DayPickerBase {
   /**
    * Display six weeks per months, regardless the month’s number of weeks. To
    * use this prop, {@link showOutsideDays} must be set.
-   *
-   * @defaultValue false
    */
   fixedWeeks?: boolean;
   /**
    * Hide the month’s head displaying the weekday names.
    *
-   * @defaultValue false
+   * @deprecated Use {@link hideWeekdayRow} instead.
    */
   hideHead?: boolean;
   /**
-   * Show the outside days. An outside day is a day falling in the next or the
-   * previous month.
+   * Hide the month’s head displaying the weekday names.
    *
-   * @defaultValue false
+   * TODO: implement this prop
+   *
+   * @since 8.11.0
    */
+  hideWeekdayRow?: boolean;
+
+  /** Show the outside days (days falling in the next or the previous month). */
   showOutsideDays?: boolean;
   /**
-   * Show the week numbers column. Weeks are numbered according to the local
-   * week index.
+   * Show the week numbers column.
+   *
+   * Weeks are numbered according to the local week index.
    *
    * - To use ISO week numbering, use the {@link ISOWeek} prop.
-   * - To change how the week numbers are displayed, use the {@link Formatters}
+   * - To change how the week numbers are displayed, use the {@link formatters}
    *   prop.
-   *
-   * @defaultValue false
-   * @see {@link ISOWeek} , {@link weekStartsOn} and {@link firstWeekContainsDate}.
    */
   showWeekNumber?: boolean;
+
+  /**
+   * Use ISO week dates instead of the locale setting.
+   *
+   * Setting this prop will ignore {@link weekStartsOn} and
+   * {@link firstWeekContainsDate}.
+   *
+   * @see https://en.wikipedia.org/wiki/ISO_week_date
+   */
+  ISOWeek?: boolean;
   /**
    * The index of the first day of the week (0 - Sunday). Overrides the locale's
    * one.
-   *
-   * @see {@link ISOWeek} .
    */
-  weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
+  weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
   /**
    * The day of January, which is always in the first week of the year. Can be
    * either Monday (`1`) or Thursday (`4`).
    *
    * @see https://date-fns.org/docs/getWeek
    * @see https://en.wikipedia.org/wiki/Week#Numbering
-   * @see {@link ISOWeek} .
    */
   firstWeekContainsDate?: 1 | 4;
-  /**
-   * Use ISO week dates instead of the locale setting. Setting this prop will
-   * ignore {@link weekStartsOn} and {@link firstWeekContainsDate}.
-   *
-   * @see https://en.wikipedia.org/wiki/ISO_week_date
-   */
-  ISOWeek?: boolean;
 
-  /**
-   * Map of components used to create the layout. Look at the [components
-   * source](https://github.com/gpbl/react-day-picker/tree/main/src/components)
-   * to understand how internal components are built and provide your custom
-   * components.
-   */
+  /** Change the components used for rendering the calendar elements. */
   components?: CustomComponents;
 
-  /** Content to add to the table footer element. */
+  /** Content to add to the grid as footer element. */
   footer?: ReactNode;
 
   /**
    * When a selection mode is set, DayPicker will focus the first selected day
    * (if set) or the today's date (if not disabled).
    *
-   * Use this prop when you need to focus DayPicker after a user actions, for
-   * improved accessibility.
+   * @deprecated Use the {@link autoFocus} prop instead.
    */
   initialFocus?: boolean;
-
-  /** Apply the `disabled` modifier to the matching days. */
-  disabled?: Matcher | Matcher[] | undefined;
   /**
-   * Apply the `hidden` modifier to the matching days. Will hide them from the
+   * Autofocus the calendar when mounted.
+   *
+   * Use this prop when you need to focus DayPicker after a user actions, for
+   * improved accessibility.
+   *
+   * TODO: implement this prop
+   *
+   * @since 8.11.0
+   */
+  autoFocus?: boolean;
+
+  /** Apply the `disabled` modifier to disable the matching days. */
+  disabled?: Matcher | Matcher[] | undefined;
+
+  /**
+   * Apply the `hidden` modifier to the matching days to hide them from the
    * calendar.
    */
   hidden?: Matcher | Matcher[] | undefined;
 
-  /** Apply the `selected` modifier to the matching days. */
+  /** Apply the `selected` modifier to display the matching days as selected. */
   selected?: Matcher | Matcher[] | undefined;
 
-  /**
-   * The today’s date. Default is the current date. This Date will get the
-   * `today` modifier to style the day.
-   */
+  /** The today’s date. Default is the current date. */
   today?: Date;
-  /** Add modifiers to the matching days. */
-  modifiers?: DayModifiers;
 
-  /**
-   * The date-fns locale object used to localize dates.
-   *
-   * @defaultValue en-US
-   */
-  locale?: Locale;
+  /** Map of modifiers to add to the matching days. */
+  modifiers?: DayModifiers;
 
   /**
    * Labels creators to override the defaults. Use this prop to customize the
@@ -275,14 +277,21 @@ export interface DayPickerBase {
   /** Add the language tag to the container element. */
   lang?: HTMLDivElement['lang'];
 
+  /**
+   * The date-fns locale object used to localize dates.
+   *
+   * @defaultValue en-US
+   * @see https://date-fns.org/docs/Locale
+   */
+  locale?: Locale | undefined;
+
   /** Event callback fired when the next month button is clicked. */
   onNextClick?: MonthChangeEventHandler;
+
   /** Event callback fired when the previous month button is clicked. */
   onPrevClick?: MonthChangeEventHandler;
-  /**
-   * Event callback fired when the week number is clicked. Requires
-   * `showWeekNumbers` set.
-   */
+
+  /** Event callback fired when the week number is clicked. */
   onWeekNumberClick?: WeekNumberClickEventHandler;
 
   /** Event callback fired when the user clicks on a day. */
@@ -314,11 +323,12 @@ export interface DayPickerBase {
   /** Event callback when a day touch event starts. */
   onDayTouchStart?: DayTouchEventHandler;
 }
+/** @deprecated Use {@link PropsBase} instead. */
+export type DayPickerBase = PropsBase;
 
 /**
- * Map of the components that can be changed using the `components` prop.
- *
- * @see https://github.com/gpbl/react-day-picker/tree/main/src/components
+ * The components that can be changed using the {@link PropsBase.components}
+ * components prop.
  */
 export interface CustomComponents {
   /** The component for the caption element. */

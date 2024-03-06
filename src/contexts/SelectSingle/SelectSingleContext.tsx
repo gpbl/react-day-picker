@@ -1,10 +1,7 @@
 import { createContext, ReactNode, useContext } from 'react';
 
-import { DayPickerBase } from '../../types/DayPickerBase';
-import {
-  DayPickerSingleProps,
-  isDayPickerSingle,
-} from '../../types/DayPickerSingle';
+import { PropsBase } from '../../types/DayPickerBase';
+import { PropsSingle, isDayPickerSingle } from '../../types/DayPickerSingle';
 import { DayClickEventHandler } from '../../types/EventHandlers';
 
 /** Represents the value of a {@link SelectSingleContext}. */
@@ -26,7 +23,7 @@ export const SelectSingleContext = createContext<
 >(undefined);
 
 export interface SelectSingleProviderProps {
-  initialProps: DayPickerBase;
+  initialProps: PropsBase;
   children?: ReactNode;
 }
 
@@ -54,7 +51,7 @@ export function SelectSingleProvider(
 
 /** @private */
 export interface SelectSingleProviderInternal {
-  initialProps: DayPickerSingleProps;
+  initialProps: PropsSingle;
   children?: ReactNode;
 }
 

@@ -4,19 +4,10 @@ import { Locale } from 'date-fns';
 import { DayPickerProps } from '../../DayPicker';
 
 import { CaptionLayout } from '../../components/Caption';
-import { DayPickerBase, DaySelectionMode } from '../../types/DayPickerBase';
-import {
-  DayPickerMultipleProps,
-  isDayPickerMultiple,
-} from '../../types/DayPickerMultiple';
-import {
-  DayPickerRangeProps,
-  isDayPickerRange,
-} from '../../types/DayPickerRange';
-import {
-  DayPickerSingleProps,
-  isDayPickerSingle,
-} from '../../types/DayPickerSingle';
+import { PropsBase, Mode } from '../../types/DayPickerBase';
+import { PropsMulti, isDayPickerMultiple } from '../../types/DayPickerMultiple';
+import { PropsRange, isDayPickerRange } from '../../types/DayPickerRange';
+import { PropsSingle, isDayPickerSingle } from '../../types/DayPickerSingle';
 import { Formatters } from '../../types/Formatters';
 import { Labels } from '../../types/Labels';
 import { Matcher } from '../../types/Matchers';
@@ -30,12 +21,12 @@ import { parseFromToProps } from './utils';
  * The value of the {@link DayPickerContext} extends the props from DayPicker
  * with default and cleaned up values.
  */
-export interface DayPickerContextValue extends DayPickerBase {
-  mode: DaySelectionMode;
+export interface DayPickerContextValue extends PropsBase {
+  mode: Mode;
   onSelect?:
-    | DayPickerSingleProps['onSelect']
-    | DayPickerMultipleProps['onSelect']
-    | DayPickerRangeProps['onSelect'];
+    | PropsSingle['onSelect']
+    | PropsMulti['onSelect']
+    | PropsRange['onSelect'];
   required?: boolean;
   min?: number;
   max?: number;

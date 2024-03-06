@@ -5,7 +5,7 @@ import { DayPickerProps } from '../../DayPicker';
 import { renderDayPickerHook } from '../../../test/render';
 import { freezeBeforeAll } from '../../../test/utils';
 
-import { DayPickerSingleProps } from '../../types/DayPickerSingle';
+import { PropsSingle } from '../../types/DayPickerSingle';
 import { ActiveModifiers } from '../../types/Modifiers';
 
 import {
@@ -28,7 +28,7 @@ describe('when is not a single select DayPicker', () => {
 
 describe('when a day is selected from DayPicker props', () => {
   test('the selected day should be today', () => {
-    const dayPickerProps: DayPickerSingleProps = {
+    const dayPickerProps: PropsSingle = {
       mode: 'single',
       selected: today,
     };
@@ -37,7 +37,7 @@ describe('when a day is selected from DayPicker props', () => {
   });
 });
 describe('when onDayClick is called', () => {
-  const dayPickerProps: DayPickerSingleProps = {
+  const dayPickerProps: PropsSingle = {
     mode: 'single',
     onSelect: jest.fn(),
     onDayClick: jest.fn(),
@@ -64,7 +64,7 @@ describe('when onDayClick is called', () => {
   });
 });
 describe('if a selected day is not required', () => {
-  const dayPickerProps: DayPickerSingleProps = {
+  const dayPickerProps: PropsSingle = {
     mode: 'single',
     onSelect: jest.fn(),
     required: false,

@@ -1,8 +1,8 @@
-import type { KeyboardEvent, MouseEvent } from "react";
+import type { KeyboardEvent, MouseEvent } from 'react';
 
-import type { Locale } from "date-fns";
+import type { Locale } from 'date-fns';
 
-import * as components from "../components/custom-components";
+import * as components from '../components/custom-components';
 
 import type {
   DayFocusEventHandler,
@@ -12,16 +12,16 @@ import type {
   DayTouchEventHandler,
   MonthChangeEventHandler,
   WeekNumberClickEventHandler,
-} from "./events";
-import type { Formatters } from "./formatters";
-import type { Labels } from "./labels";
-import type { DateRange, Matcher } from "./matchers";
+} from './events';
+import type { Formatters } from './formatters';
+import type { Labels } from './labels';
+import type { DateRange, Matcher } from './matchers';
 import type {
   Modifiers,
   ModifiersClassNames,
   ModifiersStyles,
-} from "./modifiers";
-import type { ClassNames, Styles } from "./ui";
+} from './modifiers';
+import type { ClassNames, Styles } from './ui';
 
 /**
  * The base props for the {@link DayPicker} component.
@@ -36,7 +36,7 @@ export interface PropsBase {
    * Change the class names used by DayPicker.
    *
    * Use this prop when you need to change the default class names — for example
-   * when using CSS modules.
+   * when importing the style via CSS modules or when using a CSS framework.
    */
   classNames?: Partial<ClassNames>;
   /** Change the class name for the day matching the `modifiers`. */
@@ -46,7 +46,7 @@ export interface PropsBase {
   style?: React.CSSProperties;
   /** Change the inline styles of the HTML elements. */
   styles?: Partial<Styles>;
-  /** Change the inline style for the day matching the `modifiers`. */
+  /** Change the class name for the day matching the {@link modifiers}. */
   modifiersStyles?: ModifiersStyles;
 
   /**
@@ -56,9 +56,10 @@ export interface PropsBase {
   id?: string;
 
   /**
-   * The initial month to show in the calendar. Use this prop to let DayPicker
-   * control the current month. If you need to set the month programmatically,
-   * use `month` and `onMonthChange`.
+   * The initial month to show in the calendar.
+   *
+   * Use this prop to let DayPicker control the current month. If you need to
+   * set the month programmatically, use {@link month} and {@link onMonthChange}.
    *
    * @defaultValue The current month
    */
@@ -99,6 +100,8 @@ export interface PropsBase {
   /**
    * Hide the navigation buttons. This prop won't disable the navigation: to
    * disable the navigation, use {@link disableNavigation}.
+   *
+   * @since 10.0.0
    */
   hideNavigation?: boolean;
   /**
@@ -117,14 +120,18 @@ export interface PropsBase {
    * **Note:** showing the dropdown will default {@link fromYear} to the 100
    * years ago, and {@link toYear} to the current year.
    */
-  dropdownNavigation?: boolean | "month" | "year";
+  dropdownNavigation?: boolean | 'month' | 'year';
 
   /**
    * Display always 6 weeks per each month, regardless the month’s number of
    * weeks. Weeks will be filled with the days from the next month.
    */
   fixedWeeks?: boolean;
-  /** Hide the row displaying the weekday row header. */
+  /**
+   * Hide the row displaying the weekday row header.
+   *
+   * @since 10.0.0
+   */
   hideWeekdayRow?: boolean;
   /** Show the outside days (days falling in the next or the previous month). */
   showOutsideDays?: boolean;
@@ -141,7 +148,6 @@ export interface PropsBase {
    * Use ISO week dates instead of the locale setting. Setting this prop will
    * ignore `weekStartsOn` and `firstWeekContainsDate`.
    *
-   * @defaultValue falses
    * @see https://en.wikipedia.org/wiki/ISO_week_date
    */
   ISOWeek?: boolean;
@@ -149,7 +155,7 @@ export interface PropsBase {
   /** Change the components used for rendering the calendar elements. */
   components?: CustomComponents;
 
-  /** Content to add to the table footer element. */
+  /** Content to add to the grid as footer element. */
   footer?: React.ReactNode;
 
   /**
@@ -160,6 +166,7 @@ export interface PropsBase {
    * improved accessibility.
    */
   autoFocus?: boolean;
+
   /** Apply the `disabled` modifier to the matching days. */
   disabled?: Matcher | Matcher[] | undefined;
   /**
@@ -193,19 +200,19 @@ export interface PropsBase {
    * The text direction of the calendar. Use `ltr` for left-to-right (default)
    * or `rtl` for right-to-left.
    */
-  dir?: HTMLDivElement["dir"];
+  dir?: HTMLDivElement['dir'];
 
   /**
    * A cryptographic nonce ("number used once") which can be used by Content
    * Security Policy for the inline `style` attributes.
    */
-  nonce?: HTMLDivElement["nonce"];
+  nonce?: HTMLDivElement['nonce'];
 
   /** Add a `title` attribute to the container element. */
-  title?: HTMLDivElement["title"];
+  title?: HTMLDivElement['title'];
 
   /** Add the language tag to the container element. */
-  lang?: HTMLDivElement["lang"];
+  lang?: HTMLDivElement['lang'];
 
   /**
    * The date-fns locale object used to localize dates.
@@ -322,21 +329,21 @@ export interface PropsSingle {
   /** Makes the selection required. */
   required?: boolean;
   /** The selected Date. */
-  selected?: Selected<"single"> | undefined;
+  selected?: Selected<'single'> | undefined;
   /** The initially selected value when not controlled. */
-  defaultSelected?: Selected<"single"> | undefined;
+  defaultSelected?: Selected<'single'> | undefined;
   /** The callback called when the user selects a day. */
-  onSelect?: SelectHandler<"single"> | undefined;
+  onSelect?: SelectHandler<'single'> | undefined;
 }
 
 /** The props for the multi selection mode. */
 export interface PropsMulti {
   /** The selected dates. */
-  selected?: Selected<"multi"> | undefined;
+  selected?: Selected<'multi'> | undefined;
   /** The initially selected values when not controlled. */
-  defaultSelected?: Selected<"multi"> | undefined;
+  defaultSelected?: Selected<'multi'> | undefined;
   /** The callback called when the user selects a day. */
-  onSelect?: SelectHandler<"multi"> | undefined;
+  onSelect?: SelectHandler<'multi'> | undefined;
   /** Makes the selection required. */
   required?: boolean;
   /** The minimum number of days that can be selected. */
@@ -348,11 +355,11 @@ export interface PropsMulti {
 /** The props for the range selection mode. */
 export interface PropsRange {
   /** The selected range. */
-  selected?: Selected<"range"> | undefined;
+  selected?: Selected<'range'> | undefined;
   /** The initially selected range when not controlled. */
-  defaultSelected?: Selected<"range"> | undefined;
+  defaultSelected?: Selected<'range'> | undefined;
   /** The callback called when the user selects a day. */
-  onSelect?: SelectHandler<"range"> | undefined;
+  onSelect?: SelectHandler<'range'> | undefined;
   /** Makes the selection required. */
   required?: boolean;
   /** The minimum number of days that can be selected. */
@@ -377,7 +384,7 @@ export type CustomComponents = {
  * - `multi`: multiple days can be selected.
  * - `range`: a range of days can be selected.
  */
-export type Mode = "none" | "single" | "multi" | "range";
+export type Mode = 'none' | 'single' | 'multi' | 'range';
 
 /**
  * Set the layout of the caption.
@@ -385,14 +392,14 @@ export type Mode = "none" | "single" | "multi" | "range";
  * @deprecated Replaced by {@link PropsBase.dropdownNavigation} and
  *   {@link PropsBase.hideNavigation}.
  */
-export type CaptionLayout = "dropdown" | "buttons" | "dropdown-buttons";
+export type CaptionLayout = 'dropdown' | 'buttons' | 'dropdown-buttons';
 
 /** The selected value when in selection mode. */
-export type Selected<T extends Mode> = T extends "single"
+export type Selected<T extends Mode> = T extends 'single'
   ? Date
-  : T extends "multi"
+  : T extends 'multi'
     ? Date[]
-    : T extends "range"
+    : T extends 'range'
       ? DateRange
       : undefined;
 
@@ -405,5 +412,5 @@ export type SelectHandler<T extends Mode> = (
   /** The modifiers for the day that triggered the selection. */
   modifiers: Modifiers,
   /** The event that made the selection. */
-  e: MouseEvent | KeyboardEvent,
+  e: MouseEvent | KeyboardEvent
 ) => void;
