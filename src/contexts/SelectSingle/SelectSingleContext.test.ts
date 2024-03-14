@@ -5,7 +5,7 @@ import { DayPickerProps } from '../../DayPicker';
 import { renderDayPickerHook } from '../../../test/render';
 import { freezeBeforeAll } from '../../../test/utils';
 
-import { PropsSingle } from '../../types/DayPickerSingle';
+import { PropsSingle } from '../../types/PropsSingle';
 import { ActiveModifiers } from '../../types/Modifiers';
 
 import {

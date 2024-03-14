@@ -2,7 +2,7 @@
 
 ## Extends
 
-- `Pick`\<[`DayPickerBase`](/api/latest/interfaces/DayPickerBase.mdx), `"locale"` \| `"fromDate"` \| `"toDate"` \| `"fromMonth"` \| `"toMonth"` \| `"fromYear"` \| `"toYear"` \| `"today"`\>
+- `Pick`\<[`PropsBase`](/api/latest/interfaces/PropsBase.mdx), `"locale"` \| `"fromDate"` \| `"toDate"` \| `"fromMonth"` \| `"toMonth"` \| `"fromYear"` \| `"toYear"` \| `"today"`\>
 
 ## Properties
 
@@ -13,9 +13,9 @@
 | `fromDate?` | `Date` | The earliest day to start the month navigation. | `Pick.fromDate` |
 | `fromMonth?` | `Date` | The earliest month to start the month navigation. | `Pick.fromMonth` |
 | `fromYear?` | `number` | The earliest year to start the month navigation. | `Pick.fromYear` |
-| `locale?` | `Locale` | The date-fns locale object used to localize dates.<br /><br />**Default Value**<br />` en-US ` | `Pick.locale` |
+| `locale?` | `Locale` | The date-fns locale object used to localize dates.<br /><br />**Default Value**<br />` en-US `<br /><br />**See**<br />https://date-fns.org/docs/Locale | `Pick.locale` |
 | `required?` | `boolean` | Make the selection required. | - |
 | `toDate?` | `Date` | The latest day to end the month navigation. | `Pick.toDate` |
 | `toMonth?` | `Date` | The latest month to end the month navigation. | `Pick.toMonth` |
 | `toYear?` | `number` | The latest year to end the month navigation. | `Pick.toYear` |
-| `today?` | `Date` | The today’s date. Default is the current date. This Date will get the<br />`today` modifier to style the day. | `Pick.today` |
+| `today?` | `Date` | The today’s date. Default is the current date. | `Pick.today` |

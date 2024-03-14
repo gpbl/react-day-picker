@@ -1,10 +1,7 @@
 # Interface: CustomComponents
 
-Map of the components that can be changed using the `components` prop.
-
-## See
-
-https://github.com/gpbl/react-day-picker/tree/main/src/components
+The components that can be changed using the [PropsBase.components](/api/latest/interfaces/PropsBase.mdx)
+components prop.
 
 ## Properties
 
@@ -12,7 +9,7 @@ https://github.com/gpbl/react-day-picker/tree/main/src/components
 | :------ | :------ | :------ |
 | `Caption?` | (`props`: [`CaptionProps`](/api/latest/interfaces/CaptionProps.mdx)) => `null` \| `Element` | The component for the caption element. |
 | `CaptionLabel?` | (`props`: [`CaptionLabelProps`](/api/latest/interfaces/CaptionLabelProps.mdx)) => `null` \| `Element` | The component for the caption element. |
-| `Day?` | (`props`: [`DayProps`](/api/latest/interfaces/DayProps.mdx)) => `null` \| `Element` | The component for the day element.<br /><br />Each `Day` in DayPicker should render one of the following, according to<br />the return value of [useDayRender](/api/latest/functions/useDayRender.mdx).<br /><br />- An empty `Fragment`, to render if `isHidden` is true<br />- A `button` element, when the day is interactive, e.g. is selectable<br />- A `div` or a `span` element, when the day is not interactive |
+| `Day?` | (`props`: [`DayProps`](/api/latest/interfaces/DayProps.mdx)) => `null` \| `Element` | The component for the day element.<br /><br />Each `Day` in DayPicker should render one of the following, according to<br />the return value of [useDayRender](/api/latest/functions/useDayRender.mdx).<br /><br />- An empty `Fragment`, to render if `isHidden` is true.<br />- A `button` element, when the day is interactive, e.g. is selectable.<br />- A `div` or a `span` element, when the day is not interactive. |
 | `DayContent?` | (`props`: [`DayContentProps`](/api/latest/interfaces/DayContentProps.mdx)) => `null` \| `Element` | The component for the content of the day element. |
 | `Dropdown?` | (`props`: [`DropdownProps`](/api/latest/interfaces/DropdownProps.mdx)) => `null` \| `Element` | The component for the drop-down elements. |
 | `Footer?` | (`props`: [`FooterProps`](/api/latest/interfaces/FooterProps.mdx)) => `null` \| `Element` | The component for the table footer. |

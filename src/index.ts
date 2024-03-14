@@ -30,12 +30,12 @@ export * from './contexts/SelectMultiple';
 export * from './contexts/SelectRange';
 export * from './contexts/SelectSingle';
 
-export * from './types/DayPickerBase';
-export * from './types/DayPickerDefault';
-export * from './types/DayPickerMultiple';
-export * from './types/DayPickerRange';
-export * from './types/DayPickerSingle';
-export * from './types/EventHandlers';
+export * from './types/PropsBase';
+export * from './types/PropsDefault';
+export * from './types/PropsMulti';
+export * from './types/PropsRange';
+export * from './types/PropsSingle';
+export * from './types/events';
 export * from './types/Formatters';
 export * from './types/Labels';
 export * from './types/Matchers';

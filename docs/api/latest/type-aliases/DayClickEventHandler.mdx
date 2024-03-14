@@ -1,21 +1,13 @@
-# Type alias: DayClickEventHandler
+# Type alias: ~~DayClickEventHandler~~
 
-> **DayClickEventHandler**: (`day`, `activeModifiers`, `e`) => `void`
+> **DayClickEventHandler**: [`DayEventHandler`](/api/latest/type-aliases/DayEventHandler.mdx)\<`React.MouseEvent`\>
 
 The event handler when a day is clicked.
 
-## Parameters
+## Deprecated
 
-| Parameter | Type |
-| :------ | :------ |
-| `day` | `Date` |
-| `activeModifiers` | [`ActiveModifiers`](/api/latest/type-aliases/ActiveModifiers.mdx) |
-| `e` | `MouseEvent` |
-
-## Returns
-
-`void`
+Use [DayMouseEventHandler](/api/latest/type-aliases/DayMouseEventHandler.mdx) instead.
 
 ## Source
 
-[src/types/EventHandlers.ts:14](https://github.com/gpbl/react-day-picker/blob/56bfb649e/src/types/EventHandlers.ts#L14)
+src/types/events.ts:27

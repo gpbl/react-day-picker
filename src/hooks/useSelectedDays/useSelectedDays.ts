@@ -2,9 +2,9 @@ import { useDayPicker } from '../../contexts/DayPicker';
 import { useSelectMultiple } from '../../contexts/SelectMultiple';
 import { useSelectRange } from '../../contexts/SelectRange';
 import { useSelectSingle } from '../../contexts/SelectSingle';
-import { isDayPickerMultiple } from '../../types/DayPickerMultiple';
-import { isDayPickerRange } from '../../types/DayPickerRange';
-import { isDayPickerSingle } from '../../types/DayPickerSingle';
+import { isDayPickerMultiple } from '../../types/PropsMulti';
+import { isDayPickerRange } from '../../types/PropsRange';
+import { isDayPickerSingle } from '../../types/PropsSingle';
 import { DateRange } from '../../types/Matchers';
 
 export type SelectedDays = Date | Date[] | DateRange | undefined;

@@ -4,20 +4,6 @@
 
 Returns whether a day matches against at least one of the given Matchers.
 
-```tsx
-    const day = new Date(2022, 5, 19);
-    const matcher1: DateRange = {
-       from: new Date(2021, 12, 21),
-       to: new Date(2021, 12, 30)
-    }
-    const matcher2: DateRange = {
-       from: new Date(2022, 5, 1),
-       to: new Date(2022, 5, 23)
-    }
-
-    const isMatch(day, [matcher1, matcher2]); // true, since day is in the matcher1 range.
-```
-
 ## Parameters
 
 | Parameter | Type |
@@ -31,4 +17,4 @@ Returns whether a day matches against at least one of the given Matchers.
 
 ## Source
 
-[src/contexts/Modifiers/utils/isMatch.ts:41](https://github.com/gpbl/react-day-picker/blob/56bfb649e/src/contexts/Modifiers/utils/isMatch.ts#L41)
+[src/contexts/Modifiers/utils/isMatch.ts:25](https://github.com/gpbl/react-day-picker/blob/c4157425c/src/contexts/Modifiers/utils/isMatch.ts#L25)

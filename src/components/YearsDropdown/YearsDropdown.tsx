@@ -4,7 +4,7 @@ import { setYear, startOfMonth, startOfYear } from 'date-fns';
 
 import { Dropdown } from '../Dropdown';
 import { useDayPicker } from '../../contexts/DayPicker';
-import { MonthChangeEventHandler } from '../../types/EventHandlers';
+import { MonthChangeEventHandler } from '../../types/events';
 
 /** The props for the {@link YearsDropdown} component. */
 export interface YearsDropdownProps {

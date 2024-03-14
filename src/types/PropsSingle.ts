@@ -2,7 +2,7 @@ import { DayPickerProps } from '../DayPicker';
 
 import { DayPickerContextValue } from '../contexts/DayPicker';
 
-import { SelectSingleEventHandler } from './EventHandlers';
+import { SelectSingleEventHandler } from './events';
 import { PropsBase } from './PropsBase';
 
 /** The props for the single selection mode. */

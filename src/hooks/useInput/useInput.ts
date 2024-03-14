@@ -9,12 +9,12 @@ import { differenceInCalendarDays, format as _format, parse } from 'date-fns';
 import { enUS } from 'date-fns/locale';
 
 import { parseFromToProps } from '../../contexts/DayPicker/utils';
-import { PropsBase } from '../../types/DayPickerBase';
-import { PropsSingle } from '../../types/DayPickerSingle';
+import { PropsBase } from '../../types/PropsBase';
+import { PropsSingle } from '../../types/PropsSingle';
 import {
   DayClickEventHandler,
   MonthChangeEventHandler,
-} from '../../types/EventHandlers';
+} from '../../types/events';
 
 import { isValidDate } from './utils/isValidDate';
 

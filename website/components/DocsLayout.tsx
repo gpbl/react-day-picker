@@ -55,18 +55,19 @@ export function DocsLayout(props: DocsLayoutProps) {
       </Box>
 
       {/* Content */}
-      <Box className="mt-header xl:mt-header" p="4">
-        <main
-          className={`
-        mx-auto
-        mb-4 
-        max-w-article-max-w 
-        p-2
-        md:p-4 
-        lg:mr-toc-width 
-        xl:mx-auto
-        `}
-        >
+      <Box
+        asChild
+        className="
+          mx-auto mt-header max-w-article-max-w
+          p-2
+          md:p-6
+          lg:mr-toc-width
+          xl:mx-auto 
+          xl:mt-header"
+        p="4"
+        style={{ minHeight: "calc(100vh - var(--header-height))" }}
+      >
+        <main>
           <DocHeader doc={doc} />
           <Separator size="4" my="8" mt="4" />
           <article>{props.children}</article>
@@ -91,13 +92,15 @@ export function DocsLayout(props: DocsLayoutProps) {
           right-0 
           hidden 
           w-toc-width 
+          overflow-auto 
           border-l 
           px-6 
-          lg:block 
+          lg:block
           xl:right-8
         `}
         style={{
           top: "calc(var(--header-height) + 2rem)",
+          height: "calc(100vh - var(--header-height) - 2rem)",
           borderColor: "var(--gray-a5)",
         }}
       >

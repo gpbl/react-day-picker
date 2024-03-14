@@ -2,9 +2,9 @@ import { createContext, ReactNode, useContext } from 'react';
 
 import { isSameDay } from 'date-fns';
 
-import { PropsBase } from '../../types/DayPickerBase';
-import { PropsMulti, isDayPickerMultiple } from '../../types/DayPickerMultiple';
-import { DayClickEventHandler } from '../../types/EventHandlers';
+import { PropsBase } from '../../types/PropsBase';
+import { PropsMulti, isDayPickerMultiple } from '../../types/PropsMulti';
+import { DayClickEventHandler } from '../../types/events';
 import { InternalModifier, Modifiers } from '../../types/Modifiers';
 
 /** Represent the modifiers that are changed by the multiple selection. */

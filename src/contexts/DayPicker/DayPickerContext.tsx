@@ -4,10 +4,10 @@ import { Locale } from 'date-fns';
 import { DayPickerProps } from '../../DayPicker';
 
 import { CaptionLayout } from '../../components/Caption';
-import { PropsBase, Mode } from '../../types/DayPickerBase';
-import { PropsMulti, isDayPickerMultiple } from '../../types/DayPickerMultiple';
-import { PropsRange, isDayPickerRange } from '../../types/DayPickerRange';
-import { PropsSingle, isDayPickerSingle } from '../../types/DayPickerSingle';
+import { PropsBase, Mode } from '../../types/PropsBase';
+import { PropsMulti, isDayPickerMultiple } from '../../types/PropsMulti';
+import { PropsRange, isDayPickerRange } from '../../types/PropsRange';
+import { PropsSingle, isDayPickerSingle } from '../../types/PropsSingle';
 import { Formatters } from '../../types/Formatters';
 import { Labels } from '../../types/Labels';
 import { Matcher } from '../../types/Matchers';

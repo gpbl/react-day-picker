@@ -2,7 +2,7 @@ import { DayPickerProps } from '../DayPicker';
 
 import { DayPickerContextValue } from '../contexts/DayPicker';
 
-import { SelectRangeEventHandler } from './EventHandlers';
+import { SelectRangeEventHandler } from './events';
 import { DateRange } from './Matchers';
 import { PropsBase } from './PropsBase';
 

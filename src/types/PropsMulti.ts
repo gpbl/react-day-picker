@@ -1,7 +1,7 @@
 import { type DayPickerProps } from '../DayPicker';
 import { DayPickerContextValue } from '../contexts/DayPicker';
 
-import { SelectMultipleEventHandler } from './EventHandlers';
+import { SelectMultipleEventHandler } from './events';
 import { type PropsBase } from './PropsBase';
 
 /** The props for the {@link DayPicker} component when using `mode="multiple"`. */

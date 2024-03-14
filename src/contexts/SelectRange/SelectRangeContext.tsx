@@ -7,9 +7,9 @@ import {
   subDays,
 } from 'date-fns';
 
-import { PropsBase } from '../../types/DayPickerBase';
-import { PropsRange, isDayPickerRange } from '../../types/DayPickerRange';
-import { DayClickEventHandler } from '../../types/EventHandlers';
+import { PropsBase } from '../../types/PropsBase';
+import { PropsRange, isDayPickerRange } from '../../types/PropsRange';
+import { DayClickEventHandler } from '../../types/events';
 import { DateRange } from '../../types/Matchers';
 import { InternalModifier, Modifiers } from '../../types/Modifiers';
 

@@ -21,7 +21,7 @@ import {
   DayTouchEventHandler,
   MonthChangeEventHandler,
   WeekNumberClickEventHandler,
-} from './EventHandlers';
+} from './events';
 import { Formatters } from './Formatters';
 import { Labels } from './Labels';
 import { Matcher } from './Matchers';
@@ -37,7 +37,7 @@ import { ClassNames, StyledComponent, Styles } from './Styles';
  *
  * - `single`: use DayPicker to select single days.
  * - `multiple`: allow selecting multiple days.
- * - `range`: use DayPicker to select a range of days
+ * - `range`: use DayPicker to select a range of days.
  * - `default`: disable the built-in selection behavior. Customize what is
  *   selected by using {@link PropsBase.onDayClick}.
  */
@@ -128,6 +128,7 @@ export interface PropsBase {
    * @defaultValue false
    */
   disableNavigation?: boolean;
+
   /**
    * Render the months in reversed order (when {@link numberOfMonths} is greater
    * than `1`) to display the most recent month first.
@@ -139,8 +140,8 @@ export interface PropsBase {
   /**
    * Change the layout of the caption:
    *
-   * - `buttons`: display prev/right buttons
-   * - `dropdown`: display drop-downs to change the month and the year
+   * - `buttons`: display prev/right buttons.
+   * - `dropdown`: display drop-downs to change the month and the year.
    *
    * **Note:** the `dropdown` layout is available only when `fromDate`,
    * `fromMonth` or`fromYear` and `toDate`, `toMonth` or `toYear` are set.
@@ -162,9 +163,9 @@ export interface PropsBase {
   /**
    * Hide the month’s head displaying the weekday names.
    *
-   * TODO: implement this prop
+   * TODO: implement this prop.
    *
-   * @since 8.11.0
+   * @since 8.11.0.
    */
   hideWeekdayRow?: boolean;
 
@@ -223,9 +224,9 @@ export interface PropsBase {
    * Use this prop when you need to focus DayPicker after a user actions, for
    * improved accessibility.
    *
-   * TODO: implement this prop
+   * TODO: implement this prop.
    *
-   * @since 8.11.0
+   * @since 8.11.0.
    */
   autoFocus?: boolean;
 
@@ -274,7 +275,7 @@ export interface PropsBase {
   /** Add a `title` attribute to the container element. */
   title?: HTMLDivElement['title'];
 
-  /** Add the language tag to the container element. */
+  /** Add the `lang` attribute to the container element. */
   lang?: HTMLDivElement['lang'];
 
   /**
@@ -341,9 +342,9 @@ export interface CustomComponents {
    * Each `Day` in DayPicker should render one of the following, according to
    * the return value of {@link useDayRender}.
    *
-   * - An empty `Fragment`, to render if `isHidden` is true
-   * - A `button` element, when the day is interactive, e.g. is selectable
-   * - A `div` or a `span` element, when the day is not interactive
+   * - An empty `Fragment`, to render if `isHidden` is true.
+   * - A `button` element, when the day is interactive, e.g. is selectable.
+   * - A `div` or a `span` element, when the day is not interactive.
    */
   Day?: (props: DayProps) => JSX.Element | null;
   /** The component for the content of the day element. */

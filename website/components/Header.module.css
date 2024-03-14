@@ -1,43 +1,12 @@
-.HeaderRoot {
-  height: var(--header-height);
+.HeaderLink a {
+  @apply rounded-md bg-transparent px-3 py-1;
 }
 
-.HeaderInner {
-  position: fixed;
-  height: inherit;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  user-select: none;
-  box-shadow: 0 1px transparent;
-  background-color: var(--color-page-background);
+.Headerlink a {
+  text-decoration: none !important;
 }
 
-.HeaderLinksContainer {
-  position: absolute;
-  gap: var(--space-2);
-  top: 0;
-  bottom: 0;
-  left: calc(50% - 125px);
-  width: 250px;
-}
-
-@media (min-width: 520px) {
-  .HeaderLinksContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-.HeaderThemeToggleContainer {
-  display: flex;
-  align-items: center;
-}
-
-@media (max-width: 519px) {
-  [data-mobile-menu-open="true"] .HeaderThemeToggleContainer {
-    display: none;
-  }
+.HeaderLink[data-active="true"] a {
+  background-color: var(--accent-a9);
+  color: white;
 }

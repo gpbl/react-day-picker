@@ -7,13 +7,13 @@ _Introduction_
 
 # Upgrading
 
-> Upgrade from previous versions of DayPicker
+DayPicker follows the [Semantic Versioning](https://semver.org/) and tries to keep the API as stable as possible. However, sometimes breaking changes are necessary to improve the library, especially in its internal component and style.
 
-DayPicker follows the [Semantic Versioning](https://semver.org/) and tries to keep the API as stable as possible. However, sometimes breaking changes are necessary to improve the library. This guide will help you to upgrade from previous versions of DayPicker.
+This guide will help you to upgrade from previous versions of DayPicker.
 
 ## Upgrade to v8
 
-DayPicker v8 is a major upgrade for DayPicker with new props and styles.
+DayPicker v8 is a major upgrade for DayPicker with new props and styles. Follow the checklist for a smooth upgrade.
 
 ### Checklist
 
@@ -52,5 +52,5 @@ This version use the locale setting to calculate the week days and numbers. The 
 
 The `DayPickerInput` component has been removed. If you upgrade to v8, you will need to rewrite your implementation:
 
-- Try with [useInput](https://daypicker.dev/guides/input-fields) hook.
-- See [this example](https://daypicker.dev/guides/input-fields#example-date-picker-dialog) to build a date picker with v8 in a dialog.
+- See [Input Fields Guide](/advanced-guides/input-fields) for an example
+- Please note that [~useInput hook~](/api/latest/functions/useInput) has been deprecated since v8.10.0.

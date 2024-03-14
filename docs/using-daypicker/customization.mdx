@@ -1,0 +1,67 @@
+---
+sort: 3
+---
+
+_Using DayPicker_
+
+# Customization
+
+## Calendar Options
+
+### Multiple Months
+
+To display multiple months in the calendar, use the `numberOfMonths` prop.
+
+| Prop Name         | Type      | Description                                                            |
+| ----------------- | --------- | ---------------------------------------------------------------------- |
+| `numberOfMonths`  | `number`  | The number of displayed months. Default is `1`.                        |
+| `pagedNavigation` | `boolean` | Paginate the navigation displaying specified number of months at time. |
+| `reverseMonths`   | `boolean` | Render multiple months in reversed order.                              |
+
+### Weeks options
+
+| Prop Name           | Type       | Description                                                                                                                 |
+| ------------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `hideWeekdayRow`    | `boolean`  | Hide the row displaying the weekday names.                                                                                  |
+| `showWeekNumber`    | `boolean`  | Display the week numbers. Use `onWeekNumberClick` to handle click events.                                                   |
+| `fixedWeeks`        | `boolean`  | Display 6 weeks per months, regardless the month’s number of weeks. Setting this options will keep a fixed calendar height. |
+| `onWeekNumberClick` | `function` | Event handler when the week number is clicked                                                                               |
+
+## Months Navigation
+
+| Prop Name           | Type       | Description                                                     |
+| ------------------- | ---------- | --------------------------------------------------------------- |
+| `month`             | `Date`     | The month displayed in the calendar.                            |
+| `numberOfMonths`    | `number`   | The number of displayed months. Default is `1`.                 |
+| `defaultMonth`      |            | The initial month to show in the calendar.                      |
+| `disableNavigation` |            | Disable the navigation between months.                          |
+| `onMonthChange`     | `function` | Event callback fired when the displayed months change.          |
+| `onNextClick`       | `function` | Event callback fired when the next month button is clicked.     |
+| `onPrevClick`       | `function` | Event callback fired when the previous month button is clicked. |
+
+### Caption layouts
+
+| Prop Name       | Type                     | Description                       |
+| --------------- | ------------------------ | --------------------------------- |
+| `captionLayout` | `"dropdown" \| "select"` | Change the layout of the caption. |
+
+### Navigation between dates
+
+You can limit the dates the user can navigate to by using the `from*`, `to*` props.
+
+| Prop Name   | Type | Description                                       |
+| ----------- | ---- | ------------------------------------------------- |
+| `fromYear`  |      | The earliest year to start the month navigation.  |
+| `toYear`    |      | The earliest year to start the month navigation.  |
+| `fromMonth` |      | The earliest month to start the month navigation. |
+| `toMonth`   |      | The latest month to end the month navigation.     |
+| `fromDate`  |      | The earliest day to start the month navigation.   |
+| `toDate`    |      | The latest day to end the month navigation.       |
+
+## Internationalization
+
+## Styling
+
+```
+
+```

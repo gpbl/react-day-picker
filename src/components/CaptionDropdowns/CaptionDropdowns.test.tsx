@@ -13,7 +13,7 @@ import { user } from '../../../test/user';
 import { freezeBeforeAll } from '../../../test/utils';
 
 import { CaptionProps } from '../Caption';
-import { CustomComponents } from '../../types/DayPickerBase';
+import { CustomComponents } from '../../types/PropsBase';
 
 import { CaptionDropdowns } from './CaptionDropdowns';
 

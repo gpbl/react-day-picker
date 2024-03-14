@@ -6,7 +6,7 @@ import { MonthsDropdown } from '../MonthsDropdown';
 import { YearsDropdown } from '../YearsDropdown';
 import { useDayPicker } from '../../contexts/DayPicker';
 import { useNavigation } from '../../contexts/Navigation';
-import { MonthChangeEventHandler } from '../../types/EventHandlers';
+import { MonthChangeEventHandler } from '../../types/events';
 
 /** Render a caption with the dropdowns to navigate between months and years. */
 export function CaptionDropdowns(props: CaptionProps): JSX.Element {

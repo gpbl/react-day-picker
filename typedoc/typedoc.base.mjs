@@ -27,9 +27,10 @@ const options = {
   // expandObjects: true,
   hideBreadcrumbs: true,
   hidePageHeader: true,
-  parametersFormat: "table",
   namedAnchors: false,
   preserveAnchorCasing: false,
+
+  parametersFormat: "table",
   propertiesFormat: "table",
   enumMembersFormat: "table",
   typeDeclarationFormat: "table",

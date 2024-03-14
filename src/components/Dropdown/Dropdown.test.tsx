@@ -6,7 +6,7 @@ import { freezeBeforeAll } from '../../../test/utils';
 
 import { Dropdown, DropdownProps } from '../Dropdown';
 import { defaultClassNames } from '../../contexts/DayPicker/defaultClassNames';
-import { CustomComponents } from '../../types/DayPickerBase';
+import { CustomComponents } from '../../types/PropsBase';
 
 const today = new Date(2021, 8);
 

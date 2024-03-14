@@ -34,7 +34,14 @@
     "./style.css": {
       "default": "./src/style.css"
     },
+    "./build/style.css": {
+      "default": "./src/style.css"
+    },
     "./style.module.css": {
+      "default": "./src/style.css",
+      "types": "./src/style.d.ts"
+    },
+    "./build/style.module.css": {
       "default": "./src/style.css",
       "types": "./src/style.d.ts"
     },
