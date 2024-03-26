@@ -44,7 +44,7 @@ const mainConfig = {
       }
     }
   ],
-  external: ['react', 'date-fns', 'date-fns/locale'],
+  external: ['react', 'react/jsx-runtime', 'date-fns', 'date-fns/locale'],
   plugins: [
     nodeResolve(),
     commonjs(),
