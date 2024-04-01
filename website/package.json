@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^2.4.3",
-    "@docusaurus/theme-common": "^2.4.3",
+    "@docusaurus/theme-common": "^3.2.0",
     "@docusaurus/types": "^2.4.3",
     "@jest/types": "^29.6.3",
     "@testing-library/dom": "^9.3.3",
