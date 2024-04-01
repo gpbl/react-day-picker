@@ -17,7 +17,7 @@
     "@codesandbox/sandpack-react": "^2.10.0",
     "@codesandbox/sandpack-themes": "^2.0.21",
     "@docusaurus/core": "^2.4.3",
-    "@docusaurus/preset-classic": "^2.4.3",
+    "@docusaurus/preset-classic": "^3.2.0",
     "@docusaurus/theme-classic": "^2.4.3",
     "@mdx-js/react": "^1.6.22",
     "@popperjs/core": "^2.11.8",
