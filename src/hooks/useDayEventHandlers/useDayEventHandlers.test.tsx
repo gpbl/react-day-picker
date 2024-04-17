@@ -37,7 +37,8 @@ const tests: [EventName, DayEventName][] = [
   ['onTouchCancel', 'onDayTouchCancel'],
   ['onTouchMove', 'onDayTouchMove'],
   ['onTouchStart', 'onDayTouchStart'],
-  ['onKeyUp', 'onDayKeyUp']
+  ['onKeyUp', 'onDayKeyUp'],
+  ['onKeyDown', 'onDayKeyDown']
 ];
 
 describe.each(tests)('when calling "%s"', (eventName, dayEventName) => {
@@ -57,7 +58,7 @@ describe.each(tests)('when calling "%s"', (eventName, dayEventName) => {
     onDayKeyUp: jest.fn(),
     onDayKeyDown: jest.fn()
   };
-  const mouseEvent = {} as React.MouseEvent<HTMLButtonElement, MouseEvent>;
+  const mouseEvent = {} as React.MouseEvent<HTMLDivElement, MouseEvent>;
   const date = today;
   test(`${dayEventName} should have been called`, () => {
     const result = renderHook(date, activeModifiers, dayPickerProps);
@@ -79,7 +80,7 @@ describe.each<'single' | 'multiple' | 'range'>(['single', 'multiple', 'range'])(
       mode,
       onDayClick: mockedContexts[mode].onDayClick
     };
-    const mouseEvent = {} as React.MouseEvent<HTMLButtonElement, MouseEvent>;
+    const mouseEvent = {} as React.MouseEvent<HTMLDivElement, MouseEvent>;
     const date = today;
     test(`should have called "onDayClick" from the ${mode} context`, () => {
       const result = renderHook(date, activeModifiers, dayPickerProps);
@@ -92,7 +93,7 @@ describe.each<'single' | 'multiple' | 'range'>(['single', 'multiple', 'range'])(
 describe('when calling "onFocus"', () => {
   const date = today;
   const activeModifiers: ActiveModifiers = {};
-  const mouseEvent = {} as React.FocusEvent<HTMLButtonElement, Element>;
+  const mouseEvent = {} as React.FocusEvent<HTMLDivElement, Element>;
   test('should focus the date in the context', () => {
     const result = renderHook(date, activeModifiers);
     result.current.onFocus?.(mouseEvent);
@@ -103,7 +104,7 @@ describe('when calling "onFocus"', () => {
 describe('when calling "onBlur"', () => {
   const date = today;
   const activeModifiers: ActiveModifiers = {};
-  const mouseEvent = {} as React.FocusEvent<HTMLButtonElement, Element>;
+  const mouseEvent = {} as React.FocusEvent<HTMLDivElement, Element>;
   test('should blur the date in the context', () => {
     const result = renderHook(date, activeModifiers);
     result.current.onBlur?.(mouseEvent);
@@ -146,7 +147,7 @@ describe('when calling "onKeyDown"', () => {
           const keyboardEvent = {
             key,
             shiftKey
-          } as React.KeyboardEvent<HTMLButtonElement>;
+          } as React.KeyboardEvent<HTMLDivElement>;
           keyboardEvent.preventDefault = jest.fn();
           keyboardEvent.stopPropagation = jest.fn();
 

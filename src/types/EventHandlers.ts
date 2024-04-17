@@ -14,7 +14,7 @@ import { ActiveModifiers } from './Modifiers';
 export type DayClickEventHandler = (
   day: Date,
   activeModifiers: ActiveModifiers,
-  e: MouseEvent
+  e: MouseEvent | KeyboardEvent
 ) => void;
 
 /** The event handler when a day is focused. */
@@ -56,8 +56,8 @@ export type SelectMultipleEventHandler = (
   selectedDay: Date,
   /** The day that was clicked */
   activeModifiers: ActiveModifiers,
-  /** The mouse event that triggered this event. */
-  e: MouseEvent
+  /** The event that triggered this event. */
+  e: MouseEvent | KeyboardEvent
 ) => void;
 
 /** The event handler when selecting a range of days. */
@@ -68,7 +68,7 @@ export type SelectRangeEventHandler = (
   selectedDay: Date,
   /** The modifiers of the selected day. */
   activeModifiers: ActiveModifiers,
-  e: MouseEvent
+  e: MouseEvent | KeyboardEvent
 ) => void;
 
 /** The event handler when selecting a single day. */
@@ -79,7 +79,8 @@ export type SelectSingleEventHandler = (
   selectedDay: Date,
   /** The modifiers of the selected day. */
   activeModifiers: ActiveModifiers,
-  e: MouseEvent
+  /** The event that triggered this event. */
+  e: MouseEvent | KeyboardEvent
 ) => void;
 
 /**The event handler when the week number is clicked. */
@@ -89,7 +90,7 @@ export type WeekNumberClickEventHandler = (
   /** The dates in the clicked week. */
   dates: Date[],
   /** The mouse event that triggered this event. */
-  e: MouseEvent
+  e: MouseEvent | KeyboardEvent
 ) => void;
 
 /** The event handler when a day gets a touch event. */

@@ -16,7 +16,8 @@ export function getDayClassNames(
   dayPicker: Pick<DayPickerContextValue, 'modifiersClassNames' | 'classNames'>,
   activeModifiers: ActiveModifiers
 ) {
-  const classNames: string[] = [dayPicker.classNames.day];
+  // TODO: in the next version, day and cell classnames should be only one.
+  const classNames: string[] = [dayPicker.classNames.day, dayPicker.classNames.cell];
   Object.keys(activeModifiers).forEach((modifier) => {
     const customClassName = dayPicker.modifiersClassNames[modifier];
     if (customClassName) {

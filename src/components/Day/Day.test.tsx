@@ -19,7 +19,7 @@ const props: DayProps = {
   displayMonth
 };
 
-describe('when the day to render has an hidden modifier', () => {
+describe('when the day to render has the hidden modifier', () => {
   const dayPickerProps: DayPickerProps = {
     modifiers: { hidden: date }
   };
@@ -49,10 +49,9 @@ describe('when a selection mode is set', () => {
   beforeEach(() => {
     customRender(<Day {...props} />, dayPickerProps);
   });
-  test('should render a button named "day"', () => {
-    const cell = screen.getByRole('gridcell');
-    expect(cell.nodeName).toBe('BUTTON');
-    expect(cell).toHaveAttribute('name', 'day');
+  test('should render a gridcell', () => {
+    const gridcell = screen.getByRole('gridcell');
+    expect(gridcell).toBeInTheDocument();
   });
 });
 
@@ -63,9 +62,9 @@ describe('when "onDayClick" is present', () => {
   beforeEach(() => {
     customRender(<Day {...props} />, dayPickerProps);
   });
-  test('should render a button', () => {
-    const cell = screen.getByRole('gridcell');
-    expect(cell.nodeName).toBe('BUTTON');
+  test('should render a gridcell', () => {
+    const gridcell = screen.getByRole('gridcell');
+    expect(gridcell).toBeInTheDocument();
   });
 });
 

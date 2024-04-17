@@ -1,36 +1,28 @@
-import { RefObject, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { isSameDay } from 'date-fns';
 
-import { ButtonProps } from 'components/Button';
 import { DayContent } from 'components/DayContent';
 import { useDayPicker } from 'contexts/DayPicker';
 import { useFocusContext } from 'contexts/Focus';
 import { useActiveModifiers } from 'hooks/useActiveModifiers';
-import {
-  DayEventHandlers,
-  useDayEventHandlers
-} from 'hooks/useDayEventHandlers';
+import { useDayEventHandlers } from 'hooks/useDayEventHandlers';
 import { SelectedDays, useSelectedDays } from 'hooks/useSelectedDays';
 import { ActiveModifiers } from 'types/Modifiers';
-import { StyledComponent } from 'types/Styles';
 
 import { getDayClassNames } from './utils/getDayClassNames';
 import { getDayStyle } from './utils/getDayStyle';
 
 export type DayRender = {
-  /** Whether the day should be rendered a `button` instead of a `div` */
-  isButton: boolean;
   /** Whether the day should be hidden. */
   isHidden: boolean;
+  /** Whether the day is interactive */
+  isInteractive: boolean;
   /** The modifiers active for the given day. */
   activeModifiers: ActiveModifiers;
-  /** The props to apply to the button element (when `isButton` is true). */
-  buttonProps: StyledComponent &
-    Pick<ButtonProps, 'disabled' | 'aria-selected' | 'tabIndex'> &
-    DayEventHandlers;
-  /** The props to apply to the div element (when `isButton` is false). */
-  divProps: StyledComponent;
+  /** The props to apply to the grid cell element (when interactive) */
+  htmlAttributes: JSX.IntrinsicElements['td'];
+  /** The selected days. */
   selectedDays: SelectedDays;
 };
 
@@ -44,16 +36,15 @@ export function useDayRender(
   /** The date to render. */
   day: Date,
   /** The month where the date is displayed (if not the same as `date`, it means it is an "outside" day). */
-  displayMonth: Date,
-  /** A ref to the button element that will be target of focus when rendered (if required). */
-  buttonRef: RefObject<HTMLButtonElement>
+  displayMonth: Date
 ): DayRender {
+  const gridcellRef = useRef<HTMLTableCellElement>(null);
   const dayPicker = useDayPicker();
   const focusContext = useFocusContext();
   const activeModifiers = useActiveModifiers(day, displayMonth);
   const eventHandlers = useDayEventHandlers(day, activeModifiers);
   const selectedDays = useSelectedDays();
-  const isButton = Boolean(
+  const isInteractive = Boolean(
     dayPicker.onDayClick || dayPicker.mode !== 'default'
   );
 
@@ -61,15 +52,18 @@ export function useDayRender(
   useEffect(() => {
     if (activeModifiers.outside) return;
     if (!focusContext.focusedDay) return;
-    if (!isButton) return;
+    if (!isInteractive) return;
     if (isSameDay(focusContext.focusedDay, day)) {
-      buttonRef.current?.focus();
+      if (!gridcellRef.current) {
+        console.log('gridcellRef.current is null');
+      }
+      gridcellRef.current?.focus();
     }
   }, [
     focusContext.focusedDay,
     day,
-    buttonRef,
-    isButton,
+    gridcellRef,
+    isInteractive,
     activeModifiers.outside
   ]);
 
@@ -89,13 +83,6 @@ export function useDayRender(
     />
   );
 
-  const divProps = {
-    style,
-    className,
-    children,
-    role: 'gridcell'
-  };
-
   const isFocusTarget =
     focusContext.focusTarget &&
     isSameDay(focusContext.focusTarget, day) &&
@@ -104,22 +91,23 @@ export function useDayRender(
   const isFocused =
     focusContext.focusedDay && isSameDay(focusContext.focusedDay, day);
 
-  const buttonProps = {
-    ...divProps,
-    disabled: activeModifiers.disabled,
-    role: 'gridcell',
-    ['aria-selected']: activeModifiers.selected,
+  const htmlAttributes = {
+    ref: gridcellRef,
+    style,
+    className,
     tabIndex: isFocused || isFocusTarget ? 0 : -1,
+    ['aria-disabled']: activeModifiers.disabled,
+    ['aria-selected']: activeModifiers.selected,
+    children: isHidden ? null : children,
     ...eventHandlers
   };
 
   const dayRender: DayRender = {
-    isButton,
     isHidden,
-    activeModifiers: activeModifiers,
+    isInteractive,
+    activeModifiers,
     selectedDays,
-    buttonProps,
-    divProps
+    htmlAttributes
   };
 
   return dayRender;

@@ -47,7 +47,7 @@ export type DayEventName =
   | 'onDayTouchMove'
   | 'onDayTouchStart';
 
-export type DayEventHandlers = Pick<HTMLProps<HTMLButtonElement>, EventName>;
+export type DayEventHandlers = Pick<HTMLProps<HTMLDivElement>, EventName>;
 
 /**
  * This hook returns details about the content to render in the day cell.
@@ -145,6 +145,20 @@ export function useDayEventHandlers(
 
   const onKeyDown: KeyboardEventHandler = (e) => {
     switch (e.key) {
+      case 'Enter':
+      case ' ':
+        e.preventDefault();
+        e.stopPropagation();
+        if (isDayPickerSingle(dayPicker)) {
+          single.onDayClick?.(date, activeModifiers, e);
+        } else if (isDayPickerMultiple(dayPicker)) {
+          multiple.onDayClick?.(date, activeModifiers, e);
+        } else if (isDayPickerRange(dayPicker)) {
+          range.onDayClick?.(date, activeModifiers, e);
+        } else {
+          dayPicker.onDayClick?.(date, activeModifiers, e);
+        }
+        break;
       case 'ArrowLeft':
         e.preventDefault();
         e.stopPropagation();

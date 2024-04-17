@@ -251,10 +251,6 @@
 
 .rdp-weeknumber,
 .rdp-day {
-  display: flex;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
   box-sizing: border-box;
   width: var(--rdp-cell-size);
   max-width: var(--rdp-cell-size);

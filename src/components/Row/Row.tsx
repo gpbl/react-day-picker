@@ -36,14 +36,9 @@ export function Row(props: RowProps): JSX.Element {
     <tr className={classNames.row} style={styles.row}>
       {weekNumberCell}
       {props.dates.map((date) => (
-        <td
-          className={classNames.cell}
-          style={styles.cell}
-          key={getUnixTime(date)}
-          role="presentation"
-        >
-          <DayComponent displayMonth={props.displayMonth} date={date} />
-        </td>
+          <DayComponent 
+            key={getUnixTime(date)}
+            displayMonth={props.displayMonth} date={date} />
       ))}
     </tr>
   );
