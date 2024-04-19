@@ -36,11 +36,11 @@ export * from './types/PropsMulti';
 export * from './types/PropsRange';
 export * from './types/PropsSingle';
 export * from './types/events';
-export * from './types/Formatters';
-export * from './types/Labels';
-export * from './types/Matchers';
-export * from './types/Modifiers';
-export * from './types/Styles';
+export * from './types/formatters';
+export * from './types/labels';
+export * from './types/matchers';
+export * from './types/modifiers';
+export * from './types/styles';
 
 export * from './contexts/Modifiers/utils/isMatch';
 export * from './contexts/SelectRange/utils/addToRange';

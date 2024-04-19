@@ -1,7 +1,7 @@
 import { addDays } from 'date-fns';
 
 import { isDateInRange } from './isDateInRange';
-import { DateRange } from '../../../types/Matchers';
+import { DateRange } from '../../../types/matchers';
 
 const date = new Date();
 

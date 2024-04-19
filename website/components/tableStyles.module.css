@@ -1,4 +1,5 @@
 .Table {
+  @apply mb-8;
 }
 
 .Table tr {

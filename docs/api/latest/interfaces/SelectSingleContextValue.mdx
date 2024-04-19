@@ -1,10 +1,33 @@
+---
+pagination: false
+title: SelectSingleContextValue
+description: Interface
+---
+
 # Interface: SelectSingleContextValue
 
 Represents the value of a [SelectSingleContext](/api/latest/variables/SelectSingleContext.mdx).
 
 ## Properties
 
-| Property | Type | Description |
-| :------ | :------ | :------ |
-| `onDayClick?` | [`DayClickEventHandler`](/api/latest/type-aliases/DayClickEventHandler.mdx) | Event handler to attach to the day button to enable the single select. |
-| `selected` | `undefined` \| `Date` | The day that has been selected. |
+### onDayClick?
+
+> **`optional`** **onDayClick**: [`DayClickEventHandler`](/api/latest/type-aliases/DayClickEventHandler.mdx)
+
+Event handler to attach to the day button to enable the single select.
+
+#### Source
+
+[src/contexts/SelectSingle/SelectSingleContext.tsx:12](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/contexts/SelectSingle/SelectSingleContext.tsx#L12)
+
+***
+
+### selected
+
+> **selected**: `undefined` \| `Date`
+
+The day that has been selected.
+
+#### Source
+
+[src/contexts/SelectSingle/SelectSingleContext.tsx:10](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/contexts/SelectSingle/SelectSingleContext.tsx#L10)

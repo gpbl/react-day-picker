@@ -1,6 +1,6 @@
 import { CSSProperties } from 'react';
 
-import { Matcher } from './Matchers';
+import { Matcher } from './matchers';
 
 /**
  * A _modifier_ represents different styles or states of a day displayed in the
@@ -51,11 +51,6 @@ export type InternalModifiers = Record<InternalModifier, Matcher[]>;
 /**
  * The modifiers that are matching a day in the calendar. Use the
  * {@link useActiveModifiers} hook to get the modifiers for a day.
- *
- *     const activeModifiers: ActiveModifiers = {
- *       selected: true,
- *       customModifier: true,
- *     };
  */
 export type ActiveModifiers = Record<Modifier, true> &
   Partial<Record<InternalModifier, true>>;

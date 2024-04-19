@@ -1,5 +1,5 @@
 import { getActiveModifiers, useModifiers } from '../../contexts/Modifiers';
-import { ActiveModifiers } from '../../types/Modifiers';
+import { ActiveModifiers } from '../../types/modifiers';
 
 /**
  * Return the active modifiers for the specified day.

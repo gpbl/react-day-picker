@@ -1,0 +1,20 @@
+---
+pagination: false
+title: PropsMulti
+description: Interface
+---
+
+# Interface: PropsMulti
+
+The props for the multi selection mode.
+
+## Properties
+
+| Property | Type | Description |
+| :------ | :------ | :------ |
+| `defaultSelected?` | `Date`[] | The initially selected values when not controlled. |
+| `max?` | `number` | The maximum number of days that can be selected. |
+| `min?` | `number` | The minimum number of days that can be selected. |
+| `onSelect?` | [`SelectHandler`](/api/next/type-aliases/SelectHandler.mdx)\<`"multi"`\> | The callback called when the user selects a day. |
+| `required?` | `boolean` | Makes the selection required. |
+| `selected?` | `Date`[] | The selected dates. |

@@ -2,7 +2,7 @@ import { addMonths } from 'date-fns';
 
 import { renderDayPickerHook } from '../../../test/render';
 
-import { ActiveModifiers } from '../../types/Modifiers';
+import { ActiveModifiers } from '../../types/modifiers';
 
 import { useActiveModifiers } from './useActiveModifiers';
 

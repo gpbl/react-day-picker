@@ -22,15 +22,15 @@ import {
   MonthChangeEventHandler,
   WeekNumberClickEventHandler,
 } from './events';
-import { Formatters } from './Formatters';
-import { Labels } from './Labels';
-import { Matcher } from './Matchers';
+import { Formatters } from './formatters';
+import { Labels } from './labels';
+import { Matcher } from './matchers';
 import {
   DayModifiers,
   ModifiersClassNames,
   ModifiersStyles,
-} from './Modifiers';
-import { ClassNames, StyledComponent, Styles } from './Styles';
+} from './modifiers';
+import { ClassNames, StyledComponent, Styles } from './styles';
 
 /**
  * Selection modes supported by DayPicker.

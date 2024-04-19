@@ -9,8 +9,8 @@ import { useFocusContext } from '../../contexts/Focus';
 import { useActiveModifiers } from '../useActiveModifiers';
 import { DayEventHandlers, useDayEventHandlers } from '../useDayEventHandlers';
 import { SelectedDays, useSelectedDays } from '../useSelectedDays';
-import { ActiveModifiers } from '../../types/Modifiers';
-import { StyledComponent } from '../../types/Styles';
+import { ActiveModifiers } from '../../types/modifiers';
+import { StyledComponent } from '../../types/styles';
 
 import { getDayClassNames } from './utils/getDayClassNames';
 import { getDayStyle } from './utils/getDayStyle';

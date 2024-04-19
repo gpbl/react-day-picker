@@ -15,6 +15,8 @@ export interface DayProps {
 /**
  * The content of a day cell – as a button or span element according to its
  * modifiers.
+ *
+ * @category Custom Components
  */
 export function Day(props: DayProps): JSX.Element {
   const buttonRef = useRef<HTMLButtonElement>(null);

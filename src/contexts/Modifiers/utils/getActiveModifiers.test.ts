@@ -4,7 +4,7 @@ import {
   InternalModifier,
   InternalModifiers,
   Modifiers,
-} from '../../../types/Modifiers';
+} from '../../../types/modifiers';
 
 import { getActiveModifiers } from './getActiveModifiers';
 

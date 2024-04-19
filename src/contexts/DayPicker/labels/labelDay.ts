@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 
-import { DayLabel } from '../../../types/Labels';
+import { DayLabel } from '../../../types/labels';
 
 /** The default ARIA label for the day button. */
 export const labelDay: DayLabel = (day, activeModifiers, options): string => {

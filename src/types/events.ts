@@ -1,14 +1,8 @@
-import {
-  FocusEvent,
-  KeyboardEvent,
-  MouseEvent,
-  PointerEvent,
-  TouchEvent,
-} from 'react';
+import { MouseEvent, TouchEvent } from 'react';
 
-import { DateRange } from './Matchers';
+import { DateRange } from './matchers';
 
-import { ActiveModifiers } from './Modifiers';
+import { ActiveModifiers } from './modifiers';
 
 export type DayEventHandler<T> = (
   /** The date that has triggered the event. */

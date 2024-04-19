@@ -6,4 +6,37 @@ _Using DayPicker_
 
 # Accessibility
 
-DayPicker follows the ARIA guidelines for date pickers, including keyboard navigation, focus management, and labeling. However, as developer you will need to adapt DayPicker to your specific use cases.
+DayPicker is designed to adhere to the [ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/) for date pickers. This includes features such as keyboard navigation, focus management, and labeling.
+
+Depending on your design, you may need to add new accessibility features. For instance, when working with [Input Fields](/advanced-guides/input-fields), there could be some restrictions depending on the level of accessibility you aim to achieve. Stay updated with the best practices by following the [ARIA Patterns](https://www.w3.org/WAI/ARIA/apg/patterns/).
+
+## ARIA Labels Translation
+
+When translating the date picker to another language, it's necessary to update the ARIA labels to match the new language. Refer to [Localization](/using-daypicker/localization#aria-labels) for more information.
+
+## Keyboard Navigation
+
+| Keys                         | Function                            |
+| ---------------------------- | ----------------------------------- |
+| <Kbd>Arrow Top</Kbd>         | Move focus to the previous week     |
+| <Kbd>Arrow Right</Kbd>       | Move focus to the next day          |
+| <Kbd>Arrow Bottom</Kbd>      | Move focus to the next week         |
+| <Kbd>Arrow Left</Kbd>        | Move focus to the previous day      |
+| <Kbd>Page Up</Kbd>           | Move focus to the previous month    |
+| <Kbd>Page Down</Kbd>         | Move focus to the next month        |
+| <Kbd>Shift + Page Up</Kbd>   | Move focus to the previous year     |
+| <Kbd>Shift + Page Down</Kbd> | Move focus to the next year         |
+| <Kbd>Home</Kbd>              | Move focus to the start of the week |
+| <Kbd>End</Kbd>               | Move focus to the end of the week   |
+| <Kbd>Enter/Space</Kbd>       | Select the focused day              |
+
+<Flex my="8" justify="center">
+  <Examples.Keyboard />
+</Flex>
+
+## Reporting Issues With Accessibility
+
+Accessibility is a field that is constantly evolving. If you encounter any issues with DayPicker, please [open an issue](https://github.com/gpbl/react-day-picker/issues/new/choose) or share
+your feedback to help make the library more accessible.
+
+See also the [existing accessibility issues](https://github.com/gpbl/react-day-picker/issues?q=is%3Aopen+label%3Aaccessibility+sort%3Aupdated-desc).

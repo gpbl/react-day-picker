@@ -4,12 +4,6 @@ import { Button, Flex } from "@radix-ui/themes";
 import { addMonths, isSameMonth } from "date-fns";
 import { DayPicker } from "react-day-picker";
 
-/**
- * Programmatically control the displayed month, such as creating a "Go to
- * Today" button.
- *
- * @exampleTitle Go to Today Button
- */
 export function Controlled() {
   const today = new Date();
   const nextMonth = addMonths(new Date(), 1);

@@ -4,7 +4,7 @@ import styles from "./Details.module.css";
 
 export function Details(props: JSX.IntrinsicElements["details"]) {
   return (
-    <Box asChild className={styles.Details}>
+    <Box asChild className="m-4">
       <details {...props} />
     </Box>
   );

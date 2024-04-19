@@ -1,0 +1,117 @@
+# Index
+
+## Enumerations
+
+| Enumeration | Description |
+| :------ | :------ |
+| [UI](/api/next/enumerations/UI.mdx) | The UI elements that can be styled. |
+
+## Classes
+
+| Class | Description |
+| :------ | :------ |
+| [CalendarDay](/api/next/classes/CalendarDay.mdx) | A day displayed in a month grid. |
+| [Month](/api/next/classes/Month.mdx) | A month displayed in the month grid. Contains the weeks. |
+| [Week](/api/next/classes/Week.mdx) | A week displayed in a month grid. Contains the days. |
+
+## Interfaces
+
+| Interface | Description |
+| :------ | :------ |
+| [CalendarContext](/api/next/interfaces/CalendarContext.mdx) | Share the calendar state and navigation methods across the components. |
+| [DayGridCellProps](/api/next/interfaces/DayGridCellProps.mdx) | - |
+| [DayPickerContext](/api/next/interfaces/DayPickerContext.mdx) | The base props for the [DayPicker](/api/next/functions/DayPicker.mdx) component.<br /><br />These props are used to change the navigation, the styling and the behavior<br />of the calendar. |
+| [ModeProp](/api/next/interfaces/ModeProp.mdx) | - |
+| [ModePropsMap](/api/next/interfaces/ModePropsMap.mdx) | Map of the props supported by selection modes. |
+| [MonthCaptionProps](/api/next/interfaces/MonthCaptionProps.mdx) | - |
+| [PropsBase](/api/next/interfaces/PropsBase.mdx) | The base props for the [DayPicker](/api/next/functions/DayPicker.mdx) component.<br /><br />These props are used to change the navigation, the styling and the behavior<br />of the calendar. |
+| [PropsMulti](/api/next/interfaces/PropsMulti.mdx) | The props for the multi selection mode. |
+| [PropsRange](/api/next/interfaces/PropsRange.mdx) | The props for the range selection mode. |
+| [PropsSingle](/api/next/interfaces/PropsSingle.mdx) | The props for the single selection mode. |
+| [SelectionContext](/api/next/interfaces/SelectionContext.mdx) | Share the selected days and the selection methods across the components. |
+| [WeekRowProps](/api/next/interfaces/WeekRowProps.mdx) | - |
+
+## Type Aliases
+
+| Type alias | Description |
+| :------ | :------ |
+| [CaptionLayout](/api/next/type-aliases/CaptionLayout.mdx) | Set the layout of the caption. |
+| [ClassNames](/api/next/type-aliases/ClassNames.mdx) | - |
+| [CustomComponents](/api/next/type-aliases/CustomComponents.mdx) | The components that can be changed using the [PropsBase.components](/api/next/interfaces/PropsBase.mdx)<br />components prop. |
+| [DateAfter](/api/next/type-aliases/DateAfter.mdx) | A matcher to match a day falling after the specified date, with the date not<br />included. |
+| [DateBefore](/api/next/type-aliases/DateBefore.mdx) | A matcher to match a day falling before the specified date, with the date not<br />included.<br />`x test ` |
+| [DateInterval](/api/next/type-aliases/DateInterval.mdx) | A matcher to match a day falling before and/or after two dates, where the<br />dates are not included. |
+| [DateRange](/api/next/type-aliases/DateRange.mdx) | A matcher to match a range of dates. The range can be open. Differently from<br />`DateInterval`, the dates here are included. |
+| [DayClickEventHandler](/api/next/type-aliases/DayClickEventHandler.mdx) | The event handler when a day is clicked. |
+| [DayEventHandler](/api/next/type-aliases/DayEventHandler.mdx) | - |
+| [DayFocusEventHandler](/api/next/type-aliases/DayFocusEventHandler.mdx) | The event handler when a day is focused. |
+| [DayKeyboardEventHandler](/api/next/type-aliases/DayKeyboardEventHandler.mdx) | The event handler when a day gets a keyboard event. |
+| [DayMouseEventHandler](/api/next/type-aliases/DayMouseEventHandler.mdx) | The event handler when a day gets a mouse event. |
+| [DayOfWeek](/api/next/type-aliases/DayOfWeek.mdx) | A matcher to match a date being one of the specified days of the week (`0-7`,<br />where `0` is Sunday). |
+| [DayPickerProps](/api/next/type-aliases/DayPickerProps.mdx) | Defines the props accepted by the DayPicker component. |
+| [DayPointerEventHandler](/api/next/type-aliases/DayPointerEventHandler.mdx) | The event handler when a day gets a pointer event. |
+| [DayTouchEventHandler](/api/next/type-aliases/DayTouchEventHandler.mdx) | The event handler when a day gets a touch event. |
+| [DropdownOption](/api/next/type-aliases/DropdownOption.mdx) | An option to use in the dropdown. Maps to the `<option>` HTML element. |
+| [Formatters](/api/next/type-aliases/Formatters.mdx) | Represent a map of formatters used to render localized content. |
+| [InternalModifier](/api/next/type-aliases/InternalModifier.mdx) | The name of the modifiers that are used internally by DayPicker. |
+| [Labels](/api/next/type-aliases/Labels.mdx) | Map of functions returning ARIA labels for the relative elements. |
+| [Matcher](/api/next/type-aliases/Matcher.mdx) | A value or a function that matches a specific day. |
+| [Mode](/api/next/type-aliases/Mode.mdx) | The available selection modes.<br /><br />- `none` (default): no selection is allowed.<br />- `single`: only one day can be selected.<br />- `multi`: multiple days can be selected.<br />- `range`: a range of days can be selected. |
+| [Modifiers](/api/next/type-aliases/Modifiers.mdx) | The modifiers that are matching a day in the calendar. |
+| [ModifiersClassNames](/api/next/type-aliases/ModifiersClassNames.mdx) | The classnames to assign to each day element matching a modifier. |
+| [ModifiersMap](/api/next/type-aliases/ModifiersMap.mdx) | A map of modifiers with the days. |
+| [ModifiersStyles](/api/next/type-aliases/ModifiersStyles.mdx) | The style to apply to each day element matching a modifier. |
+| [MonthChangeEventHandler](/api/next/type-aliases/MonthChangeEventHandler.mdx) | - |
+| [SelectHandler](/api/next/type-aliases/SelectHandler.mdx) | - |
+| [Selected](/api/next/type-aliases/Selected.mdx) | The selected value when in selection mode. |
+| [Styles](/api/next/type-aliases/Styles.mdx) | - |
+| [WeekNumberClickEventHandler](/api/next/type-aliases/WeekNumberClickEventHandler.mdx) | - |
+
+## Functions
+
+| Function | Description |
+| :------ | :------ |
+| [Button](/api/next/functions/Button.mdx) | The component used to generate the button elements in the calendar. |
+| [Chevron](/api/next/functions/Chevron.mdx) | Render the chevron icon used in the navigation buttons and dropdowns. |
+| [DayGridCell](/api/next/functions/DayGridCell.mdx) | Render the gridcell of a day in the calendar. |
+| [DayPicker](/api/next/functions/DayPicker.mdx) | Render the date picker component. |
+| [DayPickerProvider](/api/next/functions/DayPickerProvider.mdx) | The provider for the `dayPickerContext`, storing the props and setting its<br />defaults. Must be the root of all the providers. |
+| [Dropdown](/api/next/functions/Dropdown.mdx) | Render a dropdown component to use in the navigation bar. |
+| [DropdownNav](/api/next/functions/DropdownNav.mdx) | Render the dropdowns to navigate between months. |
+| [Footer](/api/next/functions/Footer.mdx) | Component wrapping the footer. |
+| [MonthCaption](/api/next/functions/MonthCaption.mdx) | Render the caption of a month in the calendar. |
+| [MonthGrid](/api/next/functions/MonthGrid.mdx) | Render the grid with the weekday header row and the weeks for the given<br />month. |
+| [Months](/api/next/functions/Months.mdx) | Component wrapping the month grids. |
+| [MonthsDropdown](/api/next/functions/MonthsDropdown.mdx) | Render the dropdown to change the month. |
+| [Nav](/api/next/functions/Nav.mdx) | Render the navigation buttons to change the month. |
+| [Option](/api/next/functions/Option.mdx) | Render the `option` element. |
+| [Select](/api/next/functions/Select.mdx) | Render the `select` element. |
+| [WeekNumberRowHeader](/api/next/functions/WeekNumberRowHeader.mdx) | Render the cell with the number of the week. |
+| [WeekRow](/api/next/functions/WeekRow.mdx) | Render a row in the calendar, with the days and the week number. |
+| [WeekdayColumnHeader](/api/next/functions/WeekdayColumnHeader.mdx) | Render the column header with the weekday name (e.g. "Mo", "Tu", etc.) |
+| [WeekdaysRow](/api/next/functions/WeekdaysRow.mdx) | Render the row with the weekday names. |
+| [YearsDropdown](/api/next/functions/YearsDropdown.mdx) | Render the dropdown to change the year. |
+| [formatCaption](/api/next/functions/formatCaption.mdx) | The default formatter for the caption element. |
+| [formatDay](/api/next/functions/formatDay.mdx) | The default formatter for the day grid cell element. |
+| [formatMonthCaption](/api/next/functions/formatMonthCaption.mdx) | - |
+| [formatMonthDropdown](/api/next/functions/formatMonthDropdown.mdx) | The default formatter for the month dropdown value. |
+| [formatWeekNumber](/api/next/functions/formatWeekNumber.mdx) | The default formatter for the week numbers. |
+| [formatWeekdayName](/api/next/functions/formatWeekdayName.mdx) | The default formatter for the name of the weekday. |
+| [formatYearCaption](/api/next/functions/formatYearCaption.mdx) | - |
+| [formatYearDropdown](/api/next/functions/formatYearDropdown.mdx) | The default formatter for the Year caption. |
+| [labelDay](/api/next/functions/labelDay.mdx) | Return the default ARIA label for the day button. |
+| [labelMonthDropdown](/api/next/functions/labelMonthDropdown.mdx) | Return the default ARIA label for the WeekNumber element. |
+| [labelNext](/api/next/functions/labelNext.mdx) | Return the default ARIA label for next month button. |
+| [labelPrevious](/api/next/functions/labelPrevious.mdx) | Return the default ARIA label for next month button. |
+| [labelWeekNumber](/api/next/functions/labelWeekNumber.mdx) | Return the default ARIA label for the week number element. |
+| [labelWeekNumberHeader](/api/next/functions/labelWeekNumberHeader.mdx) | Return the default ARIA label for the week number header element. |
+| [labelWeekday](/api/next/functions/labelWeekday.mdx) | Return he default ARIA label for the Weekday element. |
+| [labelYearDropdown](/api/next/functions/labelYearDropdown.mdx) | The default ARIA label for the years dropdown. |
+| [useCalendar](/api/next/functions/useCalendar.mdx) | Use this hook to access the [CalendarContext](/api/next/interfaces/CalendarContext.mdx) from custom components. |
+| [useSelection](/api/next/functions/useSelection.mdx) | Use this hook to access the [SelectionContext](/api/next/interfaces/SelectionContext.mdx) from custom components. |
+
+## Custom Components Hooks
+
+| Function | Description |
+| :------ | :------ |
+| [useDayPicker](/api/next/functions/useDayPicker.mdx) | Use this hook to access to the DayPicker context within Custom Components. |

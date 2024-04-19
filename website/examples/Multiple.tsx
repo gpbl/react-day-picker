@@ -1,16 +1,15 @@
-import { useState } from 'react';
-
-import { DayPicker } from 'react-day-picker';
+import { addDays } from "date-fns";
+import { useState } from "react";
+import { DayPicker } from "react-day-picker";
 
 export function Multiple() {
-  const initialDays: Date[] = [];
-  const [days, setDays] = useState<Date[]>(initialDays);
-
+  const initiallySelectedDates = [new Date(), addDays(new Date(), 1)];
+  const [selectedDates, setSelectedDates] = useState(initiallySelectedDates);
   return (
     <DayPicker
-      mode="multi"
-      selected={days}
-      onSelect={(dates) => setDays(dates || [])}
+      mode="multiple"
+      selected={selectedDates}
+      onSelect={(dates) => setSelectedDates(dates || [])}
     />
   );
 }

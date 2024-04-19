@@ -1,11 +1,45 @@
+---
+pagination: false
+title: SelectMultipleContextValue
+description: Interface
+---
+
 # Interface: SelectMultipleContextValue
 
 Represents the value of a [SelectMultipleContext](/api/latest/variables/SelectMultipleContext.mdx).
 
 ## Properties
 
-| Property | Type | Description |
-| :------ | :------ | :------ |
-| `modifiers` | [`SelectMultipleModifiers`](/api/latest/type-aliases/SelectMultipleModifiers.mdx) | The modifiers for the corresponding selection. |
-| `onDayClick?` | [`DayClickEventHandler`](/api/latest/type-aliases/DayClickEventHandler.mdx) | Event handler to attach to the day button to enable the multiple select. |
-| `selected` | `undefined` \| `Date`[] | The days that have been selected. |
+### modifiers
+
+> **modifiers**: [`SelectMultipleModifiers`](/api/latest/type-aliases/SelectMultipleModifiers.mdx)
+
+The modifiers for the corresponding selection.
+
+#### Source
+
+[src/contexts/SelectMultiple/SelectMultipleContext.tsx:21](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/contexts/SelectMultiple/SelectMultipleContext.tsx#L21)
+
+***
+
+### onDayClick?
+
+> **`optional`** **onDayClick**: [`DayClickEventHandler`](/api/latest/type-aliases/DayClickEventHandler.mdx)
+
+Event handler to attach to the day button to enable the multiple select.
+
+#### Source
+
+[src/contexts/SelectMultiple/SelectMultipleContext.tsx:23](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/contexts/SelectMultiple/SelectMultipleContext.tsx#L23)
+
+***
+
+### selected
+
+> **selected**: `undefined` \| `Date`[]
+
+The days that have been selected.
+
+#### Source
+
+[src/contexts/SelectMultiple/SelectMultipleContext.tsx:19](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/contexts/SelectMultiple/SelectMultipleContext.tsx#L19)

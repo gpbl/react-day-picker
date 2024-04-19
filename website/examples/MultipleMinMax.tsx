@@ -1,16 +1,18 @@
-import { useState } from 'react';
-import { DayPicker } from 'react-day-picker';
+import { addDays } from "date-fns";
+import { useState } from "react";
+import { DayPicker } from "react-day-picker";
 
 export function MultipleMinMax() {
-  const [selected, setSelected] = useState<Date[]>();
+  const initiallySelectedDates = [new Date(), addDays(new Date(), 1)];
+  const [selected, setSelected] = useState(initiallySelectedDates);
 
   return (
     <DayPicker
-      mode="multi"
+      mode="multiple"
       min={2}
       max={5}
       selected={selected}
-      onSelect={setSelected}
+      onSelect={(dates) => setSelected(dates ?? [])}
     />
   );
 }

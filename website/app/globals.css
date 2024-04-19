@@ -10,7 +10,8 @@
 }
 
 code {
-  @apply font-mono;
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
 }
 
 @layer utilities {

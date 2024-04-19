@@ -5,7 +5,7 @@ export function TableOfContent(props: { toc: Toc }) {
   const headingId = useId();
 
   return (
-    <nav aria-labelledby={headingId}>
+    <nav aria-labelledby={headingId} className="mb-8">
       <Text asChild size="2" color="gray" className="pb-3" weight="bold">
         <h3 id={headingId}>Table of Contents</h3>
       </Text>
@@ -18,7 +18,9 @@ function TocEntry({ entry, maxDepth }: { entry: TocEntry; maxDepth?: number }) {
   return (
     <li key={entry.id} className={`my-1 ${entry.depth > 2 ? "mx-4" : ""}`}>
       <Text asChild size="1">
-        <Link href={`#${entry.id}`}>{entry.value}</Link>
+        <Link href={`#${entry.id}`} style={{ lineHeight: 0 }}>
+          {entry.value}
+        </Link>
       </Text>
       {entry.children && renderToc(entry.children, maxDepth)}
     </li>

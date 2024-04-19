@@ -1,4 +1,4 @@
-import { DayModifiers } from '../../../types/Modifiers';
+import { DayModifiers } from '../../../types/modifiers';
 import { getCustomModifiers } from './getCustomModifiers';
 
 describe('when some modifiers are not an array', () => {

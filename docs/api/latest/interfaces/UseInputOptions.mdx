@@ -1,3 +1,9 @@
+---
+pagination: false
+title: UseInputOptions
+description: Interface
+---
+
 # Interface: UseInputOptions
 
 ## Extends
@@ -6,16 +12,181 @@
 
 ## Properties
 
-| Property | Type | Description | Inherited from |
-| :------ | :------ | :------ | :------ |
-| `defaultSelected?` | `Date` | The initially selected date | - |
-| `format?` | `string` | The format string for formatting the input field. See<br />https://date-fns.org/docs/format for a list of format strings.<br /><br />**Default Value**<br />` PP ` | - |
-| `fromDate?` | `Date` | The earliest day to start the month navigation. | `Pick.fromDate` |
-| `fromMonth?` | `Date` | The earliest month to start the month navigation. | `Pick.fromMonth` |
-| `fromYear?` | `number` | The earliest year to start the month navigation. | `Pick.fromYear` |
-| `locale?` | `Locale` | The date-fns locale object used to localize dates.<br /><br />**Default Value**<br />` en-US `<br /><br />**See**<br />https://date-fns.org/docs/Locale | `Pick.locale` |
-| `required?` | `boolean` | Make the selection required. | - |
-| `toDate?` | `Date` | The latest day to end the month navigation. | `Pick.toDate` |
-| `toMonth?` | `Date` | The latest month to end the month navigation. | `Pick.toMonth` |
-| `toYear?` | `number` | The latest year to end the month navigation. | `Pick.toYear` |
-| `today?` | `Date` | The today’s date. Default is the current date. | `Pick.today` |
+### defaultSelected?
+
+> **`optional`** **defaultSelected**: `Date`
+
+The initially selected date
+
+#### Source
+
+[src/hooks/useInput/useInput.ts:53](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/hooks/useInput/useInput.ts#L53)
+
+***
+
+### format?
+
+> **`optional`** **format**: `string`
+
+The format string for formatting the input field. See
+https://date-fns.org/docs/format for a list of format strings.
+
+#### Default Value
+
+```ts
+PP
+```
+
+#### Source
+
+[src/hooks/useInput/useInput.ts:60](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/hooks/useInput/useInput.ts#L60)
+
+***
+
+### fromDate?
+
+> **`optional`** **fromDate**: `Date`
+
+The earliest day to start the month navigation.
+
+#### Inherited from
+
+`Pick.fromDate`
+
+#### Source
+
+[src/types/PropsBase.ts:113](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L113)
+
+***
+
+### fromMonth?
+
+> **`optional`** **fromMonth**: `Date`
+
+The earliest month to start the month navigation.
+
+#### Inherited from
+
+`Pick.fromMonth`
+
+#### Source
+
+[src/types/PropsBase.ts:117](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L117)
+
+***
+
+### fromYear?
+
+> **`optional`** **fromYear**: `number`
+
+The earliest year to start the month navigation.
+
+#### Inherited from
+
+`Pick.fromYear`
+
+#### Source
+
+[src/types/PropsBase.ts:121](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L121)
+
+***
+
+### locale?
+
+> **`optional`** **locale**: `Locale`
+
+The date-fns locale object used to localize dates.
+
+#### Default Value
+
+```ts
+en-US
+```
+
+#### See
+
+https://date-fns.org/docs/Locale
+
+#### Inherited from
+
+`Pick.locale`
+
+#### Source
+
+[src/types/PropsBase.ts:287](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L287)
+
+***
+
+### required?
+
+> **`optional`** **required**: `boolean`
+
+Make the selection required.
+
+#### Source
+
+[src/hooks/useInput/useInput.ts:62](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/hooks/useInput/useInput.ts#L62)
+
+***
+
+### toDate?
+
+> **`optional`** **toDate**: `Date`
+
+The latest day to end the month navigation.
+
+#### Inherited from
+
+`Pick.toDate`
+
+#### Source
+
+[src/types/PropsBase.ts:115](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L115)
+
+***
+
+### toMonth?
+
+> **`optional`** **toMonth**: `Date`
+
+The latest month to end the month navigation.
+
+#### Inherited from
+
+`Pick.toMonth`
+
+#### Source
+
+[src/types/PropsBase.ts:119](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L119)
+
+***
+
+### toYear?
+
+> **`optional`** **toYear**: `number`
+
+The latest year to end the month navigation.
+
+#### Inherited from
+
+`Pick.toYear`
+
+#### Source
+
+[src/types/PropsBase.ts:123](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L123)
+
+***
+
+### today?
+
+> **`optional`** **today**: `Date`
+
+The today’s date. Default is the current date.
+
+#### Inherited from
+
+`Pick.today`
+
+#### Source
+
+[src/types/PropsBase.ts:246](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L246)

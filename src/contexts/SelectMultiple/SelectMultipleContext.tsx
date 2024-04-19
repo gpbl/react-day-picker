@@ -5,7 +5,7 @@ import { isSameDay } from 'date-fns';
 import { PropsBase } from '../../types/PropsBase';
 import { PropsMulti, isDayPickerMultiple } from '../../types/PropsMulti';
 import { DayClickEventHandler } from '../../types/events';
-import { InternalModifier, Modifiers } from '../../types/Modifiers';
+import { InternalModifier, Modifiers } from '../../types/modifiers';
 
 /** Represent the modifiers that are changed by the multiple selection. */
 export type SelectMultipleModifiers = Pick<

@@ -7,7 +7,7 @@ import {
   DayModifiers,
   InternalModifier,
   Modifiers,
-} from '../../types/Modifiers';
+} from '../../types/modifiers';
 
 const internalModifiers = Object.values(InternalModifier);
 

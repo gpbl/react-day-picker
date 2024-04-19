@@ -1,0 +1,40 @@
+---
+sort: 40
+toc: true
+---
+
+_Introduction_
+
+# Roadmap
+
+## Current Goals
+
+### Improving accessibility
+
+For improved screen reader support, the HTML structure and ARIA attributes will be updated in v9. This is likely to break existing custom styles and unit tests.
+
+- See the [list of accessibility issues](https://github.com/gpbl/react-day-picker/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3Aaccessibility+milestone%3Av9.0.0).
+
+### Faster build
+
+In a future version we will remove the need to build DayPicker with [Rollup](https://rollupjs.org/) and use the TypeScript compiler.
+
+## v9
+
+The next major version of DayPicker is currently in development. The main goals are:
+
+- **Improved Accessibility**
+- **Easier Styling** -
+- **Improved selection modes** - e.g. fixed issues with
+- **Improved custom components**
+- **Improved TypeScript support**
+- **Better performances**
+
+### Improved Accessibility
+
+### Easier Styling
+
+Version 9 will include a new CSS architecture to make it easier to customize DayPicker styles, especially when using the popular tailwind.css framework.
+
+- The built-in CSS requires a lot of work for proper customization. As it implements many pseudo-selectors such as `:disabled` or `:focus`, the CSS cascade creates additional difficulties when targeting DayPicker element styles. Version 9 will reduce the number of pseudo-selectors and improve the use of CSS variables for an easier customization.
+- Version 9 will also improve TypeScript support for the UI elements, providing more consistent and well-documented naming for CSS classes.

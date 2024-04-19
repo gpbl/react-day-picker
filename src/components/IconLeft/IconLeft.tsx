@@ -1,4 +1,4 @@
-import { StyledComponent } from '../../types/Styles';
+import { StyledComponent } from '../../types/styles';
 
 /** Render the "previous month" button in the navigation. */
 export function IconLeft(props: StyledComponent): JSX.Element {

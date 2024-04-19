@@ -1,3 +1,9 @@
+---
+pagination: false
+title: ActiveModifiers
+description: TypeAlias
+---
+
 # Type alias: ActiveModifiers
 
 > **ActiveModifiers**: `Record`\<[`Modifier`](/api/latest/type-aliases/Modifier.mdx), `true`\> & `Partial`\<`Record`\<[`InternalModifier`](/api/latest/enumerations/InternalModifier.mdx), `true`\>\>
@@ -5,11 +11,6 @@
 The modifiers that are matching a day in the calendar. Use the
 [useActiveModifiers](/api/latest/functions/useActiveModifiers.mdx) hook to get the modifiers for a day.
 
-    const activeModifiers: ActiveModifiers = \{
-      selected: true,
-      customModifier: true,
-    \};
-
 ## Source
 
-src/types/Modifiers.ts:60
+[src/types/modifiers.ts:55](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/modifiers.ts#L55)

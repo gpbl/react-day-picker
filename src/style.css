@@ -77,10 +77,14 @@
 
 .rdp-months {
   display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  align-items: top;
+  justify-content: center;
 }
 
 .rdp-month {
-  margin: 0 1em;
+  /* margin: 0 1em; */
 }
 
 .rdp-month:first-child {
@@ -272,7 +276,7 @@
 .rdp-day_selected,
 .rdp-day_selected[type='button'],
 .rdp-day_selected:focus-visible,
-  .rdp-day_selected:focus-visible[type='button'],
+.rdp-day_selected:focus-visible[type='button'],
 .rdp-day_selected:hover {
   color: var(--rdp-selected-color);
   opacity: 1;

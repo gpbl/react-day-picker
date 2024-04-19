@@ -7,7 +7,7 @@ import {
   CustomModifiers,
   InternalModifiers,
   Modifiers,
-} from '../../types/Modifiers';
+} from '../../types/modifiers';
 
 import { getCustomModifiers } from './utils/getCustomModifiers';
 import { getInternalModifiers } from './utils/getInternalModifiers';

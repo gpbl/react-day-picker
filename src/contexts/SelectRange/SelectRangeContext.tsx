@@ -10,8 +10,8 @@ import {
 import { PropsBase } from '../../types/PropsBase';
 import { PropsRange, isDayPickerRange } from '../../types/PropsRange';
 import { DayClickEventHandler } from '../../types/events';
-import { DateRange } from '../../types/Matchers';
-import { InternalModifier, Modifiers } from '../../types/Modifiers';
+import { DateRange } from '../../types/matchers';
+import { InternalModifier, Modifiers } from '../../types/modifiers';
 
 import { addToRange } from './utils/addToRange';
 

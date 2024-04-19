@@ -48,6 +48,7 @@ export const components: MDXComponents = {
   Steps,
 
   // Radix UI components
+  Kbd,
   Text,
   Flex,
   Card,
@@ -172,7 +173,16 @@ export const components: MDXComponents = {
   h2: (props) => {
     const { children, id } = props;
     return (
-      <Heading asChild size="7" mt="6" mb="4" id={id}>
+      <Heading
+        asChild
+        size="7"
+        mt="8"
+        mb="5"
+        id={id}
+        style={{
+          scrollMarginTop: "calc(var(--header-height) + var(--space-5))",
+        }}
+      >
         <h2>{id ? <LinkHeading id={id}>{children}</LinkHeading> : children}</h2>
       </Heading>
     );
@@ -181,7 +191,16 @@ export const components: MDXComponents = {
   h3: (props) => {
     const { children, id } = props;
     return (
-      <Heading asChild size="5" mt="8" mb="3" id={id}>
+      <Heading
+        asChild
+        size="5"
+        mt="8"
+        mb="3"
+        id={id}
+        style={{
+          scrollMarginTop: "calc(var(--header-height) + var(--space-5))",
+        }}
+      >
         <h3>{id ? <LinkHeading id={id}>{children}</LinkHeading> : children}</h3>
       </Heading>
     );

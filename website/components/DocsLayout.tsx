@@ -1,7 +1,10 @@
 import { DocsStaticProps } from "@/pages/[[...slug]]";
-import { Box, Separator } from "@radix-ui/themes";
+import { Box, Link, Separator, Text } from "@radix-ui/themes";
+
+import packageJson from "../../next/package.json" assert { type: "json" };
 
 import { useSidebar } from "@/lib/sidebar";
+import { Callout } from "./Callout";
 import { DocHeader } from "./DocHeader";
 import { Pagination } from "./Pagination";
 import { Sidebar } from "./Sidebar";
@@ -58,8 +61,9 @@ export function DocsLayout(props: DocsLayoutProps) {
       <Box
         asChild
         className="
-          mx-auto mt-header max-w-article-max-w
-          p-2
+          mx-auto
+          mt-header max-w-article-max-w
+          p-4
           md:p-6
           lg:mr-toc-width
           xl:mx-auto 
@@ -68,9 +72,19 @@ export function DocsLayout(props: DocsLayoutProps) {
         style={{ minHeight: "calc(100vh - var(--header-height))" }}
       >
         <main>
+          {doc.slug.includes("api") && doc.slug.includes("next") && (
+            <Callout type="alert" title="Prerelase Version">
+              <Text size="2">
+                This API reference is for <code>v{packageJson.version}</code>, a
+                pre-release version of DayPicker. See{" "}
+                <Link href="/api/latest">/api/latest</Link> for the API
+                reference of the latest stable version.
+              </Text>
+            </Callout>
+          )}
           <DocHeader doc={doc} />
           <Separator size="4" my="8" mt="4" />
-          <article>{props.children}</article>
+          <article style={{ minHeight: "50vh" }}>{props.children}</article>
           {doc.pagination && (
             <Box>
               <Separator size="4" my="4" mt="8" />
@@ -93,7 +107,6 @@ export function DocsLayout(props: DocsLayoutProps) {
           hidden 
           w-toc-width 
           overflow-auto 
-          border-l 
           px-6 
           lg:block
           xl:right-8
@@ -104,7 +117,7 @@ export function DocsLayout(props: DocsLayoutProps) {
           borderColor: "var(--gray-a5)",
         }}
       >
-        {doc.toc && toc && toc.length > 0 && <TableOfContent toc={toc} />}
+        {doc.toc && toc && toc.length > 1 && <TableOfContent toc={toc} />}
       </Box>
     </Box>
   );

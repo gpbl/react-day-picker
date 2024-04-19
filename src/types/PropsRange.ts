@@ -3,7 +3,7 @@ import { DayPickerProps } from '../DayPicker';
 import { DayPickerContextValue } from '../contexts/DayPicker';
 
 import { SelectRangeEventHandler } from './events';
-import { DateRange } from './Matchers';
+import { DateRange } from './matchers';
 import { PropsBase } from './PropsBase';
 
 /** The props for the {@link DayPicker} component when using `mode="range"`. */

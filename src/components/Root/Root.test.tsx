@@ -8,7 +8,7 @@ import { freezeBeforeAll } from '../../../test/utils';
 
 import { MonthsProps } from '../Months';
 import { defaultClassNames } from '../../contexts/DayPicker/defaultClassNames';
-import { ClassNames } from '../../types/Styles';
+import { ClassNames } from '../../types/styles';
 
 import { Root } from './Root';
 

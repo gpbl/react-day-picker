@@ -1,7 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import { isSameDay } from 'date-fns';
-import { DateRange, DayPicker, SelectHandler } from 'react-day-picker';
+import { Callout } from "@/components/Callout";
+import { isSameDay } from "date-fns";
+import {
+  DateRange,
+  DayPicker,
+  SelectRangeEventHandler,
+} from "react-day-picker";
 
 export function RangeShiftKey() {
   const [range, setRange] = useState<DateRange>();
@@ -13,16 +18,16 @@ export function RangeShiftKey() {
       event.shiftKey ? setShiftPressed(true) : undefined;
     const handleKeyUp = () => setShiftPressed(false);
 
-    window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('keyup', handleKeyUp);
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keyup", handleKeyUp);
 
     return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('keyup', handleKeyUp);
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keyup", handleKeyUp);
     };
   }, []);
 
-  const handleSelect: SelectHandler<'range'> = (newRange, date) => {
+  const handleSelect: SelectRangeEventHandler = (newRange, date) => {
     if (!shiftPressed) {
       // If the shift key is not pressed, reset the selection
       if (range?.from && isSameDay(range.from, date)) {
@@ -35,5 +40,19 @@ export function RangeShiftKey() {
     }
   };
 
-  return <DayPicker mode="range" selected={range} onSelect={handleSelect} />;
+  return (
+    <div>
+      <Callout>
+        {!range?.from && !range?.to
+          ? "Try selecting a range of days with the shift key pressed."
+          : `From ${range?.from?.toLocaleDateString()} to ${range?.to?.toLocaleDateString() ?? "..."}`}
+      </Callout>
+      <DayPicker
+        mode="range"
+        selected={range}
+        onSelect={handleSelect}
+        numberOfMonths={2}
+      />
+    </div>
+  );
 }

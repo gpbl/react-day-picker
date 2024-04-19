@@ -13,7 +13,7 @@ import { freezeBeforeAll } from '../../../test/utils';
 
 import { isMatch } from '../../contexts/Modifiers/utils/isMatch';
 import { PropsRange } from '../../types/PropsRange';
-import { ActiveModifiers } from '../../types/Modifiers';
+import { ActiveModifiers } from '../../types/modifiers';
 
 import { SelectRangeContextValue, useSelectRange } from './SelectRangeContext';
 

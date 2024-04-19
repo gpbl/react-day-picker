@@ -1,5 +1,5 @@
 .Details {
-  margin: 10px;
+  @apply m-4;
 }
 
 .Details[open] {

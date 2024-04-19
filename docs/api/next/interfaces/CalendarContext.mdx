@@ -1,0 +1,30 @@
+---
+pagination: false
+title: CalendarContext
+description: Interface
+---
+
+# Interface: CalendarContext
+
+Share the calendar state and navigation methods across the components.
+
+## Properties
+
+| Property | Type | Description |
+| :------ | :------ | :------ |
+| `dates` | `Date`[] | All the unique dates displayed to the calendar. |
+| `days` | [`CalendarDay`](/api/next/classes/CalendarDay.mdx)[] | All the days displayed in the calendar. As opposite from<br />[CalendarContext.dates](/api/next/interfaces/CalendarContext.mdx), it may return duplicated dates when shown<br />outside the month. |
+| `dropdownOptions` | \{`months`: `undefined` \| [`DropdownOption`](/api/next/type-aliases/DropdownOption.mdx)[];`years`: `undefined` \| [`DropdownOption`](/api/next/type-aliases/DropdownOption.mdx)[]; } | The options to use in the years or months dropdowns. |
+| `dropdownOptions.months` | `undefined` \| [`DropdownOption`](/api/next/type-aliases/DropdownOption.mdx)[] | The options to use in the months dropdown. |
+| `dropdownOptions.years` | `undefined` \| [`DropdownOption`](/api/next/type-aliases/DropdownOption.mdx)[] | The options to use in the years dropdown. |
+| `firstMonth` | `Date` | The month displayed as first the calendar. When<br />[PropsBase.numberOfMonths](/api/next/interfaces/PropsBase.mdx) is greater than `1`, it is the first of the<br />displayed months. |
+| `goToDay` | (`day`: [`CalendarDay`](/api/next/classes/CalendarDay.mdx)) => `void` | Navigate to the specified date. If the second parameter (refDate) is<br />provided and the date is before the refDate, then the month is set to one<br />month before the date. |
+| `goToMonth` | (`month`: `Date`) => `void` | Navigate to the specified month. Will fire the<br />[PropsBase.onMonthChange](/api/next/interfaces/PropsBase.mdx) callback. |
+| `goToNextMonth` | () => `void` | Navigate to the next month. |
+| `goToPreviousMonth` | () => `void` | Navigate to the previous month. |
+| `isDayDisplayed` | (`day`: [`CalendarDay`](/api/next/classes/CalendarDay.mdx)) => `boolean` | Whether the given date is included in the displayed months. |
+| `lastMonth` | `Date` | The month displayed as last the calendar. When<br />[PropsBase.numberOfMonths](/api/next/interfaces/PropsBase.mdx) is greater than `1`, it is the last of the<br />displayed months. |
+| `months` | [`Month`](/api/next/classes/Month.mdx)[] | The months displayed in the calendar. |
+| `nextMonth` | `undefined` \| `Date` | The next month to display. |
+| `previousMonth` | `undefined` \| `Date` | The previous month to display. |
+| `weeks` | [`Week`](/api/next/classes/Week.mdx)[] | The months displayed in the calendar. |

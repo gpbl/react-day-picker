@@ -21,6 +21,7 @@ export type Frontmatter = {
   pagination?: boolean;
   navigationLabel?: string;
   section?: string;
+  deprecated?: boolean;
 };
 
 export type DocSectionName =
@@ -34,13 +35,14 @@ export type APISectionName = "Functions" | "Interfaces";
 export type Doc = {
   slug: string[];
   title: string;
-  navigationLabel?: string;
+  navigationLabel: string;
   description: string;
   section: string;
   toc: boolean;
   pagination: boolean;
   sort: number;
   path: string;
+  deprecated: boolean;
 };
 
 const DOCS_PATH = path.join(process.cwd(), "../docs");
@@ -62,7 +64,7 @@ const DOCS_SORTBY = [
  *     > Description
  */
 export const autoFrontmatterRegExp =
-  /(^---\n([\s\S\n]*?)---$\n\n)?(^_(.*)_$\n\n)?(^#{1} (.*)$\n\n)?(^>(.*)$)?/m;
+  /(^---\n([\s\S\n]*?)---$\n\n)?(^_(.*)_$\n\n)?(^#{1} (.*)$\n\n)?/m;
 
 export function getDocs(): Doc[] {
   const filenames = glob.sync(`${DOCS_PATH}/**/*.{md,mdx}`);
@@ -80,7 +82,6 @@ export function getDocs(): Doc[] {
 
     const section = frontmatterMatch ? frontmatterMatch[4]?.trim() : null;
     const firstHeading = frontmatterMatch ? frontmatterMatch[6]?.trim() : null;
-    const description = frontmatterMatch ? frontmatterMatch[8]?.trim() : null;
 
     const { data: frontmatter } = matter(content) as { data: Frontmatter };
 
@@ -91,11 +92,12 @@ export function getDocs(): Doc[] {
       pagination: frontmatter.pagination ?? true,
       sort: frontmatter.sort ? parseInt(frontmatter.sort) : 100,
       section: frontmatter.section ?? section ?? slug[0],
-      description: frontmatter.description ?? description ?? "",
+      description: frontmatter.description ?? "",
       title,
       navigationLabel: frontmatter.navigationLabel ?? "",
       slug,
       path: `${slug.join("/")}`.replace(/\/$/, ""),
+      deprecated: frontmatter.deprecated ?? false,
     };
     return doc;
   });

@@ -13,10 +13,10 @@ import {
   getDefaultContextValues,
 } from '../../contexts/DayPicker/defaultContextValues';
 import { Mode } from '../../types/PropsBase';
-import { Formatters } from '../../types/Formatters';
-import { Labels } from '../../types/Labels';
-import { DayModifiers, ModifiersClassNames } from '../../types/Modifiers';
-import { ClassNames, Styles } from '../../types/Styles';
+import { Formatters } from '../../types/formatters';
+import { Labels } from '../../types/labels';
+import { DayModifiers, ModifiersClassNames } from '../../types/modifiers';
+import { ClassNames, Styles } from '../../types/styles';
 
 const today = new Date(2022, 5, 13);
 const defaults = getDefaultContextValues();

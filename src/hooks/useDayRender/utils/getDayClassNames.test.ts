@@ -1,6 +1,6 @@
 import { DayPickerContextValue } from '../../../contexts/DayPicker';
 import { defaultClassNames } from '../../../contexts/DayPicker/defaultClassNames';
-import { ActiveModifiers, InternalModifier } from '../../../types/Modifiers';
+import { ActiveModifiers, InternalModifier } from '../../../types/modifiers';
 
 import { getDayClassNames } from './getDayClassNames';
 

@@ -15,7 +15,7 @@ import { useSelectSingle } from '../../contexts/SelectSingle';
 import { isDayPickerMultiple } from '../../types/PropsMulti';
 import { isDayPickerRange } from '../../types/PropsRange';
 import { isDayPickerSingle } from '../../types/PropsSingle';
-import { ActiveModifiers } from '../../types/Modifiers';
+import { ActiveModifiers } from '../../types/modifiers';
 
 export type EventName =
   | 'onClick'

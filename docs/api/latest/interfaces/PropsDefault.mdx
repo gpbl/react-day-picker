@@ -1,3 +1,9 @@
+---
+pagination: false
+title: PropsDefault
+description: Interface
+---
+
 # Interface: PropsDefault
 
 The props for the [DayPicker](/api/latest/functions/DayPicker.mdx) component when using `mode="default"` or
@@ -9,68 +15,1115 @@ The props for the [DayPicker](/api/latest/functions/DayPicker.mdx) component whe
 
 ## Properties
 
-| Property | Type | Description | Inherited from |
-| :------ | :------ | :------ | :------ |
-| `ISOWeek?` | `boolean` | Use ISO week dates instead of the locale setting.<br /><br />Setting this prop will ignore [weekStartsOn](/api/latest/interfaces/PropsBase.mdx) and<br />[firstWeekContainsDate](/api/latest/interfaces/PropsBase.mdx).<br /><br />**See**<br />https://en.wikipedia.org/wiki/ISO_week_date | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`ISOWeek` |
-| `autoFocus?` | `boolean` | Autofocus the calendar when mounted.<br /><br />Use this prop when you need to focus DayPicker after a user actions, for<br />improved accessibility.<br /><br />TODO: implement this prop.<br /><br />**Since**<br />8.11.0. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`autoFocus` |
-| `captionLayout?` | [`CaptionLayout`](/api/latest/type-aliases/CaptionLayout.mdx) | Change the layout of the caption:<br /><br />- `buttons`: display prev/right buttons.<br />- `dropdown`: display drop-downs to change the month and the year.<br /><br />**Note:** the `dropdown` layout is available only when `fromDate`,<br />`fromMonth` or`fromYear` and `toDate`, `toMonth` or `toYear` are set.<br /><br />**Default Value**<br />` buttons ` | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`captionLayout` |
-| `className?` | `string` | The CSS class to add to the container element. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`className` |
-| `classNames?` | `Partial`\<`Partial`\<[`StyledElement`](/api/latest/type-aliases/StyledElement.mdx)\<`string`\>\>\> | Change the class names used by DayPicker.<br /><br />Use this prop when you need to change the default class names — for example<br />when importing the style via CSS modules or when using a CSS framework. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`classNames` |
-| `components?` | [`CustomComponents`](/api/latest/interfaces/CustomComponents.mdx) | Change the components used for rendering the calendar elements. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`components` |
-| `defaultMonth?` | `Date` | The initial month to show in the calendar.<br /><br />Use this prop to let DayPicker control the current month. If you need to<br />set the month programmatically, use [month](/api/latest/interfaces/PropsBase.mdx) and [onMonthChange](/api/latest/interfaces/PropsBase.mdx).<br /><br />**Default Value**<br />` The current month ` | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`defaultMonth` |
-| `dir?` | `string` | The text direction of the calendar. Use `ltr` for left-to-right (default)<br />or `rtl` for right-to-left. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`dir` |
-| `disableNavigation?` | `boolean` | Disable the navigation between months.<br /><br />**Default Value**<br />` false ` | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`disableNavigation` |
-| `disabled?` | [`Matcher`](/api/latest/type-aliases/Matcher.mdx) \| [`Matcher`](/api/latest/type-aliases/Matcher.mdx)[] | Apply the `disabled` modifier to disable the matching days. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`disabled` |
-| `firstWeekContainsDate?` | `1` \| `4` | The day of January, which is always in the first week of the year. Can be<br />either Monday (`1`) or Thursday (`4`).<br /><br />**See**<br /> - https://date-fns.org/docs/getWeek<br /> - https://en.wikipedia.org/wiki/Week#Numbering<br /> | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`firstWeekContainsDate` |
-| `fixedWeeks?` | `boolean` | Display six weeks per months, regardless the month’s number of weeks. To<br />use this prop, [showOutsideDays](/api/latest/interfaces/PropsBase.mdx) must be set. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`fixedWeeks` |
-| `footer?` | `ReactNode` | Content to add to the grid as footer element. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`footer` |
-| `formatters?` | `Partial`\<[`Formatters`](/api/latest/type-aliases/Formatters.mdx)\> | A map of formatters. Use the formatters to override the default formatting<br />functions. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`formatters` |
-| `fromDate?` | `Date` | The earliest day to start the month navigation. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`fromDate` |
-| `fromMonth?` | `Date` | The earliest month to start the month navigation. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`fromMonth` |
-| `fromYear?` | `number` | The earliest year to start the month navigation. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`fromYear` |
-| `hidden?` | [`Matcher`](/api/latest/type-aliases/Matcher.mdx) \| [`Matcher`](/api/latest/type-aliases/Matcher.mdx)[] | Apply the `hidden` modifier to the matching days to hide them from the<br />calendar. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`hidden` |
-| ~~`hideHead?`~~ | `boolean` | Hide the month’s head displaying the weekday names.<br /><br />**Deprecated**<br />Use [hideWeekdayRow](/api/latest/interfaces/PropsBase.mdx) instead. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`hideHead` |
-| `hideWeekdayRow?` | `boolean` | Hide the month’s head displaying the weekday names.<br /><br />TODO: implement this prop.<br /><br />**Since**<br />8.11.0. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`hideWeekdayRow` |
-| `id?` | `string` | A unique id to replace the random generated id – used by DayPicker for<br />accessibility. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`id` |
-| ~~`initialFocus?`~~ | `boolean` | When a selection mode is set, DayPicker will focus the first selected day<br />(if set) or the today's date (if not disabled).<br /><br />**Deprecated**<br />Use the [autoFocus](/api/latest/interfaces/PropsBase.mdx) prop instead. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`initialFocus` |
-| `labels?` | `Partial`\<[`Labels`](/api/latest/type-aliases/Labels.mdx)\> | Labels creators to override the defaults. Use this prop to customize the<br />ARIA labels attributes. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`labels` |
-| `lang?` | `string` | Add the `lang` attribute to the container element. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`lang` |
-| `locale?` | `Locale` | The date-fns locale object used to localize dates.<br /><br />**Default Value**<br />` en-US `<br /><br />**See**<br />https://date-fns.org/docs/Locale | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`locale` |
-| `mode?` | `"default"` | - | - |
-| `modifiers?` | [`DayModifiers`](/api/latest/type-aliases/DayModifiers.mdx) | Map of modifiers to add to the matching days. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`modifiers` |
-| `modifiersClassNames?` | [`ModifiersClassNames`](/api/latest/type-aliases/ModifiersClassNames.mdx) | Change the class name for the day matching the [modifiers](/api/latest/interfaces/PropsBase.mdx). | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`modifiersClassNames` |
-| `modifiersStyles?` | [`ModifiersStyles`](/api/latest/type-aliases/ModifiersStyles.mdx) | Change the inline style for the day matching the [modifiers](/api/latest/interfaces/PropsBase.mdx). | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`modifiersStyles` |
-| `month?` | `Date` | The month displayed in the calendar.<br /><br />As opposed to [PropsBase.defaultMonth](/api/latest/interfaces/PropsBase.mdx), use this prop with<br />[PropsBase.onMonthChange](/api/latest/interfaces/PropsBase.mdx) to change the month programmatically. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`month` |
-| `nonce?` | `string` | A cryptographic nonce ("number used once") which can be used by Content<br />Security Policy for the inline `style` attributes. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`nonce` |
-| `numberOfMonths?` | `number` | The number of displayed months.<br /><br />**Default Value**<br />` 1 ` | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`numberOfMonths` |
-| `onDayBlur?` | [`DayFocusEventHandler`](/api/latest/type-aliases/DayFocusEventHandler.mdx) | Event callback fired when the user blurs from a day. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`onDayBlur` |
-| `onDayClick?` | [`DayClickEventHandler`](/api/latest/type-aliases/DayClickEventHandler.mdx) | Event callback fired when the user clicks on a day. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`onDayClick` |
-| `onDayFocus?` | [`DayFocusEventHandler`](/api/latest/type-aliases/DayFocusEventHandler.mdx) | Event callback fired when the user focuses on a day. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`onDayFocus` |
-| `onDayKeyDown?` | [`DayKeyboardEventHandler`](/api/latest/type-aliases/DayKeyboardEventHandler.mdx) | Event callback fired when the user presses a key on a day. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`onDayKeyDown` |
-| `onDayKeyPress?` | [`DayKeyboardEventHandler`](/api/latest/type-aliases/DayKeyboardEventHandler.mdx) | Event callback fired when the user presses a key on a day. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`onDayKeyPress` |
-| `onDayKeyUp?` | [`DayKeyboardEventHandler`](/api/latest/type-aliases/DayKeyboardEventHandler.mdx) | Event callback fired when the user presses a key on a day. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`onDayKeyUp` |
-| `onDayMouseEnter?` | [`DayMouseEventHandler`](/api/latest/type-aliases/DayMouseEventHandler.mdx) | Event callback fired when the user hovers on a day. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`onDayMouseEnter` |
-| `onDayMouseLeave?` | [`DayMouseEventHandler`](/api/latest/type-aliases/DayMouseEventHandler.mdx) | Event callback fired when the user hovers away from a day. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`onDayMouseLeave` |
-| `onDayPointerEnter?` | [`DayPointerEventHandler`](/api/latest/type-aliases/DayPointerEventHandler.mdx) | Event callback fired when the pointer enters a day. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`onDayPointerEnter` |
-| `onDayPointerLeave?` | [`DayPointerEventHandler`](/api/latest/type-aliases/DayPointerEventHandler.mdx) | Event callback fired when the pointer leaves a day. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`onDayPointerLeave` |
-| `onDayTouchCancel?` | [`DayTouchEventHandler`](/api/latest/type-aliases/DayTouchEventHandler.mdx) | Event callback when a day touch event is canceled. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`onDayTouchCancel` |
-| `onDayTouchEnd?` | [`DayTouchEventHandler`](/api/latest/type-aliases/DayTouchEventHandler.mdx) | Event callback when a day touch event ends. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`onDayTouchEnd` |
-| `onDayTouchMove?` | [`DayTouchEventHandler`](/api/latest/type-aliases/DayTouchEventHandler.mdx) | Event callback when a day touch event moves. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`onDayTouchMove` |
-| `onDayTouchStart?` | [`DayTouchEventHandler`](/api/latest/type-aliases/DayTouchEventHandler.mdx) | Event callback when a day touch event starts. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`onDayTouchStart` |
-| `onMonthChange?` | [`MonthChangeEventHandler`](/api/latest/type-aliases/MonthChangeEventHandler.mdx) | Event fired when the user navigates between months. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`onMonthChange` |
-| `onNextClick?` | [`MonthChangeEventHandler`](/api/latest/type-aliases/MonthChangeEventHandler.mdx) | Event callback fired when the next month button is clicked. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`onNextClick` |
-| `onPrevClick?` | [`MonthChangeEventHandler`](/api/latest/type-aliases/MonthChangeEventHandler.mdx) | Event callback fired when the previous month button is clicked. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`onPrevClick` |
-| `onWeekNumberClick?` | [`WeekNumberClickEventHandler`](/api/latest/type-aliases/WeekNumberClickEventHandler.mdx) | Event callback fired when the week number is clicked. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`onWeekNumberClick` |
-| `pagedNavigation?` | `boolean` | Paginate the month navigation displaying the [numberOfMonths](/api/latest/interfaces/PropsBase.mdx) at time.<br /><br />**Default Value**<br />` false ` | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`pagedNavigation` |
-| `reverseMonths?` | `boolean` | Render the months in reversed order (when [numberOfMonths](/api/latest/interfaces/PropsBase.mdx) is greater<br />than `1`) to display the most recent month first.<br /><br />**Default Value**<br />` false ` | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`reverseMonths` |
-| `selected?` | [`Matcher`](/api/latest/type-aliases/Matcher.mdx) \| [`Matcher`](/api/latest/type-aliases/Matcher.mdx)[] | Apply the `selected` modifier to display the matching days as selected. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`selected` |
-| `showOutsideDays?` | `boolean` | Show the outside days (days falling in the next or the previous month). | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`showOutsideDays` |
-| `showWeekNumber?` | `boolean` | Show the week numbers column.<br /><br />Weeks are numbered according to the local week index.<br /><br />- To use ISO week numbering, use the [ISOWeek](/api/latest/interfaces/PropsBase.mdx) prop.<br />- To change how the week numbers are displayed, use the [formatters](/api/latest/interfaces/PropsBase.mdx)<br />  prop. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`showWeekNumber` |
-| `style?` | `CSSProperties` | Style to apply to the container element. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`style` |
-| `styles?` | `Partial`\<`Partial`\<`Omit`\<[`StyledElement`](/api/latest/type-aliases/StyledElement.mdx)\<`CSSProperties`\>, [`InternalModifiersElement`](/api/latest/type-aliases/InternalModifiersElement.mdx)\>\>\> | Change the inline styles of the HTML elements. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`styles` |
-| `title?` | `string` | Add a `title` attribute to the container element. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`title` |
-| `toDate?` | `Date` | The latest day to end the month navigation. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`toDate` |
-| `toMonth?` | `Date` | The latest month to end the month navigation. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`toMonth` |
-| `toYear?` | `number` | The latest year to end the month navigation. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`toYear` |
-| `today?` | `Date` | The today’s date. Default is the current date. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`today` |
-| `weekStartsOn?` | `0` \| `1` \| `2` \| `3` \| `4` \| `5` \| `6` | The index of the first day of the week (0 - Sunday). Overrides the locale's<br />one. | [`PropsBase`](/api/latest/interfaces/PropsBase.mdx).`weekStartsOn` |
+### ISOWeek?
+
+> **`optional`** **ISOWeek**: `boolean`
+
+Use ISO week dates instead of the locale setting.
+
+Setting this prop will ignore [weekStartsOn](/api/latest/interfaces/PropsBase.mdx#weekstartson) and
+[firstWeekContainsDate](/api/latest/interfaces/PropsBase.mdx#firstweekcontainsdate).
+
+#### See
+
+https://en.wikipedia.org/wiki/ISO_week_date
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`ISOWeek`](/api/latest/interfaces/PropsBase.mdx#isoweek)
+
+#### Source
+
+[src/types/PropsBase.ts:193](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L193)
+
+***
+
+### autoFocus?
+
+> **`optional`** **autoFocus**: `boolean`
+
+Autofocus the calendar when mounted.
+
+Use this prop when you need to focus DayPicker after a user actions, for
+improved accessibility.
+
+TODO: implement this prop.
+
+#### Since
+
+8.11.0.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`autoFocus`](/api/latest/interfaces/PropsBase.mdx#autofocus)
+
+#### Source
+
+[src/types/PropsBase.ts:231](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L231)
+
+***
+
+### captionLayout?
+
+> **`optional`** **captionLayout**: [`CaptionLayout`](/api/latest/type-aliases/CaptionLayout.mdx)
+
+Change the layout of the caption:
+
+- `buttons`: display prev/right buttons.
+- `dropdown`: display drop-downs to change the month and the year.
+
+**Note:** the `dropdown` layout is available only when `fromDate`,
+`fromMonth` or`fromYear` and `toDate`, `toMonth` or `toYear` are set.
+
+#### Default Value
+
+```ts
+buttons
+```
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`captionLayout`](/api/latest/interfaces/PropsBase.mdx#captionlayout)
+
+#### Source
+
+[src/types/PropsBase.ts:151](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L151)
+
+***
+
+### className?
+
+> **`optional`** **className**: `string`
+
+The CSS class to add to the container element.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`className`](/api/latest/interfaces/PropsBase.mdx#classname)
+
+#### Source
+
+[src/types/PropsBase.ts:56](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L56)
+
+***
+
+### classNames?
+
+> **`optional`** **classNames**: `Partial`\<`Partial`\<[`StyledElement`](/api/latest/type-aliases/StyledElement.mdx)\<`string`\>\>\>
+
+Change the class names used by DayPicker.
+
+Use this prop when you need to change the default class names — for example
+when importing the style via CSS modules or when using a CSS framework.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`classNames`](/api/latest/interfaces/PropsBase.mdx#classnames)
+
+#### Source
+
+[src/types/PropsBase.ts:63](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L63)
+
+***
+
+### components?
+
+> **`optional`** **components**: [`CustomComponents`](/api/latest/interfaces/CustomComponents.mdx)
+
+Change the components used for rendering the calendar elements.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`components`](/api/latest/interfaces/PropsBase.mdx#components)
+
+#### Source
+
+[src/types/PropsBase.ts:209](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L209)
+
+***
+
+### defaultMonth?
+
+> **`optional`** **defaultMonth**: `Date`
+
+The initial month to show in the calendar.
+
+Use this prop to let DayPicker control the current month. If you need to
+set the month programmatically, use [month](/api/latest/interfaces/PropsBase.mdx#month) and [onMonthChange](/api/latest/interfaces/PropsBase.mdx#onmonthchange).
+
+#### Default Value
+
+```ts
+The current month
+```
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`defaultMonth`](/api/latest/interfaces/PropsBase.mdx#defaultmonth)
+
+#### Source
+
+[src/types/PropsBase.ts:88](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L88)
+
+***
+
+### dir?
+
+> **`optional`** **dir**: `string`
+
+The text direction of the calendar. Use `ltr` for left-to-right (default)
+or `rtl` for right-to-left.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`dir`](/api/latest/interfaces/PropsBase.mdx#dir)
+
+#### Source
+
+[src/types/PropsBase.ts:267](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L267)
+
+***
+
+### disableNavigation?
+
+> **`optional`** **disableNavigation**: `boolean`
+
+Disable the navigation between months.
+
+#### Default Value
+
+```ts
+false
+```
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`disableNavigation`](/api/latest/interfaces/PropsBase.mdx#disablenavigation)
+
+#### Source
+
+[src/types/PropsBase.ts:130](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L130)
+
+***
+
+### disabled?
+
+> **`optional`** **disabled**: [`Matcher`](/api/latest/type-aliases/Matcher.mdx) \| [`Matcher`](/api/latest/type-aliases/Matcher.mdx)[]
+
+Apply the `disabled` modifier to disable the matching days.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`disabled`](/api/latest/interfaces/PropsBase.mdx#disabled)
+
+#### Source
+
+[src/types/PropsBase.ts:234](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L234)
+
+***
+
+### firstWeekContainsDate?
+
+> **`optional`** **firstWeekContainsDate**: `1` \| `4`
+
+The day of January, which is always in the first week of the year. Can be
+either Monday (`1`) or Thursday (`4`).
+
+#### See
+
+ - https://date-fns.org/docs/getWeek
+ - https://en.wikipedia.org/wiki/Week#Numbering
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`firstWeekContainsDate`](/api/latest/interfaces/PropsBase.mdx#firstweekcontainsdate)
+
+#### Source
+
+[src/types/PropsBase.ts:206](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L206)
+
+***
+
+### fixedWeeks?
+
+> **`optional`** **fixedWeeks**: `boolean`
+
+Display six weeks per months, regardless the month’s number of weeks. To
+use this prop, [showOutsideDays](/api/latest/interfaces/PropsBase.mdx#showoutsidedays) must be set.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`fixedWeeks`](/api/latest/interfaces/PropsBase.mdx#fixedweeks)
+
+#### Source
+
+[src/types/PropsBase.ts:156](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L156)
+
+***
+
+### footer?
+
+> **`optional`** **footer**: `ReactNode`
+
+Content to add to the grid as footer element.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`footer`](/api/latest/interfaces/PropsBase.mdx#footer)
+
+#### Source
+
+[src/types/PropsBase.ts:212](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L212)
+
+***
+
+### formatters?
+
+> **`optional`** **formatters**: `Partial`\<[`Formatters`](/api/latest/type-aliases/Formatters.mdx)\>
+
+A map of formatters. Use the formatters to override the default formatting
+functions.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`formatters`](/api/latest/interfaces/PropsBase.mdx#formatters)
+
+#### Source
+
+[src/types/PropsBase.ts:261](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L261)
+
+***
+
+### fromDate?
+
+> **`optional`** **fromDate**: `Date`
+
+The earliest day to start the month navigation.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`fromDate`](/api/latest/interfaces/PropsBase.mdx#fromdate)
+
+#### Source
+
+[src/types/PropsBase.ts:113](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L113)
+
+***
+
+### fromMonth?
+
+> **`optional`** **fromMonth**: `Date`
+
+The earliest month to start the month navigation.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`fromMonth`](/api/latest/interfaces/PropsBase.mdx#frommonth)
+
+#### Source
+
+[src/types/PropsBase.ts:117](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L117)
+
+***
+
+### fromYear?
+
+> **`optional`** **fromYear**: `number`
+
+The earliest year to start the month navigation.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`fromYear`](/api/latest/interfaces/PropsBase.mdx#fromyear)
+
+#### Source
+
+[src/types/PropsBase.ts:121](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L121)
+
+***
+
+### hidden?
+
+> **`optional`** **hidden**: [`Matcher`](/api/latest/type-aliases/Matcher.mdx) \| [`Matcher`](/api/latest/type-aliases/Matcher.mdx)[]
+
+Apply the `hidden` modifier to the matching days to hide them from the
+calendar.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`hidden`](/api/latest/interfaces/PropsBase.mdx#hidden)
+
+#### Source
+
+[src/types/PropsBase.ts:240](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L240)
+
+***
+
+### ~~hideHead?~~
+
+> **`optional`** **hideHead**: `boolean`
+
+Hide the month’s head displaying the weekday names.
+
+#### Deprecated
+
+Use [hideWeekdayRow](/api/latest/interfaces/PropsBase.mdx#hideweekdayrow) instead.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`hideHead`](/api/latest/interfaces/PropsBase.mdx#hidehead)
+
+#### Source
+
+[src/types/PropsBase.ts:162](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L162)
+
+***
+
+### hideWeekdayRow?
+
+> **`optional`** **hideWeekdayRow**: `boolean`
+
+Hide the month’s head displaying the weekday names.
+
+TODO: implement this prop.
+
+#### Since
+
+8.11.0.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`hideWeekdayRow`](/api/latest/interfaces/PropsBase.mdx#hideweekdayrow)
+
+#### Source
+
+[src/types/PropsBase.ts:170](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L170)
+
+***
+
+### id?
+
+> **`optional`** **id**: `string`
+
+A unique id to replace the random generated id – used by DayPicker for
+accessibility.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`id`](/api/latest/interfaces/PropsBase.mdx#id)
+
+#### Source
+
+[src/types/PropsBase.ts:78](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L78)
+
+***
+
+### ~~initialFocus?~~
+
+> **`optional`** **initialFocus**: `boolean`
+
+When a selection mode is set, DayPicker will focus the first selected day
+(if set) or the today's date (if not disabled).
+
+#### Deprecated
+
+Use the [autoFocus](/api/latest/interfaces/PropsBase.mdx#autofocus) prop instead.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`initialFocus`](/api/latest/interfaces/PropsBase.mdx#initialfocus)
+
+#### Source
+
+[src/types/PropsBase.ts:220](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L220)
+
+***
+
+### labels?
+
+> **`optional`** **labels**: `Partial`\<[`Labels`](/api/latest/type-aliases/Labels.mdx)\>
+
+Labels creators to override the defaults. Use this prop to customize the
+ARIA labels attributes.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`labels`](/api/latest/interfaces/PropsBase.mdx#labels)
+
+#### Source
+
+[src/types/PropsBase.ts:255](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L255)
+
+***
+
+### lang?
+
+> **`optional`** **lang**: `string`
+
+Add the `lang` attribute to the container element.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`lang`](/api/latest/interfaces/PropsBase.mdx#lang)
+
+#### Source
+
+[src/types/PropsBase.ts:279](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L279)
+
+***
+
+### locale?
+
+> **`optional`** **locale**: `Locale`
+
+The date-fns locale object used to localize dates.
+
+#### Default Value
+
+```ts
+en-US
+```
+
+#### See
+
+https://date-fns.org/docs/Locale
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`locale`](/api/latest/interfaces/PropsBase.mdx#locale)
+
+#### Source
+
+[src/types/PropsBase.ts:287](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L287)
+
+***
+
+### mode?
+
+> **`optional`** **mode**: `"default"`
+
+#### Source
+
+[src/types/PropsDefault.ts:9](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsDefault.ts#L9)
+
+***
+
+### modifiers?
+
+> **`optional`** **modifiers**: [`DayModifiers`](/api/latest/type-aliases/DayModifiers.mdx)
+
+Map of modifiers to add to the matching days.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`modifiers`](/api/latest/interfaces/PropsBase.mdx#modifiers)
+
+#### Source
+
+[src/types/PropsBase.ts:249](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L249)
+
+***
+
+### modifiersClassNames?
+
+> **`optional`** **modifiersClassNames**: [`ModifiersClassNames`](/api/latest/type-aliases/ModifiersClassNames.mdx)
+
+Change the class name for the day matching the [modifiers](/api/latest/interfaces/PropsBase.mdx#modifiers).
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`modifiersClassNames`](/api/latest/interfaces/PropsBase.mdx#modifiersclassnames)
+
+#### Source
+
+[src/types/PropsBase.ts:65](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L65)
+
+***
+
+### modifiersStyles?
+
+> **`optional`** **modifiersStyles**: [`ModifiersStyles`](/api/latest/type-aliases/ModifiersStyles.mdx)
+
+Change the inline style for the day matching the [modifiers](/api/latest/interfaces/PropsBase.mdx#modifiers).
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`modifiersStyles`](/api/latest/interfaces/PropsBase.mdx#modifiersstyles)
+
+#### Source
+
+[src/types/PropsBase.ts:72](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L72)
+
+***
+
+### month?
+
+> **`optional`** **month**: `Date`
+
+The month displayed in the calendar.
+
+As opposed to [PropsBase.defaultMonth](/api/latest/interfaces/PropsBase.mdx#defaultmonth), use this prop with
+[PropsBase.onMonthChange](/api/latest/interfaces/PropsBase.mdx#onmonthchange) to change the month programmatically.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`month`](/api/latest/interfaces/PropsBase.mdx#month)
+
+#### Source
+
+[src/types/PropsBase.ts:95](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L95)
+
+***
+
+### nonce?
+
+> **`optional`** **nonce**: `string`
+
+A cryptographic nonce ("number used once") which can be used by Content
+Security Policy for the inline `style` attributes.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`nonce`](/api/latest/interfaces/PropsBase.mdx#nonce)
+
+#### Source
+
+[src/types/PropsBase.ts:273](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L273)
+
+***
+
+### numberOfMonths?
+
+> **`optional`** **numberOfMonths**: `number`
+
+The number of displayed months.
+
+#### Default Value
+
+```ts
+1
+```
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`numberOfMonths`](/api/latest/interfaces/PropsBase.mdx#numberofmonths)
+
+#### Source
+
+[src/types/PropsBase.ts:104](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L104)
+
+***
+
+### onDayBlur?
+
+> **`optional`** **onDayBlur**: [`DayFocusEventHandler`](/api/latest/type-aliases/DayFocusEventHandler.mdx)
+
+Event callback fired when the user blurs from a day.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`onDayBlur`](/api/latest/interfaces/PropsBase.mdx#ondayblur)
+
+#### Source
+
+[src/types/PropsBase.ts:303](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L303)
+
+***
+
+### onDayClick?
+
+> **`optional`** **onDayClick**: [`DayClickEventHandler`](/api/latest/type-aliases/DayClickEventHandler.mdx)
+
+Event callback fired when the user clicks on a day.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`onDayClick`](/api/latest/interfaces/PropsBase.mdx#ondayclick)
+
+#### Source
+
+[src/types/PropsBase.ts:299](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L299)
+
+***
+
+### onDayFocus?
+
+> **`optional`** **onDayFocus**: [`DayFocusEventHandler`](/api/latest/type-aliases/DayFocusEventHandler.mdx)
+
+Event callback fired when the user focuses on a day.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`onDayFocus`](/api/latest/interfaces/PropsBase.mdx#ondayfocus)
+
+#### Source
+
+[src/types/PropsBase.ts:301](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L301)
+
+***
+
+### onDayKeyDown?
+
+> **`optional`** **onDayKeyDown**: [`DayKeyboardEventHandler`](/api/latest/type-aliases/DayKeyboardEventHandler.mdx)
+
+Event callback fired when the user presses a key on a day.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`onDayKeyDown`](/api/latest/interfaces/PropsBase.mdx#ondaykeydown)
+
+#### Source
+
+[src/types/PropsBase.ts:309](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L309)
+
+***
+
+### onDayKeyPress?
+
+> **`optional`** **onDayKeyPress**: [`DayKeyboardEventHandler`](/api/latest/type-aliases/DayKeyboardEventHandler.mdx)
+
+Event callback fired when the user presses a key on a day.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`onDayKeyPress`](/api/latest/interfaces/PropsBase.mdx#ondaykeypress)
+
+#### Source
+
+[src/types/PropsBase.ts:313](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L313)
+
+***
+
+### onDayKeyUp?
+
+> **`optional`** **onDayKeyUp**: [`DayKeyboardEventHandler`](/api/latest/type-aliases/DayKeyboardEventHandler.mdx)
+
+Event callback fired when the user presses a key on a day.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`onDayKeyUp`](/api/latest/interfaces/PropsBase.mdx#ondaykeyup)
+
+#### Source
+
+[src/types/PropsBase.ts:311](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L311)
+
+***
+
+### onDayMouseEnter?
+
+> **`optional`** **onDayMouseEnter**: [`DayMouseEventHandler`](/api/latest/type-aliases/DayMouseEventHandler.mdx)
+
+Event callback fired when the user hovers on a day.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`onDayMouseEnter`](/api/latest/interfaces/PropsBase.mdx#ondaymouseenter)
+
+#### Source
+
+[src/types/PropsBase.ts:305](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L305)
+
+***
+
+### onDayMouseLeave?
+
+> **`optional`** **onDayMouseLeave**: [`DayMouseEventHandler`](/api/latest/type-aliases/DayMouseEventHandler.mdx)
+
+Event callback fired when the user hovers away from a day.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`onDayMouseLeave`](/api/latest/interfaces/PropsBase.mdx#ondaymouseleave)
+
+#### Source
+
+[src/types/PropsBase.ts:307](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L307)
+
+***
+
+### onDayPointerEnter?
+
+> **`optional`** **onDayPointerEnter**: [`DayPointerEventHandler`](/api/latest/type-aliases/DayPointerEventHandler.mdx)
+
+Event callback fired when the pointer enters a day.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`onDayPointerEnter`](/api/latest/interfaces/PropsBase.mdx#ondaypointerenter)
+
+#### Source
+
+[src/types/PropsBase.ts:315](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L315)
+
+***
+
+### onDayPointerLeave?
+
+> **`optional`** **onDayPointerLeave**: [`DayPointerEventHandler`](/api/latest/type-aliases/DayPointerEventHandler.mdx)
+
+Event callback fired when the pointer leaves a day.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`onDayPointerLeave`](/api/latest/interfaces/PropsBase.mdx#ondaypointerleave)
+
+#### Source
+
+[src/types/PropsBase.ts:317](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L317)
+
+***
+
+### onDayTouchCancel?
+
+> **`optional`** **onDayTouchCancel**: [`DayTouchEventHandler`](/api/latest/type-aliases/DayTouchEventHandler.mdx)
+
+Event callback when a day touch event is canceled.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`onDayTouchCancel`](/api/latest/interfaces/PropsBase.mdx#ondaytouchcancel)
+
+#### Source
+
+[src/types/PropsBase.ts:319](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L319)
+
+***
+
+### onDayTouchEnd?
+
+> **`optional`** **onDayTouchEnd**: [`DayTouchEventHandler`](/api/latest/type-aliases/DayTouchEventHandler.mdx)
+
+Event callback when a day touch event ends.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`onDayTouchEnd`](/api/latest/interfaces/PropsBase.mdx#ondaytouchend)
+
+#### Source
+
+[src/types/PropsBase.ts:321](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L321)
+
+***
+
+### onDayTouchMove?
+
+> **`optional`** **onDayTouchMove**: [`DayTouchEventHandler`](/api/latest/type-aliases/DayTouchEventHandler.mdx)
+
+Event callback when a day touch event moves.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`onDayTouchMove`](/api/latest/interfaces/PropsBase.mdx#ondaytouchmove)
+
+#### Source
+
+[src/types/PropsBase.ts:323](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L323)
+
+***
+
+### onDayTouchStart?
+
+> **`optional`** **onDayTouchStart**: [`DayTouchEventHandler`](/api/latest/type-aliases/DayTouchEventHandler.mdx)
+
+Event callback when a day touch event starts.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`onDayTouchStart`](/api/latest/interfaces/PropsBase.mdx#ondaytouchstart)
+
+#### Source
+
+[src/types/PropsBase.ts:325](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L325)
+
+***
+
+### onMonthChange?
+
+> **`optional`** **onMonthChange**: [`MonthChangeEventHandler`](/api/latest/type-aliases/MonthChangeEventHandler.mdx)
+
+Event fired when the user navigates between months.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`onMonthChange`](/api/latest/interfaces/PropsBase.mdx#onmonthchange)
+
+#### Source
+
+[src/types/PropsBase.ts:97](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L97)
+
+***
+
+### onNextClick?
+
+> **`optional`** **onNextClick**: [`MonthChangeEventHandler`](/api/latest/type-aliases/MonthChangeEventHandler.mdx)
+
+Event callback fired when the next month button is clicked.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`onNextClick`](/api/latest/interfaces/PropsBase.mdx#onnextclick)
+
+#### Source
+
+[src/types/PropsBase.ts:290](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L290)
+
+***
+
+### onPrevClick?
+
+> **`optional`** **onPrevClick**: [`MonthChangeEventHandler`](/api/latest/type-aliases/MonthChangeEventHandler.mdx)
+
+Event callback fired when the previous month button is clicked.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`onPrevClick`](/api/latest/interfaces/PropsBase.mdx#onprevclick)
+
+#### Source
+
+[src/types/PropsBase.ts:293](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L293)
+
+***
+
+### onWeekNumberClick?
+
+> **`optional`** **onWeekNumberClick**: [`WeekNumberClickEventHandler`](/api/latest/type-aliases/WeekNumberClickEventHandler.mdx)
+
+Event callback fired when the week number is clicked.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`onWeekNumberClick`](/api/latest/interfaces/PropsBase.mdx#onweeknumberclick)
+
+#### Source
+
+[src/types/PropsBase.ts:296](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L296)
+
+***
+
+### pagedNavigation?
+
+> **`optional`** **pagedNavigation**: `boolean`
+
+Paginate the month navigation displaying the [numberOfMonths](/api/latest/interfaces/PropsBase.mdx#numberofmonths) at time.
+
+#### Default Value
+
+```ts
+false
+```
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`pagedNavigation`](/api/latest/interfaces/PropsBase.mdx#pagednavigation)
+
+#### Source
+
+[src/types/PropsBase.ts:110](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L110)
+
+***
+
+### reverseMonths?
+
+> **`optional`** **reverseMonths**: `boolean`
+
+Render the months in reversed order (when [numberOfMonths](/api/latest/interfaces/PropsBase.mdx#numberofmonths) is greater
+than `1`) to display the most recent month first.
+
+#### Default Value
+
+```ts
+false
+```
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`reverseMonths`](/api/latest/interfaces/PropsBase.mdx#reversemonths)
+
+#### Source
+
+[src/types/PropsBase.ts:138](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L138)
+
+***
+
+### selected?
+
+> **`optional`** **selected**: [`Matcher`](/api/latest/type-aliases/Matcher.mdx) \| [`Matcher`](/api/latest/type-aliases/Matcher.mdx)[]
+
+Apply the `selected` modifier to display the matching days as selected.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`selected`](/api/latest/interfaces/PropsBase.mdx#selected)
+
+#### Source
+
+[src/types/PropsBase.ts:243](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L243)
+
+***
+
+### showOutsideDays?
+
+> **`optional`** **showOutsideDays**: `boolean`
+
+Show the outside days (days falling in the next or the previous month).
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`showOutsideDays`](/api/latest/interfaces/PropsBase.mdx#showoutsidedays)
+
+#### Source
+
+[src/types/PropsBase.ts:173](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L173)
+
+***
+
+### showWeekNumber?
+
+> **`optional`** **showWeekNumber**: `boolean`
+
+Show the week numbers column.
+
+Weeks are numbered according to the local week index.
+
+- To use ISO week numbering, use the [ISOWeek](/api/latest/interfaces/PropsBase.mdx#isoweek) prop.
+- To change how the week numbers are displayed, use the [formatters](/api/latest/interfaces/PropsBase.mdx#formatters)
+  prop.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`showWeekNumber`](/api/latest/interfaces/PropsBase.mdx#showweeknumber)
+
+#### Source
+
+[src/types/PropsBase.ts:183](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L183)
+
+***
+
+### style?
+
+> **`optional`** **style**: `CSSProperties`
+
+Style to apply to the container element.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`style`](/api/latest/interfaces/PropsBase.mdx#style)
+
+#### Source
+
+[src/types/PropsBase.ts:68](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L68)
+
+***
+
+### styles?
+
+> **`optional`** **styles**: `Partial`\<`Partial`\<`Omit`\<[`StyledElement`](/api/latest/type-aliases/StyledElement.mdx)\<`CSSProperties`\>, [`InternalModifiersElement`](/api/latest/type-aliases/InternalModifiersElement.mdx)\>\>\>
+
+Change the inline styles of the HTML elements.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`styles`](/api/latest/interfaces/PropsBase.mdx#styles)
+
+#### Source
+
+[src/types/PropsBase.ts:70](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L70)
+
+***
+
+### title?
+
+> **`optional`** **title**: `string`
+
+Add a `title` attribute to the container element.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`title`](/api/latest/interfaces/PropsBase.mdx#title)
+
+#### Source
+
+[src/types/PropsBase.ts:276](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L276)
+
+***
+
+### toDate?
+
+> **`optional`** **toDate**: `Date`
+
+The latest day to end the month navigation.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`toDate`](/api/latest/interfaces/PropsBase.mdx#todate)
+
+#### Source
+
+[src/types/PropsBase.ts:115](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L115)
+
+***
+
+### toMonth?
+
+> **`optional`** **toMonth**: `Date`
+
+The latest month to end the month navigation.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`toMonth`](/api/latest/interfaces/PropsBase.mdx#tomonth)
+
+#### Source
+
+[src/types/PropsBase.ts:119](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L119)
+
+***
+
+### toYear?
+
+> **`optional`** **toYear**: `number`
+
+The latest year to end the month navigation.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`toYear`](/api/latest/interfaces/PropsBase.mdx#toyear)
+
+#### Source
+
+[src/types/PropsBase.ts:123](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L123)
+
+***
+
+### today?
+
+> **`optional`** **today**: `Date`
+
+The today’s date. Default is the current date.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`today`](/api/latest/interfaces/PropsBase.mdx#today)
+
+#### Source
+
+[src/types/PropsBase.ts:246](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L246)
+
+***
+
+### weekStartsOn?
+
+> **`optional`** **weekStartsOn**: `0` \| `1` \| `2` \| `3` \| `4` \| `5` \| `6`
+
+The index of the first day of the week (0 - Sunday). Overrides the locale's
+one.
+
+#### Inherited from
+
+[`PropsBase`](/api/latest/interfaces/PropsBase.mdx).[`weekStartsOn`](/api/latest/interfaces/PropsBase.mdx#weekstartson)
+
+#### Source
+
+[src/types/PropsBase.ts:198](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L198)

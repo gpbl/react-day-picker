@@ -1,15 +1,126 @@
+---
+pagination: false
+title: NavigationContextValue
+description: Interface
+---
+
 # Interface: NavigationContextValue
 
 Represents the value of the [NavigationContext](/api/latest/variables/NavigationContext.mdx).
 
 ## Properties
 
-| Property | Type | Description |
-| :------ | :------ | :------ |
-| `currentMonth` | `Date` | The month to display in the calendar. When `numberOfMonths` is greater than<br />one, is the first of the displayed months. |
-| `displayMonths` | `Date`[] | The months rendered by DayPicker. DayPicker can render multiple months via<br />`numberOfMonths`. |
-| `goToDate` | (`date`: `Date`, `refDate`?: `Date`) => `void` | Navigate to the specified date. |
-| `goToMonth` | (`month`: `Date`) => `void` | Navigate to the specified month. |
-| `isDateDisplayed` | (`day`: `Date`) => `boolean` | Whether the given day is included in the displayed months. |
-| `nextMonth?` | `Date` | The next month to display. |
-| `previousMonth?` | `Date` | The previous month to display. |
+### currentMonth
+
+> **currentMonth**: `Date`
+
+The month to display in the calendar. When `numberOfMonths` is greater than
+one, is the first of the displayed months.
+
+#### Source
+
+[src/contexts/Navigation/NavigationContext.tsx:17](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/contexts/Navigation/NavigationContext.tsx#L17)
+
+***
+
+### displayMonths
+
+> **displayMonths**: `Date`[]
+
+The months rendered by DayPicker. DayPicker can render multiple months via
+`numberOfMonths`.
+
+#### Source
+
+[src/contexts/Navigation/NavigationContext.tsx:22](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/contexts/Navigation/NavigationContext.tsx#L22)
+
+***
+
+### goToDate
+
+> **goToDate**: (`date`, `refDate`?) => `void`
+
+Navigate to the specified date.
+
+#### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `date` | `Date` |
+| `refDate`? | `Date` |
+
+#### Returns
+
+`void`
+
+#### Source
+
+[src/contexts/Navigation/NavigationContext.tsx:26](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/contexts/Navigation/NavigationContext.tsx#L26)
+
+***
+
+### goToMonth
+
+> **goToMonth**: (`month`) => `void`
+
+Navigate to the specified month.
+
+#### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `month` | `Date` |
+
+#### Returns
+
+`void`
+
+#### Source
+
+[src/contexts/Navigation/NavigationContext.tsx:24](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/contexts/Navigation/NavigationContext.tsx#L24)
+
+***
+
+### isDateDisplayed
+
+> **isDateDisplayed**: (`day`) => `boolean`
+
+Whether the given day is included in the displayed months.
+
+#### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `day` | `Date` |
+
+#### Returns
+
+`boolean`
+
+#### Source
+
+[src/contexts/Navigation/NavigationContext.tsx:32](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/contexts/Navigation/NavigationContext.tsx#L32)
+
+***
+
+### nextMonth?
+
+> **`optional`** **nextMonth**: `Date`
+
+The next month to display.
+
+#### Source
+
+[src/contexts/Navigation/NavigationContext.tsx:28](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/contexts/Navigation/NavigationContext.tsx#L28)
+
+***
+
+### previousMonth?
+
+> **`optional`** **previousMonth**: `Date`
+
+The previous month to display.
+
+#### Source
+
+[src/contexts/Navigation/NavigationContext.tsx:30](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/contexts/Navigation/NavigationContext.tsx#L30)

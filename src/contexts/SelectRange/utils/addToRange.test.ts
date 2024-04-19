@@ -1,6 +1,6 @@
 import { addDays, subDays } from 'date-fns';
 
-import { DateRange } from '../../../types/Matchers';
+import { DateRange } from '../../../types/matchers';
 
 import { addToRange } from './addToRange';
 

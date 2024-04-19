@@ -1,4 +1,4 @@
-import { StyledComponent } from '../../types/Styles';
+import { StyledComponent } from '../../types/styles';
 
 /** Render the icon in the styled drop-down. */
 export function IconDropdown(props: StyledComponent): JSX.Element {

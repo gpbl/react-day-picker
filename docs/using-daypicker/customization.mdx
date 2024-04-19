@@ -1,67 +1,82 @@
 ---
 sort: 3
+description: Use the props to change the appearance of the calendar, the layout of the caption, and the number of months displayed.
 ---
 
 _Using DayPicker_
 
 # Customization
 
-## Calendar Options
+## Layout Props
 
-### Multiple Months
+| Prop Name         | Type                                                     | Description                                                      |
+| ----------------- | -------------------------------------------------------- | ---------------------------------------------------------------- |
+| `captionLayout`   | `"dropdown"` \| `"buttons"` \|<br/> `"dropdown-buttons"` | Change the layout of the caption. <br /> Default is `"buttons"`. |
+| `showOutsideDays` | `boolean`                                                | Display the days falling into the other months.                  |
+| `fixedWeeks`      | `boolean`                                                | Display 6 weeks per months.                                      |
+| `hideWeekdayRow`  | `boolean`                                                | Hide the row displaying the weekday names.                       |
+| `footer`          | `ReactNode`                                              | Displays a footer below the calendar.                            |
+
+### Caption Layout
+
+Toggling the `captionLayout` prop changes the layout of the caption. The default is `buttons`, but you can also use `dropdown` to display a dropdown with the month and year.
+
+```tsx caption="render:CaptionLayout"
+<DayPicker captionLayout="dropdown" fromYear={2010} toYear={2024} />
+```
+
+### Outside Days
+
+By default, DayPicker hides the days falling into the other months. Use `showOutsideDays` to display them.
+
+```tsx caption="render:OutsideDays"
+<DayPicker showOutsideDays />
+```
+
+### Fixed Weeks
+
+In a year, months can have between 4 an 6 weeks. Use `fixedWeeks` with `showOutsideDays` to always display 6 weeks per month. This will prevent the grid changing its height while navigating the calendar.
+
+<Callout>
+  In the current version, this prop requires `showOutsideDays` set to work. This
+  requirement will be removed in the [next major version](/next).
+</Callout>
+
+```tsx caption="render:FixedWeeks"
+<DayPicker showOutsideDays fixedWeeks />
+```
+
+## Multiple Months
 
 To display multiple months in the calendar, use the `numberOfMonths` prop.
 
-| Prop Name         | Type      | Description                                                            |
-| ----------------- | --------- | ---------------------------------------------------------------------- |
-| `numberOfMonths`  | `number`  | The number of displayed months. Default is `1`.                        |
-| `pagedNavigation` | `boolean` | Paginate the navigation displaying specified number of months at time. |
-| `reverseMonths`   | `boolean` | Render multiple months in reversed order.                              |
+| Prop Name         | Type      | Description                                     |
+| ----------------- | --------- | ----------------------------------------------- |
+| `numberOfMonths`  | `number`  | The number of displayed months. Default is `1`. |
+| `pagedNavigation` | `boolean` | Paginate the navigation.                        |
+| `reverseMonths`   | `boolean` | Render multiple months in reversed order.       |
 
-### Weeks options
-
-| Prop Name           | Type       | Description                                                                                                                 |
-| ------------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `hideWeekdayRow`    | `boolean`  | Hide the row displaying the weekday names.                                                                                  |
-| `showWeekNumber`    | `boolean`  | Display the week numbers. Use `onWeekNumberClick` to handle click events.                                                   |
-| `fixedWeeks`        | `boolean`  | Display 6 weeks per months, regardless the month’s number of weeks. Setting this options will keep a fixed calendar height. |
-| `onWeekNumberClick` | `function` | Event handler when the week number is clicked                                                                               |
-
-## Months Navigation
-
-| Prop Name           | Type       | Description                                                     |
-| ------------------- | ---------- | --------------------------------------------------------------- |
-| `month`             | `Date`     | The month displayed in the calendar.                            |
-| `numberOfMonths`    | `number`   | The number of displayed months. Default is `1`.                 |
-| `defaultMonth`      |            | The initial month to show in the calendar.                      |
-| `disableNavigation` |            | Disable the navigation between months.                          |
-| `onMonthChange`     | `function` | Event callback fired when the displayed months change.          |
-| `onNextClick`       | `function` | Event callback fired when the next month button is clicked.     |
-| `onPrevClick`       | `function` | Event callback fired when the previous month button is clicked. |
-
-### Caption layouts
-
-| Prop Name       | Type                     | Description                       |
-| --------------- | ------------------------ | --------------------------------- |
-| `captionLayout` | `"dropdown" \| "select"` | Change the layout of the caption. |
-
-### Navigation between dates
-
-You can limit the dates the user can navigate to by using the `from*`, `to*` props.
-
-| Prop Name   | Type | Description                                       |
-| ----------- | ---- | ------------------------------------------------- |
-| `fromYear`  |      | The earliest year to start the month navigation.  |
-| `toYear`    |      | The earliest year to start the month navigation.  |
-| `fromMonth` |      | The earliest month to start the month navigation. |
-| `toMonth`   |      | The latest month to end the month navigation.     |
-| `fromDate`  |      | The earliest day to start the month navigation.   |
-| `toDate`    |      | The latest day to end the month navigation.       |
-
-## Internationalization
-
-## Styling
-
+```tsx caption="render:MultipleMonths"
+<DayPicker numberOfMonths={2} />
 ```
 
+### Paged Navigation
+
+With `pagedNavigation`, the navigation jumps by the specified number of months at time.
+
+```tsx caption="render:MultipleMonthsPaged"
+<DayPicker numberOfMonths={2} pagedNavigation />
+```
+
+## Week Numbers
+
+To display the column with the week numbers, use the `showWeekNumber` prop. Use the `onWeekNumberClick` to handle the click event.
+
+| Prop Name           | Type                          | Description                                    |
+| ------------------- | ----------------------------- | ---------------------------------------------- |
+| `showWeekNumber`    | `boolean`                     | Display the week numbers.                      |
+| `onWeekNumberClick` | `WeekNumberClickEventHandler` | Event handler when the week number is clicked. |
+
+```tsx caption="render:Weeknumber"
+<DayPicker showWeekNumber onWeekNumberClick={setWeekNumber} />
 ```

@@ -8,11 +8,11 @@ import { PropsBase, Mode } from '../../types/PropsBase';
 import { PropsMulti, isDayPickerMultiple } from '../../types/PropsMulti';
 import { PropsRange, isDayPickerRange } from '../../types/PropsRange';
 import { PropsSingle, isDayPickerSingle } from '../../types/PropsSingle';
-import { Formatters } from '../../types/Formatters';
-import { Labels } from '../../types/Labels';
-import { Matcher } from '../../types/Matchers';
-import { DayModifiers, ModifiersClassNames } from '../../types/Modifiers';
-import { ClassNames, Styles } from '../../types/Styles';
+import { Formatters } from '../../types/formatters';
+import { Labels } from '../../types/labels';
+import { Matcher } from '../../types/matchers';
+import { DayModifiers, ModifiersClassNames } from '../../types/modifiers';
+import { ClassNames, Styles } from '../../types/styles';
 
 import { getDefaultContextValues } from './defaultContextValues';
 import { parseFromToProps } from './utils';

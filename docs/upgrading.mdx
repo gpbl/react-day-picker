@@ -1,15 +1,18 @@
 ---
-sort: 20
+sort: 30
 toc: true
+description: "Upgrade to the latest version of DayPicker."
 ---
 
 _Introduction_
 
 # Upgrading
 
-DayPicker follows the [Semantic Versioning](https://semver.org/) and tries to keep the API as stable as possible. However, sometimes breaking changes are necessary to improve the library, especially in its internal component and style.
-
-This guide will help you to upgrade from previous versions of DayPicker.
+<Callout title="Semantic Versioning">
+  DayPicker follows the [Semantic Versioning](https://semver.org/) and tries to
+  keep the API as stable as possible. Sometimes breaking changes are necessary
+  to improve the library, especially in its internal component.
+</Callout>
 
 ## Upgrade to v8
 
@@ -25,12 +28,12 @@ DayPicker v8 is a major upgrade for DayPicker with new props and styles. Follow 
    ```bash
    npm uninstall @types/react-day-picker
    ```
-3. **Update the CSS import**: the stylesheet has been moved to `/dist`. For example:
+3. **Update the CSS import**:
    ```diff
    - import `react-day-picker/lib/style.css`
-   + import `react-day-picker/dist/style.css`
+   + import `react-day-picker/style.css`
    ```
-4. **Update your custom styles**. See [Styling DayPicker](https://daypicker.dev/basics/styling) for more information.
+4. **Update your custom styles**. See the [Styling Guide](/using-daypicker/styling.mdx) for more information.
 5. **Update the changed props**. See the list below.
 6. **Replace `DateUtils` with date-fns**. Use [date-fns](https://date-fns.org/) instead of [DateUtils](https://react-day-picker-v7.netlify.app/api/DateUtils) to handle dates.
    - Replace `addDayToRange` with [addToRange](/api/functions/addToRange), which is still exported in v8

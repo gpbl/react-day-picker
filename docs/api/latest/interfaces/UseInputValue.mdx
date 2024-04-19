@@ -1,12 +1,71 @@
+---
+pagination: false
+title: UseInputValue
+description: Interface
+---
+
 # Interface: UseInputValue
 
 Represent the value returned by [useInput](/api/latest/functions/useInput.mdx).
 
 ## Properties
 
-| Property | Type | Description |
-| :------ | :------ | :------ |
-| `dayPickerProps` | [`InputDayPickerProps`](/api/latest/type-aliases/InputDayPickerProps.mdx) | The props to pass to a DayPicker component. |
-| `inputProps` | [`InputProps`](/api/latest/type-aliases/InputProps.mdx) | The props to pass to an input field. |
-| `reset` | () => `void` | A function to reset to the initial state. |
-| `setSelected` | (`day`: `undefined` \| `Date`) => `void` | A function to set the selected day. |
+### dayPickerProps
+
+> **dayPickerProps**: [`InputDayPickerProps`](/api/latest/type-aliases/InputDayPickerProps.mdx)
+
+The props to pass to a DayPicker component.
+
+#### Source
+
+[src/hooks/useInput/useInput.ts:68](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/hooks/useInput/useInput.ts#L68)
+
+***
+
+### inputProps
+
+> **inputProps**: [`InputProps`](/api/latest/type-aliases/InputProps.mdx)
+
+The props to pass to an input field.
+
+#### Source
+
+[src/hooks/useInput/useInput.ts:70](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/hooks/useInput/useInput.ts#L70)
+
+***
+
+### reset
+
+> **reset**: () => `void`
+
+A function to reset to the initial state.
+
+#### Returns
+
+`void`
+
+#### Source
+
+[src/hooks/useInput/useInput.ts:72](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/hooks/useInput/useInput.ts#L72)
+
+***
+
+### setSelected
+
+> **setSelected**: (`day`) => `void`
+
+A function to set the selected day.
+
+#### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `day` | `undefined` \| `Date` |
+
+#### Returns
+
+`void`
+
+#### Source
+
+[src/hooks/useInput/useInput.ts:74](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/hooks/useInput/useInput.ts#L74)

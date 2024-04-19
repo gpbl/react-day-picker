@@ -2,7 +2,7 @@ import { usePathname } from "next/navigation";
 
 import { Doc } from "@/lib/docs";
 import { useSidebar } from "@/lib/sidebar";
-import { Box, Heading, Text } from "@radix-ui/themes";
+import { Badge, Box, Heading, Text } from "@radix-ui/themes";
 
 import { SidebarLink } from "./SidebarLink";
 
@@ -12,7 +12,6 @@ export interface SidebarProps {
 
 export function Sidebar(props: SidebarProps) {
   const pathName = usePathname()?.replace(/^\//, "") ?? "";
-
   const { id } = useSidebar();
   return (
     <ul>
@@ -28,20 +27,24 @@ export function Sidebar(props: SidebarProps) {
                 </Box>
               )}
               <ul aria-labelledby={`${id}-${i}`}>
-                {props.navigation[section].map((page) => {
-                  return (
-                    <li key={page.path}>
-                      <SidebarLink
-                        href={page.path}
-                        active={pathName === page.path}
+                {props.navigation[section].map((page) => (
+                  <li key={page.path}>
+                    <SidebarLink
+                      href={page.path}
+                      active={pathName === page.path}
+                    >
+                      <Text
+                        size="2"
+                        className={page.deprecated ? "line-through" : ""}
                       >
-                        <Text size="2">
-                          {page.navigationLabel || page.title}
-                        </Text>
-                      </SidebarLink>
-                    </li>
-                  );
-                })}
+                        {page.navigationLabel || page.title}
+                      </Text>{" "}
+                      {page.deprecated && (
+                        <Badge color="amber">deprecated</Badge>
+                      )}
+                    </SidebarLink>
+                  </li>
+                ))}
               </ul>
             </li>
           </Box>

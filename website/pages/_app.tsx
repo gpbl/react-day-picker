@@ -1,9 +1,8 @@
-import "@radix-ui/themes/styles.css";
-import "react-day-picker/style.css";
-
 import "@/app/globals.css";
 import "@/app/radix-config.css";
 import "@/app/shiki.css";
+import "@radix-ui/themes/styles.css";
+import "react-day-picker/style.css";
 
 import { ThemeProvider } from "next-themes";
 

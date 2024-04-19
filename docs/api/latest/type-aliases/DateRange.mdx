@@ -1,6 +1,12 @@
+---
+pagination: false
+title: DateRange
+description: TypeAlias
+---
+
 # Type alias: DateRange
 
-> **DateRange**: `Object`
+> **DateRange**: \{`from`: `Date` \| `undefined`;`to`: `Date`;  }
 
 A matcher to match a range of dates. The range can be open. Differently from
 [DateInterval](/api/latest/type-aliases/DateInterval.mdx), the dates here are included.
@@ -14,4 +20,4 @@ A matcher to match a range of dates. The range can be open. Differently from
 
 ## Source
 
-src/types/Matchers.ts:84
+[src/types/matchers.ts:81](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/matchers.ts#L81)

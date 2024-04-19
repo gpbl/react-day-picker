@@ -1,6 +1,6 @@
 import { Locale } from 'date-fns';
 
-import { ActiveModifiers } from './Modifiers';
+import { ActiveModifiers } from './modifiers';
 
 /** Map of functions to translate ARIA labels for the relative elements. */
 export type Labels = {

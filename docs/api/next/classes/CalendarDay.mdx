@@ -1,0 +1,60 @@
+---
+pagination: false
+title: CalendarDay
+description: Class
+---
+
+# Class: CalendarDay
+
+A day displayed in a month grid.
+
+## Constructors
+
+### new CalendarDay(date, displayMonth)
+
+> **new CalendarDay**(`date`, `displayMonth`): [`CalendarDay`](/api/next/classes/CalendarDay.mdx)
+
+#### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `date` | `Date` |
+| `displayMonth` | `Date` |
+
+#### Returns
+
+[`CalendarDay`](/api/next/classes/CalendarDay.mdx)
+
+#### Source
+
+[next/src/classes/CalendarDay.ts:6](https://github.com/gpbl/react-day-picker/blob/575f9be39/next/src/classes/CalendarDay.ts#L6)
+
+## Properties
+
+| Property | Modifier | Type | Description |
+| :------ | :------ | :------ | :------ |
+| `date` | `readonly` | `Date` | The date represented by this Day. |
+| `displayMonth` | `readonly` | `Date` | The months where the date is displayed |
+| `outside` | `readonly` | `boolean` | In case of an outside day, the months where the date is displayed. |
+
+## Methods
+
+### isEqualTo()
+
+> **isEqualTo**(`day`): `boolean`
+
+Whether the day is the same as the given day.
+
+#### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `day` | [`CalendarDay`](/api/next/classes/CalendarDay.mdx) |
+
+#### Returns
+
+`boolean`
+
+#### Source
+
+[next/src/classes/CalendarDay.ts:22](https://github.com/gpbl/react-day-picker/blob/575f9be39/next/src/classes/CalendarDay.ts#L22)

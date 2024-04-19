@@ -6,7 +6,7 @@
  *   >}
  */
 const options = {
-  name: "API Reference",
+  name: "react-day-picker",
   includeVersion: true,
 
   basePath: "../",
@@ -15,7 +15,7 @@ const options = {
   plugin: [
     "typedoc-plugin-markdown",
     "typedoc-plugin-frontmatter",
-    // "./plugin/index.mjs",
+    "./plugin/index.mjs",
   ],
 
   excludePrivate: true,
@@ -24,7 +24,8 @@ const options = {
   entryFileName: "index.mdx",
   useMDXFileExt: true,
 
-  // expandObjects: true,
+  expandObjects: true, 
+  indexPageTitle: "Index",
   hideBreadcrumbs: true,
   hidePageHeader: true,
   namedAnchors: false,
@@ -35,9 +36,6 @@ const options = {
   enumMembersFormat: "table",
   typeDeclarationFormat: "table",
   indexFormat: "table",
+};
 
-  // @ts-expect-error Types are wrong
-  frontmatterGlobals: {},
-}
-
-export default options
+export default options;

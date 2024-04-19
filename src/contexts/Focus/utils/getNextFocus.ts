@@ -13,7 +13,7 @@ import {
 
 import { DayPickerContextValue } from '../../../contexts/DayPicker';
 import { getActiveModifiers } from '../../../contexts/Modifiers';
-import { Modifiers } from '../../../types/Modifiers';
+import { Modifiers } from '../../../types/modifiers';
 
 export type MoveFocusBy =
   | 'day'

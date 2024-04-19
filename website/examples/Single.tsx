@@ -1,11 +1,14 @@
-import { useState } from 'react';
-
-import { DayPicker } from 'react-day-picker';
+import { useState } from "react";
+import { DayPicker } from "react-day-picker";
 
 export function Single() {
-  const [selectedDay, setSelectedDay] = useState<Date | undefined>();
-
+  const today = new Date();
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(today);
   return (
-    <DayPicker mode="single" selected={selectedDay} onSelect={setSelectedDay} />
+    <DayPicker
+      mode="single"
+      selected={selectedDate}
+      onSelect={setSelectedDate}
+    />
   );
 }

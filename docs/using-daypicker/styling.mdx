@@ -1,10 +1,11 @@
 ---
 sort: 2
+description: "Extend and customize the style of DayPicker using CSS."
 ---
 
 _Using DayPicker_
 
-# Styling and CSS
+# Styling
 
 DayPicker comes with a minimal style inspired by MacOS date pickers, designed to be extended and customized.
 
@@ -79,9 +80,10 @@ The following table lists the CSS variables used by DayPicker:
 
 ### Light/Dark Appearance
 
-To toggle between dark and light appearance, you can switch the CSS variables using the `dark` class name.
+To toggle between dark and light appearance, you can switch the CSS variables:
 
 ```css
+[data-theme="dark"] .rdp,
 .dark .rdp {
   --rdp-accent-color: var(--rdp-accent-color-dark);
   --rdp-background-color: var(--rdp-background-color-dark);

@@ -1,23 +1,313 @@
+---
+pagination: false
+title: CustomComponents
+description: Interface
+---
+
 # Interface: CustomComponents
 
-The components that can be changed using the [PropsBase.components](/api/latest/interfaces/PropsBase.mdx)
+The components that can be changed using the [PropsBase.components](/api/latest/interfaces/PropsBase.mdx#components)
 components prop.
 
 ## Properties
 
-| Property | Type | Description |
-| :------ | :------ | :------ |
-| `Caption?` | (`props`: [`CaptionProps`](/api/latest/interfaces/CaptionProps.mdx)) => `null` \| `Element` | The component for the caption element. |
-| `CaptionLabel?` | (`props`: [`CaptionLabelProps`](/api/latest/interfaces/CaptionLabelProps.mdx)) => `null` \| `Element` | The component for the caption element. |
-| `Day?` | (`props`: [`DayProps`](/api/latest/interfaces/DayProps.mdx)) => `null` \| `Element` | The component for the day element.<br /><br />Each `Day` in DayPicker should render one of the following, according to<br />the return value of [useDayRender](/api/latest/functions/useDayRender.mdx).<br /><br />- An empty `Fragment`, to render if `isHidden` is true.<br />- A `button` element, when the day is interactive, e.g. is selectable.<br />- A `div` or a `span` element, when the day is not interactive. |
-| `DayContent?` | (`props`: [`DayContentProps`](/api/latest/interfaces/DayContentProps.mdx)) => `null` \| `Element` | The component for the content of the day element. |
-| `Dropdown?` | (`props`: [`DropdownProps`](/api/latest/interfaces/DropdownProps.mdx)) => `null` \| `Element` | The component for the drop-down elements. |
-| `Footer?` | (`props`: [`FooterProps`](/api/latest/interfaces/FooterProps.mdx)) => `null` \| `Element` | The component for the table footer. |
-| `Head?` | () => `null` \| `Element` | The component for the table’s head. |
-| `HeadRow?` | () => `null` \| `Element` | The component for the table’s head row. |
-| `IconDropdown?` | (`props`: [`StyledComponent`](/api/latest/type-aliases/StyledComponent.mdx)) => `null` \| `Element` | The component for the small icon in the drop-downs. |
-| `IconLeft?` | (`props`: [`StyledComponent`](/api/latest/type-aliases/StyledComponent.mdx)) => `null` \| `Element` | The arrow left icon (used for the Navigation buttons). |
-| `IconRight?` | (`props`: [`StyledComponent`](/api/latest/type-aliases/StyledComponent.mdx)) => `null` \| `Element` | The arrow right icon (used for the Navigation buttons). |
-| `Months?` | (`props`: [`MonthsProps`](/api/latest/type-aliases/MonthsProps.mdx)) => `null` \| `Element` | The component wrapping the month grids. |
-| `Row?` | (`props`: [`RowProps`](/api/latest/interfaces/RowProps.mdx)) => `null` \| `Element` | The component for the table rows. |
-| `WeekNumber?` | (`props`: [`WeekNumberProps`](/api/latest/interfaces/WeekNumberProps.mdx)) => `null` \| `Element` | The component for the week number in the table rows. |
+### Caption?
+
+> **`optional`** **Caption**: (`props`) => `null` \| `Element`
+
+The component for the caption element.
+
+#### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `props` | [`CaptionProps`](/api/latest/interfaces/CaptionProps.mdx) |
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+[src/types/PropsBase.ts:336](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L336)
+
+***
+
+### CaptionLabel?
+
+> **`optional`** **CaptionLabel**: (`props`) => `null` \| `Element`
+
+The component for the caption element.
+
+#### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `props` | [`CaptionLabelProps`](/api/latest/interfaces/CaptionLabelProps.mdx) |
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+[src/types/PropsBase.ts:338](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L338)
+
+***
+
+### Day?
+
+> **`optional`** **Day**: (`props`) => `null` \| `Element`
+
+The component for the day element.
+
+Each `Day` in DayPicker should render one of the following, according to
+the return value of [useDayRender](/api/latest/functions/useDayRender.mdx).
+
+- An empty `Fragment`, to render if `isHidden` is true.
+- A `button` element, when the day is interactive, e.g. is selectable.
+- A `div` or a `span` element, when the day is not interactive.
+
+#### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `props` | [`DayProps`](/api/latest/interfaces/DayProps.mdx) |
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+[src/types/PropsBase.ts:349](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L349)
+
+***
+
+### DayContent?
+
+> **`optional`** **DayContent**: (`props`) => `null` \| `Element`
+
+The component for the content of the day element.
+
+#### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `props` | [`DayContentProps`](/api/latest/interfaces/DayContentProps.mdx) |
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+[src/types/PropsBase.ts:351](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L351)
+
+***
+
+### Dropdown?
+
+> **`optional`** **Dropdown**: (`props`) => `null` \| `Element`
+
+The component for the drop-down elements.
+
+#### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `props` | [`DropdownProps`](/api/latest/interfaces/DropdownProps.mdx) |
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+[src/types/PropsBase.ts:353](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L353)
+
+***
+
+### Footer?
+
+> **`optional`** **Footer**: (`props`) => `null` \| `Element`
+
+The component for the table footer.
+
+#### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `props` | [`FooterProps`](/api/latest/interfaces/FooterProps.mdx) |
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+[src/types/PropsBase.ts:355](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L355)
+
+***
+
+### Head?
+
+> **`optional`** **Head**: () => `null` \| `Element`
+
+The component for the table’s head.
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+[src/types/PropsBase.ts:357](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L357)
+
+***
+
+### HeadRow?
+
+> **`optional`** **HeadRow**: () => `null` \| `Element`
+
+The component for the table’s head row.
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+[src/types/PropsBase.ts:359](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L359)
+
+***
+
+### IconDropdown?
+
+> **`optional`** **IconDropdown**: (`props`) => `null` \| `Element`
+
+The component for the small icon in the drop-downs.
+
+#### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `props` | [`StyledComponent`](/api/latest/type-aliases/StyledComponent.mdx) |
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+[src/types/PropsBase.ts:361](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L361)
+
+***
+
+### IconLeft?
+
+> **`optional`** **IconLeft**: (`props`) => `null` \| `Element`
+
+The arrow left icon (used for the Navigation buttons).
+
+#### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `props` | [`StyledComponent`](/api/latest/type-aliases/StyledComponent.mdx) |
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+[src/types/PropsBase.ts:365](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L365)
+
+***
+
+### IconRight?
+
+> **`optional`** **IconRight**: (`props`) => `null` \| `Element`
+
+The arrow right icon (used for the Navigation buttons).
+
+#### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `props` | [`StyledComponent`](/api/latest/type-aliases/StyledComponent.mdx) |
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+[src/types/PropsBase.ts:363](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L363)
+
+***
+
+### Months?
+
+> **`optional`** **Months**: (`props`) => `null` \| `Element`
+
+The component wrapping the month grids.
+
+#### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `props` | [`MonthsProps`](/api/latest/type-aliases/MonthsProps.mdx) |
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+[src/types/PropsBase.ts:367](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L367)
+
+***
+
+### Row?
+
+> **`optional`** **Row**: (`props`) => `null` \| `Element`
+
+The component for the table rows.
+
+#### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `props` | [`RowProps`](/api/latest/interfaces/RowProps.mdx) |
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+[src/types/PropsBase.ts:369](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L369)
+
+***
+
+### WeekNumber?
+
+> **`optional`** **WeekNumber**: (`props`) => `null` \| `Element`
+
+The component for the week number in the table rows.
+
+#### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `props` | [`WeekNumberProps`](/api/latest/interfaces/WeekNumberProps.mdx) |
+
+#### Returns
+
+`null` \| `Element`
+
+#### Source
+
+[src/types/PropsBase.ts:371](https://github.com/gpbl/react-day-picker/blob/575f9be39/src/types/PropsBase.ts#L371)

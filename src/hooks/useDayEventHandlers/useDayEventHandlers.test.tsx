@@ -9,7 +9,7 @@ import {
   EventName,
   useDayEventHandlers,
 } from '../useDayEventHandlers';
-import { ActiveModifiers } from '../../types/Modifiers';
+import { ActiveModifiers } from '../../types/modifiers';
 
 const today = new Date(2010, 5, 23);
 
