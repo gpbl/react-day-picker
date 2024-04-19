@@ -21,7 +21,7 @@
     "prepublish": "pnpm build",
     "build": "rimraf dist && rollup -c",
     "build-watch": "rollup -c -w",
-    "lint": "eslint .",
+    "lint": "eslint src --ext .ts,.tsx",
     "test": "jest",
     "test-watch": "jest --watch",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",
