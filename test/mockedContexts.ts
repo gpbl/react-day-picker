@@ -1,9 +1,7 @@
-import {
-  SelectSingleContextValue,
-  SelectMultipleContextValue,
-  SelectRangeContextValue,
-  FocusContextValue
-} from "../src";
+import { FocusContextValue } from "../src/contexts/Focus";
+import { SelectMultipleContextValue } from "../src/contexts/SelectMultiple";
+import { SelectRangeContextValue } from "../src/contexts/SelectRange";
+import { SelectSingleContextValue } from "../src/contexts/SelectSingle";
 
 const singleContext: SelectSingleContextValue = {
   selected: new Date(),

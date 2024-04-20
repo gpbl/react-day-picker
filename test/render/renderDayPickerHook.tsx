@@ -14,7 +14,7 @@ import {
   SelectSingleContext,
   SelectSingleContextValue
 } from "../../src/contexts/SelectSingle";
-import { RootProvider } from "../../src";
+import { RootProvider } from "../../src/contexts/RootProvider";
 
 /** Render a DayPicker hook inside the {@link RootProvider}. */
 export type RenderHookResult<TResult> = {
