@@ -1,4 +1,4 @@
-import { useDayRender } from 'hooks/useDayRender';
+import { useDayRender } from "../../hooks/useDayRender";
 
 /** Represent the props used by the {@link Day} component. */
 export interface DayProps {
@@ -14,5 +14,5 @@ export interface DayProps {
  */
 export function Day(props: DayProps): JSX.Element {
   const dayRender = useDayRender(props.date, props.displayMonth);
-  return <td {...dayRender.htmlAttributes}  />
+  return <td {...dayRender.htmlAttributes} />;
 }

@@ -1,23 +1,23 @@
-import { createContext, ReactNode, useContext, useState } from 'react';
+import { createContext, ReactNode, useContext, useState } from "react";
 
-import { isSameDay } from 'date-fns';
+import { isSameDay } from "date-fns";
 
-import { useDayPicker } from 'contexts/DayPicker';
+import { useDayPicker } from "../../contexts/DayPicker";
 
-import { useModifiers } from '../Modifiers';
-import { useNavigation } from '../Navigation';
-import { getInitialFocusTarget } from './utils/getInitialFocusTarget';
+import { useModifiers } from "../Modifiers";
+import { useNavigation } from "../Navigation";
+import { getInitialFocusTarget } from "./utils/getInitialFocusTarget";
 import {
   getNextFocus,
   MoveFocusBy,
   MoveFocusDirection
-} from './utils/getNextFocus';
+} from "./utils/getNextFocus";
 
 /** Represents the value of the {@link FocusContext}. */
 export type FocusContextValue = {
   /** The day currently focused. */
   focusedDay: Date | undefined;
-  /** Day that will be focused.  */
+  /** Day that will be focused. */
   focusTarget: Date | undefined;
   /** Focus a day. */
   focus: (day: Date) => void;
@@ -103,16 +103,16 @@ export function FocusProvider(props: FocusProviderProps): JSX.Element {
     focusTarget,
     blur,
     focus,
-    focusDayAfter: () => moveFocus('day', 'after'),
-    focusDayBefore: () => moveFocus('day', 'before'),
-    focusWeekAfter: () => moveFocus('week', 'after'),
-    focusWeekBefore: () => moveFocus('week', 'before'),
-    focusMonthBefore: () => moveFocus('month', 'before'),
-    focusMonthAfter: () => moveFocus('month', 'after'),
-    focusYearBefore: () => moveFocus('year', 'before'),
-    focusYearAfter: () => moveFocus('year', 'after'),
-    focusStartOfWeek: () => moveFocus('startOfWeek', 'before'),
-    focusEndOfWeek: () => moveFocus('endOfWeek', 'after')
+    focusDayAfter: () => moveFocus("day", "after"),
+    focusDayBefore: () => moveFocus("day", "before"),
+    focusWeekAfter: () => moveFocus("week", "after"),
+    focusWeekBefore: () => moveFocus("week", "before"),
+    focusMonthBefore: () => moveFocus("month", "before"),
+    focusMonthAfter: () => moveFocus("month", "after"),
+    focusYearBefore: () => moveFocus("year", "before"),
+    focusYearAfter: () => moveFocus("year", "after"),
+    focusStartOfWeek: () => moveFocus("startOfWeek", "before"),
+    focusEndOfWeek: () => moveFocus("endOfWeek", "after")
   };
 
   return (
@@ -131,7 +131,7 @@ export function FocusProvider(props: FocusProviderProps): JSX.Element {
 export function useFocusContext(): FocusContextValue {
   const context = useContext(FocusContext);
   if (!context) {
-    throw new Error('useFocusContext must be used within a FocusProvider');
+    throw new Error("useFocusContext must be used within a FocusProvider");
   }
   return context;
 }

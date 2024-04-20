@@ -1,1 +1,1 @@
-export * from './CaptionNavigation';
+export * from "./CaptionNavigation";

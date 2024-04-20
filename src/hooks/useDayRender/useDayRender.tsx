@@ -1,17 +1,17 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
-import { isSameDay } from 'date-fns';
+import { isSameDay } from "date-fns";
 
-import { DayContent } from 'components/DayContent';
-import { useDayPicker } from 'contexts/DayPicker';
-import { useFocusContext } from 'contexts/Focus';
-import { useActiveModifiers } from 'hooks/useActiveModifiers';
-import { useDayEventHandlers } from 'hooks/useDayEventHandlers';
-import { SelectedDays, useSelectedDays } from 'hooks/useSelectedDays';
-import { ActiveModifiers } from 'types/Modifiers';
+import { DayContent } from "../../components/DayContent";
+import { useDayPicker } from "../../contexts/DayPicker";
+import { useFocusContext } from "../../contexts/Focus";
+import { useActiveModifiers } from "../../hooks/useActiveModifiers";
+import { useDayEventHandlers } from "../../hooks/useDayEventHandlers";
+import { SelectedDays, useSelectedDays } from "../../hooks/useSelectedDays";
+import { ActiveModifiers } from "../../types/Modifiers";
 
-import { getDayClassNames } from './utils/getDayClassNames';
-import { getDayStyle } from './utils/getDayStyle';
+import { getDayClassNames } from "./utils/getDayClassNames";
+import { getDayStyle } from "./utils/getDayStyle";
 
 export type DayRender = {
   /** Whether the day should be hidden. */
@@ -21,7 +21,7 @@ export type DayRender = {
   /** The modifiers active for the given day. */
   activeModifiers: ActiveModifiers;
   /** The props to apply to the grid cell element (when interactive) */
-  htmlAttributes: JSX.IntrinsicElements['td'];
+  htmlAttributes: JSX.IntrinsicElements["td"];
   /** The selected days. */
   selectedDays: SelectedDays;
 };
@@ -35,7 +35,10 @@ export type DayRender = {
 export function useDayRender(
   /** The date to render. */
   day: Date,
-  /** The month where the date is displayed (if not the same as `date`, it means it is an "outside" day). */
+  /**
+   * The month where the date is displayed (if not the same as `date`, it means
+   * it is an "outside" day).
+   */
   displayMonth: Date
 ): DayRender {
   const gridcellRef = useRef<HTMLTableCellElement>(null);
@@ -45,7 +48,7 @@ export function useDayRender(
   const eventHandlers = useDayEventHandlers(day, activeModifiers);
   const selectedDays = useSelectedDays();
   const isInteractive = Boolean(
-    dayPicker.onDayClick || dayPicker.mode !== 'default'
+    dayPicker.onDayClick || dayPicker.mode !== "default"
   );
 
   // Focus the button if the day is focused according to the focus context
@@ -55,7 +58,7 @@ export function useDayRender(
     if (!isInteractive) return;
     if (isSameDay(focusContext.focusedDay, day)) {
       if (!gridcellRef.current) {
-        console.log('gridcellRef.current is null');
+        console.log("gridcellRef.current is null");
       }
       gridcellRef.current?.focus();
     }
@@ -67,7 +70,7 @@ export function useDayRender(
     activeModifiers.outside
   ]);
 
-  const className = getDayClassNames(dayPicker, activeModifiers).join(' ');
+  const className = getDayClassNames(dayPicker, activeModifiers).join(" ");
   const style = getDayStyle(dayPicker, activeModifiers);
   const isHidden = Boolean(
     (activeModifiers.outside && !dayPicker.showOutsideDays) ||
@@ -96,8 +99,8 @@ export function useDayRender(
     style,
     className,
     tabIndex: isFocused || isFocusTarget ? 0 : -1,
-    ['aria-disabled']: activeModifiers.disabled,
-    ['aria-selected']: activeModifiers.selected,
+    ["aria-disabled"]: activeModifiers.disabled,
+    ["aria-selected"]: activeModifiers.selected,
     children: isHidden ? null : children,
     ...eventHandlers
   };

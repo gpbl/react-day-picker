@@ -1,8 +1,6 @@
-import { StyledComponent } from 'types/Styles';
+import { StyledComponent } from "../../types/Styles";
 
-/**
- * Render the "next month" button in the navigation.
- */
+/** Render the "next month" button in the navigation. */
 export function IconRight(props: StyledComponent): JSX.Element {
   return (
     <svg width="16px" height="16px" viewBox="0 0 120 120" {...props}>

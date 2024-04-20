@@ -67,11 +67,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
  * server hydration and never again, SO BACK OFF ALRIGHT?
  */
 
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from "react";
 
 function canUseDOM() {
   return !!(
-    typeof window !== 'undefined' &&
+    typeof window !== "undefined" &&
     window.document &&
     window.document.createElement
   );
@@ -111,7 +111,7 @@ function genId() {
 /* eslint-disable react-hooks/rules-of-hooks */
 
 /**
- * useId
+ * UseId
  *
  * Autogenerate IDs to facilitate WAI-ARIA and server rendering.
  *

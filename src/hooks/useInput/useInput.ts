@@ -3,51 +3,51 @@ import {
   FocusEventHandler,
   InputHTMLAttributes,
   useState
-} from 'react';
+} from "react";
 
-import { differenceInCalendarDays, format as _format, parse } from 'date-fns';
-import { enUS } from 'date-fns/locale';
+import { differenceInCalendarDays, format as _format, parse } from "date-fns";
+import { enUS } from "date-fns/locale";
 
-import { parseFromToProps } from 'contexts/DayPicker/utils';
-import { DayPickerBase } from 'types/DayPickerBase';
-import { DayPickerSingleProps } from 'types/DayPickerSingle';
+import { parseFromToProps } from "../../contexts/DayPicker/utils";
+import { DayPickerBase } from "../../types/DayPickerBase";
+import { DayPickerSingleProps } from "../../types/DayPickerSingle";
 import {
   DayClickEventHandler,
   MonthChangeEventHandler
-} from 'types/EventHandlers';
+} from "../../types/EventHandlers";
 
-import { isValidDate } from './utils/isValidDate';
+import { isValidDate } from "./utils/isValidDate";
 
 /** The props to attach to the input field when using {@link useInput}. */
 export type InputProps = Pick<
   InputHTMLAttributes<HTMLInputElement>,
-  'onBlur' | 'onChange' | 'onFocus' | 'value' | 'placeholder'
+  "onBlur" | "onChange" | "onFocus" | "value" | "placeholder"
 >;
 
 /** The props to attach to the DayPicker component when using {@link useInput}. */
 export type InputDayPickerProps = Pick<
   DayPickerSingleProps,
-  | 'fromDate'
-  | 'toDate'
-  | 'locale'
-  | 'month'
-  | 'onDayClick'
-  | 'onMonthChange'
-  | 'selected'
-  | 'today'
+  | "fromDate"
+  | "toDate"
+  | "locale"
+  | "month"
+  | "onDayClick"
+  | "onMonthChange"
+  | "selected"
+  | "today"
 >;
 
 export interface UseInputOptions
   extends Pick<
     DayPickerBase,
-    | 'locale'
-    | 'fromDate'
-    | 'toDate'
-    | 'fromMonth'
-    | 'toMonth'
-    | 'fromYear'
-    | 'toYear'
-    | 'today'
+    | "locale"
+    | "fromDate"
+    | "toDate"
+    | "fromMonth"
+    | "toMonth"
+    | "fromYear"
+    | "toYear"
+    | "today"
   > {
   /** The initially selected date */
   defaultSelected?: Date;
@@ -79,7 +79,7 @@ export function useInput(options: UseInputOptions = {}): UseInputValue {
   const {
     locale = enUS,
     required,
-    format = 'PP',
+    format = "PP",
     defaultSelected,
     today = new Date()
   } = options;
@@ -93,29 +93,29 @@ export function useInput(options: UseInputOptions = {}): UseInputValue {
   const [selectedDay, setSelectedDay] = useState(defaultSelected);
   const defaultInputValue = defaultSelected
     ? _format(defaultSelected, format, { locale })
-    : '';
+    : "";
   const [inputValue, setInputValue] = useState(defaultInputValue);
 
   const reset = () => {
     setSelectedDay(defaultSelected);
     setMonth(defaultSelected ?? today);
-    setInputValue(defaultInputValue ?? '');
+    setInputValue(defaultInputValue ?? "");
   };
 
   const setSelected = (date: Date | undefined) => {
     setSelectedDay(date);
     setMonth(date ?? today);
-    setInputValue(date ? _format(date, format, { locale }) : '');
+    setInputValue(date ? _format(date, format, { locale }) : "");
   };
 
   const handleDayClick: DayClickEventHandler = (day, { selected }) => {
     if (!required && selected) {
       setSelectedDay(undefined);
-      setInputValue('');
+      setInputValue("");
       return;
     }
     setSelectedDay(day);
-    setInputValue(day ? _format(day, format, { locale }) : '');
+    setInputValue(day ? _format(day, format, { locale }) : "");
   };
 
   const handleMonthChange: MonthChangeEventHandler = (month) => {

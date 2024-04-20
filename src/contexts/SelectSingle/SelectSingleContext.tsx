@@ -1,8 +1,11 @@
-import { createContext, ReactNode, useContext } from 'react';
+import { createContext, ReactNode, useContext } from "react";
 
-import { DayPickerBase } from 'types/DayPickerBase';
-import { DayPickerSingleProps, isDayPickerSingle } from 'types/DayPickerSingle';
-import { DayClickEventHandler } from 'types/EventHandlers';
+import { DayPickerBase } from "../../types/DayPickerBase";
+import {
+  DayPickerSingleProps,
+  isDayPickerSingle
+} from "../../types/DayPickerSingle";
+import { DayClickEventHandler } from "../../types/EventHandlers";
 
 /** Represents the value of a {@link SelectSingleContext}. */
 export interface SelectSingleContextValue {
@@ -89,7 +92,7 @@ export function useSelectSingle(): SelectSingleContextValue {
   const context = useContext(SelectSingleContext);
   if (!context) {
     throw new Error(
-      'useSelectSingle must be used within a SelectSingleProvider'
+      "useSelectSingle must be used within a SelectSingleProvider"
     );
   }
   return context;

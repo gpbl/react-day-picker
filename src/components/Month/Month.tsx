@@ -1,8 +1,8 @@
-import { Caption } from 'components/Caption';
-import { Table } from 'components/Table';
-import { useDayPicker } from 'contexts/DayPicker';
-import { useNavigation } from 'contexts/Navigation';
-import { useId } from 'hooks/useId';
+import { Caption } from "../../components/Caption";
+import { Table } from "../../components/Table";
+import { useDayPicker } from "../../contexts/DayPicker";
+import { useNavigation } from "../../contexts/Navigation";
+import { useId } from "../../hooks/useId";
 
 /** The props for the {@link Month} component. */
 export interface MonthProps {
@@ -30,7 +30,7 @@ export function Month(props: MonthProps) {
   let isStart = props.displayIndex === 0;
   let isEnd = props.displayIndex === displayMonths.length - 1;
   const isCenter = !isStart && !isEnd;
-  if (dir === 'rtl') {
+  if (dir === "rtl") {
     [isEnd, isStart] = [isStart, isEnd];
   }
 
@@ -50,7 +50,7 @@ export function Month(props: MonthProps) {
   const CaptionComponent = components?.Caption ?? Caption;
 
   return (
-    <div key={props.displayIndex} className={className.join(' ')} style={style}>
+    <div key={props.displayIndex} className={className.join(" ")} style={style}>
       <CaptionComponent
         id={captionId}
         displayMonth={props.displayMonth}

@@ -1,7 +1,7 @@
-import { addDays, endOfMonth, startOfMonth } from 'date-fns';
+import { addDays, endOfMonth, startOfMonth } from "date-fns";
 
-import { getActiveModifiers } from 'contexts/Modifiers';
-import { Modifiers } from 'types/Modifiers';
+import { getActiveModifiers } from "../../../contexts/Modifiers";
+import { type Modifiers } from "../../../types/Modifiers";
 
 /**
  * Returns the day that should be the target of the focus when DayPicker is

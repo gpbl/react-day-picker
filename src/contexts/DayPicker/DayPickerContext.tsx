@@ -1,24 +1,30 @@
-import { createContext, ReactNode, useContext } from 'react';
+import { createContext, ReactNode, useContext } from "react";
 
-import { Locale } from 'date-fns';
-import { DayPickerProps } from 'DayPicker';
+import { Locale } from "date-fns";
+import { DayPickerProps } from "../../DayPicker";
 
-import { CaptionLayout } from 'components/Caption';
-import { DayPickerBase, DaySelectionMode } from 'types/DayPickerBase';
+import { CaptionLayout } from "../../components/Caption";
+import { DayPickerBase, DaySelectionMode } from "../../types/DayPickerBase";
 import {
   DayPickerMultipleProps,
   isDayPickerMultiple
-} from 'types/DayPickerMultiple';
-import { DayPickerRangeProps, isDayPickerRange } from 'types/DayPickerRange';
-import { DayPickerSingleProps, isDayPickerSingle } from 'types/DayPickerSingle';
-import { Formatters } from 'types/Formatters';
-import { Labels } from 'types/Labels';
-import { Matcher } from 'types/Matchers';
-import { DayModifiers, ModifiersClassNames } from 'types/Modifiers';
-import { ClassNames, Styles } from 'types/Styles';
+} from "../../types/DayPickerMultiple";
+import {
+  DayPickerRangeProps,
+  isDayPickerRange
+} from "../../types/DayPickerRange";
+import {
+  DayPickerSingleProps,
+  isDayPickerSingle
+} from "../../types/DayPickerSingle";
+import { Formatters } from "../../types/Formatters";
+import { Labels } from "../../types/Labels";
+import { Matcher } from "../../types/Matchers";
+import { DayModifiers, ModifiersClassNames } from "../../types/Modifiers";
+import { ClassNames, Styles } from "../../types/Styles";
 
-import { getDefaultContextValues } from './defaultContextValues';
-import { parseFromToProps } from './utils';
+import { getDefaultContextValues } from "./defaultContextValues";
+import { parseFromToProps } from "./utils";
 
 /**
  * The value of the {@link DayPickerContext} extends the props from DayPicker
@@ -27,9 +33,9 @@ import { parseFromToProps } from './utils';
 export interface DayPickerContextValue extends DayPickerBase {
   mode: DaySelectionMode;
   onSelect?:
-    | DayPickerSingleProps['onSelect']
-    | DayPickerMultipleProps['onSelect']
-    | DayPickerRangeProps['onSelect'];
+    | DayPickerSingleProps["onSelect"]
+    | DayPickerMultipleProps["onSelect"]
+    | DayPickerRangeProps["onSelect"];
   required?: boolean;
   min?: number;
   max?: number;
@@ -77,9 +83,9 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
 
   let captionLayout =
     initialProps.captionLayout ?? defaultContextValues.captionLayout;
-  if (captionLayout !== 'buttons' && (!fromDate || !toDate)) {
+  if (captionLayout !== "buttons" && (!fromDate || !toDate)) {
     // When no from/to dates are set, the caption is always buttons
-    captionLayout = 'buttons';
+    captionLayout = "buttons";
   }
 
   let onSelect;

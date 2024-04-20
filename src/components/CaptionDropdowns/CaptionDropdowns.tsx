@@ -1,16 +1,14 @@
-import { addMonths } from 'date-fns';
+import { addMonths } from "date-fns";
 
-import { CaptionProps } from 'components/Caption/Caption';
-import { CaptionLabel } from 'components/CaptionLabel';
-import { MonthsDropdown } from 'components/MonthsDropdown';
-import { YearsDropdown } from 'components/YearsDropdown';
-import { useDayPicker } from 'contexts/DayPicker';
-import { useNavigation } from 'contexts/Navigation';
-import { MonthChangeEventHandler } from 'types/EventHandlers';
+import { CaptionProps } from "../../components/Caption/Caption";
+import { CaptionLabel } from "../../components/CaptionLabel";
+import { MonthsDropdown } from "../../components/MonthsDropdown";
+import { YearsDropdown } from "../../components/YearsDropdown";
+import { useDayPicker } from "../../contexts/DayPicker";
+import { useNavigation } from "../../contexts/Navigation";
+import { MonthChangeEventHandler } from "../../types/EventHandlers";
 
-/**
- * Render a caption with the dropdowns to navigate between months and years.
- */
+/** Render a caption with the dropdowns to navigate between months and years. */
 export function CaptionDropdowns(props: CaptionProps): JSX.Element {
   const { classNames, styles, components } = useDayPicker();
   const { goToMonth } = useNavigation();

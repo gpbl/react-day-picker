@@ -1,5 +1,5 @@
-import { DayPickerContextValue } from 'contexts/DayPicker';
-import { ActiveModifiers, InternalModifier } from 'types/Modifiers';
+import { DayPickerContextValue } from "../../../contexts/DayPicker";
+import { ActiveModifiers, InternalModifier } from "../../../types/Modifiers";
 
 function isInternalModifier(modifier: string): modifier is InternalModifier {
   return Object.values(InternalModifier).includes(modifier as InternalModifier);
@@ -9,11 +9,11 @@ function isInternalModifier(modifier: string): modifier is InternalModifier {
  * Return the class names for the Day element, according to the given active
  * modifiers.
  *
- * Custom class names are set via `modifiersClassNames` or `classNames`,
- * where the first have the precedence.
+ * Custom class names are set via `modifiersClassNames` or `classNames`, where
+ * the first have the precedence.
  */
 export function getDayClassNames(
-  dayPicker: Pick<DayPickerContextValue, 'modifiersClassNames' | 'classNames'>,
+  dayPicker: Pick<DayPickerContextValue, "modifiersClassNames" | "classNames">,
   activeModifiers: ActiveModifiers
 ) {
   // TODO: in the next version, day and cell classnames should be only one.

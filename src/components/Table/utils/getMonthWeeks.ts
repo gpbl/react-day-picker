@@ -4,11 +4,11 @@ import {
   getWeeksInMonth,
   Locale,
   startOfMonth
-} from 'date-fns';
+} from "date-fns";
 
-import { daysToMonthWeeks } from './daysToMonthWeeks';
+import { daysToMonthWeeks } from "./daysToMonthWeeks";
 
-/** Represents a week in the month.*/
+/** Represents a week in the month. */
 export type MonthWeek = {
   /** The week number from the start of the year. */
   weekNumber: number;

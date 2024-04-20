@@ -1,13 +1,13 @@
-import { DayPickerProps } from 'DayPicker';
+import { DayPickerProps } from "../DayPicker";
 
-import { DayPickerContextValue } from 'contexts/DayPicker';
+import { DayPickerContextValue } from "../contexts/DayPicker";
 
-import { DayPickerBase } from './DayPickerBase';
-import { SelectSingleEventHandler } from './EventHandlers';
+import { DayPickerBase } from "./DayPickerBase";
+import { SelectSingleEventHandler } from "./EventHandlers";
 
 /** The props for the {@link DayPicker} component when using `mode="single"`. */
 export interface DayPickerSingleProps extends DayPickerBase {
-  mode: 'single';
+  mode: "single";
   /** The selected day. */
   selected?: Date | undefined;
   /** Event fired when a day is selected. */
@@ -20,5 +20,5 @@ export interface DayPickerSingleProps extends DayPickerBase {
 export function isDayPickerSingle(
   props: DayPickerProps | DayPickerContextValue
 ): props is DayPickerSingleProps {
-  return props.mode === 'single';
+  return props.mode === "single";
 }

@@ -1,4 +1,4 @@
-import { addMonths, differenceInCalendarMonths, startOfMonth } from 'date-fns';
+import { addMonths, differenceInCalendarMonths, startOfMonth } from "date-fns";
 
 /**
  * Returns the next month the user can navigate to according to the given
@@ -6,9 +6,8 @@ import { addMonths, differenceInCalendarMonths, startOfMonth } from 'date-fns';
  *
  * Please note that the next month is not always the next calendar month:
  *
- * - if after the `toDate` range, is undefined;
- * - if the navigation is paged, is the number of months displayed ahead.
- *
+ * - If after the `toDate` range, is undefined;
+ * - If the navigation is paged, is the number of months displayed ahead.
  */
 export function getNextMonth(
   startingMonth: Date,

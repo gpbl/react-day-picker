@@ -1,1 +1,1 @@
-export * from './getWeekdays';
+export * from "./getWeekdays";

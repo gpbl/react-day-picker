@@ -9,26 +9,26 @@ import {
   min,
   startOfISOWeek,
   startOfWeek
-} from 'date-fns';
+} from "date-fns";
 
-import { DayPickerContextValue } from 'contexts/DayPicker';
-import { getActiveModifiers } from 'contexts/Modifiers';
-import { Modifiers } from 'types/Modifiers';
+import { DayPickerContextValue } from "../../../contexts/DayPicker";
+import { getActiveModifiers } from "../../../contexts/Modifiers";
+import { Modifiers } from "../../../types/Modifiers";
 
 export type MoveFocusBy =
-  | 'day'
-  | 'week'
-  | 'startOfWeek'
-  | 'endOfWeek'
-  | 'month'
-  | 'year';
+  | "day"
+  | "week"
+  | "startOfWeek"
+  | "endOfWeek"
+  | "month"
+  | "year";
 
-export type MoveFocusDirection = 'after' | 'before';
+export type MoveFocusDirection = "after" | "before";
 
 export type FocusDayPickerContext = Partial<
   Pick<
     DayPickerContextValue,
-    'ISOWeek' | 'weekStartsOn' | 'fromDate' | 'toDate' | 'locale'
+    "ISOWeek" | "weekStartsOn" | "fromDate" | "toDate" | "locale"
   >
 >;
 
@@ -70,12 +70,12 @@ export function getNextFocus(focusedDay: Date, options: FocusDayOptions): Date {
 
   let newFocusedDay = moveFns[moveBy](
     focusedDay,
-    direction === 'after' ? 1 : -1
+    direction === "after" ? 1 : -1
   );
 
-  if (direction === 'before' && fromDate) {
+  if (direction === "before" && fromDate) {
     newFocusedDay = max([fromDate, newFocusedDay]);
-  } else if (direction === 'after' && toDate) {
+  } else if (direction === "after" && toDate) {
     newFocusedDay = min([toDate, newFocusedDay]);
   }
   let isFocusable = true;

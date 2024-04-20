@@ -1,14 +1,21 @@
-import { createContext, useContext, ReactNode } from 'react';
+import { createContext, useContext, ReactNode } from "react";
 
-import { useDayPicker } from 'contexts/DayPicker';
-import { useSelectMultiple } from 'contexts/SelectMultiple';
-import { useSelectRange } from 'contexts/SelectRange';
-import { CustomModifiers, InternalModifiers, Modifiers } from 'types/Modifiers';
+import { useDayPicker } from "../../contexts/DayPicker";
+import { useSelectMultiple } from "../../contexts/SelectMultiple";
+import { useSelectRange } from "../../contexts/SelectRange";
+import {
+  CustomModifiers,
+  InternalModifiers,
+  Modifiers
+} from "../../types/Modifiers";
 
-import { getCustomModifiers } from './utils/getCustomModifiers';
-import { getInternalModifiers } from './utils/getInternalModifiers';
+import { getCustomModifiers } from "./utils/getCustomModifiers";
+import { getInternalModifiers } from "./utils/getInternalModifiers";
 
-/** The Modifiers context store the modifiers used in DayPicker. To access the value of this context, use {@link useModifiers}. */
+/**
+ * The Modifiers context store the modifiers used in DayPicker. To access the
+ * value of this context, use {@link useModifiers}.
+ */
 export const ModifiersContext = createContext<Modifiers | undefined>(undefined);
 
 export type ModifiersProviderProps = { children: ReactNode };
@@ -44,14 +51,13 @@ export function ModifiersProvider(props: ModifiersProviderProps): JSX.Element {
 /**
  * Return the modifiers used by DayPicker.
  *
- * This hook is meant to be used inside internal or custom components.
- * Requires to be wrapped into {@link ModifiersProvider}.
- *
+ * This hook is meant to be used inside internal or custom components. Requires
+ * to be wrapped into {@link ModifiersProvider}.
  */
 export function useModifiers(): Modifiers {
   const context = useContext(ModifiersContext);
   if (!context) {
-    throw new Error('useModifiers must be used within a ModifiersProvider');
+    throw new Error("useModifiers must be used within a ModifiersProvider");
   }
   return context;
 }

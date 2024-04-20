@@ -1,1 +1,1 @@
-export * from './freezeBeforeAll';
+export * from "./freezeBeforeAll";

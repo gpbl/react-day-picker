@@ -1,5 +1,5 @@
-import { labelMonthDropdown } from './labelMonthDropdown';
+import { labelMonthDropdown } from "./labelMonthDropdown";
 
-test('should return the label', () => {
-  expect(labelMonthDropdown()).toEqual('Month: ');
+test("should return the label", () => {
+  expect(labelMonthDropdown()).toEqual("Month: ");
 });
