@@ -1,10 +1,6 @@
 /** @type {import("eslint").Linter.Config} */
 const config = {
   parser: "@typescript-eslint/parser",
-  parserOptions: {
-    ecmaVersion: 2018,
-    sourceType: "module"
-  },
   ignorePatterns: ["**/*.css.d.ts", "dist", "build"],
   plugins: ["@typescript-eslint", "jest"],
   extends: [
