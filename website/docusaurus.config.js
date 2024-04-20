@@ -38,7 +38,7 @@ const config = {
   organizationName: "gpbl",
   projectName: "react-day-picker",
   trailingSlash: false,
-  clientModules: [require.resolve("react-day-picker/dist/style.css")],
+  clientModules: [require.resolve("react-day-picker/style.css")],
   themeConfig: {
     metadata: [
       { name: "twitter:site", content: "@gpblv" },

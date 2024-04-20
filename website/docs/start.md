@@ -15,8 +15,8 @@ yarn add react-day-picker date-fns      # with yarn
 2. When importing, include the DayPicker CSS in your component:
 
 ```tsx
-import { DayPicker } from 'react-day-picker';
-import 'react-day-picker/dist/style.css';
+import { DayPicker } from "react-day-picker";
+import "react-day-picker/style.css";
 
 function Component() {
   return <DayPicker />;
