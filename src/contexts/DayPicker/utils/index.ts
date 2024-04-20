@@ -1,1 +1,1 @@
-export * from './parseFromToProps';
+export * from "./parseFromToProps";

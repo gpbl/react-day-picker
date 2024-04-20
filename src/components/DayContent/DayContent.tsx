@@ -1,5 +1,5 @@
-import { useDayPicker } from 'contexts/DayPicker';
-import { ActiveModifiers } from 'types/Modifiers';
+import { useDayPicker } from "contexts/DayPicker";
+import { ActiveModifiers } from "types/Modifiers";
 
 /** Represent the props for the {@link DayContent} component. */
 export interface DayContentProps {
@@ -15,7 +15,7 @@ export interface DayContentProps {
 export function DayContent(props: DayContentProps): JSX.Element {
   const {
     locale,
-    formatters: { formatDay }
+    formatters: { formatDay },
   } = useDayPicker();
 
   return <>{formatDay(props.date, { locale })}</>;

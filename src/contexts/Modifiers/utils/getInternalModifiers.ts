@@ -1,11 +1,11 @@
-import { DayPickerContextValue } from 'contexts/DayPicker';
-import { SelectMultipleContextValue } from 'contexts/SelectMultiple';
-import { SelectRangeContextValue } from 'contexts/SelectRange';
-import { isDayPickerMultiple } from 'types/DayPickerMultiple';
-import { isDayPickerRange } from 'types/DayPickerRange';
-import { InternalModifier, InternalModifiers } from 'types/Modifiers';
+import { DayPickerContextValue } from "contexts/DayPicker";
+import { SelectMultipleContextValue } from "contexts/SelectMultiple";
+import { SelectRangeContextValue } from "contexts/SelectRange";
+import { isDayPickerMultiple } from "types/DayPickerMultiple";
+import { isDayPickerRange } from "types/DayPickerRange";
+import { InternalModifier, InternalModifiers } from "types/Modifiers";
 
-import { matcherToArray } from './matcherToArray';
+import { matcherToArray } from "./matcherToArray";
 
 const {
   Selected,
@@ -15,7 +15,7 @@ const {
   RangeEnd,
   RangeMiddle,
   RangeStart,
-  Outside
+  Outside,
 } = InternalModifier;
 
 /** Return the {@link InternalModifiers} from the DayPicker and select contexts. */
@@ -32,7 +32,7 @@ export function getInternalModifiers(
     [RangeEnd]: [],
     [RangeMiddle]: [],
     [RangeStart]: [],
-    [Outside]: []
+    [Outside]: [],
   };
 
   if (dayPicker.fromDate) {

@@ -1,10 +1,10 @@
-import { es } from 'date-fns/locale';
-import { DayPickerProps } from 'DayPicker';
+import { es } from "date-fns/locale";
+import { DayPickerProps } from "DayPicker";
 
-import { customRender } from 'test/render';
-import { freezeBeforeAll } from 'test/utils';
+import { customRender } from "test/render";
+import { freezeBeforeAll } from "test/utils";
 
-import { DayContent, DayContentProps } from 'components/DayContent';
+import { DayContent, DayContentProps } from "components/DayContent";
 
 const today = new Date(2021, 8);
 
@@ -20,18 +20,18 @@ const displayMonth = today;
 const props: DayContentProps = {
   date: date,
   displayMonth,
-  activeModifiers: {}
+  activeModifiers: {},
 };
 
 const dayPickerProps: DayPickerProps = {
-  locale: es
+  locale: es,
 };
 
-describe('when rendered', () => {
+describe("when rendered", () => {
   beforeEach(() => {
     setup(props, dayPickerProps);
   });
-  test('contains the formatted day', () => {
-    expect(container.firstChild).toHaveTextContent('1');
+  test("contains the formatted day", () => {
+    expect(container.firstChild).toHaveTextContent("1");
   });
 });

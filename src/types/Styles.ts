@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode } from 'react';
+import { CSSProperties, ReactNode } from "react";
 
 /** The style (either via class names or via in-line styles) of an element. */
 export type StyledElement<T = string | CSSProperties> = {
@@ -88,22 +88,28 @@ export type StyledElement<T = string | CSSProperties> = {
   readonly day_range_start: T;
   /** The day when at the end of a selected range. */
   readonly day_range_end: T;
-  /** The day in the middle of a selected range: it does not include the "from" and the "to" days. */
+  /**
+   * The day in the middle of a selected range: it does not include the "from"
+   * and the "to" days.
+   */
   readonly day_range_middle: T;
   /** The day when today. */
   readonly day_today: T;
 };
 
-/** These elements must not be in the `styles` or `classNames` records as they are styled via the `modifiersStyles` or `modifiersClassNames` pop */
+/**
+ * These elements must not be in the `styles` or `classNames` records as they
+ * are styled via the `modifiersStyles` or `modifiersClassNames` pop
+ */
 export type InternalModifiersElement =
-  | 'day_outside'
-  | 'day_selected'
-  | 'day_disabled'
-  | 'day_hidden'
-  | 'day_range_start'
-  | 'day_range_end'
-  | 'day_range_middle'
-  | 'day_today';
+  | "day_outside"
+  | "day_selected"
+  | "day_disabled"
+  | "day_hidden"
+  | "day_range_start"
+  | "day_range_end"
+  | "day_range_middle"
+  | "day_today";
 
 /** The class names of each element. */
 export type ClassNames = Partial<StyledElement<string>>;

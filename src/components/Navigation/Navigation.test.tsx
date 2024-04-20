@@ -1,10 +1,10 @@
-import { DayPickerProps } from 'DayPicker';
+import { DayPickerProps } from "DayPicker";
 
-import { customRender } from 'test/render';
-import { getNextButton, getPrevButton } from 'test/selectors';
-import { user } from 'test/user';
+import { customRender } from "test/render";
+import { getNextButton, getPrevButton } from "test/selectors";
+import { user } from "test/user";
 
-import { Navigation, NavigationProps } from './Navigation';
+import { Navigation, NavigationProps } from "./Navigation";
 
 let root: HTMLElement;
 
@@ -20,45 +20,45 @@ const props: NavigationProps = {
   hidePrevious: false,
   hideNext: false,
   onNextClick: jest.fn(),
-  onPreviousClick: jest.fn()
+  onPreviousClick: jest.fn(),
 };
 
 const dayPickerProps = {
   classNames: {
-    nav: 'foo'
+    nav: "foo",
   },
   styles: {
-    nav: { color: 'red' }
+    nav: { color: "red" },
   },
   components: {
     IconRight: () => <svg>IconRight</svg>,
-    IconLeft: () => <svg>IconLeft</svg>
-  }
+    IconLeft: () => <svg>IconLeft</svg>,
+  },
 };
 
-describe('when rendered', () => {
+describe("when rendered", () => {
   beforeEach(() => {
     setup(props, dayPickerProps);
   });
-  test('should add the class name', () => {
+  test("should add the class name", () => {
     expect(root).toHaveClass(dayPickerProps.classNames.nav);
   });
-  test('should apply the style', () => {
+  test("should apply the style", () => {
     expect(root).toHaveStyle(dayPickerProps.styles.nav);
   });
-  test('the previous button should display the left icon', () => {
-    const icons = root.getElementsByTagName('svg');
-    expect(icons[0]).toHaveTextContent('IconLeft');
+  test("the previous button should display the left icon", () => {
+    const icons = root.getElementsByTagName("svg");
+    expect(icons[0]).toHaveTextContent("IconLeft");
   });
-  test('the next button should display the right icon', () => {
-    const icons = root.getElementsByTagName('svg');
-    expect(icons[1]).toHaveTextContent('IconRight');
+  test("the next button should display the right icon", () => {
+    const icons = root.getElementsByTagName("svg");
+    expect(icons[1]).toHaveTextContent("IconRight");
   });
   test('the previous button should be named "previous-month"', () => {
-    expect(getPrevButton()).toHaveAttribute('name', 'previous-month');
+    expect(getPrevButton()).toHaveAttribute("name", "previous-month");
   });
   test('the next button should be named "next-month"', () => {
-    expect(getNextButton()).toHaveAttribute('name', 'next-month');
+    expect(getNextButton()).toHaveAttribute("name", "next-month");
   });
   beforeEach(async () => {
     await user.click(getPrevButton());
@@ -67,7 +67,7 @@ describe('when rendered', () => {
     expect(props.onPreviousClick).toHaveBeenCalled();
   });
 
-  describe('when clicking the next button', () => {
+  describe("when clicking the next button", () => {
     beforeEach(async () => {
       await user.click(getNextButton());
     });
@@ -77,20 +77,20 @@ describe('when rendered', () => {
   });
 });
 
-describe('when in right-to-left direction', () => {
+describe("when in right-to-left direction", () => {
   beforeEach(() => {
-    setup(props, { ...dayPickerProps, dir: 'rtl' });
+    setup(props, { ...dayPickerProps, dir: "rtl" });
   });
-  test('the previous button should display the right icon', () => {
-    const icons = root.getElementsByTagName('svg');
-    expect(icons[0]).toHaveTextContent('IconRight');
+  test("the previous button should display the right icon", () => {
+    const icons = root.getElementsByTagName("svg");
+    expect(icons[0]).toHaveTextContent("IconRight");
   });
-  test('the next button should display the left icon', () => {
-    const icons = root.getElementsByTagName('svg');
-    expect(icons[1]).toHaveTextContent('IconLeft');
+  test("the next button should display the left icon", () => {
+    const icons = root.getElementsByTagName("svg");
+    expect(icons[1]).toHaveTextContent("IconLeft");
   });
 
-  describe('when clicking the previous button', () => {
+  describe("when clicking the previous button", () => {
     beforeEach(async () => {
       await user.click(getPrevButton());
     });
@@ -98,7 +98,7 @@ describe('when in right-to-left direction', () => {
       expect(props.onPreviousClick).toHaveBeenCalled();
     });
   });
-  describe('when clicking the next button', () => {
+  describe("when clicking the next button", () => {
     beforeEach(async () => {
       await user.click(getNextButton());
     });
@@ -108,26 +108,26 @@ describe('when in right-to-left direction', () => {
   });
 });
 
-describe('when the previous month is undefined', () => {
+describe("when the previous month is undefined", () => {
   beforeEach(() => {
     setup({ ...props, previousMonth: undefined }, dayPickerProps);
   });
-  test('the previous button should be disabled', () => {
+  test("the previous button should be disabled", () => {
     expect(getPrevButton()).toBeDisabled();
   });
-  test('the next button should be enabled', () => {
+  test("the next button should be enabled", () => {
     expect(getNextButton()).toBeEnabled();
   });
 });
 
-describe('when the next month is undefined', () => {
+describe("when the next month is undefined", () => {
   beforeEach(() => {
     setup({ ...props, nextMonth: undefined }, dayPickerProps);
   });
-  test('the previous button should be enabled', () => {
+  test("the previous button should be enabled", () => {
     expect(getPrevButton()).toBeEnabled();
   });
-  test('the next button should be disabled', () => {
+  test("the next button should be disabled", () => {
     expect(getNextButton()).toBeDisabled();
   });
 });

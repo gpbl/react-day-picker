@@ -1,16 +1,16 @@
-import { CSSProperties, ReactNode } from 'react';
+import { CSSProperties, ReactNode } from "react";
 
-import { Locale } from 'date-fns';
+import { Locale } from "date-fns";
 
-import { CaptionLayout, CaptionProps } from 'components/Caption';
-import { CaptionLabelProps } from 'components/CaptionLabel';
-import { DayProps } from 'components/Day';
-import { DayContentProps } from 'components/DayContent';
-import { DropdownProps } from 'components/Dropdown';
-import { FooterProps } from 'components/Footer';
-import { MonthsProps } from 'components/Months';
-import { RowProps } from 'components/Row';
-import { WeekNumberProps } from 'components/WeekNumber';
+import { CaptionLayout, CaptionProps } from "components/Caption";
+import { CaptionLabelProps } from "components/CaptionLabel";
+import { DayProps } from "components/Day";
+import { DayContentProps } from "components/DayContent";
+import { DropdownProps } from "components/Dropdown";
+import { FooterProps } from "components/Footer";
+import { MonthsProps } from "components/Months";
+import { RowProps } from "components/Row";
+import { WeekNumberProps } from "components/WeekNumber";
 
 import {
   DayClickEventHandler,
@@ -20,17 +20,17 @@ import {
   DayPointerEventHandler,
   DayTouchEventHandler,
   MonthChangeEventHandler,
-  WeekNumberClickEventHandler
-} from './EventHandlers';
-import { Formatters } from './Formatters';
-import { Labels } from './Labels';
-import { Matcher } from './Matchers';
+  WeekNumberClickEventHandler,
+} from "./EventHandlers";
+import { Formatters } from "./Formatters";
+import { Labels } from "./Labels";
+import { Matcher } from "./Matchers";
 import {
   DayModifiers,
   ModifiersClassNames,
-  ModifiersStyles
-} from './Modifiers';
-import { ClassNames, StyledComponent, Styles } from './Styles';
+  ModifiersStyles,
+} from "./Modifiers";
+import { ClassNames, StyledComponent, Styles } from "./Styles";
 
 /**
  * Selection modes supported by DayPicker.
@@ -41,10 +41,11 @@ import { ClassNames, StyledComponent, Styles } from './Styles';
  * - `default`: disable the built-in selection behavior. Customize what is
  *   selected by using {@link DayPickerBase.onDayClick}.
  */
-export type DaySelectionMode = 'single' | 'multiple' | 'range' | 'default';
+export type DaySelectionMode = "single" | "multiple" | "range" | "default";
 
 /**
- * The base props for the {@link DayPicker} component and the {@link DayPickerContext}.
+ * The base props for the {@link DayPicker} component and the
+ * {@link DayPickerContext}.
  */
 export interface DayPickerBase {
   /**
@@ -59,22 +60,14 @@ export interface DayPickerBase {
    * when using CSS modules.
    */
   classNames?: ClassNames;
-  /**
-   * Change the class name for the day matching the {@link modifiers}.
-   */
+  /** Change the class name for the day matching the {@link modifiers}. */
   modifiersClassNames?: ModifiersClassNames;
 
-  /**
-   * Style to apply to the container element.
-   */
+  /** Style to apply to the container element. */
   style?: CSSProperties;
-  /**
-   * Change the inline styles of the HTML elements.
-   */
+  /** Change the inline styles of the HTML elements. */
   styles?: Styles;
-  /**
-   * Change the inline style for the day matching the {@link modifiers}.
-   */
+  /** Change the inline style for the day matching the {@link modifiers}. */
   modifiersStyles?: ModifiersStyles;
 
   /**
@@ -98,9 +91,7 @@ export interface DayPickerBase {
    * {@link DayPickerBase.onMonthChange} to change the month programmatically.
    */
   month?: Date;
-  /**
-   * Event fired when the user navigates between months.
-   */
+  /** Event fired when the user navigates between months. */
   onMonthChange?: MonthChangeEventHandler;
   /**
    * The number of displayed months.
@@ -108,29 +99,17 @@ export interface DayPickerBase {
    * @defaultValue 1
    */
   numberOfMonths?: number;
-  /**
-   * The earliest day to start the month navigation.
-   */
+  /** The earliest day to start the month navigation. */
   fromDate?: Date;
-  /**
-   * The latest day to end the month navigation.
-   */
+  /** The latest day to end the month navigation. */
   toDate?: Date;
-  /**
-   * The earliest month to start the month navigation.
-   */
+  /** The earliest month to start the month navigation. */
   fromMonth?: Date;
-  /**
-   * The latest month to end the month navigation.
-   */
+  /** The latest month to end the month navigation. */
   toMonth?: Date;
-  /**
-   * The earliest year to start the month navigation.
-   */
+  /** The earliest year to start the month navigation. */
   fromYear?: number;
-  /**
-   * The latest year to end the month navigation.
-   */
+  /** The latest year to end the month navigation. */
   toYear?: number;
   /**
    * Disable the navigation between months.
@@ -139,8 +118,7 @@ export interface DayPickerBase {
    */
   disableNavigation?: boolean;
   /**
-   * Paginate the month navigation displaying the {@link numberOfMonths} at
-   * time.
+   * Paginate the month navigation displaying the {@link numberOfMonths} at time.
    *
    * @defaultValue false
    */
@@ -166,8 +144,8 @@ export interface DayPickerBase {
    */
   captionLayout?: CaptionLayout;
   /**
-   * Display six weeks per months, regardless the month’s number of weeks.
-   * To use this prop, {@link showOutsideDays} must be set.
+   * Display six weeks per months, regardless the month’s number of weeks. To
+   * use this prop, {@link showOutsideDays} must be set.
    *
    * @defaultValue false
    */
@@ -179,7 +157,7 @@ export interface DayPickerBase {
    */
   hideHead?: boolean;
   /**
-   * Show the outside days.  An outside day is a day falling in the next or the
+   * Show the outside days. An outside day is a day falling in the next or the
    * previous month.
    *
    * @defaultValue false
@@ -189,18 +167,19 @@ export interface DayPickerBase {
    * Show the week numbers column. Weeks are numbered according to the local
    * week index.
    *
-   * - to use ISO week numbering, use the {@link ISOWeek} prop.
-   * - to change how the week numbers are displayed, use the {@link Formatters} prop.
-   *
-   * @see  {@link ISOWeek}, {@link weekStartsOn} and {@link firstWeekContainsDate}.
+   * - To use ISO week numbering, use the {@link ISOWeek} prop.
+   * - To change how the week numbers are displayed, use the {@link Formatters}
+   *   prop.
    *
    * @defaultValue false
+   * @see {@link ISOWeek} , {@link weekStartsOn} and {@link firstWeekContainsDate}.
    */
   showWeekNumber?: boolean;
   /**
-   * The index of the first day of the week (0 - Sunday). Overrides the locale's one.
+   * The index of the first day of the week (0 - Sunday). Overrides the locale's
+   * one.
    *
-   * @see {@link ISOWeek}.
+   * @see {@link ISOWeek} .
    */
   weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
   /**
@@ -209,7 +188,7 @@ export interface DayPickerBase {
    *
    * @see https://date-fns.org/docs/getWeek
    * @see https://en.wikipedia.org/wiki/Week#Numbering
-   * @see {@link ISOWeek}.
+   * @see {@link ISOWeek} .
    */
   firstWeekContainsDate?: 1 | 4;
   /**
@@ -223,13 +202,12 @@ export interface DayPickerBase {
   /**
    * Map of components used to create the layout. Look at the [components
    * source](https://github.com/gpbl/react-day-picker/tree/main/src/components)
-   * to understand how internal components are built and provide your custom components.
+   * to understand how internal components are built and provide your custom
+   * components.
    */
   components?: CustomComponents;
 
-  /**
-   * Content to add to the table footer element.
-   */
+  /** Content to add to the table footer element. */
   footer?: ReactNode;
 
   /**
@@ -241,9 +219,7 @@ export interface DayPickerBase {
    */
   initialFocus?: boolean;
 
-  /**
-   * Apply the `disabled` modifier to the matching days.
-   */
+  /** Apply the `disabled` modifier to the matching days. */
   disabled?: Matcher | Matcher[] | undefined;
   /**
    * Apply the `hidden` modifier to the matching days. Will hide them from the
@@ -251,9 +227,7 @@ export interface DayPickerBase {
    */
   hidden?: Matcher | Matcher[] | undefined;
 
-  /**
-   * Apply the `selected` modifier to the matching days.
-   */
+  /** Apply the `selected` modifier to the matching days. */
   selected?: Matcher | Matcher[] | undefined;
 
   /**
@@ -261,9 +235,7 @@ export interface DayPickerBase {
    * `today` modifier to style the day.
    */
   today?: Date;
-  /**
-   * Add modifiers to the matching days.
-   */
+  /** Add modifiers to the matching days. */
   modifiers?: DayModifiers;
 
   /**
@@ -289,31 +261,23 @@ export interface DayPickerBase {
    * The text direction of the calendar. Use `ltr` for left-to-right (default)
    * or `rtl` for right-to-left.
    */
-  dir?: HTMLDivElement['dir'];
+  dir?: HTMLDivElement["dir"];
 
   /**
    * A cryptographic nonce ("number used once") which can be used by Content
    * Security Policy for the inline `style` attributes.
-   **/
-  nonce?: HTMLDivElement['nonce'];
-
-  /**
-   * Add a `title` attribute to the container element.
-   **/
-  title?: HTMLDivElement['title'];
-
-  /**
-   * Add the language tag to the container element.
-   **/
-  lang?: HTMLDivElement['lang'];
-
-  /**
-   * Event callback fired when the next month button is clicked.
    */
+  nonce?: HTMLDivElement["nonce"];
+
+  /** Add a `title` attribute to the container element. */
+  title?: HTMLDivElement["title"];
+
+  /** Add the language tag to the container element. */
+  lang?: HTMLDivElement["lang"];
+
+  /** Event callback fired when the next month button is clicked. */
   onNextClick?: MonthChangeEventHandler;
-  /**
-   * Event callback fired when the previous month button is clicked.
-   */
+  /** Event callback fired when the previous month button is clicked. */
   onPrevClick?: MonthChangeEventHandler;
   /**
    * Event callback fired when the week number is clicked. Requires
@@ -321,61 +285,33 @@ export interface DayPickerBase {
    */
   onWeekNumberClick?: WeekNumberClickEventHandler;
 
-  /**
-   * Event callback fired when the user clicks on a day.
-   */
+  /** Event callback fired when the user clicks on a day. */
   onDayClick?: DayClickEventHandler;
-  /**
-   * Event callback fired when the user focuses on a day.
-   */
+  /** Event callback fired when the user focuses on a day. */
   onDayFocus?: DayFocusEventHandler;
-  /**
-   * Event callback fired when the user blurs from a day.
-   */
+  /** Event callback fired when the user blurs from a day. */
   onDayBlur?: DayFocusEventHandler;
-  /**
-   * Event callback fired when the user hovers on a day.
-   */
+  /** Event callback fired when the user hovers on a day. */
   onDayMouseEnter?: DayMouseEventHandler;
-  /**
-   * Event callback fired when the user hovers away from a day.
-   */
+  /** Event callback fired when the user hovers away from a day. */
   onDayMouseLeave?: DayMouseEventHandler;
-  /**
-   * Event callback fired when the user presses a key on a day.
-   */
+  /** Event callback fired when the user presses a key on a day. */
   onDayKeyDown?: DayKeyboardEventHandler;
-  /**
-   * Event callback fired when the user presses a key on a day.
-   */
+  /** Event callback fired when the user presses a key on a day. */
   onDayKeyUp?: DayKeyboardEventHandler;
-  /**
-   * Event callback fired when the user presses a key on a day.
-   */
+  /** Event callback fired when the user presses a key on a day. */
   onDayKeyPress?: DayKeyboardEventHandler;
-  /**
-   * Event callback fired when the pointer enters a day.
-   */
+  /** Event callback fired when the pointer enters a day. */
   onDayPointerEnter?: DayPointerEventHandler;
-  /**
-   * Event callback fired when the pointer leaves a day.
-   */
+  /** Event callback fired when the pointer leaves a day. */
   onDayPointerLeave?: DayPointerEventHandler;
-  /**
-   * Event callback when a day touch event is canceled.
-   */
+  /** Event callback when a day touch event is canceled. */
   onDayTouchCancel?: DayTouchEventHandler;
-  /**
-   * Event callback when a day touch event ends.
-   */
+  /** Event callback when a day touch event ends. */
   onDayTouchEnd?: DayTouchEventHandler;
-  /**
-   * Event callback when a day touch event moves.
-   */
+  /** Event callback when a day touch event moves. */
   onDayTouchMove?: DayTouchEventHandler;
-  /**
-   * Event callback when a day touch event starts.
-   */
+  /** Event callback when a day touch event starts. */
   onDayTouchStart?: DayTouchEventHandler;
 }
 
@@ -395,10 +331,9 @@ export interface CustomComponents {
    * Each `Day` in DayPicker should render one of the following, according to
    * the return value of {@link useDayRender}.
    *
-   * - an empty `Fragment`, to render if `isHidden` is true
-   * - a `button` element, when the day is interactive, e.g. is selectable
-   * - a `div` or a `span` element, when the day is not interactive
-   *
+   * - An empty `Fragment`, to render if `isHidden` is true
+   * - A `button` element, when the day is interactive, e.g. is selectable
+   * - A `div` or a `span` element, when the day is not interactive
    */
   Day?: (props: DayProps) => JSX.Element | null;
   /** The component for the content of the day element. */

@@ -4,70 +4,68 @@ import {
   KeyboardEventHandler,
   MouseEventHandler,
   PointerEventHandler,
-  TouchEventHandler
-} from 'react';
+  TouchEventHandler,
+} from "react";
 
-import { useDayPicker } from 'contexts/DayPicker';
-import { useFocusContext } from 'contexts/Focus';
-import { useSelectMultiple } from 'contexts/SelectMultiple';
-import { useSelectRange } from 'contexts/SelectRange';
-import { useSelectSingle } from 'contexts/SelectSingle';
-import { isDayPickerMultiple } from 'types/DayPickerMultiple';
-import { isDayPickerRange } from 'types/DayPickerRange';
-import { isDayPickerSingle } from 'types/DayPickerSingle';
-import { ActiveModifiers } from 'types/Modifiers';
+import { useDayPicker } from "contexts/DayPicker";
+import { useFocusContext } from "contexts/Focus";
+import { useSelectMultiple } from "contexts/SelectMultiple";
+import { useSelectRange } from "contexts/SelectRange";
+import { useSelectSingle } from "contexts/SelectSingle";
+import { isDayPickerMultiple } from "types/DayPickerMultiple";
+import { isDayPickerRange } from "types/DayPickerRange";
+import { isDayPickerSingle } from "types/DayPickerSingle";
+import { ActiveModifiers } from "types/Modifiers";
 
 export type EventName =
-  | 'onClick'
-  | 'onFocus'
-  | 'onBlur'
-  | 'onKeyDown'
-  | 'onKeyUp'
-  | 'onMouseEnter'
-  | 'onMouseLeave'
-  | 'onPointerEnter'
-  | 'onPointerLeave'
-  | 'onTouchCancel'
-  | 'onTouchEnd'
-  | 'onTouchMove'
-  | 'onTouchStart';
+  | "onClick"
+  | "onFocus"
+  | "onBlur"
+  | "onKeyDown"
+  | "onKeyUp"
+  | "onMouseEnter"
+  | "onMouseLeave"
+  | "onPointerEnter"
+  | "onPointerLeave"
+  | "onTouchCancel"
+  | "onTouchEnd"
+  | "onTouchMove"
+  | "onTouchStart";
 
 export type DayEventName =
-  | 'onDayClick'
-  | 'onDayFocus'
-  | 'onDayBlur'
-  | 'onDayKeyDown'
-  | 'onDayKeyUp'
-  | 'onDayMouseEnter'
-  | 'onDayMouseLeave'
-  | 'onDayPointerEnter'
-  | 'onDayPointerLeave'
-  | 'onDayTouchCancel'
-  | 'onDayTouchEnd'
-  | 'onDayTouchMove'
-  | 'onDayTouchStart';
+  | "onDayClick"
+  | "onDayFocus"
+  | "onDayBlur"
+  | "onDayKeyDown"
+  | "onDayKeyUp"
+  | "onDayMouseEnter"
+  | "onDayMouseLeave"
+  | "onDayPointerEnter"
+  | "onDayPointerLeave"
+  | "onDayTouchCancel"
+  | "onDayTouchEnd"
+  | "onDayTouchMove"
+  | "onDayTouchStart";
 
 export type DayEventHandlers = Pick<HTMLProps<HTMLButtonElement>, EventName>;
 
 /**
  * This hook returns details about the content to render in the day cell.
  *
- *
  * When a day cell is rendered in the table, DayPicker can either:
  *
- * - render nothing: when the day is outside the month or has matched the
- *   "hidden" modifier.
- * - render a button when `onDayClick` or a selection mode is set.
- * - render a non-interactive element: when no selection mode is set, the day
- *   cell shouldn’t respond to any interaction. DayPicker should render a `div`
- *   or a `span`.
+ * - Render nothing: when the day is outside the month or has matched the "hidden"
+ *   modifier.
+ * - Render a button when `onDayClick` or a selection mode is set.
+ * - Render a non-interactive element: when no selection mode is set, the day cell
+ *   shouldn’t respond to any interaction. DayPicker should render a `div` or a
+ *   `span`.
  *
  * ### Usage
  *
  * Use this hook to customize the behavior of the {@link Day} component. Create a
- * new `Day` component using this hook and pass it to the `components` prop.
- * The source of {@link Day} can be a good starting point.
- *
+ * new `Day` component using this hook and pass it to the `components` prop. The
+ * source of {@link Day} can be a good starting point.
  */
 export function useDayEventHandlers(
   date: Date,
@@ -89,7 +87,7 @@ export function useDayEventHandlers(
     focusYearBefore,
     focusYearAfter,
     focusStartOfWeek,
-    focusEndOfWeek
+    focusEndOfWeek,
   } = useFocusContext();
 
   const onClick: MouseEventHandler = (e) => {
@@ -145,42 +143,42 @@ export function useDayEventHandlers(
 
   const onKeyDown: KeyboardEventHandler = (e) => {
     switch (e.key) {
-      case 'ArrowLeft':
+      case "ArrowLeft":
         e.preventDefault();
         e.stopPropagation();
-        dayPicker.dir === 'rtl' ? focusDayAfter() : focusDayBefore();
+        dayPicker.dir === "rtl" ? focusDayAfter() : focusDayBefore();
         break;
-      case 'ArrowRight':
+      case "ArrowRight":
         e.preventDefault();
         e.stopPropagation();
-        dayPicker.dir === 'rtl' ? focusDayBefore() : focusDayAfter();
+        dayPicker.dir === "rtl" ? focusDayBefore() : focusDayAfter();
         break;
-      case 'ArrowDown':
+      case "ArrowDown":
         e.preventDefault();
         e.stopPropagation();
         focusWeekAfter();
         break;
-      case 'ArrowUp':
+      case "ArrowUp":
         e.preventDefault();
         e.stopPropagation();
         focusWeekBefore();
         break;
-      case 'PageUp':
+      case "PageUp":
         e.preventDefault();
         e.stopPropagation();
         e.shiftKey ? focusYearBefore() : focusMonthBefore();
         break;
-      case 'PageDown':
+      case "PageDown":
         e.preventDefault();
         e.stopPropagation();
         e.shiftKey ? focusYearAfter() : focusMonthAfter();
         break;
-      case 'Home':
+      case "Home":
         e.preventDefault();
         e.stopPropagation();
         focusStartOfWeek();
         break;
-      case 'End':
+      case "End":
         e.preventDefault();
         e.stopPropagation();
         focusEndOfWeek();
@@ -202,7 +200,7 @@ export function useDayEventHandlers(
     onTouchCancel,
     onTouchEnd,
     onTouchMove,
-    onTouchStart
+    onTouchStart,
   };
 
   return eventHandlers;

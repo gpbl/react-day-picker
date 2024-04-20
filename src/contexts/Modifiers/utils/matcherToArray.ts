@@ -1,4 +1,4 @@
-import { Matcher } from 'types/Matchers';
+import { Matcher } from "types/Matchers";
 
 /** Normalize to array a matcher input. */
 export function matcherToArray(

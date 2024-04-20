@@ -1,10 +1,10 @@
-import { screen } from '@testing-library/react';
-import { userEvent } from '@testing-library/user-event';
-import { DayPickerProps } from 'DayPicker';
+import { screen } from "@testing-library/react";
+import { userEvent } from "@testing-library/user-event";
+import { DayPickerProps } from "DayPicker";
 
-import { customRender } from 'test/render/customRender';
+import { customRender } from "test/render/customRender";
 
-import { WeekNumber, WeekNumberProps } from './WeekNumber';
+import { WeekNumber, WeekNumberProps } from "./WeekNumber";
 
 function setup(props: WeekNumberProps, dayPickerProps?: DayPickerProps) {
   return customRender(<WeekNumber {...props} />, dayPickerProps);
@@ -12,12 +12,12 @@ function setup(props: WeekNumberProps, dayPickerProps?: DayPickerProps) {
 
 const props: WeekNumberProps = {
   number: 10,
-  dates: [new Date(), new Date()]
+  dates: [new Date(), new Date()],
 };
 
 describe('without "onWeekNumberClick" prop', () => {
   const dayPickerProps: DayPickerProps = { onWeekNumberClick: undefined };
-  test('it should return a span element', () => {
+  test("it should return a span element", () => {
     const { container } = setup(props, dayPickerProps);
     expect(container.firstChild).toMatchSnapshot();
   });
@@ -29,16 +29,16 @@ describe('with "onWeekNumberClick" prop', () => {
   beforeEach(() => {
     container = setup(props, dayPickerProps).container;
   });
-  test('it should return a button element', () => {
-    expect(screen.getByRole('button')).toBeInTheDocument();
-    expect(container.firstChild).toHaveAttribute('name', 'week-number');
+  test("it should return a button element", () => {
+    expect(screen.getByRole("button")).toBeInTheDocument();
+    expect(container.firstChild).toHaveAttribute("name", "week-number");
     expect(container.firstChild).toMatchSnapshot();
   });
-  describe('when the button element is clicked', () => {
+  describe("when the button element is clicked", () => {
     beforeEach(async () => {
-      await userEvent.click(screen.getByRole('button'));
+      await userEvent.click(screen.getByRole("button"));
     });
-    test('should call onWeekNumberClick', () => {
+    test("should call onWeekNumberClick", () => {
       expect(dayPickerProps.onWeekNumberClick).toHaveBeenCalledWith(
         props.number,
         props.dates,

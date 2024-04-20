@@ -1,17 +1,17 @@
-import { addDays } from 'date-fns';
+import { addDays } from "date-fns";
 
-import { DayPickerContextValue } from 'contexts/DayPicker';
-import { getDefaultContextValues } from 'contexts/DayPicker/defaultContextValues';
-import { SelectRangeContextValue } from 'contexts/SelectRange';
-import { InternalModifier, InternalModifiers } from 'types/Modifiers';
+import { DayPickerContextValue } from "contexts/DayPicker";
+import { getDefaultContextValues } from "contexts/DayPicker/defaultContextValues";
+import { SelectRangeContextValue } from "contexts/SelectRange";
+import { InternalModifier, InternalModifiers } from "types/Modifiers";
 
-import { getInternalModifiers } from './getInternalModifiers';
+import { getInternalModifiers } from "./getInternalModifiers";
 
 const defaultDayPickerContext: DayPickerContextValue =
   getDefaultContextValues();
 const defaultSelectMultipleContext = {
   selected: undefined,
-  modifiers: { disabled: [] }
+  modifiers: { disabled: [] },
 };
 const defaultSelectRangeContext = {
   selected: undefined,
@@ -19,8 +19,8 @@ const defaultSelectRangeContext = {
     disabled: [],
     range_start: [],
     range_end: [],
-    range_middle: []
-  }
+    range_middle: [],
+  },
 };
 
 const { Selected, Disabled, Hidden, Today, RangeEnd, RangeMiddle, RangeStart } =
@@ -44,7 +44,7 @@ describe('when navigation is limited by "fromDate"', () => {
   const fromDate = new Date();
   const dayPickerContext: DayPickerContextValue = {
     ...defaultDayPickerContext,
-    fromDate
+    fromDate,
   };
   test('should add a "before" matcher to the "disabled" modifiers', () => {
     const modifiers = getInternalModifiers(
@@ -60,7 +60,7 @@ describe('when navigation is limited by "toDate"', () => {
   const toDate = new Date();
   const dayPickerContext: DayPickerContextValue = {
     ...defaultDayPickerContext,
-    toDate
+    toDate,
   };
   test('should add an "after" matcher to the "disabled" modifiers', () => {
     const modifiers = getInternalModifiers(
@@ -72,19 +72,19 @@ describe('when navigation is limited by "toDate"', () => {
   });
 });
 
-describe('when in multiple select mode', () => {
+describe("when in multiple select mode", () => {
   const disabledDate = new Date();
   const dayPickerContext: DayPickerContextValue = {
     ...defaultDayPickerContext,
-    mode: 'multiple'
+    mode: "multiple",
   };
   const selectMultipleContext = {
     ...defaultSelectMultipleContext,
     modifiers: {
-      [Disabled]: [disabledDate]
-    }
+      [Disabled]: [disabledDate],
+    },
   };
-  test('should add the disabled modifier from the select multiple context', () => {
+  test("should add the disabled modifier from the select multiple context", () => {
     const modifiers = getInternalModifiers(
       dayPickerContext,
       selectMultipleContext,
@@ -94,14 +94,14 @@ describe('when in multiple select mode', () => {
   });
 });
 
-describe('when in range select mode', () => {
+describe("when in range select mode", () => {
   const disabled = [new Date()];
   const rangeStart = new Date();
   const rangeMiddle = [addDays(rangeStart, 1), addDays(rangeStart, 2)];
   const rangeEnd = [addDays(rangeStart, 3)];
   const dayPickerContext: DayPickerContextValue = {
     ...defaultDayPickerContext,
-    mode: 'range'
+    mode: "range",
   };
   const selectRangeContext: SelectRangeContextValue = {
     ...defaultSelectRangeContext,
@@ -109,8 +109,8 @@ describe('when in range select mode', () => {
       [Disabled]: [disabled],
       [RangeStart]: [rangeStart],
       [RangeEnd]: rangeEnd,
-      [RangeMiddle]: rangeMiddle
-    }
+      [RangeMiddle]: rangeMiddle,
+    },
   };
   let internalModifiers: InternalModifiers;
   beforeEach(() => {
@@ -121,25 +121,25 @@ describe('when in range select mode', () => {
     );
   });
 
-  test('should add the Disabled modifier from the SelectRange context', () => {
+  test("should add the Disabled modifier from the SelectRange context", () => {
     expect(internalModifiers[Disabled]).toStrictEqual(
       selectRangeContext.modifiers[Disabled]
     );
   });
 
-  test('should add the RangeStart modifier from the SelectRange context', () => {
+  test("should add the RangeStart modifier from the SelectRange context", () => {
     expect(internalModifiers[RangeStart]).toStrictEqual(
       selectRangeContext.modifiers[RangeStart]
     );
   });
 
-  test('should add the RangeEnd modifier from the SelectRange context', () => {
+  test("should add the RangeEnd modifier from the SelectRange context", () => {
     expect(internalModifiers[RangeEnd]).toStrictEqual(
       selectRangeContext.modifiers[RangeEnd]
     );
   });
 
-  test('should add the RangeMiddle modifier from the SelectRange context', () => {
+  test("should add the RangeMiddle modifier from the SelectRange context", () => {
     expect(internalModifiers[RangeMiddle]).toStrictEqual(
       selectRangeContext.modifiers[RangeMiddle]
     );

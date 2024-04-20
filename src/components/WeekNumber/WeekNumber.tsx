@@ -1,12 +1,10 @@
-import { MouseEventHandler } from 'react';
+import { MouseEventHandler } from "react";
 
-import { useDayPicker } from 'contexts/DayPicker';
+import { useDayPicker } from "contexts/DayPicker";
 
-import { Button } from '../Button';
+import { Button } from "../Button";
 
-/**
- * The props for the {@link WeekNumber} component.
- */
+/** The props for the {@link WeekNumber} component. */
 export interface WeekNumberProps {
   /** The number of the week. */
   number: number;
@@ -15,8 +13,8 @@ export interface WeekNumberProps {
 }
 
 /**
- * Render the week number element. If `onWeekNumberClick` is passed to DayPicker, it
- * renders a button, otherwise a span element.
+ * Render the week number element. If `onWeekNumberClick` is passed to
+ * DayPicker, it renders a button, otherwise a span element.
  */
 export function WeekNumber(props: WeekNumberProps): JSX.Element {
   const { number: weekNumber, dates } = props;
@@ -26,7 +24,7 @@ export function WeekNumber(props: WeekNumberProps): JSX.Element {
     classNames,
     locale,
     labels: { labelWeekNumber },
-    formatters: { formatWeekNumber }
+    formatters: { formatWeekNumber },
   } = useDayPicker();
 
   const content = formatWeekNumber(Number(weekNumber), { locale });

@@ -1,1 +1,1 @@
-export * from './CaptionLabel';
+export * from "./CaptionLabel";

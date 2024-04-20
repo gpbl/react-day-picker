@@ -1,14 +1,12 @@
-import { ChangeEventHandler } from 'react';
+import { ChangeEventHandler } from "react";
 
-import { setYear, startOfMonth, startOfYear } from 'date-fns';
+import { setYear, startOfMonth, startOfYear } from "date-fns";
 
-import { Dropdown } from 'components/Dropdown';
-import { useDayPicker } from 'contexts/DayPicker';
-import { MonthChangeEventHandler } from 'types/EventHandlers';
+import { Dropdown } from "components/Dropdown";
+import { useDayPicker } from "contexts/DayPicker";
+import { MonthChangeEventHandler } from "types/EventHandlers";
 
-/**
- * The props for the {@link YearsDropdown} component.
- */
+/** The props for the {@link YearsDropdown} component. */
 export interface YearsDropdownProps {
   /** The month where the drop-down is displayed. */
   displayMonth: Date;
@@ -30,7 +28,7 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
     classNames,
     components,
     formatters: { formatYearCaption },
-    labels: { labelYearDropdown }
+    labels: { labelYearDropdown },
   } = useDayPicker();
 
   const years: Date[] = [];

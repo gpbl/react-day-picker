@@ -1,20 +1,23 @@
-import { CSSProperties } from 'react';
+import { CSSProperties } from "react";
 
-import { DayPickerContextValue } from 'contexts/DayPicker';
-import { ActiveModifiers } from 'types/Modifiers';
+import { DayPickerContextValue } from "contexts/DayPicker";
+import { ActiveModifiers } from "types/Modifiers";
 
-/** Return the style for the Day element, according to the given active modifiers. */
+/**
+ * Return the style for the Day element, according to the given active
+ * modifiers.
+ */
 export function getDayStyle(
-  dayPicker: Pick<DayPickerContextValue, 'modifiersStyles' | 'styles'>,
+  dayPicker: Pick<DayPickerContextValue, "modifiersStyles" | "styles">,
   activeModifiers: ActiveModifiers
 ): CSSProperties {
   let style: CSSProperties = {
-    ...dayPicker.styles.day
+    ...dayPicker.styles.day,
   };
   Object.keys(activeModifiers).forEach((modifier) => {
     style = {
       ...style,
-      ...dayPicker.modifiersStyles?.[modifier]
+      ...dayPicker.modifiersStyles?.[modifier],
     };
   });
   return style;

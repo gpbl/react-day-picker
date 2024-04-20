@@ -1,19 +1,19 @@
-import { createContext, ReactNode, useContext } from 'react';
+import { createContext, ReactNode, useContext } from "react";
 
 import {
   addDays,
   differenceInCalendarDays,
   isSameDay,
-  subDays
-} from 'date-fns';
+  subDays,
+} from "date-fns";
 
-import { DayPickerBase } from 'types/DayPickerBase';
-import { DayPickerRangeProps, isDayPickerRange } from 'types/DayPickerRange';
-import { DayClickEventHandler } from 'types/EventHandlers';
-import { DateRange } from 'types/Matchers';
-import { InternalModifier, Modifiers } from 'types/Modifiers';
+import { DayPickerBase } from "types/DayPickerBase";
+import { DayPickerRangeProps, isDayPickerRange } from "types/DayPickerRange";
+import { DayClickEventHandler } from "types/EventHandlers";
+import { DateRange } from "types/Matchers";
+import { InternalModifier, Modifiers } from "types/Modifiers";
 
-import { addToRange } from './utils/addToRange';
+import { addToRange } from "./utils/addToRange";
 
 /** Represent the modifiers that are changed by the range selection. */
 export type SelectRangeModifiers = Pick<
@@ -35,8 +35,8 @@ export interface SelectRangeContextValue {
 }
 
 /**
- * The SelectRange context shares details about the selected days when in
- * range selection mode.
+ * The SelectRange context shares details about the selected days when in range
+ * selection mode.
  *
  * Access this context from the {@link useSelectRange} hook.
  */
@@ -60,8 +60,8 @@ export function SelectRangeProvider(
         range_start: [],
         range_end: [],
         range_middle: [],
-        disabled: []
-      }
+        disabled: [],
+      },
     };
     return (
       <SelectRangeContext.Provider value={emptyContextValue}>
@@ -85,7 +85,7 @@ export interface SelectRangeProviderInternalProps {
 
 export function SelectRangeProviderInternal({
   initialProps,
-  children
+  children,
 }: SelectRangeProviderInternalProps): JSX.Element {
   const { selected } = initialProps;
   const { from: selectedFrom, to: selectedTo } = selected || {};
@@ -102,7 +102,7 @@ export function SelectRangeProviderInternal({
     range_start: [],
     range_end: [],
     range_middle: [],
-    disabled: []
+    disabled: [],
   };
 
   if (selectedFrom) {
@@ -115,8 +115,8 @@ export function SelectRangeProviderInternal({
         modifiers.range_middle = [
           {
             after: selectedFrom,
-            before: selectedTo
-          }
+            before: selectedTo,
+          },
         ];
       }
     }
@@ -129,29 +129,29 @@ export function SelectRangeProviderInternal({
     if (selectedFrom && !selectedTo) {
       modifiers.disabled.push({
         after: subDays(selectedFrom, min - 1),
-        before: addDays(selectedFrom, min - 1)
+        before: addDays(selectedFrom, min - 1),
       });
     }
     if (selectedFrom && selectedTo) {
       modifiers.disabled.push({
         after: selectedFrom,
-        before: addDays(selectedFrom, min - 1)
+        before: addDays(selectedFrom, min - 1),
       });
     }
     if (!selectedFrom && selectedTo) {
       modifiers.disabled.push({
         after: subDays(selectedTo, min - 1),
-        before: addDays(selectedTo, min - 1)
+        before: addDays(selectedTo, min - 1),
       });
     }
   }
   if (max) {
     if (selectedFrom && !selectedTo) {
       modifiers.disabled.push({
-        before: addDays(selectedFrom, -max + 1)
+        before: addDays(selectedFrom, -max + 1),
       });
       modifiers.disabled.push({
-        after: addDays(selectedFrom, max - 1)
+        after: addDays(selectedFrom, max - 1),
       });
     }
     if (selectedFrom && selectedTo) {
@@ -159,18 +159,18 @@ export function SelectRangeProviderInternal({
         differenceInCalendarDays(selectedTo, selectedFrom) + 1;
       const offset = max - selectedCount;
       modifiers.disabled.push({
-        before: subDays(selectedFrom, offset)
+        before: subDays(selectedFrom, offset),
       });
       modifiers.disabled.push({
-        after: addDays(selectedTo, offset)
+        after: addDays(selectedTo, offset),
       });
     }
     if (!selectedFrom && selectedTo) {
       modifiers.disabled.push({
-        before: addDays(selectedTo, -max + 1)
+        before: addDays(selectedTo, -max + 1),
       });
       modifiers.disabled.push({
-        after: addDays(selectedTo, max - 1)
+        after: addDays(selectedTo, max - 1),
       });
     }
   }
@@ -190,7 +190,7 @@ export function SelectRangeProviderInternal({
 export function useSelectRange(): SelectRangeContextValue {
   const context = useContext(SelectRangeContext);
   if (!context) {
-    throw new Error('useSelectRange must be used within a SelectRangeProvider');
+    throw new Error("useSelectRange must be used within a SelectRangeProvider");
   }
   return context;
 }

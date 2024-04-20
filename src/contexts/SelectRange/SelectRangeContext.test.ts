@@ -1,21 +1,21 @@
-import { MouseEvent } from 'react';
+import { MouseEvent } from "react";
 
 import {
   addDays,
   addMonths,
   differenceInCalendarDays,
-  subDays
-} from 'date-fns';
-import { DayPickerProps } from 'DayPicker';
+  subDays,
+} from "date-fns";
+import { DayPickerProps } from "DayPicker";
 
-import { renderDayPickerHook } from 'test/render';
-import { freezeBeforeAll } from 'test/utils';
+import { renderDayPickerHook } from "test/render";
+import { freezeBeforeAll } from "test/utils";
 
-import { isMatch } from 'contexts/Modifiers/utils/isMatch';
-import { DayPickerRangeProps } from 'types/DayPickerRange';
-import { ActiveModifiers } from 'types/Modifiers';
+import { isMatch } from "contexts/Modifiers/utils/isMatch";
+import { DayPickerRangeProps } from "types/DayPickerRange";
+import { ActiveModifiers } from "types/Modifiers";
 
-import { SelectRangeContextValue, useSelectRange } from './SelectRangeContext';
+import { SelectRangeContextValue, useSelectRange } from "./SelectRangeContext";
 
 const today = new Date(2021, 11, 8);
 freezeBeforeAll(today);
@@ -23,25 +23,25 @@ freezeBeforeAll(today);
 function renderHook(props?: Partial<DayPickerProps>) {
   return renderDayPickerHook<SelectRangeContextValue>(useSelectRange, props);
 }
-describe('when is not a multiple select DayPicker', () => {
-  test('the selected day should be undefined', () => {
+describe("when is not a multiple select DayPicker", () => {
+  test("the selected day should be undefined", () => {
     const result = renderHook();
     expect(result.current.selected).toBeUndefined();
   });
 });
 
 const initialProps: DayPickerRangeProps = {
-  mode: 'range',
+  mode: "range",
   onDayClick: jest.fn(),
-  onSelect: jest.fn()
+  onSelect: jest.fn(),
 };
 
 const from = today;
 const to = addDays(today, 6);
 const stubEvent = {} as MouseEvent;
 
-describe('when no days are selected', () => {
-  test('the selected days should be undefined', () => {
+describe("when no days are selected", () => {
+  test("the selected days should be undefined", () => {
     const result = renderHook();
     expect(result.current.selected).toBeUndefined();
   });
@@ -77,7 +77,7 @@ describe('when only the "from" day is selected', () => {
   const selected = { from, to: undefined };
   const dayPickerProps: DayPickerRangeProps = {
     ...initialProps,
-    selected
+    selected,
   };
   test('should return the "range_start" modifiers with the "from" day', () => {
     const result = renderHook(dayPickerProps);
@@ -97,7 +97,7 @@ describe('when only the "to" day is selected', () => {
   const selected = { from: undefined, to };
   const dayPickerProps: DayPickerRangeProps = {
     ...initialProps,
-    selected
+    selected,
   };
   test('should return the "range_start" modifiers with the "to" day', () => {
     const result = renderHook(dayPickerProps);
@@ -113,11 +113,11 @@ describe('when only the "to" day is selected', () => {
   });
 });
 
-describe('when a complete range of days is selected', () => {
+describe("when a complete range of days is selected", () => {
   const selected = { from, to };
   const dayPickerProps: DayPickerRangeProps = {
     ...initialProps,
-    selected
+    selected,
   };
   test('should return the "range_start" modifiers with the "from" day', () => {
     const result = renderHook(dayPickerProps);
@@ -130,7 +130,7 @@ describe('when a complete range of days is selected', () => {
   test('should return the "range_middle" range modifiers', () => {
     const result = renderHook(dayPickerProps);
     expect(result.current.modifiers.range_middle).toEqual([
-      { after: from, before: to }
+      { after: from, before: to },
     ]);
   });
   describe('when "onDayClick" is called with the day before the from day', () => {
@@ -167,7 +167,7 @@ describe('when "from" and "to" are the same', () => {
   const selected = { from: date, to: date };
   const dayPickerProps: DayPickerRangeProps = {
     ...initialProps,
-    selected
+    selected,
   };
   test('should return the "range_start" modifier with the date', () => {
     const result = renderHook(dayPickerProps);
@@ -183,22 +183,22 @@ describe('when "from" and "to" are the same', () => {
   });
 });
 
-describe('when the max number of the selected days is reached', () => {
+describe("when the max number of the selected days is reached", () => {
   const from = today;
   const to = addDays(today, 6);
   const selected = { from, to };
   const dayPickerProps: DayPickerRangeProps = {
     ...initialProps,
     selected,
-    max: 7
+    max: 7,
   };
-  test('the days in the range should not be disabled', () => {
+  test("the days in the range should not be disabled", () => {
     const result = renderHook(dayPickerProps);
     const { disabled } = result.current.modifiers;
     expect(isMatch(from, disabled)).toBe(false);
     expect(isMatch(to, disabled)).toBe(false);
   });
-  test('the other days should be disabled', () => {
+  test("the other days should be disabled", () => {
     const result = renderHook(dayPickerProps);
     const { disabled } = result.current.modifiers;
     expect(isMatch(addMonths(from, 1), disabled)).toBe(true);
@@ -224,12 +224,12 @@ describe('when the max number of the selected days is reached', () => {
   });
 });
 
-describe('when the minimum number of days are selected', () => {
+describe("when the minimum number of days are selected", () => {
   const selected = { from, to };
   const dayPickerProps: DayPickerRangeProps = {
     ...initialProps,
     selected,
-    min: Math.abs(differenceInCalendarDays(to, from))
+    min: Math.abs(differenceInCalendarDays(to, from)),
   };
   describe('when "onDayClick" is called with a day before "from"', () => {
     const day = subDays(from, 1);

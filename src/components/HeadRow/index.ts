@@ -1,1 +1,1 @@
-export * from './HeadRow';
+export * from "./HeadRow";

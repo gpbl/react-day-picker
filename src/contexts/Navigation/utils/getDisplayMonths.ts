@@ -1,4 +1,4 @@
-import { addMonths, differenceInCalendarMonths, startOfMonth } from 'date-fns';
+import { addMonths, differenceInCalendarMonths, startOfMonth } from "date-fns";
 
 /**
  * Return the months to display in the component according to the number of
@@ -8,7 +8,7 @@ export function getDisplayMonths(
   month: Date,
   {
     reverseMonths,
-    numberOfMonths
+    numberOfMonths,
   }: {
     reverseMonths?: boolean;
     numberOfMonths: number;

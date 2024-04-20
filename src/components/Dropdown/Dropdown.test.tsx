@@ -1,12 +1,12 @@
-import { fireEvent, screen } from '@testing-library/react';
-import { DayPickerProps } from 'DayPicker';
+import { fireEvent, screen } from "@testing-library/react";
+import { DayPickerProps } from "DayPicker";
 
-import { customRender } from 'test/render';
-import { freezeBeforeAll } from 'test/utils';
+import { customRender } from "test/render";
+import { freezeBeforeAll } from "test/utils";
 
-import { Dropdown, DropdownProps } from 'components/Dropdown';
-import { defaultClassNames } from 'contexts/DayPicker/defaultClassNames';
-import { CustomComponents } from 'types/DayPickerBase';
+import { Dropdown, DropdownProps } from "components/Dropdown";
+import { defaultClassNames } from "contexts/DayPicker/defaultClassNames";
+import { CustomComponents } from "types/DayPickerBase";
 
 const today = new Date(2021, 8);
 
@@ -17,35 +17,35 @@ function setup(props: DropdownProps, dayPickerProps?: DayPickerProps) {
 }
 
 const props: Required<DropdownProps> = {
-  name: 'dropdown',
-  'aria-label': 'foo',
+  name: "dropdown",
+  "aria-label": "foo",
   onChange: jest.fn(),
-  caption: 'Some caption',
-  className: 'test',
-  value: 'bar',
-  children: <option value={'bar'} />,
-  style: {}
+  caption: "Some caption",
+  className: "test",
+  value: "bar",
+  children: <option value={"bar"} />,
+  style: {},
 };
 
-describe('when rendered', () => {
+describe("when rendered", () => {
   let combobox: HTMLElement;
   let label: HTMLElement;
 
   beforeEach(() => {
     setup(props);
-    combobox = screen.getByRole('combobox');
-    label = screen.getByText(props['aria-label']);
+    combobox = screen.getByRole("combobox");
+    label = screen.getByText(props["aria-label"]);
   });
 
-  test('should render the vhidden aria label', () => {
+  test("should render the vhidden aria label", () => {
     expect(label).toHaveClass(defaultClassNames.vhidden);
   });
 
-  test('should render the combobox', () => {
+  test("should render the combobox", () => {
     expect(combobox).toBeInTheDocument();
   });
 
-  describe('when the combobox changes', () => {
+  describe("when the combobox changes", () => {
     beforeEach(() => {
       fireEvent.change(combobox);
     });
@@ -54,19 +54,19 @@ describe('when rendered', () => {
     });
   });
 
-  test('should render the combobox with the given value', () => {
+  test("should render the combobox with the given value", () => {
     expect(combobox).toHaveValue(props.value);
   });
 });
 
-describe('when using a custom IconDropdown component', () => {
+describe("when using a custom IconDropdown component", () => {
   const components: CustomComponents = {
-    IconDropdown: () => <div>Custom IconDropdown</div>
+    IconDropdown: () => <div>Custom IconDropdown</div>,
   };
   beforeEach(() => {
     setup(props, { components });
   });
-  test('it should render the custom component instead', () => {
-    expect(screen.getByText('Custom IconDropdown')).toBeInTheDocument();
+  test("it should render the custom component instead", () => {
+    expect(screen.getByText("Custom IconDropdown")).toBeInTheDocument();
   });
 });

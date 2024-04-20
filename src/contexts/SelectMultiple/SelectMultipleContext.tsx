@@ -1,14 +1,14 @@
-import { createContext, ReactNode, useContext } from 'react';
+import { createContext, ReactNode, useContext } from "react";
 
-import { isSameDay } from 'date-fns';
+import { isSameDay } from "date-fns";
 
-import { DayPickerBase } from 'types/DayPickerBase';
+import { DayPickerBase } from "types/DayPickerBase";
 import {
   DayPickerMultipleProps,
-  isDayPickerMultiple
-} from 'types/DayPickerMultiple';
-import { DayClickEventHandler } from 'types/EventHandlers';
-import { InternalModifier, Modifiers } from 'types/Modifiers';
+  isDayPickerMultiple,
+} from "types/DayPickerMultiple";
+import { DayClickEventHandler } from "types/EventHandlers";
+import { InternalModifier, Modifiers } from "types/Modifiers";
 
 /** Represent the modifiers that are changed by the multiple selection. */
 export type SelectMultipleModifiers = Pick<
@@ -49,8 +49,8 @@ export function SelectMultipleProvider(
     const emptyContextValue: SelectMultipleContextValue = {
       selected: undefined,
       modifiers: {
-        disabled: []
-      }
+        disabled: [],
+      },
     };
     return (
       <SelectMultipleContext.Provider value={emptyContextValue}>
@@ -74,7 +74,7 @@ export interface SelectMultipleProviderInternalProps {
 
 export function SelectMultipleProviderInternal({
   initialProps,
-  children
+  children,
 }: SelectMultipleProviderInternalProps): JSX.Element {
   const { selected, min, max } = initialProps;
 
@@ -109,7 +109,7 @@ export function SelectMultipleProviderInternal({
   };
 
   const modifiers: SelectMultipleModifiers = {
-    disabled: []
+    disabled: [],
   };
 
   if (selected) {
@@ -125,7 +125,7 @@ export function SelectMultipleProviderInternal({
   const contextValue = {
     selected,
     onDayClick,
-    modifiers
+    modifiers,
   };
 
   return (
@@ -144,7 +144,7 @@ export function useSelectMultiple(): SelectMultipleContextValue {
   const context = useContext(SelectMultipleContext);
   if (!context) {
     throw new Error(
-      'useSelectMultiple must be used within a SelectMultipleProvider'
+      "useSelectMultiple must be used within a SelectMultipleProvider"
     );
   }
   return context;

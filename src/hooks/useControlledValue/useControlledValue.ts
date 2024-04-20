@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction, useState } from "react";
 
 export type DispatchStateAction<T> = Dispatch<SetStateAction<T>>;
 
@@ -8,8 +8,8 @@ export type DispatchStateAction<T> = Dispatch<SetStateAction<T>>;
  * When the value is not controlled, pass `undefined` as `controlledValue` and
  * use the returned setter to update it.
  *
- * When the value is controlled, pass the controlled value as second
- * argument, which will be always returned as `value`.
+ * When the value is controlled, pass the controlled value as second argument,
+ * which will be always returned as `value`.
  */
 export function useControlledValue<T>(
   defaultValue: T,

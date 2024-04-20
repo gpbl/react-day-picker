@@ -1,15 +1,15 @@
-import { isSameMonth } from 'date-fns';
+import { isSameMonth } from "date-fns";
 
-import { ActiveModifiers, Modifiers } from 'types/Modifiers';
+import { ActiveModifiers, Modifiers } from "types/Modifiers";
 
-import { isMatch } from './isMatch';
+import { isMatch } from "./isMatch";
 
 /** Return the active modifiers for the given day. */
 export function getActiveModifiers(
   day: Date,
   /** The modifiers to match for the given date. */
   modifiers: Modifiers,
-  /** The month where the day is displayed, to add the "outside" modifiers.  */
+  /** The month where the day is displayed, to add the "outside" modifiers. */
   displayMonth?: Date
 ): ActiveModifiers {
   const matchedModifiers = Object.keys(modifiers).reduce(

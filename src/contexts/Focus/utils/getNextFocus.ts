@@ -8,27 +8,27 @@ import {
   max,
   min,
   startOfISOWeek,
-  startOfWeek
-} from 'date-fns';
+  startOfWeek,
+} from "date-fns";
 
-import { DayPickerContextValue } from 'contexts/DayPicker';
-import { getActiveModifiers } from 'contexts/Modifiers';
-import { Modifiers } from 'types/Modifiers';
+import { DayPickerContextValue } from "contexts/DayPicker";
+import { getActiveModifiers } from "contexts/Modifiers";
+import { Modifiers } from "types/Modifiers";
 
 export type MoveFocusBy =
-  | 'day'
-  | 'week'
-  | 'startOfWeek'
-  | 'endOfWeek'
-  | 'month'
-  | 'year';
+  | "day"
+  | "week"
+  | "startOfWeek"
+  | "endOfWeek"
+  | "month"
+  | "year";
 
-export type MoveFocusDirection = 'after' | 'before';
+export type MoveFocusDirection = "after" | "before";
 
 export type FocusDayPickerContext = Partial<
   Pick<
     DayPickerContextValue,
-    'ISOWeek' | 'weekStartsOn' | 'fromDate' | 'toDate' | 'locale'
+    "ISOWeek" | "weekStartsOn" | "fromDate" | "toDate" | "locale"
   >
 >;
 
@@ -49,7 +49,7 @@ export function getNextFocus(focusedDay: Date, options: FocusDayOptions): Date {
     direction,
     context,
     modifiers,
-    retry = { count: 0, lastFocused: focusedDay }
+    retry = { count: 0, lastFocused: focusedDay },
   } = options;
   const { weekStartsOn, fromDate, toDate, locale } = context;
 
@@ -65,17 +65,17 @@ export function getNextFocus(focusedDay: Date, options: FocusDayOptions): Date {
     endOfWeek: (date: Date) =>
       context.ISOWeek
         ? endOfISOWeek(date)
-        : endOfWeek(date, { locale, weekStartsOn })
+        : endOfWeek(date, { locale, weekStartsOn }),
   };
 
   let newFocusedDay = moveFns[moveBy](
     focusedDay,
-    direction === 'after' ? 1 : -1
+    direction === "after" ? 1 : -1
   );
 
-  if (direction === 'before' && fromDate) {
+  if (direction === "before" && fromDate) {
     newFocusedDay = max([fromDate, newFocusedDay]);
-  } else if (direction === 'after' && toDate) {
+  } else if (direction === "after" && toDate) {
     newFocusedDay = min([toDate, newFocusedDay]);
   }
   let isFocusable = true;
@@ -97,8 +97,8 @@ export function getNextFocus(focusedDay: Date, options: FocusDayOptions): Date {
       modifiers,
       retry: {
         ...retry,
-        count: retry.count + 1
-      }
+        count: retry.count + 1,
+      },
     });
   }
 }

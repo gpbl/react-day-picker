@@ -7,12 +7,12 @@ import {
   getWeek,
   Locale,
   startOfISOWeek,
-  startOfWeek
-} from 'date-fns';
+  startOfWeek,
+} from "date-fns";
 
-import { MonthWeek } from './getMonthWeeks';
+import { MonthWeek } from "./getMonthWeeks";
 
-/** Return the weeks between two dates.  */
+/** Return the weeks between two dates. */
 export function daysToMonthWeeks(
   fromDate: Date,
   toDate: Date,
@@ -51,7 +51,7 @@ export function daysToMonthWeeks(
     }
     result.push({
       weekNumber,
-      dates: [date]
+      dates: [date],
     });
     return result;
   }, []);
