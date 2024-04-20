@@ -3,7 +3,7 @@ import {
   SelectMultipleContextValue,
   SelectRangeContextValue,
   SelectSingleContextValue
-} from 'index';
+} from "index";
 
 const singleContext: SelectSingleContextValue = {
   selected: new Date(),

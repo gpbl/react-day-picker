@@ -1,16 +1,16 @@
-import { Footer } from 'components/Footer';
-import { Head } from 'components/Head';
-import { Row } from 'components/Row';
-import { useDayPicker } from 'contexts/DayPicker';
+import { Footer } from "components/Footer";
+import { Head } from "components/Head";
+import { Row } from "components/Row";
+import { useDayPicker } from "contexts/DayPicker";
 
-import { getMonthWeeks } from './utils/getMonthWeeks';
+import { getMonthWeeks } from "./utils/getMonthWeeks";
 
 /** The props for the {@link Table} component. */
 export interface TableProps {
   /** ID of table element */
   id?: string;
   /** The ID of the label of the table (the same given to the Caption). */
-  ['aria-labelledby']?: string;
+  ["aria-labelledby"]?: string;
   /** The month where the table is displayed. */
   displayMonth: Date;
 }
@@ -46,7 +46,7 @@ export function Table(props: TableProps): JSX.Element {
       className={classNames.table}
       style={styles.table}
       role="grid"
-      aria-labelledby={props['aria-labelledby']}
+      aria-labelledby={props["aria-labelledby"]}
     >
       {!hideHead && <HeadComponent />}
       <tbody className={classNames.tbody} style={styles.tbody}>

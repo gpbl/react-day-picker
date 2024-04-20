@@ -1,9 +1,9 @@
-import { Modifiers } from 'types/Modifiers';
+import { Modifiers } from "types/Modifiers";
 
-import { getInitialFocusTarget } from './getInitialFocusTarget';
+import { getInitialFocusTarget } from "./getInitialFocusTarget";
 
-describe('when no days are selected is selected', () => {
-  test('should return the first day of month', () => {
+describe("when no days are selected is selected", () => {
+  test("should return the first day of month", () => {
     const displayMonth = new Date(2022, 7);
     const modifiers: Modifiers = {
       outside: [],
@@ -20,8 +20,8 @@ describe('when no days are selected is selected', () => {
   });
 });
 
-describe('when a day is selected', () => {
-  test('should return the selected day', () => {
+describe("when a day is selected", () => {
+  test("should return the selected day", () => {
     const displayMonths = [new Date(2022, 7)];
     const selectedDay1 = new Date(2022, 7, 17);
     const selectedDay2 = new Date(2022, 7, 19);

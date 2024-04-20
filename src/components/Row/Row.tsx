@@ -1,12 +1,10 @@
-import { getUnixTime } from 'date-fns';
+import { getUnixTime } from "date-fns";
 
-import { Day } from 'components/Day';
-import { WeekNumber } from 'components/WeekNumber';
-import { useDayPicker } from 'contexts/DayPicker';
+import { Day } from "components/Day";
+import { WeekNumber } from "components/WeekNumber";
+import { useDayPicker } from "contexts/DayPicker";
 
-/**
- * The props for the {@link Row} component.
- */
+/** The props for the {@link Row} component. */
 export interface RowProps {
   /** The month where the row is displayed. */
   displayMonth: Date;

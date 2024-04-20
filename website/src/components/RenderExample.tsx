@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import styles from './RenderExample.module.css';
+import styles from "./RenderExample.module.css";
 
 export function RenderExample(props: {
   name: string;

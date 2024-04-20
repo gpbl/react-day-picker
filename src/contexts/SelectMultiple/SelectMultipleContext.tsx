@@ -1,14 +1,14 @@
-import { createContext, ReactNode, useContext } from 'react';
+import { createContext, ReactNode, useContext } from "react";
 
-import { isSameDay } from 'date-fns';
+import { isSameDay } from "date-fns";
 
-import { DayPickerBase } from 'types/DayPickerBase';
+import { DayPickerBase } from "types/DayPickerBase";
 import {
   DayPickerMultipleProps,
   isDayPickerMultiple
-} from 'types/DayPickerMultiple';
-import { DayClickEventHandler } from 'types/EventHandlers';
-import { InternalModifier, Modifiers } from 'types/Modifiers';
+} from "types/DayPickerMultiple";
+import { DayClickEventHandler } from "types/EventHandlers";
+import { InternalModifier, Modifiers } from "types/Modifiers";
 
 /** Represent the modifiers that are changed by the multiple selection. */
 export type SelectMultipleModifiers = Pick<
@@ -144,7 +144,7 @@ export function useSelectMultiple(): SelectMultipleContextValue {
   const context = useContext(SelectMultipleContext);
   if (!context) {
     throw new Error(
-      'useSelectMultiple must be used within a SelectMultipleProvider'
+      "useSelectMultiple must be used within a SelectMultipleProvider"
     );
   }
   return context;

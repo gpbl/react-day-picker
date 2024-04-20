@@ -4,11 +4,11 @@ import {
   MouseEvent,
   PointerEvent,
   TouchEvent
-} from 'react';
+} from "react";
 
-import { DateRange } from './Matchers';
+import { DateRange } from "./Matchers";
 
-import { ActiveModifiers } from './Modifiers';
+import { ActiveModifiers } from "./Modifiers";
 
 /** The event handler when a day is clicked. */
 export type DayClickEventHandler = (
@@ -73,7 +73,10 @@ export type SelectRangeEventHandler = (
 
 /** The event handler when selecting a single day. */
 export type SelectSingleEventHandler = (
-  /** The selected day, `undefined` when `required={false}` (default) and the day is clicked again. */
+  /**
+   * The selected day, `undefined` when `required={false}` (default) and the day
+   * is clicked again.
+   */
   day: Date | undefined,
   /** The day that was selected (or clicked) triggering the event. */
   selectedDay: Date,
@@ -82,7 +85,7 @@ export type SelectSingleEventHandler = (
   e: MouseEvent
 ) => void;
 
-/**The event handler when the week number is clicked. */
+/** The event handler when the week number is clicked. */
 export type WeekNumberClickEventHandler = (
   /** The week number that has been clicked. */
   weekNumber: number,

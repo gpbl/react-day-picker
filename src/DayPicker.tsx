@@ -1,10 +1,10 @@
-import { DayPickerDefaultProps } from 'types/DayPickerDefault';
-import { DayPickerMultipleProps } from 'types/DayPickerMultiple';
-import { DayPickerRangeProps } from 'types/DayPickerRange';
-import { DayPickerSingleProps } from 'types/DayPickerSingle';
+import { DayPickerDefaultProps } from "types/DayPickerDefault";
+import { DayPickerMultipleProps } from "types/DayPickerMultiple";
+import { DayPickerRangeProps } from "types/DayPickerRange";
+import { DayPickerSingleProps } from "types/DayPickerSingle";
 
-import { Root } from './components/Root';
-import { RootProvider } from './contexts/RootProvider';
+import { Root } from "./components/Root";
+import { RootProvider } from "./contexts/RootProvider";
 
 export type DayPickerProps =
   | DayPickerDefaultProps
@@ -21,10 +21,10 @@ export type DayPickerProps =
  *
  * DayPicker offers different customization props. For example,
  *
- * - show multiple months using `numberOfMonths`
- * - display a dropdown to navigate the months via `captionLayout`
- * - display the week numbers with `showWeekNumbers`
- * - disable or hide days with `disabled` or `hidden`
+ * - Show multiple months using `numberOfMonths`
+ * - Display a dropdown to navigate the months via `captionLayout`
+ * - Display the week numbers with `showWeekNumbers`
+ * - Disable or hide days with `disabled` or `hidden`
  *
  * ### Controlling the months
  *
@@ -46,13 +46,13 @@ export type DayPickerProps =
  *   days.
  * - `mode="multiple"`: users can select one or more days. Limit the amount of
  *   days that can be selected with the `min` or the `max` props.
- * - `mode="range"`: users can select a range of days. Limit the amount of days
- *   in the range with the `min` or the `max` props.
+ * - `mode="range"`: users can select a range of days. Limit the amount of days in
+ *   the range with the `min` or the `max` props.
  * - `mode="default"` (default): the built-in selections are disabled. Implement
  *   your own selection mode with `onDayClick`.
  *
- * The selection modes should cover the most common use cases. In case you
- * need a more refined way of selecting days, use `mode="default"`. Use the
+ * The selection modes should cover the most common use cases. In case you need
+ * a more refined way of selecting days, use `mode="default"`. Use the
  * `selected` props and add the day event handlers to add/remove days from the
  * selection.
  *
@@ -94,10 +94,8 @@ export type DayPickerProps =
  *
  * For example, to use Spanish locale:
  *
- * ```
- * import { es } from 'date-fns/locale';
- * <DayPicker locale={es} />
- * ```
+ *     import { es } from "date-fns/locale";
+ *     <DayPicker locale={es} />;
  */
 export function DayPicker(
   props:

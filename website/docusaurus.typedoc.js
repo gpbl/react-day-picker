@@ -4,15 +4,15 @@ const typedoc = {
   entryPoints: [`../src/index.ts`],
   tsconfig: `../tsconfig.build.json`,
   allReflectionsHaveOwnDocument: true,
-  entryDocument: 'reference',
+  entryDocument: "reference",
   watch: process.env.TYPEDOC_WATCH,
-  out: './api',
+  out: "./api",
 
   // Markdown plugin settings
   hideBreadcrumbs: true,
   hideInPageTOC: true,
-  indexTitle: 'Exports',
-  publicPath: '/api/'
+  indexTitle: "Exports",
+  publicPath: "/api/"
 };
 
 module.exports = typedoc;

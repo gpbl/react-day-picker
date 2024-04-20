@@ -1,11 +1,11 @@
-import { addDays } from 'date-fns';
+import { addDays } from "date-fns";
 
-import { DayPickerContextValue } from 'contexts/DayPicker';
-import { getDefaultContextValues } from 'contexts/DayPicker/defaultContextValues';
-import { SelectRangeContextValue } from 'contexts/SelectRange';
-import { InternalModifier, InternalModifiers } from 'types/Modifiers';
+import { DayPickerContextValue } from "contexts/DayPicker";
+import { getDefaultContextValues } from "contexts/DayPicker/defaultContextValues";
+import { SelectRangeContextValue } from "contexts/SelectRange";
+import { InternalModifier, InternalModifiers } from "types/Modifiers";
 
-import { getInternalModifiers } from './getInternalModifiers';
+import { getInternalModifiers } from "./getInternalModifiers";
 
 const defaultDayPickerContext: DayPickerContextValue =
   getDefaultContextValues();
@@ -72,11 +72,11 @@ describe('when navigation is limited by "toDate"', () => {
   });
 });
 
-describe('when in multiple select mode', () => {
+describe("when in multiple select mode", () => {
   const disabledDate = new Date();
   const dayPickerContext: DayPickerContextValue = {
     ...defaultDayPickerContext,
-    mode: 'multiple'
+    mode: "multiple"
   };
   const selectMultipleContext = {
     ...defaultSelectMultipleContext,
@@ -84,7 +84,7 @@ describe('when in multiple select mode', () => {
       [Disabled]: [disabledDate]
     }
   };
-  test('should add the disabled modifier from the select multiple context', () => {
+  test("should add the disabled modifier from the select multiple context", () => {
     const modifiers = getInternalModifiers(
       dayPickerContext,
       selectMultipleContext,
@@ -94,14 +94,14 @@ describe('when in multiple select mode', () => {
   });
 });
 
-describe('when in range select mode', () => {
+describe("when in range select mode", () => {
   const disabled = [new Date()];
   const rangeStart = new Date();
   const rangeMiddle = [addDays(rangeStart, 1), addDays(rangeStart, 2)];
   const rangeEnd = [addDays(rangeStart, 3)];
   const dayPickerContext: DayPickerContextValue = {
     ...defaultDayPickerContext,
-    mode: 'range'
+    mode: "range"
   };
   const selectRangeContext: SelectRangeContextValue = {
     ...defaultSelectRangeContext,
@@ -121,25 +121,25 @@ describe('when in range select mode', () => {
     );
   });
 
-  test('should add the Disabled modifier from the SelectRange context', () => {
+  test("should add the Disabled modifier from the SelectRange context", () => {
     expect(internalModifiers[Disabled]).toStrictEqual(
       selectRangeContext.modifiers[Disabled]
     );
   });
 
-  test('should add the RangeStart modifier from the SelectRange context', () => {
+  test("should add the RangeStart modifier from the SelectRange context", () => {
     expect(internalModifiers[RangeStart]).toStrictEqual(
       selectRangeContext.modifiers[RangeStart]
     );
   });
 
-  test('should add the RangeEnd modifier from the SelectRange context', () => {
+  test("should add the RangeEnd modifier from the SelectRange context", () => {
     expect(internalModifiers[RangeEnd]).toStrictEqual(
       selectRangeContext.modifiers[RangeEnd]
     );
   });
 
-  test('should add the RangeMiddle modifier from the SelectRange context', () => {
+  test("should add the RangeMiddle modifier from the SelectRange context", () => {
     expect(internalModifiers[RangeMiddle]).toStrictEqual(
       selectRangeContext.modifiers[RangeMiddle]
     );

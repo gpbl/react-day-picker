@@ -1,22 +1,22 @@
-import { RefObject, useEffect } from 'react';
+import { RefObject, useEffect } from "react";
 
-import { isSameDay } from 'date-fns';
+import { isSameDay } from "date-fns";
 
-import { ButtonProps } from 'components/Button';
-import { DayContent } from 'components/DayContent';
-import { useDayPicker } from 'contexts/DayPicker';
-import { useFocusContext } from 'contexts/Focus';
-import { useActiveModifiers } from 'hooks/useActiveModifiers';
+import { ButtonProps } from "components/Button";
+import { DayContent } from "components/DayContent";
+import { useDayPicker } from "contexts/DayPicker";
+import { useFocusContext } from "contexts/Focus";
+import { useActiveModifiers } from "hooks/useActiveModifiers";
 import {
   DayEventHandlers,
   useDayEventHandlers
-} from 'hooks/useDayEventHandlers';
-import { SelectedDays, useSelectedDays } from 'hooks/useSelectedDays';
-import { ActiveModifiers } from 'types/Modifiers';
-import { StyledComponent } from 'types/Styles';
+} from "hooks/useDayEventHandlers";
+import { SelectedDays, useSelectedDays } from "hooks/useSelectedDays";
+import { ActiveModifiers } from "types/Modifiers";
+import { StyledComponent } from "types/Styles";
 
-import { getDayClassNames } from './utils/getDayClassNames';
-import { getDayStyle } from './utils/getDayStyle';
+import { getDayClassNames } from "./utils/getDayClassNames";
+import { getDayStyle } from "./utils/getDayStyle";
 
 export type DayRender = {
   /** Whether the day should be rendered a `button` instead of a `div` */
@@ -27,7 +27,7 @@ export type DayRender = {
   activeModifiers: ActiveModifiers;
   /** The props to apply to the button element (when `isButton` is true). */
   buttonProps: StyledComponent &
-    Pick<ButtonProps, 'disabled' | 'aria-selected' | 'tabIndex'> &
+    Pick<ButtonProps, "disabled" | "aria-selected" | "tabIndex"> &
     DayEventHandlers;
   /** The props to apply to the div element (when `isButton` is false). */
   divProps: StyledComponent;
@@ -43,9 +43,15 @@ export type DayRender = {
 export function useDayRender(
   /** The date to render. */
   day: Date,
-  /** The month where the date is displayed (if not the same as `date`, it means it is an "outside" day). */
+  /**
+   * The month where the date is displayed (if not the same as `date`, it means
+   * it is an "outside" day).
+   */
   displayMonth: Date,
-  /** A ref to the button element that will be target of focus when rendered (if required). */
+  /**
+   * A ref to the button element that will be target of focus when rendered (if
+   * required).
+   */
   buttonRef: RefObject<HTMLButtonElement>
 ): DayRender {
   const dayPicker = useDayPicker();
@@ -54,7 +60,7 @@ export function useDayRender(
   const eventHandlers = useDayEventHandlers(day, activeModifiers);
   const selectedDays = useSelectedDays();
   const isButton = Boolean(
-    dayPicker.onDayClick || dayPicker.mode !== 'default'
+    dayPicker.onDayClick || dayPicker.mode !== "default"
   );
 
   // Focus the button if the day is focused according to the focus context
@@ -73,7 +79,7 @@ export function useDayRender(
     activeModifiers.outside
   ]);
 
-  const className = getDayClassNames(dayPicker, activeModifiers).join(' ');
+  const className = getDayClassNames(dayPicker, activeModifiers).join(" ");
   const style = getDayStyle(dayPicker, activeModifiers);
   const isHidden = Boolean(
     (activeModifiers.outside && !dayPicker.showOutsideDays) ||
@@ -93,7 +99,7 @@ export function useDayRender(
     style,
     className,
     children,
-    role: 'gridcell'
+    role: "gridcell"
   };
 
   const isFocusTarget =
@@ -107,8 +113,8 @@ export function useDayRender(
   const buttonProps = {
     ...divProps,
     disabled: activeModifiers.disabled,
-    role: 'gridcell',
-    ['aria-selected']: activeModifiers.selected,
+    role: "gridcell",
+    ["aria-selected"]: activeModifiers.selected,
     tabIndex: isFocused || isFocusTarget ? 0 : -1,
     ...eventHandlers
   };

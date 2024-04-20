@@ -1,10 +1,10 @@
-import { MouseEventHandler } from 'react';
+import { MouseEventHandler } from "react";
 
-import { IconLeft } from 'components/IconLeft';
-import { IconRight } from 'components/IconRight';
-import { useDayPicker } from 'contexts/DayPicker';
+import { IconLeft } from "components/IconLeft";
+import { IconRight } from "components/IconRight";
+import { useDayPicker } from "contexts/DayPicker";
 
-import { Button } from '../Button';
+import { Button } from "../Button";
 
 /** The props for the {@link Navigation} component. */
 export interface NavigationProps {
@@ -43,13 +43,13 @@ export function Navigation(props: NavigationProps): JSX.Element {
   const previousClassName = [
     classNames.nav_button,
     classNames.nav_button_previous
-  ].join(' ');
+  ].join(" ");
 
   const nextLabel = labelNext(props.nextMonth, { locale });
   const nextClassName = [
     classNames.nav_button,
     classNames.nav_button_next
-  ].join(' ');
+  ].join(" ");
 
   const IconRightComponent = components?.IconRight ?? IconRight;
   const IconLeftComponent = components?.IconLeft ?? IconLeft;
@@ -64,7 +64,7 @@ export function Navigation(props: NavigationProps): JSX.Element {
           disabled={!props.previousMonth}
           onClick={props.onPreviousClick}
         >
-          {dir === 'rtl' ? (
+          {dir === "rtl" ? (
             <IconRightComponent
               className={classNames.nav_icon}
               style={styles.nav_icon}
@@ -86,7 +86,7 @@ export function Navigation(props: NavigationProps): JSX.Element {
           disabled={!props.nextMonth}
           onClick={props.onNextClick}
         >
-          {dir === 'rtl' ? (
+          {dir === "rtl" ? (
             <IconLeftComponent
               className={classNames.nav_icon}
               style={styles.nav_icon}

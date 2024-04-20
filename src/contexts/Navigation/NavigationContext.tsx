@@ -1,18 +1,24 @@
-import { createContext, ReactNode, useContext } from 'react';
+import { createContext, ReactNode, useContext } from "react";
 
-import { addMonths, isBefore, isSameMonth } from 'date-fns';
+import { addMonths, isBefore, isSameMonth } from "date-fns";
 
-import { useDayPicker } from '../DayPicker';
-import { useNavigationState } from './useNavigationState';
-import { getDisplayMonths } from './utils/getDisplayMonths';
-import { getNextMonth } from './utils/getNextMonth';
-import { getPreviousMonth } from './utils/getPreviousMonth';
+import { useDayPicker } from "../DayPicker";
+import { useNavigationState } from "./useNavigationState";
+import { getDisplayMonths } from "./utils/getDisplayMonths";
+import { getNextMonth } from "./utils/getNextMonth";
+import { getPreviousMonth } from "./utils/getPreviousMonth";
 
 /** Represents the value of the {@link NavigationContext}. */
 export interface NavigationContextValue {
-  /** The month to display in the calendar. When `numberOfMonths` is greater than one, is the first of the displayed months. */
+  /**
+   * The month to display in the calendar. When `numberOfMonths` is greater than
+   * one, is the first of the displayed months.
+   */
   currentMonth: Date;
-  /** The months rendered by DayPicker. DayPicker can render multiple months via `numberOfMonths`. */
+  /**
+   * The months rendered by DayPicker. DayPicker can render multiple months via
+   * `numberOfMonths`.
+   */
   displayMonths: Date[];
   /** Navigate to the specified month. */
   goToMonth: (month: Date) => void;
@@ -27,8 +33,8 @@ export interface NavigationContextValue {
 }
 
 /**
- * The Navigation context shares details and methods to navigate the months in DayPicker.
- * Access this context from the {@link useNavigation} hook.
+ * The Navigation context shares details and methods to navigate the months in
+ * DayPicker. Access this context from the {@link useNavigation} hook.
  */
 export const NavigationContext = createContext<
   NavigationContextValue | undefined
@@ -89,7 +95,7 @@ export function NavigationProvider(props: {
 export function useNavigation(): NavigationContextValue {
   const context = useContext(NavigationContext);
   if (!context) {
-    throw new Error('useNavigation must be used within a NavigationProvider');
+    throw new Error("useNavigation must be used within a NavigationProvider");
   }
   return context;
 }

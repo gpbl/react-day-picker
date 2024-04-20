@@ -1,5 +1,5 @@
-import { labelNext } from './labelNext';
+import { labelNext } from "./labelNext";
 
-test('should return the label', () => {
-  expect(labelNext()).toEqual('Go to next month');
+test("should return the label", () => {
+  expect(labelNext()).toEqual("Go to next month");
 });

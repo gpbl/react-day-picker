@@ -1,36 +1,36 @@
-import { addMonths } from 'date-fns';
-import { DayPickerProps } from 'DayPicker';
+import { addMonths } from "date-fns";
+import { DayPickerProps } from "DayPicker";
 
-import { customRender } from 'test/render';
+import { customRender } from "test/render";
 import {
   getNextButton,
   getPrevButton,
   queryNextButton,
   queryPrevButton
-} from 'test/selectors';
-import { user } from 'test/user';
-import { freezeBeforeAll } from 'test/utils';
+} from "test/selectors";
+import { user } from "test/user";
+import { freezeBeforeAll } from "test/utils";
 
-import { CaptionNavigation } from './CaptionNavigation';
+import { CaptionNavigation } from "./CaptionNavigation";
 
 const today = new Date(2021, 8);
 
 freezeBeforeAll(today);
 
-describe('when rendered', () => {
+describe("when rendered", () => {
   const dayPickerProps: DayPickerProps = {
-    captionLayout: 'buttons'
+    captionLayout: "buttons"
   };
-  test('should render the next month button', () => {
+  test("should render the next month button", () => {
     customRender(<CaptionNavigation displayMonth={today} />, dayPickerProps);
     expect(getNextButton()).toBeInTheDocument();
   });
-  test('should render the previous month button', () => {
+  test("should render the previous month button", () => {
     customRender(<CaptionNavigation displayMonth={today} />, dayPickerProps);
     expect(getPrevButton()).toBeInTheDocument();
   });
 
-  describe('when displaying the first of multiple months', () => {
+  describe("when displaying the first of multiple months", () => {
     const numberOfMonths = 3;
     beforeEach(() => {
       customRender(<CaptionNavigation displayMonth={today} />, {
@@ -38,15 +38,15 @@ describe('when rendered', () => {
         numberOfMonths
       });
     });
-    test('should not display the next month button', () => {
+    test("should not display the next month button", () => {
       expect(queryNextButton()).toBeNull();
     });
-    test('should show the previous month button', () => {
+    test("should show the previous month button", () => {
       expect(getPrevButton()).toBeInTheDocument();
     });
   });
 
-  describe('when displaying the last of multiple months', () => {
+  describe("when displaying the last of multiple months", () => {
     const numberOfMonths = 3;
     beforeEach(() => {
       const lastMonth = addMonths(today, numberOfMonths - 1);
@@ -55,15 +55,15 @@ describe('when rendered', () => {
         numberOfMonths
       });
     });
-    test('should hide the previous month button', () => {
+    test("should hide the previous month button", () => {
       expect(queryPrevButton()).toBeNull();
     });
-    test('should show the next month button', () => {
+    test("should show the next month button", () => {
       expect(getNextButton()).toBeInTheDocument();
     });
   });
 
-  describe('when displaying a month in the middle of multiple months', () => {
+  describe("when displaying a month in the middle of multiple months", () => {
     const numberOfMonths = 3;
     beforeEach(() => {
       const lastMonth = addMonths(today, numberOfMonths - 2);
@@ -72,16 +72,16 @@ describe('when rendered', () => {
         numberOfMonths
       });
     });
-    test('should not render the previous month button', () => {
+    test("should not render the previous month button", () => {
       expect(queryPrevButton()).toBeNull();
     });
-    test('should not render the next month button', () => {
+    test("should not render the next month button", () => {
       expect(queryNextButton()).toBeNull();
     });
   });
 
-  describe('when clicking the previous button', () => {
-    describe('and a previous month is defined', () => {
+  describe("when clicking the previous button", () => {
+    describe("and a previous month is defined", () => {
       const testContext = {
         ...dayPickerProps,
         onMonthChange: jest.fn()
@@ -91,11 +91,11 @@ describe('when rendered', () => {
         customRender(<CaptionNavigation displayMonth={today} />, testContext);
         await user.click(getPrevButton());
       });
-      test('should call the `onMonthChange` callback', () => {
+      test("should call the `onMonthChange` callback", () => {
         expect(testContext.onMonthChange).toHaveBeenCalledWith(previousMonth);
       });
     });
-    describe('and the previous month is not defined', () => {
+    describe("and the previous month is not defined", () => {
       const testContext = {
         ...dayPickerProps,
         fromDate: today,
@@ -105,14 +105,14 @@ describe('when rendered', () => {
         customRender(<CaptionNavigation displayMonth={today} />, testContext);
         await user.click(getPrevButton());
       });
-      test('should call the `onMonthChange` callback', () => {
+      test("should call the `onMonthChange` callback", () => {
         expect(testContext.onMonthChange).not.toHaveBeenCalled();
       });
     });
   });
 
-  describe('when clicking the next month button', () => {
-    describe('and the next month is defined', () => {
+  describe("when clicking the next month button", () => {
+    describe("and the next month is defined", () => {
       const testContext = {
         ...dayPickerProps,
         onMonthChange: jest.fn()
@@ -122,11 +122,11 @@ describe('when rendered', () => {
         customRender(<CaptionNavigation displayMonth={today} />, testContext);
         await user.click(getNextButton());
       });
-      test('should call the `onMonthChange` callback', () => {
+      test("should call the `onMonthChange` callback", () => {
         expect(testContext.onMonthChange).toHaveBeenCalledWith(nextMonth);
       });
     });
-    describe('and the next month is not defined', () => {
+    describe("and the next month is not defined", () => {
       const testContext = {
         ...dayPickerProps,
         toDate: today,
@@ -136,7 +136,7 @@ describe('when rendered', () => {
         customRender(<CaptionNavigation displayMonth={today} />, testContext);
         await user.click(getNextButton());
       });
-      test('should call the `onMonthChange` callback', () => {
+      test("should call the `onMonthChange` callback", () => {
         expect(testContext.onMonthChange).not.toHaveBeenCalled();
       });
     });

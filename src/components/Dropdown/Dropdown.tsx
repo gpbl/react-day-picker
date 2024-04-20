@@ -3,10 +3,10 @@ import {
   CSSProperties,
   ReactNode,
   SelectHTMLAttributes
-} from 'react';
+} from "react";
 
-import { IconDropdown } from 'components/IconDropdown';
-import { useDayPicker } from 'contexts/DayPicker';
+import { IconDropdown } from "components/IconDropdown";
+import { useDayPicker } from "contexts/DayPicker";
 
 /** The props for the {@link Dropdown} component. */
 export interface DropdownProps {
@@ -14,9 +14,9 @@ export interface DropdownProps {
   name?: string;
   /** The caption displayed to replace the hidden select. */
   caption?: ReactNode;
-  children?: SelectHTMLAttributes<HTMLSelectElement>['children'];
+  children?: SelectHTMLAttributes<HTMLSelectElement>["children"];
   className?: string;
-  ['aria-label']?: string;
+  ["aria-label"]?: string;
   style?: CSSProperties;
   /** The selected value. */
   value?: string | number;
@@ -36,11 +36,11 @@ export function Dropdown(props: DropdownProps): JSX.Element {
   return (
     <div className={className} style={style}>
       <span className={dayPicker.classNames.vhidden}>
-        {props['aria-label']}
+        {props["aria-label"]}
       </span>
       <select
         name={props.name}
-        aria-label={props['aria-label']}
+        aria-label={props["aria-label"]}
         className={dayPicker.classNames.dropdown}
         style={dayPicker.styles.dropdown}
         value={value}

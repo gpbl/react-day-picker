@@ -1,9 +1,9 @@
-import { RenderResult, screen } from '@testing-library/react';
-import { DayPickerProps } from 'DayPicker';
+import { RenderResult, screen } from "@testing-library/react";
+import { DayPickerProps } from "DayPicker";
 
-import { customRender } from 'test/render';
+import { customRender } from "test/render";
 
-import { Head } from './Head';
+import { Head } from "./Head";
 
 let container: HTMLElement;
 let view: RenderResult;
@@ -20,32 +20,32 @@ function setup(dayPickerProps: DayPickerProps = {}) {
 
 const dayPickerProps = {
   styles: {
-    head: { color: 'red' },
-    head_row: { color: 'blue' },
-    head_cell: { color: 'green' }
+    head: { color: "red" },
+    head_row: { color: "blue" },
+    head_cell: { color: "green" }
   },
   classNames: {
-    head: 'foo',
-    head_row: 'foo_row',
-    head_cell: 'foo_head-cell'
+    head: "foo",
+    head_row: "foo_row",
+    head_cell: "foo_head-cell"
   }
 };
 
-describe('when rendered', () => {
+describe("when rendered", () => {
   beforeEach(() => {
     setup(dayPickerProps);
   });
 
-  test('thead should have the `head` style', () => {
+  test("thead should have the `head` style", () => {
     expect(container.firstChild).toHaveStyle(dayPickerProps.styles.head);
   });
 
-  test('thead should have the `head` class', () => {
+  test("thead should have the `head` class", () => {
     expect(container.firstChild).toHaveClass(dayPickerProps.classNames.head);
   });
 });
 
-describe('when using a custom HeadRow component', () => {
+describe("when using a custom HeadRow component", () => {
   beforeEach(() => {
     setup({
       ...dayPickerProps,
@@ -59,7 +59,7 @@ describe('when using a custom HeadRow component', () => {
     });
   });
 
-  test('should render the custom component', () => {
-    expect(screen.getByText('custom head')).toBeInTheDocument();
+  test("should render the custom component", () => {
+    expect(screen.getByText("custom head")).toBeInTheDocument();
   });
 });

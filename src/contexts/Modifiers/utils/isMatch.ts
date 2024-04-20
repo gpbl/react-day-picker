@@ -1,4 +1,4 @@
-import { differenceInCalendarDays, isAfter, isDate, isSameDay } from 'date-fns';
+import { differenceInCalendarDays, isAfter, isDate, isSameDay } from "date-fns";
 
 import {
   isDateAfterType,
@@ -7,9 +7,9 @@ import {
   isDateRange,
   isDayOfWeekType,
   Matcher
-} from 'types/Matchers';
+} from "types/Matchers";
 
-import { isDateInRange } from './isDateInRange';
+import { isDateInRange } from "./isDateInRange";
 
 /** Returns true if `value` is a Date type. */
 function isDateType(value: unknown): value is Date {
@@ -24,23 +24,21 @@ function isArrayOfDates(value: unknown): value is Date[] {
 /**
  * Returns whether a day matches against at least one of the given Matchers.
  *
- * ```
- * const day = new Date(2022, 5, 19);
- * const matcher1: DateRange = {
- *    from: new Date(2021, 12, 21),
- *    to: new Date(2021, 12, 30)
- * }
- * const matcher2: DateRange = {
- *    from: new Date(2022, 5, 1),
- *    to: new Date(2022, 5, 23)
- * }
+ *     const day = new Date(2022, 5, 19);
+ *     const matcher1: DateRange = {
+ *        from: new Date(2021, 12, 21),
+ *        to: new Date(2021, 12, 30)
+ *     }
+ *     const matcher2: DateRange = {
+ *        from: new Date(2022, 5, 1),
+ *        to: new Date(2022, 5, 23)
+ *     }
  *
- * const isMatch(day, [matcher1, matcher2]); // true, since day is in the matcher1 range.
- * ```
- * */
+ *     const isMatch(day, [matcher1, matcher2]); // true, since day is in the matcher1 range.
+ */
 export function isMatch(day: Date, matchers: Matcher[]): boolean {
   return matchers.some((matcher: Matcher) => {
-    if (typeof matcher === 'boolean') {
+    if (typeof matcher === "boolean") {
       return matcher;
     }
     if (isDateType(matcher)) {
@@ -73,7 +71,7 @@ export function isMatch(day: Date, matchers: Matcher[]): boolean {
     if (isDateBeforeType(matcher)) {
       return differenceInCalendarDays(matcher.before, day) > 0;
     }
-    if (typeof matcher === 'function') {
+    if (typeof matcher === "function") {
       return matcher(day);
     }
     return false;

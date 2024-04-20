@@ -1,19 +1,19 @@
-import { createContext, ReactNode, useContext } from 'react';
+import { createContext, ReactNode, useContext } from "react";
 
 import {
   addDays,
   differenceInCalendarDays,
   isSameDay,
   subDays
-} from 'date-fns';
+} from "date-fns";
 
-import { DayPickerBase } from 'types/DayPickerBase';
-import { DayPickerRangeProps, isDayPickerRange } from 'types/DayPickerRange';
-import { DayClickEventHandler } from 'types/EventHandlers';
-import { DateRange } from 'types/Matchers';
-import { InternalModifier, Modifiers } from 'types/Modifiers';
+import { DayPickerBase } from "types/DayPickerBase";
+import { DayPickerRangeProps, isDayPickerRange } from "types/DayPickerRange";
+import { DayClickEventHandler } from "types/EventHandlers";
+import { DateRange } from "types/Matchers";
+import { InternalModifier, Modifiers } from "types/Modifiers";
 
-import { addToRange } from './utils/addToRange';
+import { addToRange } from "./utils/addToRange";
 
 /** Represent the modifiers that are changed by the range selection. */
 export type SelectRangeModifiers = Pick<
@@ -35,8 +35,8 @@ export interface SelectRangeContextValue {
 }
 
 /**
- * The SelectRange context shares details about the selected days when in
- * range selection mode.
+ * The SelectRange context shares details about the selected days when in range
+ * selection mode.
  *
  * Access this context from the {@link useSelectRange} hook.
  */
@@ -190,7 +190,7 @@ export function SelectRangeProviderInternal({
 export function useSelectRange(): SelectRangeContextValue {
   const context = useContext(SelectRangeContext);
   if (!context) {
-    throw new Error('useSelectRange must be used within a SelectRangeProvider');
+    throw new Error("useSelectRange must be used within a SelectRangeProvider");
   }
   return context;
 }

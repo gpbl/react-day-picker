@@ -1,11 +1,11 @@
-import { screen } from '@testing-library/react';
-import { DayPickerProps } from 'DayPicker';
+import { screen } from "@testing-library/react";
+import { DayPickerProps } from "DayPicker";
 
-import { customRender } from 'test/render/customRender';
+import { customRender } from "test/render/customRender";
 
-import { CustomComponents } from 'types/DayPickerBase';
+import { CustomComponents } from "types/DayPickerBase";
 
-import { Row, RowProps } from './Row';
+import { Row, RowProps } from "./Row";
 
 function setup(props: RowProps, dayPickerProps?: DayPickerProps) {
   customRender(<Row {...props} />, dayPickerProps);
@@ -20,27 +20,27 @@ const props: RowProps = {
 describe('when "showWeekNumber" is set', () => {
   const dayPickerProps = {
     showWeekNumber: true,
-    classNames: { cell: 'cell' },
-    styles: { cell: { background: 'red' } }
+    classNames: { cell: "cell" },
+    styles: { cell: { background: "red" } }
   };
   beforeEach(() => {
     setup(props, dayPickerProps);
   });
-  test('should display the cell with the week number', () => {
-    const cell = screen.getByRole('cell', { name: `${props.weekNumber}` });
+  test("should display the cell with the week number", () => {
+    const cell = screen.getByRole("cell", { name: `${props.weekNumber}` });
     expect(cell).toBeInTheDocument();
   });
   test('the cell should have the "cell" class name', () => {
-    const cell = screen.getByRole('cell', { name: `${props.weekNumber}` });
+    const cell = screen.getByRole("cell", { name: `${props.weekNumber}` });
     expect(cell).toHaveClass(dayPickerProps.classNames.cell);
   });
   test('the cell should have the "cell" style', () => {
-    const cell = screen.getByRole('cell', { name: `${props.weekNumber}` });
+    const cell = screen.getByRole("cell", { name: `${props.weekNumber}` });
     expect(cell).toHaveStyle(dayPickerProps.styles.cell);
   });
 });
 
-describe('when using a custom Day component', () => {
+describe("when using a custom Day component", () => {
   const components: CustomComponents = {
     Day: () => <div>CustomDay</div>
   };
@@ -48,12 +48,12 @@ describe('when using a custom Day component', () => {
   beforeEach(() => {
     setup(props, dayPickerProps);
   });
-  test('it should render the custom component instead', () => {
-    expect(screen.getAllByText('CustomDay')).toHaveLength(props.dates.length);
+  test("it should render the custom component instead", () => {
+    expect(screen.getAllByText("CustomDay")).toHaveLength(props.dates.length);
   });
 });
 
-describe('when using a custom WeekNumber component', () => {
+describe("when using a custom WeekNumber component", () => {
   const components: CustomComponents = {
     WeekNumber: () => <div>WeekNumber</div>
   };
@@ -61,7 +61,7 @@ describe('when using a custom WeekNumber component', () => {
   beforeEach(() => {
     setup(props, dayPickerProps);
   });
-  test('it should render the custom component instead', () => {
-    expect(screen.getByText('WeekNumber')).toBeInTheDocument();
+  test("it should render the custom component instead", () => {
+    expect(screen.getByText("WeekNumber")).toBeInTheDocument();
   });
 });

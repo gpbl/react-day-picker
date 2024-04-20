@@ -1,8 +1,8 @@
-import { useRef } from 'react';
+import { useRef } from "react";
 
-import { useDayRender } from 'hooks/useDayRender';
+import { useDayRender } from "hooks/useDayRender";
 
-import { Button } from '../Button';
+import { Button } from "../Button";
 
 /** Represent the props used by the {@link Day} component. */
 export interface DayProps {

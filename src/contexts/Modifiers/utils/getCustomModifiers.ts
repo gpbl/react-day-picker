@@ -1,6 +1,6 @@
-import { CustomModifiers, DayModifiers } from 'types/Modifiers';
+import { CustomModifiers, DayModifiers } from "types/Modifiers";
 
-import { matcherToArray } from './matcherToArray';
+import { matcherToArray } from "./matcherToArray";
 
 /** Create CustomModifiers from dayModifiers */
 export function getCustomModifiers(
