@@ -1,7 +1,7 @@
-import { configureAxe } from 'jest-axe';
+import { configureAxe } from "jest-axe";
 
 export const axe = configureAxe({
   rules: {
-    'aria-allowed-role': { enabled: false }
+    "aria-allowed-role": { enabled: false }
   }
 });
