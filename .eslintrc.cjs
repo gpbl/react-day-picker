@@ -6,7 +6,7 @@ const config = {
     sourceType: "module"
   },
   ignorePatterns: ["**/*.css.d.ts", "dist", "build"],
-  plugins: ["@typescript-eslint", "jest", "jsdoc"],
+  plugins: ["@typescript-eslint", "jest"],
   extends: [
     "plugin:jest/recommended",
     "eslint:recommended",
