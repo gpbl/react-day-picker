@@ -5,11 +5,7 @@
     "module": "es6",
     "moduleResolution": "node",
     "rootDir": "./",
-    "baseUrl": "./src",
     "noEmit": true,
-    "paths": {
-      "test/*": ["../test/*"]
-    },
     "declaration": true,
     "sourceMap": true,
     "outDir": "./dist",
