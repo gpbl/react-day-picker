@@ -8,7 +8,7 @@ import {
   max,
   min,
   startOfISOWeek,
-  startOfWeek,
+  startOfWeek
 } from "date-fns";
 
 import { DayPickerContextValue } from "contexts/DayPicker";
@@ -49,7 +49,7 @@ export function getNextFocus(focusedDay: Date, options: FocusDayOptions): Date {
     direction,
     context,
     modifiers,
-    retry = { count: 0, lastFocused: focusedDay },
+    retry = { count: 0, lastFocused: focusedDay }
   } = options;
   const { weekStartsOn, fromDate, toDate, locale } = context;
 
@@ -65,7 +65,7 @@ export function getNextFocus(focusedDay: Date, options: FocusDayOptions): Date {
     endOfWeek: (date: Date) =>
       context.ISOWeek
         ? endOfISOWeek(date)
-        : endOfWeek(date, { locale, weekStartsOn }),
+        : endOfWeek(date, { locale, weekStartsOn })
   };
 
   let newFocusedDay = moveFns[moveBy](
@@ -97,8 +97,8 @@ export function getNextFocus(focusedDay: Date, options: FocusDayOptions): Date {
       modifiers,
       retry: {
         ...retry,
-        count: retry.count + 1,
-      },
+        count: retry.count + 1
+      }
     });
   }
 }

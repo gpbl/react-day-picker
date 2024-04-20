@@ -20,7 +20,7 @@ import {
   DayPointerEventHandler,
   DayTouchEventHandler,
   MonthChangeEventHandler,
-  WeekNumberClickEventHandler,
+  WeekNumberClickEventHandler
 } from "./EventHandlers";
 import { Formatters } from "./Formatters";
 import { Labels } from "./Labels";
@@ -28,7 +28,7 @@ import { Matcher } from "./Matchers";
 import {
   DayModifiers,
   ModifiersClassNames,
-  ModifiersStyles,
+  ModifiersStyles
 } from "./Modifiers";
 import { ClassNames, StyledComponent, Styles } from "./Styles";
 

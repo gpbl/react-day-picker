@@ -14,14 +14,14 @@ test("should render the formatted display month", () => {
 
 test("should apply the `caption_label` class name", () => {
   customRender(<CaptionLabel displayMonth={today} />, {
-    classNames: { caption_label: "foo" },
+    classNames: { caption_label: "foo" }
   });
   expect(getMonthCaption()).toHaveClass("foo");
 });
 
 test("should apply the `caption_label` style", () => {
   customRender(<CaptionLabel displayMonth={today} />, {
-    styles: { caption_label: { color: "red" } },
+    styles: { caption_label: { color: "red" } }
   });
   expect(getMonthCaption()).toHaveStyle({ color: "red" });
 });

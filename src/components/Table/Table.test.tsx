@@ -15,7 +15,7 @@ const today = new Date(2021, 11, 8);
 freezeBeforeAll(today);
 
 const props: TableProps = {
-  displayMonth: new Date(2020, 1),
+  displayMonth: new Date(2020, 1)
 };
 
 test("should render correctly", () => {
@@ -52,8 +52,8 @@ describe("when using custom components", () => {
             <td>{props.displayMonth?.toDateString()}</td>
           </tr>
         </tfoot>
-      ),
-    },
+      )
+    }
   };
   test("should render correctly", () => {
     const { container } = setup(props, dayPickerProps);

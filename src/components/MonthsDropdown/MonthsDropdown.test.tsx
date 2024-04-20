@@ -25,7 +25,7 @@ function setup(props: MonthsDropdownProps, dayPickerProps?: DayPickerProps) {
 
 const props: MonthsDropdownProps = {
   displayMonth: today,
-  onChange: jest.fn(),
+  onChange: jest.fn()
 };
 
 describe("when fromDate and toDate are passed in", () => {

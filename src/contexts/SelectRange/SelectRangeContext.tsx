@@ -4,7 +4,7 @@ import {
   addDays,
   differenceInCalendarDays,
   isSameDay,
-  subDays,
+  subDays
 } from "date-fns";
 
 import { DayPickerBase } from "types/DayPickerBase";
@@ -60,8 +60,8 @@ export function SelectRangeProvider(
         range_start: [],
         range_end: [],
         range_middle: [],
-        disabled: [],
-      },
+        disabled: []
+      }
     };
     return (
       <SelectRangeContext.Provider value={emptyContextValue}>
@@ -85,7 +85,7 @@ export interface SelectRangeProviderInternalProps {
 
 export function SelectRangeProviderInternal({
   initialProps,
-  children,
+  children
 }: SelectRangeProviderInternalProps): JSX.Element {
   const { selected } = initialProps;
   const { from: selectedFrom, to: selectedTo } = selected || {};
@@ -102,7 +102,7 @@ export function SelectRangeProviderInternal({
     range_start: [],
     range_end: [],
     range_middle: [],
-    disabled: [],
+    disabled: []
   };
 
   if (selectedFrom) {
@@ -115,8 +115,8 @@ export function SelectRangeProviderInternal({
         modifiers.range_middle = [
           {
             after: selectedFrom,
-            before: selectedTo,
-          },
+            before: selectedTo
+          }
         ];
       }
     }
@@ -129,29 +129,29 @@ export function SelectRangeProviderInternal({
     if (selectedFrom && !selectedTo) {
       modifiers.disabled.push({
         after: subDays(selectedFrom, min - 1),
-        before: addDays(selectedFrom, min - 1),
+        before: addDays(selectedFrom, min - 1)
       });
     }
     if (selectedFrom && selectedTo) {
       modifiers.disabled.push({
         after: selectedFrom,
-        before: addDays(selectedFrom, min - 1),
+        before: addDays(selectedFrom, min - 1)
       });
     }
     if (!selectedFrom && selectedTo) {
       modifiers.disabled.push({
         after: subDays(selectedTo, min - 1),
-        before: addDays(selectedTo, min - 1),
+        before: addDays(selectedTo, min - 1)
       });
     }
   }
   if (max) {
     if (selectedFrom && !selectedTo) {
       modifiers.disabled.push({
-        before: addDays(selectedFrom, -max + 1),
+        before: addDays(selectedFrom, -max + 1)
       });
       modifiers.disabled.push({
-        after: addDays(selectedFrom, max - 1),
+        after: addDays(selectedFrom, max - 1)
       });
     }
     if (selectedFrom && selectedTo) {
@@ -159,18 +159,18 @@ export function SelectRangeProviderInternal({
         differenceInCalendarDays(selectedTo, selectedFrom) + 1;
       const offset = max - selectedCount;
       modifiers.disabled.push({
-        before: subDays(selectedFrom, offset),
+        before: subDays(selectedFrom, offset)
       });
       modifiers.disabled.push({
-        after: addDays(selectedTo, offset),
+        after: addDays(selectedTo, offset)
       });
     }
     if (!selectedFrom && selectedTo) {
       modifiers.disabled.push({
-        before: addDays(selectedTo, -max + 1),
+        before: addDays(selectedTo, -max + 1)
       });
       modifiers.disabled.push({
-        after: addDays(selectedTo, max - 1),
+        after: addDays(selectedTo, max - 1)
       });
     }
   }

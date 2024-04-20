@@ -33,7 +33,7 @@ export function SelectSingleProvider(
 ): JSX.Element {
   if (!isDayPickerSingle(props.initialProps)) {
     const emptyContextValue: SelectSingleContextValue = {
-      selected: undefined,
+      selected: undefined
     };
     return (
       <SelectSingleContext.Provider value={emptyContextValue}>
@@ -57,7 +57,7 @@ export interface SelectSingleProviderInternal {
 
 export function SelectSingleProviderInternal({
   initialProps,
-  children,
+  children
 }: SelectSingleProviderInternal): JSX.Element {
   const onDayClick: DayClickEventHandler = (day, activeModifiers, e) => {
     initialProps.onDayClick?.(day, activeModifiers, e);
@@ -71,7 +71,7 @@ export function SelectSingleProviderInternal({
 
   const contextValue: SelectSingleContextValue = {
     selected: initialProps.selected,
-    onDayClick,
+    onDayClick
   };
   return (
     <SelectSingleContext.Provider value={contextValue}>

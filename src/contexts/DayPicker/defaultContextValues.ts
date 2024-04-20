@@ -49,6 +49,6 @@ export function getDefaultContextValues(): DefaultContextValues {
     numberOfMonths,
     styles,
     today,
-    mode: "default",
+    mode: "default"
   };
 }

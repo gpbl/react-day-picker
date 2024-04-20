@@ -28,7 +28,7 @@ export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
     classNames,
     components,
     formatters: { formatYearCaption },
-    labels: { labelYearDropdown },
+    labels: { labelYearDropdown }
   } = useDayPicker();
 
   const years: Date[] = [];

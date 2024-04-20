@@ -12,7 +12,7 @@ function setup(props: WeekNumberProps, dayPickerProps?: DayPickerProps) {
 
 const props: WeekNumberProps = {
   number: 10,
-  dates: [new Date(), new Date()],
+  dates: [new Date(), new Date()]
 };
 
 describe('without "onWeekNumberClick" prop', () => {

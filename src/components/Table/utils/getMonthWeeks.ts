@@ -3,7 +3,7 @@ import {
   endOfMonth,
   getWeeksInMonth,
   Locale,
-  startOfMonth,
+  startOfMonth
 } from "date-fns";
 
 import { daysToMonthWeeks } from "./daysToMonthWeeks";

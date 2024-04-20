@@ -2,7 +2,7 @@ import {
   ChangeEventHandler,
   CSSProperties,
   ReactNode,
-  SelectHTMLAttributes,
+  SelectHTMLAttributes
 } from "react";
 
 import { IconDropdown } from "components/IconDropdown";

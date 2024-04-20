@@ -24,7 +24,7 @@ const props: Required<DropdownProps> = {
   className: "test",
   value: "bar",
   children: <option value={"bar"} />,
-  style: {},
+  style: {}
 };
 
 describe("when rendered", () => {
@@ -61,7 +61,7 @@ describe("when rendered", () => {
 
 describe("when using a custom IconDropdown component", () => {
   const components: CustomComponents = {
-    IconDropdown: () => <div>Custom IconDropdown</div>,
+    IconDropdown: () => <div>Custom IconDropdown</div>
   };
   beforeEach(() => {
     setup(props, { components });

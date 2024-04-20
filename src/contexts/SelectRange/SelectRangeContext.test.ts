@@ -4,7 +4,7 @@ import {
   addDays,
   addMonths,
   differenceInCalendarDays,
-  subDays,
+  subDays
 } from "date-fns";
 import { DayPickerProps } from "DayPicker";
 
@@ -33,7 +33,7 @@ describe("when is not a multiple select DayPicker", () => {
 const initialProps: DayPickerRangeProps = {
   mode: "range",
   onDayClick: jest.fn(),
-  onSelect: jest.fn(),
+  onSelect: jest.fn()
 };
 
 const from = today;
@@ -77,7 +77,7 @@ describe('when only the "from" day is selected', () => {
   const selected = { from, to: undefined };
   const dayPickerProps: DayPickerRangeProps = {
     ...initialProps,
-    selected,
+    selected
   };
   test('should return the "range_start" modifiers with the "from" day', () => {
     const result = renderHook(dayPickerProps);
@@ -97,7 +97,7 @@ describe('when only the "to" day is selected', () => {
   const selected = { from: undefined, to };
   const dayPickerProps: DayPickerRangeProps = {
     ...initialProps,
-    selected,
+    selected
   };
   test('should return the "range_start" modifiers with the "to" day', () => {
     const result = renderHook(dayPickerProps);
@@ -117,7 +117,7 @@ describe("when a complete range of days is selected", () => {
   const selected = { from, to };
   const dayPickerProps: DayPickerRangeProps = {
     ...initialProps,
-    selected,
+    selected
   };
   test('should return the "range_start" modifiers with the "from" day', () => {
     const result = renderHook(dayPickerProps);
@@ -130,7 +130,7 @@ describe("when a complete range of days is selected", () => {
   test('should return the "range_middle" range modifiers', () => {
     const result = renderHook(dayPickerProps);
     expect(result.current.modifiers.range_middle).toEqual([
-      { after: from, before: to },
+      { after: from, before: to }
     ]);
   });
   describe('when "onDayClick" is called with the day before the from day', () => {
@@ -167,7 +167,7 @@ describe('when "from" and "to" are the same', () => {
   const selected = { from: date, to: date };
   const dayPickerProps: DayPickerRangeProps = {
     ...initialProps,
-    selected,
+    selected
   };
   test('should return the "range_start" modifier with the date', () => {
     const result = renderHook(dayPickerProps);
@@ -190,7 +190,7 @@ describe("when the max number of the selected days is reached", () => {
   const dayPickerProps: DayPickerRangeProps = {
     ...initialProps,
     selected,
-    max: 7,
+    max: 7
   };
   test("the days in the range should not be disabled", () => {
     const result = renderHook(dayPickerProps);
@@ -229,7 +229,7 @@ describe("when the minimum number of days are selected", () => {
   const dayPickerProps: DayPickerRangeProps = {
     ...initialProps,
     selected,
-    min: Math.abs(differenceInCalendarDays(to, from)),
+    min: Math.abs(differenceInCalendarDays(to, from))
   };
   describe('when "onDayClick" is called with a day before "from"', () => {
     const day = subDays(from, 1);

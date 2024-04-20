@@ -25,7 +25,7 @@ export function CaptionLabel(props: CaptionLabelProps): JSX.Element {
     locale,
     classNames,
     styles,
-    formatters: { formatCaption },
+    formatters: { formatCaption }
   } = useDayPicker();
   return (
     <div

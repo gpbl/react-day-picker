@@ -26,7 +26,7 @@ export function Table(props: TableProps): JSX.Element {
     components,
     weekStartsOn,
     firstWeekContainsDate,
-    ISOWeek,
+    ISOWeek
   } = useDayPicker();
 
   const weeks = getMonthWeeks(props.displayMonth, {
@@ -34,7 +34,7 @@ export function Table(props: TableProps): JSX.Element {
     ISOWeek,
     locale,
     weekStartsOn,
-    firstWeekContainsDate,
+    firstWeekContainsDate
   });
 
   const HeadComponent = components?.Head ?? Head;

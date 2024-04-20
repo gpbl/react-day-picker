@@ -20,11 +20,11 @@ const displayMonth = today;
 const props: DayContentProps = {
   date: date,
   displayMonth,
-  activeModifiers: {},
+  activeModifiers: {}
 };
 
 const dayPickerProps: DayPickerProps = {
-  locale: es,
+  locale: es
 };
 
 describe("when rendered", () => {

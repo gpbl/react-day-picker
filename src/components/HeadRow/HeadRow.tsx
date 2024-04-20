@@ -15,7 +15,7 @@ export function HeadRow(): JSX.Element {
     weekStartsOn,
     ISOWeek,
     formatters: { formatWeekdayName },
-    labels: { labelWeekday },
+    labels: { labelWeekday }
   } = useDayPicker();
 
   const weekdays = getWeekdays(locale, weekStartsOn, ISOWeek);

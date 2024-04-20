@@ -10,7 +10,7 @@ export function Footer(props: FooterProps): JSX.Element {
   const {
     footer,
     styles,
-    classNames: { tfoot },
+    classNames: { tfoot }
   } = useDayPicker();
   if (!footer) return <></>;
   return (

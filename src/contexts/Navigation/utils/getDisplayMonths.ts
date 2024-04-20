@@ -8,7 +8,7 @@ export function getDisplayMonths(
   month: Date,
   {
     reverseMonths,
-    numberOfMonths,
+    numberOfMonths
   }: {
     reverseMonths?: boolean;
     numberOfMonths: number;

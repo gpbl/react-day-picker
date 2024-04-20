@@ -9,7 +9,7 @@ import { useFocusContext } from "contexts/Focus";
 import { useActiveModifiers } from "hooks/useActiveModifiers";
 import {
   DayEventHandlers,
-  useDayEventHandlers,
+  useDayEventHandlers
 } from "hooks/useDayEventHandlers";
 import { SelectedDays, useSelectedDays } from "hooks/useSelectedDays";
 import { ActiveModifiers } from "types/Modifiers";
@@ -76,7 +76,7 @@ export function useDayRender(
     day,
     buttonRef,
     isButton,
-    activeModifiers.outside,
+    activeModifiers.outside
   ]);
 
   const className = getDayClassNames(dayPicker, activeModifiers).join(" ");
@@ -99,7 +99,7 @@ export function useDayRender(
     style,
     className,
     children,
-    role: "gridcell",
+    role: "gridcell"
   };
 
   const isFocusTarget =
@@ -116,7 +116,7 @@ export function useDayRender(
     role: "gridcell",
     ["aria-selected"]: activeModifiers.selected,
     tabIndex: isFocused || isFocusTarget ? 0 : -1,
-    ...eventHandlers,
+    ...eventHandlers
   };
 
   const dayRender: DayRender = {
@@ -125,7 +125,7 @@ export function useDayRender(
     activeModifiers: activeModifiers,
     selectedDays,
     buttonProps,
-    divProps,
+    divProps
   };
 
   return dayRender;

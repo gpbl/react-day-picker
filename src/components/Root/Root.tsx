@@ -42,7 +42,7 @@ export function Root({ initialProps }: RootProps): JSX.Element {
     hasInitialFocus,
     focusContext.focus,
     focusContext.focusTarget,
-    focusContext,
+    focusContext
   ]);
 
   // Apply classnames according to props
@@ -56,7 +56,7 @@ export function Root({ initialProps }: RootProps): JSX.Element {
 
   const style = {
     ...dayPicker.styles.root,
-    ...dayPicker.style,
+    ...dayPicker.style
   };
 
   const dataAttributes = Object.keys(initialProps)
@@ -65,7 +65,7 @@ export function Root({ initialProps }: RootProps): JSX.Element {
       if (!isDataAttributes(initialProps)) return attrs;
       return {
         ...attrs,
-        [key]: initialProps[key],
+        [key]: initialProps[key]
       };
     }, {});
 

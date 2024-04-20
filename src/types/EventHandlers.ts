@@ -3,7 +3,7 @@ import {
   KeyboardEvent,
   MouseEvent,
   PointerEvent,
-  TouchEvent,
+  TouchEvent
 } from "react";
 
 import { DateRange } from "./Matchers";

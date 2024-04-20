@@ -89,7 +89,7 @@ describe("when the number of months is ${numberOfMonths}", () => {
   test("the display months should be the today`s and next month", () => {
     expect(result.current.displayMonths).toEqual([
       todaysMonth,
-      addMonths(todaysMonth, 1),
+      addMonths(todaysMonth, 1)
     ]);
   });
   test("the previous month should be the month before today`s month", () => {
@@ -110,7 +110,7 @@ describe(`when the number of months is ${numberOfMonths} and the navigation is p
   test("the display months should be the today`s and next month", () => {
     expect(result.current.displayMonths).toEqual([
       todaysMonth,
-      addMonths(todaysMonth, 1),
+      addMonths(todaysMonth, 1)
     ]);
   });
   test(`the previous month should be the ${numberOfMonths} months before today's month`, () => {

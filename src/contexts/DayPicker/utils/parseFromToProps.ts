@@ -28,6 +28,6 @@ export function parseFromToProps(
 
   return {
     fromDate: fromDate ? startOfDay(fromDate) : undefined,
-    toDate: toDate ? startOfDay(toDate) : undefined,
+    toDate: toDate ? startOfDay(toDate) : undefined
   };
 }

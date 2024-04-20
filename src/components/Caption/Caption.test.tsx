@@ -9,7 +9,7 @@ import {
   getPrevButton,
   getYearDropdown,
   queryNextButton,
-  queryPrevButton,
+  queryPrevButton
 } from "test/selectors";
 import { freezeBeforeAll } from "test/utils";
 
@@ -40,7 +40,7 @@ describe("when navigation is disabled", () => {
 
 describe("when using a custom CaptionLabel component", () => {
   const components: CustomComponents = {
-    CaptionLabel: () => <>custom label foo</>,
+    CaptionLabel: () => <>custom label foo</>
   };
   const props = { displayMonth: today };
   beforeEach(() => {
@@ -55,7 +55,7 @@ describe('when the caption layout is "dropdown"', () => {
   const dayPickerProps: DayPickerProps = {
     captionLayout: "dropdown",
     fromYear: 2020,
-    toYear: 2025,
+    toYear: 2025
   };
   const props = { displayMonth: today };
   beforeEach(() => {
@@ -71,7 +71,7 @@ describe('when the caption layout is "dropdown"', () => {
 
 describe('when the caption layout is "buttons"', () => {
   const dayPickerProps: DayPickerProps = {
-    captionLayout: "buttons",
+    captionLayout: "buttons"
   };
   test("should render the next month button", () => {
     customRender(<Caption displayMonth={today} />, dayPickerProps);
@@ -87,7 +87,7 @@ describe('when the caption layout is "dropdown-buttons"', () => {
   const dayPickerProps: DayPickerProps = {
     captionLayout: "dropdown-buttons",
     fromYear: 2020,
-    toYear: 2025,
+    toYear: 2025
   };
   const props = { displayMonth: today };
   beforeEach(() => {

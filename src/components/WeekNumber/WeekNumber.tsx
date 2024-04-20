@@ -24,7 +24,7 @@ export function WeekNumber(props: WeekNumberProps): JSX.Element {
     classNames,
     locale,
     labels: { labelWeekNumber },
-    formatters: { formatWeekNumber },
+    formatters: { formatWeekNumber }
   } = useDayPicker();
 
   const content = formatWeekNumber(Number(weekNumber), { locale });

@@ -7,7 +7,7 @@ import { FocusContextValue } from "contexts/Focus";
 import {
   DayEventName,
   EventName,
-  useDayEventHandlers,
+  useDayEventHandlers
 } from "hooks/useDayEventHandlers";
 import { ActiveModifiers } from "types/Modifiers";
 
@@ -37,7 +37,7 @@ const tests: [EventName, DayEventName][] = [
   ["onTouchCancel", "onDayTouchCancel"],
   ["onTouchMove", "onDayTouchMove"],
   ["onTouchStart", "onDayTouchStart"],
-  ["onKeyUp", "onDayKeyUp"],
+  ["onKeyUp", "onDayKeyUp"]
 ];
 
 describe.each(tests)('when calling "%s"', (eventName, dayEventName) => {
@@ -55,7 +55,7 @@ describe.each(tests)('when calling "%s"', (eventName, dayEventName) => {
     onDayTouchMove: jest.fn(),
     onDayTouchStart: jest.fn(),
     onDayKeyUp: jest.fn(),
-    onDayKeyDown: jest.fn(),
+    onDayKeyDown: jest.fn()
   };
   const mouseEvent = {} as React.MouseEvent<HTMLButtonElement, MouseEvent>;
   const date = today;
@@ -77,7 +77,7 @@ describe.each<"single" | "multiple" | "range">(["single", "multiple", "range"])(
     const activeModifiers: ActiveModifiers = {};
     const dayPickerProps = {
       mode,
-      onDayClick: mockedContexts[mode].onDayClick,
+      onDayClick: mockedContexts[mode].onDayClick
     };
     const mouseEvent = {} as React.MouseEvent<HTMLButtonElement, MouseEvent>;
     const date = today;
@@ -119,7 +119,7 @@ describe('when calling "onKeyDown"', () => {
     key: string,
     dir: string,
     shiftKey: boolean,
-    expectedMethod: keyof FocusContextValue,
+    expectedMethod: keyof FocusContextValue
   ][] = [
     ["ArrowLeft", "ltr", false, "focusDayBefore"],
     ["ArrowLeft", "rtl", false, "focusDayAfter"],
@@ -133,7 +133,7 @@ describe('when calling "onKeyDown"', () => {
     ["PageDown", "ltr", true, "focusYearAfter"],
     ["PageDown", "ltr", false, "focusMonthAfter"],
     ["Home", "ltr", false, "focusStartOfWeek"],
-    ["End", "ltr", false, "focusEndOfWeek"],
+    ["End", "ltr", false, "focusEndOfWeek"]
   ];
 
   describe.each(tests)(
@@ -145,7 +145,7 @@ describe('when calling "onKeyDown"', () => {
         } pressed`, () => {
           const keyboardEvent = {
             key,
-            shiftKey,
+            shiftKey
           } as React.KeyboardEvent<HTMLButtonElement>;
           keyboardEvent.preventDefault = jest.fn();
           keyboardEvent.stopPropagation = jest.fn();

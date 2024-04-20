@@ -9,7 +9,7 @@ export type NavigationState = [
   /** The month DayPicker is navigating at */
   month: Date,
   /** Go to the specified month. */
-  goToMonth: (month: Date) => void,
+  goToMonth: (month: Date) => void
 ];
 
 /** Controls the navigation state. */

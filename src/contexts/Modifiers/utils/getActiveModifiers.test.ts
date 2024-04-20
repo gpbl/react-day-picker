@@ -3,7 +3,7 @@ import { addMonths } from "date-fns";
 import {
   InternalModifier,
   InternalModifiers,
-  Modifiers,
+  Modifiers
 } from "types/Modifiers";
 
 import { getActiveModifiers } from "./getActiveModifiers";
@@ -18,12 +18,12 @@ const internalModifiers: InternalModifiers = {
   [InternalModifier.Today]: [],
   [InternalModifier.RangeStart]: [],
   [InternalModifier.RangeEnd]: [],
-  [InternalModifier.RangeMiddle]: [],
+  [InternalModifier.RangeMiddle]: []
 };
 describe("when the day matches a modifier", () => {
   const modifiers: Modifiers = {
     ...internalModifiers,
-    foo: [day],
+    foo: [day]
   };
   const result = getActiveModifiers(day, modifiers);
   test("should return the modifier as active", () => {
@@ -33,7 +33,7 @@ describe("when the day matches a modifier", () => {
 describe("when the day does not match a modifier", () => {
   const modifiers: Modifiers = {
     ...internalModifiers,
-    foo: [],
+    foo: []
   };
   const result = getActiveModifiers(day, modifiers);
   test("should not return the modifier as active", () => {
@@ -43,7 +43,7 @@ describe("when the day does not match a modifier", () => {
 
 describe("when the day is not in the same display month", () => {
   const modifiers: Modifiers = {
-    ...internalModifiers,
+    ...internalModifiers
   };
   const displayMonth = addMonths(day, 1);
   const result = getActiveModifiers(day, modifiers, displayMonth);

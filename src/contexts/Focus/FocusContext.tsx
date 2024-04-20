@@ -10,7 +10,7 @@ import { getInitialFocusTarget } from "./utils/getInitialFocusTarget";
 import {
   getNextFocus,
   MoveFocusBy,
-  MoveFocusDirection,
+  MoveFocusDirection
 } from "./utils/getNextFocus";
 
 /** Represents the value of the {@link FocusContext}. */
@@ -91,7 +91,7 @@ export function FocusProvider(props: FocusProviderProps): JSX.Element {
       moveBy,
       direction,
       context,
-      modifiers,
+      modifiers
     });
     if (isSameDay(focusedDay, nextFocused)) return undefined;
     navigation.goToDate(nextFocused, focusedDay);
@@ -112,7 +112,7 @@ export function FocusProvider(props: FocusProviderProps): JSX.Element {
     focusYearBefore: () => moveFocus("year", "before"),
     focusYearAfter: () => moveFocus("year", "after"),
     focusStartOfWeek: () => moveFocus("startOfWeek", "before"),
-    focusEndOfWeek: () => moveFocus("endOfWeek", "after"),
+    focusEndOfWeek: () => moveFocus("endOfWeek", "after")
   };
 
   return (

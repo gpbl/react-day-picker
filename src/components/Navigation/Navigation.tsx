@@ -32,7 +32,7 @@ export function Navigation(props: NavigationProps): JSX.Element {
     classNames,
     styles,
     labels: { labelPrevious, labelNext },
-    components,
+    components
   } = useDayPicker();
 
   if (!props.nextMonth && !props.previousMonth) {
@@ -42,13 +42,13 @@ export function Navigation(props: NavigationProps): JSX.Element {
   const previousLabel = labelPrevious(props.previousMonth, { locale });
   const previousClassName = [
     classNames.nav_button,
-    classNames.nav_button_previous,
+    classNames.nav_button_previous
   ].join(" ");
 
   const nextLabel = labelNext(props.nextMonth, { locale });
   const nextClassName = [
     classNames.nav_button,
-    classNames.nav_button_next,
+    classNames.nav_button_next
   ].join(" ");
 
   const IconRightComponent = components?.IconRight ?? IconRight;

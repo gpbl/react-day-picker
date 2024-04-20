@@ -42,7 +42,7 @@ export enum InternalModifier {
    * The modifier applied to the days between the start and the end of a
    * selected range, when in range selection mode.
    */
-  RangeMiddle = "range_middle",
+  RangeMiddle = "range_middle"
 }
 
 /** Map of matchers used for the internal modifiers. */
@@ -54,7 +54,7 @@ export type InternalModifiers = Record<InternalModifier, Matcher[]>;
  *
  *     const activeModifiers: ActiveModifiers = {
  *       selected: true,
- *       customModifier: true,
+ *       customModifier: true
  *     };
  */
 export type ActiveModifiers = Record<Modifier, true> &

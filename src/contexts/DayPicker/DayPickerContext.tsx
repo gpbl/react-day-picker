@@ -7,7 +7,7 @@ import { CaptionLayout } from "components/Caption";
 import { DayPickerBase, DaySelectionMode } from "types/DayPickerBase";
 import {
   DayPickerMultipleProps,
-  isDayPickerMultiple,
+  isDayPickerMultiple
 } from "types/DayPickerMultiple";
 import { DayPickerRangeProps, isDayPickerRange } from "types/DayPickerRange";
 import { DayPickerSingleProps, isDayPickerSingle } from "types/DayPickerSingle";
@@ -97,35 +97,35 @@ export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
     captionLayout,
     classNames: {
       ...defaultContextValues.classNames,
-      ...initialProps.classNames,
+      ...initialProps.classNames
     },
     components: {
-      ...initialProps.components,
+      ...initialProps.components
     },
     formatters: {
       ...defaultContextValues.formatters,
-      ...initialProps.formatters,
+      ...initialProps.formatters
     },
     fromDate,
     labels: {
       ...defaultContextValues.labels,
-      ...initialProps.labels,
+      ...initialProps.labels
     },
     mode: initialProps.mode || defaultContextValues.mode,
     modifiers: {
       ...defaultContextValues.modifiers,
-      ...initialProps.modifiers,
+      ...initialProps.modifiers
     },
     modifiersClassNames: {
       ...defaultContextValues.modifiersClassNames,
-      ...initialProps.modifiersClassNames,
+      ...initialProps.modifiersClassNames
     },
     onSelect,
     styles: {
       ...defaultContextValues.styles,
-      ...initialProps.styles,
+      ...initialProps.styles
     },
-    toDate,
+    toDate
   };
 
   return (

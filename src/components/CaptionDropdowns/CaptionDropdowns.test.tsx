@@ -7,7 +7,7 @@ import {
   getMonthDropdown,
   getYearDropdown,
   queryMonthDropdown,
-  queryYearDropdown,
+  queryYearDropdown
 } from "test/selectors";
 import { user } from "test/user";
 import { freezeBeforeAll } from "test/utils";
@@ -29,7 +29,7 @@ function setup(props: CaptionProps, dayPickerProps?: DayPickerProps) {
 
 describe("when using a custom CaptionLabel component", () => {
   const components: CustomComponents = {
-    CaptionLabel: () => <>custom label foo</>,
+    CaptionLabel: () => <>custom label foo</>
   };
   const props = { displayMonth: today };
   beforeEach(() => {
@@ -49,7 +49,7 @@ describe("when rendered with custom styles or classnames", () => {
       fromYear,
       toYear,
       classNames: { caption_dropdowns: "foo_dropdowns" },
-      styles: { caption_dropdowns: { color: "red" } },
+      styles: { caption_dropdowns: { color: "red" } }
     };
     const view = customRender(
       <CaptionDropdowns displayMonth={today} />,
@@ -76,7 +76,7 @@ describe("when a month is selected", () => {
     captionLayout: "dropdown",
     fromYear,
     toYear,
-    onMonthChange: jest.fn(),
+    onMonthChange: jest.fn()
   };
   beforeEach(() => {
     customRender(<CaptionDropdowns displayMonth={today} />, dayPickerProps);
@@ -109,7 +109,7 @@ describe("when a month is selected", () => {
 
 describe("when no date limits are set", () => {
   const dayPickerProps: DayPickerProps = {
-    captionLayout: "dropdown",
+    captionLayout: "dropdown"
   };
   beforeEach(() => {
     customRender(<CaptionDropdowns displayMonth={today} />, dayPickerProps);

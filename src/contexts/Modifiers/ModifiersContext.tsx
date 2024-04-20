@@ -34,7 +34,7 @@ export function ModifiersProvider(props: ModifiersProviderProps): JSX.Element {
 
   const modifiers: Modifiers = {
     ...internalModifiers,
-    ...customModifiers,
+    ...customModifiers
   };
 
   return (

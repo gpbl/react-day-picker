@@ -11,7 +11,7 @@ const defaultDayPickerContext: DayPickerContextValue =
   getDefaultContextValues();
 const defaultSelectMultipleContext = {
   selected: undefined,
-  modifiers: { disabled: [] },
+  modifiers: { disabled: [] }
 };
 const defaultSelectRangeContext = {
   selected: undefined,
@@ -19,8 +19,8 @@ const defaultSelectRangeContext = {
     disabled: [],
     range_start: [],
     range_end: [],
-    range_middle: [],
-  },
+    range_middle: []
+  }
 };
 
 const { Selected, Disabled, Hidden, Today, RangeEnd, RangeMiddle, RangeStart } =
@@ -44,7 +44,7 @@ describe('when navigation is limited by "fromDate"', () => {
   const fromDate = new Date();
   const dayPickerContext: DayPickerContextValue = {
     ...defaultDayPickerContext,
-    fromDate,
+    fromDate
   };
   test('should add a "before" matcher to the "disabled" modifiers', () => {
     const modifiers = getInternalModifiers(
@@ -60,7 +60,7 @@ describe('when navigation is limited by "toDate"', () => {
   const toDate = new Date();
   const dayPickerContext: DayPickerContextValue = {
     ...defaultDayPickerContext,
-    toDate,
+    toDate
   };
   test('should add an "after" matcher to the "disabled" modifiers', () => {
     const modifiers = getInternalModifiers(
@@ -76,13 +76,13 @@ describe("when in multiple select mode", () => {
   const disabledDate = new Date();
   const dayPickerContext: DayPickerContextValue = {
     ...defaultDayPickerContext,
-    mode: "multiple",
+    mode: "multiple"
   };
   const selectMultipleContext = {
     ...defaultSelectMultipleContext,
     modifiers: {
-      [Disabled]: [disabledDate],
-    },
+      [Disabled]: [disabledDate]
+    }
   };
   test("should add the disabled modifier from the select multiple context", () => {
     const modifiers = getInternalModifiers(
@@ -101,7 +101,7 @@ describe("when in range select mode", () => {
   const rangeEnd = [addDays(rangeStart, 3)];
   const dayPickerContext: DayPickerContextValue = {
     ...defaultDayPickerContext,
-    mode: "range",
+    mode: "range"
   };
   const selectRangeContext: SelectRangeContextValue = {
     ...defaultSelectRangeContext,
@@ -109,8 +109,8 @@ describe("when in range select mode", () => {
       [Disabled]: [disabled],
       [RangeStart]: [rangeStart],
       [RangeEnd]: rangeEnd,
-      [RangeMiddle]: rangeMiddle,
-    },
+      [RangeMiddle]: rangeMiddle
+    }
   };
   let internalModifiers: InternalModifiers;
   beforeEach(() => {

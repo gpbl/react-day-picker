@@ -2,7 +2,7 @@ import {
   ChangeEventHandler,
   FocusEventHandler,
   InputHTMLAttributes,
-  useState,
+  useState
 } from "react";
 
 import { differenceInCalendarDays, format as _format, parse } from "date-fns";
@@ -13,7 +13,7 @@ import { DayPickerBase } from "types/DayPickerBase";
 import { DayPickerSingleProps } from "types/DayPickerSingle";
 import {
   DayClickEventHandler,
-  MonthChangeEventHandler,
+  MonthChangeEventHandler
 } from "types/EventHandlers";
 
 import { isValidDate } from "./utils/isValidDate";
@@ -81,7 +81,7 @@ export function useInput(options: UseInputOptions = {}): UseInputValue {
     required,
     format = "PP",
     defaultSelected,
-    today = new Date(),
+    today = new Date()
   } = options;
   const { fromDate, toDate } = parseFromToProps(options);
 
@@ -168,7 +168,7 @@ export function useInput(options: UseInputOptions = {}): UseInputValue {
     locale,
     fromDate,
     toDate,
-    today,
+    today
   };
 
   const inputProps: InputProps = {
@@ -176,7 +176,7 @@ export function useInput(options: UseInputOptions = {}): UseInputValue {
     onChange: handleChange,
     onFocus: handleFocus,
     value: inputValue,
-    placeholder: _format(new Date(), format, { locale }),
+    placeholder: _format(new Date(), format, { locale })
   };
 
   return { dayPickerProps, inputProps, reset, setSelected };

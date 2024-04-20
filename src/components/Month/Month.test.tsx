@@ -16,13 +16,13 @@ const displayMonth = new Date(2022, 10, 4);
 const testStyles: Record<string, any> = {
   caption_start: { color: "red" },
   caption_end: { background: "blue" },
-  caption_between: { fontSize: 20 },
+  caption_between: { fontSize: 20 }
 };
 
 const testClassNames: Record<string, string> = {
   caption_start: "caption_start",
   caption_end: "caption_end",
-  caption_between: "caption_between",
+  caption_between: "caption_between"
 };
 
 type Test = {
@@ -65,7 +65,7 @@ describe("when rendered with a custom id", () => {
 
 describe("when using a custom Caption component", () => {
   const components: CustomComponents = {
-    Caption: () => <>custom caption foo</>,
+    Caption: () => <>custom caption foo</>
   };
   beforeEach(() => {
     setup({ displayIndex: 0, displayMonth }, { components });
@@ -80,55 +80,55 @@ describe("when dir is ltr", () => {
     {
       monthProps: {
         displayIndex: 0,
-        displayMonth,
+        displayMonth
       },
       dayPickerProps: {
         numberOfMonths: 1,
         styles: testStyles,
-        classNames: testClassNames,
+        classNames: testClassNames
       },
       expected: ["caption_start", "caption_end"],
-      notExpected: ["caption_between"],
+      notExpected: ["caption_between"]
     },
     {
       monthProps: {
         displayIndex: 0,
-        displayMonth,
+        displayMonth
       },
       dayPickerProps: {
         numberOfMonths: 2,
         styles: testStyles,
-        classNames: testClassNames,
+        classNames: testClassNames
       },
       expected: ["caption_start"],
-      notExpected: ["caption_between", "caption_end"],
+      notExpected: ["caption_between", "caption_end"]
     },
     {
       monthProps: {
         displayIndex: 1,
-        displayMonth,
+        displayMonth
       },
       dayPickerProps: {
         numberOfMonths: 2,
         styles: testStyles,
-        classNames: testClassNames,
+        classNames: testClassNames
       },
       expected: ["caption_end"],
-      notExpected: ["caption_start", "caption_between"],
+      notExpected: ["caption_start", "caption_between"]
     },
     {
       monthProps: {
         displayIndex: 1,
-        displayMonth,
+        displayMonth
       },
       dayPickerProps: {
         numberOfMonths: 3,
         styles: testStyles,
-        classNames: testClassNames,
+        classNames: testClassNames
       },
       expected: ["caption_between"],
-      notExpected: ["caption_start", "caption_end"],
-    },
+      notExpected: ["caption_start", "caption_end"]
+    }
   ];
 
   describe.each(testLtr)(
@@ -155,59 +155,59 @@ describe("when dir is rtl", () => {
     {
       monthProps: {
         displayIndex: 0,
-        displayMonth,
+        displayMonth
       },
       dayPickerProps: {
         dir: "rtl",
         numberOfMonths: 1,
         styles: testStyles,
-        classNames: testClassNames,
+        classNames: testClassNames
       },
       expected: ["caption_start", "caption_end"],
-      notExpected: ["caption_between"],
+      notExpected: ["caption_between"]
     },
     {
       monthProps: {
         displayIndex: 0,
-        displayMonth,
+        displayMonth
       },
       dayPickerProps: {
         dir: "rtl",
         numberOfMonths: 2,
         styles: testStyles,
-        classNames: testClassNames,
+        classNames: testClassNames
       },
       expected: ["caption_end"],
-      notExpected: ["caption_between", "caption_start"],
+      notExpected: ["caption_between", "caption_start"]
     },
     {
       monthProps: {
         displayIndex: 1,
-        displayMonth,
+        displayMonth
       },
       dayPickerProps: {
         dir: "rtl",
         numberOfMonths: 2,
         styles: testStyles,
-        classNames: testClassNames,
+        classNames: testClassNames
       },
       expected: ["caption_start"],
-      notExpected: ["caption_end", "caption_between"],
+      notExpected: ["caption_end", "caption_between"]
     },
     {
       monthProps: {
         displayIndex: 1,
-        displayMonth,
+        displayMonth
       },
       dayPickerProps: {
         dir: "rtl",
         numberOfMonths: 3,
         styles: testStyles,
-        classNames: testClassNames,
+        classNames: testClassNames
       },
       expected: ["caption_between"],
-      notExpected: ["caption_start", "caption_end"],
-    },
+      notExpected: ["caption_start", "caption_end"]
+    }
   ];
 
   describe.each(testRtl)(

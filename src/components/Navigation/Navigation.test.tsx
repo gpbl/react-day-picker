@@ -20,20 +20,20 @@ const props: NavigationProps = {
   hidePrevious: false,
   hideNext: false,
   onNextClick: jest.fn(),
-  onPreviousClick: jest.fn(),
+  onPreviousClick: jest.fn()
 };
 
 const dayPickerProps = {
   classNames: {
-    nav: "foo",
+    nav: "foo"
   },
   styles: {
-    nav: { color: "red" },
+    nav: { color: "red" }
   },
   components: {
     IconRight: () => <svg>IconRight</svg>,
-    IconLeft: () => <svg>IconLeft</svg>,
-  },
+    IconLeft: () => <svg>IconLeft</svg>
+  }
 };
 
 describe("when rendered", () => {

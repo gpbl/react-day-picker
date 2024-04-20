@@ -13,7 +13,7 @@ describe("when no days are selected is selected", () => {
       today: [],
       range_start: [],
       range_end: [],
-      range_middle: [],
+      range_middle: []
     };
     const initialFocusTarget = getInitialFocusTarget([displayMonth], modifiers);
     expect(initialFocusTarget).toStrictEqual(displayMonth);
@@ -33,7 +33,7 @@ describe("when a day is selected", () => {
       today: [],
       range_start: [],
       range_end: [],
-      range_middle: [],
+      range_middle: []
     };
     const initialFocusTarget = getInitialFocusTarget(displayMonths, modifiers);
     expect(initialFocusTarget).toStrictEqual(selectedDay1);

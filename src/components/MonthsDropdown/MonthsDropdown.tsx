@@ -23,7 +23,7 @@ export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
     formatters: { formatMonthCaption },
     classNames,
     components,
-    labels: { labelMonthDropdown },
+    labels: { labelMonthDropdown }
   } = useDayPicker();
 
   // Dropdown should appear only when both from/toDate is set

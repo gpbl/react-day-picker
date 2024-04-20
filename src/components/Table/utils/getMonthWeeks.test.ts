@@ -24,7 +24,7 @@ describe('when using the "enUS" locale', () => {
     describe("when getting the weeks for December 2021", () => {
       const weeks = getMonthWeeks(new Date(2021, 11), {
         useFixedWeeks: false,
-        locale: enUS,
+        locale: enUS
       });
       test("should return 49 - 1 week numbers", () => {
         const weekNumbers = weeks.map((week) => week.weekNumber);
@@ -39,7 +39,7 @@ describe('when using the "enUS" locale', () => {
       });
       test("week 1 contains the first day of the new year", () => {
         expect(weeks[4].dates.map((date) => date.getDate())).toEqual([
-          26, 27, 28, 29, 30, 31, 1,
+          26, 27, 28, 29, 30, 31, 1
         ]);
       });
     });
@@ -57,7 +57,7 @@ describe('when using the "enGB" locale', () => {
     });
     test("the first week should contain days from previous year", () => {
       expect(weeks[0].dates.map((date) => date.getDate())).toEqual([
-        27, 28, 29, 30, 31, 1, 2,
+        27, 28, 29, 30, 31, 1, 2
       ]);
     });
     test("the last week should be the last of January", () => {

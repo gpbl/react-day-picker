@@ -4,7 +4,7 @@ import {
   KeyboardEventHandler,
   MouseEventHandler,
   PointerEventHandler,
-  TouchEventHandler,
+  TouchEventHandler
 } from "react";
 
 import { useDayPicker } from "contexts/DayPicker";
@@ -87,7 +87,7 @@ export function useDayEventHandlers(
     focusYearBefore,
     focusYearAfter,
     focusStartOfWeek,
-    focusEndOfWeek,
+    focusEndOfWeek
   } = useFocusContext();
 
   const onClick: MouseEventHandler = (e) => {
@@ -200,7 +200,7 @@ export function useDayEventHandlers(
     onTouchCancel,
     onTouchEnd,
     onTouchMove,
-    onTouchStart,
+    onTouchStart
   };
 
   return eventHandlers;

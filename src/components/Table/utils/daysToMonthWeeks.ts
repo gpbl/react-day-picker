@@ -7,7 +7,7 @@ import {
   getWeek,
   Locale,
   startOfISOWeek,
-  startOfWeek,
+  startOfWeek
 } from "date-fns";
 
 import { MonthWeek } from "./getMonthWeeks";
@@ -51,7 +51,7 @@ export function daysToMonthWeeks(
     }
     result.push({
       weekNumber,
-      dates: [date],
+      dates: [date]
     });
     return result;
   }, []);

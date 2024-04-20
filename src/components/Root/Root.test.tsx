@@ -45,7 +45,7 @@ describe("when the number of months is greater than 1", () => {
 
 describe('when using the "classNames" prop', () => {
   const classNames: ClassNames = {
-    root: "foo",
+    root: "foo"
   };
   beforeEach(() => {
     render({ classNames });
@@ -142,7 +142,7 @@ describe("when showing the week numbers", () => {
 describe('when "initialFocus" is set', () => {
   const baseProps: DayPickerProps = {
     initialFocus: true,
-    mode: "single",
+    mode: "single"
   };
   describe("when a day is not selected", () => {
     beforeEach(() => {

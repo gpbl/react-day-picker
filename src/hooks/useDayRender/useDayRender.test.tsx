@@ -74,7 +74,7 @@ describe("when rendering the today’s date", () => {
     "onTouchCancel",
     "onTouchEnd",
     "onTouchMove",
-    "onTouchStart",
+    "onTouchStart"
   ];
   test.each(testEvents)(
     'the button should have the "%s" event handler',
@@ -134,7 +134,7 @@ describe("when showing the outside days", () => {
 describe('when the day has the "hidden" modifier active', () => {
   const date = today;
   const dayPickerProps: DayPickerProps = {
-    modifiers: { hidden: date },
+    modifiers: { hidden: date }
   };
   test("should have the hidden modifier active", () => {
     const result = renderHook(date, date, dayPickerProps);
@@ -150,7 +150,7 @@ describe('when "modifiersStyles" is passed in', () => {
   const date = today;
   const dayPickerProps = {
     modifiers: { foo: date },
-    modifiersStyles: { foo: { color: "red" } },
+    modifiersStyles: { foo: { color: "red" } }
   };
   test("the div props should include the modifiers style", () => {
     const result = renderHook(date, date, dayPickerProps);
@@ -168,7 +168,7 @@ describe('when "modifiersStyles" is passed in', () => {
 describe('when "styles.day" is passed in', () => {
   const date = today;
   const dayPickerProps = {
-    styles: { day: { color: "red" } },
+    styles: { day: { color: "red" } }
   };
   test("the div props should include the style", () => {
     const result = renderHook(date, date, dayPickerProps);
@@ -188,7 +188,7 @@ describe('when "modifiersClassNames" is passed in', () => {
   const date = today;
   const dayPickerProps = {
     modifiers: { foo: date },
-    modifiersClassNames: { foo: "bar" },
+    modifiersClassNames: { foo: "bar" }
   };
   const result = renderHook(date, date, dayPickerProps);
   test("the div props should include the modifiers classNames", () => {
@@ -206,7 +206,7 @@ describe('when "modifiersClassNames" is passed in', () => {
 describe('when "classNames.day" is passed in', () => {
   const date = today;
   const dayPickerProps = {
-    classNames: { day: "foo" },
+    classNames: { day: "foo" }
   };
   const result = renderHook(date, date, dayPickerProps);
   test("the div props should include the class name", () => {
@@ -226,7 +226,7 @@ describe("when the day is not target of focus", () => {
   const tomorrow = addDays(today, 1);
   const focusContext: FocusContextValue = {
     ...mockedContexts.focus,
-    focusTarget: yesterday,
+    focusTarget: yesterday
   };
   const result = renderHook(
     tomorrow,
@@ -243,7 +243,7 @@ describe("when the day is target of focus", () => {
   const date = today;
   const focusContext: FocusContextValue = {
     ...mockedContexts.focus,
-    focusTarget: date,
+    focusTarget: date
   };
   const result = renderHook(
     date,
@@ -260,7 +260,7 @@ describe("when the day is target of focus but outside", () => {
   const date = today;
   const focusContext: FocusContextValue = {
     ...mockedContexts.focus,
-    focusTarget: date,
+    focusTarget: date
   };
   const result = renderHook(
     date,
@@ -277,7 +277,7 @@ describe("when the day is focused", () => {
   const date = today;
   const focusContext: FocusContextValue = {
     ...mockedContexts.focus,
-    focusedDay: date,
+    focusedDay: date
   };
   const result = renderHook(
     date,

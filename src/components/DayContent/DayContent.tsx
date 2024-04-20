@@ -15,7 +15,7 @@ export interface DayContentProps {
 export function DayContent(props: DayContentProps): JSX.Element {
   const {
     locale,
-    formatters: { formatDay },
+    formatters: { formatDay }
   } = useDayPicker();
 
   return <>{formatDay(props.date, { locale })}</>;

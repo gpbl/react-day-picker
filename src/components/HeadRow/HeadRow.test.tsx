@@ -27,13 +27,13 @@ const dayPickerProps = {
   styles: {
     head: { color: "red" },
     head_row: { color: "blue" },
-    head_cell: { color: "green" },
+    head_cell: { color: "green" }
   },
   classNames: {
     head: "foo",
     head_row: "foo_row",
-    head_cell: "foo_head-cell",
-  },
+    head_cell: "foo_head-cell"
+  }
 };
 
 describe("when rendered", () => {

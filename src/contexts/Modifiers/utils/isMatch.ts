@@ -6,7 +6,7 @@ import {
   isDateInterval,
   isDateRange,
   isDayOfWeekType,
-  Matcher,
+  Matcher
 } from "types/Matchers";
 
 import { isDateInRange } from "./isDateInRange";

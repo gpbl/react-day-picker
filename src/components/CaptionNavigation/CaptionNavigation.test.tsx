@@ -6,7 +6,7 @@ import {
   getNextButton,
   getPrevButton,
   queryNextButton,
-  queryPrevButton,
+  queryPrevButton
 } from "test/selectors";
 import { user } from "test/user";
 import { freezeBeforeAll } from "test/utils";
@@ -19,7 +19,7 @@ freezeBeforeAll(today);
 
 describe("when rendered", () => {
   const dayPickerProps: DayPickerProps = {
-    captionLayout: "buttons",
+    captionLayout: "buttons"
   };
   test("should render the next month button", () => {
     customRender(<CaptionNavigation displayMonth={today} />, dayPickerProps);
@@ -35,7 +35,7 @@ describe("when rendered", () => {
     beforeEach(() => {
       customRender(<CaptionNavigation displayMonth={today} />, {
         ...dayPickerProps,
-        numberOfMonths,
+        numberOfMonths
       });
     });
     test("should not display the next month button", () => {
@@ -52,7 +52,7 @@ describe("when rendered", () => {
       const lastMonth = addMonths(today, numberOfMonths - 1);
       customRender(<CaptionNavigation displayMonth={lastMonth} />, {
         ...dayPickerProps,
-        numberOfMonths,
+        numberOfMonths
       });
     });
     test("should hide the previous month button", () => {
@@ -69,7 +69,7 @@ describe("when rendered", () => {
       const lastMonth = addMonths(today, numberOfMonths - 2);
       customRender(<CaptionNavigation displayMonth={lastMonth} />, {
         ...dayPickerProps,
-        numberOfMonths,
+        numberOfMonths
       });
     });
     test("should not render the previous month button", () => {
@@ -84,7 +84,7 @@ describe("when rendered", () => {
     describe("and a previous month is defined", () => {
       const testContext = {
         ...dayPickerProps,
-        onMonthChange: jest.fn(),
+        onMonthChange: jest.fn()
       };
       const previousMonth = addMonths(today, -1);
       beforeEach(async () => {
@@ -99,7 +99,7 @@ describe("when rendered", () => {
       const testContext = {
         ...dayPickerProps,
         fromDate: today,
-        onMonthChange: jest.fn(),
+        onMonthChange: jest.fn()
       };
       beforeEach(async () => {
         customRender(<CaptionNavigation displayMonth={today} />, testContext);
@@ -115,7 +115,7 @@ describe("when rendered", () => {
     describe("and the next month is defined", () => {
       const testContext = {
         ...dayPickerProps,
-        onMonthChange: jest.fn(),
+        onMonthChange: jest.fn()
       };
       const nextMonth = addMonths(today, 1);
       beforeEach(async () => {
@@ -130,7 +130,7 @@ describe("when rendered", () => {
       const testContext = {
         ...dayPickerProps,
         toDate: today,
-        onMonthChange: jest.fn(),
+        onMonthChange: jest.fn()
       };
       beforeEach(async () => {
         customRender(<CaptionNavigation displayMonth={today} />, testContext);

@@ -16,12 +16,12 @@ const date = today;
 const displayMonth = today;
 const props: DayProps = {
   date: date,
-  displayMonth,
+  displayMonth
 };
 
 describe("when the day to render has an hidden modifier", () => {
   const dayPickerProps: DayPickerProps = {
-    modifiers: { hidden: date },
+    modifiers: { hidden: date }
   };
   beforeEach(() => {
     customRender(<Day {...props} />, dayPickerProps);
@@ -44,7 +44,7 @@ describe('when a no selection mode and no "onDayClick"', () => {
 
 describe("when a selection mode is set", () => {
   const dayPickerProps: DayPickerProps = {
-    mode: "single",
+    mode: "single"
   };
   beforeEach(() => {
     customRender(<Day {...props} />, dayPickerProps);
@@ -58,7 +58,7 @@ describe("when a selection mode is set", () => {
 
 describe('when "onDayClick" is present', () => {
   const dayPickerProps: DayPickerProps = {
-    onDayClick: jest.fn(),
+    onDayClick: jest.fn()
   };
   beforeEach(() => {
     customRender(<Day {...props} />, dayPickerProps);
@@ -71,7 +71,7 @@ describe('when "onDayClick" is present', () => {
 
 describe("when using a custom DayContent component", () => {
   const components: CustomComponents = {
-    DayContent: () => <>Custom DayContent</>,
+    DayContent: () => <>Custom DayContent</>
   };
   beforeEach(() => {
     customRender(<Day {...props} />, { components });

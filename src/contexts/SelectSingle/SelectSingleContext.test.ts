@@ -10,7 +10,7 @@ import { ActiveModifiers } from "types/Modifiers";
 
 import {
   SelectSingleContextValue,
-  useSelectSingle,
+  useSelectSingle
 } from "./SelectSingleContext";
 
 const today = new Date(2021, 11, 8);
@@ -30,7 +30,7 @@ describe("when a day is selected from DayPicker props", () => {
   test("the selected day should be today", () => {
     const dayPickerProps: DayPickerSingleProps = {
       mode: "single",
-      selected: today,
+      selected: today
     };
     const result = renderHook(dayPickerProps);
     expect(result.current.selected).toBe(today);
@@ -40,7 +40,7 @@ describe("when onDayClick is called", () => {
   const dayPickerProps: DayPickerSingleProps = {
     mode: "single",
     onSelect: jest.fn(),
-    onDayClick: jest.fn(),
+    onDayClick: jest.fn()
   };
   const result = renderHook(dayPickerProps);
   const activeModifiers = {};
@@ -67,7 +67,7 @@ describe("if a selected day is not required", () => {
   const dayPickerProps: DayPickerSingleProps = {
     mode: "single",
     onSelect: jest.fn(),
-    required: false,
+    required: false
   };
   test("should call the `onSelect` event handler with an undefined day", () => {
     const result = renderHook(dayPickerProps);

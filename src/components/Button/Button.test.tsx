@@ -32,7 +32,7 @@ describe("when using class names and styles from context", () => {
   beforeEach(() => {
     customRender(<Button />, {
       classNames: { button: "foo" },
-      styles: { button: { color: "red" } },
+      styles: { button: { color: "red" } }
     });
     button = screen.getByRole("button");
   });

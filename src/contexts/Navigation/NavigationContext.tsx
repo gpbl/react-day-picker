@@ -76,7 +76,7 @@ export function NavigationProvider(props: {
     goToDate,
     previousMonth,
     nextMonth,
-    isDateDisplayed,
+    isDateDisplayed
   };
 
   return (

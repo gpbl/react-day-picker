@@ -12,7 +12,7 @@ import { ActiveModifiers } from "types/Modifiers";
 
 import {
   SelectMultipleContextValue,
-  useSelectMultiple,
+  useSelectMultiple
 } from "./SelectMultipleContext";
 
 const today = new Date(2021, 11, 8);
@@ -38,7 +38,7 @@ describe("when is not a multiple select DayPicker", () => {
 const initialProps: DayPickerMultipleProps = {
   mode: "multiple",
   onDayClick: jest.fn(),
-  onSelect: jest.fn(),
+  onSelect: jest.fn()
 };
 
 const selectedDay1 = today;
@@ -49,7 +49,7 @@ describe("when days are selected", () => {
   const selected = [selectedDay1, selectedDay2, selectedDay3];
   const dayPickerProps: DayPickerMultipleProps = {
     ...initialProps,
-    selected,
+    selected
   };
 
   test("it should return the days as selected", () => {
@@ -119,7 +119,7 @@ describe("when the maximum number of days are selected", () => {
   const dayPickerProps: DayPickerMultipleProps = {
     ...initialProps,
     selected,
-    max: selected.length,
+    max: selected.length
   };
   test("the selected days should not be disabled", () => {
     const result = renderHook(dayPickerProps);
@@ -163,7 +163,7 @@ describe("when the minimum number of days are selected", () => {
   const dayPickerProps: DayPickerMultipleProps = {
     ...initialProps,
     selected,
-    min: selected.length,
+    min: selected.length
   };
   describe("when `onDayClick` is called with one of the selected days", () => {
     const clickedDay = selected[0];

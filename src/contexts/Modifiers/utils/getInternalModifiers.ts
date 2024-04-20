@@ -15,7 +15,7 @@ const {
   RangeEnd,
   RangeMiddle,
   RangeStart,
-  Outside,
+  Outside
 } = InternalModifier;
 
 /** Return the {@link InternalModifiers} from the DayPicker and select contexts. */
@@ -32,7 +32,7 @@ export function getInternalModifiers(
     [RangeEnd]: [],
     [RangeMiddle]: [],
     [RangeStart]: [],
-    [Outside]: [],
+    [Outside]: []
   };
 
   if (dayPicker.fromDate) {

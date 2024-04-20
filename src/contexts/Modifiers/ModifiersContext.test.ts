@@ -22,7 +22,7 @@ describe("when rendered with custom modifiers", () => {
     hidden: modifier,
     range_start: modifier,
     range_end: modifier,
-    range_middle: modifier,
+    range_middle: modifier
   };
   test("should return the custom modifiers", () => {
     const result = renderHook({ modifiers: dayModifiers });
@@ -33,7 +33,7 @@ describe("when rendered with custom modifiers", () => {
     (internalModifier) => {
       const result = renderHook({ modifiers: dayModifiers });
       expect(result.current[internalModifier]).toEqual([
-        dayModifiers[internalModifier],
+        dayModifiers[internalModifier]
       ]);
     }
   );

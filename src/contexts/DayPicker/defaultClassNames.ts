@@ -52,5 +52,5 @@ export const defaultClassNames: Required<ClassNames> = {
   day_hidden: "rdp-day_hidden",
   day_range_start: "rdp-day_range_start",
   day_range_end: "rdp-day_range_end",
-  day_range_middle: "rdp-day_range_middle",
+  day_range_middle: "rdp-day_range_middle"
 };

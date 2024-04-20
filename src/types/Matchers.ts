@@ -16,7 +16,7 @@
  *     // will match the days in the array
  *     const arrayMatcher: Matcher = [
  *       new Date(2019, 1, 2),
- *       new Date(2019, 1, 4),
+ *       new Date(2019, 1, 4)
  *     ];
  *
  *     // will match days after the 2nd of February 2019
@@ -26,19 +26,19 @@
  *
  *     // will match Sundays
  *     const dayOfWeekMatcher: DayOfWeek = {
- *       dayOfWeek: 0,
+ *       dayOfWeek: 0
  *     };
  *
  *     // will match the included days, except the two dates
  *     const intervalMatcher: DateInterval = {
  *       after: new Date(2019, 1, 2),
- *       before: new Date(2019, 1, 5),
+ *       before: new Date(2019, 1, 5)
  *     };
  *
  *     // will match the included days, including the two dates
  *     const rangeMatcher: DateRange = {
  *       from: new Date(2019, 1, 2),
- *       to: new Date(2019, 1, 5),
+ *       to: new Date(2019, 1, 5)
  *     };
  *
  *     // will match when the function return true

@@ -14,14 +14,14 @@ function setup(props: RowProps, dayPickerProps?: DayPickerProps) {
 const props: RowProps = {
   displayMonth: new Date(2020, 1),
   weekNumber: 4,
-  dates: [new Date(2020, 1, 1), new Date(2020, 1, 2), new Date(2020, 1, 3)],
+  dates: [new Date(2020, 1, 1), new Date(2020, 1, 2), new Date(2020, 1, 3)]
 };
 
 describe('when "showWeekNumber" is set', () => {
   const dayPickerProps = {
     showWeekNumber: true,
     classNames: { cell: "cell" },
-    styles: { cell: { background: "red" } },
+    styles: { cell: { background: "red" } }
   };
   beforeEach(() => {
     setup(props, dayPickerProps);
@@ -42,7 +42,7 @@ describe('when "showWeekNumber" is set', () => {
 
 describe("when using a custom Day component", () => {
   const components: CustomComponents = {
-    Day: () => <div>CustomDay</div>,
+    Day: () => <div>CustomDay</div>
   };
   const dayPickerProps = { components };
   beforeEach(() => {
@@ -55,7 +55,7 @@ describe("when using a custom Day component", () => {
 
 describe("when using a custom WeekNumber component", () => {
   const components: CustomComponents = {
-    WeekNumber: () => <div>WeekNumber</div>,
+    WeekNumber: () => <div>WeekNumber</div>
   };
   const dayPickerProps: DayPickerProps = { components, showWeekNumber: true };
   beforeEach(() => {

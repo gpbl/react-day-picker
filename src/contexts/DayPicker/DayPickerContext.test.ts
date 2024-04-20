@@ -10,7 +10,7 @@ import { CaptionLayout } from "components/Caption";
 import { DayPickerContextValue, useDayPicker } from "contexts/DayPicker";
 import {
   DefaultContextProps,
-  getDefaultContextValues,
+  getDefaultContextValues
 } from "contexts/DayPicker/defaultContextValues";
 import { DaySelectionMode } from "types/DayPickerBase";
 import { Formatters } from "types/Formatters";
@@ -80,7 +80,7 @@ describe('when "fromDate" and "toDate" are undefined', () => {
       const result = renderHook({
         fromDate,
         toDate,
-        captionLayout,
+        captionLayout
       });
       expect(result.current.captionLayout).toBe("buttons");
     });
@@ -97,7 +97,7 @@ describe('when "fromDate" is undefined, but not "toDate"', () => {
       const result = renderHook({
         fromDate,
         toDate,
-        captionLayout,
+        captionLayout
       });
       expect(result.current.captionLayout).toBe("buttons");
     });
@@ -114,7 +114,7 @@ describe('when "toDate" is undefined, but not "fromDate"', () => {
       const result = renderHook({
         fromDate,
         toDate,
-        captionLayout,
+        captionLayout
       });
       expect(result.current.captionLayout).toBe("buttons");
     });
@@ -155,7 +155,7 @@ describe('when passing "styles" from props', () => {
     const result = renderHook({ styles });
     expect(result.current.styles).toStrictEqual({
       ...defaults.styles,
-      ...styles,
+      ...styles
     });
   });
 });
@@ -166,7 +166,7 @@ describe('when passing "classNames" from props', () => {
     const result = renderHook({ classNames });
     expect(result.current.classNames).toStrictEqual({
       ...defaults.classNames,
-      ...classNames,
+      ...classNames
     });
   });
 });
@@ -177,7 +177,7 @@ describe('when passing "formatters" from props', () => {
     const result = renderHook({ formatters });
     expect(result.current.formatters).toStrictEqual({
       ...defaults.formatters,
-      ...formatters,
+      ...formatters
     });
   });
 });
@@ -188,7 +188,7 @@ describe('when passing "labels" from props', () => {
     const result = renderHook({ labels });
     expect(result.current.labels).toStrictEqual({
       ...defaults.labels,
-      ...labels,
+      ...labels
     });
   });
 });

@@ -5,7 +5,7 @@ import {
   DateBefore,
   DateInterval,
   DateRange,
-  DayOfWeek,
+  DayOfWeek
 } from "types/Matchers";
 
 import { isMatch } from "./isMatch";
@@ -38,7 +38,7 @@ describe("when matching an array of dates including the day", () => {
 describe("when matching date range", () => {
   const matcher: DateRange = {
     from: testDay,
-    to: addDays(testDay, 1),
+    to: addDays(testDay, 1)
   };
   const result = isMatch(testDay, [matcher]);
   test("should return true", () => {
@@ -48,7 +48,7 @@ describe("when matching date range", () => {
 
 describe("when matching the day of week", () => {
   const matcher: DayOfWeek = {
-    dayOfWeek: [testDay.getDay()],
+    dayOfWeek: [testDay.getDay()]
   };
   const result = isMatch(testDay, [matcher]);
   test("should return true", () => {
@@ -59,7 +59,7 @@ describe("when matching the day of week", () => {
 describe("when matching date interval (closed)", () => {
   const matcher: DateInterval = {
     before: addDays(testDay, 5),
-    after: subDays(testDay, 3),
+    after: subDays(testDay, 3)
   };
   const result = isMatch(testDay, [matcher]);
   test("should return true for the included day", () => {
@@ -70,7 +70,7 @@ describe("when matching date interval (closed)", () => {
 describe("when matching date interval (open)", () => {
   const matcher: DateInterval = {
     before: subDays(testDay, 4),
-    after: addDays(testDay, 5),
+    after: addDays(testDay, 5)
   };
   test("should return false", () => {
     const result = isMatch(testDay, [matcher]);

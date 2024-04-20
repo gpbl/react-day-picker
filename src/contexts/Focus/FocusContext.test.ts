@@ -5,7 +5,7 @@ import {
   addWeeks,
   addYears,
   endOfWeek,
-  startOfWeek,
+  startOfWeek
 } from "date-fns";
 
 import { renderDayPickerHook, RenderHookResult } from "test/render";
@@ -47,7 +47,7 @@ const tests: Array<HookFunction> = [
   "focusYearBefore",
   "focusYearAfter",
   "focusStartOfWeek",
-  "focusEndOfWeek",
+  "focusEndOfWeek"
 ];
 describe.each(tests)("when calling %s", (fn: HookFunction) => {
   test("`focusedDay` should be undefined", () => {
