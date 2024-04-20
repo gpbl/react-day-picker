@@ -1,3 +1,6 @@
+/* eslint-env node */
+// @ts-check
+
 /** @type {import("eslint").Linter.Config} */
 const config = {
   parser: "@typescript-eslint/parser",
