@@ -12,15 +12,50 @@
   "bugs": {
     "url": "https://github.com/gpbl/react-day-picker/issues"
   },
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "unpkg": "dist/index.min.js",
-  "types": "dist/index.d.ts",
-  "style": "dist/style.css",
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/cjs/index.d.ts",
+  "module": "./dist/esm/index.js",
+  "style": "./src/styles.css",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      },
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "default": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./style.css": {
+      "default": "./src/style.css"
+    },
+    "./dist/style.css": {
+      "default": "./src/style.css"
+    },
+    "./style.module.css": {
+      "types": "./src/style.d.ts",
+      "default": "./src/style.css"
+    },
+    "./dist/style.module.css": {
+      "types": "./src/style.d.ts",
+      "default": "./src/style.css"
+    },
+    "./package.json": {
+      "import": "./package.json",
+      "require": "./package.json",
+      "default": "./package.json"
+    }
+  },
   "scripts": {
     "prepublish": "pnpm build",
-    "build": "rimraf dist && rollup -c",
-    "build-watch": "rollup -c -w",
+    "build": "pnpm build:cjs && pnpm build:esm",
+    "build:cjs": "tsc --project tsconfig-cjs.json",
+    "build:esm": "tsc --project tsconfig-esm.json",
     "lint": "eslint .",
     "test": "jest",
     "test-watch": "jest --watch",
@@ -68,7 +103,6 @@
     "react": "^18.2.0",
     "react-classnaming": "^0.16.4",
     "react-dom": "^18.2.0",
-    "rimraf": "^5.0.1",
     "rollup": "^4.9.1",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-dts": "^6.1.0",

@@ -12,9 +12,8 @@ const stylesDark = require(`!!raw-loader!./sandpack-app/dark.css`);
 const styles = require(`!!raw-loader!./sandpack-app/light.css`);
 
 // https://sandpack.codesandbox.io/docs/faq#how-to-load-local-or-private-dependencies
-const rdpBuild = require(`!!raw-loader!react-day-picker/dist/index.js`);
-const rdpBuildMap = require(`!!raw-loader!react-day-picker/dist/index.js.map`);
-const rdpStyles = require(`!!raw-loader!react-day-picker/dist/style.css`);
+const rdpBuild = require(`!!raw-loader!react-day-picker`);
+const rdpStyles = require(`!!raw-loader!react-day-picker/style.css`);
 const rdpStylesModule = require(
   `!!raw-loader!react-day-picker/dist/style.module.css`
 );
@@ -43,7 +42,6 @@ export function CustomSandPack(props: {
   const fakePkg = {
     "/node_modules/react-day-picker/package.json": rdpJson,
     "/node_modules/react-day-picker/index.js": rdpBuild.default,
-    "/node_modules/react-day-picker/index.js.map": rdpBuildMap.default,
     "/node_modules/react-day-picker/dist/style.css": rdpStyles.default,
     "/node_modules/react-day-picker/dist/style.module.css":
       rdpStylesModule.default
