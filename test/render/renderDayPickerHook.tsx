@@ -1,20 +1,20 @@
 import { render } from "@testing-library/react";
-import { DayPickerProps } from "DayPicker";
+import { DayPickerProps } from "../../src/DayPicker";
 
-import { FocusContext, FocusContextValue } from "contexts/Focus";
-import { RootProvider } from "contexts/RootProvider";
+import { FocusContext, FocusContextValue } from "../../src/contexts/Focus";
 import {
   SelectMultipleContext,
   SelectMultipleContextValue
-} from "contexts/SelectMultiple";
+} from "../../src/contexts/SelectMultiple";
 import {
   SelectRangeContext,
   SelectRangeContextValue
-} from "contexts/SelectRange";
+} from "../../src/contexts/SelectRange";
 import {
   SelectSingleContext,
   SelectSingleContextValue
-} from "contexts/SelectSingle";
+} from "../../src/contexts/SelectSingle";
+import { RootProvider } from "../../src/contexts/RootProvider";
 
 /** Render a DayPicker hook inside the {@link RootProvider}. */
 export type RenderHookResult<TResult> = {

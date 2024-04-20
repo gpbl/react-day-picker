@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 
-import { useDayPicker } from "contexts/DayPicker";
+import { useDayPicker } from "../../contexts/DayPicker";
 
 /** The props for the {@link Button} component. */
 export type ButtonProps = JSX.IntrinsicElements["button"];

@@ -1,4 +1,4 @@
-import { parseFromToProps } from "contexts/DayPicker/utils";
+import { parseFromToProps } from "../../../contexts/DayPicker/utils";
 
 describe('when "fromMonth" is passed in', () => {
   const fromMonth = new Date(2021, 4, 3);

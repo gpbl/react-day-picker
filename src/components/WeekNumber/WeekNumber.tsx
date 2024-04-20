@@ -1,6 +1,6 @@
 import { MouseEventHandler } from "react";
 
-import { useDayPicker } from "contexts/DayPicker";
+import { useDayPicker } from "../../contexts/DayPicker";
 
 import { Button } from "../Button";
 

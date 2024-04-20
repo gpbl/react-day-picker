@@ -1,9 +1,13 @@
 import { createContext, useContext, ReactNode } from "react";
 
-import { useDayPicker } from "contexts/DayPicker";
-import { useSelectMultiple } from "contexts/SelectMultiple";
-import { useSelectRange } from "contexts/SelectRange";
-import { CustomModifiers, InternalModifiers, Modifiers } from "types/Modifiers";
+import { useDayPicker } from "../../contexts/DayPicker";
+import { useSelectMultiple } from "../../contexts/SelectMultiple";
+import { useSelectRange } from "../../contexts/SelectRange";
+import {
+  CustomModifiers,
+  InternalModifiers,
+  Modifiers
+} from "../../types/Modifiers";
 
 import { getCustomModifiers } from "./utils/getCustomModifiers";
 import { getInternalModifiers } from "./utils/getInternalModifiers";

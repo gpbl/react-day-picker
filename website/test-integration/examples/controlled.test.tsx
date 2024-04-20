@@ -6,7 +6,7 @@ import { freezeBeforeAll } from "@site/test/utils";
 import { render, screen } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
 
-import { getMonthCaption } from "react-day-picker/test/selectors";
+import { getMonthCaption } from "../../../test/selectors";
 
 import Example from "@examples/controlled";
 

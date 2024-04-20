@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 
-import { customRender } from "test/render";
+import { customRender } from "../../../test/render";
 
 import { Button } from "./Button";
 

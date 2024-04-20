@@ -1,4 +1,4 @@
-import { useDayPicker } from "contexts/DayPicker";
+import { useDayPicker } from "../../contexts/DayPicker";
 
 import { getWeekdays } from "./utils";
 

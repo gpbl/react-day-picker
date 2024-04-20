@@ -1,22 +1,22 @@
 /* eslint-disable testing-library/render-result-naming-convention */
 
 import { es } from "date-fns/locale";
-import { DayPickerProps } from "DayPicker";
+import { DayPickerProps } from "../../DayPicker";
 
-import { renderDayPickerHook } from "test/render";
-import { freezeBeforeAll } from "test/utils";
+import { renderDayPickerHook } from "../../../test/render";
+import { freezeBeforeAll } from "../../../test/utils";
 
-import { CaptionLayout } from "components/Caption";
-import { DayPickerContextValue, useDayPicker } from "contexts/DayPicker";
+import { CaptionLayout } from "../../components/Caption";
+import { DayPickerContextValue, useDayPicker } from "../../contexts/DayPicker";
 import {
   DefaultContextProps,
   getDefaultContextValues
-} from "contexts/DayPicker/defaultContextValues";
-import { DaySelectionMode } from "types/DayPickerBase";
-import { Formatters } from "types/Formatters";
-import { Labels } from "types/Labels";
-import { DayModifiers, ModifiersClassNames } from "types/Modifiers";
-import { ClassNames, Styles } from "types/Styles";
+} from "../../contexts/DayPicker/defaultContextValues";
+import { DaySelectionMode } from "../../types/DayPickerBase";
+import { Formatters } from "../../types/Formatters";
+import { Labels } from "../../types/Labels";
+import { DayModifiers, ModifiersClassNames } from "../../types/Modifiers";
+import { ClassNames, Styles } from "../../types/Styles";
 
 const today = new Date(2022, 5, 13);
 const defaults = getDefaultContextValues();

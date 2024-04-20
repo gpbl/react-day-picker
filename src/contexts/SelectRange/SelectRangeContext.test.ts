@@ -6,14 +6,14 @@ import {
   differenceInCalendarDays,
   subDays
 } from "date-fns";
-import { DayPickerProps } from "DayPicker";
+import { DayPickerProps } from "../../DayPicker";
 
-import { renderDayPickerHook } from "test/render";
-import { freezeBeforeAll } from "test/utils";
+import { renderDayPickerHook } from "../../../test/render";
+import { freezeBeforeAll } from "../../../test/utils";
 
-import { isMatch } from "contexts/Modifiers/utils/isMatch";
-import { DayPickerRangeProps } from "types/DayPickerRange";
-import { ActiveModifiers } from "types/Modifiers";
+import { isMatch } from "../../contexts/Modifiers/utils/isMatch";
+import { DayPickerRangeProps } from "../../types/DayPickerRange";
+import { ActiveModifiers } from "../../types/Modifiers";
 
 import { SelectRangeContextValue, useSelectRange } from "./SelectRangeContext";
 

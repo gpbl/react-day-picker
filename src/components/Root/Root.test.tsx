@@ -1,14 +1,14 @@
 import { RenderResult, screen } from "@testing-library/react";
 import { addDays } from "date-fns";
-import { DayPickerProps } from "DayPicker";
+import { DayPickerProps } from "../../DayPicker";
 
-import { customRender } from "test/render";
-import { getDayButton, queryMonthGrids } from "test/selectors";
-import { freezeBeforeAll } from "test/utils";
+import { customRender } from "../../../test/render";
+import { getDayButton, queryMonthGrids } from "../../../test/selectors";
+import { freezeBeforeAll } from "../../../test/utils";
 
-import { MonthsProps } from "components/Months";
-import { defaultClassNames } from "contexts/DayPicker/defaultClassNames";
-import { ClassNames } from "types/Styles";
+import { MonthsProps } from "../../components/Months";
+import { defaultClassNames } from "../../contexts/DayPicker/defaultClassNames";
+import { ClassNames } from "../../types/Styles";
 
 import { Root } from "./Root";
 

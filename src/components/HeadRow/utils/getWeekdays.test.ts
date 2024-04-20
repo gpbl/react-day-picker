@@ -1,6 +1,6 @@
 import { es } from "date-fns/locale";
 
-import { freezeBeforeAll } from "test/utils";
+import { freezeBeforeAll } from "../../../../test/utils";
 
 import { getWeekdays } from "./getWeekdays";
 

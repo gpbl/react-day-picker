@@ -1,10 +1,10 @@
 import { es } from "date-fns/locale";
-import { DayPickerProps } from "DayPicker";
+import { DayPickerProps } from "../../DayPicker";
 
-import { customRender } from "test/render";
-import { freezeBeforeAll } from "test/utils";
+import { customRender } from "../../../test/render";
+import { freezeBeforeAll } from "../../../test/utils";
 
-import { DayContent, DayContentProps } from "components/DayContent";
+import { DayContent, DayContentProps } from "../../components/DayContent";
 
 const today = new Date(2021, 8);
 

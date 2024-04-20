@@ -5,7 +5,7 @@ import { user } from "@site/test/user";
 import { freezeBeforeAll } from "@site/test/utils";
 import { act, render } from "@testing-library/react";
 
-import { getTableFooter, getWeekButton } from "react-day-picker/test/selectors";
+import { getTableFooter, getWeekButton } from "../../../test/selectors";
 
 import Example from "@examples/weeknumber";
 

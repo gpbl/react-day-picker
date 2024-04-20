@@ -5,7 +5,7 @@ import { user } from "@site/test/user";
 import { freezeBeforeAll } from "@site/test/utils";
 import { act, render } from "@testing-library/react";
 
-import { getDayButton } from "react-day-picker/test/selectors";
+import { getDayButton } from "../../../test/selectors";
 
 import Example from "@examples/range-shift-key";
 

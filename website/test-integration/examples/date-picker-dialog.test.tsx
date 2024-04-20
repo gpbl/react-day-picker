@@ -7,7 +7,7 @@ import { render, screen } from "@testing-library/react";
 import { format } from "date-fns";
 import { act } from "react-dom/test-utils";
 
-import { getDayButton } from "react-day-picker/test/selectors";
+import { getDayButton } from "../../../test/selectors";
 
 import Example from "@examples/date-picker-dialog";
 

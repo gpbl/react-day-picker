@@ -1,4 +1,4 @@
-import { DayPickerProps } from "DayPicker";
+import { DayPickerProps } from "../DayPicker";
 
 import { DayPickerBase } from "./DayPickerBase";
 

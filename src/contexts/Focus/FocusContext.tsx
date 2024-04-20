@@ -2,7 +2,7 @@ import { createContext, ReactNode, useContext, useState } from "react";
 
 import { isSameDay } from "date-fns";
 
-import { useDayPicker } from "contexts/DayPicker";
+import { useDayPicker } from "../../contexts/DayPicker";
 
 import { useModifiers } from "../Modifiers";
 import { useNavigation } from "../Navigation";

@@ -1,9 +1,13 @@
-import { DayPickerProps } from "DayPicker";
+import { DayPickerProps } from "../../DayPicker";
 
-import { renderDayPickerHook } from "test/render";
+import { renderDayPickerHook } from "../../../test/render";
 
-import { useModifiers } from "contexts/Modifiers";
-import { DayModifiers, InternalModifier, Modifiers } from "types/Modifiers";
+import { useModifiers } from "../../contexts/Modifiers";
+import {
+  DayModifiers,
+  InternalModifier,
+  Modifiers
+} from "../../types/Modifiers";
 
 const internalModifiers = Object.values(InternalModifier);
 

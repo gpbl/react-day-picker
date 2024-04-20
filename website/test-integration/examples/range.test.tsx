@@ -5,10 +5,7 @@ import { user } from "@site/test/user";
 import { act, render } from "@testing-library/react";
 import { addDays } from "date-fns";
 
-import {
-  getAllSelectedDays,
-  getDayButton
-} from "react-day-picker/test/selectors";
+import { getAllSelectedDays, getDayButton } from "../../../test/selectors";
 
 import Example from "@examples/range";
 

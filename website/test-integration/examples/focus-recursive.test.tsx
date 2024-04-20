@@ -5,10 +5,7 @@ import { user } from "@site/test/user";
 import { freezeBeforeAll } from "@site/test/utils";
 import { act, render } from "@testing-library/react";
 
-import {
-  getDayButton,
-  getFocusedElement
-} from "react-day-picker/test/selectors";
+import { getDayButton, getFocusedElement } from "../../../test/selectors";
 
 import Example from "@examples/focus-recursive";
 

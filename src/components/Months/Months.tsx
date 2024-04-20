@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import { useDayPicker } from "contexts/DayPicker";
+import { useDayPicker } from "../../contexts/DayPicker";
 
 /** The props for the {@link Months} component. */
 export type MonthsProps = { children: ReactNode };

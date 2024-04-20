@@ -6,7 +6,7 @@ import { freezeBeforeAll } from "@site/test/utils";
 import { act, render } from "@testing-library/react";
 import { setDate } from "date-fns";
 
-import { getDayButton } from "react-day-picker/test/selectors";
+import { getDayButton } from "../../../test/selectors";
 
 import Example from "@examples/range-min-max";
 

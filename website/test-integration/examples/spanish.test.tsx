@@ -4,7 +4,7 @@ import { axe } from "@site/test/axe";
 import { freezeBeforeAll } from "@site/test/utils";
 import { render } from "@testing-library/react";
 
-import { getMonthCaption } from "react-day-picker/test/selectors";
+import { getMonthCaption } from "../../../test/selectors";
 
 import Example from "@examples/spanish";
 

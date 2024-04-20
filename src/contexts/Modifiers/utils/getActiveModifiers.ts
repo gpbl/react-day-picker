@@ -1,6 +1,6 @@
 import { isSameMonth } from "date-fns";
 
-import { ActiveModifiers, Modifiers } from "types/Modifiers";
+import { ActiveModifiers, Modifiers } from "../../../types/Modifiers";
 
 import { isMatch } from "./isMatch";
 

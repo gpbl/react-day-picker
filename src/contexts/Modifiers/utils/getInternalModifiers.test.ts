@@ -1,9 +1,9 @@
 import { addDays } from "date-fns";
 
-import { DayPickerContextValue } from "contexts/DayPicker";
-import { getDefaultContextValues } from "contexts/DayPicker/defaultContextValues";
-import { SelectRangeContextValue } from "contexts/SelectRange";
-import { InternalModifier, InternalModifiers } from "types/Modifiers";
+import { DayPickerContextValue } from "../../../contexts/DayPicker";
+import { getDefaultContextValues } from "../../../contexts/DayPicker/defaultContextValues";
+import { SelectRangeContextValue } from "../../../contexts/SelectRange";
+import { InternalModifier, InternalModifiers } from "../../../types/Modifiers";
 
 import { getInternalModifiers } from "./getInternalModifiers";
 

@@ -3,7 +3,7 @@ import React from "react";
 import { freezeBeforeAll } from "@site/test/utils";
 import { render } from "@testing-library/react";
 
-import { getMonthGrid } from "react-day-picker/test/selectors";
+import { getMonthGrid } from "../../../test/selectors";
 
 import Example from "@examples/spanish-week-starts-on";
 

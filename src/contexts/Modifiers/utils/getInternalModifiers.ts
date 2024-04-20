@@ -1,9 +1,9 @@
-import { DayPickerContextValue } from "contexts/DayPicker";
-import { SelectMultipleContextValue } from "contexts/SelectMultiple";
-import { SelectRangeContextValue } from "contexts/SelectRange";
-import { isDayPickerMultiple } from "types/DayPickerMultiple";
-import { isDayPickerRange } from "types/DayPickerRange";
-import { InternalModifier, InternalModifiers } from "types/Modifiers";
+import { DayPickerContextValue } from "../../../contexts/DayPicker";
+import { SelectMultipleContextValue } from "../../../contexts/SelectMultiple";
+import { SelectRangeContextValue } from "../../../contexts/SelectRange";
+import { isDayPickerMultiple } from "../../../types/DayPickerMultiple";
+import { isDayPickerRange } from "../../../types/DayPickerRange";
+import { InternalModifier, InternalModifiers } from "../../../types/Modifiers";
 
 import { matcherToArray } from "./matcherToArray";
 

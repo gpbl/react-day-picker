@@ -1,5 +1,5 @@
-import { useDayPicker } from "contexts/DayPicker";
-import { ActiveModifiers } from "types/Modifiers";
+import { useDayPicker } from "../../contexts/DayPicker";
+import { ActiveModifiers } from "../../types/Modifiers";
 
 /** Represent the props for the {@link DayContent} component. */
 export interface DayContentProps {

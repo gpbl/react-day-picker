@@ -1,4 +1,4 @@
-import { customRender } from "test/render";
+import { customRender } from "../../../test/render";
 
 import { IconDropdown } from "./IconDropdown";
 

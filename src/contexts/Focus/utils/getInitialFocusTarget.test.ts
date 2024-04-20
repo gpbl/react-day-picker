@@ -1,4 +1,4 @@
-import { Modifiers } from "types/Modifiers";
+import { Modifiers } from "../../../types/Modifiers";
 
 import { getInitialFocusTarget } from "./getInitialFocusTarget";
 

@@ -6,7 +6,7 @@ import { freezeBeforeAll } from "@site/test/utils";
 import { act, render } from "@testing-library/react";
 import { differenceInMonths } from "date-fns";
 
-import { getNextButton, getPrevButton } from "react-day-picker/test/selectors";
+import { getNextButton, getPrevButton } from "../../../test/selectors";
 
 import Example from "@examples/from-to-year";
 

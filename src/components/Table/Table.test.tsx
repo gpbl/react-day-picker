@@ -1,9 +1,9 @@
-import { DayPickerProps } from "DayPicker";
+import { DayPickerProps } from "../../DayPicker";
 
-import { customRender } from "test/render/customRender";
-import { freezeBeforeAll } from "test/utils";
+import { customRender } from "../../../test/render/customRender";
+import { freezeBeforeAll } from "../../../test/utils";
 
-import { FooterProps } from "components/Footer";
+import { FooterProps } from "../../components/Footer";
 
 import { Table, TableProps } from "./Table";
 

@@ -9,7 +9,7 @@ import {
   getMonthDropdown,
   getMonthGrid,
   getYearDropdown
-} from "react-day-picker/test/selectors";
+} from "../../../test/selectors";
 
 import Example from "@examples/dropdown";
 

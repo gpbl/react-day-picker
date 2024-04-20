@@ -1,4 +1,4 @@
-import { CustomModifiers, DayModifiers } from "types/Modifiers";
+import { CustomModifiers, DayModifiers } from "../../../types/Modifiers";
 
 import { matcherToArray } from "./matcherToArray";
 

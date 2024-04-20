@@ -6,7 +6,7 @@ import {
   DateInterval,
   DateRange,
   DayOfWeek
-} from "types/Matchers";
+} from "../../../types/Matchers";
 
 import { isMatch } from "./isMatch";
 
