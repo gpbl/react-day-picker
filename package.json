@@ -32,17 +32,21 @@
       }
     },
     "./style.css": {
+      "require": "./src/style.css",
+      "import": "./src/style.css",
       "default": "./src/style.css"
     },
     "./dist/style.css": {
+      "require": "./src/style.css",
+      "import": "./src/style.css",
       "default": "./src/style.css"
     },
     "./style.module.css": {
-      "types": "./src/style.d.ts",
+      "require": "./src/style.css",
+      "import": "./src/style.css",
       "default": "./src/style.css"
     },
     "./dist/style.module.css": {
-      "types": "./src/style.d.ts",
       "default": "./src/style.css"
     },
     "./package.json": {
