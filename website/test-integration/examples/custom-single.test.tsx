@@ -6,7 +6,7 @@ import { freezeBeforeAll } from "@site/test/utils";
 import { render } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
 
-import { getDayButton, getTableFooter } from "react-day-picker/test/selectors";
+import { getDayButton, getTableFooter } from "../../../test/selectors";
 
 import Example from "@examples/custom-single";
 

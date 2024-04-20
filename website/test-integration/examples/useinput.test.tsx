@@ -6,10 +6,7 @@ import { freezeBeforeAll } from "@site/test/utils";
 import { act, render, screen } from "@testing-library/react";
 import { addDays, format } from "date-fns";
 
-import {
-  getAllSelectedDays,
-  getDayButton
-} from "react-day-picker/test/selectors";
+import { getAllSelectedDays, getDayButton } from "../../../test/selectors";
 
 import Example from "@examples/useinput";
 

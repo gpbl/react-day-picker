@@ -1,7 +1,7 @@
 import { fireEvent } from "@testing-library/dom";
 import { act } from "@testing-library/react";
 
-import { user } from "test/user";
+import { user } from "../user";
 
 import { getFocusedElement } from "../selectors";
 

@@ -1,10 +1,10 @@
 import { screen } from "@testing-library/react";
-import { DayPickerProps } from "DayPicker";
+import { DayPickerProps } from "../../DayPicker";
 
-import { customRender } from "test/render";
-import { getMonthCaption, getMonthGrid } from "test/selectors";
+import { customRender } from "../../../test/render";
+import { getMonthCaption, getMonthGrid } from "../../../test/selectors";
 
-import { CustomComponents } from "types/DayPickerBase";
+import { CustomComponents } from "../../types/DayPickerBase";
 
 import { Month, MonthProps } from "./Month";
 

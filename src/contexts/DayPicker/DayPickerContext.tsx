@@ -1,21 +1,27 @@
 import { createContext, ReactNode, useContext } from "react";
 
 import { Locale } from "date-fns";
-import { DayPickerProps } from "DayPicker";
+import { DayPickerProps } from "../../DayPicker";
 
-import { CaptionLayout } from "components/Caption";
-import { DayPickerBase, DaySelectionMode } from "types/DayPickerBase";
+import { CaptionLayout } from "../../components/Caption";
+import { DayPickerBase, DaySelectionMode } from "../../types/DayPickerBase";
 import {
   DayPickerMultipleProps,
   isDayPickerMultiple
-} from "types/DayPickerMultiple";
-import { DayPickerRangeProps, isDayPickerRange } from "types/DayPickerRange";
-import { DayPickerSingleProps, isDayPickerSingle } from "types/DayPickerSingle";
-import { Formatters } from "types/Formatters";
-import { Labels } from "types/Labels";
-import { Matcher } from "types/Matchers";
-import { DayModifiers, ModifiersClassNames } from "types/Modifiers";
-import { ClassNames, Styles } from "types/Styles";
+} from "../../types/DayPickerMultiple";
+import {
+  DayPickerRangeProps,
+  isDayPickerRange
+} from "../../types/DayPickerRange";
+import {
+  DayPickerSingleProps,
+  isDayPickerSingle
+} from "../../types/DayPickerSingle";
+import { Formatters } from "../../types/Formatters";
+import { Labels } from "../../types/Labels";
+import { Matcher } from "../../types/Matchers";
+import { DayModifiers, ModifiersClassNames } from "../../types/Modifiers";
+import { ClassNames, Styles } from "../../types/Styles";
 
 import { getDefaultContextValues } from "./defaultContextValues";
 import { parseFromToProps } from "./utils";

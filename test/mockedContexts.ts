@@ -1,9 +1,9 @@
 import {
-  FocusContextValue,
+  SelectSingleContextValue,
   SelectMultipleContextValue,
   SelectRangeContextValue,
-  SelectSingleContextValue
-} from "index";
+  FocusContextValue
+} from "../src";
 
 const singleContext: SelectSingleContextValue = {
   selected: new Date(),

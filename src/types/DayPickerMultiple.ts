@@ -1,6 +1,6 @@
-import { DayPickerProps } from "DayPicker";
+import { DayPickerProps } from "../DayPicker";
 
-import { DayPickerContextValue } from "contexts/DayPicker";
+import { DayPickerContextValue } from "../contexts/DayPicker";
 
 import { DayPickerBase } from "./DayPickerBase";
 import { SelectMultipleEventHandler } from "./EventHandlers";

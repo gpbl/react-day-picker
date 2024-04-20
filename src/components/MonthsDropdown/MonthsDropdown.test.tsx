@@ -1,10 +1,10 @@
 import { screen } from "@testing-library/react";
 import { addMonths, differenceInMonths } from "date-fns";
-import { DayPickerProps } from "DayPicker";
+import { DayPickerProps } from "../../DayPicker";
 
-import { customRender } from "test/render";
-import { user } from "test/user";
-import { freezeBeforeAll } from "test/utils";
+import { customRender } from "../../../test/render";
+import { user } from "../../../test/user";
+import { freezeBeforeAll } from "../../../test/utils";
 
 import { MonthsDropdown, MonthsDropdownProps } from "./MonthsDropdown";
 

@@ -1,7 +1,7 @@
 import { RenderResult } from "@testing-library/react";
-import { DayPickerProps } from "DayPicker";
+import { DayPickerProps } from "../../DayPicker";
 
-import { customRender } from "test/render";
+import { customRender } from "../../../test/render";
 
 import { HeadRow } from "./HeadRow";
 

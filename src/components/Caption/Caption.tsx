@@ -1,7 +1,7 @@
-import { CaptionDropdowns } from "components/CaptionDropdowns";
-import { CaptionLabel } from "components/CaptionLabel";
-import { CaptionNavigation } from "components/CaptionNavigation";
-import { useDayPicker } from "contexts/DayPicker";
+import { CaptionDropdowns } from "../../components/CaptionDropdowns";
+import { CaptionLabel } from "../../components/CaptionLabel";
+import { CaptionNavigation } from "../../components/CaptionNavigation";
+import { useDayPicker } from "../../contexts/DayPicker";
 
 /** Represent the props of the {@link Caption} component. */
 export interface CaptionProps {

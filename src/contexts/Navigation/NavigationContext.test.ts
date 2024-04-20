@@ -1,9 +1,9 @@
 import { act } from "@testing-library/react";
 import { addMonths, startOfMonth, subMonths } from "date-fns";
-import { DayPickerProps } from "DayPicker";
+import { DayPickerProps } from "../../DayPicker";
 
-import { renderDayPickerHook, RenderHookResult } from "test/render";
-import { freezeBeforeAll } from "test/utils";
+import { renderDayPickerHook, RenderHookResult } from "../../../test/render";
+import { freezeBeforeAll } from "../../../test/utils";
 
 import { NavigationContextValue, useNavigation } from "./NavigationContext";
 

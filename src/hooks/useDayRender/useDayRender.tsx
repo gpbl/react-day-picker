@@ -2,18 +2,18 @@ import { RefObject, useEffect } from "react";
 
 import { isSameDay } from "date-fns";
 
-import { ButtonProps } from "components/Button";
-import { DayContent } from "components/DayContent";
-import { useDayPicker } from "contexts/DayPicker";
-import { useFocusContext } from "contexts/Focus";
-import { useActiveModifiers } from "hooks/useActiveModifiers";
+import { ButtonProps } from "../../components/Button";
+import { DayContent } from "../../components/DayContent";
+import { useDayPicker } from "../../contexts/DayPicker";
+import { useFocusContext } from "../../contexts/Focus";
+import { useActiveModifiers } from "../../hooks/useActiveModifiers";
 import {
   DayEventHandlers,
   useDayEventHandlers
-} from "hooks/useDayEventHandlers";
-import { SelectedDays, useSelectedDays } from "hooks/useSelectedDays";
-import { ActiveModifiers } from "types/Modifiers";
-import { StyledComponent } from "types/Styles";
+} from "../../hooks/useDayEventHandlers";
+import { SelectedDays, useSelectedDays } from "../../hooks/useSelectedDays";
+import { ActiveModifiers } from "../../types/Modifiers";
+import { StyledComponent } from "../../types/Styles";
 
 import { getDayClassNames } from "./utils/getDayClassNames";
 import { getDayStyle } from "./utils/getDayStyle";

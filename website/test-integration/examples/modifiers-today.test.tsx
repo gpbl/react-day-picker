@@ -5,7 +5,7 @@ import { freezeBeforeAll } from "@site/test/utils";
 import { act, render } from "@testing-library/react";
 import { addDays } from "date-fns";
 
-import { getDayButton, getTableFooter } from "react-day-picker/test/selectors";
+import { getDayButton, getTableFooter } from "../../../test/selectors";
 
 import Example from "@examples/modifiers-today";
 

@@ -1,7 +1,7 @@
 import { CSSProperties } from "react";
 
-import { DayPickerContextValue } from "contexts/DayPicker";
-import { ActiveModifiers } from "types/Modifiers";
+import { DayPickerContextValue } from "../../../contexts/DayPicker";
+import { ActiveModifiers } from "../../../types/Modifiers";
 
 /**
  * Return the style for the Day element, according to the given active

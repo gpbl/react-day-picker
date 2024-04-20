@@ -3,7 +3,7 @@ import React from "react";
 import { freezeBeforeAll } from "@site/test/utils";
 import { render } from "@testing-library/react";
 
-import { getDayButton } from "react-day-picker/test/selectors";
+import { getDayButton } from "../../../test/selectors";
 
 import Example from "@examples/modifiers-disabled";
 

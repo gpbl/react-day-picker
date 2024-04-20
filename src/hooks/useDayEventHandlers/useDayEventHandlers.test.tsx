@@ -1,15 +1,15 @@
-import { DayPickerProps } from "DayPicker";
+import { DayPickerProps } from "../../DayPicker";
 
-import { mockedContexts } from "test/mockedContexts";
-import { renderDayPickerHook } from "test/render";
+import { mockedContexts } from "../../../test/mockedContexts";
+import { renderDayPickerHook } from "../../../test/render";
 
-import { FocusContextValue } from "contexts/Focus";
+import { FocusContextValue } from "../../contexts/Focus";
 import {
   DayEventName,
   EventName,
   useDayEventHandlers
-} from "hooks/useDayEventHandlers";
-import { ActiveModifiers } from "types/Modifiers";
+} from "../../hooks/useDayEventHandlers";
+import { ActiveModifiers } from "../../types/Modifiers";
 
 const today = new Date(2010, 5, 23);
 

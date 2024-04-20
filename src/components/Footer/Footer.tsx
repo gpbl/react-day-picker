@@ -1,4 +1,4 @@
-import { useDayPicker } from "contexts/DayPicker";
+import { useDayPicker } from "../../contexts/DayPicker";
 
 export interface FooterProps {
   /** The month where the footer is displayed. */

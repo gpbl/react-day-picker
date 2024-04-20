@@ -1,8 +1,8 @@
 import { MouseEventHandler } from "react";
 
-import { IconLeft } from "components/IconLeft";
-import { IconRight } from "components/IconRight";
-import { useDayPicker } from "contexts/DayPicker";
+import { IconLeft } from "../../components/IconLeft";
+import { IconRight } from "../../components/IconRight";
+import { useDayPicker } from "../../contexts/DayPicker";
 
 import { Button } from "../Button";
 

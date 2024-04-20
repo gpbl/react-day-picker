@@ -5,7 +5,7 @@ import {
   InternalModifier,
   InternalModifiers,
   Modifiers
-} from "types/Modifiers";
+} from "../../../types/Modifiers";
 
 import {
   FocusDayPickerContext,

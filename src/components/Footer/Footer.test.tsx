@@ -1,5 +1,5 @@
-import { customRender } from "test/render";
-import { getTableFooter, queryTableFooter } from "test/selectors";
+import { customRender } from "../../../test/render";
+import { getTableFooter, queryTableFooter } from "../../../test/selectors";
 
 import { Footer } from "./Footer";
 

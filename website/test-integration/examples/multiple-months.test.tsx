@@ -5,7 +5,7 @@ import { user } from "@site/test/user";
 import { freezeBeforeAll } from "@site/test/utils";
 import { act, render, screen } from "@testing-library/react";
 
-import { getMonthGrid, getPrevButton } from "react-day-picker/test/selectors";
+import { getMonthGrid, getPrevButton } from "../../../test/selectors";
 
 import Example from "@examples/multiple-months";
 

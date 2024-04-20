@@ -1,5 +1,5 @@
-import { matcherToArray } from "contexts/Modifiers/utils/matcherToArray";
-import { Matcher } from "types/Matchers";
+import { matcherToArray } from "../../../contexts/Modifiers/utils/matcherToArray";
+import { Matcher } from "../../../types/Matchers";
 
 const matcher: Matcher = jest.fn();
 
