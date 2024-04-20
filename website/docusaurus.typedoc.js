@@ -2,7 +2,7 @@
 const typedoc = {
   // Typedoc settings
   entryPoints: [`../src/index.ts`],
-  tsconfig: `../tsconfig.build.json`,
+  tsconfig: `../tsconfig-esm.json`,
   allReflectionsHaveOwnDocument: true,
   entryDocument: "reference",
   watch: process.env.TYPEDOC_WATCH,

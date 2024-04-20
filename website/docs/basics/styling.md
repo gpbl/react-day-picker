@@ -4,7 +4,7 @@ DayPicker comes with for a minimal, lightweight appearance: import `react-day-pi
 
 ```tsx
 // Your App.tsx file
-import 'react-day-picker/dist/style.css';
+import "react-day-picker/style.css";
 ```
 
 This will add the [DayPicker stylesheet](https://github.com/gpbl/react-day-picker/blob/main/src/style.css) into your app. The stylesheet includes some CSS global variables, to override colors and sizes:
@@ -36,7 +36,7 @@ styling-modifiers
 With CSS modules, pass the generated class name instead:
 
 ```tsx
-import style from './day-picker.module.css';
+import style from "./day-picker.module.css";
 
 function App() {
   return (
@@ -63,8 +63,8 @@ This approach involves just CSS and works well if you need the same style across
 
    ```tsx
    // Your App.tsx file
-   import 'react-day-picker/dist/style.css';
-   import './day-picker.css';
+   import "react-day-picker/style.css";
+   import "./day-picker.css";
    ```
 
 2. change the appearance of DayPicker overriding the original selectors in the new CSS file. Refer to the [stylesheet source](https://github.com/gpbl/react-day-picker/blob/main/src/style.css) to find the right selectors to override.

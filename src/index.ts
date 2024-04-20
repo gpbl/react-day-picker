@@ -1,5 +1,4 @@
 export * from "./DayPicker";
-import "./style.css";
 
 export * from "./components/Button";
 export * from "./components/Caption";
