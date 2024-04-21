@@ -134,6 +134,8 @@
     ],
     "jest.disabledWorkspaceFolders": ["repository"],
     "npm.packageManager": "pnpm",
-    "task.allowAutomaticTasks": "on"
+    "task.allowAutomaticTasks": "on",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "javascript.updateImportsOnFileMove.enabled": "always"
   }
 }

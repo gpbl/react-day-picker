@@ -4,11 +4,7 @@ const config: Config.InitialOptions = {
   preset: "ts-jest",
   roots: ["./src"],
   moduleNameMapper: {
-    "^test/(.*)": ["<rootDir>/test/$1"],
-    "^components(.*)": ["<rootDir>/src/components$1"],
-    "^contexts(.*)": ["<rootDir>/src/contexts$1"],
-    "^hooks(.*)": ["<rootDir>/src/hooks$1"],
-    "^types(.*)": ["<rootDir>/src/types$1"]
+    "@/test/(.*)": ["<rootDir>/test/$1"]
   },
   testEnvironment: "jsdom",
   coverageReporters: ["lcov", "text", "clover"],
