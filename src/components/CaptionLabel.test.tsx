@@ -1,6 +1,6 @@
-import { customRender } from "../../test/render";
-import { getMonthCaption } from "../../test/selectors";
-import { freezeBeforeAll } from "../../test/utils";
+import { customRender } from "@/test/render";
+import { getMonthCaption } from "@/test/selectors";
+import { freezeBeforeAll } from "@/test/utils";
 
 import { CaptionLabel } from "./CaptionLabel";
 

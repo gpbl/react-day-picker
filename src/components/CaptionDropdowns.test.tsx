@@ -2,15 +2,15 @@ import { screen } from "@testing-library/react";
 import { setMonth, setYear } from "date-fns";
 import { DayPickerProps } from "../DayPicker";
 
-import { customRender } from "../../test/render";
+import { customRender } from "@/test/render";
 import {
   getMonthDropdown,
   getYearDropdown,
   queryMonthDropdown,
   queryYearDropdown
-} from "../../test/selectors";
-import { user } from "../../test/user";
-import { freezeBeforeAll } from "../../test/utils";
+} from "@/test/selectors";
+import { user } from "@/test/user";
+import { freezeBeforeAll } from "@/test/utils";
 
 import { CaptionProps } from "./Caption";
 import { CustomComponents } from "../types/DayPickerBase";

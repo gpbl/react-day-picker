@@ -1,15 +1,15 @@
 import { addMonths } from "date-fns";
 import { DayPickerProps } from "../DayPicker";
 
-import { customRender } from "../../test/render";
+import { customRender } from "@/test/render";
 import {
   getNextButton,
   getPrevButton,
   queryNextButton,
   queryPrevButton
-} from "../../test/selectors";
-import { user } from "../../test/user";
-import { freezeBeforeAll } from "../../test/utils";
+} from "@/test/selectors";
+import { user } from "@/test/user";
+import { freezeBeforeAll } from "@/test/utils";
 
 import { CaptionNavigation } from "./CaptionNavigation";
 

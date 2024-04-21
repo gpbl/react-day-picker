@@ -10,8 +10,8 @@ import {
   getYearDropdown,
   queryNextButton,
   queryPrevButton
-} from "../../test/selectors";
-import { freezeBeforeAll } from "../../test/utils";
+} from "@/test/selectors";
+import { freezeBeforeAll } from "@/test/utils";
 
 import { CustomComponents } from "../types/DayPickerBase";
 
