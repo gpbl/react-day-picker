@@ -39,7 +39,7 @@
     "@testing-library/react": "^14.1.2",
     "@testing-library/user-event": "^14.5.1",
     "@tsconfig/docusaurus": "^1.0.7",
-    "@types/jest": "^29.5.11",
+    "@types/jest": "^29.5.12",
     "@types/jest-axe": "^3.5.9",
     "@types/node": "^20.10.5",
     "@types/react": "^18.2.45",
