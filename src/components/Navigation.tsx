@@ -1,10 +1,10 @@
 import { MouseEventHandler } from "react";
 
-import { IconLeft } from "./IconLeft";
-import { IconRight } from "./IconRight";
 import { useDayPicker } from "../contexts/DayPicker";
 
 import { Button } from "./Button";
+import { IconLeft } from "./IconLeft";
+import { IconRight } from "./IconRight";
 
 /** The props for the {@link Navigation} component. */
 export interface NavigationProps {

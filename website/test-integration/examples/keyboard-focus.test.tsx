@@ -1,5 +1,6 @@
 import React from "react";
 
+import Example from "@examples/keyboard";
 import { axe } from "@site/test/axe";
 import { user } from "@site/test/user";
 import { freezeBeforeAll } from "@site/test/utils";
@@ -14,8 +15,6 @@ import {
   getNextButton,
   getPrevButton
 } from "../../../test/selectors";
-
-import Example from "@examples/keyboard";
 
 const yesterday = new Date(2022, 5, 9);
 const today = new Date(2022, 5, 10);

@@ -1,5 +1,6 @@
 import React from "react";
 
+import Example from "@examples/dropdown-buttons";
 import { axe } from "@site/test/axe";
 import { user } from "@site/test/user";
 import { freezeBeforeAll } from "@site/test/utils";
@@ -12,8 +13,6 @@ import {
   getPrevButton,
   getYearDropdown
 } from "../../../test/selectors";
-
-import Example from "@examples/dropdown-buttons";
 
 const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);

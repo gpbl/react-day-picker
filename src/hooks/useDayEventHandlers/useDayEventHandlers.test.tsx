@@ -1,8 +1,6 @@
-import { DayPickerProps } from "../../DayPicker";
-
 import { mockedContexts } from "../../../test/mockedContexts";
 import { renderDayPickerHook } from "../../../test/render";
-
+import { DayPickerProps } from "../../DayPicker";
 import { FocusContextValue } from "../../contexts/Focus";
 import {
   DayEventName,

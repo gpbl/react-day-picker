@@ -1,8 +1,9 @@
 import { screen } from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event";
-import { DayPickerProps } from "../DayPicker";
 
 import { customRender } from "@/test/render/customRender";
+
+import { DayPickerProps } from "../DayPicker";
 
 import { WeekNumber, WeekNumberProps } from "./WeekNumber";
 

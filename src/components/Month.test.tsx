@@ -1,11 +1,12 @@
 import { screen } from "@testing-library/react";
-import { DayPickerProps } from "../DayPicker";
 
 import { customRender } from "@/test/render";
 import { getMonthCaption, getMonthGrid } from "@/test/selectors";
 
-import { Month, MonthProps } from "./Month";
+import { DayPickerProps } from "../DayPicker";
 import { CustomComponents } from "../types/DayPickerBase";
+
+import { Month, MonthProps } from "./Month";
 
 let root: HTMLDivElement;
 

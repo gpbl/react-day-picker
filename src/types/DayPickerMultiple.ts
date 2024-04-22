@@ -1,5 +1,4 @@
 import { DayPickerProps } from "../DayPicker";
-
 import { DayPickerContextValue } from "../contexts/DayPicker";
 
 import { DayPickerBase } from "./DayPickerBase";

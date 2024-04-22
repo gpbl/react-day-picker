@@ -1,7 +1,5 @@
-import { DayPickerProps } from "../../DayPicker";
-
 import { renderDayPickerHook } from "../../../test/render";
-
+import { DayPickerProps } from "../../DayPicker";
 import { useModifiers } from "../../contexts/Modifiers";
 import {
   DayModifiers,

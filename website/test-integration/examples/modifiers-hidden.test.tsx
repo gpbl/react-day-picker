@@ -1,11 +1,10 @@
 import React from "react";
 
+import Example from "@examples/modifiers-hidden";
 import { freezeBeforeAll } from "@site/test/utils";
 import { render } from "@testing-library/react";
 
 import { queryDayButton } from "../../../test/selectors";
-
-import Example from "@examples/modifiers-hidden";
 
 const days = [
   new Date(2022, 5, 10),

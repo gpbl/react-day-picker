@@ -1,5 +1,4 @@
 import { addMonths } from "date-fns";
-import { DayPickerProps } from "../DayPicker";
 
 import { customRender } from "@/test/render";
 import {
@@ -10,6 +9,8 @@ import {
 } from "@/test/selectors";
 import { user } from "@/test/user";
 import { freezeBeforeAll } from "@/test/utils";
+
+import { DayPickerProps } from "../DayPicker";
 
 import { CaptionNavigation } from "./CaptionNavigation";
 

@@ -1,10 +1,9 @@
 import React from "react";
 
+import Example from "@examples/fixedweeks";
 import { axe } from "@site/test/axe";
 import { freezeBeforeAll } from "@site/test/utils";
 import { render } from "@testing-library/react";
-
-import Example from "@examples/fixedweeks";
 
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);

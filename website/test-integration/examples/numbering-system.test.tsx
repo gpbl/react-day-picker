@@ -1,10 +1,9 @@
 import React from "react";
 
+import Example from "@examples/numbering-system";
 import { axe } from "@site/test/axe";
 import { freezeBeforeAll } from "@site/test/utils";
 import { render, screen } from "@testing-library/react";
-
-import Example from "@examples/numbering-system";
 
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);

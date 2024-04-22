@@ -1,11 +1,10 @@
 import React from "react";
 
+import Example from "@examples/styling-inline";
 import { freezeBeforeAll } from "@site/test/utils";
 import { render } from "@testing-library/react";
 
 import { getMonthCaption } from "../../../test/selectors";
-
-import Example from "@examples/styling-inline";
 
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);

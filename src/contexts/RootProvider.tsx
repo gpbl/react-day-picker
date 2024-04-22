@@ -1,6 +1,10 @@
 import { ReactNode } from "react";
 
 import { ModifiersProvider } from "../contexts/Modifiers/ModifiersContext";
+import { DayPickerDefaultProps } from "../types/DayPickerDefault";
+import { DayPickerMultipleProps } from "../types/DayPickerMultiple";
+import { DayPickerRangeProps } from "../types/DayPickerRange";
+import { DayPickerSingleProps } from "../types/DayPickerSingle";
 
 import { DayPickerProvider } from "./DayPicker";
 import { FocusProvider } from "./Focus";
@@ -8,10 +12,6 @@ import { NavigationProvider } from "./Navigation";
 import { SelectMultipleProvider } from "./SelectMultiple";
 import { SelectRangeProvider } from "./SelectRange";
 import { SelectSingleProvider } from "./SelectSingle";
-import { DayPickerDefaultProps } from "../types/DayPickerDefault";
-import { DayPickerSingleProps } from "../types/DayPickerSingle";
-import { DayPickerMultipleProps } from "../types/DayPickerMultiple";
-import { DayPickerRangeProps } from "../types/DayPickerRange";
 
 type RootContextProps =
   | Partial<DayPickerDefaultProps>

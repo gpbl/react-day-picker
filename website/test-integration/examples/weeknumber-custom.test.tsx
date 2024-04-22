@@ -1,9 +1,8 @@
 import React from "react";
 
+import Example from "@examples/weeknumber-custom";
 import { freezeBeforeAll } from "@site/test/utils";
 import { render, screen } from "@testing-library/react";
-
-import Example from "@examples/weeknumber-custom";
 
 const today = new Date(2022, 0, 1);
 freezeBeforeAll(today);

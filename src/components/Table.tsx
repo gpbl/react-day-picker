@@ -1,8 +1,8 @@
+import { useDayPicker } from "../contexts/DayPicker";
+
 import { Footer } from "./Footer";
 import { Head } from "./Head";
 import { Row } from "./Row";
-import { useDayPicker } from "../contexts/DayPicker";
-
 import { getMonthWeeks } from "./utils/getMonthWeeks";
 
 /** The props for the {@link Table} component. */

@@ -1,9 +1,8 @@
 import React from "react";
 
+import Example from "@examples/styling-css";
 import { freezeBeforeAll } from "@site/test/utils";
 import { render } from "@testing-library/react";
-
-import Example from "@examples/styling-css";
 
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);

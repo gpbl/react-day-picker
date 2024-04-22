@@ -1,11 +1,9 @@
 /* eslint-disable testing-library/render-result-naming-convention */
-
 import { es } from "date-fns/locale";
-import { DayPickerProps } from "../../DayPicker";
 
 import { renderDayPickerHook } from "../../../test/render";
 import { freezeBeforeAll } from "../../../test/utils";
-
+import { DayPickerProps } from "../../DayPicker";
 import { CaptionLayout } from "../../components/Caption";
 import { DayPickerContextValue, useDayPicker } from "../../contexts/DayPicker";
 import {

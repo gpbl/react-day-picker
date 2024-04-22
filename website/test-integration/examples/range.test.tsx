@@ -1,13 +1,12 @@
 import React from "react";
 
+import Example from "@examples/range";
 import { axe } from "@site/test/axe";
 import { user } from "@site/test/user";
 import { act, render } from "@testing-library/react";
 import { addDays } from "date-fns";
 
 import { getAllSelectedDays, getDayButton } from "../../../test/selectors";
-
-import Example from "@examples/range";
 
 const pastMonth = new Date(2020, 10, 15);
 let container: HTMLElement;

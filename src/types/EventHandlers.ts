@@ -7,7 +7,6 @@ import {
 } from "react";
 
 import { DateRange } from "./Matchers";
-
 import { ActiveModifiers } from "./Modifiers";
 
 /** The event handler when a day is clicked. */

@@ -2,9 +2,10 @@ import { ChangeEventHandler } from "react";
 
 import { setYear, startOfMonth, startOfYear } from "date-fns";
 
-import { Dropdown } from "./Dropdown";
 import { useDayPicker } from "../contexts/DayPicker";
 import { MonthChangeEventHandler } from "../types/EventHandlers";
+
+import { Dropdown } from "./Dropdown";
 
 /** The props for the {@link YearsDropdown} component. */
 export interface YearsDropdownProps {

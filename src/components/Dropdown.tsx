@@ -5,8 +5,9 @@ import {
   SelectHTMLAttributes
 } from "react";
 
-import { IconDropdown } from "./IconDropdown";
 import { useDayPicker } from "../contexts/DayPicker";
+
+import { IconDropdown } from "./IconDropdown";
 
 /** The props for the {@link Dropdown} component. */
 export interface DropdownProps {

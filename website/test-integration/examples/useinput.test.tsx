@@ -1,5 +1,6 @@
 import React from "react";
 
+import Example from "@examples/useinput";
 import { axe } from "@site/test/axe";
 import { user } from "@site/test/user";
 import { freezeBeforeAll } from "@site/test/utils";
@@ -7,8 +8,6 @@ import { act, render, screen } from "@testing-library/react";
 import { addDays, format } from "date-fns";
 
 import { getAllSelectedDays, getDayButton } from "../../../test/selectors";
-
-import Example from "@examples/useinput";
 
 const today = new Date(2021, 10, 15);
 freezeBeforeAll(today);

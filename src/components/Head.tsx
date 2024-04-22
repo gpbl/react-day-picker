@@ -1,5 +1,6 @@
-import { HeadRow } from "./HeadRow";
 import { useDayPicker } from "../contexts/DayPicker";
+
+import { HeadRow } from "./HeadRow";
 
 /** Render the table head. */
 export function Head(): JSX.Element {

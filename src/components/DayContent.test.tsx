@@ -1,8 +1,9 @@
 import { es } from "date-fns/locale";
-import { DayPickerProps } from "../DayPicker";
 
 import { customRender } from "@/test/render";
 import { freezeBeforeAll } from "@/test/utils";
+
+import { DayPickerProps } from "../DayPicker";
 
 import { DayContent, DayContentProps } from "./DayContent";
 

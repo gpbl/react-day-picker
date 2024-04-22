@@ -1,13 +1,12 @@
 import React from "react";
 
+import Example from "@examples/dropdown-multiple-months";
 import { axe } from "@site/test/axe";
 import { user } from "@site/test/user";
 import { freezeBeforeAll } from "@site/test/utils";
 import { act, render, screen } from "@testing-library/react";
 
 import { getMonthGrid } from "../../../test/selectors";
-
-import Example from "@examples/dropdown-multiple-months";
 
 const today = new Date(2023, 9, 16);
 freezeBeforeAll(today);

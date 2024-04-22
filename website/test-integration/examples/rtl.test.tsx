@@ -1,5 +1,6 @@
 import React from "react";
 
+import Example from "@examples/rtl";
 import { axe } from "@site/test/axe";
 import { user } from "@site/test/user";
 import { freezeBeforeAll } from "@site/test/utils";
@@ -10,8 +11,6 @@ import {
   getNextButton,
   getPrevButton
 } from "../../../test/selectors";
-
-import Example from "@examples/rtl";
 
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);
