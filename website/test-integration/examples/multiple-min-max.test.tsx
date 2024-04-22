@@ -1,5 +1,6 @@
 import React from "react";
 
+import Example from "@examples/multiple-min-max";
 import { axe } from "@site/test/axe";
 import { user } from "@site/test/user";
 import { freezeBeforeAll } from "@site/test/utils";
@@ -7,8 +8,6 @@ import { act, render } from "@testing-library/react";
 import { addDays } from "date-fns";
 
 import { getDayButton, getTableFooter } from "../../../test/selectors";
-
-import Example from "@examples/multiple-min-max";
 
 const today = new Date(2021, 10, 10);
 freezeBeforeAll(today);

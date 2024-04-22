@@ -13,11 +13,11 @@
   display: block;
 }
 
-[class*='codeBlockLines'] {
+[class*="codeBlockLines"] {
   background-color: var(--menu-background) !important;
 }
 
-div[class*='codeBlockContainer'] {
+div[class*="codeBlockContainer"] {
   box-shadow: none;
   -webkit-font-smoothing: subpixel-antialiased;
 }
@@ -56,7 +56,7 @@ div[class*='codeBlockContainer'] {
   text-decoration: var(--ifm-link-hover-decoration);
 }
 .toolbar button:disabled,
-.toolbar button[aria-disabled='true'] {
+.toolbar button[aria-disabled="true"] {
   cursor: default;
   pointer-events: none;
 }

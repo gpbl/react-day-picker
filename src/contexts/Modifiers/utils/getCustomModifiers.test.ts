@@ -1,4 +1,5 @@
 import { DayModifiers } from "../../../types/Modifiers";
+
 import { getCustomModifiers } from "./getCustomModifiers";
 
 describe("when some modifiers are not an array", () => {

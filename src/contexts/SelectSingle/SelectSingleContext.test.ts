@@ -1,10 +1,8 @@
 import { MouseEvent } from "react";
 
-import { DayPickerProps } from "../../DayPicker";
-
 import { renderDayPickerHook } from "../../../test/render";
 import { freezeBeforeAll } from "../../../test/utils";
-
+import { DayPickerProps } from "../../DayPicker";
 import { DayPickerSingleProps } from "../../types/DayPickerSingle";
 import { ActiveModifiers } from "../../types/Modifiers";
 

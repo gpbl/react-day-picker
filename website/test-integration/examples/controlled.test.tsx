@@ -1,5 +1,6 @@
 import React from "react";
 
+import Example from "@examples/controlled";
 import { axe } from "@site/test/axe";
 import { user } from "@site/test/user";
 import { freezeBeforeAll } from "@site/test/utils";
@@ -7,8 +8,6 @@ import { render, screen } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
 
 import { getMonthCaption } from "../../../test/selectors";
-
-import Example from "@examples/controlled";
 
 const today = new Date(2022, 5, 10);
 

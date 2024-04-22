@@ -1,13 +1,12 @@
 import React from "react";
 
+import Example from "@examples/focus-recursive";
 import { axe } from "@site/test/axe";
 import { user } from "@site/test/user";
 import { freezeBeforeAll } from "@site/test/utils";
 import { act, render } from "@testing-library/react";
 
 import { getDayButton, getFocusedElement } from "../../../test/selectors";
-
-import Example from "@examples/focus-recursive";
 
 const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);

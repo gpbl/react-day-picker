@@ -287,22 +287,22 @@
   z-index: 1;
 }
 
-.rdp:not([dir='rtl']) .rdp-day_range_start:not(.rdp-day_range_end) {
+.rdp:not([dir="rtl"]) .rdp-day_range_start:not(.rdp-day_range_end) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.rdp:not([dir='rtl']) .rdp-day_range_end:not(.rdp-day_range_start) {
+.rdp:not([dir="rtl"]) .rdp-day_range_end:not(.rdp-day_range_start) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.rdp[dir='rtl'] .rdp-day_range_start:not(.rdp-day_range_end) {
+.rdp[dir="rtl"] .rdp-day_range_start:not(.rdp-day_range_end) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.rdp[dir='rtl'] .rdp-day_range_end:not(.rdp-day_range_start) {
+.rdp[dir="rtl"] .rdp-day_range_end:not(.rdp-day_range_start) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }

@@ -1,7 +1,8 @@
+import { useDayPicker } from "../contexts/DayPicker";
+
 import { CaptionDropdowns } from "./CaptionDropdowns";
 import { CaptionLabel } from "./CaptionLabel";
 import { CaptionNavigation } from "./CaptionNavigation";
-import { useDayPicker } from "../contexts/DayPicker";
 
 /** Represent the props of the {@link Caption} component. */
 export interface CaptionProps {

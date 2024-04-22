@@ -1,5 +1,6 @@
 import React from "react";
 
+import Example from "@examples/dropdown";
 import { axe } from "@site/test/axe";
 import { user } from "@site/test/user";
 import { freezeBeforeAll } from "@site/test/utils";
@@ -10,8 +11,6 @@ import {
   getMonthGrid,
   getYearDropdown
 } from "../../../test/selectors";
-
-import Example from "@examples/dropdown";
 
 const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);

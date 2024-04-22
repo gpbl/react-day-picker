@@ -11,7 +11,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 
 /* eslint-disable prefer-const */
+
 /* eslint-disable @typescript-eslint/ban-ts-comment */
+
 /*
  * Welcome to @reach/auto-id!
  * Let's see if we can make sense of why this hook exists and its
@@ -66,7 +68,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
  * populated immediately with a value. So, we only get the double render after
  * server hydration and never again, SO BACK OFF ALRIGHT?
  */
-
 import { useEffect, useLayoutEffect, useState } from "react";
 
 function canUseDOM() {

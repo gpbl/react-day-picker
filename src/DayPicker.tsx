@@ -1,10 +1,9 @@
+import { Root } from "./components/Root";
+import { RootProvider } from "./contexts/RootProvider";
 import { DayPickerDefaultProps } from "./types/DayPickerDefault";
 import { DayPickerMultipleProps } from "./types/DayPickerMultiple";
 import { DayPickerRangeProps } from "./types/DayPickerRange";
 import { DayPickerSingleProps } from "./types/DayPickerSingle";
-
-import { Root } from "./components/Root";
-import { RootProvider } from "./contexts/RootProvider";
 
 export type DayPickerProps =
   | DayPickerDefaultProps
@@ -95,6 +94,7 @@ export type DayPickerProps =
  * For example, to use Spanish locale:
  *
  *     import { es } from "date-fns/locale";
+ *
  *     <DayPicker locale={es} />;
  */
 export function DayPicker(

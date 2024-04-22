@@ -2,10 +2,11 @@ import { MouseEventHandler } from "react";
 
 import { isSameMonth } from "date-fns";
 
-import { CaptionProps } from "./Caption";
-import { Navigation } from "./Navigation";
 import { useDayPicker } from "../contexts/DayPicker";
 import { useNavigation } from "../contexts/Navigation";
+
+import { CaptionProps } from "./Caption";
+import { Navigation } from "./Navigation";
 
 /** Render a caption with a button-based navigation. */
 export function CaptionNavigation(props: CaptionProps): JSX.Element {

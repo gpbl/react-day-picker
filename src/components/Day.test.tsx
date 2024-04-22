@@ -1,9 +1,9 @@
 import { screen } from "@testing-library/react";
-import { DayPickerProps } from "../DayPicker";
 
 import { customRender } from "@/test/render";
 import { freezeBeforeAll } from "@/test/utils";
 
+import { DayPickerProps } from "../DayPicker";
 import { CustomComponents } from "../types/DayPickerBase";
 
 import { Day, DayProps } from "./Day";

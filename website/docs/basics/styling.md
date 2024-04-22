@@ -64,6 +64,7 @@ This approach involves just CSS and works well if you need the same style across
    ```tsx
    // Your App.tsx file
    import "react-day-picker/style.css";
+
    import "./day-picker.css";
    ```
 

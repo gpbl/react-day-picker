@@ -1,6 +1,5 @@
 import { screen } from "@testing-library/react";
 import { setMonth, setYear } from "date-fns";
-import { DayPickerProps } from "../DayPicker";
 
 import { customRender } from "@/test/render";
 import {
@@ -12,9 +11,10 @@ import {
 import { user } from "@/test/user";
 import { freezeBeforeAll } from "@/test/utils";
 
-import { CaptionProps } from "./Caption";
+import { DayPickerProps } from "../DayPicker";
 import { CustomComponents } from "../types/DayPickerBase";
 
+import { CaptionProps } from "./Caption";
 import { CaptionDropdowns } from "./CaptionDropdowns";
 
 const today = new Date(2021, 8);

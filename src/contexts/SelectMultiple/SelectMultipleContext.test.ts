@@ -1,11 +1,10 @@
 import { MouseEvent } from "react";
 
 import { addDays, addMonths } from "date-fns";
-import { DayPickerProps } from "../../DayPicker";
 
 import { renderDayPickerHook } from "../../../test/render";
 import { freezeBeforeAll } from "../../../test/utils";
-
+import { DayPickerProps } from "../../DayPicker";
 import { isMatch } from "../../contexts/Modifiers/utils/isMatch";
 import { DayPickerMultipleProps } from "../../types/DayPickerMultiple";
 import { ActiveModifiers } from "../../types/Modifiers";

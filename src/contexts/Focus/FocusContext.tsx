@@ -3,9 +3,9 @@ import { createContext, ReactNode, useContext, useState } from "react";
 import { isSameDay } from "date-fns";
 
 import { useDayPicker } from "../../contexts/DayPicker";
-
 import { useModifiers } from "../Modifiers";
 import { useNavigation } from "../Navigation";
+
 import { getInitialFocusTarget } from "./utils/getInitialFocusTarget";
 import {
   getNextFocus,

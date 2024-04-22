@@ -1,13 +1,12 @@
 import React from "react";
 
+import Example from "@examples/from-to-month";
 import { axe } from "@site/test/axe";
 import { user } from "@site/test/user";
 import { act, render } from "@testing-library/react";
 import { differenceInMonths } from "date-fns";
 
 import { getNextButton, getPrevButton } from "../../../test/selectors";
-
-import Example from "@examples/from-to-month";
 
 const fromDate = new Date(2015, 5);
 const toDate = new Date(2015, 10);

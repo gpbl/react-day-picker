@@ -1,11 +1,10 @@
 import React from "react";
 
+import Example from "@examples/modifiers-custom";
 import { user } from "@site/test/user";
 import { act, render } from "@testing-library/react";
 
 import { getDayButton, getTableFooter } from "../../../test/selectors";
-
-import Example from "@examples/modifiers-custom";
 
 const bookedDays = [new Date(2021, 5, 8), new Date(2021, 5, 9)];
 const bookedStyle = {

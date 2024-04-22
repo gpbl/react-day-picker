@@ -1,8 +1,7 @@
-import { DayPickerProps } from "../../DayPicker";
-
 import { mockedContexts } from "../../../test/mockedContexts";
 import { renderDayPickerHook } from "../../../test/render";
 import { freezeBeforeAll } from "../../../test/utils";
+import { DayPickerProps } from "../../DayPicker";
 
 import { useSelectedDays } from "./useSelectedDays";
 

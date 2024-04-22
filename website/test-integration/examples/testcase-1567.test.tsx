@@ -1,9 +1,8 @@
 import React from "react";
 
+import Example from "@examples/testcase-1567";
 import { user } from "@site/test/user";
 import { act, render, screen } from "@testing-library/react";
-
-import Example from "@examples/testcase-1567";
 
 beforeEach(async () => {
   render(<Example />);

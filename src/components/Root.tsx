@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
 import { DayPickerProps } from "../DayPicker";
-
-import { Month } from "./Month";
-import { Months } from "./Months";
 import { useDayPicker } from "../contexts/DayPicker";
 import { useFocusContext } from "../contexts/Focus";
 import { useNavigation } from "../contexts/Navigation";
+
+import { Month } from "./Month";
+import { Months } from "./Months";
 
 function isDataAttributes(attrs: DayPickerProps): attrs is {
   [key: string]: string | boolean | number | undefined;

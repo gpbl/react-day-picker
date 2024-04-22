@@ -1,8 +1,8 @@
 import { createContext, ReactNode, useContext } from "react";
 
 import { Locale } from "date-fns";
-import { DayPickerProps } from "../../DayPicker";
 
+import { DayPickerProps } from "../../DayPicker";
 import { CaptionLayout } from "../../components/Caption";
 import { DayPickerBase, DaySelectionMode } from "../../types/DayPickerBase";
 import {

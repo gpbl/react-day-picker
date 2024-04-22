@@ -1,8 +1,10 @@
 import { RenderResult } from "@testing-library/react";
+
+import { customRender } from "@/test/render";
+
 import { DayPickerProps } from "../DayPicker";
 
 import { HeadRow } from "./HeadRow";
-import { customRender } from "@/test/render";
 
 let container: HTMLElement;
 let view: RenderResult;

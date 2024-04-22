@@ -1,8 +1,8 @@
-import { DayPickerProps } from "../DayPicker";
-
 import { customRender } from "@/test/render";
 import { getNextButton, getPrevButton } from "@/test/selectors";
 import { user } from "@/test/user";
+
+import { DayPickerProps } from "../DayPicker";
 
 import { Navigation, NavigationProps } from "./Navigation";
 

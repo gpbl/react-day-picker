@@ -1,6 +1,7 @@
 import { ReactElement } from "react";
 
 import { render } from "@testing-library/react";
+
 import { DayPickerProps } from "../../src/DayPicker";
 import { RootProvider } from "../../src/contexts/RootProvider";
 

@@ -1,5 +1,6 @@
 import React from "react";
 
+import Example from "@examples/from-to-year";
 import { axe } from "@site/test/axe";
 import { user } from "@site/test/user";
 import { freezeBeforeAll } from "@site/test/utils";
@@ -7,8 +8,6 @@ import { act, render } from "@testing-library/react";
 import { differenceInMonths } from "date-fns";
 
 import { getNextButton, getPrevButton } from "../../../test/selectors";
-
-import Example from "@examples/from-to-year";
 
 const fromDate = new Date(2015, 0);
 const toDate = new Date(2018, 11);

@@ -1,11 +1,10 @@
 import React from "react";
 
+import Example from "@examples/modifiers-style";
 import { freezeBeforeAll } from "@site/test/utils";
 import { render } from "@testing-library/react";
 
 import { getDayButton } from "../../../test/selectors";
-
-import Example from "@examples/modifiers-style";
 
 const today = new Date(2021, 10, 25);
 freezeBeforeAll(today);

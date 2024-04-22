@@ -1,10 +1,9 @@
-import { DayPickerProps } from "../DayPicker";
-
 import { customRender } from "@/test/render/customRender";
 import { freezeBeforeAll } from "@/test/utils";
 
-import { FooterProps } from "./Footer";
+import { DayPickerProps } from "../DayPicker";
 
+import { FooterProps } from "./Footer";
 import { Table, TableProps } from "./Table";
 
 function setup(props: TableProps, dayPickerProps?: DayPickerProps) {

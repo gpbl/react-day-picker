@@ -1,13 +1,12 @@
 import React from "react";
 
+import Example from "@examples/modifiers-today";
 import { user } from "@site/test/user";
 import { freezeBeforeAll } from "@site/test/utils";
 import { act, render } from "@testing-library/react";
 import { addDays } from "date-fns";
 
 import { getDayButton, getTableFooter } from "../../../test/selectors";
-
-import Example from "@examples/modifiers-today";
 
 const today = new Date(2022, 5, 10);
 freezeBeforeAll(today);

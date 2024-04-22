@@ -1,4 +1,5 @@
 import { customRender } from "@/test/render";
+
 import { IconLeft } from "./IconLeft";
 
 let root: HTMLElement;

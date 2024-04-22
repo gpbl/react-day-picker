@@ -1,8 +1,9 @@
-import { Caption } from "./Caption";
-import { Table } from "./Table";
 import { useDayPicker } from "../contexts/DayPicker";
 import { useNavigation } from "../contexts/Navigation";
 import { useId } from "../hooks/useId";
+
+import { Caption } from "./Caption";
+import { Table } from "./Table";
 
 /** The props for the {@link Month} component. */
 export interface MonthProps {

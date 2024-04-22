@@ -1,5 +1,6 @@
 import React from "react";
 
+import Example from "@examples/date-picker-dialog";
 import { axe } from "@site/test/axe";
 import { user } from "@site/test/user";
 import { freezeBeforeAll } from "@site/test/utils";
@@ -8,8 +9,6 @@ import { format } from "date-fns";
 import { act } from "react-dom/test-utils";
 
 import { getDayButton } from "../../../test/selectors";
-
-import Example from "@examples/date-picker-dialog";
 
 const today = new Date(2022, 5, 10);
 const tomorrow = new Date(2022, 5, 11);

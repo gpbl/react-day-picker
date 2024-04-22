@@ -136,6 +136,9 @@
     "npm.packageManager": "pnpm",
     "task.allowAutomaticTasks": "on",
     "typescript.updateImportsOnFileMove.enabled": "always",
-    "javascript.updateImportsOnFileMove.enabled": "always"
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
   }
 }
