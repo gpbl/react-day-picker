@@ -1,21 +1,12 @@
-import React from 'react';
+import { useState } from "react";
+import { DayPicker } from "react-day-picker";
 
-import { format } from 'date-fns';
-import { DayPicker } from 'react-day-picker';
+export function Start() {
+  const [selected, setSelected] = useState<Date>();
 
-export default function Example() {
-  const [selected, setSelected] = React.useState<Date>();
-
-  let footer = <p>Please pick a day.</p>;
-  if (selected) {
-    footer = <p>You picked {format(selected, 'PP')}.</p>;
-  }
   return (
-    <DayPicker
-      mode="single"
-      selected={selected}
-      onSelect={setSelected}
-      footer={footer}
-    />
+    <div role="application" aria-label="Date Picker">
+      <DayPicker mode="single" selected={selected} onSelect={setSelected} />
+    </div>
   );
 }

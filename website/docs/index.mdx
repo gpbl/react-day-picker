@@ -1,0 +1,59 @@
+---
+sidebar_label: Introduction
+sidebar_position: 1
+slug: /
+---
+
+# React DayPicker
+
+DayPicker is a [React](https://reactjs.dev) library to create date pickers, calendars, and date inputs in web applications.
+
+<BrowserWindow>
+  <Examples.Start />
+</BrowserWindow>
+
+## Features
+
+DayPicker is written in TypeScript and compiled to CommonJS and ESM. It requires [date-fns](https://date-fns.org) as a peer dependency.
+
+- Extensive props to customize and configure the calendar.
+- Easy to style and integrate with other CSS frameworks.
+- Select single day, multiple day, ranges or create custom selections.
+- Localizable in any language.
+- Following the WAI-ARIA guidelines.
+- Customizable internal components for complex use cases.
+
+## Example
+
+```tsx
+import { useState } from "react"
+import { DayPicker } from "react-day-picker"
+
+export function Start() {
+  const [selected, setSelected] = useState<Date>()
+
+  return (
+    <div role="application" aria-label="Date Picker">
+      <DayPicker mode="single" selected={selected} onSelect={setSelected} />
+    </div>
+  )
+}
+```
+
+## License
+
+DayPicker is released under the [MIT License](./development/license).
+
+## Community
+
+Ask for help and share your experience with DayPicker.
+
+- [Discuss the project on GitHub](https://github.com/gpbl/react-day-picker/discussions)
+- [Report an issue on GitHub](https://github.com/gpbl/react-day-picker/issues/new/choose)
+- [Contribute to the project](./development/contributing)
+
+## Funding
+
+Consider supporting DayPicker's maintainer with a donation. Your support helps to keep the project alive and keep it updated.
+
+- [Sponsor DayPicker on GitHub](https://github.com/sponsors/gpbl)

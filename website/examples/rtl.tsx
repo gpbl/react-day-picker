@@ -1,8 +1,6 @@
-import React from 'react';
-
-import { arSA } from 'date-fns/locale';
+import { arSA } from 'date-fns/locale/ar-SA';
 import { DayPicker } from 'react-day-picker';
 
-export default function App() {
+export function Rtl() {
   return <DayPicker dir="rtl" locale={arSA} />;
 }

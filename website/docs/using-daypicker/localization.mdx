@@ -1,0 +1,124 @@
+---
+sidebar_position: 5
+---
+
+# Localization
+
+Understand how to localize and translate DayPicker.
+
+## Configure the Locale
+
+| Prop Name               | Type                                          | Description                                                        |
+| ----------------------- | --------------------------------------------- | ------------------------------------------------------------------ |
+| `locale`                | [`Locale`](http://date-fns.org/docs/Locale)   | Set the locale. Default is `en-US`.                                |
+| `weekStartsOn`          | `1` \| `2` \| `3` \| `4` \| `5` \| `6` \| `7` | Display the days falling into the other months.                    |
+| `firstWeekContainsDate` | `1` \| `4`                                    | Configure the first date in the first week of the year.            |
+| `ISOWeek`               | `boolean`                                     | Use [ISO Week Dates](https://en.wikipedia.org/wiki/ISO_week_date). |
+
+### Set a Different Locale
+
+To set a locale different than the the default `English (US)`, pass to the `locale` prop a [Locale](http://date-fns.org/docs/Locale) object imported from `date-fns`.
+
+For example, to localize the calendar in Spanish, import the `es` locale object from date-fns and pass it to the component.
+
+```tsx caption="render:Spanish"
+import { es } from "date-fns/locale";
+
+<DayPicker locale={es} />; // Set the locale to Spanish
+```
+
+### First Date of the Week
+
+Use `weekStartsOn` to override the first date of the week.
+
+```tsx caption="render:SpanishWeekStartsOn"
+import { es } from "date-fns/locale";
+
+<DayPicker
+  locale={es}
+  weekStartsOn={0} // Start the week on Sunday instead of Monday
+/>;
+```
+
+### First Week of the Year
+
+Use `weekStartsOn` to override the first date of the first week of the year, used to calculate the week numbers. Possible values are `1` (Monday) or `4` (Thursday).
+
+```tsx caption="render:WeeknumberCustom"
+<DayPicker
+  showWeekNumber
+  firstWeekContainsDate={1} // First week must contain Monday
+/>
+```
+
+### ISO Week Dates
+
+Use `ISOWeek` to switch using [ISO Week Dates](https://en.wikipedia.org/wiki/ISO_week_date) instead of the locale setting.
+
+```tsx caption="render:WeeknumberIso"
+<DayPicker
+  showWeekNumber
+  ISOWeek // Switch to ISO week
+/>
+```
+
+## Translate DayPicker
+
+Use these props to translate DayPicker in any language.
+
+| Prop Name    | Type                                                    | Description                                |
+| ------------ | ------------------------------------------------------- | ------------------------------------------ |
+| `labels`     | [`Labels`](/api/latest/type-aliases/Labels.mdx)         | Map the ARIA labels used within DayPicker. |
+| `formatters` | [`Formatters`](/api/latest/type-aliases/Formatters.mdx) | Map the function used as date formatters.  |
+| `dir`        | `rtl` \| `ltr`                                          | Set the text direction.                    |
+
+### ARIA labels
+
+Use the `labels` prop to translate the labels used for ARIA.
+
+### RTL Text Direction
+
+To set the right-to-left text direction, toggle the `dir` prop to `rtl`.
+
+```tsx caption="render:Rtl"
+import { arSA } from "date-fns/locale";
+<DayPicker locale={arSA} dir="rtl" />;
+```
+
+### Numbering System
+
+Use the proper `formatters` to change the [numbering system](https://en.wikipedia.org/wiki/Numeral_system) used in the calendar.
+
+For example, to switch to hindu-arabic use the native [`Date.toLocaleString`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString):
+
+```tsx caption="render:NumberingSystem"
+import { DayPicker, Formatters } from "react-day-picker";
+
+import { format } from "date-fns/format";
+import { arSA } from "date-fns/locale";
+
+const NU_LOCALE = "ar-u-nu-arab";
+
+const formatDay = (day) => day.getDate().toLocaleString(NU_LOCALE);
+const formatWeekNumber = (weekNumber) => weekNumber.toLocaleString(NU_LOCALE);
+const formatMonthCaption = (date, options) => {
+  const y = date.getFullYear().toLocaleString(NU_LOCALE);
+  const m = format(date, "LLLL", options);
+  return `${m} ${y}`;
+};
+
+export function NumberingSystemExample() {
+  return (
+    <DayPicker
+      locale={arSA}
+      dir="rtl"
+      showWeekNumber
+      formatters={{
+        formatDay,
+        formatMonthCaption,
+        formatWeekNumber,
+      }}
+    />
+  );
+}
+```

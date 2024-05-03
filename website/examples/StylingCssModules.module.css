@@ -1,0 +1,7 @@
+.month_caption {
+  margin-bottom: 0.5em;
+  font-size: var(--rdp-font-large);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid currentcolor;
+}

@@ -1,0 +1,57 @@
+---
+sidebar_position: 5
+---
+
+# Upgrading
+
+:::note
+  
+  DayPicker follows the [Semantic Versioning](https://semver.org/) and tries to
+  keep the API as stable as possible. Sometimes breaking changes are necessary
+  to improve the library, especially in its internal component.
+
+:::
+
+## Upgrade to v8
+
+DayPicker v8 is a major upgrade for DayPicker with new props and styles. Follow the checklist for a smooth upgrade.
+
+### Checklist
+
+1. **Upgrade the dependency**. DayPicker now has [date-fns](https://date-fns.org/) as peer dependency.
+   ```bash npm2yarn
+   npm install react-day-picker@latest date-fns
+   ```
+2. **Remove the types package**, if you were using it:
+   ```bash npm2yarn
+   npm uninstall @types/react-day-picker
+   ```
+3. **Update the CSS import**:
+   ```diff
+   - import `react-day-picker/lib/style.css`
+   + import `react-day-picker/style.css`
+   ```
+4. **Update your custom styles**. See the [Styling Guide](/using-daypicker/styling.mdx) for more information.
+5. **Update the changed props**. See the list below.
+6. **Replace `DateUtils` with date-fns**. Use [date-fns](https://date-fns.org/) instead of [DateUtils](https://react-day-picker-v7.netlify.app/api/DateUtils) to handle dates.
+   - Replace `addDayToRange` with [addToRange](/api/functions/addToRange), which is still exported in v8
+
+### Updated Props
+
+- `showWeekNumbers` has been renamed to `showWeekNumber`
+- `todayButton` has been removed. See [Controlling the current month](https://daypicker.dev/basics/navigation#controlling-the-current-month) for an example implementing the same feature.
+- `initialMonth` has been renamed to `defaultMonth`. See [Navigating months](https://daypicker.dev/basics/navigation) for more details about using `month` and `defaultMonth`.
+- `canChangeMonth` has been renamed to `disableNavigation`
+- `selectedDays` has been renamed to `selected`. See also: [Selecting Days guide](https://daypicker.dev/basics/selecting-days).
+- `disabledDays` has been renamed to `disabled`. See also: [Disabling days](https://daypicker.dev/basics/modifiers#disabling-days).
+
+### ISO weeks
+
+This version use the locale setting to calculate the week days and numbers. The previous versions were using [ISO week dates](https://en.wikipedia.org/wiki/ISO_week_date). To toggle the ISO week dates, use the `ISOWeek` prop.
+
+### DayPickerInput
+
+The `DayPickerInput` component has been removed. If you upgrade to v8, you will need to rewrite your implementation:
+
+- See [Input Fields Guide](/advanced-guides/input-fields) for an example
+- Please note that [~useInput hook~](/api/latest/functions/useInput) has been deprecated since v8.10.0.

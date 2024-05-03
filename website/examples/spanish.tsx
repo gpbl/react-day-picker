@@ -1,8 +1,6 @@
-import React from 'react';
-
-import { es } from 'date-fns/locale';
+import { es } from 'date-fns/locale/es';
 import { DayPicker } from 'react-day-picker';
 
-export default function App() {
+export function Spanish() {
   return <DayPicker locale={es} />;
 }

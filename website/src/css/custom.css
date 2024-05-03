@@ -1,0 +1,220 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #0000ff;
+  --ifm-color-primary-dark: #0000e6;
+  --ifm-color-primary-darker: #0000d9;
+  --ifm-color-primary-darkest: #0000b3;
+  --ifm-color-primary-light: #1a1aff;
+  --ifm-color-primary-lighter: #2626ff;
+  --ifm-color-primary-lightest: #4d4dff;
+  --ifm-global-shadow-lw: none;
+
+  /* --ifm-code-font-size: 80%; */
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  --ifm-menu-color: unset;
+  --ifm-font-weight-semibold: 400;
+  --ifm-heading-font-weight: 600;
+  --ifm-toc-border-color: transparent;
+
+  --ifm-transition-fast: 0;
+  --ifm-transition-slow: 0;
+  --ifm-transition-slow: 0;
+
+  --ifm-table-cell-padding: 0.5rem;
+  --ifm-table-border-width: 0;
+  --ifm-tabs-padding-vertical: 0.25rem;
+  --ifm-tabs-padding-horizontal: 0.5rem;
+
+  --ifm-navbar-background-color: #eeeeff;
+
+  --doc-sidebar-width: 260px !important;
+
+  --ifm-menu-link-sublist-icon: url(/img/chevron.svg);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+html[data-theme="dark"] {
+  --ifm-color-primary: #00c7fc;
+  --ifm-color-primary-dark: #00b3e3;
+  --ifm-color-primary-darker: #00a9d6;
+  --ifm-color-primary-darkest: #008bb0;
+  --ifm-color-primary-light: #16ceff;
+  --ifm-color-primary-lighter: #23d1ff;
+  --ifm-color-primary-lightest: #49d9ff;
+
+  --ifm-color-content: #f0f0f0;
+
+  /* --ifm-background-color: #002; */
+  /* --ifm-navbar-background-color: #2c2a55; */
+
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  --ifm-toc-border-color: transparent !important;
+}
+
+html[data-theme="dark"] .rdp {
+  --rdp-accent-color: var(--ifm-color-primary);
+  --rdp-background-color: var(--ifm-color-primary-darkest);
+}
+
+/* Style the main content area */
+.main-wrapper main {
+  max-width: 120ch; /* Constrain the maximum width of the content for better readability */
+  margin-inline: auto;
+}
+
+.markdown a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.markdown a[href^="http"] {
+  position: relative;
+  display: inline-block;
+  margin-right: 0.75em;
+}
+.markdown a[href^="http"]:after {
+  content: "↗"; /* Example: Unicode character for an external link icon */
+  font-size: 0.75em;
+  padding-left: 1px;
+  top: 0.3em;
+  text-decoration: none;
+  position: absolute;
+}
+
+.markdown h1:first-child {
+  font-weight: 500;
+  font-size: 2.4rem;
+}
+
+.markdown > h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.markdown > h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.markdown > h4 {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+code {
+  border: unset;
+  background: unset;
+  vertical-align: unset;
+  font-weight: 600;
+}
+
+a > code {
+  padding: unset;
+  background: unset;
+  border: unset;
+}
+
+@media (min-width: 997px) {
+  nav.menu {
+    padding-top: 1rem;
+  }
+}
+
+.menu__link {
+  transition: unset;
+  font-size: 0.9rem;
+  background: unset;
+}
+.menu__link[aria-expanded] {
+  font-weight: 700;
+  cursor: default;
+}
+
+a.menu__link[aria-expanded]:hover {
+  background: unset;
+}
+
+.menu__link--sublist {
+  font-weight: 600;
+}
+
+.table-of-contents::before {
+  content: "On This Page";
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+div.theme-doc-toc-desktop {
+  top: calc(var(--ifm-navbar-height) + 2rem);
+}
+
+a.theme-edit-this-page {
+  font-size: 0.8rem;
+}
+a.theme-edit-this-page > svg {
+  height: 1rem;
+  width: 1rem;
+}
+
+div.theme-admonition {
+  font-size: 0.875rem;
+  border-left-width: 0.2rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-radius: 0;
+}
+
+.markdown table {
+  margin: 2rem 0;
+  display: table;
+  width: 100%;
+  font-size: 0.875rem;
+}
+
+.markdown table tr {
+  border-bottom: 1px solid var(--ifm-table-border-color);
+}
+
+.markdown table tr:nth-child(2n) {
+  background-color: unset;
+}
+
+.markdown table tr:nth-child(2n) td {
+}
+
+.markdown table th {
+  font-weight: 600;
+  background-color: unset !important;
+  text-align: left;
+}
+
+.markdown table thead tr {
+  border-bottom-width: 1px;
+}
+
+pre {
+  --ifm-code-font-size: 85%;
+  background-color: var(--ifm-color-emphasis-100) !important;
+}
+
+.tabs__item {
+  border-bottom-width: 1px;
+  font-size: smaller;
+  border-radius: 0;
+}
+
+.tabs {
+  margin-top: 1rem;
+}
+
+.tabs + .margin-top--md {
+  margin-top: 0 !important;
+}

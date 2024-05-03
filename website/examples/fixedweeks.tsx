@@ -1,6 +1,12 @@
-import React from 'react';
-import { DayPicker } from 'react-day-picker';
+import { DayPicker } from "react-day-picker";
 
-export default function App() {
-  return <DayPicker showOutsideDays fixedWeeks />;
+export function FixedWeeks() {
+  return (
+    <DayPicker
+      defaultMonth={new Date(2025, 8)}
+      showWeekNumber
+      showOutsideDays
+      fixedWeeks
+    />
+  );
 }

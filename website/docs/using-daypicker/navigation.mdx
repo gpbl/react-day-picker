@@ -1,0 +1,80 @@
+---
+sidebar_position: 4
+---
+
+# Months Navigation
+
+## Default Month
+
+As default, DayPicker renders the current month. You can change the default month by setting the `defaultMonth` prop to a specific date.
+
+| Prop Name      | Type   | Description                                                              |
+| -------------- | ------ | ------------------------------------------------------------------------ |
+| `defaultMonth` | `Date` | The initial month to show in the calendar. Default is the current month. |
+
+For example, to render a calendar starting from September 1979:
+
+```tsx caption="render:DefaultMonth"
+<DayPicker defaultMonth={new Date(1979, 8)} />
+```
+
+## Controlling the Month
+
+To programmatically control the month displayed when navigating, use the `month` and `onMonthChange` props.
+
+| Prop Name       | Type                                                                              | Description                          |
+| --------------- | --------------------------------------------------------------------------------- | ------------------------------------ |
+| `month`         | `Date`                                                                            | The month displayed in the calendar. |
+| `onMonthChange` | [`MonthChangeEventHandler`](/api/latest/type-aliases/MonthChangeEventHandler.mdx) | Callback when the month change.      |
+
+For example, to implement a <strong>Go to Today</strong> button, set `month` to the current date when the button is clicked.
+
+```tsx caption="render:Controlled"
+import { useState } from "react";
+
+import { addMonths } from "date-fns";
+import { DayPicker } from "react-day-picker";
+
+export function Controlled() {
+  const today = new Date();
+  const nextMonth = addMonths(today, 1);
+
+  const [month, setMonth] = useState(nextMonth);
+
+  return (
+    <>
+      <DayPicker month={month} onMonthChange={setMonth} />
+      <button onClick={() => setMonth(today)}>Go to Today</button>
+    </>
+  );
+}
+```
+
+## Navigation Between Dates
+
+Limit the dates the user can navigate to by using the `from*`, `to*` props.
+
+| Prop Name   | Type     | Description                                 |
+| ----------- | -------- | ------------------------------------------- |
+| `fromYear`  | `number` | The earliest year to start the navigation.  |
+| `toYear`    | `number` | The latest year to start the navigation.    |
+| `fromMonth` | `Date`   | The earliest month to start the navigation. |
+| `toMonth`   | `Date`   | The latest month to end the navigation.     |
+| `fromDate`  | `Date`   | The earliest day to start the navigation.   |
+| `toDate`    | `Date`   | The latest day to end the navigation.       |
+
+```tsx caption="render:FromToYear"
+<DayPicker defaultMonth={new Date(2024, 0)} fromYear={2024} toYear={2026} />
+```
+
+## Disabling Navigation
+
+To prevent the user from navigating between months, set the `disableNavigation` prop to `true`.
+
+| Prop Name           | Type      | Description                            |
+| ------------------- | --------- | -------------------------------------- |
+| `disableNavigation` | `boolean` | Disable the navigation between months. |
+
+```tsx caption="render:DisableNavigation"
+<DayPicker disableNavigation />
+```

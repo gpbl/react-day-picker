@@ -1,25 +1,15 @@
-import React from 'react';
+import { addDays } from "date-fns";
+import { useState } from "react";
+import { DayPicker } from "react-day-picker";
 
-import { DayPicker } from 'react-day-picker';
-
-export default function App() {
-  const initialDays: Date[] = [];
-  const [days, setDays] = React.useState<Date[] | undefined>(initialDays);
-
-  const footer =
-    days && days.length > 0 ? (
-      <p>You selected {days.length} day(s).</p>
-    ) : (
-      <p>Please pick one or more days.</p>
-    );
-
+export function Multiple() {
+  const initiallySelectedDates = [new Date(), addDays(new Date(), 1)];
+  const [selectedDates, setSelectedDates] = useState(initiallySelectedDates);
   return (
     <DayPicker
       mode="multiple"
-      min={1}
-      selected={days}
-      onSelect={setDays}
-      footer={footer}
+      selected={selectedDates}
+      onSelect={(dates) => setSelectedDates(dates || [])}
     />
   );
 }
