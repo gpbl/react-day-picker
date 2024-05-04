@@ -69,11 +69,10 @@ const config: Config = {
     // },
     navbar: {
       title: "React DayPicker",
-      // logo: {
-      //   alt: "DayPicker Logo",
-      //   src: "img/logo.svg",
-      //   srcDark: "img/logo_dark.svg"
-      // },
+      logo: {
+        alt: "DayPicker Logo",
+        src: "img/logo.png"
+      },
       items: [
         // {
         //   type: "docsVersionDropdown",
@@ -81,22 +80,22 @@ const config: Config = {
         //   dropdownItemsAfter: [{ to: "/versions", label: "All versions" }],
         //   dropdownActiveClassDisabled: true
         // },
-        {
-          type: "docSidebar",
-          sidebarId: "docs",
-          position: "left",
-          label: "Documentation"
-        },
+        // {
+        //   type: "docSidebar",
+        //   sidebarId: "docs",
+        //   position: "left",
+        //   label: "Documentation"
+        // },
         {
           type: "docSidebar",
           sidebarId: "api",
-          position: "left",
+          position: "right",
           label: "API Reference"
         },
         {
           href: "https://github.com/gpbl/react-day-picker",
           label: "GitHub",
-          position: "left"
+          position: "right"
         }
       ]
     },
