@@ -3,15 +3,12 @@ import { addMonths, differenceInMonths } from "date-fns";
 
 import { customRender } from "@/test/render";
 import { user } from "@/test/user";
-import { freezeBeforeAll } from "@/test/utils";
 
 import { DayPickerProps } from "../DayPicker";
 
 import { MonthsDropdown, MonthsDropdownProps } from "./MonthsDropdown";
 
 const today = new Date(2020, 12, 22);
-
-freezeBeforeAll(today);
 
 let root: HTMLDivElement;
 let options: HTMLCollectionOf<HTMLOptionElement> | undefined;

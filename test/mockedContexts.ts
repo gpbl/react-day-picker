@@ -1,19 +1,17 @@
-import {
-  FocusContextValue,
-  SelectMultipleContextValue,
-  SelectRangeContextValue,
-  SelectSingleContextValue,
-} from '../src/';
+import { FocusContextValue } from "../src/contexts/Focus";
+import { SelectMultipleContextValue } from "../src/contexts/SelectMultiple";
+import { SelectRangeContextValue } from "../src/contexts/SelectRange";
+import { SelectSingleContextValue } from "../src/contexts/SelectSingle";
 
 const singleContext: SelectSingleContextValue = {
   selected: new Date(),
-  onDayClick: jest.fn(),
+  onDayClick: jest.fn()
 };
 
 const multipleContext: SelectMultipleContextValue = {
   selected: [new Date()],
   modifiers: { disabled: [] },
-  onDayClick: jest.fn(),
+  onDayClick: jest.fn()
 };
 
 const rangeContext: SelectRangeContextValue = {
@@ -22,9 +20,9 @@ const rangeContext: SelectRangeContextValue = {
     disabled: [],
     range_start: [],
     range_end: [],
-    range_middle: [],
+    range_middle: []
   },
-  onDayClick: jest.fn(),
+  onDayClick: jest.fn()
 };
 
 const focusContext: FocusContextValue = {
@@ -41,12 +39,12 @@ const focusContext: FocusContextValue = {
   focusYearBefore: jest.fn(),
   focusYearAfter: jest.fn(),
   focusStartOfWeek: jest.fn(),
-  focusEndOfWeek: jest.fn(),
+  focusEndOfWeek: jest.fn()
 };
 
 export const mockedContexts = {
   single: singleContext,
   multiple: multipleContext,
   range: rangeContext,
-  focus: focusContext,
+  focus: focusContext
 };

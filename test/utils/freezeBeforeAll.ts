@@ -1,3 +1,6 @@
+import MockDate from "mockdate";
+
 export function freezeBeforeAll(date: Date) {
-  jest.useFakeTimers().setSystemTime(date);
+  beforeAll(() => MockDate.set(date));
+  afterAll(() => MockDate.reset());
 }

@@ -1,3 +1,5 @@
+import { act } from "react";
+
 import { addMonths } from "date-fns";
 
 import { customRender } from "@/test/render";
@@ -90,7 +92,7 @@ describe("when rendered", () => {
       const previousMonth = addMonths(today, -1);
       beforeEach(async () => {
         customRender(<CaptionNavigation displayMonth={today} />, testContext);
-        await user.click(getPrevButton());
+        await act(() => user.click(getPrevButton()));
       });
       test("should call the `onMonthChange` callback", () => {
         expect(testContext.onMonthChange).toHaveBeenCalledWith(previousMonth);
@@ -104,7 +106,7 @@ describe("when rendered", () => {
       };
       beforeEach(async () => {
         customRender(<CaptionNavigation displayMonth={today} />, testContext);
-        await user.click(getPrevButton());
+        await act(() => user.click(getPrevButton()));
       });
       test("should call the `onMonthChange` callback", () => {
         expect(testContext.onMonthChange).not.toHaveBeenCalled();
@@ -121,7 +123,7 @@ describe("when rendered", () => {
       const nextMonth = addMonths(today, 1);
       beforeEach(async () => {
         customRender(<CaptionNavigation displayMonth={today} />, testContext);
-        await user.click(getNextButton());
+        await act(() => user.click(getNextButton()));
       });
       test("should call the `onMonthChange` callback", () => {
         expect(testContext.onMonthChange).toHaveBeenCalledWith(nextMonth);
@@ -135,7 +137,7 @@ describe("when rendered", () => {
       };
       beforeEach(async () => {
         customRender(<CaptionNavigation displayMonth={today} />, testContext);
-        await user.click(getNextButton());
+        await act(() => user.click(getNextButton()));
       });
       test("should call the `onMonthChange` callback", () => {
         expect(testContext.onMonthChange).not.toHaveBeenCalled();
