@@ -46,6 +46,21 @@ const config: Config = {
     ]
   ],
 
+  plugins: [
+    [
+      "docusaurus-plugin-typedoc",
+      {
+        entryPoints: ["../src/index.ts"],
+        tsconfig: "../tsconfig-docs.json",
+        watch: process.env.TYPEDOC_WATCH,
+        frontmatterGlobals: {
+          pagination_next: null,
+          pagination_prev: null
+        }
+      }
+    ]
+  ],
+
   themeConfig: {
     image: "img/social-card.jpg",
     // announcementBar: {
@@ -53,7 +68,7 @@ const config: Config = {
     // content: ``,
     // },
     navbar: {
-      title: "📅 React DayPicker",
+      title: "React DayPicker",
       // logo: {
       //   alt: "DayPicker Logo",
       //   src: "img/logo.svg",
@@ -83,10 +98,6 @@ const config: Config = {
           label: "GitHub",
           position: "left"
         }
-        // {
-        //   type: "search",
-        //   position: "right"
-        // }
       ]
     },
     footer: undefined,

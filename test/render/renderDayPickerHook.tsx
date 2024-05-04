@@ -1,20 +1,20 @@
-import { render } from "@testing-library/react";
+import { render } from '@testing-library/react';
+import { type DayPickerProps } from '../../src/DayPicker';
 
-import { DayPickerProps } from "../../src/DayPicker";
-import { FocusContext, FocusContextValue } from "../../src/contexts/Focus";
-import { RootProvider } from "../../src/contexts/RootProvider";
+import { FocusContext, type FocusContextValue } from '../../src/contexts/Focus';
+import { RootProvider } from '../../src/contexts/RootProvider';
 import {
   SelectMultipleContext,
-  SelectMultipleContextValue
-} from "../../src/contexts/SelectMultiple";
+  type SelectMultipleContextValue,
+} from '../../src/contexts/SelectMultiple';
 import {
   SelectRangeContext,
-  SelectRangeContextValue
-} from "../../src/contexts/SelectRange";
+  type SelectRangeContextValue,
+} from '../../src/contexts/SelectRange';
 import {
   SelectSingleContext,
-  SelectSingleContextValue
-} from "../../src/contexts/SelectSingle";
+  type SelectSingleContextValue,
+} from '../../src/contexts/SelectSingle';
 
 /** Render a DayPicker hook inside the {@link RootProvider}. */
 export type RenderHookResult<TResult> = {
@@ -32,10 +32,10 @@ export function renderDayPickerHook<TResult>(
   }
 ): RenderHookResult<TResult> {
   const returnVal = { current: undefined as TResult };
-  function Test(): JSX.Element {
+  function Test() {
     const hookResult: TResult = hook();
     returnVal.current = hookResult;
-    return <></>;
+    return null;
   }
   render(
     <RootProvider {...dayPickerProps}>

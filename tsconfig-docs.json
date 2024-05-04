@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig-base.json",
+  "compilerOptions": {
+    "paths": {
+      "@/test/*": ["./test/*"]
+    },
+    "noEmit": true,
+    "types": ["node", "jest", "@testing-library/jest-dom"],
+    "lib": ["dom", "dom.iterable", "esnext"]
+  },
+  "include": ["src"],
+  "exclude": ["website"]
+}

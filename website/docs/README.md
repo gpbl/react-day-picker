@@ -44,7 +44,7 @@ export function Start() {
 
 ## License
 
-DayPicker is released under the [MIT License](./development/license).
+DayPicker is released under the [MIT License](./license).
 
 ## Community
 

@@ -33,6 +33,7 @@
   --ifm-table-border-width: 0;
   --ifm-tabs-padding-vertical: 0.25rem;
   --ifm-tabs-padding-horizontal: 0.5rem;
+  --ifm-global-spacing: 0.65rem;
 
   /* --ifm-navbar-background-color: #eeeeff; */
 
@@ -76,6 +77,10 @@ html[data-theme="dark"] .rdp {
   margin-inline: auto;
 }
 
+.markdown {
+  min-height: 50vh;
+}
+
 .markdown a {
   text-decoration: underline;
   text-underline-offset: 2px;
@@ -107,10 +112,10 @@ html[data-theme="dark"] .rdp {
 }
 
 .markdown > h2 {
-  font-size: 1.8rem;
+  font-size: 1.75rem;
   letter-spacing: -0.015em;
   padding-bottom: 0.15em;
-  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
 }
 
 .markdown > h3 {
@@ -287,4 +292,8 @@ div[class^="docRoot"],
   nav.menu {
     padding-top: 3rem;
   }
+}
+
+.navbar__brand {
+  margin-inline-end: 0;
 }

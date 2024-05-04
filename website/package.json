@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "PORT=2001 docusaurus start",
+    "start": "PORT=2001 TYPEDOC_WATCH=true docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -31,6 +31,9 @@
     "@docusaurus/module-type-aliases": "3.2.1",
     "@docusaurus/tsconfig": "3.2.1",
     "@docusaurus/types": "3.2.1",
+    "docusaurus-plugin-typedoc": "^1.0.0",
+    "typedoc": "^0.25.13",
+    "typedoc-plugin-markdown": "^4.0.0",
     "typescript": "~5.2.2"
   },
   "browserslist": {

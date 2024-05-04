@@ -13,10 +13,10 @@ DayPicker comes with some predefined rules for selecting days:
 
 To make days selectable, set the `mode` prop. Disallow the selection of specific days by using the `disabled` prop.
 
-| Prop Name  | Type                                                             | Description                                |
-| ---------- | ---------------------------------------------------------------- | ------------------------------------------ |
-| `mode`     | `"single"` \| `"multiple"` \| `"range"` \| `"none"`              | Set a selection mode. Default is `"none"`. |
-| `disabled` | [`Matcher`](/api/latest/type-aliases/Matcher.mdx) \| `Matcher[]` | Disabled days that cannot be selected.     |
+| Prop Name  | Type                                                      | Description                                |
+| ---------- | --------------------------------------------------------- | ------------------------------------------ |
+| `mode`     | `"single"` \| `"multiple"` \| `"range"` \| `"none"`       | Set a selection mode. Default is `"none"`. |
+| `disabled` | [`Matcher`](/api/type-aliases/Matcher.mdx) \| `Matcher[]` | Disabled days that cannot be selected.     |
 
 ## Single Mode
 
@@ -26,11 +26,11 @@ When the `mode` prop is set to `"single"`, only one day can be selected at a tim
 <DayPicker mode="single" />
 ```
 
-| Prop Name  | Type                                                                                | Description                             |
-| ---------- | ----------------------------------------------------------------------------------- | --------------------------------------- |
-| `selected` | `Date \| undefined`                                                                 | The selected date.                      |
-| `onSelect` | [`SelectSingleEventHandler`](/api/latest/type-aliases/SelectSingleEventHandler.mdx) | Event callback when a date is selected. |
-| `required` | `boolean`                                                                           | Make the selection required.            |
+| Prop Name  | Type                                                                         | Description                             |
+| ---------- | ---------------------------------------------------------------------------- | --------------------------------------- |
+| `selected` | `Date \| undefined`                                                          | The selected date.                      |
+| `onSelect` | [`SelectSingleEventHandler`](/api/type-aliases/SelectSingleEventHandler.mdx) | Event callback when a date is selected. |
+| `required` | `boolean`                                                                    | Make the selection required.            |
 
 The following code snippet will render a date picker with a single selected date. When a day is clicked, the `selectedDate` state is updated.
 
@@ -81,12 +81,12 @@ By setting the `mode` prop to `"multiple"`, DayPicker allows selecting multiple 
 <DayPicker mode="multiple" />
 ```
 
-| Prop Name  | Type                                                                                    | Description                             |
-| ---------- | --------------------------------------------------------------------------------------- | --------------------------------------- |
-| `selected` | `Date[] \| undefined`                                                                   | The selected dates.                     |
-| `onSelect` | [`SelectMultipleEventHandler`](/api/latest/type-aliases/SelectMultipleEventHandler.mdx) | Event callback when a date is selected. |
-| `min`      | `number`                                                                                | The minimum dates that can be selected. |
-| `max`      | `number`                                                                                | The maximum dates that can be selected. |
+| Prop Name  | Type                                                                             | Description                             |
+| ---------- | -------------------------------------------------------------------------------- | --------------------------------------- |
+| `selected` | `Date[] \| undefined`                                                            | The selected dates.                     |
+| `onSelect` | [`SelectMultipleEventHandler`](/api/type-aliases/SelectMultipleEventHandler.mdx) | Event callback when a date is selected. |
+| `min`      | `number`                                                                         | The minimum dates that can be selected. |
+| `max`      | `number`                                                                         | The maximum dates that can be selected. |
 
 <BrowserWindow>
   <Examples.Multiple />
@@ -148,12 +148,12 @@ When the `mode` prop is set to `"range"`, DayPicker allows selecting a continuou
 <DayPicker mode="range" />
 ```
 
-| Prop Name  | Type                                                                              | Description                             |
-| ---------- | --------------------------------------------------------------------------------- | --------------------------------------- |
-| `selected` | [`DateRange`](/api/latest/type-aliases/DateRange.mdx)                             | The selected range.                     |
-| `onSelect` | [`SelectRangeEventHandler`](/api/latest/type-aliases/SelectRangeEventHandler.mdx) | Event callback when a date is selected. |
-| `min`      | `number`                                                                          | The minimum dates that can be selected. |
-| `max`      | `number`                                                                          | The maximum dates that can be selected. |
+| Prop Name  | Type                                                                       | Description                             |
+| ---------- | -------------------------------------------------------------------------- | --------------------------------------- |
+| `selected` | [`DateRange`](/api/type-aliases/DateRange.mdx)                             | The selected range.                     |
+| `onSelect` | [`SelectRangeEventHandler`](/api/type-aliases/SelectRangeEventHandler.mdx) | Event callback when a date is selected. |
+| `min`      | `number`                                                                   | The minimum dates that can be selected. |
+| `max`      | `number`                                                                   | The maximum dates that can be selected. |
 
 <BrowserWindow>
   <Examples.Range />
@@ -216,7 +216,7 @@ The following DayPicker requires the <kbd>Shift</kbd> key to select a range of d
 
 ## Disabling Dates
 
-To disable specific days, use the `disabled` prop. The prop accepts a [`Matcher`](/api/latest/type-aliases/Matcher.mdx) or an array of matchers that can be used to make some days not selectable.
+To disable specific days, use the `disabled` prop. The prop accepts a [`Matcher`](/api/type-aliases/Matcher.mdx) or an array of matchers that can be used to make some days not selectable.
 
 <BrowserWindow>
   <Examples.ModifiersDisabled />
