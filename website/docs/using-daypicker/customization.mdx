@@ -14,23 +14,40 @@ sidebar_position: 3
 | `hideWeekdayRow`  | `boolean`                                                | Hide the row displaying the weekday names.                       |
 | `footer`          | `ReactNode`                                              | Displays a footer below the calendar.                            |
 
-### Caption Layout
+## Caption Layout
 
-Toggling the `captionLayout` prop changes the layout of the caption. The default is `buttons`, but you can also use `dropdown` to display a dropdown with the month and year.
+Use the `captionLayout` prop to the layout of the caption used to navigate the calendar.
 
-```tsx caption="render:CaptionLayout"
+As default, DayPicker will show navigation buttons on the top corner.
+
+```tsx
+<DayPicker captionLayout="buttons" /> // Default value
+```
+
+### Dropdown Navigation
+
+Use `dropdown` or `dropdown-buttons` to display a navigation dropdown.
+
+:::warning
+
+To use this prop, you need to set both `fromYear` and `toYear`. (This requirement will be removed in a next version.)
+
+:::
+
+```tsx
 <DayPicker captionLayout="dropdown" fromYear={2010} toYear={2024} />
+<DayPicker captionLayout="dropdown-buttons" fromYear={2010} toYear={2024} />
 ```
 
 <BrowserWindow>
-  {/* <Examples.CaptionLayout /> */}
+  <Examples.Dropdown />
 </BrowserWindow>
 
 ### Outside Days
 
 By default, DayPicker hides the days falling into the other months. Use `showOutsideDays` to display them.
 
-```tsx caption="render:OutsideDays"
+```tsx
 <DayPicker showOutsideDays />
 ```
 
@@ -44,12 +61,12 @@ In a year, months can have between 4 an 6 weeks. Use `fixedWeeks` with `showOuts
 
 :::note
 
-  In the current version, this prop requires `showOutsideDays` set to work. This
-  requirement will be removed in the [next major version](/next).
+In the current version, this prop requires `showOutsideDays` set to work. This
+requirement will be removed in the next major version.
 
 :::
 
-```tsx caption="render:FixedWeeks"
+```tsx
 <DayPicker showOutsideDays fixedWeeks />
 ```
 
@@ -67,7 +84,7 @@ To display multiple months in the calendar, use the `numberOfMonths` prop.
 | `pagedNavigation` | `boolean` | Paginate the navigation.                        |
 | `reverseMonths`   | `boolean` | Render multiple months in reversed order.       |
 
-```tsx caption="render:MultipleMonths"
+```tsx
 <DayPicker numberOfMonths={2} />
 ```
 
@@ -79,7 +96,7 @@ To display multiple months in the calendar, use the `numberOfMonths` prop.
 
 With `pagedNavigation`, the navigation jumps by the specified number of months at time.
 
-```tsx caption="render:MultipleMonthsPaged"
+```tsx
 <DayPicker numberOfMonths={2} pagedNavigation />
 ```
 
@@ -96,7 +113,7 @@ To display the column with the week numbers, use the `showWeekNumber` prop. Use 
 | `showWeekNumber`    | `boolean`                     | Display the week numbers.                      |
 | `onWeekNumberClick` | `WeekNumberClickEventHandler` | Event handler when the week number is clicked. |
 
-```tsx caption="render:Weeknumber"
+```tsx
 <DayPicker showWeekNumber onWeekNumberClick={setWeekNumber} />
 ```
 

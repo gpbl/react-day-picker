@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+pagination_next: using-daypicker/styling
 ---
 
 # Getting Started
@@ -26,8 +26,9 @@ To create a simple date picker calendar,
 ```tsx
 import { useState } from "react";
 
-import "react-day-picker/style.css"; // Import the default style
+// Import the default style
 import { DayPicker } from "react-day-picker";
+import "react-day-picker/style.css";
 
 export function MyDatePicker() {
   const [selected, setSelected] = useState();
@@ -38,7 +39,6 @@ export function MyDatePicker() {
 <BrowserWindow>
   <Examples.Start />
 </BrowserWindow>
-
 
 ## Learn More
 

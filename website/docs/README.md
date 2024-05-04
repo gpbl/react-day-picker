@@ -8,6 +8,18 @@ slug: /
 
 DayPicker is a [React](https://reactjs.dev) library to create date pickers, calendars, and date inputs for web applications.
 
+```bash npm2yarn
+npm install react-day-picker date-fns
+```
+
+```tsx
+<DayPicker mode="single" selected={selected} onSelect={setSelected} />
+```
+
+<BrowserWindow>
+  <Examples.Start />
+</BrowserWindow>
+
 ## Features
 
 - Extensive props to customize and configure the calendar.
@@ -18,29 +30,6 @@ DayPicker is a [React](https://reactjs.dev) library to create date pickers, cale
 - Customizable internal components for complex use cases.
 
 DayPicker is written in TypeScript and compiled to CommonJS and ESM. It requires [date-fns](https://date-fns.org) as a peer dependency.
-
-## Example
-
-```tsx
-import { useState } from "react"
-import { DayPicker } from "react-day-picker"
-
-export function Start() {
-  const [selected, setSelected] = useState<Date>()
-
-  return (
-    <div role="application" aria-label="Date Picker">
-      <DayPicker mode="single" selected={selected} onSelect={setSelected} />
-    </div>
-  )
-}
-```
-
-<BrowserWindow>
-  <Examples.Start />
-</BrowserWindow>
-
-
 
 ## License
 

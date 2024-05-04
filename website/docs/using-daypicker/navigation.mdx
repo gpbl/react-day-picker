@@ -14,22 +14,28 @@ As default, DayPicker renders the current month. You can change the default mont
 
 For example, to render a calendar starting from September 1979:
 
-```tsx caption="render:DefaultMonth"
+```tsx
 <DayPicker defaultMonth={new Date(1979, 8)} />
 ```
+
+<BrowserWindow>
+  <Examples.DefaultMonth />
+</BrowserWindow>
 
 ## Controlling the Month
 
 To programmatically control the month displayed when navigating, use the `month` and `onMonthChange` props.
 
-| Prop Name       | Type                                                                       | Description                          |
-| --------------- | -------------------------------------------------------------------------- | ------------------------------------ |
-| `month`         | `Date`                                                                     | The month displayed in the calendar. |
-| `onMonthChange` | [`MonthChangeEventHandler`](/api/type-aliases/MonthChangeEventHandler.mdx) | Callback when the month change.      |
+| Prop Name       | Type                                                                        | Description                          |
+| --------------- | --------------------------------------------------------------------------- | ------------------------------------ |
+| `month`         | `Date`                                                                      | The month displayed in the calendar. |
+| `onMonthChange` | [`MonthChangeEventHandler`](../api/type-aliases/MonthChangeEventHandler.md) | Callback when the month change.      |
+
+### "Today" Button
 
 For example, to implement a <strong>Go to Today</strong> button, set `month` to the current date when the button is clicked.
 
-```tsx caption="render:Controlled"
+```tsx
 import { useState } from "react";
 
 import { addMonths } from "date-fns";
@@ -50,6 +56,10 @@ export function Controlled() {
 }
 ```
 
+<BrowserWindow>
+  <Examples.Controlled />
+</BrowserWindow>
+
 ## Navigation Between Dates
 
 Limit the dates the user can navigate to by using the `from*`, `to*` props.
@@ -63,9 +73,13 @@ Limit the dates the user can navigate to by using the `from*`, `to*` props.
 | `fromDate`  | `Date`   | The earliest day to start the navigation.   |
 | `toDate`    | `Date`   | The latest day to end the navigation.       |
 
-```tsx caption="render:FromToYear"
+```tsx
 <DayPicker defaultMonth={new Date(2024, 0)} fromYear={2024} toYear={2026} />
 ```
+
+<BrowserWindow>
+  <Examples.FromToYear />
+</BrowserWindow>
 
 ## Disabling Navigation
 
@@ -75,6 +89,10 @@ To prevent the user from navigating between months, set the `disableNavigation` 
 | ------------------- | --------- | -------------------------------------- |
 | `disableNavigation` | `boolean` | Disable the navigation between months. |
 
-```tsx caption="render:DisableNavigation"
+```tsx
 <DayPicker disableNavigation />
 ```
+
+<BrowserWindow>
+  <Examples.DisableNavigation />
+</BrowserWindow>
