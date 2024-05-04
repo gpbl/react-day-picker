@@ -83,9 +83,10 @@
   border-bottom-right-radius: inherit;
   padding: 1rem;
   display: flex;
-  overflow: auto;
+  justify-content: center;
 }
 
-.browserWindowBody > *:last-child {
-  margin-bottom: 0;
+.overflow {
+  width: 100%;
+  overflow: auto;
 }

@@ -1,6 +1,5 @@
 ---
 sidebar_position: 2
-description: "Extend and customize the style of DayPicker using CSS."
 ---
 
 # Styling
@@ -18,7 +17,7 @@ To start with the included styles, import `react-day-picker/style.css` into your
 
 If you are using a React framework, such as [Next.js](http://nextjs.org) or [Gatsby](https://www.gatsbyjs.com), or a bundler like Webpack with [css-loader](https://webpack.js.org/loaders/css-loader/), import the CSS file from your app's main JavaScript or TypeScript file:
 
-```tsx title="app.jsx"
+```tsx title="./App.jsx"
 import "react-day-picker/style.css";
 ```
 
@@ -29,7 +28,7 @@ import "react-day-picker/style.css";
 
 When using CSS modules, you can import `style.module.css`. Pass the class names to the `classNames` prop.
 
-```tsx title="DatePicker.jsx"
+```tsx title="./DatePicker.jsx"
 import { DayPicker } from "react-day-picker";
 import dayPickerClassNames from "react-day-picker/style.module.css";
 
@@ -44,7 +43,7 @@ export function DatePicker() {
 
 The default styles use CSS variables to make it easier to customize the base appearance of the calendar. You can override the CSS variables to change the appearance of the calendar.
 
-```css title="global.css"
+```css title="./app/global.css"
 :root {
   --rdp-accent-color: indigo;
   --rdp-background-color: gray;
@@ -77,8 +76,6 @@ To toggle between dark and light appearance, you can switch the CSS variables:
 }
 ```
 
----
-
 ## Custom Style
 
 Use the `classNames` prop to use other classnames instead of the default ones.
@@ -93,17 +90,21 @@ Use the `classNames` prop to use other classnames instead of the default ones.
 
 To change the appearance of any DayPicker element via inline-styles use the `styles` prop.
 
-Using inline styles won't override the default class names. Mouse hover effects cannot be styled inline.
+:::warning
+
+Mouse hover effects cannot be styled inline.
+
+:::
 
 ```tsx
 const monthCaptionStyle = {
   borderBottom: "1px solid currentColor",
-  paddingBottom: "0.5em",
+  paddingBottom: "0.5em"
 };
 // ...
 <DayPicker
   styles={{
-    month_caption: monthCaptionStyle,
+    month_caption: monthCaptionStyle
   }}
 />;
 ```

@@ -45,7 +45,6 @@ const config: Config = {
       } satisfies Preset.Options
     ]
   ],
-  themes: ["@docusaurus/theme-live-codeblock"],
 
   themeConfig: {
     image: "img/social-card.jpg",
@@ -82,7 +81,7 @@ const config: Config = {
         {
           href: "https://github.com/gpbl/react-day-picker",
           label: "GitHub",
-          position: "right"
+          position: "left"
         }
         // {
         //   type: "search",
