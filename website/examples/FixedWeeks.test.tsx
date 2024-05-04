@@ -1,5 +1,6 @@
 import { screen } from "@testing-library/react";
-import { renderApp } from "react-day-picker/test";
+
+import { renderApp } from "@/test";
 
 import { FixedWeeks } from "./Fixedweeks";
 

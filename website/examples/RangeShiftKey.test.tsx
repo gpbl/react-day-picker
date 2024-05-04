@@ -1,5 +1,6 @@
 import { fireEvent, screen } from "@testing-library/react";
-import { renderApp, user } from "react-day-picker/test";
+
+import { renderApp, user } from "@/test";
 
 import { RangeShiftKey } from "./RangeShiftKey";
 

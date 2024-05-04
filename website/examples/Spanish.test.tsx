@@ -1,4 +1,4 @@
-import { grid, renderApp } from "react-day-picker/test";
+import { grid, renderApp } from "@/test";
 
 import { Spanish } from "./Spanish";
 

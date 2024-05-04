@@ -15,7 +15,7 @@ import {
   gridcell,
   nextButton,
   previousButton
- renderApp , user } from "react-day-picker/test";
+ renderApp , user } from "@/test";
 import { act } from "@testing-library/react";
 
 import { Keyboard } from "./Keyboard";

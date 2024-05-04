@@ -1,5 +1,6 @@
 import { addDays } from "date-fns";
-import { app, gridcell, renderApp, user } from "react-day-picker/test";
+
+import { app, gridcell, renderApp, user } from "@/test";
 
 import { ModifiersToday } from "./ModifiersToday";
 

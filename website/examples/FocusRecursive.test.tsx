@@ -1,9 +1,4 @@
-import {
-  activeElement,
-  gridcell,
-  renderApp,
-  user
-} from "react-day-picker/test";
+import { activeElement, gridcell, renderApp, user } from "@/test";
 
 import { FocusRecursive } from "./FocusRecursive";
 

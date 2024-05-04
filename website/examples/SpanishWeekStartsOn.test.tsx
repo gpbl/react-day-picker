@@ -1,4 +1,4 @@
-import { columnheader, renderApp } from "react-day-picker/test";
+import { columnheader, renderApp } from "@/test";
 
 import { SpanishWeekStartsOn } from "./SpanishWeekStartsOn";
 

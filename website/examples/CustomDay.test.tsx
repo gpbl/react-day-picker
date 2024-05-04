@@ -1,4 +1,4 @@
-import { renderApp, app } from "react-day-picker/test";
+import { renderApp, app } from "@/test";
 
 import { CustomDay } from "./CustomDay";
 

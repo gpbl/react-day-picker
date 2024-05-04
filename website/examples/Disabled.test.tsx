@@ -1,5 +1,6 @@
 import { act, screen } from "@testing-library/react";
-import { app, grid, gridcell, renderApp, user } from "react-day-picker/test";
+
+import { app, grid, gridcell, renderApp, user } from "@/test";
 
 import { Disabled } from "./Disabled";
 

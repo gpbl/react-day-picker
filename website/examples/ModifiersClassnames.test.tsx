@@ -1,4 +1,4 @@
-import { gridcell, renderApp } from "react-day-picker/test";
+import { gridcell, renderApp } from "@/test";
 
 import { ModifiersClassnames } from "./ModifiersClassnames";
 

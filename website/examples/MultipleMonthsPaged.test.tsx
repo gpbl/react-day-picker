@@ -1,5 +1,6 @@
 import { screen } from "@testing-library/react";
-import { previousButton, renderApp, user } from "react-day-picker/test";
+
+import { previousButton, renderApp, user } from "@/test";
 
 import { MultipleMonthsPaged } from "./MultipleMonthsPaged";
 

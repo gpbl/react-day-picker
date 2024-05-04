@@ -1,4 +1,4 @@
-import { app, renderApp } from "react-day-picker/test";
+import { app, renderApp } from "@/test";
 
 import { StylingCssModules } from "./StylingCssModules";
 

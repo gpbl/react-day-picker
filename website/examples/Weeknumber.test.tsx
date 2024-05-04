@@ -1,4 +1,4 @@
-import { app, rowheader, renderApp, user } from "react-day-picker/test";
+import { app, rowheader, renderApp, user } from "@/test";
 
 import { Weeknumber } from "./WeekNumber";
 

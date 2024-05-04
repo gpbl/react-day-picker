@@ -1,5 +1,6 @@
 import { screen } from "@testing-library/react";
-import { renderApp, user } from "react-day-picker/test";
+
+import { renderApp, user } from "@/test";
 
 /* eslint-disable jest/no-disabled-tests */
 import { Testcase1567 } from "./Testcase1567";

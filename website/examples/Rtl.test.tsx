@@ -1,11 +1,4 @@
-import {
-  app,
-  grid,
-  nextButton,
-  previousButton,
-  renderApp,
-  user
-} from "react-day-picker/test";
+import { app, grid, nextButton, previousButton, renderApp, user } from "@/test";
 
 import { Rtl } from "./Rtl";
 

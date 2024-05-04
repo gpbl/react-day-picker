@@ -1,10 +1,6 @@
 import { differenceInMonths } from "date-fns";
-import {
-  nextButton,
-  previousButton,
-  renderApp,
-  user
-} from "react-day-picker/test";
+
+import { nextButton, previousButton, renderApp, user } from "@/test";
 
 import { FromToMonth } from "./FromToMonth";
 

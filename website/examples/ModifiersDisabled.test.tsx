@@ -1,5 +1,6 @@
 import { render } from "@testing-library/react";
-import { gridcell } from "react-day-picker/test";
+
+import { gridcell } from "@/test";
 
 import { ModifiersDisabled } from "./ModifiersDisabled";
 

@@ -1,5 +1,6 @@
 import { addDays } from "date-fns";
-import { gridcell, renderApp, user } from "react-day-picker/test";
+
+import { gridcell, renderApp, user } from "@/test";
 
 import { MultipleMinMax } from "./MultipleMinMax";
 

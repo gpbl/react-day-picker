@@ -1,5 +1,6 @@
 import { screen } from "@testing-library/react";
-import { grid, renderApp } from "react-day-picker/test";
+
+import { grid, renderApp } from "@/test";
 
 import { NumberingSystem } from "./NumberingSystem";
 

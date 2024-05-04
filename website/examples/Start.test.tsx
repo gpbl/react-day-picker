@@ -4,7 +4,7 @@ import {
   getPrevButton,
   renderApp,
   user
-} from "react-day-picker/test";
+} from "@/test";
 
 import { Start } from "./Start";
 
