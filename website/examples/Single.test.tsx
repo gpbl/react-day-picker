@@ -1,6 +1,4 @@
-import { app, gridcell } from "@/test/elements";
-import { renderApp } from "@/test/renderApp";
-import { user } from "@/test/user";
+import { app, gridcell, renderApp, user } from "react-day-picker/test";
 
 import { Single } from "./Single";
 

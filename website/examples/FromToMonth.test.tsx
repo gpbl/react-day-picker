@@ -1,24 +1,26 @@
-import { differenceInMonths } from 'date-fns';
+import { differenceInMonths } from "date-fns";
+import {
+  nextButton,
+  previousButton,
+  renderApp,
+  user
+} from "react-day-picker/test";
 
-import { nextButton, previousButton } from '@/test/elements';
-import { renderApp } from '@/test/renderApp';
-import { user } from '@/test/user';
-
-import { FromToMonth } from './FromToMonth';
+import { FromToMonth } from "./FromToMonth";
 
 beforeEach(() => {
   renderApp(<FromToMonth />);
 });
 
-test('the previous button should be aria-disabled', () => {
-  expect(previousButton()).toHaveAttribute('aria-disabled', 'true');
+test("the previous button should be aria-disabled", () => {
+  expect(previousButton()).toHaveAttribute("aria-disabled", "true");
 });
 
-test('the next button should be aria-disabled', () => {
-  expect(nextButton()).not.toHaveAttribute('aria-disabled');
+test("the next button should be aria-disabled", () => {
+  expect(nextButton()).not.toHaveAttribute("aria-disabled");
 });
 
-describe('when navigating to the last month', () => {
+describe("when navigating to the last month", () => {
   const fromDate = new Date(2015, 5);
   const toDate = new Date(2015, 10);
   const nOfMonths = differenceInMonths(toDate, fromDate);
@@ -28,11 +30,11 @@ describe('when navigating to the last month', () => {
     }
   });
 
-  test('the previous button should not be disabled', () => {
-    expect(previousButton()).not.toHaveAttribute('aria-disabled');
+  test("the previous button should not be disabled", () => {
+    expect(previousButton()).not.toHaveAttribute("aria-disabled");
   });
 
-  test('the next button should be disabled', () => {
-    expect(nextButton()).toHaveAttribute('aria-disabled', 'true');
+  test("the next button should be disabled", () => {
+    expect(nextButton()).toHaveAttribute("aria-disabled", "true");
   });
 });

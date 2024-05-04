@@ -9,6 +9,7 @@ import React, { type CSSProperties, type ReactNode } from "react";
 import clsx from "clsx";
 
 import styles from "./BrowserWindow.module.css";
+import { ShadowDomWrapper } from "./ShadowDomWrapper";
 
 interface Props {
   children: ReactNode;
@@ -49,7 +50,7 @@ export function BrowserWindow({
         </div>
 
         <div className={styles.browserWindowBody} style={bodyStyle}>
-          {children}
+          <ShadowDomWrapper>{children}</ShadowDomWrapper>
         </div>
       </div>
     </div>

@@ -1,5 +1,4 @@
-import { app } from "@/test/elements";
-import { renderApp } from "@/test/renderApp";
+import { app, renderApp } from "react-day-picker/test";
 
 import { ContainerAttributes } from "./ContainerAttributes";
 

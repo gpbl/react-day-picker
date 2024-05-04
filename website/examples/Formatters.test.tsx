@@ -1,12 +1,11 @@
-import { app } from '@/test/elements';
-import { renderApp } from '@/test/renderApp';
+import { app, renderApp } from "react-day-picker/test";
 
-import { Formatters } from './Formatters';
+import { Formatters } from "./Formatters";
 
 const today = new Date(2021, 10, 25);
 jest.useFakeTimers().setSystemTime(today);
 
-test('should display the autumn emoji', () => {
+test("should display the autumn emoji", () => {
   renderApp(<Formatters />);
-  expect(app()).toHaveTextContent('🍂');
+  expect(app()).toHaveTextContent("🍂");
 });

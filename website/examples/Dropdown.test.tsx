@@ -1,6 +1,10 @@
-import { grid, monthDropdown, yearDropdown } from "@/test/elements";
-import { renderApp } from "@/test/renderApp";
-import { user } from "@/test/user";
+import {
+  grid,
+  monthDropdown,
+  yearDropdown,
+  renderApp,
+  user
+} from "react-day-picker/test";
 
 import { CaptionLayout } from "./Dropdown";
 

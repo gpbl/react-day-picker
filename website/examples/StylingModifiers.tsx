@@ -1,7 +1,7 @@
-import { addDays } from 'date-fns';
-import { DayPicker } from 'react-day-picker';
+import { addDays } from "date-fns";
+import { DayPicker } from "react-day-picker";
 
-import customStyles from './styles/styling-modifiers.module.css';
+import customStyles from "./styles/styling-modifiers.module.css";
 
 const today = new Date();
 const beforeYesterday = addDays(today, -2);
@@ -18,7 +18,7 @@ export function StylingModifiers() {
       modifiersStyles={{
         disabled: {
           // Add a line-through style to the disabled days
-          textDecoration: 'line-through'
+          textDecoration: "line-through"
         }
       }}
     />

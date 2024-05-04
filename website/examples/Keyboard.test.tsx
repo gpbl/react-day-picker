@@ -1,3 +1,4 @@
+import { act } from "@testing-library/react";
 import {
   addDays,
   addMonths,
@@ -6,18 +7,15 @@ import {
   endOfWeek,
   lastDayOfMonth,
   setDate,
-  startOfWeek,
+  startOfWeek
 } from "date-fns";
-
 import {
   activeElement,
   grid,
   gridcell,
   nextButton,
-  previousButton,
-} from "@/test/elements";
-import { renderApp } from "@/test/renderApp";
-import { user } from "@/test/user";
+  previousButton
+ renderApp , user } from "react-day-picker/test";
 import { act } from "@testing-library/react";
 
 import { Keyboard } from "./Keyboard";
@@ -130,7 +128,7 @@ describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
     });
     describe("when Shift + Page Up is pressed", () => {
       beforeEach(() =>
-        act(() => user.type(activeElement(), "{shift>}{pageup}")),
+        act(() => user.type(activeElement(), "{shift>}{pageup}"))
       );
       it("should display the previous year", () => {
         expect(grid("June 2021")).toBeInTheDocument();
@@ -141,7 +139,7 @@ describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
     });
     describe("when Shift + Page Down is pressed", () => {
       beforeEach(() =>
-        act(() => user.type(activeElement(), "{shift>}{pagedown}")),
+        act(() => user.type(activeElement(), "{shift>}{pagedown}"))
       );
       it("should display the next year", () => {
         expect(grid("June 2023")).toBeInTheDocument();

@@ -33,11 +33,12 @@
   --ifm-table-border-width: 0;
   --ifm-tabs-padding-vertical: 0.25rem;
   --ifm-tabs-padding-horizontal: 0.5rem;
-  --ifm-global-spacing: 0.65rem;
+  --ifm-global-spacing: 0.75rem;
 
   /* --ifm-navbar-background-color: #eeeeff; */
 
   --doc-sidebar-width: 260px !important;
+  --ifm-alert-border-left-width: 2px;
 
   --ifm-menu-link-sublist-icon: url(/img/chevron.svg);
 }
@@ -153,7 +154,7 @@ a > code {
 
 a.menu__link {
   transition: unset;
-  font-size: 0.9rem;
+  font-size: smaller;
   background: unset;
   line-height: 1.5;
 }
@@ -197,7 +198,7 @@ a.table-of-contents__link:not(:hover):not(.table-of-contents__link--active) {
 }
 
 div.theme-doc-toc-desktop {
-  top: calc(var(--ifm-navbar-height) - 2rem + 3rem);
+  top: calc(var(--ifm-navbar-height) + 3rem);
 }
 
 a.theme-edit-this-page {
@@ -210,7 +211,7 @@ a.theme-edit-this-page > svg {
 
 div.theme-admonition {
   font-size: 0.875rem;
-  border-left-width: 0.2rem;
+  border-left-width: 0.1rem;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   border-radius: 0;

@@ -1,4 +1,4 @@
-import { DayPicker } from 'react-day-picker';
+import { DayPicker } from "react-day-picker";
 
 const bookedDays = [
   new Date(2021, 5, 8),
@@ -22,7 +22,7 @@ export function ModifiersClassnames() {
           booked: bookedDays
         }}
         modifiersClassNames={{
-          booked: 'my-booked-class'
+          booked: "my-booked-class"
         }}
       />
     </>

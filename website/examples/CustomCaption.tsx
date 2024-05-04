@@ -26,7 +26,7 @@ export function CustomCaption() {
   return (
     <DayPicker
       components={{
-        MonthCaption: CustomMonthCaption,
+        MonthCaption: CustomMonthCaption
       }}
     />
   );

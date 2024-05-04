@@ -6,6 +6,7 @@ const sidebars: SidebarsConfig = {
     "start",
     "changelog",
     "upgrading",
+    "license",
     {
       type: "category",
       label: "Using DayPicker",
@@ -38,8 +39,7 @@ const sidebars: SidebarsConfig = {
           dirName: "development"
         }
       ]
-    },
-    "license"
+    }
   ],
   api: ["api/index", require("./docs/api/typedoc-sidebar.cjs")]
 };

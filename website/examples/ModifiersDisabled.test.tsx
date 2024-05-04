@@ -1,7 +1,7 @@
-import { gridcell } from '@/test/elements';
-import { render } from '@testing-library/react';
+import { render } from "@testing-library/react";
+import { gridcell } from "react-day-picker/test";
 
-import { ModifiersDisabled } from './ModifiersDisabled';
+import { ModifiersDisabled } from "./ModifiersDisabled";
 
 const days = [
   new Date(2022, 5, 10),
@@ -15,6 +15,6 @@ beforeEach(() => {
   render(<ModifiersDisabled />);
 });
 
-test.each(days)('the day %s should be disabled', (day) => {
-  expect(gridcell(day)).toHaveAttribute('aria-disabled', 'true');
+test.each(days)("the day %s should be disabled", (day) => {
+  expect(gridcell(day)).toHaveAttribute("aria-disabled", "true");
 });

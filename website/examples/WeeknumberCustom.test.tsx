@@ -1,5 +1,4 @@
-import { rowheader } from "@/test/elements";
-import { renderApp } from "@/test/renderApp";
+import { rowheader, renderApp } from "react-day-picker/test";
 
 import { WeeknumberCustom } from "./WeeknumberCustom";
 

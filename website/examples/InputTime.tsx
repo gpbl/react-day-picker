@@ -1,10 +1,10 @@
-import { ChangeEventHandler, useState } from 'react';
+import { ChangeEventHandler, useState } from "react";
 
-import { DayPicker } from 'react-day-picker';
+import { DayPicker } from "react-day-picker";
 
 export function InputTime() {
   const [selected, setSelected] = useState<Date>();
-  const [timeValue, setTimeValue] = useState<string>('00:00');
+  const [timeValue, setTimeValue] = useState<string>("00:00");
 
   const handleTimeChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const time = e.target.value;
@@ -12,7 +12,7 @@ export function InputTime() {
       setTimeValue(time);
       return;
     }
-    const [hours, minutes] = time.split(':').map((str) => parseInt(str, 10));
+    const [hours, minutes] = time.split(":").map((str) => parseInt(str, 10));
     const newSelectedDate = new Date(
       selected.getFullYear(),
       selected.getMonth(),
@@ -30,7 +30,7 @@ export function InputTime() {
       return;
     }
     const [hours, minutes] = timeValue
-      .split(':')
+      .split(":")
       .map((str) => parseInt(str, 10));
     const newDate = new Date(
       date.getFullYear(),
@@ -51,7 +51,7 @@ export function InputTime() {
         footer={
           <>
             <p>
-              Pick a time:{' '}
+              Pick a time:{" "}
               <input
                 type="time"
                 value={timeValue}
@@ -59,7 +59,7 @@ export function InputTime() {
               />
             </p>
             <p>
-              Selected date: {selected ? selected.toLocaleString() : 'none'}
+              Selected date: {selected ? selected.toLocaleString() : "none"}
             </p>
           </>
         }

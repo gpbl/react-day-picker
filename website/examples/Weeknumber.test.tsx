@@ -1,8 +1,6 @@
-import { app, rowheader } from "@/test/elements";
-import { renderApp } from "@/test/renderApp";
-import { user } from "@/test/user";
+import { app, rowheader, renderApp, user } from "react-day-picker/test";
 
-import { Weeknumber } from "./Weeknumber";
+import { Weeknumber } from "./WeekNumber";
 
 const today = new Date(2021, 10, 25);
 jest.useFakeTimers().setSystemTime(today);

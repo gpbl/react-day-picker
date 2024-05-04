@@ -1,9 +1,8 @@
-import { columnheader } from '@/test/elements';
-import { renderApp } from '@/test/renderApp';
+import { columnheader, renderApp } from "react-day-picker/test";
 
-import { SpanishWeekStartsOn } from './SpanishWeekStartsOn';
+import { SpanishWeekStartsOn } from "./SpanishWeekStartsOn";
 
 test('should have "domingo" as first day of week', () => {
   renderApp(<SpanishWeekStartsOn />);
-  expect(columnheader('domingo')).toBeInTheDocument();
+  expect(columnheader("domingo")).toBeInTheDocument();
 });

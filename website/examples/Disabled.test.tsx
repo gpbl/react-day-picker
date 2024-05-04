@@ -1,7 +1,5 @@
-import { app, grid, gridcell } from "@/test/elements";
-import { renderApp } from "@/test/renderApp";
-import { user } from "@/test/user";
 import { act, screen } from "@testing-library/react";
+import { app, grid, gridcell, renderApp, user } from "react-day-picker/test";
 
 import { Disabled } from "./Disabled";
 
@@ -16,7 +14,7 @@ beforeEach(async () => {
 
 test("should not display the previous button", () => {
   expect(
-    screen.queryByRole("button", { name: "Previous month" }),
+    screen.queryByRole("button", { name: "Previous month" })
   ).not.toBeInTheDocument();
 });
 

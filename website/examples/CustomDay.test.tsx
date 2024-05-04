@@ -1,15 +1,18 @@
-import { app } from '@/test/elements';
-import { renderApp } from '@/test/renderApp';
+import { renderApp, app } from "react-day-picker/test";
 
-import { CustomDay } from './CustomDay';
+import { CustomDay } from "./CustomDay";
 
 jest.useFakeTimers().setSystemTime(new Date(2021, 10, 25));
 
 beforeEach(() => {
-  renderApp(<CustomDay />);
+  renderApp(
+    <div role="app">
+      <CustomDay />
+    </div>
+  );
 });
 
-test('should render time elements', () => {
-  const timeElements = app().getElementsByTagName('time');
+test("should render time elements", () => {
+  const timeElements = app().getElementsByTagName("time");
   expect(timeElements).toHaveLength(35);
 });

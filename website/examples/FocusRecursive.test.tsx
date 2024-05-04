@@ -1,8 +1,11 @@
-import { activeElement, gridcell } from '@/test/elements';
-import { renderApp } from '@/test/renderApp';
-import { user } from '@/test/user';
+import {
+  activeElement,
+  gridcell,
+  renderApp,
+  user
+} from "react-day-picker/test";
 
-import { FocusRecursive } from './FocusRecursive';
+import { FocusRecursive } from "./FocusRecursive";
 
 const today = new Date(2022, 5, 10);
 jest.useFakeTimers().setSystemTime(today);
@@ -12,12 +15,12 @@ beforeEach(async () => {
   await user.tab();
   await user.tab();
   await user.tab();
-  await user.type(activeElement(), '{arrowdown}');
-  await user.type(activeElement(), '{arrowdown}');
-  await user.type(activeElement(), '{arrowdown}');
-  await user.type(activeElement(), '{arrowdown}');
+  await user.type(activeElement(), "{arrowdown}");
+  await user.type(activeElement(), "{arrowdown}");
+  await user.type(activeElement(), "{arrowdown}");
+  await user.type(activeElement(), "{arrowdown}");
 });
 
-test('the first selected day should have focus', () => {
+test("the first selected day should have focus", () => {
   expect(gridcell(new Date(2022, 5, 22))).toHaveFocus();
 });

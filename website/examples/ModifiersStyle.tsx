@@ -1,10 +1,10 @@
-import { DayPicker } from 'react-day-picker';
+import { DayPicker } from "react-day-picker";
 
 const availableDays = [new Date(2021, 5, 23), new Date(2021, 5, 24)];
 
 const availableStyle = {
   fontWeight: 900,
-  color: 'lightgreen'
+  color: "lightgreen"
 };
 
 export function ModifiersStyle() {

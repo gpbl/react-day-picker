@@ -1,7 +1,5 @@
-import { grid } from "@/test/elements";
-import { renderApp } from "@/test/renderApp";
-import { user } from "@/test/user";
 import { screen } from "@testing-library/react";
+import { grid, renderApp, user } from "react-day-picker/test";
 
 import { Controlled } from "./Controlled";
 

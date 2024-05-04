@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import { isSameDay } from 'date-fns';
-import { DayMouseEventHandler, DayPicker } from 'react-day-picker';
+import { isSameDay } from "date-fns";
+import { DayMouseEventHandler, DayPicker } from "react-day-picker";
 
 export function CustomMultiple() {
   const [value, setValue] = useState<Date[]>([]);
@@ -24,7 +24,7 @@ export function CustomMultiple() {
   if (value.length > 0)
     footer = (
       <>
-        You selected {value.length} days.{' '}
+        You selected {value.length} days.{" "}
         <button onClick={handleResetClick}>Reset</button>
       </>
     );

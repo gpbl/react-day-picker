@@ -1,10 +1,7 @@
-import { addDays } from 'date-fns';
+import { addDays } from "date-fns";
+import { gridcell, renderApp, user } from "react-day-picker/test";
 
-import { gridcell } from '@/test/elements';
-import { renderApp } from '@/test/renderApp';
-import { user } from '@/test/user';
-
-import { MultipleMinMax } from './MultipleMinMax';
+import { MultipleMinMax } from "./MultipleMinMax";
 
 const today = new Date(2021, 10, 10);
 jest.useFakeTimers().setSystemTime(today);
@@ -21,38 +18,38 @@ beforeEach(() => {
   renderApp(<MultipleMinMax />);
 });
 
-describe('when a day is clicked', () => {
+describe("when a day is clicked", () => {
   beforeEach(async () => {
     await user.click(gridcell(days[0]));
   });
-  test('should appear as selected', () => {
-    expect(gridcell(days[0])).toHaveAttribute('aria-selected', 'true');
+  test("should appear as selected", () => {
+    expect(gridcell(days[0])).toHaveAttribute("aria-selected", "true");
   });
-  describe('when a second day is clicked', () => {
+  describe("when a second day is clicked", () => {
     beforeEach(async () => {
       await user.click(gridcell(days[1]));
     });
-    test('the first day should appear as selected', () => {
-      expect(gridcell(days[0])).toHaveAttribute('aria-selected', 'true');
+    test("the first day should appear as selected", () => {
+      expect(gridcell(days[0])).toHaveAttribute("aria-selected", "true");
     });
-    test('the second day should appear as selected', () => {
-      expect(gridcell(days[1])).toHaveAttribute('aria-selected', 'true');
+    test("the second day should appear as selected", () => {
+      expect(gridcell(days[1])).toHaveAttribute("aria-selected", "true");
     });
-    describe('when clicked again', () => {
+    describe("when clicked again", () => {
       beforeEach(async () => {
         await user.click(gridcell(days[1]));
       });
-      test('the first day should still appear as selected', () => {
-        expect(gridcell(days[0])).toHaveAttribute('aria-selected', 'true');
+      test("the first day should still appear as selected", () => {
+        expect(gridcell(days[0])).toHaveAttribute("aria-selected", "true");
       });
-      test('the second day should still appear as selected', () => {
-        expect(gridcell(days[1])).toHaveAttribute('aria-selected', 'true');
+      test("the second day should still appear as selected", () => {
+        expect(gridcell(days[1])).toHaveAttribute("aria-selected", "true");
       });
     });
   });
 });
 
-describe('when the first 5 days are clicked', () => {
+describe("when the first 5 days are clicked", () => {
   beforeEach(async () => {
     await user.click(gridcell(days[0]));
     await user.click(gridcell(days[1]));
@@ -60,11 +57,11 @@ describe('when the first 5 days are clicked', () => {
     await user.click(gridcell(days[3]));
     await user.click(gridcell(days[4]));
   });
-  test.each(days)('the %s day should appear as selected', (day) => {
-    expect(gridcell(day)).toHaveAttribute('aria-selected', 'true');
+  test.each(days)("the %s day should appear as selected", (day) => {
+    expect(gridcell(day)).toHaveAttribute("aria-selected", "true");
   });
-  test('the sixth day should not appear as selected', () => {
+  test("the sixth day should not appear as selected", () => {
     const day6 = addDays(today, 5);
-    expect(gridcell(day6)).not.toHaveAttribute('aria-selected');
+    expect(gridcell(day6)).not.toHaveAttribute("aria-selected");
   });
 });

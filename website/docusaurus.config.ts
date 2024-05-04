@@ -52,11 +52,7 @@ const config: Config = {
       {
         entryPoints: ["../src/index.ts"],
         tsconfig: "../tsconfig-docs.json",
-        watch: process.env.TYPEDOC_WATCH,
-        frontmatterGlobals: {
-          pagination_next: null,
-          pagination_prev: null
-        }
+        watch: process.env.TYPEDOC_WATCH
       }
     ]
   ],
@@ -80,16 +76,16 @@ const config: Config = {
         //   dropdownItemsAfter: [{ to: "/versions", label: "All versions" }],
         //   dropdownActiveClassDisabled: true
         // },
-        // {
-        //   type: "docSidebar",
-        //   sidebarId: "docs",
-        //   position: "left",
-        //   label: "Documentation"
-        // },
+        {
+          type: "docSidebar",
+          sidebarId: "docs",
+          position: "left",
+          label: "Documentation"
+        },
         {
           type: "docSidebar",
           sidebarId: "api",
-          position: "right",
+          position: "left",
           label: "API Reference"
         },
         {

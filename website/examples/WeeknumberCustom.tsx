@@ -1,5 +1,5 @@
-import { addMonths } from 'date-fns';
-import { DayPicker } from 'react-day-picker';
+import { addMonths } from "date-fns";
+import { DayPicker } from "react-day-picker";
 
 const today = new Date(2021, 0, 1);
 

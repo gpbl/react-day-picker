@@ -1,11 +1,10 @@
-import { renderApp } from '@/test/renderApp';
-import { user } from '@/test/user';
-import { fireEvent, screen } from '@testing-library/react';
+import { fireEvent, screen } from "@testing-library/react";
+import { renderApp, user } from "react-day-picker/test";
 
-import { RangeShiftKey } from './RangeShiftKey';
+import { RangeShiftKey } from "./RangeShiftKey";
 
 const gridcell = (day: number) => {
-  return screen.getByRole('gridcell', { name: day.toString() });
+  return screen.getByRole("gridcell", { name: day.toString() });
 };
 
 beforeEach(() => {
@@ -16,66 +15,66 @@ afterEach(() => {
   jest.restoreAllMocks();
 });
 
-describe('when a day is clicked', () => {
+describe("when a day is clicked", () => {
   beforeEach(async () => {
     await user.click(gridcell(1));
   });
-  test('the clicked day should be selected', () => {
-    expect(gridcell(1)).toHaveAttribute('aria-selected', 'true');
+  test("the clicked day should be selected", () => {
+    expect(gridcell(1)).toHaveAttribute("aria-selected", "true");
   });
-  describe('when the day is clicked again', () => {
+  describe("when the day is clicked again", () => {
     beforeEach(async () => {
       await user.click(gridcell(1));
     });
-    test('the clicked day should not  be selected', () => {
-      expect(gridcell(1)).not.toHaveAttribute('aria-selected', 'true');
+    test("the clicked day should not  be selected", () => {
+      expect(gridcell(1)).not.toHaveAttribute("aria-selected", "true");
     });
   });
-  describe('when another day is clicked', () => {
+  describe("when another day is clicked", () => {
     beforeEach(async () => {
       await user.click(gridcell(2));
     });
-    test('the clicked day should be selected', () => {
-      expect(gridcell(2)).toHaveAttribute('aria-selected', 'true');
+    test("the clicked day should be selected", () => {
+      expect(gridcell(2)).toHaveAttribute("aria-selected", "true");
     });
-    test('the previous clicked day should not be selected', () => {
-      expect(gridcell(1)).not.toHaveAttribute('aria-selected', 'true');
+    test("the previous clicked day should not be selected", () => {
+      expect(gridcell(1)).not.toHaveAttribute("aria-selected", "true");
     });
   });
-  describe('while pressing the shift key', () => {
+  describe("while pressing the shift key", () => {
     beforeEach(() => {
       fireEvent.keyDown(window, {
-        key: 'Shift',
-        code: 'ShiftLeft',
+        key: "Shift",
+        code: "ShiftLeft",
         shiftKey: true
       });
     });
 
-    describe('when another day is clicked', () => {
+    describe("when another day is clicked", () => {
       beforeEach(async () => {
         await user.click(gridcell(2));
       });
-      test('the clicked day should be selected', () => {
-        expect(gridcell(2)).toHaveAttribute('aria-selected', 'true');
+      test("the clicked day should be selected", () => {
+        expect(gridcell(2)).toHaveAttribute("aria-selected", "true");
       });
-      test('the previous clicked day should be selected', () => {
-        expect(gridcell(1)).toHaveAttribute('aria-selected', 'true');
+      test("the previous clicked day should be selected", () => {
+        expect(gridcell(1)).toHaveAttribute("aria-selected", "true");
       });
     });
 
-    describe('when this shift key is released', () => {
+    describe("when this shift key is released", () => {
       beforeEach(() => {
-        fireEvent.keyUp(window, { key: 'Shift', code: 'ShiftLeft' }); // Release Shift key
+        fireEvent.keyUp(window, { key: "Shift", code: "ShiftLeft" }); // Release Shift key
       });
-      describe('when another day is clicked', () => {
+      describe("when another day is clicked", () => {
         beforeEach(async () => {
           await user.click(gridcell(3));
         });
-        test('the clicked day should be selected', () => {
-          expect(gridcell(3)).toHaveAttribute('aria-selected', 'true');
+        test("the clicked day should be selected", () => {
+          expect(gridcell(3)).toHaveAttribute("aria-selected", "true");
         });
-        test('the previous clicked day should not be selected', () => {
-          expect(gridcell(1)).not.toHaveAttribute('aria-selected', 'true');
+        test("the previous clicked day should not be selected", () => {
+          expect(gridcell(1)).not.toHaveAttribute("aria-selected", "true");
         });
       });
     });

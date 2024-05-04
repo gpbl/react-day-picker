@@ -1,4 +1,4 @@
-import { DayMouseEventHandler, DayPicker } from 'react-day-picker';
+import { DayMouseEventHandler, DayPicker } from "react-day-picker";
 
 const bookedDays = [
   new Date(2024, 5, 8),
@@ -35,7 +35,7 @@ export function ModifiersCustom() {
       <DayPicker
         defaultMonth={new Date(2024, 5)}
         modifiers={{ booked: bookedDays }}
-        modifiersClassNames={{ booked: 'booked' }}
+        modifiersClassNames={{ booked: "booked" }}
         onDayClick={handleDayClick}
       />
     </>

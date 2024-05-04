@@ -1,4 +1,4 @@
-import { DayPicker } from 'react-day-picker';
+import { DayPicker } from "react-day-picker";
 
 /**
  * Pass selected HTML attributes and `data-` attributes to the root element.
@@ -14,7 +14,7 @@ export function ContainerAttributes() {
       nonce="foo_nonce"
       title="foo_title"
       lang="it"
-      mode="multi"
+      mode="multiple"
     />
   );
 }
