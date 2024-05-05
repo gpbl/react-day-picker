@@ -1,6 +1,6 @@
 import { act, mockDate, renderApp, screen, user } from "@/test";
 
-import { Weeknumber } from "./WeekNumber";
+import { Weeknumber } from "./Weeknumber";
 
 const today = new Date(2021, 10, 25);
 mockDate(today);

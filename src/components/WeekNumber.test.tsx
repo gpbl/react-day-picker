@@ -5,7 +5,7 @@ import { customRender } from "@/test/render/customRender";
 
 import { DayPickerProps } from "../DayPicker";
 
-import { WeekNumber, WeekNumberProps } from "./WeekNumber";
+import { WeekNumber, WeekNumberProps } from "./Weeknumber";
 
 function setup(props: WeekNumberProps, dayPickerProps?: DayPickerProps) {
   return customRender(<WeekNumber {...props} />, dayPickerProps);

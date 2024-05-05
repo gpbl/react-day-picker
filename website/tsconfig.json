@@ -6,8 +6,13 @@
     "lib": ["DOM", "ESNext", "DOM.Iterable"],
     "jsx": "react-jsx",
     "baseUrl": ".",
-    "types": ["node", "jest", "@testing-library/jest-dom", "@types/jest"],
-    "moduleResolution": "NodeNext",
+    "types": [
+      "node",
+      "jest",
+      "@testing-library/jest-dom",
+      "@types/jest",
+      "@docusaurus/module-type-aliases"
+    ],
     "paths": {
       "@/test": ["./test"],
       "@/test/*": ["./test/*"],
