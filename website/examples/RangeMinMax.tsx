@@ -3,7 +3,7 @@ import { useState } from "react";
 import { format } from "date-fns";
 import { DateRange, DayPicker } from "react-day-picker";
 
-export default function App() {
+export function RangeMinMax() {
   const [range, setRange] = useState<DateRange | undefined>();
 
   let footer = <p>Please pick the first day.</p>;

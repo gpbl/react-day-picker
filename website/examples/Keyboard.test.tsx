@@ -77,9 +77,7 @@ describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
       }
     });
     describe("when the Arrow Right is pressed", () => {
-      beforeEach(() =>
-        act(() => user.type(focusedElement(), "{arrowright}"))
-      );
+      beforeEach(() => act(() => user.type(focusedElement(), "{arrowright}")));
       if (dir === "rtl") {
         test("should display the previous month", () => {
           expect(grid("May 2022")).toBeInTheDocument();
@@ -174,9 +172,7 @@ describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
 
     beforeEach(() => act(() => gridcell(day).focus()));
     describe("when the Arrow Right is pressed", () => {
-      beforeEach(() =>
-        act(() => user.type(focusedElement(), "{arrowright}"))
-      );
+      beforeEach(() => act(() => user.type(focusedElement(), "{arrowright}")));
       if (dir === "rtl") {
         test("should focus the previous day", () => {
           expect(gridcell(prevDay)).toHaveFocus();

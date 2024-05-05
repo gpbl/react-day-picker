@@ -4,7 +4,7 @@ import { setDate } from "date-fns";
 
 import { act, getDayButton, mockDate, renderApp, user } from "@/test";
 
-import RangeMinMax from "./RangeMinMax";
+import { RangeMinMax } from "./RangeMinMax";
 
 const today = new Date(2022, 8, 25);
 mockDate(today);
