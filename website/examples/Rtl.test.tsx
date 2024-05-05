@@ -1,9 +1,17 @@
-import { app, grid, nextButton, previousButton, renderApp, user } from "@/test";
+import {
+  app,
+  grid,
+  nextButton,
+  prevButton,
+  renderApp,
+  user,
+  mockDate
+} from "@/test";
 
 import { Rtl } from "./Rtl";
 
 const today = new Date(2021, 10, 25);
-jest.useFakeTimers().setSystemTime(today);
+mockDate(today);
 
 beforeEach(() => {
   renderApp(<Rtl />);
@@ -22,7 +30,7 @@ describe("when clicking the next month button", () => {
 
 describe("when clicking the previous month button", () => {
   test("should display the previous month", async () => {
-    await user.click(previousButton());
+    await user.click(prevButton());
     expect(grid()).toHaveAccessibleName("أكتوبر 2021");
   });
 });

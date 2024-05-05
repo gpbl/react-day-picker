@@ -1,9 +1,9 @@
-import { app, renderApp } from "@/test";
+import { app, mockDate, renderApp } from "@/test";
 
 import { StylingCss } from "./StylingCss";
 
 const today = new Date(2021, 10, 25);
-jest.useFakeTimers().setSystemTime(today);
+mockDate(today);
 
 beforeEach(() => {
   renderApp(<StylingCss />);

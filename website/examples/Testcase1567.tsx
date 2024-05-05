@@ -1,6 +1,10 @@
 import { useState } from "react";
 
-import { DateRange, DayPicker, SelectHandler } from "react-day-picker";
+import {
+  DateRange,
+  DayPicker,
+  SelectRangeEventHandler
+} from "react-day-picker";
 
 /**
  * Test case for issue #1567
@@ -13,7 +17,7 @@ export function Testcase1567() {
     to: new Date(2022, 9, 1)
   });
 
-  const handleChange: SelectHandler<"range"> = (
+  const handleChange: SelectRangeEventHandler = (
     range: DateRange | undefined
   ) => {
     range && setSelected(range);
@@ -23,7 +27,6 @@ export function Testcase1567() {
       <DayPicker
         mode="range"
         onSelect={handleChange}
-        required
         numberOfMonths={2}
         showOutsideDays
         selected={selected}

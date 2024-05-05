@@ -1,11 +1,11 @@
 import { addDays } from "date-fns";
 
-import { app, gridcell, renderApp, user } from "@/test";
+import { app, mockDate, gridcell, renderApp, user } from "@/test";
 
 import { ModifiersToday } from "./ModifiersToday";
 
 const today = new Date(2022, 5, 10);
-jest.useFakeTimers().setSystemTime(today);
+mockDate(today);
 
 beforeEach(() => {
   renderApp(<ModifiersToday />);
@@ -13,10 +13,10 @@ beforeEach(() => {
 
 describe("when rendering a month that contains today", () => {
   test("it should add the default class name for today", () => {
-    expect(gridcell(today)).toHaveClass("day_today");
+    expect(gridcell(today)).toHaveClass("rdp-day_today");
   });
   test('it should have exactly one ".day_today" class', () => {
-    const todays = app().querySelectorAll(".day_today");
+    const todays = app().querySelectorAll(".rdp-day_today");
     expect(todays).toHaveLength(1);
   });
 });

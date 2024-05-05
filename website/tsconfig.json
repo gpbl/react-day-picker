@@ -2,14 +2,16 @@
   // This file is not used in compilation. It is here just for a nice editor experience.
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
+    "target": "ES2018",
+    "lib": ["DOM", "ESNext", "DOM.Iterable"],
+    "jsx": "react-jsx",
     "baseUrl": ".",
     "noEmit": true,
-    "types": [
-      "jest",
-      "@testing-library/jest-dom",
-      "node",
-      "@docusaurus/module-type-aliases",
-      "@docusaurus/theme-classic"
-    ]
-  }
+    "types": ["jest", "@testing-library/jest-dom"],
+    "paths": {
+      "@/test": ["./test"],
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src", "test", "examples", "**/*.test.*"]
 }

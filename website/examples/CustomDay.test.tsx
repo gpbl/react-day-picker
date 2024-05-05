@@ -1,8 +1,8 @@
-import { renderApp, app } from "@/test";
+import { renderApp, app, mockDate } from "@/test";
 
 import { CustomDay } from "./CustomDay";
 
-jest.useFakeTimers().setSystemTime(new Date(2021, 10, 25));
+mockDate(new Date(2021, 10, 25));
 
 beforeEach(() => {
   renderApp(
@@ -14,5 +14,5 @@ beforeEach(() => {
 
 test("should render time elements", () => {
   const timeElements = app().getElementsByTagName("time");
-  expect(timeElements).toHaveLength(35);
+  expect(timeElements).toHaveLength(30);
 });

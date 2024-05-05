@@ -89,6 +89,16 @@ const config: Config = {
           label: "API Reference"
         },
         {
+          href: "/playground",
+          label: "Playground",
+          position: "left"
+        },
+        {
+          href: "https://github.com/gpbl/react-day-picker/discussions",
+          label: "Support",
+          position: "right"
+        },
+        {
           href: "https://github.com/gpbl/react-day-picker",
           label: "GitHub",
           position: "right"

@@ -1,11 +1,11 @@
 import { addDays } from "date-fns";
 
-import { app, gridcell, renderApp, user } from "@/test";
+import { app, mockDate, gridcell, renderApp, user } from "@/test";
 
 import { Range } from "./Range";
 
 const today = new Date(2023, 11, 9);
-jest.useFakeTimers().setSystemTime(today);
+mockDate(today);
 
 const days = [
   today,

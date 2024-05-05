@@ -1,11 +1,11 @@
 import { screen } from "@testing-library/react";
 
-import { grid, renderApp, user } from "@/test";
+import { mockDate, grid, renderApp, user } from "@/test";
 
 import { DropdownMultipleMonths } from "./DropdownMultipleMonths";
 
 const today = new Date(2023, 9, 16);
-jest.useFakeTimers().setSystemTime(today);
+mockDate(today);
 
 beforeEach(() => {
   renderApp(<DropdownMultipleMonths />);

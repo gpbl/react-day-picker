@@ -1,11 +1,11 @@
 import { addDays } from "date-fns";
 
-import { gridcell, renderApp, user } from "@/test";
+import { mockDate, gridcell, renderApp, user } from "@/test";
 
 import { MultipleMinMax } from "./MultipleMinMax";
 
 const today = new Date(2021, 10, 10);
-jest.useFakeTimers().setSystemTime(today);
+mockDate(today);
 
 const days = [
   today,

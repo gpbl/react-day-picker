@@ -5,17 +5,12 @@ import { gridcell } from "@/test";
 import { ModifiersDisabled } from "./ModifiersDisabled";
 
 const days = [
-  new Date(2022, 5, 10),
-  new Date(2022, 5, 12),
-  new Date(2022, 5, 20)
+  new Date(2024, 5, 2),
+  new Date(2024, 5, 9),
+  new Date(2024, 5, 29)
 ];
-const today = new Date(2021, 10, 25);
-jest.useFakeTimers().setSystemTime(today);
-
-beforeEach(() => {
-  render(<ModifiersDisabled />);
-});
 
 test.each(days)("the day %s should be disabled", (day) => {
-  expect(gridcell(day)).toHaveAttribute("aria-disabled", "true");
+  render(<ModifiersDisabled />);
+  expect(gridcell(day)).toBeDisabled();
 });

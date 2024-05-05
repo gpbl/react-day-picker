@@ -1,9 +1,9 @@
-import { app, gridcell, renderApp, user } from "@/test";
+import { app, mockDate, gridcell, renderApp, user, act } from "@/test";
 
 import { CustomSingle } from "./CustomSingle";
 
 const today = new Date(2021, 10, 25);
-jest.useFakeTimers().setSystemTime(today);
+mockDate(today);
 
 beforeEach(() => {
   renderApp(<CustomSingle />);
@@ -11,7 +11,7 @@ beforeEach(() => {
 
 describe("when a day is clicked", () => {
   beforeEach(async () => {
-    await user.click(gridcell(today));
+    await act(() => user.click(gridcell(today)));
   });
   test("should appear as selected", () => {
     expect(gridcell(today)).toHaveAttribute("aria-selected", "true");
@@ -21,7 +21,7 @@ describe("when a day is clicked", () => {
   });
   describe("when clicking the day again", () => {
     beforeEach(async () => {
-      await user.click(gridcell(today));
+      await act(() => user.click(gridcell(today)));
     });
     test("should not appear as selected", () => {
       expect(gridcell(today)).not.toHaveAttribute("aria-selected", "true");

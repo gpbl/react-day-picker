@@ -8,7 +8,7 @@ export function StylingInline() {
   return (
     <DayPicker
       styles={{
-        month_caption: monthCaptionStyle
+        caption: monthCaptionStyle
       }}
     />
   );

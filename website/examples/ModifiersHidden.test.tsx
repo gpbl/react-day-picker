@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 
-import { renderApp } from "@/test";
+import { mockDate, renderApp } from "@/test";
 
 import { ModifiersHidden } from "./ModifiersHidden";
 
@@ -11,7 +11,7 @@ const days = [
 ];
 
 const today = new Date(2021, 10, 25);
-jest.useFakeTimers().setSystemTime(today);
+mockDate(today);
 
 test.each(days)("the day %s should be hidden", (day) => {
   renderApp(<ModifiersHidden />);

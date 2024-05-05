@@ -1,11 +1,11 @@
 import { screen } from "@testing-library/react";
 
-import { previousButton, renderApp, user } from "@/test";
+import { mockDate, prevButton, renderApp, user } from "@/test";
 
 import { MultipleMonthsPaged } from "./MultipleMonthsPaged";
 
 const today = new Date(2021, 10, 25);
-jest.useFakeTimers().setSystemTime(today);
+mockDate(today);
 
 beforeEach(() => {
   renderApp(<MultipleMonthsPaged />);
@@ -26,7 +26,7 @@ describe("when rendering November 2021", () => {
   });
   // Test pagination
   describe("when the previous month button is clicked", () => {
-    beforeEach(async () => user.click(previousButton()));
+    beforeEach(async () => user.click(prevButton()));
     test("the first month should be September", () => {
       expect(screen.getAllByRole("grid")[0]).toHaveAccessibleName(
         "September 2021"

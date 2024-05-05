@@ -1,11 +1,11 @@
 import { setDate } from "date-fns";
 
-import { gridcell, renderApp, user } from "@/test";
+import { mockDate, gridcell, renderApp, user } from "@/test";
 
 import { RangeMinMax } from "./RangeMinMax";
 
 const today = new Date(2022, 8, 25);
-jest.useFakeTimers().setSystemTime(today);
+mockDate(today);
 
 beforeEach(() => {
   renderApp(<RangeMinMax />);

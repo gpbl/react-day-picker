@@ -1,21 +1,18 @@
-import { activeElement, gridcell, renderApp, user } from "@/test";
+import { render } from "@testing-library/react";
+
+import { focusedElement, mockDate, gridcell, renderApp, user } from "@/test";
 
 import { FocusRecursive } from "./FocusRecursive";
 
-const today = new Date(2022, 5, 10);
-jest.useFakeTimers().setSystemTime(today);
+test("the first selected day should have focus", async () => {
+  render(<FocusRecursive />);
+  await user.tab();
+  await user.tab();
+  await user.tab();
+  await user.type(focusedElement(), "{arrowdown}");
+  await user.type(focusedElement(), "{arrowdown}");
+  await user.type(focusedElement(), "{arrowdown}");
+  await user.type(focusedElement(), "{arrowdown}");
 
-beforeEach(async () => {
-  renderApp(<FocusRecursive />);
-  await user.tab();
-  await user.tab();
-  await user.tab();
-  await user.type(activeElement(), "{arrowdown}");
-  await user.type(activeElement(), "{arrowdown}");
-  await user.type(activeElement(), "{arrowdown}");
-  await user.type(activeElement(), "{arrowdown}");
-});
-
-test("the first selected day should have focus", () => {
   expect(gridcell(new Date(2022, 5, 22))).toHaveFocus();
 });

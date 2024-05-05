@@ -1,9 +1,9 @@
-import { gridcell, renderApp, user } from "@/test";
+import { mockDate, gridcell, renderApp, user } from "@/test";
 
 import { SingleRequired } from "./SingleRequired";
 
 const today = new Date(2021, 10, 25);
-jest.useFakeTimers().setSystemTime(today);
+mockDate(today);
 
 beforeEach(() => {
   renderApp(<SingleRequired />);

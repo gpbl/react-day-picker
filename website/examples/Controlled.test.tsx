@@ -1,16 +1,16 @@
-import { screen } from "@testing-library/react";
+import { act, screen } from "@testing-library/react";
 
-import { grid, renderApp, user } from "@/test";
+import { mockDate, grid, renderApp, user } from "@/test";
 
 import { Controlled } from "./Controlled";
 
-jest.useFakeTimers().setSystemTime(new Date(2022, 5, 10));
+mockDate(new Date(2022, 5, 10));
 
 describe('when the "Today" button is clicked', () => {
   const todayButton = () => screen.getByRole("button", { name: "Go to Today" });
   beforeEach(async () => {
     renderApp(<Controlled />);
-    await user.click(todayButton());
+    await act(() => user.click(todayButton()));
   });
   test("the button should be disabled", async () => {
     expect(todayButton()).toBeDisabled();

@@ -34,20 +34,26 @@
     "./style.css": {
       "require": "./src/style.css",
       "import": "./src/style.css",
-      "default": "./src/style.css"
+      "default": "./src/style.css",
+      "types": "./src/style.css.d.ts"
     },
     "./dist/style.css": {
       "require": "./src/style.css",
       "import": "./src/style.css",
-      "default": "./src/style.css"
+      "default": "./src/style.css",
+      "types": "./src/style.css.d.ts"
     },
     "./style.module.css": {
       "require": "./src/style.css",
       "import": "./src/style.css",
-      "default": "./src/style.css"
+      "default": "./src/style.css",
+      "types": "./src/style.css.d.ts"
     },
     "./dist/style.module.css": {
-      "default": "./src/style.css"
+      "require": "./src/style.css",
+      "import": "./src/style.css",
+      "default": "./src/style.css",
+      "types": "./src/style.css.d.ts"
     },
     "./package.json": {
       "import": "./package.json",
@@ -78,7 +84,6 @@
     "@testing-library/react": "^15.0.6",
     "@testing-library/user-event": "^14.5.2",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
-    "@types/jest": "^29.5.12",
     "@types/node": "^20.12.8",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.0",

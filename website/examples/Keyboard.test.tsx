@@ -9,26 +9,29 @@ import {
   setDate,
   startOfWeek
 } from "date-fns";
+
 import {
-  activeElement,
+  focusedElement,
   grid,
   gridcell,
   nextButton,
-  previousButton
- renderApp , user } from "@/test";
-import { act } from "@testing-library/react";
+  prevButton,
+  renderApp,
+  user,
+  mockDate
+} from "@/test";
 
 import { Keyboard } from "./Keyboard";
 
 const today = new Date(2022, 5, 10);
-jest.useFakeTimers().setSystemTime(today);
+mockDate(today);
 
 describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
   beforeEach(() => {
     renderApp(<Keyboard mode="single" dir={dir} />);
   });
   describe("when clicking the previous month button", () => {
-    beforeEach(() => act(() => user.click(previousButton())));
+    beforeEach(() => act(() => user.click(prevButton())));
     test("should display the previous month", () => {
       expect(grid("May 2022")).toBeInTheDocument();
     });
@@ -56,10 +59,10 @@ describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
 
     beforeEach(() => act(() => gridcell(day).focus()));
     test("the day button should be focused", () => {
-      expect(activeElement()).toBe(gridcell(day));
+      expect(focusedElement()).toBe(gridcell(day));
     });
     describe("when the Arrow Left is pressed", () => {
-      beforeEach(() => act(() => user.type(activeElement(), "{arrowleft}")));
+      beforeEach(() => act(() => user.type(focusedElement(), "{arrowleft}")));
       if (dir === "rtl") {
         test("should focus the next day", () => {
           expect(gridcell(nextDay)).toHaveFocus();
@@ -74,7 +77,9 @@ describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
       }
     });
     describe("when the Arrow Right is pressed", () => {
-      beforeEach(() => act(() => user.type(activeElement(), "{arrowright}")));
+      beforeEach(() =>
+        act(() => user.type(focusedElement(), "{arrowright}"))
+      );
       if (dir === "rtl") {
         test("should display the previous month", () => {
           expect(grid("May 2022")).toBeInTheDocument();
@@ -89,7 +94,7 @@ describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
       }
     });
     describe("when the Arrow Up is pressed", () => {
-      beforeEach(() => act(() => user.type(activeElement(), "{arrowup}")));
+      beforeEach(() => act(() => user.type(focusedElement(), "{arrowup}")));
       test("should display the previous month", () => {
         expect(grid("May 2022")).toBeInTheDocument();
       });
@@ -98,7 +103,7 @@ describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
       });
     });
     describe("when the Arrow Down is pressed", () => {
-      beforeEach(() => act(() => user.type(activeElement(), "{arrowdown}")));
+      beforeEach(() => act(() => user.type(focusedElement(), "{arrowdown}")));
       test("should display the same month", () => {
         expect(grid("June 2022")).toBeInTheDocument();
       });
@@ -108,7 +113,7 @@ describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
     });
     describe("when Page Up is pressed", () => {
       beforeEach(() => {
-        return user.type(activeElement(), "{pageup}");
+        return act(() => user.type(focusedElement(), "{pageup}"));
       });
       it("should display the previous month", () => {
         expect(grid("May 2022")).toBeInTheDocument();
@@ -118,7 +123,7 @@ describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
       });
     });
     describe("when Page Down is pressed", () => {
-      beforeEach(() => act(() => user.type(activeElement(), "{pagedown}")));
+      beforeEach(() => act(() => user.type(focusedElement(), "{pagedown}")));
       it("should display the next month", () => {
         expect(grid("July 2022")).toBeInTheDocument();
       });
@@ -128,7 +133,7 @@ describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
     });
     describe("when Shift + Page Up is pressed", () => {
       beforeEach(() =>
-        act(() => user.type(activeElement(), "{shift>}{pageup}"))
+        act(() => user.type(focusedElement(), "{shift>}{pageup}"))
       );
       it("should display the previous year", () => {
         expect(grid("June 2021")).toBeInTheDocument();
@@ -139,7 +144,7 @@ describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
     });
     describe("when Shift + Page Down is pressed", () => {
       beforeEach(() =>
-        act(() => user.type(activeElement(), "{shift>}{pagedown}"))
+        act(() => user.type(focusedElement(), "{shift>}{pagedown}"))
       );
       it("should display the next year", () => {
         expect(grid("June 2023")).toBeInTheDocument();
@@ -149,13 +154,13 @@ describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
       });
     });
     describe("when Home is pressed", () => {
-      beforeEach(() => act(() => user.type(activeElement(), "{home}")));
+      beforeEach(() => act(() => user.type(focusedElement(), "{home}")));
       it("should focus the start of the week", () => {
         expect(gridcell(startOfWeekDay)).toHaveFocus();
       });
     });
     describe("when End is pressed", () => {
-      beforeEach(() => act(() => user.type(activeElement(), "{end}")));
+      beforeEach(() => act(() => user.type(focusedElement(), "{end}")));
       it("should focus the end of the week", () => {
         expect(gridcell(endOfWeekDay)).toHaveFocus();
       });
@@ -169,7 +174,9 @@ describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
 
     beforeEach(() => act(() => gridcell(day).focus()));
     describe("when the Arrow Right is pressed", () => {
-      beforeEach(() => act(() => user.type(activeElement(), "{arrowright}")));
+      beforeEach(() =>
+        act(() => user.type(focusedElement(), "{arrowright}"))
+      );
       if (dir === "rtl") {
         test("should focus the previous day", () => {
           expect(gridcell(prevDay)).toHaveFocus();
@@ -185,7 +192,7 @@ describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
       }
     });
     describe("when the Arrow Left is pressed", () => {
-      beforeEach(() => act(() => user.type(activeElement(), "{arrowleft}")));
+      beforeEach(() => act(() => user.type(focusedElement(), "{arrowleft}")));
       if (dir === "rtl") {
         test("should display the next month", () => {
           expect(grid("July 2022")).toBeInTheDocument();
@@ -204,7 +211,7 @@ describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
       }
     });
     describe("when the Arrow Up is pressed", () => {
-      beforeEach(() => act(() => user.type(activeElement(), "{arrowup}")));
+      beforeEach(() => act(() => user.type(focusedElement(), "{arrowup}")));
       test("should display the same month", () => {
         expect(grid("June 2022")).toBeInTheDocument();
       });
@@ -214,7 +221,7 @@ describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
       });
     });
     describe("when the Arrow Down is pressed", () => {
-      beforeEach(() => act(() => user.type(activeElement(), "{arrowdown}")));
+      beforeEach(() => act(() => user.type(focusedElement(), "{arrowdown}")));
       test("should display the next month", () => {
         expect(grid("July 2022")).toBeInTheDocument();
       });
@@ -237,13 +244,13 @@ describe("when week is set to start on a Monday", () => {
   });
 
   describe("when Home is pressed", () => {
-    beforeEach(() => act(() => user.type(activeElement(), "{home}")));
+    beforeEach(() => act(() => user.type(focusedElement(), "{home}")));
     it("should focus the start of the week being Monday", () => {
       expect(gridcell(startOfWeekDay)).toHaveFocus();
     });
   });
   describe("when End is pressed", () => {
-    beforeEach(() => act(() => user.type(activeElement(), "{end}")));
+    beforeEach(() => act(() => user.type(focusedElement(), "{end}")));
     it("should focus the end of the week being Sunday", () => {
       expect(gridcell(endOfWeekDay)).toHaveFocus();
     });

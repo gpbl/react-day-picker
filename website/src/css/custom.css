@@ -103,7 +103,7 @@ html[data-theme="dark"] .rdp {
 
 .markdown h1:first-child {
   font-size: 2.25rem;
-  margin-block: 1em;
+  /* margin-block: 1em; */
   letter-spacing: -0.015em;
 }
 @media (max-width: 996px) {
@@ -144,12 +144,6 @@ a > code {
   padding: unset;
   background: unset;
   border: unset;
-}
-
-@media (min-width: 997px) {
-  nav.menu {
-    padding-top: 1rem;
-  }
 }
 
 a.menu__link {
@@ -198,7 +192,7 @@ a.table-of-contents__link:not(:hover):not(.table-of-contents__link--active) {
 }
 
 div.theme-doc-toc-desktop {
-  top: calc(var(--ifm-navbar-height) + 3rem);
+  top: calc(var(--ifm-navbar-height) + 1rem);
 }
 
 a.theme-edit-this-page {
@@ -287,16 +281,15 @@ div[class^="docRoot"],
   font-size: smaller;
 }
 .navbar__title {
-  font-size: larger;
+  font-size: large;
   text-transform: uppercase;
-}
-
-@media (min-width: 997px) {
-  nav.menu {
-    padding-top: 3rem;
-  }
 }
 
 .navbar__brand {
   min-width: var(--doc-sidebar-width);
+}
+
+a.navbar__item svg {
+  width: 10px;
+  height: 10px;
 }

@@ -1,9 +1,9 @@
-import { app, gridcell, renderApp, user } from "@/test";
+import { app, mockDate, gridcell, renderApp, user } from "@/test";
 
 import { CustomMultiple } from "./CustomMultiple";
 
 const today = new Date(2021, 10, 25);
-jest.useFakeTimers().setSystemTime(today);
+mockDate(today);
 
 beforeEach(() => {
   renderApp(<CustomMultiple />);

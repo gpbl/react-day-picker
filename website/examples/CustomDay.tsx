@@ -1,20 +1,15 @@
-import { DayGridCellProps, DayPicker } from "react-day-picker";
+import { format } from "date-fns";
+import { DayContent, DayContentProps, DayPicker } from "react-day-picker";
+
+function DateTime(props: DayContentProps) {
+  const dateTime = format(props.date, "yyyy-MM-dd");
+  return (
+    <time dateTime={dateTime}>
+      <DayContent {...props} />
+    </time>
+  );
+}
 
 export function CustomDay() {
-  function CustomDayGridCell(props: DayGridCellProps) {
-    const isFirstDay =
-      props.day.date.getDate() === 1 && props.modifiers.outside === false;
-    return (
-      <time {...props.htmlAttributes}>
-        {props.children}
-        {isFirstDay && <div>(first day)</div>}
-      </time>
-    );
-  }
-  return (
-    <DayPicker
-      today={new Date(2021, 10, 25)}
-      components={{ DayGridCell: CustomDayGridCell }}
-    />
-  );
+  return <DayPicker components={{ DayContent: DateTime }} />;
 }

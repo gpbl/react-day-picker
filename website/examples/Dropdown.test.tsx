@@ -1,12 +1,19 @@
-import { grid, monthDropdown, yearDropdown, renderApp, user } from "@/test";
+import {
+  grid,
+  monthDropdown,
+  yearDropdown,
+  renderApp,
+  user,
+  mockDate
+} from "@/test";
 
-import { CaptionLayout } from "./Dropdown";
+import { Dropdown } from "./Dropdown";
 
 const today = new Date(2022, 5, 10);
-jest.useFakeTimers().setSystemTime(today);
+mockDate(today);
 
 beforeEach(() => {
-  renderApp(<CaptionLayout />);
+  renderApp(<Dropdown />);
 });
 
 test("should display the month dropdown", () => {

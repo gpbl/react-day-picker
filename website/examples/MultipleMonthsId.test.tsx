@@ -1,9 +1,9 @@
-import { grid, renderApp } from "@/test";
+import { mockDate, grid, renderApp } from "@/test";
 
 import { MultipleMonthsId } from "./MultipleMonthsId";
 
 const today = new Date(2021, 10, 25);
-jest.useFakeTimers().setSystemTime(today);
+mockDate(today);
 
 test("the table ids should include the display index", () => {
   renderApp(<MultipleMonthsId />);

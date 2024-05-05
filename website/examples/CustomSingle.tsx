@@ -1,15 +1,17 @@
 import { useState } from "react";
 
-import { DayPicker } from "react-day-picker";
+import { DayPicker, DayPickerProps } from "react-day-picker";
 
 export function CustomSingle() {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>();
 
+  const modifiers: DayPickerProps["modifiers"] = {};
+  if (selectedDate) {
+    modifiers.selected = selectedDate;
+  }
   return (
     <DayPicker
-      modifiers={{
-        selected: selectedDate
-      }}
+      modifiers={modifiers}
       onDayClick={(day, modifiers) => {
         if (modifiers.selected) {
           setSelectedDate(undefined);

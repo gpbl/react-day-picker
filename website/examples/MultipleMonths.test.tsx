@@ -1,11 +1,11 @@
 import { screen } from "@testing-library/react";
 
-import { previousButton, renderApp, user } from "@/test";
+import { mockDate, prevButton, renderApp, user } from "@/test";
 
 import { MultipleMonths } from "./MultipleMonths";
 
 const today = new Date(2023, 11, 3);
-jest.useFakeTimers().setSystemTime(today);
+mockDate(today);
 
 beforeEach(() => {
   renderApp(<MultipleMonths />);
@@ -26,7 +26,7 @@ test("the second grid should be December", () => {
 });
 
 describe("when the previous month button is clicked", () => {
-  beforeEach(() => user.click(previousButton()));
+  beforeEach(() => user.click(prevButton()));
   test("the first month should be October", () => {
     const grids = screen.getAllByRole("grid");
     expect(grids[0]).toHaveAccessibleName("November 2023");

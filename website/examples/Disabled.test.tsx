@@ -1,12 +1,12 @@
 import { act, screen } from "@testing-library/react";
 
-import { app, grid, gridcell, renderApp, user } from "@/test";
+import { app, mockDate, grid, gridcell, renderApp, user } from "@/test";
 
 import { Disabled } from "./Disabled";
 
 const today = new Date(2022, 5, 10);
 const firstOfMonth = new Date(2022, 5, 1);
-jest.useFakeTimers().setSystemTime(today);
+mockDate(today);
 
 beforeEach(async () => {
   renderApp(<Disabled />);

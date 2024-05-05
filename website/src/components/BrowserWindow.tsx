@@ -6,8 +6,6 @@
  */
 import React, { type CSSProperties, type ReactNode } from "react";
 
-import clsx from "clsx";
-
 import styles from "./BrowserWindow.module.css";
 import { ShadowDomWrapper } from "./ShadowDomWrapper";
 
@@ -22,7 +20,6 @@ interface Props {
 export function BrowserWindow({
   children,
   minHeight,
-  url = "http://localhost:3000",
   style,
   bodyStyle
 }: Props): JSX.Element {
@@ -34,18 +31,6 @@ export function BrowserWindow({
             <span className={styles.dot} style={{ background: "#f25f58" }} />
             <span className={styles.dot} style={{ background: "#fbbe3c" }} />
             <span className={styles.dot} style={{ background: "#58cb42" }} />
-          </div>
-          <div
-            className={clsx(styles.browserWindowAddressBar, "text--truncate")}
-          >
-            {url}
-          </div>
-          <div className={styles.browserWindowMenuIcon}>
-            <div>
-              <span className={styles.bar} />
-              <span className={styles.bar} />
-              <span className={styles.bar} />
-            </div>
           </div>
         </div>
 

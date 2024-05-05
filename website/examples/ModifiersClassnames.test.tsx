@@ -1,4 +1,4 @@
-import { gridcell, renderApp } from "@/test";
+import { mockDate, gridcell, renderApp } from "@/test";
 
 import { ModifiersClassnames } from "./ModifiersClassnames";
 
@@ -9,7 +9,7 @@ const days = [
 ];
 
 const today = new Date(2021, 10, 25);
-jest.useFakeTimers().setSystemTime(today);
+mockDate(today);
 
 beforeEach(() => {
   renderApp(<ModifiersClassnames />);

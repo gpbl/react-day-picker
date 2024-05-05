@@ -1,9 +1,11 @@
 import { render, screen } from "@testing-library/react";
 
+import { mockDate } from "@/test";
+
 import { CustomDisableRow } from "./CustomDisableRow";
 
 const today = new Date(2021, 10, 25);
-jest.useFakeTimers().setSystemTime(today);
+mockDate(today);
 
 beforeEach(() => {
   render(<CustomDisableRow />);
