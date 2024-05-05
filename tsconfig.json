@@ -2,12 +2,12 @@
   "extends": "./tsconfig-base.json",
   "compilerOptions": {
     "paths": {
-      "@/test/*": ["./test/*"],
-      "@/website-test": ["./website/test"]
+      "@/test": ["./test"],
+      "@/test/*": ["./test/*"]
     },
     "jsx": "react-jsx",
     "noEmit": true,
-    "types": ["node", "jest", "@testing-library/jest-dom"],
+    "types": ["node", "jest", "@testing-library/jest-dom", "@types/jest"],
     "lib": ["dom", "dom.iterable", "esnext"]
   },
   "include": ["src", "test", "**/*.test.*"],

@@ -6,12 +6,11 @@
     "lib": ["DOM", "ESNext", "DOM.Iterable"],
     "jsx": "react-jsx",
     "baseUrl": ".",
-    "noEmit": true,
-    "types": ["jest", "@testing-library/jest-dom"],
+    "types": ["node", "jest", "@testing-library/jest-dom", "@types/jest"],
     "paths": {
       "@/test": ["./test"],
+      "@/test/*": ["./test/*"],
       "@/*": ["./src/*"]
     }
-  },
-  "include": ["src", "test", "examples", "**/*.test.*"]
+  }
 }
