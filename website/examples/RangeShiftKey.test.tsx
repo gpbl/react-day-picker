@@ -1,82 +1,38 @@
-import { fireEvent, screen } from "@testing-library/react";
-
-import { renderApp, user } from "@/test";
+import { act, getDayButton, mockDate, renderApp, user } from "@/test";
 
 import { RangeShiftKey } from "./RangeShiftKey";
 
-const gridcell = (day: number) => {
-  return screen.getByRole("gridcell", { name: day.toString() });
-};
+const today = new Date(2021, 10, 25);
+mockDate(today);
 
-beforeEach(() => {
-  renderApp(<RangeShiftKey />);
-});
+beforeEach(() => renderApp(<RangeShiftKey />).container);
 
-afterEach(() => {
-  jest.restoreAllMocks();
-});
+describe("when displaying November 2021", () => {
+  describe("when clicking on the 11th", () => {
+    const day1 = new Date(2021, 10, 11);
+    beforeEach(async () => act(() => user.click(getDayButton(day1))));
+    test("the 11th day should have aria-selected true", () => {
+      expect(getDayButton(day1)).toHaveAttribute("aria-selected", "true");
+    });
+    describe("when clicking on the 13th", () => {
+      const day2 = new Date(2021, 10, 13);
+      beforeEach(async () => act(() => user.click(getDayButton(day2))));
 
-describe("when a day is clicked", () => {
-  beforeEach(async () => {
-    await user.click(gridcell(1));
-  });
-  test("the clicked day should be selected", () => {
-    expect(gridcell(1)).toHaveAttribute("aria-selected", "true");
-  });
-  describe("when the day is clicked again", () => {
-    beforeEach(async () => {
-      await user.click(gridcell(1));
-    });
-    test("the clicked day should not  be selected", () => {
-      expect(gridcell(1)).not.toHaveAttribute("aria-selected", "true");
-    });
-  });
-  describe("when another day is clicked", () => {
-    beforeEach(async () => {
-      await user.click(gridcell(2));
-    });
-    test("the clicked day should be selected", () => {
-      expect(gridcell(2)).toHaveAttribute("aria-selected", "true");
-    });
-    test("the previous clicked day should not be selected", () => {
-      expect(gridcell(1)).not.toHaveAttribute("aria-selected", "true");
-    });
-  });
-  describe("while pressing the shift key", () => {
-    beforeEach(() => {
-      fireEvent.keyDown(window, {
-        key: "Shift",
-        code: "ShiftLeft",
-        shiftKey: true
+      test("the 11th day should still have aria-selected true", () => {
+        expect(getDayButton(day1)).toHaveAttribute("aria-selected", "true");
+      });
+      test("the 13th day not should not have aria-selected", () => {
+        expect(getDayButton(day2)).not.toHaveAttribute("aria-selected");
       });
     });
-
-    describe("when another day is clicked", () => {
+    describe("when pressing the Shift key", () => {
+      const day2 = new Date(2021, 10, 13);
       beforeEach(async () => {
-        await user.click(gridcell(2));
+        user.keyboard("{Shift>}");
+        await act(() => user.click(getDayButton(day2)));
       });
-      test("the clicked day should be selected", () => {
-        expect(gridcell(2)).toHaveAttribute("aria-selected", "true");
-      });
-      test("the previous clicked day should be selected", () => {
-        expect(gridcell(1)).toHaveAttribute("aria-selected", "true");
-      });
-    });
-
-    describe("when this shift key is released", () => {
-      beforeEach(() => {
-        fireEvent.keyUp(window, { key: "Shift", code: "ShiftLeft" }); // Release Shift key
-      });
-      describe("when another day is clicked", () => {
-        beforeEach(async () => {
-          await user.click(gridcell(3));
-        });
-        test("the clicked day should be selected", () => {
-          expect(gridcell(3)).toHaveAttribute("aria-selected", "true");
-        });
-        test("the previous clicked day should not be selected", () => {
-          expect(gridcell(1)).not.toHaveAttribute("aria-selected", "true");
-        });
+      test("the 13th day should have aria-selected true", () => {
+        expect(getDayButton(day2)).toHaveAttribute("aria-selected", "true");
       });
     });
   });

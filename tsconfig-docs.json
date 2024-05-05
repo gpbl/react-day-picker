@@ -9,5 +9,5 @@
     "lib": ["dom", "dom.iterable", "esnext"]
   },
   "include": ["src"],
-  "exclude": ["website"]
+  "exclude": ["website", "**/*.test.*"]
 }

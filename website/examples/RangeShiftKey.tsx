@@ -1,57 +1,65 @@
-import { useEffect, useState } from "react";
+import React from "react";
 
 import { isSameDay } from "date-fns";
 import {
+  Button,
   DateRange,
   DayPicker,
-  SelectRangeEventHandler
+  DayProps,
+  useDayRender
 } from "react-day-picker";
 
-export function RangeShiftKey() {
-  const [range, setRange] = useState<DateRange>();
-  const [shiftPressed, setShiftPressed] = useState(false);
+function DayWithShiftKey(props: DayProps) {
+  const buttonRef = React.useRef<HTMLButtonElement>(null);
+  const dayRender = useDayRender(props.date, props.displayMonth, buttonRef);
 
-  // Use event listeners to checks whether the shift key is being pressed or not
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) =>
-      event.shiftKey ? setShiftPressed(true) : undefined;
-    const handleKeyUp = () => setShiftPressed(false);
+  if (dayRender.isHidden) {
+    return <></>;
+  }
+  if (!dayRender.isButton) {
+    return <div {...dayRender.divProps} />;
+  }
 
-    window.addEventListener("keydown", handleKeyDown);
-    window.addEventListener("keyup", handleKeyUp);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-      window.removeEventListener("keyup", handleKeyUp);
-    };
-  }, []);
-
-  const handleSelect: SelectRangeEventHandler = (newRange, date) => {
-    if (!shiftPressed) {
-      // If the shift key is not pressed, reset the selection
-      if (range?.from && isSameDay(range.from, date)) {
-        setRange({ from: undefined, to: undefined });
-      } else {
-        setRange({ from: date, to: undefined });
-      }
-    } else {
-      setRange(newRange);
+  const handleClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+    if (
+      !dayRender.selectedDays ||
+      dayRender.activeModifiers.selected ||
+      e.shiftKey
+    ) {
+      dayRender.buttonProps?.onClick?.(e);
     }
   };
 
   return (
-    <div>
-      <div>
-        {!range?.from && !range?.to
-          ? "Try selecting a range of days with the shift key pressed."
-          : `From ${range?.from?.toLocaleDateString()} to ${range?.to?.toLocaleDateString() ?? "..."}`}
-      </div>
-      <DayPicker
-        mode="range"
-        selected={range}
-        onSelect={handleSelect}
-        numberOfMonths={2}
-      />
-    </div>
+    <Button {...dayRender.buttonProps} ref={buttonRef} onClick={handleClick} />
+  );
+}
+
+export function RangeShiftKey() {
+  const [range, setRange] = React.useState<DateRange>();
+
+  let footer = <p>Please pick a day.</p>;
+
+  if (range?.from && range?.to) {
+    if (isSameDay(range.from, range.to)) {
+      footer = <p>Press Shift to choose more days.</p>;
+    } else {
+      footer = (
+        <p>
+          {range.from.toLocaleDateString()}—{range.to.toLocaleDateString()}.
+        </p>
+      );
+    }
+  }
+  return (
+    <DayPicker
+      components={{
+        Day: DayWithShiftKey
+      }}
+      mode="range"
+      onSelect={setRange}
+      selected={range}
+      footer={footer}
+    />
   );
 }

@@ -7,10 +7,12 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "types": ["node", "jest", "@testing-library/jest-dom", "@types/jest"],
+    "moduleResolution": "NodeNext",
     "paths": {
       "@/test": ["./test"],
       "@/test/*": ["./test/*"],
       "@/*": ["./src/*"]
     }
-  }
+  },
+  "include": ["src", "examples", "test"]
 }

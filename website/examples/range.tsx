@@ -1,15 +1,38 @@
 import { useState } from "react";
 
-import { addDays } from "date-fns";
+import { addDays, format } from "date-fns";
 import { DateRange, DayPicker } from "react-day-picker";
 
+const pastMonth = new Date(2020, 10, 15);
+
 export function Range() {
-  const initialRange: DateRange = {
-    from: new Date(),
-    to: addDays(new Date(), 4),
+  const defaultSelected: DateRange = {
+    from: pastMonth,
+    to: addDays(pastMonth, 4)
   };
+  const [range, setRange] = useState<DateRange | undefined>(defaultSelected);
 
-  const [range, setRange] = useState<DateRange | undefined>(initialRange);
+  let footer = <p>Please pick the first day.</p>;
+  if (range?.from) {
+    if (!range.to) {
+      footer = <p>{format(range.from, "PPP")}</p>;
+    } else if (range.to) {
+      footer = (
+        <p>
+          {format(range.from, "PPP")}–{format(range.to, "PPP")}
+        </p>
+      );
+    }
+  }
 
-  return <DayPicker mode="range" selected={range} onSelect={setRange} />;
+  return (
+    <DayPicker
+      id="test"
+      mode="range"
+      defaultMonth={pastMonth}
+      selected={range}
+      footer={footer}
+      onSelect={setRange}
+    />
+  );
 }

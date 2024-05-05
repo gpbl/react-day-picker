@@ -1,4 +1,8 @@
-import { mockDate, grid, renderApp } from "@/test";
+import React from "react";
+
+import { render } from "@testing-library/react";
+
+import { getMonthCaption, mockDate } from "@/test";
 
 import { StylingInline } from "./StylingInline";
 
@@ -6,13 +10,11 @@ const today = new Date(2021, 10, 25);
 mockDate(today);
 
 beforeEach(() => {
-  renderApp(<StylingInline />);
+  render(<StylingInline />).container;
 });
 
 test("the caption should apply the custom style", () => {
-  const captionId = grid().getAttribute("aria-labelledby");
-  const caption = captionId && document.getElementById(captionId);
-  expect(caption).toHaveStyle({
-    paddingBottom: "0.5em"
+  expect(getMonthCaption(0).parentElement).toHaveStyle({
+    color: "red"
   });
 });

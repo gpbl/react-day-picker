@@ -158,7 +158,7 @@ a.menu__link:not(:hover):not(.menu__link--active) {
 }
 
 a.menu__link[aria-expanded] {
-  font-weight: 700;
+  /* font-weight: 700; */
   cursor: default;
 }
 

@@ -51,6 +51,6 @@ export * from "./StylingInline";
 export * from "./StylingModifiers";
 export * from "./Testcase1567";
 export * from "./WeekIso";
-export * from "./WeekNumber";
+export * from "./Weeknumber";
 export * from "./WeeknumberCustom";
 export * from "./WeeknumberIso";

@@ -1,64 +1,67 @@
 import { addDays } from "date-fns";
 
-import { app, mockDate, gridcell, renderApp, user } from "@/test";
+import { getDayButton, user, act, renderApp, screen } from "@/test";
 
 import { Range } from "./Range";
 
-const today = new Date(2023, 11, 9);
-mockDate(today);
-
+const pastMonth = new Date(2020, 10, 15);
+let container: HTMLElement;
 const days = [
-  today,
-  addDays(today, 1),
-  addDays(today, 2),
-  addDays(today, 3),
-  addDays(today, 4)
+  pastMonth,
+  addDays(pastMonth, 1),
+  addDays(pastMonth, 2),
+  addDays(pastMonth, 3),
+  addDays(pastMonth, 4)
 ];
 
-beforeEach(() => {
-  renderApp(<Range />);
-});
+beforeEach(() => (container = renderApp(<Range />).container));
 
+test("should match the snapshot", () => {
+  expect(container).toMatchSnapshot();
+});
 test.each(days)("%s should be selected", (day) => {
-  expect(gridcell(day)).toHaveAttribute("aria-selected", "true");
+  expect(getDayButton(day)).toHaveAttribute("aria-selected", "true");
 });
 
 describe("when a day in the range is clicked", () => {
   const day = days[2];
-  beforeEach(async () => {
-    await user.click(gridcell(day));
-  });
+  beforeEach(async () => act(() => user.click(getDayButton(day))));
   test.each([days[0], days[1], day])("%s should be selected", (day) => {
-    expect(gridcell(day)).toHaveAttribute("aria-selected", "true");
+    expect(getDayButton(day)).toHaveAttribute("aria-selected", "true");
   });
   test.each([days[3], days[4]])("%s should not be selected", (day) => {
-    expect(gridcell(day)).not.toHaveAttribute("aria-selected");
+    expect(getDayButton(day)).not.toHaveAttribute("aria-selected");
   });
   describe("when the day is clicked again", () => {
     const day = days[2];
-    beforeEach(async () => {
-      await user.click(gridcell(day));
-    });
+    beforeEach(async () => act(() => user.click(getDayButton(day))));
     test("only one day should be selected", () => {
-      const selectedCells = app().querySelectorAll('[aria-selected="true"]');
-      expect(selectedCells).toHaveLength(1);
+      expect(getAllSelectedDays()).toHaveLength(1);
     });
     test("only a day in the range should be selected", () => {
-      expect(gridcell(day)).toHaveAttribute("aria-selected", "true");
+      expect(getDayButton(day)).toHaveAttribute("aria-selected", "true");
     });
 
     describe("when a day in the range is clicked again", () => {
       const day = days[2];
-      beforeEach(async () => {
-        await user.click(gridcell(day));
-      });
-      test("no days should be selected", () => {
-        const selectedCells = app().querySelectorAll('[aria-selected="true"]');
-        expect(selectedCells).toHaveLength(0);
+      beforeEach(async () => act(() => user.click(getDayButton(day))));
+      test("only one day should be selected", () => {
+        expect(getAllSelectedDays()).toHaveLength(1);
       });
       test("should match the snapshot", () => {
-        expect(app).toMatchSnapshot();
+        expect(container).toMatchSnapshot();
       });
     });
   });
 });
+
+function getAllSelectedDays() {
+  const buttons = screen
+    .getByRole("grid")
+    .getElementsByTagName("tbody")[0]
+    .getElementsByTagName("button");
+
+  return Array.from(buttons).filter(
+    (button) => button.getAttribute("aria-selected") === "true"
+  );
+}

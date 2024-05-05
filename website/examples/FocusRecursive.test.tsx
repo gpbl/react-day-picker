@@ -1,18 +1,26 @@
-import { render } from "@testing-library/react";
-
-import { focusedElement, mockDate, gridcell, renderApp, user } from "@/test";
+import {
+  act,
+  focusedElement,
+  getDayButton,
+  mockDate,
+  renderApp,
+  user
+} from "@/test";
 
 import { FocusRecursive } from "./FocusRecursive";
 
-test("the first selected day should have focus", async () => {
-  render(<FocusRecursive />);
-  await user.tab();
-  await user.tab();
-  await user.tab();
-  await user.type(focusedElement(), "{arrowdown}");
-  await user.type(focusedElement(), "{arrowdown}");
-  await user.type(focusedElement(), "{arrowdown}");
-  await user.type(focusedElement(), "{arrowdown}");
+const today = new Date(2022, 5, 10);
 
-  expect(gridcell(new Date(2022, 5, 22))).toHaveFocus();
+mockDate(today);
+
+test("the first selected day should have focus", async () => {
+  renderApp(<FocusRecursive />).container;
+  await act(() => user.tab());
+  await act(() => user.tab());
+  await act(() => user.tab());
+  await act(() => user.type(focusedElement(), "{arrowdown}"));
+  await act(() => user.type(focusedElement(), "{arrowdown}"));
+  await act(() => user.type(focusedElement(), "{arrowdown}"));
+  await act(() => user.type(focusedElement(), "{arrowdown}"));
+  expect(getDayButton(new Date(2022, 5, 22))).toHaveFocus();
 });

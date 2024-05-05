@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event";
 import MockDate from "mockdate";
 
-export { act } from "@testing-library/react";
+export { act, screen } from "@testing-library/react";
 
 export function app() {
   return screen.getByRole("application");
@@ -54,6 +54,16 @@ export function focusedElement() {
 export function mockDate(date: Date) {
   beforeAll(() => MockDate.set(date));
   afterAll(() => MockDate.reset());
+}
+
+export function getDayButton(day: Date, index = 0) {
+  return screen.getAllByRole("gridcell", {
+    name: day.getDate().toString()
+  })[index];
+}
+
+export function getMonthCaption(displayIndex = 0) {
+  return screen.getAllByRole("presentation")[displayIndex];
 }
 
 export const user = userEvent.setup();

@@ -14,6 +14,7 @@ export function FocusRecursive() {
       today={new Date(2022, 5, 1)}
       defaultMonth={new Date(2022, 5)}
       disabled={disabledDays}
+      mode="single"
     />
   );
 }

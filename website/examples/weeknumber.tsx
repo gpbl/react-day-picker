@@ -13,7 +13,7 @@ export function Weeknumber() {
     <DayPicker
       showWeekNumber
       onWeekNumberClick={setWeekNumber}
-      footer={<div>{footer}</div>}
+      footer={footer}
     />
   );
 }

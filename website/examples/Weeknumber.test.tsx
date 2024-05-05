@@ -1,22 +1,30 @@
-import { app, rowheader, renderApp, user, mockDate } from "@/test";
+import { act, mockDate, renderApp, screen, user } from "@/test";
 
-import { Weeknumber } from "./WeekNumber";
+import { Weeknumber } from "./Weeknumber";
 
 const today = new Date(2021, 10, 25);
 mockDate(today);
 
-beforeEach(() => {
-  renderApp(<Weeknumber />);
-});
+function getWeekButton(week: number) {
+  return screen.getByRole("button", {
+    name: `Week n. ${week}`
+  });
+}
+
+function getTableFooter() {
+  return screen.getByRole("grid").querySelector("tfoot");
+}
+
+beforeEach(() => renderApp(<Weeknumber />).container);
 
 describe("when displaying November 2021", () => {
   test("should display the 45th week number", () => {
-    expect(rowheader("Week 45")).toBeInTheDocument();
+    expect(getWeekButton(45)).toBeInTheDocument();
   });
   describe("when the week button is clicked", () => {
-    test("should update the footer", async () => {
-      await user.click(rowheader("Week 45"));
-      expect(app()).toHaveTextContent("You clicked the week n. 45.");
+    beforeEach(async () => act(() => user.click(getWeekButton(45))));
+    test("should update the footer", () => {
+      expect(getTableFooter()).toHaveTextContent("You clicked the week n. 45.");
     });
   });
 });
