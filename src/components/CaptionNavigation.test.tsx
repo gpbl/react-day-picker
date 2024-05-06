@@ -1,5 +1,4 @@
-import { act } from "react";
-
+import { act } from "@testing-library/react";
 import { addMonths } from "date-fns";
 
 import { customRender } from "@/test/render";
