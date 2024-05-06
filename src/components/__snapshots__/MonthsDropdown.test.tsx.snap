@@ -15,14 +15,14 @@ exports[`when fromDate and toDate are passed in should render the dropdown eleme
     name="months"
   >
     <option
-      value="0"
+      value="4"
     >
-      January
+      May
     </option>
     <option
-      value="1"
+      value="5"
     >
-      February
+      June
     </option>
   </select>
   <div

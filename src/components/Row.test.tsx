@@ -8,7 +8,14 @@ import { CustomComponents } from "../types/DayPickerBase";
 import { Row, RowProps } from "./Row";
 
 function setup(props: RowProps, dayPickerProps?: DayPickerProps) {
-  customRender(<Row {...props} />, dayPickerProps);
+  customRender(
+    <table>
+      <tbody>
+        <Row {...props} />
+      </tbody>
+    </table>,
+    dayPickerProps
+  );
 }
 
 const props: RowProps = {
