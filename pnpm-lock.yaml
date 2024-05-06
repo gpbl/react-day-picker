@@ -173,7 +173,7 @@ importers:
         version: 9.3.3
       '@testing-library/jest-dom':
         specifier: ^6.1.5
-        version: 6.1.5(@types/jest@29.5.11)(jest@29.7.0)
+        version: 6.1.5(@types/jest@29.5.12)(jest@29.7.0)
       '@testing-library/react':
         specifier: ^14.1.2
         version: 14.1.2(react-dom@18.2.0)(react@18.2.0)
@@ -184,8 +184,8 @@ importers:
         specifier: ^1.0.7
         version: 1.0.7
       '@types/jest':
-        specifier: ^29.5.11
-        version: 29.5.11
+        specifier: ^29.5.12
+        version: 29.5.12
       '@types/jest-axe':
         specifier: ^3.5.9
         version: 3.5.9
@@ -4884,7 +4884,7 @@ packages:
       pretty-format: 27.5.0
     dev: true
 
-  /@testing-library/jest-dom@6.1.5(@types/jest@29.5.11)(jest@29.7.0):
+  /@testing-library/jest-dom@6.1.5(@types/jest@29.5.12)(jest@29.7.0):
     resolution: {integrity: sha512-3y04JLW+EceVPy2Em3VwNr95dOKqA8DhR0RJHhHKDZNYXcVXnEK7WIrpj4eYU8SVt/qYZ2aRWt/WgQ+grNES8g==}
     engines: {node: '>=14', npm: '>=6', yarn: '>=1'}
     peerDependencies:
@@ -4904,7 +4904,7 @@ packages:
     dependencies:
       '@adobe/css-tools': 4.3.2
       '@babel/runtime': 7.23.6
-      '@types/jest': 29.5.11
+      '@types/jest': 29.5.12
       aria-query: 5.3.0
       chalk: 3.0.0
       css.escape: 1.5.1
@@ -5195,15 +5195,8 @@ packages:
   /@types/jest-axe@3.5.9:
     resolution: {integrity: sha512-z98CzR0yVDalCEuhGXXO4/zN4HHuSebAukXDjTLJyjEAgoUf1H1i+sr7SUB/mz8CRS/03/XChsx0dcLjHkndoQ==}
     dependencies:
-      '@types/jest': 29.5.11
+      '@types/jest': 29.5.12
       axe-core: 3.5.6
-    dev: true
-
-  /@types/jest@29.5.11:
-    resolution: {integrity: sha512-S2mHmYIVe13vrm6q4kN6fLYYAka15ALQki/vgDC3mIukEOx8WJlv0kQPM+d4w8Gp6u0uSdKND04IlTXBv0rwnQ==}
-    dependencies:
-      expect: 29.7.0
-      pretty-format: 29.7.0
     dev: true
 
   /@types/jest@29.5.12:
@@ -6687,10 +6680,6 @@ packages:
 
   /ci-info@2.0.0:
     resolution: {integrity: sha512-5tK7EtrZ0N+OLFMthtqOj4fI2Jeb88C4CAZPu25LDVUgXJ0A3Js4PMGqrn0JU1W0Mh1/Z8wZzYPxqUrXeBboCQ==}
-
-  /ci-info@3.3.0:
-    resolution: {integrity: sha512-riT/3vI5YpVH6/qomlDnJow6TBee2PBKSEpx3O32EGPYbWGIRsIlGRms3Sm74wYE1JMo8RnO04Hb12+v1J5ICw==}
-    dev: true
 
   /ci-info@3.8.0:
     resolution: {integrity: sha512-eXTggHWSooYhq49F2opQhuHWgzucfF2YgODK4e1566GQs5BIfP30B0oenwBJHfWxAs2fyPB1s7Mg949zLf61Yw==}
@@ -9857,16 +9846,6 @@ packages:
       - supports-color
     dev: true
 
-  /jest-diff@29.6.3:
-    resolution: {integrity: sha512-3sw+AdWnwH9sSNohMRKA7JiYUJSRr/WS6+sEFfBuhxU5V5GlEVKfvUn8JuMHE0wqKowemR1C2aHy8VtXbaV8dQ==}
-    engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
-    dependencies:
-      chalk: 4.1.2
-      diff-sequences: 29.6.3
-      jest-get-type: 29.6.3
-      pretty-format: 29.6.3
-    dev: true
-
   /jest-diff@29.7.0:
     resolution: {integrity: sha512-LMIgiIrhigmPrs03JHpxUh2yISK3vLFPkAodPeo0+BuF7wA2FoQbkEg1u8gBYBThncu7e1oEDUfIXVuTqLRUjw==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
@@ -9967,9 +9946,9 @@ packages:
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
       chalk: 4.1.2
-      jest-diff: 29.6.3
+      jest-diff: 29.7.0
       jest-get-type: 29.6.3
-      pretty-format: 29.6.3
+      pretty-format: 29.7.0
     dev: true
 
   /jest-matcher-utils@29.7.0:
@@ -10142,7 +10121,7 @@ packages:
       '@jest/types': 29.6.3
       '@types/node': 20.12.8
       chalk: 4.1.2
-      ci-info: 3.3.0
+      ci-info: 3.8.0
       graceful-fs: 4.2.11
       picomatch: 2.3.1
     dev: true
@@ -11856,15 +11835,6 @@ packages:
       ansi-regex: 5.0.1
       ansi-styles: 5.2.0
       react-is: 17.0.2
-    dev: true
-
-  /pretty-format@29.6.3:
-    resolution: {integrity: sha512-ZsBgjVhFAj5KeK+nHfF1305/By3lechHQSMWCTl8iHSbfOm2TN5nHEtFc/+W7fAyUeCs2n5iow72gld4gW0xDw==}
-    engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
-    dependencies:
-      '@jest/schemas': 29.6.3
-      ansi-styles: 5.2.0
-      react-is: 18.2.0
     dev: true
 
   /pretty-format@29.7.0:
