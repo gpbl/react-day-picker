@@ -54,6 +54,11 @@
       "import": "./src/style.css",
       "default": "./src/style.css",
       "types": "./src/style.css.d.ts"
+    },
+    "./package.json": {
+      "require": "./package.json",
+      "import": "./package.json",
+      "default": "./package.json"
     }
   },
   "scripts": {
