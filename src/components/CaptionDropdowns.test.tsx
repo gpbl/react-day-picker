@@ -1,4 +1,4 @@
-import { screen } from "@testing-library/react";
+import { act, screen } from "@testing-library/react";
 import { setMonth, setYear } from "date-fns";
 
 import { customRender } from "@/test/render";
@@ -84,9 +84,8 @@ describe("when a month is selected", () => {
   describe("from the months drop-down", () => {
     const newMonth = setMonth(today, 0);
     beforeEach(async () => {
-      await user.selectOptions(
-        getMonthDropdown(),
-        newMonth.getMonth().toString()
+      await act(() =>
+        user.selectOptions(getMonthDropdown(), newMonth.getMonth().toString())
       );
     });
     test("should call the `onMonthChange` callback", () => {
@@ -96,9 +95,8 @@ describe("when a month is selected", () => {
   describe("from the years drop-down", () => {
     const newYear = setYear(today, 2022);
     beforeEach(async () => {
-      await user.selectOptions(
-        getYearDropdown(),
-        newYear.getFullYear().toString()
+      await act(() =>
+        user.selectOptions(getYearDropdown(), newYear.getFullYear().toString())
       );
     });
     test("should call the `onMonthChange` callback", () => {
