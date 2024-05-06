@@ -18,23 +18,23 @@
     "typecheck-watch": "tsc --noEmit --watch"
   },
   "dependencies": {
-    "@docusaurus/core": "3.2.1",
-    "@docusaurus/preset-classic": "3.2.1",
-    "@docusaurus/remark-plugin-npm2yarn": "^3.2.1",
-    "@docusaurus/theme-live-codeblock": "^3.2.1",
+    "@docusaurus/core": "3.3.2",
+    "@docusaurus/preset-classic": "3.3.2",
+    "@docusaurus/remark-plugin-npm2yarn": "^3.3.2",
+    "@docusaurus/theme-live-codeblock": "^3.3.2",
     "@jest/types": "^29.6.3",
-    "@mdx-js/react": "^3.0.0",
-    "clsx": "^2.0.0",
-    "prism-react-renderer": "^2.3.0",
+    "@mdx-js/react": "^3.0.1",
+    "clsx": "^2.1.1",
+    "prism-react-renderer": "^2.3.1",
     "react": "^18.3.1",
     "react-day-picker": "workspace:^",
     "react-dom": "^18.3.1",
     "remark-github": "^12.0.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.2.1",
-    "@docusaurus/tsconfig": "3.2.1",
-    "@docusaurus/types": "3.2.1",
+    "@docusaurus/module-type-aliases": "3.3.2",
+    "@docusaurus/tsconfig": "3.3.2",
+    "@docusaurus/types": "3.3.2",
     "@types/jest": "^29.5.12",
     "docusaurus-plugin-typedoc": "^1.0.0",
     "identity-obj-proxy": "^3.0.0",
@@ -43,7 +43,7 @@
     "ts-jest": "^29.1.2",
     "typedoc": "^0.25.13",
     "typedoc-plugin-markdown": "^4.0.0",
-    "typescript": "~5.2.2"
+    "typescript": "~5.4.5"
   },
   "browserslist": {
     "production": [
