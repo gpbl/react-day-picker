@@ -1,7 +1,6 @@
-import { useId } from "react";
-
 import { useDayPicker } from "../contexts/DayPicker";
 import { useNavigation } from "../contexts/Navigation";
+import { useId } from "../hooks/useId";
 
 import { Caption } from "./Caption";
 import { Table } from "./Table";
@@ -15,13 +14,12 @@ export interface MonthProps {
 /** Render a month. */
 export function Month(props: MonthProps) {
   const dayPicker = useDayPicker();
-
-  const defaultId = useId();
-
-  const { dir, classNames, styles, components, id = defaultId } = dayPicker;
+  const { dir, classNames, styles, components } = dayPicker;
   const { displayMonths } = useNavigation();
 
-  const captionId = `${id}-${props.displayIndex}`;
+  const captionId = useId(
+    dayPicker.id ? `${dayPicker.id}-${props.displayIndex}` : undefined
+  );
 
   const tableId = dayPicker.id
     ? `${dayPicker.id}-grid-${props.displayIndex}`
