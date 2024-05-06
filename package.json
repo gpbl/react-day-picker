@@ -34,25 +34,26 @@
     "./style.css": {
       "require": "./src/style.css",
       "import": "./src/style.css",
-      "default": "./src/style.css"
+      "default": "./src/style.css",
+      "types": "./src/style.css.d.ts"
     },
     "./dist/style.css": {
       "require": "./src/style.css",
       "import": "./src/style.css",
-      "default": "./src/style.css"
+      "default": "./src/style.css",
+      "types": "./src/style.css.d.ts"
     },
     "./style.module.css": {
       "require": "./src/style.css",
       "import": "./src/style.css",
-      "default": "./src/style.css"
+      "default": "./src/style.css",
+      "types": "./src/style.css.d.ts"
     },
     "./dist/style.module.css": {
-      "default": "./src/style.css"
-    },
-    "./package.json": {
-      "import": "./package.json",
-      "require": "./package.json",
-      "default": "./package.json"
+      "require": "./src/style.css",
+      "import": "./src/style.css",
+      "default": "./src/style.css",
+      "types": "./src/style.css.d.ts"
     }
   },
   "scripts": {
