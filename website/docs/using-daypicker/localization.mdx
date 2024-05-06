@@ -4,8 +4,6 @@ sidebar_position: 5
 
 # Localization
 
-Understand how to localize and translate DayPicker.
-
 ## Configure the Locale
 
 | Prop Name               | Type                                          | Description                                                        |
@@ -27,18 +25,20 @@ import { es } from "date-fns/locale";
 <DayPicker locale={es} />; // Set the locale to Spanish
 ```
 
+<BrowserWindow>
+  <Examples.Spanish />
+</BrowserWindow>
 ### First Date of the Week
 
 Use `weekStartsOn` to override the first date of the week.
 
-```tsx caption="render:SpanishWeekStartsOn"
-import { es } from "date-fns/locale";
-
-<DayPicker
-  locale={es}
-  weekStartsOn={0} // Start the week on Sunday instead of Monday
-/>;
+```tsx
+<DayPicker weekStartsOn={0} />
 ```
+
+<BrowserWindow>
+  <Examples.SpanishWeekStartsOn />
+</BrowserWindow>
 
 ### First Week of the Year
 
@@ -51,6 +51,10 @@ Use `weekStartsOn` to override the first date of the first week of the year, use
 />
 ```
 
+<BrowserWindow>
+  <Examples.WeeknumberCustom />
+</BrowserWindow>
+
 ### ISO Week Dates
 
 Use `ISOWeek` to switch using [ISO Week Dates](https://en.wikipedia.org/wiki/ISO_week_date) instead of the locale setting.
@@ -61,6 +65,10 @@ Use `ISOWeek` to switch using [ISO Week Dates](https://en.wikipedia.org/wiki/ISO
   ISOWeek // Switch to ISO week
 />
 ```
+
+<BrowserWindow>
+  <Examples.WeeknumberIso />
+</BrowserWindow>
 
 ## Translate DayPicker
 
@@ -76,6 +84,14 @@ Use these props to translate DayPicker in any language.
 
 Use the `labels` prop to translate the labels used for ARIA.
 
+TODO: add table, example
+
+### Formatters
+
+Use the `formatters` prop to format the dates and the week numbers.
+
+TODO: add table, example
+
 ### RTL Text Direction
 
 To set the right-to-left text direction, toggle the `dir` prop to `rtl`.
@@ -85,6 +101,10 @@ import { arSA } from "date-fns/locale";
 
 <DayPicker locale={arSA} dir="rtl" />;
 ```
+
+<BrowserWindow>
+  <Examples.Rtl />
+</BrowserWindow>
 
 ### Numbering System
 
@@ -122,3 +142,7 @@ export function NumberingSystemExample() {
   );
 }
 ```
+
+<BrowserWindow>
+  <Examples.NumberingSystem />
+</BrowserWindow>

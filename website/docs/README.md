@@ -45,7 +45,6 @@ Ask for help and share your experience with DayPicker.
 
 - [Discuss the project on GitHub](https://github.com/gpbl/react-day-picker/discussions)
 - [Report an issue on GitHub](https://github.com/gpbl/react-day-picker/issues/new/choose)
-- [Contribute to the project](./development/contributing)
 
 ## Funding
 

@@ -116,7 +116,6 @@
 }
 
 .docusaurus-reset table {
-  border-collapse: revert;
   display: revert;
   margin-bottom: revert;
   overflow: revert;

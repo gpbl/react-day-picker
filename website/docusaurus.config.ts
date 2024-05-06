@@ -88,11 +88,11 @@ const config: Config = {
           position: "left",
           label: "API Reference"
         },
-        {
-          href: "/playground",
-          label: "Playground",
-          position: "left"
-        },
+        // {
+        //   href: "/playground",
+        //   label: "Playground",
+        //   position: "left"
+        // },
         {
           href: "https://github.com/gpbl/react-day-picker/discussions",
           label: "Support",

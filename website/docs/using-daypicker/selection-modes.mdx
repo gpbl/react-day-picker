@@ -34,11 +34,7 @@ When the `mode` prop is set to `"single"`, only one day can be selected at a tim
 
 The following code snippet will render a date picker with a single selected date. When a day is clicked, the `selectedDate` state is updated.
 
-<BrowserWindow>
-  <Examples.Single />
-</BrowserWindow>
-
-```tsx caption="render:Single"
+```tsx
 import { useState } from "react";
 
 import { DayPicker } from "react-day-picker";
@@ -56,6 +52,10 @@ export function App() {
 }
 ```
 
+<BrowserWindow>
+  <Examples.Single />
+</BrowserWindow>
+
 ### Required Selection
 
 By setting the `required` prop, DayPicker won't allow the user to unselect the selected date.
@@ -64,7 +64,7 @@ By setting the `required` prop, DayPicker won't allow the user to unselect the s
   <Examples.SingleRequired />
 </BrowserWindow>
 
-```tsx caption="render:SingleRequired"
+```tsx
 <DayPicker
   mode="single"
   selected={selectedDate}
@@ -88,11 +88,7 @@ By setting the `mode` prop to `"multiple"`, DayPicker allows selecting multiple 
 | `min`      | `number`                                                                          | The minimum dates that can be selected. |
 | `max`      | `number`                                                                          | The maximum dates that can be selected. |
 
-<BrowserWindow>
-  <Examples.Multiple />
-</BrowserWindow>
-
-```tsx caption="render:Multiple"
+```tsx
 import { useState } from "react";
 
 import { DayPicker } from "react-day-picker";
@@ -112,15 +108,15 @@ export function App() {
 }
 ```
 
+<BrowserWindow>
+  <Examples.Multiple />
+</BrowserWindow>
+
 ### Min and Max Dates
 
 Use the `min` and `max` props to limit the number of selectable dates.
 
-<BrowserWindow>
-  <Examples.MultipleMinMax />
-</BrowserWindow>
-
-```tsx caption="render:MultipleMinMax"
+```tsx
 import { useState } from "react";
 
 import { DayPicker } from "react-day-picker";
@@ -140,6 +136,10 @@ export function App() {
 }
 ```
 
+<BrowserWindow>
+  <Examples.MultipleMinMax />
+</BrowserWindow>
+
 ## Range Mode
 
 When the `mode` prop is set to `"range"`, DayPicker allows selecting a continuous range of dates.
@@ -155,11 +155,7 @@ When the `mode` prop is set to `"range"`, DayPicker allows selecting a continuou
 | `min`      | `number`                                                                    | The minimum dates that can be selected. |
 | `max`      | `number`                                                                    | The maximum dates that can be selected. |
 
-<BrowserWindow>
-  <Examples.Range />
-</BrowserWindow>
-
-```tsx caption="render:Range"
+```tsx
 import { useState } from "react";
 
 import { addDays } from "date-fns";
@@ -177,15 +173,15 @@ export function Range() {
 }
 ```
 
+<BrowserWindow>
+  <Examples.Range />
+</BrowserWindow>
+
 ### Min and Max Dates
 
 Also in range mode, you can set the `min` and `max` props to limit the number of selectable dates.
 
-<BrowserWindow>
-  <Examples.RangeMinMax />
-</BrowserWindow>
-
-```tsx caption="render:RangeMinMax"
+```tsx
 import { useState } from "react";
 
 import { DateRange, DayPicker } from "react-day-picker";
@@ -206,9 +202,13 @@ export function RangeMinMax() {
 }
 ```
 
+<BrowserWindow>
+  <Examples.RangeMinMax />
+</BrowserWindow>
+
 ### Shift Key
 
-The following DayPicker requires the <kbd>Shift</kbd> key to select a range of dates. See [examples/RangeShiftKey.tsx](https://github.com/gpbl/react-day-picker/blob/next/website/examples/RangeShiftKey.tsx) for the full source code.
+The following DayPicker requires the <kbd>Shift</kbd> key to select a range of dates. See [examples/RangeShiftKey.tsx](https://github.com/gpbl/react-day-picker/blob/website/examples/RangeShiftKey.tsx) for the full source code.
 
 <BrowserWindow>
   <Examples.RangeShiftKey />
@@ -218,16 +218,16 @@ The following DayPicker requires the <kbd>Shift</kbd> key to select a range of d
 
 To disable specific days, use the `disabled` prop. The prop accepts a [`Matcher`](../api/type-aliases/Matcher.md) or an array of matchers that can be used to make some days not selectable.
 
-<BrowserWindow>
-  <Examples.ModifiersDisabled />
-</BrowserWindow>
-
-```tsx caption="render:ModifiersDisabled"
+```tsx
 <DayPicker
   mode="single"
   disabled={{ daysOfWeek: [0, 6] }} // Disable Sundays and Saturdays
 />
 ```
+
+<BrowserWindow>
+  <Examples.ModifiersDisabled />
+</BrowserWindow>
 
 ## Custom Mode
 
