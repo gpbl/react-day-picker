@@ -1,15 +1,11 @@
 ---
-slug: /development/conduct
-hide_title: true
-pagination_next: null
-pagination_prev: null
-sidebar_label: Code of Conduct
+draft: true
 ---
 
-import Conduct, {
-toc as ConductTOC
-} from '@site/../.github/CODE_OF_CONDUCT.md';
+# Code Of Conduct
 
-<Conduct />
+:::info Draft
 
-export const toc = ConductTOC;
+This documentation is still a work in progress. If you have any questions, ask to the [discussions](https://github.com/gpbl/react-day-picker/discussions) page on Github.
+
+:::

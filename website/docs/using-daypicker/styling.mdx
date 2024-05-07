@@ -1,0 +1,110 @@
+---
+sidebar_position: 2
+---
+
+# Styling
+
+DayPicker comes with a minimal style inspired by MacOS date pickers, designed to be extended and customized.
+
+You can also use your own styles, or use a CSS framework like [Tailwind CSS](https://tailwindcss.com) or [Bootstrap](https://getbootstrap.com) to style the calendar.
+
+## Default Style
+
+To start with the included styles, import `react-day-picker/style.css` into your app. This will add the `.rdp` class names used by DayPicker.
+
+<details>
+<summary>Using a bundler or a React framework</summary>
+
+If you are using a React framework, such as [Next.js](http://nextjs.org) or [Gatsby](https://www.gatsbyjs.com), or a bundler like Webpack with [css-loader](https://webpack.js.org/loaders/css-loader/), import the CSS file from your app's main JavaScript or TypeScript file:
+
+```tsx title="./App.jsx"
+import "react-day-picker/style.css";
+```
+
+</details>
+
+<details>
+<summary>Importing the CSS Module</summary>
+
+When using CSS modules, you can import `style.module.css`. Pass the class names to the `classNames` prop.
+
+```tsx title="./DatePicker.jsx"
+import { DayPicker } from "react-day-picker";
+import { default as defaultStyles } from "react-day-picker/style.module.css";
+
+export function DatePicker() {
+  return <DayPicker classNames={defaultStyles} />;
+}
+```
+
+</details>
+
+### CSS Variables
+
+The default styles use CSS variables to make it easier to customize the base appearance of the calendar. You can override the CSS variables to change the appearance of the calendar.
+
+```css title="./app/global.css"
+:root {
+  --rdp-accent-color: indigo;
+  --rdp-background-color: gray;
+}
+```
+
+The following table lists the CSS variables used by DayPicker:
+
+| Variable Name                 | Variable Value      | Description                                        |
+| ----------------------------- | ------------------- | -------------------------------------------------- |
+| `--rdp-cell-size`             | `40px`              | Size of the day cells.                             |
+| `--rdp-caption-font-size`     | `18px`              | Font size for the caption labels.                  |
+| `--rdp-accent-color`          | `#0000ff`           | Accent color for the background of selected days.  |
+| `--rdp-accent-color-dark`     | `#3003e1`           | Accent color for the background of selected days   |
+| `--rdp-background-color`      | `#e7edff`           | Background color for the hovered/focused elements. |
+| `--rdp-background-color-dark` | `#180270`           | Background color for the hovered/focused elements  |
+| `--rdp-outline`               | `2px solid #0000ff` | Outline border for focused elements.               |
+| `--rdp-outline-selected`      | `3px solid #0000ff` | Outline border for focused and selected elements.  |
+| `--rdp-selected-color`        | `#fff`              | Color of selected day text.                        |
+
+### Light/Dark Appearance
+
+To toggle between dark and light appearance, you can switch the CSS variables:
+
+```css
+[data-theme="dark"] .rdp,
+.dark .rdp {
+  --rdp-accent-color: var(--rdp-accent-color-dark);
+  --rdp-background-color: var(--rdp-background-color-dark);
+}
+```
+
+## Custom Style
+
+Use the `classNames` prop to use other classnames instead of the default ones.
+
+### Tailwind CSS
+
+> TODO: this section is still incomplete.
+
+### Custom CSS
+
+### Inline Styles
+
+To change the appearance of any DayPicker element via inline-styles use the `styles` prop.
+
+:::warning
+
+Mouse hover effects cannot be styled inline.
+
+:::
+
+```tsx
+const monthCaptionStyle = {
+  borderBottom: "1px solid currentColor",
+  paddingBottom: "0.5em"
+};
+// ...
+<DayPicker
+  styles={{
+    month_caption: monthCaptionStyle
+  }}
+/>;
+```

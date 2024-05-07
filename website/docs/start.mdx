@@ -1,0 +1,60 @@
+---
+pagination_next: using-daypicker/styling
+---
+
+# Getting Started
+
+## Install the Package
+
+DayPicker is available as `react-day-picker` npm package. It requires [date-fns](https://date-fns.org) as a peer dependency.
+
+```bash npm2yarn
+npm install react-day-picker date-fns
+```
+
+- See #1087 if you are interested in DayPicker supporting different date
+  libraries.
+
+## Basic Usage
+
+To create a simple date picker calendar,
+
+1. Import the component and its default style from `react-day-picker`.
+2. Choose a [selection mode](/using-daypicker/selection-modes) using the `mode` prop.
+3. Assign the `selected` and `onSelect` props to manage the selected date.
+
+```tsx
+import { useState } from "react";
+
+import { DayPicker } from "react-day-picker";
+import "react-day-picker/style.css";
+
+export function MyDatePicker() {
+  const [selected, setSelected] = useState();
+  return <DayPicker mode="single" selected={selected} onSelect={setSelected} />;
+}
+```
+
+<BrowserWindow>
+  <Examples.Start />
+</BrowserWindow>
+
+## Learn More
+
+{/* - [DayPicker Anatomy](/using-daypicker/anatomy) - Understand the parts composing a DayPicker component. */}
+{/* - [DayPicker Playground](/playground) - Play with the props to try the different customization options. */}
+
+### Using DayPicker
+
+- [Styling](/using-daypicker/styling) - Change the style to make DayPicker match your app's look and feel.
+- [Customization](/using-daypicker/customization) - Explore the options available to customize the calendar and the months navigation.
+- [Selection Modes](/using-daypicker/selection-modes) - Enable users to select days with single, multiple or range selections.
+- [Localization](/using-daypicker/localization) - Configure DayPicker to display the calendar in different languages and date formats.
+- [Accessible Date Pickers](/using-daypicker/accessibility) - Make your date picker accessible to all users.
+
+### Advanced Guides
+
+- [Input Fields](/advanced-guides/input-fields) - Learn how to use DayPicker with input fields and form libraries.
+- [Custom Selections](/advanced-guides/custom-selections) - Create custom selection rules.
+- [Custom Components](/advanced-guides/custom-components) - Use custom components to create a fully customized date picker.
+- [Custom Modifiers](/advanced-guides/custom-modifiers) - Create custom modifiers to highlight specific days in the calendar.

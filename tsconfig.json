@@ -5,6 +5,7 @@
       "@/test": ["./test"],
       "@/test/*": ["./test/*"]
     },
+    "jsx": "react-jsx",
     "noEmit": true,
     "types": ["node", "jest", "@testing-library/jest-dom", "@types/jest"]
   },

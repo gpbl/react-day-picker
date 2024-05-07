@@ -1,20 +1,23 @@
 import type { Config } from "@jest/types";
-import { pathsToModuleNameMapper } from "ts-jest";
-
-import { compilerOptions } from "./tsconfig.json";
 
 const config: Config.InitialOptions = {
+  verbose: true,
   preset: "ts-jest",
-  roots: ["./test-integration"],
+  roots: ["./src", "./examples"],
   transform: {
-    "^.+\\.tsx?$": "ts-jest"
+    "^.+\\.tsx?$": [
+      "ts-jest",
+      {
+        "ts-jest": {
+          tsconfig: "./tsconfig.test.json"
+        }
+      }
+    ]
   },
   moduleNameMapper: {
-    ...pathsToModuleNameMapper(compilerOptions.paths, {
-      prefix: "<rootDir>"
-    }),
+    "@/test": ["<rootDir>/test"],
     "\\.css$": "identity-obj-proxy",
-    "@generated/(.*)": "identity-obj-proxy"
+    "react-day-picker/style.module.css": "identity-obj-proxy"
   },
   testEnvironment: "jsdom",
   coverageReporters: ["lcov", "text", "clover"],
