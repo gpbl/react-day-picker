@@ -1,6 +1,6 @@
 import type { ClassNames } from "./types/Styles";
 
-declare const styles = {
+declare const styles: ClassNames = {
   rdp: string,
   "rdp-vhidden": string,
   "rdp-button_reset": string,
@@ -36,6 +36,6 @@ declare const styles = {
   "rdp-day_range_start": string,
   "rdp-day_range_end": string,
   "rdp-day_range_middle": string,
-} as ClassNames;
+};
 
 export default styles;

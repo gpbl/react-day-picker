@@ -30,10 +30,10 @@ When using CSS modules, you can import `style.module.css`. Pass the class names 
 
 ```tsx title="./DatePicker.jsx"
 import { DayPicker } from "react-day-picker";
-import dayPickerClassNames from "react-day-picker/style.module.css";
+import { default as defaultStyles } from "react-day-picker/style.module.css";
 
 export function DatePicker() {
-  return <DayPicker classNames={dayPickerClassNames} />;
+  return <DayPicker classNames={defaultStyles} />;
 }
 ```
 

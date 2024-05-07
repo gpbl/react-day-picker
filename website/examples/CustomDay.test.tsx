@@ -1,6 +1,6 @@
 import { renderApp, app, mockDate } from "@/test";
 
-import { CustomDay } from "./CustomDay";
+import { CustomDay } from "./CustomDayContent";
 
 mockDate(new Date(2021, 10, 25));
 

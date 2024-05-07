@@ -3,7 +3,7 @@ export * from "./Controlled";
 
 export * from "./CssVariables";
 export * from "./CustomCaption";
-export * from "./CustomDay";
+export * from "./CustomDayContent";
 export * from "./CustomDisableRow";
 export * from "./CustomMultiple";
 export * from "./CustomSingle";
@@ -14,7 +14,8 @@ export * from "./Dropdown";
 export * from "./DropdownMultipleMonths";
 export * from "./Fixedweeks";
 export * from "./FocusRecursive";
-// // export * from './Formatters';s
+export * from "./Formatters";
+
 export * from "./FromToMonth";
 export * from "./FromToYear";
 export * from "./InputRange";

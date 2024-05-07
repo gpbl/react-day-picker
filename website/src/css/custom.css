@@ -148,7 +148,7 @@ a > code {
 
 a.menu__link {
   transition: unset;
-  font-size: smaller;
+  font-size: 0.875rem;
   background: unset;
   line-height: 1.5;
 }
@@ -246,7 +246,7 @@ pre {
 
 .tabs__item {
   border-bottom-width: 1px;
-  font-size: smaller;
+  font-size: 0.875rem;
   border-radius: 0;
 }
 
@@ -278,7 +278,7 @@ div[class^="docRoot"],
 }
 
 .navbar__item {
-  font-size: smaller;
+  font-size: 0.875rem;
 }
 .navbar__title {
   font-size: large;
@@ -286,10 +286,40 @@ div[class^="docRoot"],
 }
 
 .navbar__brand {
-  min-width: var(--doc-sidebar-width);
+  /* min-width: var(--doc-sidebar-width); */
 }
 
 a.navbar__item svg {
   width: 10px;
   height: 10px;
+}
+
+span.DocSearch-Button-Keys {
+  display: none;
+}
+
+button.DocSearch {
+  padding: 0.25rem 0.5rem;
+  /* border-radius: 0.25rem; */
+  border-width: 1px;
+  height: 32px;
+  background: transparent;
+  box-shadow: none;
+}
+
+button.DocSearch {
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+span.DocSearch-Button-Placeholder {
+  font-size: small;
+}
+
+div[class^="collapsibleContent"] a,
+div[class^="admonitionContent"] a {
+  color: var(--ifm-color-primary) !important;
+  text-decoration-color: currentColor;
+  text-decoration-thickness: revert !important;
 }

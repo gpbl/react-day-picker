@@ -8,6 +8,10 @@ slug: /
 
 DayPicker is a [React](https://reactjs.dev) component to create date pickers, calendars, and date inputs for web applications.
 
+```bash npm2yarn
+npm install react-day-picker date-fns
+```
+
 ## Features
 
 - Extensive props to customize and configure the calendar.

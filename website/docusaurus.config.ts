@@ -1,16 +1,18 @@
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
 import { themes as prismThemes } from "prism-react-renderer";
+import pkg from "react-day-picker/package.json";
 
 const config: Config = {
   title: "React DayPicker",
   tagline:
-    "Customizable date picker component for React. Add date pickers, calendars, and date inputs to your web applications.",
+    "Date picker component for React. Add date pickers, calendars, and date inputs to your web applications.",
   favicon: "img/favicon.ico",
   url: "https://react-day-picker.js.org",
   baseUrl: "/",
-  organizationName: "gpbl", // Usually your GitHub org/user name.
-  projectName: "react-day-picker", // Usually your repo name.
+  organizationName: "gpbl",
+  projectName: "react-day-picker",
+  trailingSlash: false,
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -32,7 +34,14 @@ const config: Config = {
           remarkPlugins: [
             require("@docusaurus/remark-plugin-npm2yarn"),
             [require("remark-github"), { repository: "gpbl/react-day-picker" }]
-          ]
+          ],
+          lastVersion: "current",
+          versions: {
+            current: {
+              path: "/",
+              label: `v${pkg.version}`
+            }
+          }
         },
         blog: false,
         theme: {
@@ -58,7 +67,24 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: "img/social-card.jpg",
+    image: "img/social-card.png",
+    metadata: [
+      {
+        name: "og:description",
+        content:
+          "Date picker component for React. Add date pickers, calendars, and date inputs to your web applications."
+      },
+      {
+        name: "description",
+        content:
+          "Date picker component for React. Add date pickers, calendars, and date inputs to your web applications."
+      },
+      {
+        name: "keywords",
+        content:
+          "date picker, react component, calendar component, react datepicker, daypicker, react day picker, date-fns date picker, typescript date picker"
+      }
+    ],
     // announcementBar: {
     // id: "announcement-v9", // Increment on change
     // content: ``,
@@ -70,12 +96,18 @@ const config: Config = {
         src: "img/logo.png"
       },
       items: [
-        // {
-        //   type: "docsVersionDropdown",
-        //   position: "right",
-        //   dropdownItemsAfter: [{ to: "/versions", label: "All versions" }],
-        //   dropdownActiveClassDisabled: true
-        // },
+        {
+          type: "docsVersionDropdown",
+          position: "left",
+          dropdownActiveClassDisabled: true,
+          dropdownItemsBefore: [],
+          dropdownItemsAfter: [
+            {
+              href: "https://react-day-picker-v7.netlify.app",
+              label: "v7.4.10 (older version)"
+            }
+          ]
+        },
         {
           type: "docSidebar",
           sidebarId: "docs",
@@ -93,6 +125,7 @@ const config: Config = {
         //   label: "Playground",
         //   position: "left"
         // },
+
         {
           href: "https://github.com/gpbl/react-day-picker/discussions",
           label: "Support",
@@ -110,6 +143,17 @@ const config: Config = {
       additionalLanguages: ["bash"],
       theme: prismThemes.vsLight,
       darkTheme: prismThemes.dracula
+    },
+    algolia: {
+      appId: "N44150BS2A",
+      apiKey: "42c559dd71da40a168be6f6d81d2bbbc",
+      indexName: "react-day-picker-js",
+      contextualSearch: true,
+      searchPagePath: "search"
+    },
+    colorMode: {
+      defaultMode: "light",
+      respectPrefersColorScheme: true
     }
   } satisfies Preset.ThemeConfig
 };
