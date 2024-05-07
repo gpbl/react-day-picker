@@ -323,3 +323,7 @@ div[class^="admonitionContent"] a {
   text-decoration-color: currentColor;
   text-decoration-thickness: revert !important;
 }
+
+div[class^="admonitionHeading"] {
+  text-transform: revert;
+}

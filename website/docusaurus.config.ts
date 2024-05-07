@@ -104,7 +104,7 @@ const config: Config = {
           dropdownItemsAfter: [
             {
               href: "https://react-day-picker-v7.netlify.app",
-              label: "v7.4.10 (older version)"
+              label: "v7.4.10"
             }
           ]
         },

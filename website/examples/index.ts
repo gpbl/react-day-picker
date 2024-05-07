@@ -7,6 +7,8 @@ export * from "./CustomDayContent";
 export * from "./CustomDisableRow";
 export * from "./CustomMultiple";
 export * from "./CustomSingle";
+export * from "./Input";
+export * from "./Dialog";
 export * from "./DefaultMonth";
 export * from "./DisableNavigation";
 export * from "./Disabled";
