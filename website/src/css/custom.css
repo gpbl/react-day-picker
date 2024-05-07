@@ -72,6 +72,13 @@ html[data-theme="dark"] .rdp {
   --rdp-selected-color: var(--ifm-color-content);
 }
 
+html[data-theme="dark"] {
+  background-image: linear-gradient(to bottom, #0a0a0a, #131313) !important;
+  background-attachment: fixed !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+
 /* Style the main content area */
 .main-wrapper main {
   max-width: 110ch; /* Constrain the maximum width of the content for better readability */
@@ -269,6 +276,15 @@ pre {
 .markdown div[class^="codeBlockTitle_"] {
   padding: 0.5rem 1rem;
   font-size: 0.75rem;
+}
+
+.navbar {
+  background: rgba(255, 255, 255, 0.6); /* Black with 60% opacity */
+  backdrop-filter: blur(10px);
+}
+
+html[data-theme="dark"] .navbar {
+  background: rgba(1, 1, 1, 0.6); /* Black with 60% opacity */
 }
 
 div[class^="docRoot"],
