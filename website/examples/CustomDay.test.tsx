@@ -1,13 +1,13 @@
 import { renderApp, app, mockDate } from "@/test";
 
-import { CustomDay } from "./CustomDayContent";
+import { CustomDayContent } from "./CustomDayContent";
 
 mockDate(new Date(2021, 10, 25));
 
 beforeEach(() => {
   renderApp(
     <div role="app">
-      <CustomDay />
+      <CustomDayContent />
     </div>
   );
 });
