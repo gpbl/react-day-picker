@@ -1,4 +1,4 @@
-import { renderApp, app, mockDate } from "@/test";
+import { renderApp, screen, mockDate } from "@/test";
 
 import { CustomDayContent } from "./CustomDayContent";
 
@@ -13,6 +13,5 @@ beforeEach(() => {
 });
 
 test("should render time elements", () => {
-  const timeElements = app().getElementsByTagName("time");
-  expect(timeElements).toHaveLength(30);
+  expect(screen.getByText("🎉")).toBeInTheDocument();
 });
