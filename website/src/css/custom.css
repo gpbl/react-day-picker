@@ -307,11 +307,9 @@ button.DocSearch {
   box-shadow: none;
 }
 
-button.DocSearch {
-  svg {
-    width: 1rem;
-    height: 1rem;
-  }
+button.DocSearch svg {
+  width: 1rem;
+  height: 1rem;
 }
 span.DocSearch-Button-Placeholder {
   font-size: small;
