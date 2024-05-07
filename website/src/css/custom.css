@@ -13,7 +13,7 @@
   --ifm-color-primary-light: #1a1aff;
   --ifm-color-primary-lighter: #2626ff;
   --ifm-color-primary-lightest: #4d4dff;
-  /* --ifm-global-shadow-lw: none; */
+  --ifm-global-shadow-lw: 1px 1px 1px 0px rgba(0, 0, 0, 0.1);
   --ifm-menu-color: var(--ifm-color-emphasis-200);
 
   /* --ifm-code-font-size: 80%; */
@@ -325,5 +325,5 @@ div[class^="admonitionContent"] a {
 }
 
 div[class^="admonitionHeading"] {
-  text-transform: revert;
+  text-transform: uppercase;
 }

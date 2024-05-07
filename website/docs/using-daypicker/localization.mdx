@@ -28,6 +28,7 @@ import { es } from "date-fns/locale";
 <BrowserWindow>
   <Examples.Spanish />
 </BrowserWindow>
+
 ### First Date of the Week
 
 Use `weekStartsOn` to override the first date of the week.
@@ -72,6 +73,12 @@ Use `ISOWeek` to switch using [ISO Week Dates](https://en.wikipedia.org/wiki/ISO
 
 ## Translate DayPicker
 
+:::info Draft
+
+This paragraph is still a work in progress. If you have any questions, ask to the [discussions](https://github.com/gpbl/react-day-picker/discussions) page on Github.
+
+:::
+
 Use these props to translate DayPicker in any language.
 
 | Prop Name    | Type                                              | Description                                |
@@ -80,17 +87,40 @@ Use these props to translate DayPicker in any language.
 | `formatters` | [`Formatters`](../api/type-aliases/Formatters.md) | Map the function used as date formatters.  |
 | `dir`        | `rtl` \| `ltr`                                    | Set the text direction.                    |
 
-### ARIA labels
+### ARIA Labels
 
-Use the `labels` prop to translate the labels used for ARIA.
+ARIA labels are used by DayPicker to provide a better accessibility experience. Use the `labels` prop to translate the labels used in the component.
 
-TODO: add table, example
+```tsx
+<DayPicker
+  labels={{
+    labelNext: () => "Prossimo mese"
+    labelPrevious: () => "Mese precedente"
+  }}
+/>
+```
+
+| Member               | Type                                                        | Description                                        |
+| :------------------- | :---------------------------------------------------------- | :------------------------------------------------- |
+| `labelMonthDropdown` | () => `string`                                              | Returns the label for the "Months" dropwdown       |
+| `labelNext`          | [`NavButtonLabel`](../api/type-aliases/NavButtonLabel.md)   | Label for the "Next month" button.                 |
+| `labelPrevious`      | [`NavButtonLabel`](../api/type-aliases/NavButtonLabel.md)   | Label for the "Previous month" button.             |
+| `labelWeekNumber`    | [`WeekNumberLabel`](../api/type-aliases/WeekNumberLabel.md) | Label for the "Next month" button.                 |
+| `labelWeekday`       | [`WeekdayLabel`](../api/type-aliases/WeekdayLabel.md)       | Label for the week day used in the head component. |
+| `labelYearDropdown`  | () => `string`                                              | Label for the "Years" dropdown.                    |
 
 ### Formatters
 
 Use the `formatters` prop to format the dates and the week numbers.
 
-TODO: add table, example
+| Member               | Type                                                                | Description                                                        |
+| :------------------- | :------------------------------------------------------------------ | :----------------------------------------------------------------- |
+| `formatCaption`      | [`DateFormatter`](../api/type-aliases/DateFormatter.md)             | Format the month in the caption when `captionLayout` is `buttons`. |
+| `formatDay`          | [`DateFormatter`](../api/type-aliases/DateFormatter.md)             | Format the day in the day cell.                                    |
+| `formatMonthCaption` | [`DateFormatter`](../api/type-aliases/DateFormatter.md)             | Format the month in the navigation dropdown.                       |
+| `formatWeekNumber`   | [`WeekNumberFormatter`](../api/type-aliases/WeekNumberFormatter.md) | Format the week number.                                            |
+| `formatWeekdayName`  | [`DateFormatter`](../api/type-aliases/DateFormatter.md)             | Format the week day name in the header                             |
+| `formatYearCaption`  | [`DateFormatter`](../api/type-aliases/DateFormatter.md)             | Format the year in the navigation dropdown.                        |
 
 ### RTL Text Direction
 

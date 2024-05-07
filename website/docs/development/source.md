@@ -1,9 +1,8 @@
 ---
-sidebar_position: 1
 draft: true
 ---
 
-# DayPicker Anatomy
+# Working with the Source
 
 :::info Draft
 

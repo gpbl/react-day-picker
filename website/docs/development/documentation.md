@@ -1,9 +1,8 @@
 ---
-sidebar_position: 1
 draft: true
 ---
 
-# DayPicker Anatomy
+# Documenting DayPicker
 
 :::info Draft
 

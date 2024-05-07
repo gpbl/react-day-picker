@@ -1,7 +1,100 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 ---
 
 # Custom Selections
 
-**TODO**: This section is still a draft.
+:::info Draft
+
+This documentation is still a work in progress. If you have any questions, ask to the [discussions](https://github.com/gpbl/react-day-picker/discussions) page on Github.
+
+:::
+
+If the built-in selection modes are not enough for your app’s requirements, you can control the selection behavior using `onDayClick`.
+
+### Example: Single Selection
+
+For example, to implement the "single selection" behavior (like when `mode="single"`):
+
+```tsx
+import { useState } from "react";
+
+import { DayPicker, DayPickerProps } from "react-day-picker";
+
+export function CustomSingle() {
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>();
+
+  const modifiers: DayPickerProps["modifiers"] = {};
+  if (selectedDate) {
+    modifiers.selected = selectedDate;
+  }
+  return (
+    <DayPicker
+      modifiers={modifiers}
+      onDayClick={(day, modifiers) => {
+        if (modifiers.selected) {
+          setSelectedDate(undefined);
+        } else {
+          setSelectedDate(day);
+        }
+      }}
+      footer={selectedDate && `You selected ${selectedDate.toDateString()}`}
+    />
+  );
+}
+```
+
+<BrowserWindow>
+  <Examples.CustomSingle />
+</BrowserWindow>
+
+### Example: Multi Selections
+
+The case of a multi-days select is a bit more complex as it deals with an array. The following example replicates the `mode="multiple"`
+selection mode.
+
+```tsx
+import { useState } from "react";
+
+import { isSameDay } from "date-fns";
+import { DayMouseEventHandler, DayPicker } from "react-day-picker";
+
+export function CustomMultiple() {
+  const [value, setValue] = useState<Date[]>([]);
+
+  const handleDayClick: DayMouseEventHandler = (day, modifiers) => {
+    const newValue = [...value];
+    if (modifiers.selected) {
+      const index = value.findIndex((d) => isSameDay(day, d));
+      newValue.splice(index, 1);
+    } else {
+      newValue.push(day);
+    }
+    setValue(newValue);
+  };
+
+  const handleResetClick = () => setValue([]);
+
+  let footer = <>Please pick one or more days.</>;
+
+  if (value.length > 0)
+    footer = (
+      <>
+        You selected {value.length} days.{" "}
+        <button onClick={handleResetClick}>Reset</button>
+      </>
+    );
+
+  return (
+    <DayPicker
+      onDayClick={handleDayClick}
+      modifiers={{ selected: value }}
+      footer={footer}
+    />
+  );
+}
+```
+
+<BrowserWindow>
+  <Examples.CustomMultiple />
+</BrowserWindow>

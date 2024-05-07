@@ -39,6 +39,7 @@ export function Input() {
         onChange={handleInputChange}
       />
       <DayPicker
+        month={selectedDate || new Date()}
         mode="single"
         selected={selectedDate}
         onSelect={handleSelect}

@@ -1,9 +1,8 @@
 ---
-sidebar_position: 1
 draft: true
 ---
 
-# DayPicker Anatomy
+# Code Of Conduct
 
 :::info Draft
 
