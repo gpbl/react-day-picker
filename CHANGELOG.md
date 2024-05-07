@@ -277,8 +277,6 @@ _Release date: PickerInpu_
 - Fix DayPickerInput value does not recompute on `locale` change (fix #938) (#939)
 - Set overlayHasFocus to false in hideAfterDayClick (#941)
 
-
-
 _Release date: ### Typing_
 
 - Improve typings, use TypeScript 3.1 (#929)
@@ -444,7 +442,7 @@ _Release date: 2017-12-03_
 
 ## v7.0.0
 
-_Release Date: 2017-11-25
+\_Release Date: 2017-11-25
 
 **Breaking changes**
 
@@ -482,10 +480,10 @@ If you find problems while upgrading, please
   [`showWeekDays`](http://react-day-picker.js.org/api/DayPicker#showWeekDays)
   prop. Set it to `false` to hide weekday names
 - Added: `month` prop to
-  [`navbarElement`](<(http://react-day-picker.js.org/api/DayPicker#navbarElement)>)
+  [`navbarElement`](http://react-day-picker.js.org/api/DayPicker#navbarElement)
   ([#552](https://github.com/gpbl/react-day-picker/issues/552))
 - Renamed `enableOutsideDays` prop to
-  [`showOutsideDays`](<(http://react-day-picker.js.org/api/DayPicker#showOutsideDays)>)
+  [`showOutsideDays`](http://react-day-picker.js.org/api/DayPicker#showOutsideDays)
 
 **Bug fixes**
 
@@ -696,7 +694,7 @@ _Release date: 2017-06-22_
 
 ## v6.0.0
 
-_Release Date: 2017-06-16
+\_Release Date: 2017-06-16
 
 This major release focuses on performance, improves accessibility and fixes some
 bugs. There are some possible breaking changes, but they are easy to fix (read
@@ -951,7 +949,7 @@ _Release Date: 2017-03-03_
 
 ## v5.0.0
 
-_Release Date: 2017-02-14
+\_Release Date: 2017-02-14
 
 This release focuses on improving perfomance and the component's api-daypicker.
 
@@ -1003,7 +1001,7 @@ This release focuses on improving perfomance and the component's api-daypicker.
 
 ## v4.0.0
 
-_Release Date: 2017-02-10
+\_Release Date: 2017-02-10
 
 - Pass the day's modifiers to the `renderDay` prop function
   ([#237](https://github.com/gpbl/react-day-picker/issues/237))
@@ -1058,7 +1056,7 @@ _Release date: 2016-10-14_
 
 ## v3.0.0
 
-_Release Date: 2016-10-11
+\_Release Date: 2016-10-11
 
 - Fixed [an issue](https://github.com/gpbl/react-day-picker/issues/207) with
   weekdays labels ([#220](https://github.com/gpbl/react-day-picker/pull/220) by
@@ -1270,8 +1268,8 @@ this change shouldn't affect you.
   ```jsx
   <DayPicker
     modifiers={
-      ({ selected: day => isDaySelected(day) },
-      { disabled: day => isDayDisabled(day) })
+      ({ selected: (day) => isDaySelected(day) },
+      { disabled: (day) => isDayDisabled(day) })
     }
   />
   ```
@@ -1280,8 +1278,8 @@ this change shouldn't affect you.
 
   ```jsx
   <DayPicker
-    selectedDays={day => isDaySelected(day)}
-    disabledDays={day => isDayDisabled(day)}
+    selectedDays={(day) => isDaySelected(day)}
+    disabledDays={(day) => isDayDisabled(day)}
   />
   ```
 
@@ -1289,7 +1287,7 @@ this change shouldn't affect you.
   [`reverseMonths`](http://react-day-picker.js.org/docs/api-daypicker.html#reversemonths-prop)
   prop to render the most recent month first.
   ([#147](https://github.com/gpbl/react-day-picker/pull/141) by
-  [sonrtomas](sonrtomas))
+  @sonrtomas
 - Added
   [`onDayKeyDown`](http://react-day-picker.js.org/docs/api-daypicker.html#ondaykeydown-prop),
   [`onDayTouchStart`](http://react-day-picker.js.org/docs/api-daypicker.html#ondaytouchstart-prop),
