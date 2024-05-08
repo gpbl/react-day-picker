@@ -3,7 +3,7 @@ import { useId } from "react";
 import { useDayPicker } from "../contexts/DayPicker";
 import { useNavigation } from "../contexts/Navigation";
 
-import { Caption } from "./Caption";
+import { MonthCaption as DefaultMonthCaption } from "./MonthCaption";
 import { Table } from "./Table";
 
 export interface MonthGridProps {
@@ -52,11 +52,11 @@ export function MonthGrid(props: MonthGridProps) {
     style = { ...style, ...styles.caption_between };
   }
 
-  const CaptionComponent = components?.Caption ?? Caption;
+  const MonthCaption = components?.MonthCaption ?? DefaultMonthCaption;
 
   return (
     <div key={props.displayIndex} className={className.join(" ")} style={style}>
-      <CaptionComponent
+      <MonthCaption
         id={captionId}
         displayMonth={props.displayMonth}
         displayIndex={props.displayIndex}

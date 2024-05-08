@@ -65,7 +65,7 @@ describe("when rendered with a custom id", () => {
 
 describe("when using a custom Caption component", () => {
   const components: CustomComponents = {
-    Caption: () => <>custom caption foo</>
+    MonthCaption: () => <>custom caption foo</>
   };
   beforeEach(() => {
     setup({ displayIndex: 0, displayMonth }, { components });

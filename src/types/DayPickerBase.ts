@@ -2,7 +2,7 @@ import { CSSProperties, ReactNode } from "react";
 
 import { Locale } from "date-fns";
 
-import { CaptionLayout } from "../components/Caption";
+import { CaptionLayout } from "../components/MonthCaption";
 import * as components from "../components/custom-components";
 
 import {

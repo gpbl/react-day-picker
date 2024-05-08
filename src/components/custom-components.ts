@@ -1,4 +1,4 @@
-export { Caption } from "./Caption";
+export { MonthCaption } from "./MonthCaption";
 export { CaptionLabel } from "./CaptionLabel";
 export { Day } from "./Day";
 export { DayContent } from "./DayContent";

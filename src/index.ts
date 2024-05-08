@@ -1,7 +1,7 @@
 export * from "./DayPicker";
 
 export * from "./components/Button";
-export * from "./components/Caption";
+export * from "./components/MonthCaption";
 export * from "./components/CaptionDropdowns";
 export * from "./components/CaptionLabel";
 export * from "./components/CaptionNavigation";

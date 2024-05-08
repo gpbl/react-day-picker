@@ -4,8 +4,7 @@ import { CaptionDropdowns } from "./CaptionDropdowns";
 import { CaptionLabel } from "./CaptionLabel";
 import { CaptionNavigation } from "./CaptionNavigation";
 
-/** Represent the props of the {@link Caption} component. */
-export interface CaptionProps {
+export interface MonthCaptionProps {
   /**
    * The ID for the heading element. Must be the same as the labelled-by in
    * Table.
@@ -34,7 +33,7 @@ export type CaptionLayout = "dropdown" | "buttons" | "dropdown-buttons";
  * Render the caption of a month. The caption has a different layout when
  * setting the {@link DayPickerBase.captionLayout} prop.
  */
-export function Caption(props: CaptionProps): JSX.Element {
+export function MonthCaption(props: MonthCaptionProps): JSX.Element {
   const { classNames, disableNavigation, styles, captionLayout, components } =
     useDayPicker();
 
