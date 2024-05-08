@@ -5,7 +5,7 @@ import { useDayPicker } from "../contexts/DayPicker";
 import { useFocusContext } from "../contexts/Focus";
 import { useNavigation } from "../contexts/Navigation";
 
-import { Month } from "./Month";
+import { MonthGrid } from "./MonthGrid";
 import { Months as DefaultMonths } from "./Months";
 
 function isDataAttributes(attrs: DayPickerProps): attrs is {
@@ -81,7 +81,7 @@ export function Calendar({ initialProps }: CalendarProps): JSX.Element {
     >
       <Months>
         {navigation.displayMonths.map((month, i) => (
-          <Month key={i} displayIndex={i} displayMonth={month} />
+          <MonthGrid key={i} displayIndex={i} displayMonth={month} />
         ))}
       </Months>
     </div>

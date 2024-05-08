@@ -6,14 +6,16 @@ import { useNavigation } from "../contexts/Navigation";
 import { Caption } from "./Caption";
 import { Table } from "./Table";
 
-/** The props for the {@link Month} component. */
-export interface MonthProps {
+export interface MonthGridProps {
   displayIndex: number;
   displayMonth: Date;
 }
 
-/** Render a month. */
-export function Month(props: MonthProps) {
+/**
+ * Render the grid with the month, the caption, weekday header and the weeks for
+ * the given month.
+ */
+export function MonthGrid(props: MonthGridProps) {
   const dayPicker = useDayPicker();
 
   const defaultId = useId();
