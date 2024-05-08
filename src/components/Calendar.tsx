@@ -6,7 +6,7 @@ import { useFocusContext } from "../contexts/Focus";
 import { useNavigation } from "../contexts/Navigation";
 
 import { Month } from "./Month";
-import { Months } from "./Months";
+import { Months as DefaultMonths } from "./Months";
 
 function isDataAttributes(attrs: DayPickerProps): attrs is {
   [key: string]: string | boolean | number | undefined;
@@ -66,7 +66,7 @@ export function Calendar({ initialProps }: CalendarProps): JSX.Element {
       };
     }, {});
 
-  const MonthsComponent = initialProps.components?.Months ?? Months;
+  const Months = initialProps.components?.Months ?? DefaultMonths;
 
   return (
     <div
@@ -79,11 +79,11 @@ export function Calendar({ initialProps }: CalendarProps): JSX.Element {
       lang={initialProps.lang}
       {...dataAttributes}
     >
-      <MonthsComponent>
+      <Months>
         {navigation.displayMonths.map((month, i) => (
           <Month key={i} displayIndex={i} displayMonth={month} />
         ))}
-      </MonthsComponent>
+      </Months>
     </div>
   );
 }
