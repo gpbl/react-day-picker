@@ -14,15 +14,12 @@ function isDataAttributes(attrs: DayPickerProps): attrs is {
   return true;
 }
 
-export interface RootProps {
+export interface CalendarProps {
   initialProps: DayPickerProps;
 }
 
-/**
- * Render the container with the months according to the number of months to
- * display.
- */
-export function Root({ initialProps }: RootProps): JSX.Element {
+/** Render the DayPicker Calendar with navigation and the month grids. */
+export function Calendar({ initialProps }: CalendarProps): JSX.Element {
   const dayPicker = useDayPicker();
   const focusContext = useFocusContext();
   const navigation = useNavigation();

@@ -1,4 +1,4 @@
-import { Root } from "./components/Root";
+import { Calendar } from "./components/Calendar";
 import { ContextProviders } from "./contexts/ContextProviders";
 import { DayPickerDefaultProps } from "./types/DayPickerDefault";
 import { DayPickerMultipleProps } from "./types/DayPickerMultiple";
@@ -26,7 +26,7 @@ export function DayPicker(
 ): JSX.Element {
   return (
     <ContextProviders {...props}>
-      <Root initialProps={props} />
+      <Calendar initialProps={props} />
     </ContextProviders>
   );
 }
