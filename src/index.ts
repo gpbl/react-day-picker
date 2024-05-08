@@ -25,7 +25,7 @@ export * from "./hooks/useActiveModifiers";
 export * from "./contexts/DayPicker";
 export * from "./contexts/Focus";
 export * from "./contexts/Navigation";
-export * from "./contexts/RootProvider";
+export * from "./contexts/ContextProviders";
 export * from "./contexts/SelectMultiple";
 export * from "./contexts/SelectRange";
 export * from "./contexts/SelectSingle";
