@@ -10,7 +10,7 @@ export * from "./components/DayContent";
 export * from "./components/Dropdown";
 export * from "./components/Footer";
 export * from "./components/Head";
-export * from "./components/HeadRow";
+export * from "./components/WeekdaysRow";
 export * from "./components/IconDropdown";
 export * from "./components/IconRight";
 export * from "./components/IconLeft";

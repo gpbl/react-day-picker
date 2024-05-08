@@ -5,7 +5,7 @@ export { DayContent } from "./DayContent";
 export { Dropdown } from "./Dropdown";
 export { Footer } from "./Footer";
 export { Head } from "./Head";
-export { HeadRow } from "./HeadRow";
+export { WeekdaysRow } from "./WeekdaysRow";
 export { IconDropdown } from "./IconDropdown";
 export { IconRight } from "./IconRight";
 export { IconLeft } from "./IconLeft";
