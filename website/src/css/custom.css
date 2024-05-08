@@ -278,13 +278,15 @@ pre {
   font-size: 0.75rem;
 }
 
-.navbar {
-  background: rgba(255, 255, 255, 0.6); /* Black with 60% opacity */
-  backdrop-filter: blur(10px);
-}
+@media (min-width: 997px) {
+  .navbar {
+    background: rgba(255, 255, 255, 0.6); /* Black with 60% opacity */
+    backdrop-filter: blur(10px);
+  }
 
-html[data-theme="dark"] .navbar {
-  background: rgba(1, 1, 1, 0.6); /* Black with 60% opacity */
+  html[data-theme="dark"] .navbar {
+    background: rgba(1, 1, 1, 0.6); /* Black with 60% opacity */
+  }
 }
 
 div[class^="docRoot"],
