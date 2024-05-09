@@ -4,7 +4,7 @@ import { es } from "date-fns/locale";
 import { renderDayPickerHook } from "../../../test/render";
 import { freezeBeforeAll } from "../../../test/utils";
 import { DayPickerProps } from "../../DayPicker";
-import { CaptionLayout } from "../../components/Caption";
+import { CaptionLayout } from "../../components/MonthCaption";
 import { DayPickerContextValue, useDayPicker } from "../../contexts/DayPicker";
 import {
   DefaultContextProps,

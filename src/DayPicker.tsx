@@ -1,5 +1,5 @@
-import { Root } from "./components/Root";
-import { RootProvider } from "./contexts/RootProvider";
+import { Calendar } from "./components/Calendar";
+import { ContextProviders } from "./contexts/ContextProviders";
 import { DayPickerDefaultProps } from "./types/DayPickerDefault";
 import { DayPickerMultipleProps } from "./types/DayPickerMultiple";
 import { DayPickerRangeProps } from "./types/DayPickerRange";
@@ -25,8 +25,8 @@ export function DayPicker(
     | DayPickerRangeProps
 ): JSX.Element {
   return (
-    <RootProvider {...props}>
-      <Root initialProps={props} />
-    </RootProvider>
+    <ContextProviders {...props}>
+      <Calendar initialProps={props} />
+    </ContextProviders>
   );
 }

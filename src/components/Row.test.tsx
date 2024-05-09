@@ -5,20 +5,20 @@ import { customRender } from "@/test/render/customRender";
 import { DayPickerProps } from "../DayPicker";
 import { CustomComponents } from "../types/DayPickerBase";
 
-import { Row, RowProps } from "./Row";
+import { WeekRow, WeekRowProps } from "./WeekRow";
 
-function setup(props: RowProps, dayPickerProps?: DayPickerProps) {
+function setup(props: WeekRowProps, dayPickerProps?: DayPickerProps) {
   customRender(
     <table>
       <tbody>
-        <Row {...props} />
+        <WeekRow {...props} />
       </tbody>
     </table>,
     dayPickerProps
   );
 }
 
-const props: RowProps = {
+const props: WeekRowProps = {
   displayMonth: new Date(2020, 1),
   weekNumber: 4,
   dates: [new Date(2020, 1, 1), new Date(2020, 1, 2), new Date(2020, 1, 3)]
@@ -60,15 +60,15 @@ describe("when using a custom Day component", () => {
   });
 });
 
-describe("when using a custom WeekNumber component", () => {
+describe("when using a custom WeekNumberRowHeader component", () => {
   const components: CustomComponents = {
-    WeekNumber: () => <div>WeekNumber</div>
+    WeekNumberRowHeader: () => <div>WeekNumberRowHeader</div>
   };
   const dayPickerProps: DayPickerProps = { components, showWeekNumber: true };
   beforeEach(() => {
     setup(props, dayPickerProps);
   });
   test("it should render the custom component instead", () => {
-    expect(screen.getByText("WeekNumber")).toBeInTheDocument();
+    expect(screen.getByText("WeekNumberRowHeader")).toBeInTheDocument();
   });
 });

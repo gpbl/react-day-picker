@@ -4,13 +4,13 @@ import { useDayPicker } from "../contexts/DayPicker";
 import { useNavigation } from "../contexts/Navigation";
 import { MonthChangeEventHandler } from "../types/EventHandlers";
 
-import { CaptionProps } from "./Caption";
+import { MonthCaptionProps } from "./MonthCaption";
 import { CaptionLabel } from "./CaptionLabel";
 import { MonthsDropdown } from "./MonthsDropdown";
 import { YearsDropdown } from "./YearsDropdown";
 
 /** Render a caption with the dropdowns to navigate between months and years. */
-export function CaptionDropdowns(props: CaptionProps): JSX.Element {
+export function CaptionDropdowns(props: MonthCaptionProps): JSX.Element {
   const { classNames, styles, components } = useDayPicker();
   const { goToMonth } = useNavigation();
 

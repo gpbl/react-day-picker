@@ -14,7 +14,7 @@ import { freezeBeforeAll } from "@/test/utils";
 import { DayPickerProps } from "../DayPicker";
 import { CustomComponents } from "../types/DayPickerBase";
 
-import { CaptionProps } from "./Caption";
+import { MonthCaptionProps } from "./MonthCaption";
 import { CaptionDropdowns } from "./CaptionDropdowns";
 
 const today = new Date(2021, 8);
@@ -23,7 +23,7 @@ const toYear = 2025;
 
 freezeBeforeAll(today);
 
-function setup(props: CaptionProps, dayPickerProps?: DayPickerProps) {
+function setup(props: MonthCaptionProps, dayPickerProps?: DayPickerProps) {
   customRender(<CaptionDropdowns {...props} />, dayPickerProps);
 }
 

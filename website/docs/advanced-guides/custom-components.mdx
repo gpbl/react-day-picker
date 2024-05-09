@@ -45,7 +45,7 @@ import { CustomDayContent } from "./CustomDayContent";
 
 ## Supported Components
 
-The customizable components are defined in the [`CustomComponents`](/api/interfaces/CustomComponents) interface. Pass any of these to the `components` prop.
+The customizable components are defined by [`CustomComponents`](/api/type-aliases/CustomComponents). Pass any of these to the `components` prop.
 
 :::warning
 
@@ -53,22 +53,22 @@ The custom components are not part of the stable API yet, and may change in futu
 
 :::
 
-| Component                                        | Description                                                                                  |
-| ------------------------------------------------ | -------------------------------------------------------------------------------------------- |
-| [`Caption`](/api/functions/Caption.md)           | The caption for each month.                                                                  |
-| [`CaptionLabel`](/api/functions/CaptionLabel.md) | The caption for each month.                                                                  |
-| [`Day`](/api/functions/Day.md)                   | The day cell.                                                                                |
-| [`DayContent`](/api/functions/DayContent.md)     | The content of the day cell.                                                                 |
-| [`Dropdown`](/api/functions/Dropdown.md)         | The [dropdown](../using-daypicker/customization.mdx#dropdown-navigation) used for navigation |
-| [`Footer`](/api/functions/Footer.md)             | The footer element.                                                                          |
-| [`Head`](/api/functions/Head.md)                 | The head of the grid.                                                                        |
-| [`HeadRow`](/api/functions/HeadRow.md)           | The row with the week names.                                                                 |
-| [`IconDropdown`](/api/functions/IconDropdown.md) | The icon used for the dropdown.                                                              |
-| [`IconLeft`](/api/functions/IconLeft.md)         | The icon used for the previous month navigation.                                             |
-| [`IconRight`](/api/functions/IconRight.md)       | The icon used for the next month navigation.                                                 |
-| [`Months`](/api/functions/Months.md)             | Wrapper for the Months grid.                                                                 |
-| [`Row`](/api/functions/Row.md)                   | Render the grid row.                                                                         |
-| [`WeekNumber`](/api/functions/WeekNumber.md)     | Render the week number.                                                                      |
+| Component                                                      | Description                                                                                  |
+| -------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| [`MonthCaption`](/api/functions/MonthCaption.md)               | The caption for each month.                                                                  |
+| [`CaptionLabel`](/api/functions/CaptionLabel.md)               | The caption for each month.                                                                  |
+| [`Day`](/api/functions/Day.md)                                 | The day cell.                                                                                |
+| [`DayContent`](/api/functions/DayContent.md)                   | The content of the day cell.                                                                 |
+| [`Dropdown`](/api/functions/Dropdown.md)                       | The [dropdown](../using-daypicker/customization.mdx#dropdown-navigation) used for navigation |
+| [`Footer`](/api/functions/Footer.md)                           | The footer element.                                                                          |
+| [`Head`](/api/functions/Head.md)                               | The head of the grid.                                                                        |
+| [`WeekdaysRow`](/api/functions/WeekdaysRow.md)                 | The row with the weekdays names.                                                             |
+| [`IconDropdown`](/api/functions/IconDropdown.md)               | The icon used for the dropdown.                                                              |
+| [`IconLeft`](/api/functions/IconLeft.md)                       | The icon used for the previous month navigation.                                             |
+| [`IconRight`](/api/functions/IconRight.md)                     | The icon used for the next month navigation.                                                 |
+| [`Months`](/api/functions/Months.md)                           | Wrapper for the Months grid.                                                                 |
+| [`WeekRow`](/api/functions/WeekRow.md)                         | Render the row with the week.                                                                |
+| [`WeekNumberRowHeader`](/api/functions/WeekNumberRowHeader.md) | Render the week number.                                                                      |
 
 ## DayPicker Hooks
 

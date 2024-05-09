@@ -4,19 +4,15 @@ import { useDayPicker } from "../contexts/DayPicker";
 
 import { Button } from "./Button";
 
-/** The props for the {@link WeekNumber} component. */
-export interface WeekNumberProps {
+export interface WeekNumberRowHeaderProps {
   /** The number of the week. */
   number: number;
   /** The dates in the week. */
   dates: Date[];
 }
 
-/**
- * Render the week number element. If `onWeekNumberClick` is passed to
- * DayPicker, it renders a button, otherwise a span element.
- */
-export function WeekNumber(props: WeekNumberProps): JSX.Element {
+/** Render the cell with the number of the week. */
+export function WeekNumberRowHeader(props: WeekNumberRowHeaderProps) {
   const { number: weekNumber, dates } = props;
   const {
     onWeekNumberClick,

@@ -1,14 +1,19 @@
 import { useDayPicker } from "../contexts/DayPicker";
 
-import { HeadRow } from "./HeadRow";
+import { WeekdaysRow as DefaultWeekdaysRow } from "./WeekdaysRow";
 
-/** Render the table head. */
+/**
+ * Render the table head.
+ *
+ * @deprecated This component should be removed in the next major version. Use
+ *   only `WeekdaysRow`.
+ */
 export function Head(): JSX.Element {
   const { classNames, styles, components } = useDayPicker();
-  const HeadRowComponent = components?.HeadRow ?? HeadRow;
+  const WeekdaysRow = components?.WeekdaysRow ?? DefaultWeekdaysRow;
   return (
     <thead style={styles.head} className={classNames.head}>
-      <HeadRowComponent />
+      <WeekdaysRow />
     </thead>
   );
 }

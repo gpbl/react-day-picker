@@ -1,11 +1,10 @@
 import { useDayPicker } from "../contexts/DayPicker";
 
-import { CaptionDropdowns } from "./CaptionDropdowns";
-import { CaptionLabel } from "./CaptionLabel";
-import { CaptionNavigation } from "./CaptionNavigation";
+import { CaptionDropdowns as DefaultCaptionDropdowns } from "./CaptionDropdowns";
+import { CaptionLabel as DefaultCaptionLabel } from "./CaptionLabel";
+import { CaptionNavigation as DefaultCaptionNavigation } from "./CaptionNavigation";
 
-/** Represent the props of the {@link Caption} component. */
-export interface CaptionProps {
+export interface MonthCaptionProps {
   /**
    * The ID for the heading element. Must be the same as the labelled-by in
    * Table.
@@ -34,30 +33,31 @@ export type CaptionLayout = "dropdown" | "buttons" | "dropdown-buttons";
  * Render the caption of a month. The caption has a different layout when
  * setting the {@link DayPickerBase.captionLayout} prop.
  */
-export function Caption(props: CaptionProps): JSX.Element {
+export function MonthCaption(props: MonthCaptionProps): JSX.Element {
   const { classNames, disableNavigation, styles, captionLayout, components } =
     useDayPicker();
 
-  const CaptionLabelComponent = components?.CaptionLabel ?? CaptionLabel;
+  const CaptionLabel = components?.CaptionLabel ?? DefaultCaptionLabel;
 
   let caption: JSX.Element;
   if (disableNavigation) {
-    caption = (
-      <CaptionLabelComponent id={props.id} displayMonth={props.displayMonth} />
-    );
+    caption = <CaptionLabel id={props.id} displayMonth={props.displayMonth} />;
   } else if (captionLayout === "dropdown") {
     caption = (
-      <CaptionDropdowns displayMonth={props.displayMonth} id={props.id} />
+      <DefaultCaptionDropdowns
+        displayMonth={props.displayMonth}
+        id={props.id}
+      />
     );
   } else if (captionLayout === "dropdown-buttons") {
     caption = (
       <>
-        <CaptionDropdowns
+        <DefaultCaptionDropdowns
           displayMonth={props.displayMonth}
           displayIndex={props.displayIndex}
           id={props.id}
         />
-        <CaptionNavigation
+        <DefaultCaptionNavigation
           displayMonth={props.displayMonth}
           displayIndex={props.displayIndex}
           id={props.id}
@@ -67,12 +67,15 @@ export function Caption(props: CaptionProps): JSX.Element {
   } else {
     caption = (
       <>
-        <CaptionLabelComponent
+        <CaptionLabel
           id={props.id}
           displayMonth={props.displayMonth}
           displayIndex={props.displayIndex}
         />
-        <CaptionNavigation displayMonth={props.displayMonth} id={props.id} />
+        <DefaultCaptionNavigation
+          displayMonth={props.displayMonth}
+          id={props.id}
+        />
       </>
     );
   }
