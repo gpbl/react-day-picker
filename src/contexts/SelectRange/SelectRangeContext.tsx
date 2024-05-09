@@ -12,7 +12,7 @@ import {
   PropsRange,
   isDayPickerRange
 } from "../../types/PropsRange";
-import { DayClickEventHandler } from "../../types/EventHandlers";
+import { DayClickEventHandler } from "../../types/events";
 import { DateRange } from "../../types/Matchers";
 import { InternalModifier, Modifiers } from "../../types/Modifiers";
 

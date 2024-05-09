@@ -35,7 +35,7 @@ export * from "./types/PropsDefault";
 export * from "./types/PropsMulti";
 export * from "./types/PropsRange";
 export * from "./types/PropsSingle";
-export * from "./types/EventHandlers";
+export * from "./types/events";
 export * from "./types/Formatters";
 export * from "./types/Labels";
 export * from "./types/Matchers";

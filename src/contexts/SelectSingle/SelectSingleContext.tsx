@@ -5,7 +5,7 @@ import {
   PropsSingle,
   isDayPickerSingle
 } from "../../types/PropsSingle";
-import { DayClickEventHandler } from "../../types/EventHandlers";
+import { DayClickEventHandler } from "../../types/events";
 
 /** Represents the value of a {@link SelectSingleContext}. */
 export interface SelectSingleContextValue {

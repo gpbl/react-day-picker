@@ -2,7 +2,7 @@ import { addMonths } from "date-fns";
 
 import { useDayPicker } from "../contexts/DayPicker";
 import { useNavigation } from "../contexts/Navigation";
-import { MonthChangeEventHandler } from "../types/EventHandlers";
+import { MonthChangeEventHandler } from "../types/events";
 
 import { MonthCaptionProps } from "./MonthCaption";
 import { CaptionLabel } from "./CaptionLabel";

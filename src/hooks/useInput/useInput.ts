@@ -14,7 +14,7 @@ import { PropsSingle } from "../../types/PropsSingle";
 import {
   DayClickEventHandler,
   MonthChangeEventHandler
-} from "../../types/EventHandlers";
+} from "../../types/events";
 
 import { isValidDate } from "./utils/isValidDate";
 

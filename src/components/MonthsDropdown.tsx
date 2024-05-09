@@ -3,7 +3,7 @@ import { ChangeEventHandler } from "react";
 import { isSameYear, setMonth, startOfMonth } from "date-fns";
 
 import { useDayPicker } from "../contexts/DayPicker";
-import { MonthChangeEventHandler } from "../types/EventHandlers";
+import { MonthChangeEventHandler } from "../types/events";
 
 import { Dropdown } from "./Dropdown";
 

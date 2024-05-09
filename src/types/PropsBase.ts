@@ -14,7 +14,7 @@ import {
   DayTouchEventHandler,
   MonthChangeEventHandler,
   WeekNumberClickEventHandler
-} from "./EventHandlers";
+} from "./events";
 import { Formatters } from "./Formatters";
 import { Labels } from "./Labels";
 import { Matcher } from "./Matchers";
