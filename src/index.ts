@@ -15,7 +15,7 @@ export * from "./components/IconDropdown";
 export * from "./components/IconRight";
 export * from "./components/IconLeft";
 export * from "./components/Months";
-export * from "./components/Row";
+export * from "./components/WeekRow";
 export * from "./components/WeekNumber";
 
 export * from "./hooks/useInput";

@@ -5,8 +5,7 @@ import { useDayPicker } from "../contexts/DayPicker";
 import { Day } from "./Day";
 import { WeekNumber } from "./WeekNumber";
 
-/** The props for the {@link Row} component. */
-export interface RowProps {
+export interface WeekRowProps {
   /** The month where the row is displayed. */
   displayMonth: Date;
   /** The number of the week to render. */
@@ -16,7 +15,7 @@ export interface RowProps {
 }
 
 /** Render a row in the calendar, with the days and the week number. */
-export function Row(props: RowProps): JSX.Element {
+export function WeekRow(props: WeekRowProps): JSX.Element {
   const { styles, classNames, showWeekNumber, components } = useDayPicker();
 
   const DayComponent = components?.Day ?? Day;

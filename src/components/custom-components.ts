@@ -10,5 +10,5 @@ export { IconDropdown } from "./IconDropdown";
 export { IconRight } from "./IconRight";
 export { IconLeft } from "./IconLeft";
 export { Months } from "./Months";
-export { Row } from "./Row";
+export { WeekRow } from "./WeekRow";
 export { WeekNumber } from "./WeekNumber";
