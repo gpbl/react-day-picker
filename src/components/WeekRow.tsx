@@ -2,8 +2,8 @@ import { getUnixTime } from "date-fns";
 
 import { useDayPicker } from "../contexts/DayPicker";
 
-import { Day } from "./Day";
-import { WeekNumber } from "./WeekNumber";
+import { Day as DefaultDay } from "./Day";
+import { WeekNumberRowHeader as DefaultWeekNumberRowHeader } from "./WeekNumberRowHeader";
 
 export interface WeekRowProps {
   /** The month where the row is displayed. */
@@ -18,14 +18,15 @@ export interface WeekRowProps {
 export function WeekRow(props: WeekRowProps): JSX.Element {
   const { styles, classNames, showWeekNumber, components } = useDayPicker();
 
-  const DayComponent = components?.Day ?? Day;
-  const WeeknumberComponent = components?.WeekNumber ?? WeekNumber;
+  const Day = components?.Day ?? DefaultDay;
+  const WeekNumberRowHeader =
+    components?.WeekNumberRowHeader ?? DefaultWeekNumberRowHeader;
 
   let weekNumberCell;
   if (showWeekNumber) {
     weekNumberCell = (
       <td className={classNames.cell} style={styles.cell}>
-        <WeeknumberComponent number={props.weekNumber} dates={props.dates} />
+        <WeekNumberRowHeader number={props.weekNumber} dates={props.dates} />
       </td>
     );
   }
@@ -40,7 +41,7 @@ export function WeekRow(props: WeekRowProps): JSX.Element {
           key={getUnixTime(date)}
           role="presentation"
         >
-          <DayComponent displayMonth={props.displayMonth} date={date} />
+          <Day displayMonth={props.displayMonth} date={date} />
         </td>
       ))}
     </tr>

@@ -60,15 +60,15 @@ describe("when using a custom Day component", () => {
   });
 });
 
-describe("when using a custom WeekNumber component", () => {
+describe("when using a custom WeekNumberRowHeader component", () => {
   const components: CustomComponents = {
-    WeekNumber: () => <div>WeekNumber</div>
+    WeekNumberRowHeader: () => <div>WeekNumberRowHeader</div>
   };
   const dayPickerProps: DayPickerProps = { components, showWeekNumber: true };
   beforeEach(() => {
     setup(props, dayPickerProps);
   });
   test("it should render the custom component instead", () => {
-    expect(screen.getByText("WeekNumber")).toBeInTheDocument();
+    expect(screen.getByText("WeekNumberRowHeader")).toBeInTheDocument();
   });
 });

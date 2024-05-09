@@ -16,7 +16,7 @@ export * from "./components/IconRight";
 export * from "./components/IconLeft";
 export * from "./components/Months";
 export * from "./components/WeekRow";
-export * from "./components/WeekNumber";
+export * from "./components/WeekNumberRowHeader";
 
 export * from "./hooks/useInput";
 export * from "./hooks/useDayRender";
