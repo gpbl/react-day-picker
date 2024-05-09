@@ -10,7 +10,7 @@ import {
   DefaultContextProps,
   getDefaultContextValues
 } from "../../contexts/DayPicker/defaultContextValues";
-import { DaySelectionMode } from "../../types/PropsBase";
+import { Mode } from "../../types/PropsBase";
 import { Formatters } from "../../types/Formatters";
 import { Labels } from "../../types/Labels";
 import { DayModifiers, ModifiersClassNames } from "../../types/Modifiers";
@@ -199,7 +199,7 @@ describe('when passing an "id" from props', () => {
 });
 
 describe("when in selection mode", () => {
-  const mode: DaySelectionMode = "multiple";
+  const mode: Mode = "multiple";
   const onSelect = jest.fn();
   test('should return the "onSelect" event handler', () => {
     const result = renderHook({ mode, onSelect });

@@ -34,7 +34,7 @@ import { ClassNames, StyledComponent, Styles } from "./Styles";
  * - `default`: disable the built-in selection behavior. Customize what is
  *   selected by using {@link PropsBase.onDayClick}.
  */
-export type DaySelectionMode = "single" | "multiple" | "range" | "default";
+export type Mode = "single" | "multiple" | "range" | "default";
 
 /**
  * The base props for the {@link DayPicker} component and the

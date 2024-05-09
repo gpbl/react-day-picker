@@ -4,7 +4,7 @@ import { Locale } from "date-fns";
 
 import { DayPickerProps } from "../../DayPicker";
 import { CaptionLayout } from "../../components/MonthCaption";
-import { PropsBase, DaySelectionMode } from "../../types/PropsBase";
+import { PropsBase, Mode } from "../../types/PropsBase";
 import {
   PropsMulti,
   isDayPickerMultiple
@@ -31,7 +31,7 @@ import { parseFromToProps } from "./utils";
  * with default and cleaned up values.
  */
 export interface DayPickerContextValue extends PropsBase {
-  mode: DaySelectionMode;
+  mode: Mode;
   onSelect?:
     | PropsSingle["onSelect"]
     | PropsMulti["onSelect"]
