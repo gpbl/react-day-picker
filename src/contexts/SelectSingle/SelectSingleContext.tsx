@@ -1,10 +1,7 @@
 import { createContext, ReactNode, useContext } from "react";
 
 import { PropsBase } from "../../types/PropsBase";
-import {
-  PropsSingle,
-  isDayPickerSingle
-} from "../../types/PropsSingle";
+import { PropsSingle, isDayPickerSingle } from "../../types/PropsSingle";
 import { DayClickEventHandler } from "../../types/events";
 
 /** Represents the value of a {@link SelectSingleContext}. */

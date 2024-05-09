@@ -5,6 +5,15 @@ import { Locale } from "date-fns";
 import { CaptionLayout } from "../components/MonthCaption";
 import * as components from "../components/custom-components";
 
+import { Formatters } from "./Formatters";
+import { Labels } from "./Labels";
+import { Matcher } from "./Matchers";
+import {
+  DayModifiers,
+  ModifiersClassNames,
+  ModifiersStyles
+} from "./Modifiers";
+import { ClassNames, Styles } from "./Styles";
 import {
   DayClickEventHandler,
   DayFocusEventHandler,
@@ -15,15 +24,6 @@ import {
   MonthChangeEventHandler,
   WeekNumberClickEventHandler
 } from "./events";
-import { Formatters } from "./Formatters";
-import { Labels } from "./Labels";
-import { Matcher } from "./Matchers";
-import {
-  DayModifiers,
-  ModifiersClassNames,
-  ModifiersStyles
-} from "./Modifiers";
-import { ClassNames, StyledComponent, Styles } from "./Styles";
 
 /**
  * Selection modes supported by DayPicker.

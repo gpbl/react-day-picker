@@ -9,8 +9,8 @@ import { DayPickerProps } from "../DayPicker";
 import { defaultClassNames } from "../contexts/DayPicker/defaultClassNames";
 import { ClassNames } from "../types/Styles";
 
-import { MonthsProps } from "./Months";
 import { Calendar } from "./Calendar";
+import { MonthsProps } from "./Months";
 
 const today = new Date(2020, 10, 4);
 freezeBeforeAll(today);
@@ -19,7 +19,10 @@ let container: HTMLElement;
 let view: RenderResult;
 
 function render(dayPickerProps: DayPickerProps = {}) {
-  view = customRender(<Calendar initialProps={dayPickerProps} />, dayPickerProps);
+  view = customRender(
+    <Calendar initialProps={dayPickerProps} />,
+    dayPickerProps
+  );
   container = view.container;
 }
 

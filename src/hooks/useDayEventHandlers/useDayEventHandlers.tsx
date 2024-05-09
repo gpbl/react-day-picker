@@ -12,10 +12,10 @@ import { useFocusContext } from "../../contexts/Focus";
 import { useSelectMultiple } from "../../contexts/SelectMultiple";
 import { useSelectRange } from "../../contexts/SelectRange";
 import { useSelectSingle } from "../../contexts/SelectSingle";
+import { ActiveModifiers } from "../../types/Modifiers";
 import { isDayPickerMultiple } from "../../types/PropsMulti";
 import { isDayPickerRange } from "../../types/PropsRange";
 import { isDayPickerSingle } from "../../types/PropsSingle";
-import { ActiveModifiers } from "../../types/Modifiers";
 
 export type EventName =
   | "onClick"

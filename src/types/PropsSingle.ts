@@ -1,8 +1,8 @@
 import { DayPickerProps } from "../DayPicker";
 import { DayPickerContextValue } from "../contexts/DayPicker";
 
-import { SelectSingleEventHandler } from "./events";
 import { PropsBase } from "./PropsBase";
+import { SelectSingleEventHandler } from "./events";
 
 /** The props for the {@link DayPicker} component when using `mode="single"`. */
 export interface PropsSingle extends PropsBase {

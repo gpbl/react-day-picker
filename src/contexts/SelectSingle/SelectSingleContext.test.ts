@@ -3,8 +3,8 @@ import { MouseEvent } from "react";
 import { renderDayPickerHook } from "../../../test/render";
 import { freezeBeforeAll } from "../../../test/utils";
 import { DayPickerProps } from "../../DayPicker";
-import { PropsSingle } from "../../types/PropsSingle";
 import { ActiveModifiers } from "../../types/Modifiers";
+import { PropsSingle } from "../../types/PropsSingle";
 
 import {
   SelectSingleContextValue,

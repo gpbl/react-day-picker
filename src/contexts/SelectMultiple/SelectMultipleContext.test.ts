@@ -6,8 +6,8 @@ import { renderDayPickerHook } from "../../../test/render";
 import { freezeBeforeAll } from "../../../test/utils";
 import { DayPickerProps } from "../../DayPicker";
 import { isMatch } from "../../contexts/Modifiers/utils/isMatch";
-import { PropsMulti } from "../../types/PropsMulti";
 import { ActiveModifiers } from "../../types/Modifiers";
+import { PropsMulti } from "../../types/PropsMulti";
 
 import {
   SelectMultipleContextValue,

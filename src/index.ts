@@ -18,7 +18,6 @@ export * from "./components/Months";
 export * from "./components/WeekRow";
 export * from "./components/WeekNumberRowHeader";
 
-export * from "./hooks/useInput";
 export * from "./hooks/useDayRender";
 export * from "./hooks/useActiveModifiers";
 

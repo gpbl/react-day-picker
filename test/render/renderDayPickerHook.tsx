@@ -1,8 +1,8 @@
 import { render } from "@testing-library/react";
 
 import { DayPickerProps } from "../../src/DayPicker";
-import { FocusContext, FocusContextValue } from "../../src/contexts/Focus";
 import { ContextProviders } from "../../src/contexts/ContextProviders";
+import { FocusContext, FocusContextValue } from "../../src/contexts/Focus";
 import {
   SelectMultipleContext,
   SelectMultipleContextValue

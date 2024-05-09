@@ -11,8 +11,8 @@ import { renderDayPickerHook } from "../../../test/render";
 import { freezeBeforeAll } from "../../../test/utils";
 import { DayPickerProps } from "../../DayPicker";
 import { isMatch } from "../../contexts/Modifiers/utils/isMatch";
-import { PropsRange } from "../../types/PropsRange";
 import { ActiveModifiers } from "../../types/Modifiers";
+import { PropsRange } from "../../types/PropsRange";
 
 import { SelectRangeContextValue, useSelectRange } from "./SelectRangeContext";
 

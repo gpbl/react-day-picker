@@ -4,8 +4,8 @@ import { useDayPicker } from "../contexts/DayPicker";
 import { useNavigation } from "../contexts/Navigation";
 import { MonthChangeEventHandler } from "../types/events";
 
-import { MonthCaptionProps } from "./MonthCaption";
 import { CaptionLabel } from "./CaptionLabel";
+import { MonthCaptionProps } from "./MonthCaption";
 import { MonthsDropdown } from "./MonthsDropdown";
 import { YearsDropdown } from "./YearsDropdown";
 

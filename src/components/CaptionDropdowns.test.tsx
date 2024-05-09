@@ -14,8 +14,8 @@ import { freezeBeforeAll } from "@/test/utils";
 import { DayPickerProps } from "../DayPicker";
 import { CustomComponents } from "../types/PropsBase";
 
-import { MonthCaptionProps } from "./MonthCaption";
 import { CaptionDropdowns } from "./CaptionDropdowns";
+import { MonthCaptionProps } from "./MonthCaption";
 
 const today = new Date(2021, 8);
 const fromYear = 2020;

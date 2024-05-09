@@ -18,11 +18,7 @@ export type DayPickerProps =
  * @see http://daypicker.dev
  */
 export function DayPicker(
-  props:
-    | PropsDefault
-    | PropsSingle
-    | PropsMulti
-    | PropsRange
+  props: PropsDefault | PropsSingle | PropsMulti | PropsRange
 ): JSX.Element {
   return (
     <ContextProviders {...props}>

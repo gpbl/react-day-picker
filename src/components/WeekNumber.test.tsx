@@ -5,9 +5,15 @@ import { customRender } from "@/test/render/customRender";
 
 import { DayPickerProps } from "../DayPicker";
 
-import { WeekNumberRowHeader, WeekNumberRowHeaderProps } from "./WeekNumberRowHeader";
+import {
+  WeekNumberRowHeader,
+  WeekNumberRowHeaderProps
+} from "./WeekNumberRowHeader";
 
-function setup(props: WeekNumberRowHeaderProps, dayPickerProps?: DayPickerProps) {
+function setup(
+  props: WeekNumberRowHeaderProps,
+  dayPickerProps?: DayPickerProps
+) {
   return customRender(<WeekNumberRowHeader {...props} />, dayPickerProps);
 }
 
