@@ -31,7 +31,7 @@ export type CaptionLayout = "dropdown" | "buttons" | "dropdown-buttons";
 
 /**
  * Render the caption of a month. The caption has a different layout when
- * setting the {@link DayPickerBase.captionLayout} prop.
+ * setting the {@link PropsBase.captionLayout} prop.
  */
 export function MonthCaption(props: MonthCaptionProps): JSX.Element {
   const { classNames, disableNavigation, styles, captionLayout, components } =

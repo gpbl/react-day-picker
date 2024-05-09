@@ -1,9 +1,9 @@
 import { PropsWithChildren, ReactNode } from "react";
 
-import { DayPickerDefaultProps } from "../types/DayPickerDefault";
-import { DayPickerMultipleProps } from "../types/DayPickerMultiple";
-import { DayPickerRangeProps } from "../types/DayPickerRange";
-import { DayPickerSingleProps } from "../types/DayPickerSingle";
+import { PropsDefault } from "../types/PropsDefault";
+import { PropsMulti } from "../types/PropsMulti";
+import { PropsRange } from "../types/PropsRange";
+import { PropsSingle } from "../types/PropsSingle";
 
 import { DayPickerProvider } from "./DayPicker";
 import { FocusProvider } from "./Focus";
@@ -14,10 +14,10 @@ import { SelectRangeProvider } from "./SelectRange";
 import { SelectSingleProvider } from "./SelectSingle";
 
 export type ContextProvidersProps =
-  | Partial<DayPickerDefaultProps>
-  | Partial<DayPickerSingleProps>
-  | Partial<DayPickerMultipleProps>
-  | Partial<DayPickerRangeProps>;
+  | Partial<PropsDefault>
+  | Partial<PropsSingle>
+  | Partial<PropsMulti>
+  | Partial<PropsRange>;
 
 /** Provide the value for all the contexts. */
 export function ContextProviders(

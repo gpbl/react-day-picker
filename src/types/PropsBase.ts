@@ -32,7 +32,7 @@ import { ClassNames, StyledComponent, Styles } from "./Styles";
  * - `multiple`: allow selecting multiple days.
  * - `range`: use DayPicker to select a range of days
  * - `default`: disable the built-in selection behavior. Customize what is
- *   selected by using {@link DayPickerBase.onDayClick}.
+ *   selected by using {@link PropsBase.onDayClick}.
  */
 export type DaySelectionMode = "single" | "multiple" | "range" | "default";
 
@@ -40,7 +40,7 @@ export type DaySelectionMode = "single" | "multiple" | "range" | "default";
  * The base props for the {@link DayPicker} component and the
  * {@link DayPickerContext}.
  */
-export interface DayPickerBase {
+export interface PropsBase {
   /**
    * The CSS class to add to the container element. To change the name of the
    * class instead, use `classNames.root`.
@@ -80,8 +80,8 @@ export interface DayPickerBase {
   /**
    * The month displayed in the calendar.
    *
-   * As opposed to {@link DayPickerBase.defaultMonth}, use this prop with
-   * {@link DayPickerBase.onMonthChange} to change the month programmatically.
+   * As opposed to {@link PropsBase.defaultMonth}, use this prop with
+   * {@link PropsBase.onMonthChange} to change the month programmatically.
    */
   month?: Date;
   /** Event fired when the user navigates between months. */

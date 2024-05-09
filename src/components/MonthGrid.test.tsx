@@ -4,7 +4,7 @@ import { customRender } from "@/test/render";
 import { getMonthCaption, getMonthGrid } from "@/test/selectors";
 
 import { DayPickerProps } from "../DayPicker";
-import { CustomComponents } from "../types/DayPickerBase";
+import { CustomComponents } from "../types/PropsBase";
 
 import { MonthGrid, MonthGridProps } from "./MonthGrid";
 

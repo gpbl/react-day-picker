@@ -10,7 +10,7 @@ import {
   DefaultContextProps,
   getDefaultContextValues
 } from "../../contexts/DayPicker/defaultContextValues";
-import { DaySelectionMode } from "../../types/DayPickerBase";
+import { DaySelectionMode } from "../../types/PropsBase";
 import { Formatters } from "../../types/Formatters";
 import { Labels } from "../../types/Labels";
 import { DayModifiers, ModifiersClassNames } from "../../types/Modifiers";

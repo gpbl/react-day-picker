@@ -6,7 +6,7 @@ import { renderDayPickerHook } from "../../../test/render";
 import { freezeBeforeAll } from "../../../test/utils";
 import { DayPickerProps } from "../../DayPicker";
 import { isMatch } from "../../contexts/Modifiers/utils/isMatch";
-import { DayPickerMultipleProps } from "../../types/DayPickerMultiple";
+import { PropsMulti } from "../../types/PropsMulti";
 import { ActiveModifiers } from "../../types/Modifiers";
 
 import {
@@ -34,7 +34,7 @@ describe("when is not a multiple select DayPicker", () => {
   });
 });
 
-const initialProps: DayPickerMultipleProps = {
+const initialProps: PropsMulti = {
   mode: "multiple",
   onDayClick: jest.fn(),
   onSelect: jest.fn()
@@ -46,7 +46,7 @@ const selectedDay3 = addDays(today, 4);
 
 describe("when days are selected", () => {
   const selected = [selectedDay1, selectedDay2, selectedDay3];
-  const dayPickerProps: DayPickerMultipleProps = {
+  const dayPickerProps: PropsMulti = {
     ...initialProps,
     selected
   };
@@ -115,7 +115,7 @@ describe("when days are selected", () => {
 
 describe("when the maximum number of days are selected", () => {
   const selected = [selectedDay1, selectedDay2, selectedDay3];
-  const dayPickerProps: DayPickerMultipleProps = {
+  const dayPickerProps: PropsMulti = {
     ...initialProps,
     selected,
     max: selected.length
@@ -159,7 +159,7 @@ describe("when the maximum number of days are selected", () => {
 
 describe("when the minimum number of days are selected", () => {
   const selected = [selectedDay1, selectedDay2, selectedDay3];
-  const dayPickerProps: DayPickerMultipleProps = {
+  const dayPickerProps: PropsMulti = {
     ...initialProps,
     selected,
     min: selected.length

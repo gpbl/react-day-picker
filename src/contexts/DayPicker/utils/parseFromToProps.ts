@@ -1,6 +1,6 @@
 import { endOfMonth, startOfDay, startOfMonth } from "date-fns";
 
-import { DayPickerBase } from "../../../types/DayPickerBase";
+import { PropsBase } from "../../../types/PropsBase";
 
 /**
  * Return the `fromDate` and `toDate` prop values values parsing the DayPicker
@@ -8,7 +8,7 @@ import { DayPickerBase } from "../../../types/DayPickerBase";
  */
 export function parseFromToProps(
   props: Pick<
-    DayPickerBase,
+    PropsBase,
     "fromYear" | "toYear" | "fromDate" | "toDate" | "fromMonth" | "toMonth"
   >
 ): { fromDate: Date | undefined; toDate: Date | undefined } {

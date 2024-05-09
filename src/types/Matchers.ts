@@ -1,8 +1,8 @@
 /**
  * A value or a function that matches a specific day.
  *
- * Matchers are passed to DayPicker via {@link DayPickerBase.disabled},
- * {@link DayPickerBase.hidden]] or [[DayPickerProps.selected} and are used to
+ * Matchers are passed to DayPicker via {@link PropsBase.disabled},
+ * {@link PropsBase.hidden]] or [[DayPickerProps.selected} and are used to
  * determine if a day should get a {@link Modifier}.
  *
  * Matchers can be of different types:

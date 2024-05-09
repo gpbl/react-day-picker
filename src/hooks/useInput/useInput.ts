@@ -9,8 +9,8 @@ import { differenceInCalendarDays, format as _format, parse } from "date-fns";
 import { enUS } from "date-fns/locale";
 
 import { parseFromToProps } from "../../contexts/DayPicker/utils";
-import { DayPickerBase } from "../../types/DayPickerBase";
-import { DayPickerSingleProps } from "../../types/DayPickerSingle";
+import { PropsBase } from "../../types/PropsBase";
+import { PropsSingle } from "../../types/PropsSingle";
 import {
   DayClickEventHandler,
   MonthChangeEventHandler
@@ -26,7 +26,7 @@ export type InputProps = Pick<
 
 /** The props to attach to the DayPicker component when using {@link useInput}. */
 export type InputDayPickerProps = Pick<
-  DayPickerSingleProps,
+  PropsSingle,
   | "fromDate"
   | "toDate"
   | "locale"
@@ -39,7 +39,7 @@ export type InputDayPickerProps = Pick<
 
 export interface UseInputOptions
   extends Pick<
-    DayPickerBase,
+    PropsBase,
     | "locale"
     | "fromDate"
     | "toDate"

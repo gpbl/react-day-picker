@@ -2,11 +2,11 @@ import { createContext, ReactNode, useContext } from "react";
 
 import { isSameDay } from "date-fns";
 
-import { DayPickerBase } from "../../types/DayPickerBase";
+import { PropsBase } from "../../types/PropsBase";
 import {
-  DayPickerMultipleProps,
+  PropsMulti,
   isDayPickerMultiple
-} from "../../types/DayPickerMultiple";
+} from "../../types/PropsMulti";
 import { DayClickEventHandler } from "../../types/EventHandlers";
 import { InternalModifier, Modifiers } from "../../types/Modifiers";
 
@@ -37,7 +37,7 @@ export const SelectMultipleContext = createContext<
 >(undefined);
 
 export type SelectMultipleProviderProps = {
-  initialProps: DayPickerBase;
+  initialProps: PropsBase;
   children?: ReactNode;
 };
 
@@ -68,7 +68,7 @@ export function SelectMultipleProvider(
 
 /** @private */
 export interface SelectMultipleProviderInternalProps {
-  initialProps: DayPickerMultipleProps;
+  initialProps: PropsMulti;
   children?: ReactNode;
 }
 

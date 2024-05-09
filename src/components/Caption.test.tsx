@@ -13,7 +13,7 @@ import {
 import { freezeBeforeAll } from "@/test/utils";
 
 import { DayPickerProps } from "../DayPicker";
-import { CustomComponents } from "../types/DayPickerBase";
+import { CustomComponents } from "../types/PropsBase";
 
 import { MonthCaption, MonthCaptionProps } from "./MonthCaption";
 
