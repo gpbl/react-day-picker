@@ -41,5 +41,7 @@ export * from "./types/Matchers";
 export * from "./types/Modifiers";
 export * from "./types/Styles";
 
+export * from "./types/deprecated";
+
 export * from "./contexts/Modifiers/utils/isMatch";
 export * from "./contexts/SelectRange/utils/addToRange";
