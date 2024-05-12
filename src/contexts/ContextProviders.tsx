@@ -1,4 +1,4 @@
-import { PropsWithChildren, ReactNode } from "react";
+import { PropsWithChildren } from "react";
 
 import { PropsDefault } from "../types/PropsDefault";
 import { PropsMulti } from "../types/PropsMulti";
