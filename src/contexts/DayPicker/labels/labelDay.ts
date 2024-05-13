@@ -1,8 +1,12 @@
 import { format } from "date-fns";
 
-import { DayLabel } from "../../../types/Labels";
+import { ActiveModifiers } from "../../../types/Modifiers";
 
-/** The default ARIA label for the day button. */
-export const labelDay: DayLabel = (day, activeModifiers, options): string => {
-  return format(day, "do MMMM (EEEE)", options);
-};
+/** Return the default ARIA label for the day button. */
+export function labelDay(
+  date: Date,
+  activeModifiers: ActiveModifiers,
+  options: Parameters<typeof format>[2]
+) {
+  return format(date, "do MMMM (EEEE)", options);
+}

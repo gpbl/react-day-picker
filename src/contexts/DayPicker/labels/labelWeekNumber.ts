@@ -1,6 +1,10 @@
-import { WeekNumberLabel } from "../../../types/Labels";
+import type { format } from "date-fns/format";
 
-/** The default ARIA label for the WeekNumberRowHeader element. */
-export const labelWeekNumber: WeekNumberLabel = (n): string => {
-  return `Week n. ${n}`;
-};
+/** Return the default ARIA label for the week number element. */
+export function labelWeekNumber(
+  weekNumber: number,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  options?: Parameters<typeof format>[2]
+): string {
+  return `Week ${weekNumber}`;
+}
