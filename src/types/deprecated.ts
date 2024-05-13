@@ -18,101 +18,118 @@ import { PropsRange } from "./PropsRange";
 import { PropsSingle } from "./PropsSingle";
 
 /**
- * @deprecated Use {@link ContextProviders} instead.
+ * @deprecated This type has been renamed. Use {@link ContextProviders} instead.
+ *   (deprecated since v9.0.0)
  * @see https://react-day-picker.js.org/upgrading#v9
  */
 export const RootProvider = ContextProviders;
 
 /**
- * @deprecated Use {@link ContextProvidersProps} instead.
+ * @deprecated This type has been renamed. Use {@link ContextProvidersProps}
+ *   instead. (deprecated since v9.0.0)
  * @see https://react-day-picker.js.org/upgrading#v9
  */
 export type RootProviderProps = ContextProvidersProps;
 
 /**
- * @deprecated Use {@link Calendar} instead.
+ * @deprecated This type has been renamed. Use {@link Calendar} instead.
+ *   (deprecated since v9.0.0)
  * @see https://react-day-picker.js.org/upgrading#v9
  */
 export const Root = Calendar;
 
 /**
- * @deprecated Use {@link CalendarProps} instead.
+ * @deprecated This type has been renamed. Use {@link CalendarProps} instead.
+ *   (deprecated since v9.0.0)
  * @see https://react-day-picker.js.org/upgrading#v9
  */
 export type RootProps = CalendarProps;
 
 /**
- * @deprecated Use {@link MonthGrid} instead.
+ * @deprecated This type has been renamed. Use {@link MonthGrid} instead.
+ *   (deprecated since v9.0.0)
  * @see https://react-day-picker.js.org/upgrading#v9
  */
 export const Month = MonthGrid;
 
 /**
- * @deprecated Use {@link MonthGridProps} instead.
+ * @deprecated This type has been renamed. Use {@link MonthGridProps} instead.
+ *   (deprecated since v9.0.0)
  * @see https://react-day-picker.js.org/upgrading#v9
  */
 export type MonthProps = MonthGridProps;
 
 /**
- * @deprecated Use {@link MonthCaption} instead.
+ * @deprecated This type has been renamed. Use {@link MonthCaption} instead.
+ *   (deprecated since v9.0.0)
  * @see https://react-day-picker.js.org/upgrading#v9
  */
 export const Caption = MonthCaption;
 
 /**
- * @deprecated Use {@link MonthCaptionProps} instead.
+ * @deprecated This type has been renamed. Use {@link MonthCaptionProps} instead.
+ *   (deprecated since v9.0.0)
  * @see https://react-day-picker.js.org/upgrading#v9
  */
 export type CaptionProps = MonthCaptionProps;
 
 /**
- * @deprecated Use {@link WeekdaysRow} instead.
+ * @deprecated This type has been renamed. Use {@link WeekdaysRow} instead.
+ *   (deprecated since v9.0.0)
  * @see https://react-day-picker.js.org/upgrading#v9
  */
 export const HeadRow = WeekdaysRow;
 
 /**
- * @deprecated Use {@link WeekRow} instead.
+ * @deprecated This type has been renamed. Use {@link WeekRow} instead. (This
+ *   type has been deprecated sinc) v9
  * @see https://react-day-picker.js.org/upgrading#v9
  */
 export const Row = WeekRow;
 
 /**
- * @deprecated Use {@link WeekRowProps} instead.
+ * @deprecated This type has been renamed. Use {@link WeekRowProps} instead.
+ *   (deprecated since v9.0.0)
  * @see https://react-day-picker.js.org/upgrading#v9
  */
 export type RowProps = WeekRowProps;
 
 /**
- * @deprecated Use {@link WeekNumberRowHeader} instead.
+ * @deprecated This type has been renamed. Use {@link WeekNumberRowHeader}
+ *   instead. (deprecated since v9.0.0)
  * @see https://react-day-picker.js.org/upgrading#v9
  */
 export const WeekNumber = WeekNumberRowHeader;
 
 /**
- * @deprecated Use {@link WeekNumberRowHeaderProps} instead.
+ * @deprecated This type has been renamed. Use {@link WeekNumberRowHeaderProps}
+ *   instead. (deprecated since v9.0.0)
  * @see https://react-day-picker.js.org/upgrading#v9
  */
 export type WeekNumberProps = WeekNumberRowHeaderProps;
 
 /**
- * @deprecated Use {@link PropsSingle} instead.
+ * @deprecated This type has been renamed. Use {@link PropsSingle} instead.
+ *   (deprecated since v9.0.0)
  * @see https://react-day-picker.js.org/upgrading#v9
  */
 export type DayPickerSingleProps = PropsSingle;
 /**
- * @deprecated Use {@link PropsMulti} instead.
+ * @deprecated This type has been renamed. Use {@link PropsMulti} instead.
+ *   (deprecated since v9.0.0)
  * @see https://react-day-picker.js.org/upgrading#v9
  */
 export type DayPickerMultipleProps = PropsMulti;
 /**
- * @deprecated Use {@link PropsRange} instead.
+ * @deprecated This type has been renamed. Use {@link PropsRange} instead.
+ *   (deprecated since v9.0.0)
  * @see https://react-day-picker.js.org/upgrading#v9
  */
 export type DayPickerRangeProps = PropsRange;
 
 /**
- * @deprecated Use {@link Mode} instead.
+ * @deprecated This type has been renamed. Use {@link Mode} instead. (deprecated
+ *   since v9.0.0)
  * @see https://react-day-picker.js.org/upgrading#v9
  */
 export type DaySelectionMode = Mode;
