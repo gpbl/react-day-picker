@@ -6,6 +6,7 @@ export * from "./CustomCaption";
 export * from "./CustomDayContent";
 export * from "./CustomDisableRow";
 export * from "./CustomMultiple";
+export * from "./CustomWeek";
 export * from "./CustomSingle";
 export * from "./Input";
 export * from "./Dialog";
