@@ -30,7 +30,7 @@ exports[`should match the snapshot 1`] = `
               class="rdp-nav"
             >
               <button
-                aria-label="Go to previous month"
+                aria-label="Previous Month"
                 class="rdp-button_reset rdp-button rdp-nav_button rdp-nav_button_previous"
                 name="previous-month"
                 type="button"
@@ -49,7 +49,7 @@ exports[`should match the snapshot 1`] = `
                 </svg>
               </button>
               <button
-                aria-label="Go to next month"
+                aria-label="Next Month"
                 class="rdp-button_reset rdp-button rdp-nav_button rdp-nav_button_next"
                 name="next-month"
                 type="button"
@@ -673,7 +673,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               class="rdp-nav"
             >
               <button
-                aria-label="Go to previous month"
+                aria-label="Previous Month"
                 class="rdp-button_reset rdp-button rdp-nav_button rdp-nav_button_previous"
                 name="previous-month"
                 type="button"
@@ -692,7 +692,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 </svg>
               </button>
               <button
-                aria-label="Go to next month"
+                aria-label="Next Month"
                 class="rdp-button_reset rdp-button rdp-nav_button rdp-nav_button_next"
                 name="next-month"
                 type="button"

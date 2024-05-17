@@ -37,11 +37,11 @@ export function renderApp(children: React.ReactNode) {
 }
 
 export function prevButton() {
-  return screen.getByRole("button", { name: "Go to previous month" });
+  return screen.getByRole("button", { name: "Previous Month" });
 }
 
 export function nextButton() {
-  return screen.getByRole("button", { name: "Go to next month" });
+  return screen.getByRole("button", { name: "Next Month" });
 }
 
 export function focusedElement() {

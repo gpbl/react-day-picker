@@ -7,7 +7,7 @@ mockDate(today);
 
 function getWeekButton(week: number) {
   return screen.getByRole("button", {
-    name: `Week n. ${week}`
+    name: `Week ${week}`
   });
 }
 
