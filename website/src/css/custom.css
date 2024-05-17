@@ -343,3 +343,7 @@ div[class^="admonitionContent"] a {
 div[class^="admonitionHeading"] {
   text-transform: uppercase;
 }
+
+pre code {
+  white-space: pre;
+}
