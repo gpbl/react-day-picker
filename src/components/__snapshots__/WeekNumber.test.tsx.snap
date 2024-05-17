@@ -2,7 +2,7 @@
 
 exports[`with "onWeekNumberClick" prop it should return a button element 1`] = `
 <button
-  aria-label="Week n. 10"
+  aria-label="Week 10"
   class="rdp-button_reset rdp-button rdp-weeknumber"
   name="week-number"
   type="button"
