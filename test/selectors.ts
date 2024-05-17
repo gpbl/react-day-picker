@@ -57,19 +57,19 @@ export function queryTableFooter() {
 }
 
 export function getPrevButton() {
-  return screen.getByRole("button", { name: "Go to previous month" });
+  return screen.getByRole("button", { name: "Previous Month" });
 }
 
 export function queryPrevButton() {
-  return screen.queryByRole("button", { name: "Go to previous month" });
+  return screen.queryByRole("button", { name: "Previous Month" });
 }
 
 export function getNextButton() {
-  return screen.getByRole("button", { name: "Go to next month" });
+  return screen.getByRole("button", { name: "Next Month" });
 }
 
 export function queryNextButton() {
-  return screen.queryByRole("button", { name: "Go to next month" });
+  return screen.queryByRole("button", { name: "Next Month" });
 }
 
 export function getMonthCaption(displayIndex = 0) {
