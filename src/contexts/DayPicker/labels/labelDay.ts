@@ -6,7 +6,7 @@ import { ActiveModifiers } from "../../../types/Modifiers";
 export function labelDay(
   date: Date,
   activeModifiers: ActiveModifiers,
-  options: Parameters<typeof format>[2]
+  options?: Parameters<typeof format>[2]
 ) {
   return format(date, "do MMMM (EEEE)", options);
 }
