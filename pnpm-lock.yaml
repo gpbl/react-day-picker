@@ -160,8 +160,8 @@ importers:
         specifier: ^29.5.12
         version: 29.5.12
       docusaurus-plugin-typedoc:
-        specifier: ^1.0.0
-        version: 1.0.0(typedoc-plugin-markdown@4.0.1)
+        specifier: ^1.0.1
+        version: 1.0.1(typedoc-plugin-markdown@4.0.1)
       identity-obj-proxy:
         specifier: ^3.0.0
         version: 3.0.0
@@ -6200,8 +6200,8 @@ packages:
     dependencies:
       esutils: 2.0.3
 
-  /docusaurus-plugin-typedoc@1.0.0(typedoc-plugin-markdown@4.0.1):
-    resolution: {integrity: sha512-yOFLBFoWPh/dd2Zt1fll9sU4QSQ0NoqZTmH9NyvfUvZZOccc/M81cWXmMkTpmoFwz9+zEUigQHGtcb72sWkpyA==}
+  /docusaurus-plugin-typedoc@1.0.1(typedoc-plugin-markdown@4.0.1):
+    resolution: {integrity: sha512-q3e/XHmnMNdP361/0SMBbCQyr7oUwbSs5QMhu1BkEUvM45oKG7i1qxcKKabOefFDVDW9cmbBISWxB8XZGJAVFg==}
     peerDependencies:
       typedoc-plugin-markdown: '>=4.0.0'
     dependencies:
