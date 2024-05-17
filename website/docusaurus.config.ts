@@ -30,7 +30,7 @@ const config: Config = {
           breadcrumbs: false,
           routeBasePath: "/",
           sidebarPath: "./sidebars.ts",
-          editUrl: "https://github.com/gpbl/react-day-picker/tree/main",
+          editUrl: "https://github.com/gpbl/react-day-picker/tree/main/website",
           remarkPlugins: [
             require("@docusaurus/remark-plugin-npm2yarn"),
             [require("remark-github"), { repository: "gpbl/react-day-picker" }]

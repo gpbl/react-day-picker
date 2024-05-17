@@ -35,13 +35,13 @@
     "@docusaurus/tsconfig": "3.3.2",
     "@docusaurus/types": "3.3.2",
     "@types/jest": "^29.5.12",
-    "docusaurus-plugin-typedoc": "^1.0.0",
+    "docusaurus-plugin-typedoc": "^1.0.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "ts-jest": "^29.1.2",
     "typedoc": "^0.25.13",
-    "typedoc-plugin-markdown": "^4.0.0",
+    "typedoc-plugin-markdown": "^4.0.1",
     "typescript": "~5.4.5"
   },
   "browserslist": {
