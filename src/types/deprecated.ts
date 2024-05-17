@@ -13,6 +13,7 @@ import {
 } from "../contexts/ContextProviders";
 
 import { Mode } from "./PropsBase";
+import { PropsDefault } from "./PropsDefault";
 import { PropsMulti } from "./PropsMulti";
 import { PropsRange } from "./PropsRange";
 import { PropsSingle } from "./PropsSingle";
@@ -126,6 +127,13 @@ export type DayPickerMultipleProps = PropsMulti;
  * @see https://react-day-picker.js.org/upgrading#v9
  */
 export type DayPickerRangeProps = PropsRange;
+
+/**
+ * @deprecated This type has been renamed. Use {@link PropsDefault} instead.
+ *   (deprecated since v9.0.0)
+ * @see https://react-day-picker.js.org/upgrading#v9
+ */
+export type DayPickerDefaultProps = PropsDefault;
 
 /**
  * @deprecated This type has been renamed. Use {@link Mode} instead. (deprecated
