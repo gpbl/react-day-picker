@@ -109,7 +109,6 @@
     "react-dom": "^18.3.1",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
-    "tsc-alias": "^1.8.8",
     "tslib": "^2.6.2",
     "typescript": "~5.4.5"
   },
