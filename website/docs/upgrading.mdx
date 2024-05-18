@@ -4,6 +4,32 @@ sidebar_position: 5
 
 # Upgrading
 
+## Upgrade to v9
+
+- Update ARIA labels
+- Deprecated Typings
+- Formatters return type
+
+### ARIA labels
+
+ARIA labels have been updated:
+
+- `Week nr.` to `Week`
+- `Previous Month` and `NextMonth`
+
+You may need to update your test selectors - for example:
+
+```diff
+- screen.getByRole('button', 'Go to previous month');
++ screen.getByRole('button', 'Previous Month');
+```
+
+### Formatters return type
+
+### Deprecated Typings
+
+TODO: add table
+
 ## Upgrade to v8
 
 DayPicker v8 is a major upgrade for DayPicker with new props and styles. Follow the checklist for a smooth upgrade.
