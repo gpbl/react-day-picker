@@ -23,62 +23,79 @@ These examples showcase different approaches for integrating DayPicker with inpu
 
 ### Input with Inline Calendar
 
-In this example, the selected date is displayed in an input field, and the calendar is displayed below the input field. The selected date is updated when the user selects a date from the calendar.
+This example demonstrates how to integrate an input field with an inline DayPicker calendar. The input field allows users to type a date, and the calendar updates the selected date based on the input value.
+
+See also the [full source code](https://github.com/gpbl/react-day-picker/blob/main/website/examples/Input.tsx) and [the unit tests](https://github.com/gpbl/react-day-picker/blob/main/website/examples/Input.test.tsx) for this example.
 
 <BrowserWindow>
   <Examples.Input />
 </BrowserWindow>
 
 ```tsx
-import { useState } from "react";
+import { useId, useState } from "react";
 
 import { format, isValid, parse } from "date-fns";
 import { DayPicker } from "react-day-picker";
 
+/** Render an input field bound to a DayPicker calendar. */
 export function Input() {
+  const inputId = useId();
+
+  // Hold the month in state to control the calendar when the input changes
+  const [month, setMonth] = useState(new Date());
+
+  // Hold the selected date in state
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
+
+  // Hold the input value in state
   const [inputValue, setInputValue] = useState("");
 
-  const handleSelect = (date: Date | undefined) => {
+  const handleDayPickerSelect = (date: Date | undefined) => {
     if (!date) {
       setInputValue("");
       setSelectedDate(undefined);
     } else {
       setSelectedDate(date);
+      setMonth(date);
       setInputValue(format(date, "MM/dd/yyyy"));
     }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value); // keep the input value in sync
+
     const parsedDate = parse(e.target.value, "MM/dd/yyyy", new Date());
+
     if (isValid(parsedDate)) {
       setSelectedDate(parsedDate);
+      setMonth(parsedDate);
+    } else {
+      setSelectedDate(undefined);
     }
-    setInputValue(e.target.value);
   };
 
   return (
     <div>
-      <label htmlFor="booking-input">
-        <strong>Selected Date: </strong>
+      <label htmlFor={inputId}>
+        <strong>Date: </strong>
       </label>
       <input
         style={{ fontSize: "inherit" }}
-        id="booking-input"
+        id={inputId}
         type="text"
         value={inputValue}
         placeholder="MM/dd/yyyy"
         onChange={handleInputChange}
       />
       <DayPicker
+        month={month}
+        onMonthChange={setMonth}
         mode="single"
         selected={selectedDate}
-        onSelect={handleSelect}
+        onSelect={handleDayPickerSelect}
         footer={
           <p aria-live="assertive" aria-atomic="true">
-            {selectedDate !== undefined && (
-              <>Selected: {selectedDate.toDateString()}</>
-            )}
+            Selected: {selectedDate?.toDateString()}
           </p>
         }
       />
@@ -89,11 +106,9 @@ export function Input() {
 
 ### Input with Date Picker Dialog
 
-Implementing the date picker as a dialog requires careful consideration of accessibility. You can refer to the [W3C ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/) for guidance on implementing an accessible date picker dialog.
+Implementing the date picker as a dialog requires careful consideration of accessibility. You can refer to the [W3C ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/) for guidance on implementing an accessible date picker.
 
-In this example, we use the native HTML `<dialog>` element, which provides a built-in way to create a modal dialog. The dialog is opened when the user clicks the calendar button, and the selected date is displayed in the input field.
-
-You can replace the native `<dialog>` element with a custom dialog component or a modal library that fits your application's design and accessibility requirements.
+In this example, we use the native HTML `<dialog>` element, which provides a built-in way to create a modal dialog. You can replace the native `<dialog>` element with a custom dialog component or a modal library that fits your application's design and accessibility requirements.
 
 <BrowserWindow>
   <Examples.Dialog />
@@ -105,19 +120,27 @@ import { useEffect, useId, useRef, useState } from "react";
 import { format, isValid, parse } from "date-fns";
 import { DayPicker } from "react-day-picker";
 
-function Dialog() {
+export function Dialog() {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const dialogId = useId();
   const headerId = useId();
 
+  // Hold the month in state to control the calendar when the input changes
+  const [month, setMonth] = useState(new Date());
+
+  // Hold the selected date in state
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
+
+  // Hold the input value in state
   const [inputValue, setInputValue] = useState("");
+
+  // Hold the dialog visibility in state
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   // Function to toggle the dialog visibility
   const toggleDialog = () => setIsDialogOpen(!isDialogOpen);
 
-  // Hook to handle the body scroll behavior and focus trapping
+  // Hook to handle the body scroll behavior and focus trapping.
   useEffect(() => {
     const handleBodyScroll = (isOpen: boolean) => {
       document.body.style.overflow = isOpen ? "hidden" : "";
@@ -130,13 +153,16 @@ function Dialog() {
       handleBodyScroll(false);
       dialogRef.current.close();
     }
-
     return () => {
       handleBodyScroll(false);
     };
   }, [isDialogOpen]);
 
-  const handleSelect = (date: Date) => {
+  /**
+   * Function to handle the DayPicker select event: update the input value and
+   * the selected date, and set the month.
+   */
+  const handleDayPickerSelect = (date: Date) => {
     if (!date) {
       setInputValue("");
       setSelectedDate(undefined);
@@ -146,18 +172,27 @@ function Dialog() {
     }
     dialogRef.current?.close();
   };
-
+  /**
+   * Handle the input change event: parse the input value to a date, update the
+   * selected date and set the month.
+   */
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value); // keep the input value in sync
+
     const parsedDate = parse(e.target.value, "MM/dd/yyyy", new Date());
+
     if (isValid(parsedDate)) {
       setSelectedDate(parsedDate);
+      setMonth(parsedDate);
+    } else {
+      setSelectedDate(undefined);
     }
-    setInputValue(e.target.value);
   };
+
   return (
     <div>
       <label htmlFor="date-input">
-        <strong>Selected Date: </strong>
+        <strong>Pick a Date: </strong>
       </label>
       <input
         style={{ fontSize: "inherit" }}
@@ -166,8 +201,7 @@ function Dialog() {
         value={inputValue}
         placeholder={"MM/dd/yyyy"}
         onChange={handleInputChange}
-      />
-      <button
+      /> <button
         style={{ fontSize: "inherit" }}
         onClick={toggleDialog}
         aria-controls="dialog"
@@ -191,10 +225,19 @@ function Dialog() {
         onClose={() => setIsDialogOpen(false)}
       >
         <DayPicker
+          month={month}
+          onMonthChange={setMonth}
           initialFocus
           mode="single"
           selected={selectedDate}
-          onSelect={handleSelect}
+          onSelect={handleDayPickerSelect}
+          footer={
+            <p aria-live="assertive" aria-atomic="true">
+              {selectedDate !== undefined && (
+                <>Selected: {selectedDate.toDateString()}</>
+              )}
+            </p>
+          }
         />
       </dialog>
     </div>
