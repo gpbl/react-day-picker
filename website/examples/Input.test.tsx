@@ -4,50 +4,58 @@ import { format } from "date-fns";
 
 import { Input } from "./Input";
 
+function textbox() {
+  return screen.getByRole("textbox", { name: "Date:" }) as HTMLInputElement;
+}
+
+function gridcells() {
+  return screen.queryAllByRole("gridcell") as HTMLTableCellElement[];
+}
+
+function selectedCells() {
+  return gridcells().filter((cell) => cell.hasAttribute("aria-selected"));
+}
+
 it("renders a textbox", () => {
   render(<Input />);
-  expect(screen.getByRole("textbox", { name: /Date:/i })).toBeInTheDocument();
+  expect(textbox()).toBeInTheDocument();
 });
 
-it("updates input value when a date is selected", async () => {
+it("updates the calendar when a date is typed in", async () => {
   render(<Input />);
-  const input = screen.getByRole("textbox", {
-    name: /Date:/i
-  }) as HTMLInputElement;
   const testDate = new Date(2022, 11, 31); // Dec 31, 2022
-  await userEvent.type(input, format(testDate, "MM/dd/yyyy"));
+  await userEvent.type(textbox(), format(testDate, "MM/dd/yyyy"));
+
   expect(
     screen.getByText(`Selected: ${testDate.toDateString()}`)
   ).toBeInTheDocument();
+
+  expect(selectedCells()).toHaveLength(1);
+  expect(selectedCells()[0]).toHaveTextContent(`${testDate.getDate()}`);
 });
 
-it("clears the input value when an invalid date is entered", async () => {
+it("updates the input when a day is picked from the calendar", async () => {
   render(<Input />);
-  const input = screen.getByRole("textbox", {
-    name: /Date:/i
-  }) as HTMLInputElement;
-  await userEvent.type(input, "invalid date");
-  expect(input.value).toBe("invalid date");
-});
-
-it("clears the selected grid cells when the input is cleared", async () => {
-  render(<Input />);
-  const input = screen.getByRole("textbox", {
-    name: /Date:/i
-  }) as HTMLInputElement;
-  await userEvent.type(input, "12/31/2022");
-  await userEvent.clear(input);
-  const gridCells = screen.queryAllByRole("gridcell") as HTMLTableCellElement[];
+  const testDate = new Date(2022, 11, 31); // Dec 31, 2022
+  await userEvent.type(textbox(), format(testDate, "MM/dd/yyyy"));
 
   expect(
-    gridCells.filter((cell) => cell.hasAttribute("aria-selected"))
-  ).toHaveLength(0);
+    screen.getByText(`Selected: ${testDate.toDateString()}`)
+  ).toBeInTheDocument();
+
+  expect(selectedCells()).toHaveLength(1);
+  expect(selectedCells()[0]).toHaveTextContent(`${testDate.getDate()}`);
 });
 
-it("updates the month when a date is selected", async () => {
+it("clears the selected days when an invalid date is entered", async () => {
   render(<Input />);
-  const input = screen.getByRole("textbox", { name: /Date:/i });
+  await userEvent.type(textbox(), "invalid date");
+  expect(selectedCells()).toHaveLength(0);
+});
+
+it("updates the month when a date is typed in", async () => {
+  render(<Input />);
   const testDate = new Date(2022, 11, 31); // Dec 31, 2022
-  await userEvent.type(input, format(testDate, "MM/dd/yyyy"));
+  await userEvent.type(textbox(), format(testDate, "MM/dd/yyyy"));
   expect(screen.getByText(`December 2022`)).toBeInTheDocument();
 });
