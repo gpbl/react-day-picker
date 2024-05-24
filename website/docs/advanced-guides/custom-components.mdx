@@ -45,7 +45,7 @@ import { CustomDayContent } from "./CustomDayContent";
 
 ## Supported Components
 
-The customizable components are defined by [`CustomComponents`](/api/type-aliases/CustomComponents). Pass any of these to the `components` prop.
+The customizable components are defined by [`CustomComponents`](../api/type-aliases/CustomComponents). Pass any of these to the `components` prop.
 
 :::warning
 
@@ -53,22 +53,22 @@ The custom components are not part of the stable API yet, and may change in futu
 
 :::
 
-| Component                                                      | Description                                                                                  |
-| -------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| [`MonthCaption`](/api/functions/MonthCaption.md)               | The caption for each month.                                                                  |
-| [`CaptionLabel`](/api/functions/CaptionLabel.md)               | The caption for each month.                                                                  |
-| [`Day`](/api/functions/Day.md)                                 | The day cell.                                                                                |
-| [`DayContent`](/api/functions/DayContent.md)                   | The content of the day cell.                                                                 |
-| [`Dropdown`](/api/functions/Dropdown.md)                       | The [dropdown](../using-daypicker/customization.mdx#dropdown-navigation) used for navigation |
-| [`Footer`](/api/functions/Footer.md)                           | The footer element.                                                                          |
-| [`Head`](/api/functions/Head.md)                               | The head of the grid.                                                                        |
-| [`WeekdaysRow`](/api/functions/WeekdaysRow.md)                 | The row with the weekdays names.                                                             |
-| [`IconDropdown`](/api/functions/IconDropdown.md)               | The icon used for the dropdown.                                                              |
-| [`IconLeft`](/api/functions/IconLeft.md)                       | The icon used for the previous month navigation.                                             |
-| [`IconRight`](/api/functions/IconRight.md)                     | The icon used for the next month navigation.                                                 |
-| [`Months`](/api/functions/Months.md)                           | Wrapper for the Months grid.                                                                 |
-| [`WeekRow`](/api/functions/WeekRow.md)                         | Render the row with the week.                                                                |
-| [`WeekNumberRowHeader`](/api/functions/WeekNumberRowHeader.md) | Render the week number.                                                                      |
+| Component                                                        | Description                                                                                  |
+| ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| [`MonthCaption`](../api/functions/MonthCaption.md)               | The caption for each month.                                                                  |
+| [`CaptionLabel`](../api/functions/CaptionLabel.md)               | The caption for each month.                                                                  |
+| [`Day`](../api/functions/Day.md)                                 | The day cell.                                                                                |
+| [`DayContent`](../api/functions/DayContent.md)                   | The content of the day cell.                                                                 |
+| [`Dropdown`](../api/functions/Dropdown.md)                       | The [dropdown](../using-daypicker/customization.mdx#dropdown-navigation) used for navigation |
+| [`Footer`](../api/functions/Footer.md)                           | The footer element.                                                                          |
+| [`Head`](../api/functions/Head.md)                               | The head of the grid.                                                                        |
+| [`WeekdaysRow`](../api/functions/WeekdaysRow.md)                 | The row with the weekdays names.                                                             |
+| [`IconDropdown`](../api/functions/IconDropdown.md)               | The icon used for the dropdown.                                                              |
+| [`IconLeft`](../api/functions/IconLeft.md)                       | The icon used for the previous month navigation.                                             |
+| [`IconRight`](../api/functions/IconRight.md)                     | The icon used for the next month navigation.                                                 |
+| [`Months`](../api/functions/Months.md)                           | Wrapper for the Months grid.                                                                 |
+| [`WeekRow`](../api/functions/WeekRow.md)                         | Render the row with the week.                                                                |
+| [`WeekNumberRowHeader`](../api/functions/WeekNumberRowHeader.md) | Render the week number.                                                                      |
 
 ## DayPicker Hooks
 
@@ -78,19 +78,19 @@ When creating custom components, you will find useful the DayPicker hooks.
 import { useDayPicker } from "react-day-picker";
 ```
 
-| Hook                                                         | Returns                                                               | Description                                        |
-| ------------------------------------------------------------ | --------------------------------------------------------------------- | -------------------------------------------------- |
-| [`useDayPicker`](/api/functions/useDayPicker.md)             | [`DayPickerContextValue`](/api/interfaces/DayPickerContextValue.md)   | Get the props passed to DayPicker.                 |
-| [`useNavigation`](/api/functions/useNavigation.md)           | [`NavigationContextValue`](/api/interfaces/NavigationContextValue.md) | Navigate between months and years .                |
-| [`useDayRender`](/api/functions/useDayRender.md)             | [`DayRender`](/api/type-aliases/DayRender.md)                         | Render the day cell from a custom `Day` component. |
-| [`useFocusContext`](/api/functions/useFocusContext.md)       | [`FocusContextValue`](/api/type-aliases/FocusContextValue.md)         | Handle the focus between elements.                 |
-| [`useActiveModifiers`](/api/functions/useActiveModifiers.md) | [`ActiveModifiers`](/api/type-aliases/ActiveModifiers.md)             | Returns the modifiers applied to a day.            |
+| Hook                                                           | Returns                                                                 | Description                                        |
+| -------------------------------------------------------------- | ----------------------------------------------------------------------- | -------------------------------------------------- |
+| [`useDayPicker`](../api/functions/useDayPicker.md)             | [`DayPickerContextValue`](../api/interfaces/DayPickerContextValue.md)   | Get the props passed to DayPicker.                 |
+| [`useNavigation`](../api/functions/useNavigation.md)           | [`NavigationContextValue`](../api/interfaces/NavigationContextValue.md) | Navigate between months and years .                |
+| [`useDayRender`](../api/functions/useDayRender.md)             | [`DayRender`](../api/type-aliases/DayRender.md)                         | Render the day cell from a custom `Day` component. |
+| [`useFocusContext`](../api/functions/useFocusContext.md)       | [`FocusContextValue`](../api/type-aliases/FocusContextValue.md)         | Handle the focus between elements.                 |
+| [`useActiveModifiers`](../api/functions/useActiveModifiers.md) | [`ActiveModifiers`](../api/type-aliases/ActiveModifiers.md)             | Returns the modifiers applied to a day.            |
 
 ## Examples
 
 ### Custom Caption
 
-Implement a custom `Caption` component with next/previous buttons. Note the use of the [useNavigation hook](/api/functions/useNavigation) to navigate between months.
+Implement a custom `Caption` component with next/previous buttons. Note the use of the [useNavigation hook](../api/functions/useNavigation) to navigate between months.
 
 ```tsx
 import { format } from "date-fns";
