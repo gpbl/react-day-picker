@@ -1,7 +1,10 @@
-// @ts-check
 /**
  * @type {Partial<import("typedoc").TypeDocOptions> &
- *   Partial<import("typedoc-plugin-markdown").PluginOptions>}
+ *   Partial<import("typedoc-plugin-markdown").PluginOptions> &
+ *   Partial<import("docusaurus-plugin-typedoc").PluginOptions> &
+ *   Partial<
+ *     import("typedoc-plugin-frontmatter/dist/options/models").PluginOptions
+ *   >}
  */
 const options = {
   name: "API",
@@ -29,12 +32,7 @@ const options = {
   typeDeclarationFormat: "table",
   indexFormat: "table"
 
-  // watch: import("node:process").env.TYPEDOC_WATCH,
-
-  // frontmatterGlobals: {
-  //   pagination_next: null,
-  //   pagination_prev: null
-  // }
+  // plugin: ["typedoc-plugin-markdown", "typedoc-plugin-frontmatter"]
 };
 
 export default options;
