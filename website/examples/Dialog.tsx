@@ -8,14 +8,22 @@ export function Dialog() {
   const dialogId = useId();
   const headerId = useId();
 
+  // Hold the month in state to control the calendar when the input changes
+  const [month, setMonth] = useState(new Date());
+
+  // Hold the selected date in state
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
+
+  // Hold the input value in state
   const [inputValue, setInputValue] = useState("");
+
+  // Hold the dialog visibility in state
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   // Function to toggle the dialog visibility
   const toggleDialog = () => setIsDialogOpen(!isDialogOpen);
 
-  // Hook to handle the body scroll behavior and focus trapping
+  // Hook to handle the body scroll behavior and focus trapping.
   useEffect(() => {
     const handleBodyScroll = (isOpen: boolean) => {
       document.body.style.overflow = isOpen ? "hidden" : "";
@@ -28,13 +36,16 @@ export function Dialog() {
       handleBodyScroll(false);
       dialogRef.current.close();
     }
-
     return () => {
       handleBodyScroll(false);
     };
   }, [isDialogOpen]);
 
-  const handleSelect = (date: Date) => {
+  /**
+   * Function to handle the DayPicker select event: update the input value and
+   * the selected date, and set the month.
+   */
+  const handleDayPickerSelect = (date: Date) => {
     if (!date) {
       setInputValue("");
       setSelectedDate(undefined);
@@ -44,18 +55,27 @@ export function Dialog() {
     }
     dialogRef.current?.close();
   };
-
+  /**
+   * Handle the input change event: parse the input value to a date, update the
+   * selected date and set the month.
+   */
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value); // keep the input value in sync
+
     const parsedDate = parse(e.target.value, "MM/dd/yyyy", new Date());
+
     if (isValid(parsedDate)) {
       setSelectedDate(parsedDate);
+      setMonth(parsedDate);
+    } else {
+      setSelectedDate(undefined);
     }
-    setInputValue(e.target.value);
   };
+
   return (
     <div>
       <label htmlFor="date-input">
-        <strong>Selected Date: </strong>
+        <strong>Pick a Date: </strong>
       </label>
       <input
         style={{ fontSize: "inherit" }}
@@ -89,10 +109,19 @@ export function Dialog() {
         onClose={() => setIsDialogOpen(false)}
       >
         <DayPicker
+          month={month}
+          onMonthChange={setMonth}
           initialFocus
           mode="single"
           selected={selectedDate}
-          onSelect={handleSelect}
+          onSelect={handleDayPickerSelect}
+          footer={
+            <p aria-live="assertive" aria-atomic="true">
+              {selectedDate !== undefined && (
+                <>Selected: {selectedDate.toDateString()}</>
+              )}
+            </p>
+          }
         />
       </dialog>
     </div>
