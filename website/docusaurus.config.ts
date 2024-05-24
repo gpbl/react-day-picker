@@ -35,11 +35,15 @@ const config: Config = {
             require("@docusaurus/remark-plugin-npm2yarn"),
             [require("remark-github"), { repository: "gpbl/react-day-picker" }]
           ],
-          lastVersion: "current",
+          lastVersion: "8.10.1",
           versions: {
+            "8.10.1": {
+              label: "8.10.1",
+              badge: false
+            },
             current: {
-              path: "/",
-              label: `v${pkg.version}`
+              label: "9.0.0-alpha",
+              path: "next"
             }
           }
         },
@@ -104,7 +108,7 @@ const config: Config = {
           dropdownItemsAfter: [
             {
               href: "https://react-day-picker-v7.netlify.app",
-              label: "v7.4.10"
+              label: "7.4.10"
             }
           ]
         },
