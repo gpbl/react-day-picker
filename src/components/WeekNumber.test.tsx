@@ -5,13 +5,19 @@ import { customRender } from "@/test/render/customRender";
 
 import { DayPickerProps } from "../DayPicker";
 
-import { WeekNumber, WeekNumberProps } from "./WeekNumber";
+import {
+  WeekNumberRowHeader,
+  WeekNumberRowHeaderProps
+} from "./WeekNumberRowHeader";
 
-function setup(props: WeekNumberProps, dayPickerProps?: DayPickerProps) {
-  return customRender(<WeekNumber {...props} />, dayPickerProps);
+function setup(
+  props: WeekNumberRowHeaderProps,
+  dayPickerProps?: DayPickerProps
+) {
+  return customRender(<WeekNumberRowHeader {...props} />, dayPickerProps);
 }
 
-const props: WeekNumberProps = {
+const props: WeekNumberRowHeaderProps = {
   number: 10,
   dates: [new Date(), new Date()]
 };

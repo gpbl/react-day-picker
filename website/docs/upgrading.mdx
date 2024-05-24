@@ -4,46 +4,61 @@ sidebar_position: 5
 
 # Upgrading
 
-## Upgrade to v8
+## Upgrade from v8 to v9 alpha
 
-DayPicker v8 is a major upgrade for DayPicker with new props and styles. Follow the checklist for a smooth upgrade.
+This major version introduce some important breaking changes.
+
+- Updated HTML Structure for better accessibility
+- Updated ARIA labels
+- Deprecated and renamed types
+- Formatters return type is now a string
+- Updated build script (rollup removed)
+- Removed useInput hook (see docs for alternatives)
 
 ### Checklist
 
-1. **Upgrade the dependency**. DayPicker now has [date-fns](https://date-fns.org/) as peer dependency.
-   ```bash npm2yarn
-   npm install react-day-picker@latest date-fns
-   ```
-2. **Remove the types package**, if you were using it:
-   ```bash npm2yarn
-   npm uninstall @types/react-day-picker
-   ```
-3. **Update the CSS import**:
-   ```diff
-   - import `react-day-picker/lib/style.css`
-   + import `react-day-picker/dist/style.css`
-   ```
-4. **Update your custom styles**. See the [Styling Guide](/using-daypicker/styling.mdx) for more information.
-5. **Update the changed props**. See the list below.
-6. **Replace `DateUtils` with date-fns**. Use [date-fns](https://date-fns.org/) instead of [DateUtils](https://react-day-picker-v7.netlify.app/api/DateUtils) to handle dates.
-   - Replace `addDayToRange` with [addToRange](../api/functions/addToRange), which is still exported in v8
+Follow these steps to upgrade your project from v8 to v9:
 
-### Updated Props
+#### 1. Upgrade to the next version
 
-- `showWeekNumbers` has been renamed to `showWeekNumber`
-- `todayButton` has been removed. See [Controlling the current month](https://daypicker.dev/basics/navigation#controlling-the-current-month) for an example implementing the same feature.
-- `initialMonth` has been renamed to `defaultMonth`. See [Navigating months](https://daypicker.dev/basics/navigation) for more details about using `month` and `defaultMonth`.
-- `canChangeMonth` has been renamed to `disableNavigation`
-- `selectedDays` has been renamed to `selected`. See also: [Selecting Days guide](https://daypicker.dev/basics/selecting-days).
-- `disabledDays` has been renamed to `disabled`. See also: [Disabling days](https://daypicker.dev/basics/modifiers#disabling-days).
+```bash npm2yarn
+npm install react-day-picker@next date-fns
+```
 
-### ISO weeks
+#### 2. Update test selectors
 
-This version use the locale setting to calculate the week days and numbers. The previous versions were using [ISO week dates](https://en.wikipedia.org/wiki/ISO_week_date). To toggle the ISO week dates, use the `ISOWeek` prop.
+The following ARIA labels have been updated:
 
-### DayPickerInput
+- `Week nr.` to `Week`
+- `Previous Month` and `NextMonth`
 
-The `DayPickerInput` component has been removed. If you upgrade to v8, you will need to rewrite your implementation:
+You may need to update your test selectors - for example:
 
-- See [Input Fields Guide](/advanced-guides/input-fields) for an example
-- Please note that [~useInput hook~](../api/functions/useInput) has been deprecated since v8.10.0.
+```diff
+- screen.getByRole('button', 'Go to previous month');
++ screen.getByRole('button', 'Previous Month');
+```
+
+#### 3. Formatters return type
+
+The formatters now return a string instead of a ReactNode. If you were using the formatters in a React component, you may need to update your code:
+
+```diff
+- const MyComponent = () => <DayPicker formatters={{ caption: () => <strong>My caption</strong> }} />;
++ const MyComponent = () => <DayPicker formatters={{ caption: () => 'My caption' }} />;
+```
+
+#### 4. Rename deprecated typings
+
+Many typings have been deprecated in favor of clarity and shorter names. If you were using the typings, you may need to update your code or it will break in the next major version.
+
+```diff
+- import { DayPickerDefaultProps } from 'react-day-picker';
++ import { PropsDefault } from 'react-day-picker/types';
+```
+
+---
+
+## Upgrade from v7 to v8
+
+See the [migration guide](https://react-day-picker.js.org/upgrading) for the changes introduced in v8.

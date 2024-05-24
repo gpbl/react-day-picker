@@ -1,8 +1,8 @@
 import { useDayPicker } from "../contexts/DayPicker";
 
-import { Footer } from "./Footer";
-import { Head } from "./Head";
-import { Row } from "./Row";
+import { Footer as DefaultFooter } from "./Footer";
+import { Head as DefaultHead } from "./Head";
+import { WeekRow as DefaultWeekRow } from "./WeekRow";
 import { getMonthWeeks } from "./utils/getMonthWeeks";
 
 /** The props for the {@link Table} component. */
@@ -37,9 +37,9 @@ export function Table(props: TableProps): JSX.Element {
     firstWeekContainsDate
   });
 
-  const HeadComponent = components?.Head ?? Head;
-  const RowComponent = components?.Row ?? Row;
-  const FooterComponent = components?.Footer ?? Footer;
+  const Head = components?.Head ?? DefaultHead;
+  const WeekRow = components?.WeekRow ?? DefaultWeekRow;
+  const Footer = components?.Footer ?? DefaultFooter;
   return (
     <table
       id={props.id}
@@ -48,10 +48,10 @@ export function Table(props: TableProps): JSX.Element {
       role="grid"
       aria-labelledby={props["aria-labelledby"]}
     >
-      {!hideHead && <HeadComponent />}
+      {!hideHead && <Head />}
       <tbody className={classNames.tbody} style={styles.tbody}>
         {weeks.map((week) => (
-          <RowComponent
+          <WeekRow
             displayMonth={props.displayMonth}
             key={week.weekNumber}
             dates={week.dates}
@@ -59,7 +59,7 @@ export function Table(props: TableProps): JSX.Element {
           />
         ))}
       </tbody>
-      <FooterComponent displayMonth={props.displayMonth} />
+      <Footer displayMonth={props.displayMonth} />
     </table>
   );
 }

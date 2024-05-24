@@ -1,11 +1,11 @@
 import { DayPickerProps } from "../DayPicker";
 import { DayPickerContextValue } from "../contexts/DayPicker";
 
-import { DayPickerBase } from "./DayPickerBase";
-import { SelectMultipleEventHandler } from "./EventHandlers";
+import { PropsBase } from "./PropsBase";
+import { SelectMultipleEventHandler } from "./events";
 
 /** The props for the {@link DayPicker} component when using `mode="multiple"`. */
-export interface DayPickerMultipleProps extends DayPickerBase {
+export interface PropsMulti extends PropsBase {
   mode: "multiple";
   /** The selected days. */
   selected?: Date[] | undefined;
@@ -17,9 +17,9 @@ export interface DayPickerMultipleProps extends DayPickerBase {
   max?: number;
 }
 
-/** Returns true when the props are of type {@link DayPickerMultipleProps}. */
+/** Returns true when the props are of type {@link PropsMulti}. */
 export function isDayPickerMultiple(
   props: DayPickerProps | DayPickerContextValue
-): props is DayPickerMultipleProps {
+): props is PropsMulti {
   return props.mode === "multiple";
 }

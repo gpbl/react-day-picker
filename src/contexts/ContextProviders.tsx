@@ -1,31 +1,28 @@
-import { ReactNode } from "react";
+import { PropsWithChildren } from "react";
 
-import { ModifiersProvider } from "../contexts/Modifiers/ModifiersContext";
-import { DayPickerDefaultProps } from "../types/DayPickerDefault";
-import { DayPickerMultipleProps } from "../types/DayPickerMultiple";
-import { DayPickerRangeProps } from "../types/DayPickerRange";
-import { DayPickerSingleProps } from "../types/DayPickerSingle";
+import { PropsDefault } from "../types/PropsDefault";
+import { PropsMulti } from "../types/PropsMulti";
+import { PropsRange } from "../types/PropsRange";
+import { PropsSingle } from "../types/PropsSingle";
 
 import { DayPickerProvider } from "./DayPicker";
 import { FocusProvider } from "./Focus";
+import { ModifiersProvider } from "./Modifiers/ModifiersContext";
 import { NavigationProvider } from "./Navigation";
 import { SelectMultipleProvider } from "./SelectMultiple";
 import { SelectRangeProvider } from "./SelectRange";
 import { SelectSingleProvider } from "./SelectSingle";
 
-type RootContextProps =
-  | Partial<DayPickerDefaultProps>
-  | Partial<DayPickerSingleProps>
-  | Partial<DayPickerMultipleProps>
-  | Partial<DayPickerRangeProps>;
+export type ContextProvidersProps =
+  | Partial<PropsDefault>
+  | Partial<PropsSingle>
+  | Partial<PropsMulti>
+  | Partial<PropsRange>;
 
-/** The props of {@link RootProvider}. */
-export type RootContext = RootContextProps & {
-  children?: ReactNode;
-};
-
-/** Provide the value for all the context providers. */
-export function RootProvider(props: RootContext): JSX.Element {
+/** Provide the value for all the contexts. */
+export function ContextProviders(
+  props: PropsWithChildren<ContextProvidersProps>
+) {
   const { children, ...initialProps } = props;
 
   return (

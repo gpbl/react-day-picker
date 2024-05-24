@@ -1,5 +1,3 @@
-import { ReactNode } from "react";
-
 import { Locale } from "date-fns";
 
 /** Represents a function to format a date. */
@@ -8,7 +6,7 @@ export type DateFormatter = (
   options?: {
     locale?: Locale;
   }
-) => ReactNode;
+) => string;
 
 /** Represent a map of formatters used to render localized content. */
 export type Formatters = {
@@ -32,4 +30,4 @@ export type WeekNumberFormatter = (
   options?: {
     locale?: Locale;
   }
-) => ReactNode;
+) => string;

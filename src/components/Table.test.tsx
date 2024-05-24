@@ -40,7 +40,7 @@ describe("when using custom components", () => {
           </tr>
         </thead>
       ),
-      Row: () => (
+      WeekRow: () => (
         <tr>
           <td>CustomRow</td>
         </tr>

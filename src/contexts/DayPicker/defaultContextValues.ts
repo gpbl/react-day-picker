@@ -1,6 +1,6 @@
 import { enUS } from "date-fns/locale";
 
-import { CaptionLayout } from "../../components/Caption";
+import { CaptionLayout } from "../../components/MonthCaption";
 import { DayPickerContextValue } from "../../contexts/DayPicker";
 
 import { defaultClassNames } from "./defaultClassNames";

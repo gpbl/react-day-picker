@@ -12,5 +12,5 @@ beforeEach(() => {
 });
 
 test("should display the autumn emoji", () => {
-  expect(screen.getByRole("img", { name: "autumn" })).toBeInTheDocument();
+  expect(screen.getByText("🍂 November")).toBeInTheDocument();
 });

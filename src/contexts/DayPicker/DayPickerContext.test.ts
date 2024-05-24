@@ -4,16 +4,16 @@ import { es } from "date-fns/locale";
 import { renderDayPickerHook } from "../../../test/render";
 import { freezeBeforeAll } from "../../../test/utils";
 import { DayPickerProps } from "../../DayPicker";
-import { CaptionLayout } from "../../components/Caption";
+import { CaptionLayout } from "../../components/MonthCaption";
 import { DayPickerContextValue, useDayPicker } from "../../contexts/DayPicker";
 import {
   DefaultContextProps,
   getDefaultContextValues
 } from "../../contexts/DayPicker/defaultContextValues";
-import { DaySelectionMode } from "../../types/DayPickerBase";
 import { Formatters } from "../../types/Formatters";
 import { Labels } from "../../types/Labels";
 import { DayModifiers, ModifiersClassNames } from "../../types/Modifiers";
+import { Mode } from "../../types/PropsBase";
 import { ClassNames, Styles } from "../../types/Styles";
 
 const today = new Date(2022, 5, 13);
@@ -199,7 +199,7 @@ describe('when passing an "id" from props', () => {
 });
 
 describe("when in selection mode", () => {
-  const mode: DaySelectionMode = "multiple";
+  const mode: Mode = "multiple";
   const onSelect = jest.fn();
   test('should return the "onSelect" event handler', () => {
     const result = renderHook({ mode, onSelect });

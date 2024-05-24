@@ -133,7 +133,7 @@ html[data-theme="dark"] {
 }
 
 .markdown > h4 {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: -0.015em;
 }
@@ -346,4 +346,22 @@ div[class^="admonitionHeading"] {
 
 pre code {
   white-space: pre;
+}
+
+.theme-doc-version-banner {
+  font-size: 0.875rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.theme-doc-version-banner a {
+  text-decoration-color: currentColor;
+  text-decoration-thickness: revert !important;
+}
+.theme-doc-version-banner div.margin-top--md {
+  margin-top: 0 !important;
+}
+.theme-doc-version-badge {
+  font-size: 0.75rem;
+  border-radius: 0.25rem;
+  font-weight: normal;
 }

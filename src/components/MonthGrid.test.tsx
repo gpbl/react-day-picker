@@ -4,9 +4,9 @@ import { customRender } from "@/test/render";
 import { getMonthCaption, getMonthGrid } from "@/test/selectors";
 
 import { DayPickerProps } from "../DayPicker";
-import { CustomComponents } from "../types/DayPickerBase";
+import { CustomComponents } from "../types/PropsBase";
 
-import { Month, MonthProps } from "./Month";
+import { MonthGrid, MonthGridProps } from "./MonthGrid";
 
 let root: HTMLDivElement;
 
@@ -26,14 +26,14 @@ const testClassNames: Record<string, string> = {
 };
 
 type Test = {
-  monthProps: MonthProps;
+  monthProps: MonthGridProps;
   dayPickerProps: DayPickerProps;
   expected: string[];
   notExpected: string[];
 };
 
-function setup(props: MonthProps, dayPickerProps?: DayPickerProps) {
-  const view = customRender(<Month {...props} />, dayPickerProps);
+function setup(props: MonthGridProps, dayPickerProps?: DayPickerProps) {
+  const view = customRender(<MonthGrid {...props} />, dayPickerProps);
   root = view.container.firstChild as HTMLDivElement;
 }
 describe("when rendered", () => {
@@ -65,7 +65,7 @@ describe("when rendered with a custom id", () => {
 
 describe("when using a custom Caption component", () => {
   const components: CustomComponents = {
-    Caption: () => <>custom caption foo</>
+    MonthCaption: () => <>custom caption foo</>
   };
   beforeEach(() => {
     setup({ displayIndex: 0, displayMonth }, { components });

@@ -13,16 +13,16 @@ import {
 import { freezeBeforeAll } from "@/test/utils";
 
 import { DayPickerProps } from "../DayPicker";
-import { CustomComponents } from "../types/DayPickerBase";
+import { CustomComponents } from "../types/PropsBase";
 
-import { Caption, CaptionProps } from "./Caption";
+import { MonthCaption, MonthCaptionProps } from "./MonthCaption";
 
 const today = new Date(2021, 8);
 
 freezeBeforeAll(today);
 
-function setup(props: CaptionProps, dayPickerProps?: DayPickerProps) {
-  customRender(<Caption {...props} />, dayPickerProps);
+function setup(props: MonthCaptionProps, dayPickerProps?: DayPickerProps) {
+  customRender(<MonthCaption {...props} />, dayPickerProps);
 }
 
 describe("when navigation is disabled", () => {
@@ -74,11 +74,11 @@ describe('when the caption layout is "buttons"', () => {
     captionLayout: "buttons"
   };
   test("should render the next month button", () => {
-    customRender(<Caption displayMonth={today} />, dayPickerProps);
+    customRender(<MonthCaption displayMonth={today} />, dayPickerProps);
     expect(getNextButton()).toBeInTheDocument();
   });
   test("should render the previous month button", () => {
-    customRender(<Caption displayMonth={today} />, dayPickerProps);
+    customRender(<MonthCaption displayMonth={today} />, dayPickerProps);
     expect(getPrevButton()).toBeInTheDocument();
   });
 });

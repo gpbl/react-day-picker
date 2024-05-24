@@ -1,8 +1,8 @@
 import { render } from "@testing-library/react";
 
 import { DayPickerProps } from "../../src/DayPicker";
+import { ContextProviders } from "../../src/contexts/ContextProviders";
 import { FocusContext, FocusContextValue } from "../../src/contexts/Focus";
-import { RootProvider } from "../../src/contexts/RootProvider";
 import {
   SelectMultipleContext,
   SelectMultipleContextValue
@@ -16,7 +16,7 @@ import {
   SelectSingleContextValue
 } from "../../src/contexts/SelectSingle";
 
-/** Render a DayPicker hook inside the {@link RootProvider}. */
+/** Render a DayPicker hook inside the {@link ContextProviders}. */
 export type RenderHookResult<TResult> = {
   current: TResult;
 };
@@ -38,7 +38,7 @@ export function renderDayPickerHook<TResult>(
     return <></>;
   }
   render(
-    <RootProvider {...dayPickerProps}>
+    <ContextProviders {...dayPickerProps}>
       {contexts ? (
         <SelectSingleContext.Provider value={contexts.single}>
           <SelectMultipleContext.Provider value={contexts.multiple}>
@@ -52,7 +52,7 @@ export function renderDayPickerHook<TResult>(
       ) : (
         <Test />
       )}
-    </RootProvider>
+    </ContextProviders>
   );
   return returnVal;
 }

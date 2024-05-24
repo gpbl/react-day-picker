@@ -1,48 +1,38 @@
-import {
-  FocusEvent,
-  KeyboardEvent,
-  MouseEvent,
-  PointerEvent,
-  TouchEvent
-} from "react";
+import { MouseEvent, TouchEvent } from "react";
 
 import { DateRange } from "./Matchers";
 import { ActiveModifiers } from "./Modifiers";
 
-/** The event handler when a day is clicked. */
-export type DayClickEventHandler = (
-  day: Date,
-  activeModifiers: ActiveModifiers,
-  e: MouseEvent
+export type DayEventHandler<T> = (
+  /** The date that has triggered the event. */
+  date: Date,
+  /** The modifiers belonging to the date. */
+  modifiers: ActiveModifiers,
+  /** The DOM event that triggered this event. */
+  e: T
 ) => void;
+
+/**
+ * The event handler when a day is clicked.
+ *
+ * @deprecated This type has been renamed. Use {@link DayMouseEventHandler}
+ *   instead. (deprecated since v9.0.0)
+ */
+export type DayClickEventHandler = DayEventHandler<React.MouseEvent>;
 
 /** The event handler when a day is focused. */
-export type DayFocusEventHandler = (
-  day: Date,
-  activeModifiers: ActiveModifiers,
-  e: FocusEvent | KeyboardEvent
-) => void;
+export type DayFocusEventHandler = DayEventHandler<
+  React.FocusEvent | React.KeyboardEvent
+>;
 
 /** The event handler when a day gets a keyboard event. */
-export type DayKeyboardEventHandler = (
-  day: Date,
-  activeModifiers: ActiveModifiers,
-  e: KeyboardEvent
-) => void;
+export type DayKeyboardEventHandler = DayEventHandler<React.KeyboardEvent>;
 
 /** The event handler when a day gets a mouse event. */
-export type DayMouseEventHandler = (
-  day: Date,
-  activeModifiers: ActiveModifiers,
-  e: MouseEvent
-) => void;
+export type DayMouseEventHandler = DayEventHandler<React.MouseEvent>;
 
 /** The event handler when a day gets a pointer event. */
-export type DayPointerEventHandler = (
-  day: Date,
-  activeModifiers: ActiveModifiers,
-  e: PointerEvent
-) => void;
+export type DayPointerEventHandler = DayEventHandler<React.PointerEvent>;
 
 /** The event handler when a month is changed in the calendar. */
 export type MonthChangeEventHandler = (month: Date) => void;

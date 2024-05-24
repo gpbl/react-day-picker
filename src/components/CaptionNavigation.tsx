@@ -5,11 +5,11 @@ import { isSameMonth } from "date-fns";
 import { useDayPicker } from "../contexts/DayPicker";
 import { useNavigation } from "../contexts/Navigation";
 
-import { CaptionProps } from "./Caption";
+import { MonthCaptionProps } from "./MonthCaption";
 import { Navigation } from "./Navigation";
 
 /** Render a caption with a button-based navigation. */
-export function CaptionNavigation(props: CaptionProps): JSX.Element {
+export function CaptionNavigation(props: MonthCaptionProps): JSX.Element {
   const { numberOfMonths } = useDayPicker();
   const { previousMonth, nextMonth, goToMonth, displayMonths } =
     useNavigation();

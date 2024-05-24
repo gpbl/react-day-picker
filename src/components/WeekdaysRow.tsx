@@ -2,11 +2,8 @@ import { useDayPicker } from "../contexts/DayPicker";
 
 import { getWeekdays } from "./utils/getWeekdays";
 
-/**
- * Render the HeadRow component - i.e. the table head row with the weekday
- * names.
- */
-export function HeadRow(): JSX.Element {
+/** Render the row with the weekday names. */
+export function WeekdaysRow() {
   const {
     classNames,
     styles,
@@ -23,9 +20,11 @@ export function HeadRow(): JSX.Element {
   return (
     <tr style={styles.head_row} className={classNames.head_row}>
       {showWeekNumber && (
+        // TODO: should be a custom component: `WeekdayColumnHeader`
         <td style={styles.head_cell} className={classNames.head_cell}></td>
       )}
       {weekdays.map((weekday, i) => (
+        // TODO: should be a custom component: `WeekdayColumnHeader`
         <th
           key={i}
           scope="col"

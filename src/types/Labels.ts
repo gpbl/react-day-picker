@@ -1,54 +1,46 @@
-import { Locale } from "date-fns";
-
-import { ActiveModifiers } from "./Modifiers";
+import {
+  labelDay,
+  labelMonthDropdown,
+  labelNext,
+  labelPrevious,
+  labelWeekNumber,
+  labelWeekNumberHeader,
+  labelWeekday,
+  labelYearDropdown
+} from "../contexts/DayPicker/labels";
 
 /** Map of functions to translate ARIA labels for the relative elements. */
 export type Labels = {
-  labelMonthDropdown: () => string;
-  labelYearDropdown: () => string;
-  labelNext: NavButtonLabel;
-  labelPrevious: NavButtonLabel;
+  /** Return the label for the month dropdown. */
+  labelMonthDropdown: typeof labelMonthDropdown;
+  /** Return the label for the year dropdown. */
+  labelYearDropdown: typeof labelYearDropdown;
+  /** Return the label for the next month button. */
+  labelNext: typeof labelNext;
+  /** Return the label for the previous month button. */
+  labelPrevious: typeof labelPrevious;
+  /** Return the label for the day cell. */
+  labelDay: typeof labelDay;
+  /** Return the label for the weekday. */
+  labelWeekday: typeof labelWeekday;
+  /** Return the label for the week number. */
+  labelWeekNumber: typeof labelWeekNumber;
   /**
-   * @deprecated This label is not used anymore and this function will be
-   *   removed in the future.
+   * Return the label for the column of the week number.
+   *
+   * @since 9.0.0
    */
-  labelDay: DayLabel;
-  labelWeekday: WeekdayLabel;
-  labelWeekNumber: WeekNumberLabel;
+  labelWeekNumberHeader: typeof labelWeekNumberHeader;
 };
 
-/** Return the ARIA label for the {@link Day} component. */
-export type DayLabel = (
-  day: Date,
-  activeModifiers: ActiveModifiers,
-  options?: {
-    locale?: Locale;
-  }
-) => string;
+/** @deprecated Use `typeof labelDay` instead. */
+export type DayLabel = typeof labelDay;
 
-/**
- * Return the ARIA label for the "next month" / "prev month" buttons in the
- * navigation.
- */
-export type NavButtonLabel = (
-  month?: Date,
-  options?: {
-    locale?: Locale;
-  }
-) => string;
+/** @deprecated Use `typeof labelNext` or `typeof labelPrevious` instead. */
+export type NavButtonLabel = typeof labelNext;
 
-/** Return the ARIA label for the Head component. */
-export type WeekdayLabel = (
-  day: Date,
-  options?: {
-    locale?: Locale;
-  }
-) => string;
+/** @deprecated Use `typeof labelWeekday` instead. */
+export type WeekdayLabel = typeof labelWeekday;
 
-/** Return the ARIA label of the week number. */
-export type WeekNumberLabel = (
-  n: number,
-  options?: {
-    locale?: Locale;
-  }
-) => string;
+/** @deprecated Use `typeof labelWeekNumber` instead. */
+export type WeekNumberLabel = typeof labelWeekNumber;

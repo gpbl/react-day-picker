@@ -70,7 +70,7 @@ export type ModifiersStyles = Record<Modifier, CSSProperties> &
 export type ModifiersClassNames = Record<Modifier, string> &
   Partial<Record<InternalModifier, string>>;
 
-/** The custom modifiers passed to the {@link DayPickerBase.modifiers}. */
+/** The custom modifiers passed to the {@link PropsBase.modifiers}. */
 export type DayModifiers = Record<Modifier, Matcher | Matcher[]>;
 
 /**

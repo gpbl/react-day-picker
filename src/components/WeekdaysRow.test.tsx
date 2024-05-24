@@ -4,7 +4,7 @@ import { customRender } from "@/test/render";
 
 import { DayPickerProps } from "../DayPicker";
 
-import { HeadRow } from "./HeadRow";
+import { WeekdaysRow } from "./WeekdaysRow";
 
 let container: HTMLElement;
 let view: RenderResult;
@@ -15,7 +15,7 @@ function setup(dayPickerProps: DayPickerProps = {}) {
   view = customRender(
     <table>
       <thead>
-        <HeadRow />
+        <WeekdaysRow />
       </thead>
     </table>,
     dayPickerProps

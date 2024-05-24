@@ -2,16 +2,18 @@ import { CSSProperties, ReactNode } from "react";
 
 import { Locale } from "date-fns";
 
-import { CaptionLayout, CaptionProps } from "../components/Caption";
-import { CaptionLabelProps } from "../components/CaptionLabel";
-import { DayProps } from "../components/Day";
-import { DayContentProps } from "../components/DayContent";
-import { DropdownProps } from "../components/Dropdown";
-import { FooterProps } from "../components/Footer";
-import { MonthsProps } from "../components/Months";
-import { RowProps } from "../components/Row";
-import { WeekNumberProps } from "../components/WeekNumber";
+import { CaptionLayout } from "../components/MonthCaption";
+import * as components from "../components/custom-components";
 
+import { Formatters } from "./Formatters";
+import { Labels } from "./Labels";
+import { Matcher } from "./Matchers";
+import {
+  DayModifiers,
+  ModifiersClassNames,
+  ModifiersStyles
+} from "./Modifiers";
+import { ClassNames, Styles } from "./Styles";
 import {
   DayClickEventHandler,
   DayFocusEventHandler,
@@ -21,16 +23,7 @@ import {
   DayTouchEventHandler,
   MonthChangeEventHandler,
   WeekNumberClickEventHandler
-} from "./EventHandlers";
-import { Formatters } from "./Formatters";
-import { Labels } from "./Labels";
-import { Matcher } from "./Matchers";
-import {
-  DayModifiers,
-  ModifiersClassNames,
-  ModifiersStyles
-} from "./Modifiers";
-import { ClassNames, StyledComponent, Styles } from "./Styles";
+} from "./events";
 
 /**
  * Selection modes supported by DayPicker.
@@ -39,15 +32,15 @@ import { ClassNames, StyledComponent, Styles } from "./Styles";
  * - `multiple`: allow selecting multiple days.
  * - `range`: use DayPicker to select a range of days
  * - `default`: disable the built-in selection behavior. Customize what is
- *   selected by using {@link DayPickerBase.onDayClick}.
+ *   selected by using {@link PropsBase.onDayClick}.
  */
-export type DaySelectionMode = "single" | "multiple" | "range" | "default";
+export type Mode = "single" | "multiple" | "range" | "default";
 
 /**
  * The base props for the {@link DayPicker} component and the
  * {@link DayPickerContext}.
  */
-export interface DayPickerBase {
+export interface PropsBase {
   /**
    * The CSS class to add to the container element. To change the name of the
    * class instead, use `classNames.root`.
@@ -87,8 +80,8 @@ export interface DayPickerBase {
   /**
    * The month displayed in the calendar.
    *
-   * As opposed to {@link DayPickerBase.defaultMonth}, use this prop with
-   * {@link DayPickerBase.onMonthChange} to change the month programmatically.
+   * As opposed to {@link PropsBase.defaultMonth}, use this prop with
+   * {@link PropsBase.onMonthChange} to change the month programmatically.
    */
   month?: Date;
   /** Event fired when the user navigates between months. */
@@ -315,47 +308,7 @@ export interface DayPickerBase {
   onDayTouchStart?: DayTouchEventHandler;
 }
 
-/**
- * Map of the components that can be changed using the `components` prop.
- *
- * @see https://github.com/gpbl/react-day-picker/tree/main/src/components
- */
-export interface CustomComponents {
-  /** The component for the caption element. */
-  Caption?: (props: CaptionProps) => JSX.Element | null;
-  /** The component for the caption element. */
-  CaptionLabel?: (props: CaptionLabelProps) => JSX.Element | null;
-  /**
-   * The component for the day element.
-   *
-   * Each `Day` in DayPicker should render one of the following, according to
-   * the return value of {@link useDayRender}.
-   *
-   * - An empty `Fragment`, to render if `isHidden` is true
-   * - A `button` element, when the day is interactive, e.g. is selectable
-   * - A `div` or a `span` element, when the day is not interactive
-   */
-  Day?: (props: DayProps) => JSX.Element | null;
-  /** The component for the content of the day element. */
-  DayContent?: (props: DayContentProps) => JSX.Element | null;
-  /** The component for the drop-down elements. */
-  Dropdown?: (props: DropdownProps) => JSX.Element | null;
-  /** The component for the table footer. */
-  Footer?: (props: FooterProps) => JSX.Element | null;
-  /** The component for the table’s head. */
-  Head?: () => JSX.Element | null;
-  /** The component for the table’s head row. */
-  HeadRow?: () => JSX.Element | null;
-  /** The component for the small icon in the drop-downs. */
-  IconDropdown?: (props: StyledComponent) => JSX.Element | null;
-  /** The arrow right icon (used for the Navigation buttons). */
-  IconRight?: (props: StyledComponent) => JSX.Element | null;
-  /** The arrow left icon (used for the Navigation buttons). */
-  IconLeft?: (props: StyledComponent) => JSX.Element | null;
-  /** The component wrapping the month grids. */
-  Months?: (props: MonthsProps) => JSX.Element | null;
-  /** The component for the table rows. */
-  Row?: (props: RowProps) => JSX.Element | null;
-  /** The component for the week number in the table rows. */
-  WeekNumber?: (props: WeekNumberProps) => JSX.Element | null;
-}
+/** The components that can be changed using the `components` prop. */
+export type CustomComponents = {
+  [key in keyof typeof components]?: (typeof components)[key];
+};

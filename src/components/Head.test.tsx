@@ -46,12 +46,12 @@ describe("when rendered", () => {
   });
 });
 
-describe("when using a custom HeadRow component", () => {
+describe("when using a custom WeekdaysRow component", () => {
   beforeEach(() => {
     setup({
       ...dayPickerProps,
       components: {
-        HeadRow: () => (
+        WeekdaysRow: () => (
           <tr>
             <td>custom head</td>
           </tr>

@@ -4,7 +4,7 @@ import { customRender } from "@/test/render";
 import { freezeBeforeAll } from "@/test/utils";
 
 import { DayPickerProps } from "../DayPicker";
-import { CustomComponents } from "../types/DayPickerBase";
+import { CustomComponents } from "../types/PropsBase";
 
 import { Day, DayProps } from "./Day";
 
