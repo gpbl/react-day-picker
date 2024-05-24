@@ -12,7 +12,7 @@ import { freezeBeforeAll } from "../../../test/utils";
 import { DayPickerProps } from "../../DayPicker";
 import { isMatch } from "../../contexts/Modifiers/utils/isMatch";
 import { ActiveModifiers } from "../../types/Modifiers";
-import { PropsRange } from "../../types/PropsRange";
+import { PropsRange } from "../../types/props";
 
 import { SelectRangeContextValue, useSelectRange } from "./SelectRangeContext";
 

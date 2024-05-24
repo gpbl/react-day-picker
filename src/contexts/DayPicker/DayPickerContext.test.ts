@@ -13,8 +13,8 @@ import {
 import { Formatters } from "../../types/Formatters";
 import { Labels } from "../../types/Labels";
 import { DayModifiers, ModifiersClassNames } from "../../types/Modifiers";
-import { Mode } from "../../types/PropsBase";
 import { ClassNames, Styles } from "../../types/Styles";
+import { Mode } from "../../types/props";
 
 const today = new Date(2022, 5, 13);
 const defaults = getDefaultContextValues();

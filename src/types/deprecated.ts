@@ -12,11 +12,13 @@ import {
   type ContextProvidersProps
 } from "../contexts/ContextProviders";
 
-import { Mode } from "./PropsBase";
-import { PropsDefault } from "./PropsDefault";
-import { PropsMulti } from "./PropsMulti";
-import { PropsRange } from "./PropsRange";
-import { PropsSingle } from "./PropsSingle";
+import {
+  Mode,
+  PropsSingle,
+  PropsDefault,
+  PropsMulti,
+  PropsRange
+} from "./props";
 
 /**
  * @deprecated This type has been renamed. Use {@link ContextProviders} instead.

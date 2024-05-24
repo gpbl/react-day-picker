@@ -1,9 +1,11 @@
 import { Calendar } from "./components/Calendar";
 import { ContextProviders } from "./contexts/ContextProviders";
-import { PropsDefault } from "./types/PropsDefault";
-import { PropsMulti } from "./types/PropsMulti";
-import { PropsRange } from "./types/PropsRange";
-import { PropsSingle } from "./types/PropsSingle";
+import {
+  PropsDefault,
+  PropsMulti,
+  PropsRange,
+  PropsSingle
+} from "./types/props";
 
 export type DayPickerProps =
   | PropsDefault

@@ -9,9 +9,9 @@ import {
 
 import { DateRange } from "../../types/Matchers";
 import { InternalModifier, Modifiers } from "../../types/Modifiers";
-import { PropsBase } from "../../types/PropsBase";
-import { PropsRange, isDayPickerRange } from "../../types/PropsRange";
 import { DayClickEventHandler } from "../../types/events";
+import { PropsBase, PropsRange } from "../../types/props";
+import { isDayPickerRange } from "../../utils/typeguards";
 
 import { addToRange } from "./utils/addToRange";
 

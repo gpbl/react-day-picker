@@ -3,9 +3,11 @@ import { useSelectMultiple } from "../../contexts/SelectMultiple";
 import { useSelectRange } from "../../contexts/SelectRange";
 import { useSelectSingle } from "../../contexts/SelectSingle";
 import { DateRange } from "../../types/Matchers";
-import { isDayPickerMultiple } from "../../types/PropsMulti";
-import { isDayPickerRange } from "../../types/PropsRange";
-import { isDayPickerSingle } from "../../types/PropsSingle";
+import {
+  isDayPickerMultiple,
+  isDayPickerSingle,
+  isDayPickerRange
+} from "../../utils/typeguards";
 
 export type SelectedDays = Date | Date[] | DateRange | undefined;
 

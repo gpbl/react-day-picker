@@ -4,7 +4,7 @@ import { renderDayPickerHook } from "../../../test/render";
 import { freezeBeforeAll } from "../../../test/utils";
 import { DayPickerProps } from "../../DayPicker";
 import { ActiveModifiers } from "../../types/Modifiers";
-import { PropsSingle } from "../../types/PropsSingle";
+import { PropsSingle } from "../../types/props";
 
 import {
   SelectSingleContextValue,

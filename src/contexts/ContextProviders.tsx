@@ -1,9 +1,11 @@
 import { PropsWithChildren } from "react";
 
-import { PropsDefault } from "../types/PropsDefault";
-import { PropsMulti } from "../types/PropsMulti";
-import { PropsRange } from "../types/PropsRange";
-import { PropsSingle } from "../types/PropsSingle";
+import {
+  PropsSingle,
+  PropsDefault,
+  PropsMulti,
+  PropsRange
+} from "../types/props";
 
 import { DayPickerProvider } from "./DayPicker";
 import { FocusProvider } from "./Focus";

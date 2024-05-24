@@ -7,7 +7,7 @@ import * as components from "../components/custom-components";
 
 import { Formatters } from "./Formatters";
 import { Labels } from "./Labels";
-import { Matcher } from "./Matchers";
+import { DateRange, Matcher } from "./Matchers";
 import {
   DayModifiers,
   ModifiersClassNames,
@@ -22,7 +22,10 @@ import {
   DayPointerEventHandler,
   DayTouchEventHandler,
   MonthChangeEventHandler,
-  WeekNumberClickEventHandler
+  WeekNumberClickEventHandler,
+  SelectSingleEventHandler,
+  SelectRangeEventHandler,
+  SelectMultipleEventHandler
 } from "./events";
 
 /**
@@ -312,3 +315,45 @@ export interface PropsBase {
 export type CustomComponents = {
   [key in keyof typeof components]?: (typeof components)[key];
 };
+
+/** The props for the {@link DayPicker} component when using `mode="single"`. */
+export interface PropsSingle extends PropsBase {
+  mode: "single";
+  /** The selected day. */
+  selected?: Date | undefined;
+  /** Event fired when a day is selected. */
+  onSelect?: SelectSingleEventHandler;
+  /** Make the selection required. */
+  required?: boolean;
+} /** The props for the {@link DayPicker} component when using `mode="range"`. */
+
+export interface PropsRange extends PropsBase {
+  mode: "range";
+  /** The selected range of days. */
+  selected?: DateRange | undefined;
+  /** Event fired when a range (or a part of the range) is selected. */
+  onSelect?: SelectRangeEventHandler;
+  /** The minimum amount of days that can be selected. */
+  min?: number;
+  /** The maximum amount of days that can be selected. */
+  max?: number;
+} /** The props for the {@link DayPicker} component when using `mode="multiple"`. */
+
+export interface PropsMulti extends PropsBase {
+  mode: "multiple";
+  /** The selected days. */
+  selected?: Date[] | undefined;
+  /** Event fired when a days added or removed to the selection. */
+  onSelect?: SelectMultipleEventHandler;
+  /** The minimum amount of days that can be selected. */
+  min?: number;
+  /** The maximum amount of days that can be selected. */
+  max?: number;
+} /**
+ * The props for the {@link DayPicker} component when using `mode="default"` or
+ * `undefined`.
+ */
+
+export interface PropsDefault extends PropsBase {
+  mode?: undefined | "default";
+}

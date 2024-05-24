@@ -5,7 +5,7 @@ import { freezeBeforeAll } from "@/test/utils";
 
 import { DayPickerProps } from "../DayPicker";
 import { defaultClassNames } from "../contexts/DayPicker/defaultClassNames";
-import { CustomComponents } from "../types/PropsBase";
+import { CustomComponents } from "../types/props";
 
 import { Dropdown, DropdownProps } from "./Dropdown";
 

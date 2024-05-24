@@ -29,11 +29,7 @@ export * from "./contexts/SelectMultiple";
 export * from "./contexts/SelectRange";
 export * from "./contexts/SelectSingle";
 
-export * from "./types/PropsBase";
-export * from "./types/PropsDefault";
-export * from "./types/PropsMulti";
-export * from "./types/PropsRange";
-export * from "./types/PropsSingle";
+export * from "./types/props";
 export * from "./types/events";
 export * from "./types/Formatters";
 export * from "./types/Labels";

@@ -3,7 +3,7 @@ import { screen } from "@testing-library/react";
 import { customRender } from "@/test/render/customRender";
 
 import { DayPickerProps } from "../DayPicker";
-import { CustomComponents } from "../types/PropsBase";
+import { CustomComponents } from "../types/props";
 
 import { WeekRow, WeekRowProps } from "./WeekRow";
 
