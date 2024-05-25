@@ -1,30 +1,20 @@
 import { Calendar } from "./components/Calendar";
-import { ContextProviders } from "./contexts/ContextProviders";
-import {
-  PropsDefault,
-  PropsMulti,
-  PropsRange,
-  PropsSingle
-} from "./types/props";
-
-export type DayPickerProps =
-  | PropsDefault
-  | PropsSingle
-  | PropsMulti
-  | PropsRange;
+import { ContextProviders } from "./contexts";
+import type { DayPickerProps, Mode } from "./types";
 
 /**
  * DayPicker is a React component to create date pickers, calendars, and date
  * inputs for web applications.
  *
+ * @group Components
  * @see http://daypicker.dev
  */
-export function DayPicker(
-  props: PropsDefault | PropsSingle | PropsMulti | PropsRange
-): JSX.Element {
+export function DayPicker<T extends Mode = "default">(
+  props: DayPickerProps<T>
+) {
   return (
     <ContextProviders {...props}>
-      <Calendar initialProps={props} />
+      <Calendar />
     </ContextProviders>
   );
 }

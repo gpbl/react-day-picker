@@ -1,67 +1,56 @@
-import {
-  ChangeEventHandler,
-  CSSProperties,
-  ReactNode,
-  SelectHTMLAttributes
-} from "react";
+import { SelectHTMLAttributes } from "react";
 
-import { useDayPicker } from "../contexts/DayPicker";
+import { useProps } from "../contexts/props";
 
-import { IconDropdown } from "./IconDropdown";
+import { Chevron as DefaultChevron } from "./Chevron";
+import { Option as DefaultOption } from "./Option";
+import { Select as DefaultSelect } from "./Select";
 
-/** The props for the {@link Dropdown} component. */
-export interface DropdownProps {
-  /** The name attribute of the element. */
-  name?: string;
-  /** The caption displayed to replace the hidden select. */
-  caption?: ReactNode;
-  children?: SelectHTMLAttributes<HTMLSelectElement>["children"];
-  className?: string;
-  ["aria-label"]?: string;
-  style?: CSSProperties;
-  /** The selected value. */
-  value?: string | number;
-  onChange?: ChangeEventHandler<HTMLSelectElement>;
-}
+/** An option to use in the dropdown. Maps to the `<option>` HTML element. */
+export type DropdownOption = [
+  /** The value of the option. */
+  value: number,
+  /** The label of the option. */
+  label: string
+];
 
 /**
- * Render a styled select component – displaying a caption and a custom
- * drop-down icon.
+ * Render a dropdown component to use in the navigation bar.
+ *
+ * @group Components
  */
-export function Dropdown(props: DropdownProps): JSX.Element {
-  const { onChange, value, children, caption, className, style } = props;
-  const dayPicker = useDayPicker();
+export function Dropdown(
+  props: {
+    options?: DropdownOption[] | undefined;
+    rootClassName?: string;
+  } & Omit<SelectHTMLAttributes<HTMLSelectElement>, "children">
+) {
+  const { options, rootClassName, className, ...selectProps } = props;
+  const { classNames, components } = useProps();
 
-  const IconDropdownComponent =
-    dayPicker.components?.IconDropdown ?? IconDropdown;
+  const cssClassRoot = [classNames.dropdown_root, rootClassName].join(" ");
+  const cssClassSelect = [classNames.dropdown, className].join(" ");
+
+  const Select = components?.Select ?? DefaultSelect;
+  const Option = components?.Option ?? DefaultOption;
+  const Chevron = components?.Chevron ?? DefaultChevron;
+
+  const selectedOption = options?.find(
+    ([value]) => value === selectProps.value
+  );
   return (
-    <div className={className} style={style}>
-      <span className={dayPicker.classNames.vhidden}>
-        {props["aria-label"]}
+    <span className={cssClassRoot}>
+      <Select className={cssClassSelect} {...selectProps}>
+        {options?.map(([value, label]) => (
+          <Option key={value} value={value}>
+            {label}
+          </Option>
+        ))}
+      </Select>
+      <span className={classNames.caption_label} aria-hidden>
+        {selectedOption?.[1]}
+        <Chevron orientation="down" size={18} />
       </span>
-      <select
-        name={props.name}
-        aria-label={props["aria-label"]}
-        className={dayPicker.classNames.dropdown}
-        style={dayPicker.styles.dropdown}
-        value={value}
-        onChange={onChange}
-      >
-        {children}
-      </select>
-      <div
-        className={dayPicker.classNames.caption_label}
-        style={dayPicker.styles.caption_label}
-        aria-hidden="true"
-      >
-        {caption}
-        {
-          <IconDropdownComponent
-            className={dayPicker.classNames.dropdown_icon}
-            style={dayPicker.styles.dropdown_icon}
-          />
-        }
-      </div>
-    </div>
+    </span>
   );
 }

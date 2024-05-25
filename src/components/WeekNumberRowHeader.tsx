@@ -1,53 +1,36 @@
-import { MouseEventHandler } from "react";
+import type { CalendarWeek } from "../classes";
+import { useProps } from "../contexts/props";
 
-import { useDayPicker } from "../contexts/DayPicker";
-
-import { Button } from "./Button";
-
-export interface WeekNumberRowHeaderProps {
-  /** The number of the week. */
-  number: number;
-  /** The dates in the week. */
-  dates: Date[];
-}
-
-/** Render the cell with the number of the week. */
-export function WeekNumberRowHeader(props: WeekNumberRowHeaderProps) {
-  const { number: weekNumber, dates } = props;
+/**
+ * Render the cell with the number of the week.
+ *
+ * @group Components
+ */
+export function WeekNumberRowHeader(props: { week: CalendarWeek }) {
   const {
-    onWeekNumberClick,
-    styles,
     classNames,
-    locale,
+    formatters: { formatWeekNumber },
     labels: { labelWeekNumber },
-    formatters: { formatWeekNumber }
-  } = useDayPicker();
-
-  const content = formatWeekNumber(Number(weekNumber), { locale });
-
-  if (!onWeekNumberClick) {
-    return (
-      <span className={classNames.weeknumber} style={styles.weeknumber}>
-        {content}
-      </span>
-    );
-  }
-
-  const label = labelWeekNumber(Number(weekNumber), { locale });
-
-  const handleClick: MouseEventHandler = function (e) {
-    onWeekNumberClick(weekNumber, dates, e);
-  };
-
+    locale,
+    styles,
+    onWeekNumberClick
+  } = useProps();
   return (
-    <Button
-      name="week-number"
-      aria-label={label}
-      className={classNames.weeknumber}
-      style={styles.weeknumber}
-      onClick={handleClick}
+    <div
+      role="rowheader"
+      aria-colindex={1}
+      aria-label={labelWeekNumber(props.week.weekNumber, { locale })}
+      className={classNames.weeknumber_rowheader}
+      style={styles?.weeknumber_rowheader}
+      onClick={(e) =>
+        onWeekNumberClick?.(
+          props.week.weekNumber,
+          props.week.days.map((day) => day.date),
+          e
+        )
+      }
     >
-      {content}
-    </Button>
+      {formatWeekNumber(props.week.weekNumber, { locale })}
+    </div>
   );
 }

@@ -1,74 +1,48 @@
-import { ChangeEventHandler } from "react";
+import type { ChangeEventHandler } from "react";
 
-import { setYear, startOfMonth, startOfYear } from "date-fns";
+import { setYear } from "date-fns/setYear";
+import { startOfMonth } from "date-fns/startOfMonth";
 
-import { useDayPicker } from "../contexts/DayPicker";
-import { MonthChangeEventHandler } from "../types/events";
+import type { CalendarMonth } from "../classes/CalendarMonth";
+import { useCalendar } from "../contexts/calendar";
+import { useProps } from "../contexts/props";
 
-import { Dropdown } from "./Dropdown";
-
-/** The props for the {@link YearsDropdown} component. */
-export interface YearsDropdownProps {
-  /** The month where the drop-down is displayed. */
-  displayMonth: Date;
-  /** Callback to handle the `change` event. */
-  onChange: MonthChangeEventHandler;
-}
+import { Dropdown as DefaultDropdown } from "./Dropdown";
 
 /**
- * Render a dropdown to change the year. Take in account the `nav.fromDate` and
- * `toDate` from context.
+ * Render the dropdown to change the year.
+ *
+ * @group Components
  */
-export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
-  const { displayMonth } = props;
+export function YearsDropdown(props: {
+  /** The month where the dropdown is displayed. */
+  month: CalendarMonth;
+}) {
   const {
-    fromDate,
-    toDate,
-    locale,
-    styles,
     classNames,
     components,
-    formatters: { formatYearCaption },
     labels: { labelYearDropdown }
-  } = useDayPicker();
+  } = useProps();
 
-  const years: Date[] = [];
-
-  // Dropdown should appear only when both from/toDate is set
-  if (!fromDate) return <></>;
-  if (!toDate) return <></>;
-
-  const fromYear = fromDate.getFullYear();
-  const toYear = toDate.getFullYear();
-  for (let year = fromYear; year <= toYear; year++) {
-    years.push(setYear(startOfYear(new Date()), year));
-  }
+  const { dropdownOptions: dropdown, goToMonth } = useCalendar();
 
   const handleChange: ChangeEventHandler<HTMLSelectElement> = (e) => {
-    const newMonth = setYear(
-      startOfMonth(displayMonth),
+    const month = setYear(
+      startOfMonth(props.month.date),
       Number(e.target.value)
     );
-    props.onChange(newMonth);
+    goToMonth(month);
   };
 
-  const DropdownComponent = components?.Dropdown ?? Dropdown;
-
+  const Dropdown = components?.Dropdown ?? DefaultDropdown;
   return (
-    <DropdownComponent
-      name="years"
+    <Dropdown
+      name="year"
       aria-label={labelYearDropdown()}
-      className={classNames.dropdown_year}
-      style={styles.dropdown_year}
+      rootClassName={classNames.dropdown_year}
+      options={dropdown.years}
+      value={props.month.date.getFullYear()}
       onChange={handleChange}
-      value={displayMonth.getFullYear()}
-      caption={formatYearCaption(displayMonth, { locale })}
-    >
-      {years.map((year) => (
-        <option key={year.getFullYear()} value={year.getFullYear()}>
-          {formatYearCaption(year, { locale })}
-        </option>
-      ))}
-    </DropdownComponent>
+    />
   );
 }

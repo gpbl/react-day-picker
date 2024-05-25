@@ -1,88 +1,58 @@
-import { useDayPicker } from "../contexts/DayPicker";
+import type { CalendarMonth } from "../classes";
+import { useProps } from "../contexts/props";
 
-import { CaptionDropdowns as DefaultCaptionDropdowns } from "./CaptionDropdowns";
-import { CaptionLabel as DefaultCaptionLabel } from "./CaptionLabel";
-import { CaptionNavigation as DefaultCaptionNavigation } from "./CaptionNavigation";
-
-export interface MonthCaptionProps {
-  /**
-   * The ID for the heading element. Must be the same as the labelled-by in
-   * Table.
-   */
-  id?: string;
-  /** The month where the caption is displayed. */
-  displayMonth: Date;
-  /**
-   * The index of the month where the caption is displayed. Older custom
-   * components may miss this prop.
-   */
-  displayIndex?: number | undefined;
-}
+import { DropdownNav } from "./DropdownNav";
 
 /**
- * The layout of the caption:
+ * Render the caption of a month in the calendar.
  *
- * - `dropdown`: display dropdowns for choosing the month and the year.
- * - `buttons`: display previous month / next month buttons.
- * - `dropdown-buttons`: display both month / year dropdowns and previous month /
- *   next month buttons.
+ * @group Components
  */
-export type CaptionLayout = "dropdown" | "buttons" | "dropdown-buttons";
-
-/**
- * Render the caption of a month. The caption has a different layout when
- * setting the {@link PropsBase.captionLayout} prop.
- */
-export function MonthCaption(props: MonthCaptionProps): JSX.Element {
-  const { classNames, disableNavigation, styles, captionLayout, components } =
-    useDayPicker();
-
-  const CaptionLabel = components?.CaptionLabel ?? DefaultCaptionLabel;
-
-  let caption: JSX.Element;
-  if (disableNavigation) {
-    caption = <CaptionLabel id={props.id} displayMonth={props.displayMonth} />;
-  } else if (captionLayout === "dropdown") {
-    caption = (
-      <DefaultCaptionDropdowns
-        displayMonth={props.displayMonth}
-        id={props.id}
-      />
-    );
-  } else if (captionLayout === "dropdown-buttons") {
-    caption = (
-      <>
-        <DefaultCaptionDropdowns
-          displayMonth={props.displayMonth}
-          displayIndex={props.displayIndex}
-          id={props.id}
-        />
-        <DefaultCaptionNavigation
-          displayMonth={props.displayMonth}
-          displayIndex={props.displayIndex}
-          id={props.id}
-        />
-      </>
-    );
-  } else {
-    caption = (
-      <>
-        <CaptionLabel
-          id={props.id}
-          displayMonth={props.displayMonth}
-          displayIndex={props.displayIndex}
-        />
-        <DefaultCaptionNavigation
-          displayMonth={props.displayMonth}
-          id={props.id}
-        />
-      </>
-    );
-  }
+export function MonthCaption(props: {
+  /** The month where the grid is displayed. */
+  month: CalendarMonth;
+  /** Used for the aria-label. */
+  id: string;
+  /** The index where this month is displayed. */
+  index: number;
+}) {
+  const {
+    classNames,
+    dropdownNavigation,
+    formatters: { formatCaption },
+    locale,
+    styles
+  } = useProps();
 
   return (
-    <div className={classNames.caption} style={styles.caption}>
-      {caption}
+    <div
+      id={props.id}
+      className={classNames.month_caption}
+      style={styles?.month_caption}
+    >
+      {dropdownNavigation ? (
+        <DropdownNav
+          month={props.month}
+          index={props.index}
+          showMonths
+          showYears
+        />
+      ) : dropdownNavigation ? (
+        <DropdownNav
+          month={props.month}
+          index={props.index}
+          showMonths={
+            dropdownNavigation === true || dropdownNavigation === "month"
+          }
+          showYears={
+            dropdownNavigation === true || dropdownNavigation === "year"
+          }
+        />
+      ) : (
+        <span className={classNames.caption_label} aria-live="polite">
+          {formatCaption(props.month.date, { locale })}
+        </span>
+      )}
     </div>
   );
 }

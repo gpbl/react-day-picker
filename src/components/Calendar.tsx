@@ -1,89 +1,85 @@
-import { useEffect, useState } from "react";
+import { UI } from "../UI";
+import { useCalendar } from "../contexts/calendar";
+import { useProps } from "../contexts/props";
 
-import { DayPickerProps } from "../DayPicker";
-import { useDayPicker } from "../contexts/DayPicker";
-import { useFocusContext } from "../contexts/Focus";
-import { useNavigation } from "../contexts/Navigation";
-
-import { MonthGrid } from "./MonthGrid";
+import { Footer as DefaultFooter } from "./Footer";
+import { MonthGrid as DefaultMonthGrid } from "./MonthGrid";
 import { Months as DefaultMonths } from "./Months";
+import { Nav as DefaultNav } from "./Nav";
 
-function isDataAttributes(attrs: DayPickerProps): attrs is {
-  [key: string]: string | boolean | number | undefined;
-} {
-  return true;
-}
+/**
+ * Render the DayPicker Calendar with navigation and the month grids.
+ *
+ * @group Components
+ */
+export function Calendar() {
+  const {
+    className,
+    classNames,
+    components,
+    dataAttributes,
+    dir,
+    footer,
+    hideNavigation,
+    hideWeekdayRow,
+    id,
+    lang,
+    nonce,
+    numberOfMonths,
+    showWeekNumber,
+    style,
+    styles,
+    title,
+    dropdownNavigation
+  } = useProps();
 
-export interface CalendarProps {
-  initialProps: DayPickerProps;
-}
-
-/** Render the DayPicker Calendar with navigation and the month grids. */
-export function Calendar({ initialProps }: CalendarProps): JSX.Element {
-  const dayPicker = useDayPicker();
-  const focusContext = useFocusContext();
-  const navigation = useNavigation();
-
-  const [hasInitialFocus, setHasInitialFocus] = useState(false);
-
-  // Focus the focus target when initialFocus is passed in
-  useEffect(() => {
-    if (!dayPicker.initialFocus) return;
-    if (!focusContext.focusTarget) return;
-    if (hasInitialFocus) return;
-
-    focusContext.focus(focusContext.focusTarget);
-    setHasInitialFocus(true);
-  }, [
-    dayPicker.initialFocus,
-    hasInitialFocus,
-    focusContext.focus,
-    focusContext.focusTarget,
-    focusContext
-  ]);
+  const calendar = useCalendar();
 
   // Apply classnames according to props
-  const classNames = [dayPicker.classNames.root, dayPicker.className];
-  if (dayPicker.numberOfMonths > 1) {
-    classNames.push(dayPicker.classNames.multiple_months);
+  const cssClassNames = [classNames.rdp];
+  if (className) {
+    cssClassNames.push(className);
   }
-  if (dayPicker.showWeekNumber) {
-    classNames.push(dayPicker.classNames.with_weeknumber);
+  if (numberOfMonths > 1) {
+    cssClassNames.push(classNames.multiple_months);
+  }
+  if (showWeekNumber) {
+    cssClassNames.push(UI.WithWeekNumber);
+  }
+  if (hideWeekdayRow) {
+    cssClassNames.push(classNames[UI.HideWeekdays]);
   }
 
-  const style = {
-    ...dayPicker.styles.root,
-    ...dayPicker.style
-  };
-
-  const dataAttributes = Object.keys(initialProps)
-    .filter((key) => key.startsWith("data-"))
-    .reduce((attrs, key) => {
-      if (!isDataAttributes(initialProps)) return attrs;
-      return {
-        ...attrs,
-        [key]: initialProps[key]
-      };
-    }, {});
-
-  const Months = initialProps.components?.Months ?? DefaultMonths;
+  const Nav = components?.Nav ?? DefaultNav;
+  const Months = components?.Months ?? DefaultMonths;
+  const MonthGrid = components?.MonthGrid ?? DefaultMonthGrid;
+  const Footer = components?.Footer ?? DefaultFooter;
 
   return (
     <div
-      className={classNames.join(" ")}
-      style={style}
-      dir={dayPicker.dir}
-      id={dayPicker.id}
-      nonce={initialProps.nonce}
-      title={initialProps.title}
-      lang={initialProps.lang}
+      className={cssClassNames.join(" ")}
+      style={{ ...styles?.rdp, ...style }}
+      dir={dir}
+      id={id}
+      lang={lang}
+      nonce={nonce}
+      title={title}
       {...dataAttributes}
     >
-      <Months>
-        {navigation.displayMonths.map((month, i) => (
-          <MonthGrid key={i} displayIndex={i} displayMonth={month} />
+      {dropdownNavigation && !hideNavigation && <Nav />}
+      <Months
+        className={classNames.months_wrapper}
+        style={styles?.months_wrapper}
+      >
+        {calendar.months.map((month, i) => (
+          <MonthGrid aria-labelledby={id} key={i} index={i} month={month} />
         ))}
       </Months>
+      {footer && (
+        <Footer className={classNames.footer} style={styles?.footer}>
+          {footer}
+        </Footer>
+      )}
     </div>
   );
 }

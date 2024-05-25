@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "PORT=2001 TYPEDOC_WATCH=true docusaurus start",
+    "start": "PORT=2001 TYPEDOC_WATCH=false docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",

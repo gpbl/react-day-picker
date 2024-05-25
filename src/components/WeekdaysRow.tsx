@@ -1,40 +1,46 @@
-import { useDayPicker } from "../contexts/DayPicker";
+import { useProps } from "../contexts/props";
+import { getWeekdays } from "../helpers/getWeekdays";
 
-import { getWeekdays } from "./utils/getWeekdays";
+import { WeekdayColumnHeader as DefaultWeekdayColumnHeader } from "./WeekdayColumnHeader";
 
-/** Render the row with the weekday names. */
+/**
+ * Render the row with the weekday names.
+ *
+ * @group Components
+ */
 export function WeekdaysRow() {
   const {
     classNames,
-    styles,
-    showWeekNumber,
-    locale,
-    weekStartsOn,
+    components,
+    hideWeekdayRow,
     ISOWeek,
-    formatters: { formatWeekdayName },
-    labels: { labelWeekday }
-  } = useDayPicker();
+    locale,
+    showWeekNumber,
+    styles,
+    weekStartsOn
+  } = useProps();
 
   const weekdays = getWeekdays(locale, weekStartsOn, ISOWeek);
+  const WeekdayColumnHeader =
+    components?.WeekdayColumnHeader ?? DefaultWeekdayColumnHeader;
 
   return (
-    <tr style={styles.head_row} className={classNames.head_row}>
-      {showWeekNumber && (
-        // TODO: should be a custom component: `WeekdayColumnHeader`
-        <td style={styles.head_cell} className={classNames.head_cell}></td>
-      )}
+    <div
+      role="row"
+      hidden={hideWeekdayRow}
+      aria-rowindex={1}
+      style={styles?.weekdays_row}
+      className={classNames.weekdays_row}
+      onClick={(e) => e.stopPropagation()}
+    >
+      {showWeekNumber && <WeekdayColumnHeader aria-colindex={1} />}
       {weekdays.map((weekday, i) => (
-        // TODO: should be a custom component: `WeekdayColumnHeader`
-        <th
+        <WeekdayColumnHeader
           key={i}
-          scope="col"
-          className={classNames.head_cell}
-          style={styles.head_cell}
-          aria-label={labelWeekday(weekday, { locale })}
-        >
-          {formatWeekdayName(weekday, { locale })}
-        </th>
+          weekday={weekday}
+          aria-colindex={showWeekNumber ? i + 2 : i + 1}
+        />
       ))}
-    </tr>
+    </div>
   );
 }

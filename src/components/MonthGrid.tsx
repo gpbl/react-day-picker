@@ -1,71 +1,64 @@
 import { useId } from "react";
 
-import { useDayPicker } from "../contexts/DayPicker";
-import { useNavigation } from "../contexts/Navigation";
+import type { CalendarMonth } from "../classes/CalendarMonth";
+import { useProps } from "../contexts/props";
 
 import { MonthCaption as DefaultMonthCaption } from "./MonthCaption";
-import { Table } from "./Table";
-
-export interface MonthGridProps {
-  displayIndex: number;
-  displayMonth: Date;
-}
+import { WeekRow as DefaultWeekRow } from "./WeekRow";
+import { WeekdaysRow as DefaultWeekdaysRow } from "./WeekdaysRow";
 
 /**
- * Render the grid with the month, the caption, weekday header and the weeks for
- * the given month.
+ * Render the grid with the weekday header row and the weeks for the given
+ * month.
+ *
+ * @group Components
  */
-export function MonthGrid(props: MonthGridProps) {
-  const dayPicker = useDayPicker();
+export function MonthGrid(props: {
+  /** The month where the grid is displayed. */
+  month: CalendarMonth;
+  /** The index where this month is displayed. */
+  index: number;
+}) {
+  const { id, mode, hideWeekdayRow, components, classNames, styles } =
+    useProps();
 
-  const defaultId = useId();
+  const reactId = useId();
+  const captionId = id ? `${id}-caption-${props.index}` : reactId;
+  const gridId = id ? `${id}-grid-${props.index}` : reactId;
 
-  const { dir, classNames, styles, components, id = defaultId } = dayPicker;
-  const { displayMonths } = useNavigation();
-
-  const captionId = `${id}-${props.displayIndex}`;
-
-  const tableId = dayPicker.id
-    ? `${dayPicker.id}-grid-${props.displayIndex}`
-    : undefined;
-
-  const className = [classNames.month];
-  let style = styles.month;
-
-  let isStart = props.displayIndex === 0;
-  let isEnd = props.displayIndex === displayMonths.length - 1;
-  const isCenter = !isStart && !isEnd;
-  if (dir === "rtl") {
-    [isEnd, isStart] = [isStart, isEnd];
-  }
-
-  if (isStart) {
-    className.push(classNames.caption_start);
-    style = { ...style, ...styles.caption_start };
-  }
-  if (isEnd) {
-    className.push(classNames.caption_end);
-    style = { ...style, ...styles.caption_end };
-  }
-  if (isCenter) {
-    className.push(classNames.caption_between);
-    style = { ...style, ...styles.caption_between };
-  }
-
+  const WeekdaysRow = components?.WeekdaysRow ?? DefaultWeekdaysRow;
   const MonthCaption = components?.MonthCaption ?? DefaultMonthCaption;
+  const WeekRow = components?.WeekRow ?? DefaultWeekRow;
 
   return (
-    <div key={props.displayIndex} className={className.join(" ")} style={style}>
-      <MonthCaption
-        id={captionId}
-        displayMonth={props.displayMonth}
-        displayIndex={props.displayIndex}
-      />
-      <Table
-        id={tableId}
+    <div
+      className={classNames.month_grid_wrapper}
+      style={styles?.month_grid_wrapper}
+    >
+      <MonthCaption id={captionId} month={props.month} index={props.index} />
+      <div
+        id={gridId}
+        role="grid"
+        aria-multiselectable={mode === "multiple" || mode === "range"}
         aria-labelledby={captionId}
-        displayMonth={props.displayMonth}
-      />
+        className={classNames.month_grid}
+        style={styles?.month_grid}
+      >
+        <WeekdaysRow />
+        <div
+          role="rowgroup"
+          className={classNames.month_rowgroup}
+          style={styles?.month_rowgroup}
+        >
+          {props.month.weeks.map((week, i) => (
+            <WeekRow
+              key={week.weekNumber}
+              week={week}
+              aria-rowindex={i + (hideWeekdayRow ? 1 : 2)}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
