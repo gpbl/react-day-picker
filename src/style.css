@@ -6,20 +6,13 @@
   --rdp-font-large: 1.25rem;
   --rdp-opacity: 0.5;
 
-  --rdp-accent: #007aff;
-  --rdp-background: #e0efff;
-
-  --rdp-accent-dark: #0a84ff;
-  --rdp-background-dark: #02203d;
-
-  --rdp-outline: 2px solid var(--rdp-accent); /* Outline border for focused elements */
-  --rdp-outline-selected: 3px solid var(--rdp-accent); /* Outline border for focused _and_ selected elements */
+  --rdp-accent-color: blue;
 
   display: inline-block;
   position: relative;
-  box-sizing: border-box;
 }
 
+.rdp,
 .rdp * {
   box-sizing: border-box;
 }
@@ -51,10 +44,10 @@
 .rdp-caption_dropdowns::after,
 .rdp-dropdown_root::after {
   position: absolute;
-  top: 50%;
-  right: 5px; /* Position the arrow on the right side */
-  transform: translateY(-50%); /* Center the arrow vertically */
-  pointer-events: none; /* Make it non-clickable */
+  inset-block-start: 50%;
+  inset-inline-end: 5px;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 
 .rdp-caption_label {
@@ -119,7 +112,7 @@
 .rdp-button_next > svg,
 .rdp-button_previous > svg,
 .rdp-caption_label > svg {
-  fill: var(--rdp-accent);
+  fill: var(--rdp-accent-color);
 }
 
 .rdp-button_next:disabled,
@@ -182,8 +175,8 @@
   + .rdp-caption_label,
 .rdp-dropdown:focus-visible:not([disabled]):not([aria-disabled='true'])
   + .rdp-caption_label {
-  background-color: var(--rdp-background);
-  border: var(--rdp-outline);
+  background-color: var(--rdp-day-selected-background-color);
+  border: var(--rdp-focus-outline);
   border-radius: 6px;
 } */
 
@@ -233,30 +226,19 @@
   font-size: var(--rdp-font-medium);
 }
 
-.rdp-day:focus {
-  outline: 2px solid #5b9dd9;
-  outline-offset: -2px;
-  outline: -webkit-focus-ring-color auto 1px;
-  outline: -moz-mac-focusring auto 1px;
-}
-
 .rdp-day_today:not(.rdp-day_outside) {
-  color: var(--rdp-accent);
+  color: var(--rdp-accent-color);
 }
 
 .rdp-day_selected,
 .rdp-day_selected.rdp-day_outside {
-  opacity: 1;
-  /* outline: none; */
-  /* color: var(--rdp-accent); */
-  background-color: var(--rdp-background);
-  font-size: var(--rdp-font-large);
-  font-weight: 600;
-  border-color: var(--rdp-accent);
+  font-size: large;
+  font-weight: bolder;
+  border-color: var(--rdp-accent-color);
 }
 
 .rdp-day_selected:focus-visible {
-  outline-offset: -1px;
+  /* outline-offset: -1px; */
 }
 
 .rdp-day_outside {
