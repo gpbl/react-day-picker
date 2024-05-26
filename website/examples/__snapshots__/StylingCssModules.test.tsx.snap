@@ -5,525 +5,458 @@ exports[`should match the snapshot 1`] = `
   role="application"
 >
   <div
-    class="rdp "
+    class="rdp-calendar"
+    id=":r0:"
   >
     <div
       class="rdp-months"
     >
       <div
-        class="rdp-month rdp-caption_start rdp-caption_end"
+        class="rdp-month_wrapper"
       >
         <div
-          class="rdp-caption"
+          class="rdp-month_caption"
+          id=":r0:-caption-0"
         >
-          <div
+          <span
             aria-live="polite"
             class="rdp-caption_label"
-            id=":r0:-0"
-            role="presentation"
           >
             November 2021
-          </div>
-          <div
-            class="rdp-nav"
-          >
-            <button
-              aria-label="Previous Month"
-              class="rdp-button_reset rdp-button rdp-nav_button rdp-nav_button_previous"
-              name="previous-month"
-              type="button"
-            >
-              <svg
-                class="rdp-nav_icon"
-                height="16px"
-                viewBox="0 0 120 120"
-                width="16px"
-              >
-                <path
-                  d="M69.490332,3.34314575 C72.6145263,0.218951416 77.6798462,0.218951416 80.8040405,3.34314575 C83.8617626,6.40086786 83.9268205,11.3179931 80.9992143,14.4548388 L80.8040405,14.6568542 L35.461,60 L80.8040405,105.343146 C83.8617626,108.400868 83.9268205,113.317993 80.9992143,116.454839 L80.8040405,116.656854 C77.7463184,119.714576 72.8291931,119.779634 69.6923475,116.852028 L69.490332,116.656854 L18.490332,65.6568542 C15.4326099,62.5991321 15.367552,57.6820069 18.2951583,54.5451612 L18.490332,54.3431458 L69.490332,3.34314575 Z"
-                  fill="currentColor"
-                  fill-rule="nonzero"
-                />
-              </svg>
-            </button>
-            <button
-              aria-label="Next Month"
-              class="rdp-button_reset rdp-button rdp-nav_button rdp-nav_button_next"
-              name="next-month"
-              type="button"
-            >
-              <svg
-                class="rdp-nav_icon"
-                height="16px"
-                viewBox="0 0 120 120"
-                width="16px"
-              >
-                <path
-                  d="M49.8040405,3.34314575 C46.6798462,0.218951416 41.6145263,0.218951416 38.490332,3.34314575 C35.4326099,6.40086786 35.367552,11.3179931 38.2951583,14.4548388 L38.490332,14.6568542 L83.8333725,60 L38.490332,105.343146 C35.4326099,108.400868 35.367552,113.317993 38.2951583,116.454839 L38.490332,116.656854 C41.5480541,119.714576 46.4651794,119.779634 49.602025,116.852028 L49.8040405,116.656854 L100.804041,65.6568542 C103.861763,62.5991321 103.926821,57.6820069 100.999214,54.5451612 L100.804041,54.3431458 L49.8040405,3.34314575 Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </button>
-          </div>
+          </span>
         </div>
-        <table
-          aria-labelledby=":r0:-0"
-          class="rdp-table"
+        <div
+          aria-labelledby=":r0:-caption-0"
+          aria-multiselectable="false"
+          class="rdp-month"
+          id=":r0:-grid-0"
           role="grid"
         >
-          <thead
-            class="rdp-head"
+          <div
+            aria-rowindex="1"
+            class="rdp-weekdays"
+            role="row"
           >
-            <tr
-              class="rdp-head_row"
+            <span
+              aria-colindex="1"
+              aria-label="Sunday"
+              class="rdp-weekday"
+              role="columnheader"
             >
-              <th
-                aria-label="Sunday"
-                class="rdp-header_gridcell"
-                scope="col"
-              >
-                Su
-              </th>
-              <th
-                aria-label="Monday"
-                class="rdp-header_gridcell"
-                scope="col"
-              >
-                Mo
-              </th>
-              <th
-                aria-label="Tuesday"
-                class="rdp-header_gridcell"
-                scope="col"
-              >
-                Tu
-              </th>
-              <th
-                aria-label="Wednesday"
-                class="rdp-header_gridcell"
-                scope="col"
-              >
-                We
-              </th>
-              <th
-                aria-label="Thursday"
-                class="rdp-header_gridcell"
-                scope="col"
-              >
-                Th
-              </th>
-              <th
-                aria-label="Friday"
-                class="rdp-header_gridcell"
-                scope="col"
-              >
-                Fr
-              </th>
-              <th
-                aria-label="Saturday"
-                class="rdp-header_gridcell"
-                scope="col"
-              >
-                Sa
-              </th>
-            </tr>
-          </thead>
-          <tbody
-            class="rdp-tbody"
+              Su
+            </span>
+            <span
+              aria-colindex="2"
+              aria-label="Monday"
+              class="rdp-weekday"
+              role="columnheader"
+            >
+              Mo
+            </span>
+            <span
+              aria-colindex="3"
+              aria-label="Tuesday"
+              class="rdp-weekday"
+              role="columnheader"
+            >
+              Tu
+            </span>
+            <span
+              aria-colindex="4"
+              aria-label="Wednesday"
+              class="rdp-weekday"
+              role="columnheader"
+            >
+              We
+            </span>
+            <span
+              aria-colindex="5"
+              aria-label="Thursday"
+              class="rdp-weekday"
+              role="columnheader"
+            >
+              Th
+            </span>
+            <span
+              aria-colindex="6"
+              aria-label="Friday"
+              class="rdp-weekday"
+              role="columnheader"
+            >
+              Fr
+            </span>
+            <span
+              aria-colindex="7"
+              aria-label="Saturday"
+              class="rdp-weekday"
+              role="columnheader"
+            >
+              Sa
+            </span>
+          </div>
+          <div
+            class="rdp-weeks"
+            role="rowgroup"
           >
-            <tr
-              class="rdp-row"
+            <div
+              aria-rowindex="2"
+              class="rdp-week"
+              role="row"
             >
-              <td
-                class="rdp-cell"
-                role="presentation"
+              <div
+                aria-colindex="1"
+                aria-hidden="true"
+                class="rdp-day rdp-hidden rdp-outside"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  role="gridcell"
-                />
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                31
+              </div>
+              <div
+                aria-colindex="2"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  1
-                </div>
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                1
+              </div>
+              <div
+                aria-colindex="3"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  2
-                </div>
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                2
+              </div>
+              <div
+                aria-colindex="4"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  3
-                </div>
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                3
+              </div>
+              <div
+                aria-colindex="5"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  4
-                </div>
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                4
+              </div>
+              <div
+                aria-colindex="6"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  5
-                </div>
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                5
+              </div>
+              <div
+                aria-colindex="7"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  6
-                </div>
-              </td>
-            </tr>
-            <tr
-              class="rdp-row"
+                6
+              </div>
+            </div>
+            <div
+              aria-rowindex="3"
+              class="rdp-week"
+              role="row"
             >
-              <td
-                class="rdp-cell"
-                role="presentation"
+              <div
+                aria-colindex="1"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  7
-                </div>
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                7
+              </div>
+              <div
+                aria-colindex="2"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  8
-                </div>
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                8
+              </div>
+              <div
+                aria-colindex="3"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  9
-                </div>
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                9
+              </div>
+              <div
+                aria-colindex="4"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  10
-                </div>
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                10
+              </div>
+              <div
+                aria-colindex="5"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  11
-                </div>
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                11
+              </div>
+              <div
+                aria-colindex="6"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  12
-                </div>
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                12
+              </div>
+              <div
+                aria-colindex="7"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  13
-                </div>
-              </td>
-            </tr>
-            <tr
-              class="rdp-row"
+                13
+              </div>
+            </div>
+            <div
+              aria-rowindex="4"
+              class="rdp-week"
+              role="row"
             >
-              <td
-                class="rdp-cell"
-                role="presentation"
+              <div
+                aria-colindex="1"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  14
-                </div>
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                14
+              </div>
+              <div
+                aria-colindex="2"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  15
-                </div>
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                15
+              </div>
+              <div
+                aria-colindex="3"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  16
-                </div>
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                16
+              </div>
+              <div
+                aria-colindex="4"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  17
-                </div>
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                17
+              </div>
+              <div
+                aria-colindex="5"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  18
-                </div>
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                18
+              </div>
+              <div
+                aria-colindex="6"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  19
-                </div>
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                19
+              </div>
+              <div
+                aria-colindex="7"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  20
-                </div>
-              </td>
-            </tr>
-            <tr
-              class="rdp-row"
+                20
+              </div>
+            </div>
+            <div
+              aria-rowindex="5"
+              class="rdp-week"
+              role="row"
             >
-              <td
-                class="rdp-cell"
-                role="presentation"
+              <div
+                aria-colindex="1"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  21
-                </div>
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                21
+              </div>
+              <div
+                aria-colindex="2"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  22
-                </div>
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                22
+              </div>
+              <div
+                aria-colindex="3"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  23
-                </div>
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                23
+              </div>
+              <div
+                aria-colindex="4"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  24
-                </div>
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                24
+              </div>
+              <div
+                aria-colindex="5"
+                class="rdp-day rdp-focusable rdp-today"
+                role="gridcell"
+                tabindex="0"
               >
-                <div
-                  class="rdp-day rdp-day_today"
-                  role="gridcell"
-                >
-                  25
-                </div>
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                25
+              </div>
+              <div
+                aria-colindex="6"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  26
-                </div>
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                26
+              </div>
+              <div
+                aria-colindex="7"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  27
-                </div>
-              </td>
-            </tr>
-            <tr
-              class="rdp-row"
+                27
+              </div>
+            </div>
+            <div
+              aria-rowindex="6"
+              class="rdp-week"
+              role="row"
             >
-              <td
-                class="rdp-cell"
-                role="presentation"
+              <div
+                aria-colindex="1"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  28
-                </div>
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                28
+              </div>
+              <div
+                aria-colindex="2"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  29
-                </div>
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                29
+              </div>
+              <div
+                aria-colindex="3"
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  class="rdp-day"
-                  role="gridcell"
-                >
-                  30
-                </div>
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                30
+              </div>
+              <div
+                aria-colindex="4"
+                aria-hidden="true"
+                class="rdp-day rdp-hidden rdp-outside"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  role="gridcell"
-                />
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                1
+              </div>
+              <div
+                aria-colindex="5"
+                aria-hidden="true"
+                class="rdp-day rdp-hidden rdp-outside"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  role="gridcell"
-                />
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                2
+              </div>
+              <div
+                aria-colindex="6"
+                aria-hidden="true"
+                class="rdp-day rdp-hidden rdp-outside"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  role="gridcell"
-                />
-              </td>
-              <td
-                class="rdp-cell"
-                role="presentation"
+                3
+              </div>
+              <div
+                aria-colindex="7"
+                aria-hidden="true"
+                class="rdp-day rdp-hidden rdp-outside"
+                role="gridcell"
+                tabindex="-1"
               >
-                <div
-                  role="gridcell"
-                />
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                4
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+    <div
+      class="rdp-nav"
+      role="toolbar"
+    >
+      <button
+        aria-controls=":r0:"
+        aria-label="Previous Month"
+        class="rdp-button_previous"
+        name="previous-month"
+        type="button"
+      >
+        <svg
+          class="rdp-chevron"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+          <polygon
+            points="15 17.23 9.43 11.5 15 5.76 13.28 4 6 11.5 13.28 19"
+          />
+        </svg>
+      </button>
+      <button
+        aria-controls=":r0:"
+        aria-label="Next Month"
+        class="rdp-button_next"
+        name="next-month"
+        type="button"
+      >
+        <svg
+          class="rdp-chevron"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+          <polygon
+            points="8 18.23 13.57 12.5 8 6.76 9.72 5 17 12.5 9.72 20"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </div>

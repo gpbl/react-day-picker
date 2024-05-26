@@ -1,11 +1,10 @@
 import { useState } from "react";
 
-import { DayPicker, DayPickerProps } from "react-day-picker";
+import { DayPicker, DayPickerProps, type Mode } from "react-day-picker";
 
 export function CustomSingle() {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>();
-
-  const modifiers: DayPickerProps["modifiers"] = {};
+  const modifiers: DayPickerProps<Mode>["modifiers"] = {};
   if (selectedDate) {
     modifiers.selected = selectedDate;
   }

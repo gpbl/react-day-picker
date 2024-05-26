@@ -79,9 +79,9 @@ export enum UIDayModifier {
 /** Flags that can be applied to the {@link UI.Calendar} element. */
 export enum UIFlag {
   /** Assigned when the week numbers are show. */
-  hasWeekNumbers = "has_week_numbers",
+  hasWeekNumbers = "week_numbers",
   /** Assigned when the weekdays are hidden. */
   noWeekdays = "no_weekdays",
   /** Assigned when the calendar has multiple months. */
-  hasMultipleMonths = "has_multiple_months"
+  hasMultipleMonths = "multiple_months"
 }

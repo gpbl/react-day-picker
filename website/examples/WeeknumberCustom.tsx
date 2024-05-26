@@ -14,7 +14,6 @@ export function WeeknumberCustom() {
         labelWeekNumber: (weekNumber: number) => `Week ${weekNumber}`
       }}
       formatters={{
-        // Add `W` prefix to week number
         formatWeekNumber: (weekNumber: number) => `W${weekNumber}`
       }}
     />

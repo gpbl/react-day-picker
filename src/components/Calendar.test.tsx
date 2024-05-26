@@ -18,9 +18,9 @@ it("should apply classnames and style according to props", () => {
     style: { color: "red" }
   });
 
-  expect(container.firstChild).toHaveClass("rdp");
-  expect(container.firstChild).toHaveClass("multiple_months");
-  expect(container.firstChild).toHaveClass("has_weeknumbers");
+  expect(container.firstChild).toHaveClass("rdp-calendar");
+  expect(container.firstChild).toHaveClass("rdp-multiple_months");
+  expect(container.firstChild).toHaveClass("rdp-week_numbers");
   expect(container.firstChild).toHaveClass("custom-class");
   expect(container.firstChild).toHaveStyle({ color: "red" });
 });

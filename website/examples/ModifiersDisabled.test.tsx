@@ -12,5 +12,5 @@ const days = [
 
 test.each(days)("the day %s should be disabled", (day) => {
   render(<ModifiersDisabled />);
-  expect(gridcell(day)).toBeDisabled();
+  expect(gridcell(day)).toHaveAttribute("aria-disabled", true);
 });

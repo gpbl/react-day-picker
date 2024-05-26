@@ -188,7 +188,7 @@
   grid-template-columns: repeat(7, 1fr);
 }
 
-.rdp-has_week_numbers .rdp-week {
+.rdp-week_numbers .rdp-week {
   grid-template-columns: repeat(8, 1fr);
 }
 
@@ -205,7 +205,7 @@
   grid-template-columns: repeat(7, 1fr);
 }
 
-.rdp-has_week_numbers .rdp-weekdays {
+.rdp-week_numbers .rdp-weekdays {
   grid-template-columns: repeat(8, 1fr);
 }
 
