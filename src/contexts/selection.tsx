@@ -72,11 +72,7 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
       selected = date;
     }
     setSelection(selected);
-    if (e instanceof MouseEvent) {
-      onSelect?.(selected, date, modifiers, e); // Now TypeScript knows it's a MouseEvent
-    } else if (e instanceof KeyboardEvent) {
-      onSelect?.(selected, date, modifiers, e); // Now TypeScript knows it's a KeyboardEvent
-    }
+    onSelect?.(selected, date, modifiers, e);
     return selected;
   }
 

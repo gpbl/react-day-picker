@@ -1,4 +1,12 @@
-import type { CSSProperties } from "react";
+import type {
+  MouseEvent,
+  FocusEvent,
+  KeyboardEvent,
+  TouchEvent,
+  PointerEvent,
+  CSSProperties,
+  ReactNode
+} from "react";
 
 import type { Locale } from "date-fns";
 
@@ -69,7 +77,7 @@ export interface PropsBase {
   /** Change the class name for the day matching the `modifiers`. */
   modifiersClassNames?: ModifiersClassNames;
   /** Style to apply to the container element. */
-  style?: React.CSSProperties;
+  style?: CSSProperties;
   /** Change the inline styles of the HTML elements. */
   styles?: Partial<Styles>;
   /** Change the class name for the day matching the {@link modifiers}. */
@@ -175,7 +183,7 @@ export interface PropsBase {
   /** Change the components used for rendering the calendar elements. */
   components?: CustomComponents;
   /** Content to add to the grid as footer element. */
-  footer?: React.ReactNode;
+  footer?: ReactNode;
   /**
    * When a selection mode is set, DayPicker will focus the first selected day
    * (if set) or the today's date (if not disabled).
@@ -260,33 +268,33 @@ export interface PropsBase {
   /** Event fired when the user navigates between months. */
   onMonthChange?: MonthChangeEventHandler;
   /** Event handler when a day is clicked. */
-  onDayClick?: DayEventHandler<React.MouseEvent>;
+  onDayClick?: DayEventHandler<MouseEvent>;
   /** Event handler when a day is focused. */
-  onDayFocus?: DayEventHandler<React.FocusEvent>;
+  onDayFocus?: DayEventHandler<FocusEvent>;
   /** Event handler when a day is blurred. */
-  onDayBlur?: DayEventHandler<React.FocusEvent>;
+  onDayBlur?: DayEventHandler<FocusEvent>;
   /** Event handler when the mouse enters a day. */
-  onDayMouseEnter?: DayEventHandler<React.MouseEvent>;
+  onDayMouseEnter?: DayEventHandler<MouseEvent>;
   /** Event handler when the mouse leaves a day. */
-  onDayMouseLeave?: DayEventHandler<React.MouseEvent>;
+  onDayMouseLeave?: DayEventHandler<MouseEvent>;
   /** Event handler when a key is pressed on a day. */
-  onDayKeyDown?: DayEventHandler<React.KeyboardEvent>;
+  onDayKeyDown?: DayEventHandler<KeyboardEvent>;
   /** Event handler when a key is released on a day. */
-  onDayKeyUp?: DayEventHandler<React.KeyboardEvent>;
+  onDayKeyUp?: DayEventHandler<KeyboardEvent>;
   /** Event handler when a key is pressed and released on a day. */
-  onDayKeyPress?: DayEventHandler<React.KeyboardEvent>;
+  onDayKeyPress?: DayEventHandler<KeyboardEvent>;
   /** Event handler when a pointer enters a day. */
-  onDayPointerEnter?: DayEventHandler<React.PointerEvent>;
+  onDayPointerEnter?: DayEventHandler<PointerEvent>;
   /** Event handler when a pointer leaves a day. */
-  onDayPointerLeave?: DayEventHandler<React.PointerEvent>;
+  onDayPointerLeave?: DayEventHandler<PointerEvent>;
   /** Event handler when a touch is cancelled on a day. */
-  onDayTouchCancel?: DayEventHandler<React.TouchEvent>;
+  onDayTouchCancel?: DayEventHandler<TouchEvent>;
   /** Event handler when a touch ends on a day. */
-  onDayTouchEnd?: DayEventHandler<React.TouchEvent>;
+  onDayTouchEnd?: DayEventHandler<TouchEvent>;
   /** Event handler when a touch moves on a day. */
-  onDayTouchMove?: DayEventHandler<React.TouchEvent>;
+  onDayTouchMove?: DayEventHandler<TouchEvent>;
   /** Event handler when a touch starts on a day. */
-  onDayTouchStart?: DayEventHandler<React.TouchEvent>;
+  onDayTouchStart?: DayEventHandler<TouchEvent>;
   /** Event handler when the next month button is clicked. */
   onNextClick?: MonthChangeEventHandler;
   /** Event handler when the previous month button is clicked. */
@@ -546,7 +554,7 @@ export type WeekNumberMouseEventHandler = (
   /** The dates in the clicked week. */
   dates: Date[],
   /** The mouse event that triggered this event. */
-  e: React.MouseEvent
+  e: MouseEvent
 ) => void;
 
 /** Maps UI elements to their CSS properties. */
