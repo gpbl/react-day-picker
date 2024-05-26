@@ -66,7 +66,7 @@ export function Calendar() {
       title={title}
       {...dataAttributes}
     >
-      {dropdownNavigation && !hideNavigation && <Nav />}
+      {!hideNavigation && <Nav />}
       <Months
         className={classNames.months_wrapper}
         style={styles?.months_wrapper}
