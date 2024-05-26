@@ -78,7 +78,7 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
   const { goToDay, isDayDisplayed } = useCalendar();
 
   const { autoFocus = false, ...dayPickerProps } = useProps();
-  const { modifiersMap } = useModifiers();
+  const { calendarModifiers } = useModifiers();
 
   const [focused, setFocused] = useState<CalendarDay | undefined>();
   const [lastFocused, setLastFocused] = useState<CalendarDay | undefined>();
@@ -87,9 +87,9 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
   const autoFocusTarget =
     focused ?? (lastFocused && isDayDisplayed(lastFocused))
       ? lastFocused
-      : modifiersMap.selected[0] ?? // autofocus the first selected day
-        modifiersMap.today[0] ?? // autofocus today
-        modifiersMap.focusable[0]; // otherwise autofocus the first focusable day;
+      : calendarModifiers.selected[0] ?? // autofocus the first selected day
+        calendarModifiers.today[0] ?? // autofocus today
+        calendarModifiers.focusable[0]; // otherwise autofocus the first focusable day;
 
   // Focus the focus target when autoFocus is passed in
   useEffect(() => {

@@ -1,5 +1,6 @@
 import { SelectHTMLAttributes } from "react";
 
+import { UI } from "../UI";
 import { useProps } from "../contexts/props";
 
 import { Chevron as DefaultChevron } from "./Chevron";
@@ -28,8 +29,8 @@ export function Dropdown(
   const { options, rootClassName, className, ...selectProps } = props;
   const { classNames, components } = useProps();
 
-  const cssClassRoot = [classNames.dropdown_root, rootClassName].join(" ");
-  const cssClassSelect = [classNames.dropdown, className].join(" ");
+  const cssClassRoot = [classNames[UI.DropdownRoot], rootClassName].join(" ");
+  const cssClassSelect = [classNames[UI.Dropdown], className].join(" ");
 
   const Select = components?.Select ?? DefaultSelect;
   const Option = components?.Option ?? DefaultOption;
@@ -47,7 +48,7 @@ export function Dropdown(
           </Option>
         ))}
       </Select>
-      <span className={classNames.caption_label} aria-hidden>
+      <span className={classNames[UI.CaptionLabel]} aria-hidden>
         {selectedOption?.[1]}
         <Chevron orientation="down" size={18} />
       </span>

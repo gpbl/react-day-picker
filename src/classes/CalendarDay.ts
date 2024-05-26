@@ -1,9 +1,8 @@
 import { isSameDay } from "date-fns/isSameDay";
 import { isSameMonth } from "date-fns/isSameMonth";
 
-/** Represent a day displayed in a month grid. */
+/** Represent a date displayed in the day grid cell. */
 export class CalendarDay {
-  /** Create a CalendarDay. */
   constructor(date: Date, displayMonth: Date) {
     this.date = date;
     this.displayMonth = displayMonth;
@@ -13,10 +12,10 @@ export class CalendarDay {
   /** Whether the day is outside the display month. */
   readonly outside: boolean;
 
-  /** The months where the date is displayed. */
+  /** The months where the day is displayed. */
   readonly displayMonth: Date;
 
-  /** The date represented by this Day. */
+  /** The date represented by this day. */
   readonly date: Date;
 
   /**

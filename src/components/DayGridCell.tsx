@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from "react";
 
 import type { CalendarDay } from "../classes";
-import type { Modifiers } from "../types";
+import type { DayModifiers } from "../types";
 
 /**
  * Render the gridcell of a day in the calendar.
@@ -12,7 +12,7 @@ export function DayGridCell(props: {
   /** The day to be rendered in the gridcell. */
   day: CalendarDay;
   /** Modifiers for the day. */
-  modifiers: Modifiers;
+  modifiers: DayModifiers;
   /** HTML attributes for the gridcell. */
   htmlAttributes: HTMLAttributes<HTMLElement>;
   /** Children of the gridcell. */

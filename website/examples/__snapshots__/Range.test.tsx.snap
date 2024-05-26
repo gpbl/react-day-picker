@@ -82,49 +82,49 @@ exports[`should match the snapshot 1`] = `
               >
                 <th
                   aria-label="Sunday"
-                  class="rdp-head_cell"
+                  class="rdp-header_gridcell"
                   scope="col"
                 >
                   Su
                 </th>
                 <th
                   aria-label="Monday"
-                  class="rdp-head_cell"
+                  class="rdp-header_gridcell"
                   scope="col"
                 >
                   Mo
                 </th>
                 <th
                   aria-label="Tuesday"
-                  class="rdp-head_cell"
+                  class="rdp-header_gridcell"
                   scope="col"
                 >
                   Tu
                 </th>
                 <th
                   aria-label="Wednesday"
-                  class="rdp-head_cell"
+                  class="rdp-header_gridcell"
                   scope="col"
                 >
                   We
                 </th>
                 <th
                   aria-label="Thursday"
-                  class="rdp-head_cell"
+                  class="rdp-header_gridcell"
                   scope="col"
                 >
                   Th
                 </th>
                 <th
                   aria-label="Friday"
-                  class="rdp-head_cell"
+                  class="rdp-header_gridcell"
                   scope="col"
                 >
                   Fr
                 </th>
                 <th
                   aria-label="Saturday"
-                  class="rdp-head_cell"
+                  class="rdp-header_gridcell"
                   scope="col"
                 >
                   Sa
@@ -725,49 +725,49 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               >
                 <th
                   aria-label="Sunday"
-                  class="rdp-head_cell"
+                  class="rdp-header_gridcell"
                   scope="col"
                 >
                   Su
                 </th>
                 <th
                   aria-label="Monday"
-                  class="rdp-head_cell"
+                  class="rdp-header_gridcell"
                   scope="col"
                 >
                   Mo
                 </th>
                 <th
                   aria-label="Tuesday"
-                  class="rdp-head_cell"
+                  class="rdp-header_gridcell"
                   scope="col"
                 >
                   Tu
                 </th>
                 <th
                   aria-label="Wednesday"
-                  class="rdp-head_cell"
+                  class="rdp-header_gridcell"
                   scope="col"
                 >
                   We
                 </th>
                 <th
                   aria-label="Thursday"
-                  class="rdp-head_cell"
+                  class="rdp-header_gridcell"
                   scope="col"
                 >
                   Th
                 </th>
                 <th
                   aria-label="Friday"
-                  class="rdp-head_cell"
+                  class="rdp-header_gridcell"
                   scope="col"
                 >
                   Fr
                 </th>
                 <th
                   aria-label="Saturday"
-                  class="rdp-head_cell"
+                  class="rdp-header_gridcell"
                   scope="col"
                 >
                   Sa

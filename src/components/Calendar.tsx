@@ -1,4 +1,4 @@
-import { UI } from "../UI";
+import { UI, UIFlag } from "../UI";
 import { useCalendar } from "../contexts/calendar";
 import { useProps } from "../contexts/props";
 
@@ -29,25 +29,24 @@ export function Calendar() {
     showWeekNumber,
     style,
     styles,
-    title,
-    dropdownNavigation
+    title
   } = useProps();
 
   const calendar = useCalendar();
 
   // Apply classnames according to props
-  const cssClassNames = [classNames.rdp];
+  const cssClassNames = [classNames[UI.Calendar]];
   if (className) {
     cssClassNames.push(className);
   }
   if (numberOfMonths > 1) {
-    cssClassNames.push(classNames.multiple_months);
+    cssClassNames.push(classNames[UIFlag.hasMultipleMonths]);
   }
   if (showWeekNumber) {
-    cssClassNames.push(UI.WithWeekNumber);
+    cssClassNames.push(classNames[UIFlag.hasWeekNumbers]);
   }
   if (hideWeekdayRow) {
-    cssClassNames.push(classNames[UI.HideWeekdays]);
+    cssClassNames.push(classNames[UIFlag.noWeekdays]);
   }
 
   const Nav = components?.Nav ?? DefaultNav;
@@ -58,7 +57,7 @@ export function Calendar() {
   return (
     <div
       className={cssClassNames.join(" ")}
-      style={{ ...styles?.rdp, ...style }}
+      style={{ ...styles?.[UI.Calendar], ...style }}
       dir={dir}
       id={id}
       lang={lang}
@@ -66,17 +65,14 @@ export function Calendar() {
       title={title}
       {...dataAttributes}
     >
-      {!hideNavigation && <Nav />}
-      <Months
-        className={classNames.months_wrapper}
-        style={styles?.months_wrapper}
-      >
+      <Months className={classNames[UI.Months]} style={styles?.[UI.Months]}>
         {calendar.months.map((month, i) => (
           <MonthGrid aria-labelledby={id} key={i} index={i} month={month} />
         ))}
       </Months>
+      {!hideNavigation && <Nav />}
       {footer && (
-        <Footer className={classNames.footer} style={styles?.footer}>
+        <Footer className={classNames[UI.Footer]} style={styles?.[UI.Footer]}>
           {footer}
         </Footer>
       )}

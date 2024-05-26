@@ -2,7 +2,7 @@ import type { CSSProperties } from "react";
 
 import type { Locale } from "date-fns";
 
-import { UI } from "./UI";
+import { UI, UIDayModifier, UIFlag } from "./UI";
 import { CalendarDay } from "./classes";
 import * as components from "./components/custom-components";
 import {
@@ -378,7 +378,7 @@ export type SelectHandler<T extends Mode> = (
   /** The date that triggered the selection. */
   date: Date,
   /** The modifiers for the day that triggered the selection. */
-  modifiers: Modifiers,
+  modifiers: DayModifiers,
   /** The event that made the selection. */
   e: MouseEvent | KeyboardEvent
 ) => void;
@@ -531,7 +531,7 @@ export type DayEventHandler<T> = (
   /** The date that has triggered the event. */
   date: Date,
   /** The modifiers belonging to the date. */
-  modifiers: Modifiers,
+  modifiers: DayModifiers,
   /** The DOM event that triggered this event. */
   e: T
 ) => void;
@@ -556,41 +556,22 @@ export type Styles = {
 
 /** Maps UI elements to their class names. */
 export type ClassNames = {
-  [uiElement in UI]: string;
+  [element in UI]: string;
+} & {
+  [state in UIDayModifier]: string;
+} & {
+  [flag in UIFlag]: string;
 };
 
-/**
- * The name of the modifiers that are used internally by DayPicker.
- *
- * - `disabled`: the day is disabled.
- * - `excluded`: the day is excluded from the selection.
- * - `focusable`: the day can be focused.
- * - `hidden`: the day is hidden.
- * - `outside`: the day is outside the month.
- * - `range_end`: the day is the end of a range.
- * - `range_middle`: the day is in the middle of a range.
- * - `range_start`: the day is the start of a range.
- * - `selected`: the day is selected.
- * - `today`: the day is today.
- */
-export type InternalModifier =
-  | "disabled"
-  | "excluded"
-  | "focusable"
-  | "hidden"
-  | "outside"
-  | "range_end"
-  | "range_middle"
-  | "range_start"
-  | "selected"
-  | "today";
+/** The modifiers that are internally used by DayPicker. */
+export type InternalModifier = keyof typeof UIDayModifier;
 
-/** A map of modifiers with the days. */
-export type ModifiersMap = Record<string, CalendarDay[]> &
+/** A map of all the modifiers with the calendar days. */
+export type CalendarModifiers = Record<string, CalendarDay[]> &
   Record<InternalModifier, CalendarDay[]>;
 
-/** The modifiers that are matching a day in the calendar. */
-export type Modifiers = Record<string, boolean> &
+/** The modifiers that are matching the day in the calendar. */
+export type DayModifiers = Record<string, boolean> &
   Record<InternalModifier, boolean>;
 
 /** The style to apply to each day element matching a modifier. */

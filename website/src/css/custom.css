@@ -365,3 +365,7 @@ pre code {
   border-radius: 0.25rem;
   font-weight: normal;
 }
+
+ody:not(.navigation-with-keyboard) *:not(input):focus {
+  
+}

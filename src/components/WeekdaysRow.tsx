@@ -1,3 +1,4 @@
+import { UI } from "../UI";
 import { useProps } from "../contexts/props";
 import { getWeekdays } from "../helpers/getWeekdays";
 
@@ -29,8 +30,8 @@ export function WeekdaysRow() {
       role="row"
       hidden={hideWeekdayRow}
       aria-rowindex={1}
-      style={styles?.weekdays_row}
-      className={classNames.weekdays_row}
+      style={styles?.[UI.WeekdaysRow]}
+      className={classNames[UI.WeekdaysRow]}
       onClick={(e) => e.stopPropagation()}
     >
       {showWeekNumber && <WeekdayColumnHeader aria-colindex={1} />}

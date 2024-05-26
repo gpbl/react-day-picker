@@ -1,3 +1,4 @@
+import { UI } from "../UI";
 import type { CalendarWeek } from "../classes";
 import { useProps } from "../contexts/props";
 
@@ -20,8 +21,8 @@ export function WeekNumberRowHeader(props: { week: CalendarWeek }) {
       role="rowheader"
       aria-colindex={1}
       aria-label={labelWeekNumber(props.week.weekNumber, { locale })}
-      className={classNames.weeknumber_rowheader}
-      style={styles?.weeknumber_rowheader}
+      className={classNames[UI.WeekNumberRowHeader]}
+      style={styles?.[UI.WeekNumberRowHeader]}
       onClick={(e) =>
         onWeekNumberClick?.(
           props.week.weekNumber,

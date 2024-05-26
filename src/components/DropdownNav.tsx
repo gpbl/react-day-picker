@@ -1,3 +1,4 @@
+import { UI } from "../UI";
 import type { CalendarMonth } from "../classes";
 import { useProps } from "../contexts/props";
 
@@ -22,7 +23,10 @@ export function DropdownNav(props: {
   const { classNames, styles } = useProps();
 
   return (
-    <div className={classNames?.dropdown_nav} style={styles?.dropdown_nav}>
+    <div
+      className={classNames[UI.DropdownNav]}
+      style={styles?.[UI.DropdownNav]}
+    >
       {props.showMonths && <MonthsDropdown month={props.month} />}
       {props.showYears && <YearsDropdown month={props.month} />}
     </div>

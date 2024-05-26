@@ -1,3 +1,6 @@
+import { UI } from "../UI";
+import { useProps } from "../contexts/props";
+
 /**
  * Render the chevron icon used in the navigation buttons and dropdowns.
  *
@@ -8,9 +11,15 @@ export function Chevron(props: {
   orientation?: "up" | "down" | "left" | "right";
 }) {
   const { size = 24, orientation = "left" } = props;
+  const { classNames } = useProps();
 
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24">
+    <svg
+      className={classNames[UI.Chevron]}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+    >
       {orientation === "up" && (
         <polygon points="6.77 17 12.5 11.43 18.24 17 20 15.28 12.5 8 5 15.28" />
       )}

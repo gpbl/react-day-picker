@@ -8,6 +8,7 @@ import {
   useRef
 } from "react";
 
+import { UI, UIDayModifier } from "../UI";
 import { CalendarDay } from "../classes/CalendarDay";
 import { useFocus } from "../contexts/focus";
 import { useModifiers } from "../contexts/modifiers";
@@ -206,12 +207,10 @@ export function DayGridCellWrapper(props: {
     classNames
   );
 
-  const className = classNames?.day
-    ? [classNames?.day, ...classNameForModifiers]
-    : classNameForModifiers;
+  const className = [classNames[UI.DayGridCell], ...classNameForModifiers];
 
-  if (isFocused && classNames?.day_focused) {
-    className.push(classNames.day_focused);
+  if (isFocused) {
+    className.push(classNames[UIDayModifier.focused]);
   }
 
   const htmlAttributes: JSX.IntrinsicElements["div"] = {

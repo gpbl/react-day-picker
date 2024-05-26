@@ -1,101 +1,87 @@
-/** The UI elements that can be styled. */
+/**
+ * The UI elements composing DayPicker.
+ *
+ * These elements are mapped to the components directory.
+ */
 export enum UI {
-  /** The root element. */
-  Root = "rdp",
-  /** The icon on a button. */
-  ButtonIcon = "button_icon",
-  /** The next button. */
-  ButtonNext = "button_next",
-  /** The previous button. */
+  /** The previous button in the navigation. */
   ButtonPrevious = "button_previous",
-  /** The caption between elements. */
-  CaptionBetween = "caption_between",
-  /** The dropdowns in a caption. */
-  CaptionDropdowns = "caption_dropdowns",
-  /** The end of a caption. */
-  CaptionEnd = "caption_end",
+  /** The next button the navigation */
+  ButtonNext = "button_next",
+  /** The calendar (root) element. */
+  Calendar = "calendar",
+  /** The gridcell with the day's date. */
+  DayGridCell = "day",
   /** The label of a caption. */
   CaptionLabel = "caption_label",
-  /** The start of a caption. */
-  CaptionStart = "caption_start",
-  /** The caption. */
-  Caption = "caption",
-  /** The cell with the day. */
-  Cell = "cell",
-  /** The disabled day. */
-  DayDisabled = "day_disabled",
-  /** An hidden day. */
-  DayHidden = "day_hidden",
-  /** The day outside the current month. */
-  DayOutside = "day_outside",
-  /** The end of a range of days. */
-  DayRangeEnd = "day_range_end",
-  /** The middle of a range of days. */
-  DayRangeMiddle = "day_range_middle",
-  /** The start of a range of days. */
-  DayRangeStart = "day_range_start",
-  /** The selected day. */
-  DaySelected = "day_selected",
-  /** Represent an excluded day. */
-  DayExcluded = "day_excluded",
-  /** The focusable day. */
-  DayFocusable = "day_focusable",
-  /** The focused day. */
-  DayFocused = "day_focused",
-  /** The current day. */
-  DayToday = "day_today",
-  /** The day. */
-  Day = "day",
-  /** The icon of a dropdown. */
-  DropdownIcon = "dropdown_icon",
-  /** Modifiers added to the {@link Dropdown} root when displaying the months. */
-  DropdownMonth = "dropdown_month",
-  /** Modifiers added to the {@link Dropdown} root when displaying the years. */
-  DropdownYear = "dropdown_year",
-  /** The dropdown. */
-  Dropdown = "dropdown",
-  /** The root element of the {@link DropdownNav} component. */
+  /** The Chevron SVG element used by navigation buttons and dropdowns. */
+  Chevron = "chevron",
+  /** The container of the dropdown navigation.. */
   DropdownNav = "dropdown_nav",
+  /** The dropdown used for years and months. */
+  Dropdown = "dropdown",
   /** The root element of the {@link Dropdown} component. */
   DropdownRoot = "dropdown_root",
   /** The root element of the {@link Footer} component. */
   Footer = "footer",
-  /** The cell in the header. */
-  HeadCell = "head_cell",
-  /** The row in the header. */
-  HeadRow = "head_row",
-  /** The header. */
-  Head = "head",
   /** The caption of a month. */
   MonthCaption = "month_caption",
-  /** The wrapper of a month grid. */
-  MonthGridWrapper = "month_grid_wrapper",
-  /** The month grid. */
-  MonthGrid = "month_grid",
-  /** The group of rows in a month. */
-  MonthRowGroup = "month_rowgroup",
   /** The dropdown of months. */
   MonthsDropdown = "months_dropdown",
-  /** The wrapper of months. */
-  MonthsWrapper = "months_wrapper",
-  /** Represent multiple months. */
-  MultipleMonths = "multiple_months",
-  /** Represent navigation. */
+  /** Wrapper of the month grid. */
+  MonthGridWrapper = "month_wrapper",
+  /** The month grid. */
+  MonthGrid = "month",
+  /** The group of weeks in a month. */
+  WeeksRowGroup = "weeks",
+  /** Container containing the months. */
+  Months = "months",
+  /** The navigation element. */
   Nav = "nav",
-  /** The row. */
-  Row = "row",
-  /** The select element. */
-  Select = "select",
   /** The row in a week. */
-  WeekRow = "week_row",
+  WeekRow = "week",
   /** The column header in a weekday. */
-  WeekDayColumnHeader = "weekday_columnheader",
+  WeekdayColumnHeader = "weekday",
   /** The row of weekdays. */
-  WeekDaysRow = "weekdays_row",
+  WeekdaysRow = "weekdays",
   /** The row header in a week number. */
-  WeekNumberRowHeader = "weeknumber_rowheader",
-  /** The week number. */
-  WithWeekNumber = "with_weeknumber",
-  /** The weekdays when they are hidden. */
-  HideWeekdays = "hide_weekdays"
+  WeekNumberRowHeader = "weeknumber",
+  /** The dropdown of years. */
+  YearsDropdown = "years_dropdown"
+}
+
+/** The modifiers for the {@link UI.DayGridCell}. */
+export enum UIDayModifier {
+  /** The day is disabled */
+  disabled = "disabled",
+  /** The day is hidden */
+  hidden = "hidden",
+  /** The day is outside the current month */
+  outside = "outside",
+  /** The day is at the end of a selected range. */
+  range_end = "range_end",
+  /** The day is at the middle of a selected range. */
+  range_middle = "range_middle",
+  /** The day is at the start of a selected range. */
+  range_start = "range_start",
+  /** The day is selected. */
+  selected = "selected",
+  /** The day is excluded ??. */
+  excluded = "excluded",
+  /** The day is focusable. */
+  focusable = "focusable",
+  /** The day is focused. */
+  focused = "focused",
+  /** The day is today. */
+  today = "today"
+}
+
+/** Flags that can be applied to the {@link UI.Calendar} element. */
+export enum UIFlag {
+  /** Assigned when the week numbers are show. */
+  hasWeekNumbers = "has_week_numbers",
+  /** Assigned when the weekdays are hidden. */
+  noWeekdays = "no_weekdays",
+  /** Assigned when the calendar has multiple months. */
+  hasMultipleMonths = "has_multiple_months"
 }

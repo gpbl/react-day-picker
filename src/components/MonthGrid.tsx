@@ -1,5 +1,6 @@
 import { useId } from "react";
 
+import { UI } from "../UI";
 import type { CalendarMonth } from "../classes/CalendarMonth";
 import { useProps } from "../contexts/props";
 
@@ -32,8 +33,8 @@ export function MonthGrid(props: {
 
   return (
     <div
-      className={classNames.month_grid_wrapper}
-      style={styles?.month_grid_wrapper}
+      className={classNames[UI.MonthGridWrapper]}
+      style={styles?.[UI.MonthGridWrapper]}
     >
       <MonthCaption id={captionId} month={props.month} index={props.index} />
       <div
@@ -41,14 +42,14 @@ export function MonthGrid(props: {
         role="grid"
         aria-multiselectable={mode === "multiple" || mode === "range"}
         aria-labelledby={captionId}
-        className={classNames.month_grid}
-        style={styles?.month_grid}
+        className={classNames[UI.MonthGrid]}
+        style={styles?.[UI.MonthGrid]}
       >
         <WeekdaysRow />
         <div
           role="rowgroup"
-          className={classNames.month_rowgroup}
-          style={styles?.month_rowgroup}
+          className={classNames[UI.WeeksRowGroup]}
+          style={styles?.[UI.WeeksRowGroup]}
         >
           {props.month.weeks.map((week, i) => (
             <WeekRow

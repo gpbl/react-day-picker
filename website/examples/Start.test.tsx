@@ -18,14 +18,14 @@ beforeEach(async () => {
 
 test("should display the next month button", async () => {
   expect(nextButton()).toBeVisible();
-  expect(nextButton()).not.toHaveAttribute("aria-disabled");
-  expect(nextButton()).not.toHaveAttribute("aria-disabled", "true");
+  expect(nextButton()).not.toHaveAttribute("disabled");
+  expect(nextButton()).not.toHaveAttribute("disabled", "true");
 });
 
 test("should display the previous month buttons", async () => {
   expect(prevButton()).toBeVisible();
-  expect(prevButton()).not.toHaveAttribute("aria-disabled");
-  expect(prevButton()).not.toHaveAttribute("aria-disabled", "true");
+  expect(prevButton()).not.toHaveAttribute("disabled");
+  expect(prevButton()).not.toHaveAttribute("disabled", "true");
 });
 
 const day = new Date(2021, 10, 1);

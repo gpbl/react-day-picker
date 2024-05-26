@@ -1,3 +1,4 @@
+import { UI } from "../UI";
 import type { CalendarMonth } from "../classes";
 import { useProps } from "../contexts/props";
 
@@ -27,8 +28,8 @@ export function MonthCaption(props: {
   return (
     <div
       id={props.id}
-      className={classNames.month_caption}
-      style={styles?.month_caption}
+      className={classNames[UI.MonthCaption]}
+      style={styles?.[UI.MonthCaption]}
     >
       {dropdownNavigation ? (
         <DropdownNav
@@ -49,7 +50,7 @@ export function MonthCaption(props: {
           }
         />
       ) : (
-        <span className={classNames.caption_label} aria-live="polite">
+        <span className={classNames[UI.CaptionLabel]} aria-live="polite">
           {formatCaption(props.month.date, { locale })}
         </span>
       )}

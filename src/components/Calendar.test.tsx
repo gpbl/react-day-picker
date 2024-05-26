@@ -20,7 +20,7 @@ it("should apply classnames and style according to props", () => {
 
   expect(container.firstChild).toHaveClass("rdp");
   expect(container.firstChild).toHaveClass("multiple_months");
-  expect(container.firstChild).toHaveClass("with_weeknumber");
+  expect(container.firstChild).toHaveClass("has_weeknumbers");
   expect(container.firstChild).toHaveClass("custom-class");
   expect(container.firstChild).toHaveStyle({ color: "red" });
 });

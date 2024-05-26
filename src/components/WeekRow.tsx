@@ -1,5 +1,6 @@
 import { getUnixTime } from "date-fns/getUnixTime";
 
+import { UI } from "../UI";
 import { CalendarDay, type CalendarWeek } from "../classes";
 import { useProps } from "../contexts/props";
 
@@ -24,8 +25,8 @@ export function WeekRow(props: {
     <div
       role="row"
       aria-rowindex={props["aria-rowindex"]}
-      className={classNames.week_row}
-      style={styles?.week_row}
+      className={classNames[UI.WeekRow]}
+      style={styles?.[UI.WeekRow]}
     >
       {showWeekNumber && <WeekNumberRowHeader week={props.week} />}
       {props.week.days.map((day: CalendarDay, i: number) => (

@@ -3,6 +3,7 @@ import type { ChangeEventHandler } from "react";
 import { setMonth } from "date-fns/setMonth";
 import { startOfMonth } from "date-fns/startOfMonth";
 
+import { UI } from "../UI";
 import type { CalendarMonth } from "../classes";
 import { useCalendar } from "../contexts/calendar";
 import { useProps } from "../contexts/props";
@@ -38,7 +39,7 @@ export function MonthsDropdown(props: {
     <Dropdown
       name="month"
       aria-label={labelMonthDropdown()}
-      rootClassName={classNames.months_dropdown}
+      rootClassName={classNames[UI.MonthsDropdown]}
       options={dropdown.months}
       value={props.month.date.getMonth()}
       onChange={handleChange}

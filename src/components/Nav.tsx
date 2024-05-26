@@ -1,3 +1,4 @@
+import { UI } from "../UI";
 import { useCalendar } from "../contexts/calendar";
 import { useProps } from "../contexts/props";
 
@@ -25,13 +26,13 @@ export function Nav() {
   const Chevron = components?.Chevron ?? DefaultChevron;
 
   return (
-    <div role="toolbar" className={classNames.nav} style={styles?.nav}>
+    <div role="toolbar" className={classNames[UI.Nav]} style={styles?.[UI.Nav]}>
       <Button
         type="button"
         name="previous-month"
-        className={classNames.button_previous}
+        className={classNames[UI.ButtonPrevious]}
         tabIndex={calendar.previousMonth ? undefined : -1}
-        aria-disabled={calendar.previousMonth ? undefined : true}
+        disabled={calendar.previousMonth ? undefined : true}
         aria-label={labelPrevious(calendar.previousMonth, { locale })}
         aria-controls={id}
         onClick={calendar.goToPreviousMonth}
@@ -41,9 +42,9 @@ export function Nav() {
       <Button
         type="button"
         name="next-month"
-        className={classNames.button_next}
+        className={classNames[UI.ButtonNext]}
         tabIndex={calendar.nextMonth ? undefined : -1}
-        aria-disabled={calendar.nextMonth ? undefined : true}
+        disabled={calendar.nextMonth ? undefined : true}
         aria-label={labelNext(calendar.nextMonth, { locale })}
         aria-controls={id}
         onClick={calendar.goToNextMonth}

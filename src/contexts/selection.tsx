@@ -7,7 +7,7 @@ import { isSameDay } from "date-fns/isSameDay";
 import { subDays } from "date-fns/subDays";
 
 import { useControlledValue } from "../helpers/useControlledValue";
-import type { Matcher, Mode, Modifiers, Selected } from "../types";
+import type { Matcher, Mode, DayModifiers, Selected } from "../types";
 import { useDayPicker } from "../types-deprecated";
 import { addToRange } from "../utils/addToRange";
 import { dateMatchModifiers } from "../utils/dateMatchModifiers";
@@ -29,7 +29,7 @@ export interface SelectionContext {
   /** Set the selected days. */
   setSelected: (
     date: Date,
-    modifiers: Modifiers,
+    modifiers: DayModifiers,
     e: MouseEvent | KeyboardEvent
   ) => void;
   /** Return `true` if the given day is selected. */
@@ -62,7 +62,7 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
   /** Set the selected days when in "single" mode. */
   function setSingle(
     date: Date,
-    modifiers: Modifiers,
+    modifiers: DayModifiers,
     e: MouseEvent | KeyboardEvent
   ) {
     let selected: Date | undefined;
@@ -88,7 +88,7 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
   /** Set the selected days when in "multiple" mode. */
   function setMulti(
     date: Date,
-    modifiers: Modifiers,
+    modifiers: DayModifiers,
     e: MouseEvent | KeyboardEvent
   ) {
     if (selection !== undefined && !Array.isArray(selection)) {
@@ -130,7 +130,7 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
   /** Set the selected days when in "range" mode. */
   function setRange(
     date: Date,
-    modifiers: Modifiers,
+    modifiers: DayModifiers,
     e: MouseEvent | KeyboardEvent
   ) {
     if (selection !== undefined && !isDateRange(selection)) {
@@ -195,7 +195,7 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
 
   function setSelected(
     date: Date,
-    modifiers: Modifiers,
+    modifiers: DayModifiers,
     e: MouseEvent<Element> | KeyboardEvent<Element>
   ) {
     if (mode === "single") setSingle(date, modifiers, e);

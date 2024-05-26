@@ -3,6 +3,7 @@ import type { ChangeEventHandler } from "react";
 import { setYear } from "date-fns/setYear";
 import { startOfMonth } from "date-fns/startOfMonth";
 
+import { UI } from "../UI";
 import type { CalendarMonth } from "../classes/CalendarMonth";
 import { useCalendar } from "../contexts/calendar";
 import { useProps } from "../contexts/props";
@@ -39,7 +40,7 @@ export function YearsDropdown(props: {
     <Dropdown
       name="year"
       aria-label={labelYearDropdown()}
-      rootClassName={classNames.dropdown_year}
+      rootClassName={classNames[UI.YearsDropdown]}
       options={dropdown.years}
       value={props.month.date.getFullYear()}
       onChange={handleChange}

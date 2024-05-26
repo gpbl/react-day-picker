@@ -2,7 +2,6 @@ import { CalendarDay } from "./CalendarDay";
 
 /** Represent a week in a calendar month. */
 export class CalendarWeek {
-  /** Create a week. */
   constructor(weekNumber: number, days: CalendarDay[]) {
     this.days = days;
     this.weekNumber = weekNumber;

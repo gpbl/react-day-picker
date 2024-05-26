@@ -1,3 +1,4 @@
+import { UI } from "../UI";
 import { useProps } from "../contexts/props";
 
 /**
@@ -27,8 +28,8 @@ export function WeekdayColumnHeader(props: {
           ? labelWeekday(props.weekday, { locale })
           : labelWeekNumberHeader({ locale })
       }
-      className={classNames.weekday_columnheader}
-      style={styles?.weekday_columnheader}
+      className={classNames[UI.WeekdayColumnHeader]}
+      style={styles?.[UI.WeekdayColumnHeader]}
     >
       {!hideWeekdayRow &&
         (props.weekday ? formatWeekdayName(props.weekday, { locale }) : "#")}

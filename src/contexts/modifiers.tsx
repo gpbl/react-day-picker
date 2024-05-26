@@ -5,7 +5,7 @@ import { isSameDay } from "date-fns/isSameDay";
 import { isSameMonth } from "date-fns/isSameMonth";
 
 import { CalendarDay } from "../classes";
-import { Modifiers, InternalModifier, ModifiersMap } from "../types";
+import { DayModifiers, InternalModifier, CalendarModifiers } from "../types";
 import { dateMatchModifiers } from "../utils/dateMatchModifiers";
 
 import { useCalendar } from "./calendar";
@@ -21,9 +21,9 @@ import { useSelection } from "./selection";
  */
 export interface ModifiersContext {
   /** Return the modifiers of the specified day. */
-  getModifiers: (day: CalendarDay) => Modifiers;
-  /** A map of all the modifiers. */
-  modifiersMap: ModifiersMap;
+  getModifiers: (day: CalendarDay) => DayModifiers;
+  /** A map of all the modifiers used by the calendar. */
+  calendarModifiers: CalendarModifiers;
 }
 
 const modifiersContext = createContext<ModifiersContext | undefined>(undefined);
@@ -36,6 +36,7 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
 
   /** Modifiers that are set internally. */
   const internal: Record<InternalModifier, CalendarDay[]> = {
+    focused: [],
     outside: [],
     disabled: [],
     hidden: [],
@@ -103,7 +104,8 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
   }
 
   const getModifiers = (day: CalendarDay) => {
-    const modifiers: Modifiers = {
+    const modifiers: DayModifiers = {
+      focused: false,
       disabled: false,
       excluded: false,
       focusable: false,
@@ -128,9 +130,12 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
     return modifiers;
   };
 
-  const modifiersMap: ModifiersMap = { ...internal, ...custom };
+  const calendarModifiers: CalendarModifiers = { ...internal, ...custom };
 
-  const value: ModifiersContext = { modifiersMap, getModifiers };
+  const value: ModifiersContext = {
+    calendarModifiers,
+    getModifiers
+  };
 
   return (
     <modifiersContext.Provider value={value}>
