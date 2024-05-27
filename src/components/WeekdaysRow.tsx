@@ -2,7 +2,7 @@ import { UI } from "../UI";
 import { useProps } from "../contexts/props";
 import { getWeekdays } from "../helpers/getWeekdays";
 
-import { WeekdayColumnHeader as DefaultWeekdayColumnHeader } from "./WeekdayColumnHeader";
+import { WeekdayHeader as DefaultWeekdayHeader } from "./WeekdayHeader";
 
 /**
  * Render the row with the weekday names.
@@ -22,8 +22,7 @@ export function WeekdaysRow() {
   } = useProps();
 
   const weekdays = getWeekdays(locale, weekStartsOn, ISOWeek);
-  const WeekdayColumnHeader =
-    components?.WeekdayColumnHeader ?? DefaultWeekdayColumnHeader;
+  const WeekdayHeader = components?.WeekdayHeader ?? DefaultWeekdayHeader;
 
   return (
     <div
@@ -34,9 +33,9 @@ export function WeekdaysRow() {
       className={classNames[UI.WeekdaysRow]}
       onClick={(e) => e.stopPropagation()}
     >
-      {showWeekNumber && <WeekdayColumnHeader aria-colindex={1} />}
+      {showWeekNumber && <WeekdayHeader aria-colindex={1} />}
       {weekdays.map((weekday, i) => (
-        <WeekdayColumnHeader
+        <WeekdayHeader
           key={i}
           weekday={weekday}
           aria-colindex={showWeekNumber ? i + 2 : i + 1}

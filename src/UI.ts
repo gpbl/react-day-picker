@@ -41,7 +41,7 @@ export enum UI {
   /** The row in a week. */
   WeekRow = "week",
   /** The column header in a weekday. */
-  WeekdayColumnHeader = "weekday",
+  WeekdayHeader = "weekday",
   /** The row of weekdays. */
   WeekdaysRow = "weekdays",
   /** The row header in a week number. */

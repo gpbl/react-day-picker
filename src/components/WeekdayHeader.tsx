@@ -6,7 +6,7 @@ import { useProps } from "../contexts/props";
  *
  * @group Components
  */
-export function WeekdayColumnHeader(props: {
+export function WeekdayHeader(props: {
   ["aria-colindex"]?: number | undefined;
   ["aria-label"]?: string | undefined;
   weekday?: Date;
@@ -28,8 +28,8 @@ export function WeekdayColumnHeader(props: {
           ? labelWeekday(props.weekday, { locale })
           : labelWeekNumberHeader({ locale })
       }
-      className={classNames[UI.WeekdayColumnHeader]}
-      style={styles?.[UI.WeekdayColumnHeader]}
+      className={classNames[UI.WeekdayHeader]}
+      style={styles?.[UI.WeekdayHeader]}
     >
       {!hideWeekdayRow &&
         (props.weekday ? formatWeekdayName(props.weekday, { locale }) : "#")}

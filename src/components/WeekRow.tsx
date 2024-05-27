@@ -4,7 +4,7 @@ import { UI } from "../UI";
 import { CalendarDay, type CalendarWeek } from "../classes";
 import { useProps } from "../contexts/props";
 
-import { DayGridCellWrapper } from "./DayGridCellWrapper";
+import { DayWrapper } from "./DayWrapper";
 import { WeekNumberRowHeader as DefaultWeekNumberRowHeader } from "./WeekNumberRowHeader";
 
 /**
@@ -30,7 +30,7 @@ export function WeekRow(props: {
     >
       {showWeekNumber && <WeekNumberRowHeader week={props.week} />}
       {props.week.days.map((day: CalendarDay, i: number) => (
-        <DayGridCellWrapper
+        <DayWrapper
           day={day}
           aria-colindex={showWeekNumber ? i + 2 : i + 1}
           key={getUnixTime(day.date)}

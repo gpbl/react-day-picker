@@ -13,6 +13,6 @@ export * from "./Option";
 export * from "./Select";
 export * from "./WeekNumberRowHeader";
 export * from "./WeekRow";
-export * from "./WeekdayColumnHeader";
+export * from "./WeekdayHeader";
 export * from "./WeekdaysRow";
 export * from "./YearsDropdown";

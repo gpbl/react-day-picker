@@ -26,7 +26,7 @@ import { DayGridCell as DefaultGridCell } from "./DayGridCell";
  *
  * @internal
  */
-export function DayGridCellWrapper(props: {
+export function DayWrapper(props: {
   "aria-colindex": number;
   /** The day to be rendered in the gridcell. */
   day: CalendarDay;
