@@ -158,7 +158,7 @@ importers:
         version: 29.5.12
       docusaurus-plugin-typedoc:
         specifier: ^1.0.1
-        version: 1.0.1(typedoc-plugin-markdown@4.0.2)
+        version: 1.0.1(typedoc-plugin-markdown@4.0.3)
       identity-obj-proxy:
         specifier: ^3.0.0
         version: 3.0.0
@@ -176,10 +176,10 @@ importers:
         version: 0.25.13(typescript@5.4.5)
       typedoc-plugin-frontmatter:
         specifier: ^1.0.0
-        version: 1.0.0(typedoc-plugin-markdown@4.0.2)
+        version: 1.0.0(typedoc-plugin-markdown@4.0.3)
       typedoc-plugin-markdown:
-        specifier: ^4.0.2
-        version: 4.0.2(typedoc@0.25.13)
+        specifier: ^4.0.3
+        version: 4.0.3(typedoc@0.25.13)
       typescript:
         specifier: ~5.4.5
         version: 5.4.5
@@ -6161,12 +6161,12 @@ packages:
     dependencies:
       esutils: 2.0.3
 
-  /docusaurus-plugin-typedoc@1.0.1(typedoc-plugin-markdown@4.0.2):
+  /docusaurus-plugin-typedoc@1.0.1(typedoc-plugin-markdown@4.0.3):
     resolution: {integrity: sha512-q3e/XHmnMNdP361/0SMBbCQyr7oUwbSs5QMhu1BkEUvM45oKG7i1qxcKKabOefFDVDW9cmbBISWxB8XZGJAVFg==}
     peerDependencies:
       typedoc-plugin-markdown: '>=4.0.0'
     dependencies:
-      typedoc-plugin-markdown: 4.0.2(typedoc@0.25.13)
+      typedoc-plugin-markdown: 4.0.3(typedoc@0.25.13)
     dev: true
 
   /dom-accessibility-api@0.5.16:
@@ -12273,17 +12273,17 @@ packages:
       is-typedarray: 1.0.0
     dev: false
 
-  /typedoc-plugin-frontmatter@1.0.0(typedoc-plugin-markdown@4.0.2):
+  /typedoc-plugin-frontmatter@1.0.0(typedoc-plugin-markdown@4.0.3):
     resolution: {integrity: sha512-Mqn96+RjUjPUz/42H8MOp/8eOKjE5MVIgZRFDGmSI2YuggnMZSfh5MMpvd6ykjNTpq7gV5D2iwjqLt8nYRg9rg==}
     peerDependencies:
       typedoc-plugin-markdown: '>=4.0.0'
     dependencies:
-      typedoc-plugin-markdown: 4.0.2(typedoc@0.25.13)
+      typedoc-plugin-markdown: 4.0.3(typedoc@0.25.13)
       yaml: 2.4.2
     dev: true
 
-  /typedoc-plugin-markdown@4.0.2(typedoc@0.25.13):
-    resolution: {integrity: sha512-4MV3M+0lsmIaXuDBzeqLYemZqwTQDWQow+o8zdT9hC7KFu06GaFo2uUEbkjE6pgZA9hnkOTtzRVd0R9YJWcH8A==}
+  /typedoc-plugin-markdown@4.0.3(typedoc@0.25.13):
+    resolution: {integrity: sha512-0tZbeVGGCd4+lpoIX+yHWgUfyaLZCQCgJOpuVdTtOtD3+jKaedJ4sl/tkNaYBPeWVKiyDkSHfGuHkq53jlzIFg==}
     peerDependencies:
       typedoc: 0.25.x
     dependencies:
