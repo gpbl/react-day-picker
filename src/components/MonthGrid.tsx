@@ -2,6 +2,7 @@ import { useId } from "react";
 
 import { UI } from "../UI";
 import type { CalendarMonth } from "../classes/CalendarMonth";
+import { useCalendar, useFocus } from "../contexts";
 import { useProps } from "../contexts/props";
 
 import { MonthCaption as DefaultMonthCaption } from "./MonthCaption";
@@ -22,6 +23,8 @@ export function MonthGrid(props: {
 }) {
   const { id, mode, hideWeekdayRow, components, classNames, styles } =
     useProps();
+  const calendar = useCalendar();
+  const focus = useFocus();
 
   const reactId = useId();
   const captionId = id ? `${id}-caption-${props.index}` : reactId;

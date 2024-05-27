@@ -30,6 +30,8 @@ When the `mode` prop is set to `"single"`, only one day can be selected at a tim
   <Examples.Single />
 </BrowserWindow>
 
+### Single Mode Props
+
 | Prop Name  | Type                                                                          | Description                             |
 | ---------- | ----------------------------------------------------------------------------- | --------------------------------------- |
 | `selected` | `Date \| undefined`                                                           | The selected date.                      |
@@ -60,18 +62,13 @@ export function App() {
 
 By setting the `required` prop, DayPicker won't allow the user to unselect the selected date.
 
+```tsx
+<DayPicker mode="single" required />
+```
+
 <BrowserWindow>
   <Examples.SingleRequired />
 </BrowserWindow>
-
-```tsx
-<DayPicker
-  mode="single"
-  selected={selectedDate}
-  onSelect={setSelectedDate}
-  required // A date must be selected
-/>
-```
 
 ## Multiple Mode
 
@@ -81,6 +78,12 @@ By setting the `mode` prop to `"multiple"`, DayPicker allows selecting multiple 
 <DayPicker mode="multiple" />
 ```
 
+<BrowserWindow>
+  <Examples.Multiple />
+</BrowserWindow>
+
+### Multiple Mode Props
+
 | Prop Name  | Type                                                                              | Description                             |
 | ---------- | --------------------------------------------------------------------------------- | --------------------------------------- |
 | `selected` | `Date[] \| undefined`                                                             | The selected dates.                     |
@@ -88,49 +91,22 @@ By setting the `mode` prop to `"multiple"`, DayPicker allows selecting multiple 
 | `min`      | `number`                                                                          | The minimum dates that can be selected. |
 | `max`      | `number`                                                                          | The maximum dates that can be selected. |
 
-```tsx
-import { useState } from "react";
-
-import { DayPicker } from "react-day-picker";
-
-export function App() {
-  const initiallySelectedDates = [new Date(), addDays(new Date(), 1)];
-
-  const [selectedDates, setSelectedDates] = useState<Date[]>([]);
-
-  return (
-    <DayPicker
-      mode="multiple"
-      selected={selectedDates}
-      onSelect={(dates) => setSelectedDates(dates || [])}
-    />
-  );
-}
-```
-
-<BrowserWindow>
-  <Examples.Multiple />
-</BrowserWindow>
-
 ### Min and Max Dates
 
 Use the `min` and `max` props to limit the number of selectable dates.
 
 ```tsx
-import { useState } from "react";
-
+import { addDays } from "date-fns";
 import { DayPicker } from "react-day-picker";
 
-export function App() {
-  const initiallySelectedDates = [new Date(), addDays(new Date(), 1)];
-  const [selected, setSelected] = useState(initiallySelectedDates);
+export function MultipleMinMax() {
+  const defaultSelected = [new Date(), addDays(new Date(), 1)];
   return (
     <DayPicker
+      defaultSelected={defaultSelected}
       mode="multiple"
-      min={2} // At least 2 dates must be selected
-      max={5} // Maximum 5 dates can be selected
-      selected={selected}
-      onSelect={(dates) => setSelected(dates ?? [])}
+      min={2}
+      max={5}
     />
   );
 }

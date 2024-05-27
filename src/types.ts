@@ -334,7 +334,11 @@ export interface PropsMulti {
   defaultSelected?: Selected<"multiple"> | undefined;
   /** The callback called when the user selects a day. */
   onSelect?: SelectHandler<"multiple"> | undefined;
-  /** Makes the selection required. */
+  /**
+   * Makes the selection required.
+   *
+   * @deprecated Use `min={1}` instead
+   */
   required?: boolean;
   /** The minimum number of days that can be selected. */
   min?: number;

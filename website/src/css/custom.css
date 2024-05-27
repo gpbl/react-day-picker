@@ -41,6 +41,8 @@
   --ifm-alert-border-left-width: 2px;
 
   --ifm-menu-link-sublist-icon: url(/img/chevron.svg);
+
+  --rdp-accent-color: var(--ifm-color-primary);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -64,10 +66,11 @@ html[data-theme="dark"] {
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 
   --ifm-toc-border-color: transparent !important;
+
+  --rdp-accent-color: var(--ifm-color-primary);
 }
 
-html[data-theme="dark"] .rdp {
-  --rdp-accent-color: var(--ifm-color-primary);
+html[data-theme="dark"] {
   --rdp-background-color: var(--ifm-color-primary-darkest);
   --rdp-selected-color: var(--ifm-color-content);
 }
@@ -367,5 +370,4 @@ pre code {
 }
 
 ody:not(.navigation-with-keyboard) *:not(input):focus {
-  
 }

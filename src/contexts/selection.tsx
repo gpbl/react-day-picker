@@ -38,6 +38,9 @@ export interface SelectionContext {
   excluded: Matcher[];
   /** Return `true` if the given day is excluded. */
   isExcluded: (date: Date) => boolean;
+  isStartOfRange: (date: Date) => boolean;
+  isEndOfRange: (date: Date) => boolean;
+  isMiddleOfRange: (date: Date) => boolean;
 }
 
 const contextValue: SelectionContext = {
@@ -45,8 +48,12 @@ const contextValue: SelectionContext = {
   setSelected: () => undefined,
   isSelected: () => false,
   excluded: [],
-  isExcluded: () => false
+  isExcluded: () => false,
+  isStartOfRange: () => false,
+  isEndOfRange: () => false,
+  isMiddleOfRange: () => false
 };
+
 const selectionContext = createContext<SelectionContext>(contextValue);
 
 /** @private */
@@ -110,11 +117,7 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
       selected = [...(selection ?? []), date];
     }
     setSelection(selected);
-    if (e instanceof MouseEvent) {
-      onSelect?.(selected, date, modifiers, e);
-    } else if (e instanceof KeyboardEvent) {
-      onSelect?.(selected, date, modifiers, e);
-    }
+    onSelect?.(selected, date, modifiers, e);
     return selected;
   }
   function isMultiSelected(date: Date) {
@@ -173,12 +176,8 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
 
     setExcluded(excluded);
     setSelection(selected);
+    onSelect?.(selected, date, modifiers, e); // Now TypeScript knows it's a MouseEvent
 
-    if (e instanceof MouseEvent) {
-      onSelect?.(selected, date, modifiers, e); // Now TypeScript knows it's a MouseEvent
-    } else if (e instanceof KeyboardEvent) {
-      onSelect?.(selected, date, modifiers, e); // Now TypeScript knows it's a KeyboardEvent
-    }
     return selection;
   }
   function isRangeSelected(date: Date) {
@@ -209,13 +208,38 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
   function isExcluded(date: Date) {
     return dateMatchModifiers(date, excluded);
   }
+  function isStartOfRange(date: Date) {
+    if (!isDateRange(selection)) return false;
+    return Boolean(selection.from && isSameDay(selection.from, date));
+  }
+
+  function isEndOfRange(date: Date) {
+    if (!isDateRange(selection)) return false;
+    return Boolean(selection.to && isSameDay(selection.to, date));
+  }
+
+  function isMiddleOfRange(date: Date) {
+    if (!isDateRange(selection)) return false;
+    if (!selection.from || !selection.to) return false;
+    return (
+      isDateInRange(date, {
+        from: addDays(selection.from, 1),
+        to: subDays(selection.to, 1)
+      }) &&
+      !isStartOfRange(date) &&
+      !isEndOfRange(date)
+    );
+  }
 
   const value = {
     selected: selection,
     setSelected,
     excluded,
     isSelected,
-    isExcluded
+    isExcluded,
+    isStartOfRange,
+    isEndOfRange,
+    isMiddleOfRange
   };
 
   return (

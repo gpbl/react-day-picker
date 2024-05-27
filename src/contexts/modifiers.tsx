@@ -30,7 +30,15 @@ const modifiersContext = createContext<ModifiersContext | undefined>(undefined);
 
 /** @private */
 export function ModifiersProvider({ children }: { children: ReactNode }) {
-  const props = useProps();
+  const {
+    disabled,
+    hidden,
+    modifiers,
+    mode,
+    onDayClick,
+    showOutsideDays,
+    today
+  } = useProps();
   const calendar = useCalendar();
   const selection = useSelection();
 
@@ -57,26 +65,29 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
 
     const isOutside = Boolean(displayMonth && !isSameMonth(date, displayMonth));
 
-    const isDisabled = Boolean(
-      props.disabled && dateMatchModifiers(date, props.disabled)
-    );
+    const isDisabled = Boolean(disabled && dateMatchModifiers(date, disabled));
 
     const isSelected =
       selection.isSelected(date) ||
       Boolean(
-        props.modifiers?.selected &&
-          dateMatchModifiers(date, props.modifiers.selected)
+        modifiers?.selected && dateMatchModifiers(date, modifiers.selected)
       );
 
     const isHidden =
-      Boolean(props.hidden && dateMatchModifiers(date, props.hidden)) ||
-      (!props.showOutsideDays && isOutside);
+      Boolean(hidden && dateMatchModifiers(date, hidden)) ||
+      (!showOutsideDays && isOutside);
 
     const isExcluded = selection.isExcluded(date);
+    const isInteractive =
+      mode !== "default" || (mode === "default" && onDayClick !== undefined);
+    const isFocusable =
+      isInteractive && !isDisabled && !isHidden && !isExcluded;
 
-    const isFocusable = !isDisabled && !isHidden && !isExcluded;
+    const isToday = isSameDay(date, today);
 
-    const isToday = isSameDay(date, props.today);
+    const isStartOfRange = selection.isStartOfRange(date);
+    const isEndOfRange = selection.isEndOfRange(date);
+    const isMiddleOfRange = selection.isMiddleOfRange(date);
 
     if (isOutside) internal.outside.push(day);
     if (isDisabled) internal.disabled.push(day);
@@ -85,11 +96,14 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
     if (isSelected) internal.selected.push(day);
     if (isExcluded) internal.excluded.push(day);
     if (isToday) internal.today.push(day);
+    if (isStartOfRange) internal.range_start.push(day);
+    if (isEndOfRange) internal.range_end.push(day);
+    if (isMiddleOfRange) internal.range_middle.push(day);
 
     // Now add custom modifiers
-    if (props.modifiers) {
-      Object.keys(props.modifiers).forEach((name) => {
-        const modifierValue = props.modifiers?.[name];
+    if (modifiers) {
+      Object.keys(modifiers).forEach((name) => {
+        const modifierValue = modifiers?.[name];
         const isMatch = modifierValue
           ? dateMatchModifiers(date, modifierValue)
           : false;
