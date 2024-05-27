@@ -1,4 +1,4 @@
-import { app, mockDate, renderApp } from "@/test";
+import { app, mockDate, renderApp } from "../test-v8";
 
 import { StylingCssModules } from "./StylingCssModules";
 

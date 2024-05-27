@@ -19,7 +19,7 @@ exports[`should match the snapshot 1`] = `
           <div
             aria-live="polite"
             class="rdp-caption_label"
-            id=":r0:-0"
+            id="react-day-picker-1"
             role="presentation"
           >
             November 2021
@@ -28,7 +28,7 @@ exports[`should match the snapshot 1`] = `
             class="rdp-nav"
           >
             <button
-              aria-label="Previous Month"
+              aria-label="Go to previous month"
               class="rdp-button_reset rdp-button rdp-nav_button rdp-nav_button_previous"
               name="previous-month"
               type="button"
@@ -47,7 +47,7 @@ exports[`should match the snapshot 1`] = `
               </svg>
             </button>
             <button
-              aria-label="Next Month"
+              aria-label="Go to next month"
               class="rdp-button_reset rdp-button rdp-nav_button rdp-nav_button_next"
               name="next-month"
               type="button"
@@ -67,7 +67,7 @@ exports[`should match the snapshot 1`] = `
           </div>
         </div>
         <table
-          aria-labelledby=":r0:-0"
+          aria-labelledby="react-day-picker-1"
           class="rdp-table"
           role="grid"
         >

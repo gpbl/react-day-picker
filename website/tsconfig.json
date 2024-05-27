@@ -16,10 +16,9 @@
     ],
     "paths": {
       "@/test": ["./test"],
-      "@/test-v8": ["./test-v8"],
       "@/test/*": ["./test/*"],
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src", "examples", "test"]
+  "include": ["src", "examples", "examples-v8", "test", "test-v8"]
 }

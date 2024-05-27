@@ -1,4 +1,4 @@
-import { act, mockDate, renderApp, screen, user } from "@/test";
+import { act, mockDate, renderApp, screen, user } from "../test-v8";
 
 import { Weeknumber } from "./Weeknumber";
 
