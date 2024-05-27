@@ -5,7 +5,19 @@ import {
 } from "react-day-picker-v8";
 import styles from "react-day-picker-v8/dist/style.module.css";
 
-export { DateRange, type DayPickerSingleProps } from "react-day-picker-v8";
+export {
+  Button,
+  type DayPickerSingleProps,
+  type DayContentProps,
+  type DayMouseEventHandler,
+  type DayPickerProps,
+  type DateFormatter,
+  type WeekNumberFormatter,
+  type DateRange,
+  type DayProps,
+  useDayRender,
+  type SelectRangeEventHandler
+} from "react-day-picker-v8";
 
 export function DayPicker(props: DayPickerProps) {
   return <DayPickerV8 {...props} classNames={styles} />;
