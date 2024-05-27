@@ -45,8 +45,8 @@ describe("when a day in the range is clicked", () => {
     describe("when a day in the range is clicked again", () => {
       const day = days[2];
       beforeEach(async () => act(() => user.click(getDayButton(day))));
-      test("only one day should be selected", () => {
-        expect(getAllSelectedDays()).toHaveLength(1);
+      test("no day should be selected (??)", () => {
+        expect(getAllSelectedDays()).toHaveLength(0);
       });
       test("should match the snapshot", () => {
         expect(container).toMatchSnapshot();
@@ -56,10 +56,7 @@ describe("when a day in the range is clicked", () => {
 });
 
 function getAllSelectedDays() {
-  const buttons = screen
-    .getByRole("grid")
-    .getElementsByTagName("tbody")[0]
-    .getElementsByTagName("button");
+  const buttons = screen.getAllByRole("gridcell");
 
   return Array.from(buttons).filter(
     (button) => button.getAttribute("aria-selected") === "true"

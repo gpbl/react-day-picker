@@ -16,8 +16,8 @@ import { isDateRange } from "../utils/typeguards";
 
 /**
  * The Selection context provides access to the currently selected value, allows
- * setting the selected days, and provides methods to check if a day is selected
- * or excluded.
+ * setting the selected days, and provides methods to check if a day is
+ * selected.
  *
  * Access the selection context using the {@link useSelection} hook.
  *
@@ -34,10 +34,6 @@ export interface SelectionContext {
   ) => void;
   /** Return `true` if the given day is selected. */
   isSelected: (date: Date) => boolean;
-  /** The excluded days. */
-  excluded: Matcher[];
-  /** Return `true` if the given day is excluded. */
-  isExcluded: (date: Date) => boolean;
   isStartOfRange: (date: Date) => boolean;
   isEndOfRange: (date: Date) => boolean;
   isMiddleOfRange: (date: Date) => boolean;
@@ -47,8 +43,6 @@ const contextValue: SelectionContext = {
   selected: undefined,
   setSelected: () => undefined,
   isSelected: () => false,
-  excluded: [],
-  isExcluded: () => false,
   isStartOfRange: () => false,
   isEndOfRange: () => false,
   isMiddleOfRange: () => false
@@ -64,7 +58,6 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
     dayPicker.defaultSelected ?? dayPicker.selected,
     dayPicker.selected
   );
-  const [excluded, setExcluded] = useState<Matcher[]>([]);
 
   /** Set the selected days when in "single" mode. */
   function setSingle(
@@ -136,15 +129,8 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
       return;
     }
     const selected = addToRange(date, selection);
-    const excluded = [] as Matcher[];
 
     if (min) {
-      if (selected?.from && !selected.to) {
-        excluded.push({
-          after: subDays(selected?.from, min - 1),
-          before: addDays(selected?.from, min - 1)
-        });
-      }
       if (
         selected?.from &&
         selected.to &&
@@ -164,17 +150,8 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
         selected.from = date;
         selected.to = undefined;
       }
-      if (selected?.from && !selected.to) {
-        excluded.push({
-          before: addDays(selected?.from, -max + 1)
-        });
-        excluded.push({
-          after: addDays(selected?.from, max - 1)
-        });
-      }
     }
 
-    setExcluded(excluded);
     setSelection(selected);
     onSelect?.(selected, date, modifiers, e); // Now TypeScript knows it's a MouseEvent
 
@@ -205,9 +182,6 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
     return false;
   }
 
-  function isExcluded(date: Date) {
-    return dateMatchModifiers(date, excluded);
-  }
   function isStartOfRange(date: Date) {
     if (!isDateRange(selection)) return false;
     return Boolean(selection.from && isSameDay(selection.from, date));
@@ -234,9 +208,7 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
   const value = {
     selected: selection,
     setSelected,
-    excluded,
     isSelected,
-    isExcluded,
     isStartOfRange,
     isEndOfRange,
     isMiddleOfRange

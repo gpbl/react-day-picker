@@ -29,9 +29,6 @@
   /* The opacity of the disabled days. */
   --rdp-disabled-opacity: 0.5;
 
-  /* The opacity of the excluded days. */
-  --rdp-excluded-opacity: 0.75;
-
   /* The border of the selected days. */
   --rdp-selected-border: 2px solid var(--rdp-accent-color);
 
@@ -299,11 +296,6 @@
 
 .rdp-disabled {
   opacity: var(--rdp-disabled-opacity);
-  cursor: revert;
-}
-
-.rdp-excluded:not(.rdp-selected) {
-  opacity: var(--rdp-excluded-opacity);
   cursor: revert;
 }
 

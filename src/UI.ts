@@ -66,8 +66,6 @@ export enum UIDayModifier {
   range_start = "range_start",
   /** The day is selected. */
   selected = "selected",
-  /** The day is excluded ??. */
-  excluded = "excluded",
   /** The day is focusable. */
   focusable = "focusable",
   /** The day is focused. */

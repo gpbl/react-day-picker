@@ -12,7 +12,6 @@ exports[`should return the default classnames 1`] = `
   "dropdown": "rdp-dropdown",
   "dropdown_nav": "rdp-dropdown_nav",
   "dropdown_root": "rdp-dropdown_root",
-  "excluded": "rdp-day_excluded",
   "focusable": "rdp-day_focusable",
   "focused": "rdp-day_focused",
   "footer": "rdp-footer",

@@ -59,7 +59,7 @@ export function DayGridCellWrapper(props: {
     styles = {}
   } = useProps();
 
-  const { isExcluded, setSelected } = useSelection();
+  const { setSelected } = useSelection();
   const { getModifiers } = useModifiers();
   const {
     autoFocusTarget,
@@ -86,9 +86,7 @@ export function DayGridCellWrapper(props: {
       e.stopPropagation();
       return;
     }
-    if (!isExcluded(props.day.date)) {
-      setSelected(props.day.date, modifiers, e);
-    }
+    setSelected(props.day.date, modifiers, e);
     if (modifiers.focusable) {
       focus(props.day);
     }
@@ -193,10 +191,6 @@ export function DayGridCellWrapper(props: {
   const isAutoFocusTarget = Boolean(autoFocusTarget?.isEqualTo(props.day));
   const isFocused = Boolean(focusedDay?.isEqualTo(props.day));
 
-  /**
-   * The day is interactive if it's not excluded and there is a `onDayClick`
-   * handler.
-   */
   const isInteractive = mode !== "default" || Boolean(onDayClick);
 
   const style = getStyleForModifiers(modifiers, modifiersStyles, styles);
@@ -219,7 +213,7 @@ export function DayGridCellWrapper(props: {
     style,
     tabIndex: isFocused || isAutoFocusTarget ? 0 : -1,
     ["aria-colindex"]: props["aria-colindex"],
-    ["aria-disabled"]: modifiers.disabled || modifiers.excluded || undefined,
+    ["aria-disabled"]: modifiers.disabled || undefined,
     ["aria-hidden"]: modifiers.hidden || undefined,
     ["aria-selected"]: modifiers.selected || undefined,
     onClick: isInteractive ? onClick : undefined,

@@ -231,7 +231,7 @@ exports[`should match the snapshot 1`] = `
                 <div
                   aria-colindex="1"
                   aria-selected="true"
-                  class="rdp-day rdp-focusable rdp-selected"
+                  class="rdp-day rdp-focusable rdp-range_start rdp-selected"
                   role="gridcell"
                   tabindex="0"
                 >
@@ -240,7 +240,7 @@ exports[`should match the snapshot 1`] = `
                 <div
                   aria-colindex="2"
                   aria-selected="true"
-                  class="rdp-day rdp-focusable rdp-selected"
+                  class="rdp-day rdp-focusable rdp-range_middle rdp-selected"
                   role="gridcell"
                   tabindex="-1"
                 >
@@ -249,7 +249,7 @@ exports[`should match the snapshot 1`] = `
                 <div
                   aria-colindex="3"
                   aria-selected="true"
-                  class="rdp-day rdp-focusable rdp-selected"
+                  class="rdp-day rdp-focusable rdp-range_middle rdp-selected"
                   role="gridcell"
                   tabindex="-1"
                 >
@@ -258,7 +258,7 @@ exports[`should match the snapshot 1`] = `
                 <div
                   aria-colindex="4"
                   aria-selected="true"
-                  class="rdp-day rdp-focusable rdp-selected"
+                  class="rdp-day rdp-focusable rdp-range_middle rdp-selected"
                   role="gridcell"
                   tabindex="-1"
                 >
@@ -267,7 +267,7 @@ exports[`should match the snapshot 1`] = `
                 <div
                   aria-colindex="5"
                   aria-selected="true"
-                  class="rdp-day rdp-focusable rdp-selected"
+                  class="rdp-day rdp-focusable rdp-range_end rdp-selected"
                   role="gridcell"
                   tabindex="-1"
                 >
@@ -708,8 +708,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               >
                 <div
                   aria-colindex="1"
-                  aria-selected="true"
-                  class="rdp-day rdp-focusable rdp-selected"
+                  class="rdp-day rdp-focusable"
                   role="gridcell"
                   tabindex="-1"
                 >
@@ -717,8 +716,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 </div>
                 <div
                   aria-colindex="2"
-                  aria-selected="true"
-                  class="rdp-day rdp-focusable rdp-selected"
+                  class="rdp-day rdp-focusable"
                   role="gridcell"
                   tabindex="-1"
                 >
@@ -726,8 +724,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 </div>
                 <div
                   aria-colindex="3"
-                  aria-selected="true"
-                  class="rdp-day rdp-focusable rdp-selected rdp-focused"
+                  class="rdp-day rdp-focusable rdp-focused"
                   role="gridcell"
                   tabindex="0"
                 >
@@ -735,8 +732,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 </div>
                 <div
                   aria-colindex="4"
-                  aria-selected="true"
-                  class="rdp-day rdp-focusable rdp-selected"
+                  class="rdp-day rdp-focusable"
                   role="gridcell"
                   tabindex="-1"
                 >
@@ -744,8 +740,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 </div>
                 <div
                   aria-colindex="5"
-                  aria-selected="true"
-                  class="rdp-day rdp-focusable rdp-selected"
+                  class="rdp-day rdp-focusable"
                   role="gridcell"
                   tabindex="-1"
                 >
@@ -946,9 +941,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
         class="rdp-footer"
       >
         <p>
-          November 15th, 2020
-          –
-          November 19th, 2020
+          Please pick the first day.
         </p>
       </div>
     </div>

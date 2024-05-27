@@ -7,7 +7,6 @@ import { labelDay } from "./labelDay";
 const day = new Date(2022, 10, 21);
 const dayModifiers: DayModifiers = {
   disabled: false,
-  excluded: false,
   focusable: false,
   focused: false,
   hidden: false,

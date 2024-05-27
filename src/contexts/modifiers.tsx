@@ -51,7 +51,6 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
     today: [],
     focusable: [],
     selected: [],
-    excluded: [],
     range_start: [],
     range_middle: [],
     range_end: []
@@ -77,11 +76,9 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
       Boolean(hidden && dateMatchModifiers(date, hidden)) ||
       (!showOutsideDays && isOutside);
 
-    const isExcluded = selection.isExcluded(date);
     const isInteractive =
       mode !== "default" || (mode === "default" && onDayClick !== undefined);
-    const isFocusable =
-      isInteractive && !isDisabled && !isHidden && !isExcluded;
+    const isFocusable = isInteractive && !isDisabled && !isHidden;
 
     const isToday = isSameDay(date, today);
 
@@ -94,7 +91,6 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
     if (isHidden) internal.hidden.push(day);
     if (isFocusable) internal.focusable.push(day);
     if (isSelected) internal.selected.push(day);
-    if (isExcluded) internal.excluded.push(day);
     if (isToday) internal.today.push(day);
     if (isStartOfRange) internal.range_start.push(day);
     if (isEndOfRange) internal.range_end.push(day);
@@ -121,7 +117,6 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
     const modifiers: DayModifiers = {
       focused: false,
       disabled: false,
-      excluded: false,
       focusable: false,
       hidden: false,
       outside: false,
