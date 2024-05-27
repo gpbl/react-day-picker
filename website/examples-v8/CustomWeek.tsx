@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { endOfWeek, isSameWeek, startOfWeek } from "date-fns";
 
-import { DateRange, DayPicker } from "./DayPicker";
+import { DateRange, DayPicker } from "./react-day-picker-v8";
 
 /** Select the whole week when the day is clicked. */
 export function CustomWeek() {

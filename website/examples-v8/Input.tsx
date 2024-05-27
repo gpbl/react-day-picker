@@ -1,7 +1,7 @@
 import { useId, useState } from "react";
 
 import { format, isValid, parse } from "date-fns";
-import { DayPicker } from "./DayPicker";
+import { DayPicker } from "./react-day-picker-v8";
 
 /** Render an input field bound to a DayPicker calendar. */
 export function Input() {

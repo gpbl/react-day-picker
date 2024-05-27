@@ -1,7 +1,7 @@
 import React from "react";
 
 import { addMonths, isSameMonth } from "date-fns";
-import { DayPicker } from "./DayPicker";
+import { DayPicker } from "./react-day-picker-v8";
 
 export function Controlled() {
   const today = new Date();

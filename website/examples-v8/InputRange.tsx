@@ -5,7 +5,7 @@ import {
   DateRange,
   DayPicker,
   SelectRangeEventHandler
-} from "./DayPicker";
+} from "./react-day-picker-v8";
 
 export function InputRange() {
   const [selectedRange, setSelectedRange] = useState<DateRange>();

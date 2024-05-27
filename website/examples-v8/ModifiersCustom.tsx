@@ -1,4 +1,4 @@
-import { DayMouseEventHandler, DayPicker } from "./DayPicker";
+import { DayMouseEventHandler, DayPicker } from "./react-day-picker-v8";
 
 const bookedDays = [
   new Date(2024, 5, 8),

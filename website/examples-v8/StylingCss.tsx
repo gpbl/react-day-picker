@@ -1,4 +1,4 @@
-import { DayPicker } from "./DayPicker";
+import { DayPicker } from "./react-day-picker-v8";
 
 export function StylingCss() {
   const style = `

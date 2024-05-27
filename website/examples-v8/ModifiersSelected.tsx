@@ -1,5 +1,5 @@
 import { subDays } from "date-fns";
-import { DayPicker, SelectSingleEventHandler } from "./DayPicker";
+import { DayPicker, SelectSingleEventHandler } from "./react-day-picker-v8";
 
 export function ModifiersSelected() {
   const yesterday = subDays(new Date(), 1);

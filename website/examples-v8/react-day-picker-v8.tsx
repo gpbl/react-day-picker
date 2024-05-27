@@ -16,6 +16,10 @@ export {
   type DateRange,
   type DayProps,
   useDayRender,
+  useNavigation,
+  useSelectRange,
+  useSelectSingle,
+  useSelectMultiple,
   type SelectRangeEventHandler
 } from "react-day-picker-v8";
 

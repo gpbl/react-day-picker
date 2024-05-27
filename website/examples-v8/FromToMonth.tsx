@@ -1,4 +1,4 @@
-import { DayPicker } from "./DayPicker";
+import { DayPicker } from "./react-day-picker-v8";
 
 export function FromToMonth() {
   const defaultMonth = new Date(2015, 5);

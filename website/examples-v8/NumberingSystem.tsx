@@ -6,7 +6,7 @@ import {
   DateFormatter,
   DayPicker,
   WeekNumberFormatter
-} from "./DayPicker";
+} from "./react-day-picker-v8";
 
 const NU_LOCALE = "ar-u-nu-arab";
 

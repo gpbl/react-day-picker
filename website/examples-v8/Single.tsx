@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { DayPicker } from "./DayPicker";
+import { DayPicker } from "./react-day-picker-v8";
 
 export function Single() {
   const today = new Date();

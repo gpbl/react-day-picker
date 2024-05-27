@@ -1,5 +1,5 @@
 import { addDays } from "date-fns";
-import { DayPicker } from "./DayPicker";
+import { DayPicker } from "./react-day-picker-v8";
 
 import customStyles from "./styles/styling-modifiers.module.css";
 

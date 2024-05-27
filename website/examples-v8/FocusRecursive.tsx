@@ -1,4 +1,4 @@
-import { DayPicker } from "./DayPicker";
+import { DayPicker } from "./react-day-picker-v8";
 
 /** Test for the next focus day to not cause an infinite recursion. */
 export function FocusRecursive() {

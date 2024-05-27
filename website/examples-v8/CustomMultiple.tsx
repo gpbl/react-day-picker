@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { isSameDay } from "date-fns";
 
-import { DayMouseEventHandler, DayPicker } from "./DayPicker";
+import { DayMouseEventHandler, DayPicker } from "./react-day-picker-v8";
 
 export function CustomMultiple() {
   const [value, setValue] = useState<Date[]>([]);

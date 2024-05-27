@@ -7,7 +7,7 @@ import {
   DayPicker,
   DayProps,
   useDayRender
-} from "./DayPicker";
+} from "./react-day-picker-v8";
 
 function DayWithShiftKey(props: DayProps) {
   const buttonRef = React.useRef<HTMLButtonElement>(null);
