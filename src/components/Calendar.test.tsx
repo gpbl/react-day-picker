@@ -42,6 +42,6 @@ it("should use custom components", () => {
 
   expect(container).toHaveTextContent("Custom Navigation");
   expect(container).toHaveTextContent("Custom Months");
-  expect(container).toHaveTextContent("Custom MonthGrid");
+  expect(container).toHaveTextContent("Custom Month");
   expect(container).toHaveTextContent("Custom Footer");
 });
