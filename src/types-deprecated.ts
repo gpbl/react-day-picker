@@ -1,12 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Calendar } from "./components/Calendar";
 import { MonthCaption } from "./components/MonthCaption";
-import { MonthGrid } from "./components/MonthGrid";
-import { WeekNumberRowHeader } from "./components/WeekNumberRowHeader";
-import { WeekRow } from "./components/WeekRow";
+import { Week, type WeekProps } from "./components/Week";
+import { useCalendar } from "./contexts";
 import { PropsContext, useProps } from "./contexts/props";
 import { labelDay, labelNext, labelWeekday, labelWeekNumber } from "./labels";
-import {
+import type {
   Mode,
   PropsSingle,
   PropsDefault,
@@ -32,33 +31,15 @@ export type RootProviderProps = any;
  * @deprecated This type has been renamed. Use `Calendar` instead.
  * @protected
  * @group Components
+ * @see https://react-day-picker.js.org/advanced-guides/custom-components
  */
 export const Root = Calendar;
-
-/**
- * @deprecated This type will be removed.
- * @protected
- */
-export type RootProps = any;
-
-/**
- * @deprecated This type has been renamed. Use `MonthGrid` instead.
- * @protected
- * @group Components
- */
-export const Month = MonthGrid;
-
-/**
- * @deprecated This type will be removed. Use `Parameters<typeof MonthGrid>[0]`
- *   instead.
- * @protected
- */
-export type MonthProps = Parameters<typeof MonthGrid>[0];
 
 /**
  * @deprecated This component has been renamed. Use `MonthCaption` instead.
  * @protected
  * @group Components
+ * @see https://react-day-picker.js.org/advanced-guides/custom-components
  */
 export const Caption = MonthCaption;
 
@@ -73,37 +54,23 @@ export type CaptionProps = Parameters<typeof MonthCaption>[0];
  * @deprecated This component has been removed.
  * @protected
  * @group Components
+ * @see https://react-day-picker.js.org/advanced-guides/custom-components
  */
 export type HeadRow = any;
 
 /**
- * @deprecated This component has been renamed. Use `WeekRow` instead.
+ * @deprecated This component has been renamed. Use `Week` instead.
  * @protected
  * @group Components
+ * @see https://react-day-picker.js.org/advanced-guides/custom-components
  */
-export const Row = WeekRow;
+export const Row = Week;
 
 /**
- * @deprecated This type has been removed. Use `Parameters<typeof WeekRow>[0]`
- *   instead.
+ * @deprecated This type has been removed. Use `WeekProps` instead.
  * @protected
  */
-export type RowProps = Parameters<typeof WeekRow>[0];
-
-/**
- * @deprecated This component has been renamed. Use `WeekNumberRowHeader`
- *   instead.
- * @protected
- * @group Components
- */
-export const WeekNumber = WeekNumberRowHeader;
-
-/**
- * @deprecated This type will be removed. Use `Parameters<typeof
- *   WeekNumberRowHeader>[0]` instead.
- * @protected
- */
-export type WeekNumberProps = Parameters<typeof WeekNumberRowHeader>[0];
+export type RowProps = WeekProps;
 
 /**
  * @deprecated This type has been renamed. Use `PropsSingle` instead.
@@ -172,6 +139,22 @@ export type DayPickerProviderProps = any;
  * @group Hooks
  */
 export const useDayPicker = useProps;
+
+/**
+ * @deprecated This type has been renamed to `useProps`
+ * @protected
+ * @group Hooks
+ */
+export const useNavigation = useCalendar;
+
+/**
+ * @deprecated This hook has been removed. To customize the rendering of a day,
+ *   use the `htmlAttributes` prop in a custom `Day` component.
+ * @protected
+ * @group Hooks
+ * @see https://react-day-picker.js.org/advanced-guides/custom-components
+ */
+export type useDayRender = any;
 
 /**
  * @deprecated This type is not used anymore.

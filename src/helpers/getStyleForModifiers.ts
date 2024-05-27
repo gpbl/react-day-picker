@@ -8,7 +8,7 @@ export function getStyleForModifiers(
   modifiersStyles: Partial<ModifiersStyles>,
   styles: Partial<Styles>
 ): CSSProperties {
-  let style: CSSProperties = { ...styles[UI.DayGridCell] };
+  let style: CSSProperties = { ...styles[UI.Day] };
   Object.entries(dayModifiers)
     .filter(([, active]) => active === true)
     .forEach(([modifier]) => {

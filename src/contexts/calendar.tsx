@@ -2,8 +2,7 @@ import { createContext, type ReactNode, useContext } from "react";
 
 import { startOfMonth } from "date-fns/startOfMonth";
 
-import { CalendarWeek, CalendarMonth } from "../classes";
-import type { CalendarDay } from "../classes/CalendarDay";
+import type { CalendarWeek, CalendarMonth, CalendarDay } from "../classes";
 import { DropdownOption } from "../components/Dropdown";
 import { getDates } from "../helpers/getDates";
 import { getDays } from "../helpers/getDays";
@@ -192,7 +191,9 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
 }
 
 /**
- * Return the calendar state and navigation methods.
+ * Return the calendar state and navigation methods to navigate the calendar.
+ *
+ * Use this hook from the custom components passed via the `components` prop.
  *
  * @group Hooks
  * @see https://react-day-picker.js.org/advanced-guides/custom-components

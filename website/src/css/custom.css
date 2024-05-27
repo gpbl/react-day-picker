@@ -213,14 +213,6 @@ a.theme-edit-this-page > svg {
   width: 1rem;
 }
 
-div.theme-admonition {
-  font-size: 0.875rem;
-  border-left-width: 0.1rem;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  border-radius: 0;
-}
-
 .markdown table {
   margin: 2rem 0;
   display: table;
@@ -369,5 +361,22 @@ pre code {
   font-weight: normal;
 }
 
-ody:not(.navigation-with-keyboard) *:not(input):focus {
+div[class^="admonitionHeading"] {
+  text-transform: initial;
+}
+span[class^="admonitionIcon"] svg {
+  height: 1.2em;
+  width: 1.2em;
+}
+
+div.theme-admonition {
+  font-size: 0.875rem;
+  border-left-width: 0.1rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-radius: 0;
+}
+
+.theme-admonition p {
+  margin: revert;
 }

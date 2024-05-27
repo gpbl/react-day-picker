@@ -18,7 +18,10 @@ export type DropdownOption = [
 /**
  * Render a dropdown component to use in the navigation bar.
  *
+ * Use the `components` prop to swap this component with a custom one.
+ *
  * @group Components
+ * @see https://react-day-picker.js.org/advanced-guides/custom-components
  */
 export function Dropdown(
   props: {
@@ -55,3 +58,5 @@ export function Dropdown(
     </span>
   );
 }
+
+export type DropdownProps = Parameters<typeof Dropdown>[0];

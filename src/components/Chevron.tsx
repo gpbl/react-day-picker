@@ -4,7 +4,10 @@ import { useProps } from "../contexts/props";
 /**
  * Render the chevron icon used in the navigation buttons and dropdowns.
  *
+ * Use the `components` prop to swap this component with a custom one.
+ *
  * @group Components
+ * @see https://react-day-picker.js.org/advanced-guides/custom-components
  */
 export function Chevron(props: {
   size?: number;

@@ -1,4 +1,4 @@
-import { UI, UIDayModifier } from "../UI";
+import { UI, DayModifier } from "../UI";
 import type {
   DayModifiers,
   ModifiersClassNames,
@@ -16,8 +16,8 @@ export function getClassNamesForModifiers(
     .reduce((previousValue, [key]) => {
       if (modifiersClassNames[key]) {
         previousValue.push(modifiersClassNames[key as string]);
-      } else if (classNames[UIDayModifier[key as InternalModifier]]) {
-        previousValue.push(classNames[UIDayModifier[key as InternalModifier]]);
+      } else if (classNames[DayModifier[key as InternalModifier]]) {
+        previousValue.push(classNames[DayModifier[key as InternalModifier]]);
       }
       return previousValue;
     }, [] as string[]);

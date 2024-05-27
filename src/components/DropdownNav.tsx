@@ -8,7 +8,10 @@ import { YearsDropdown } from "./YearsDropdown";
 /**
  * Render the dropdowns to navigate between months.
  *
+ * Use the `components` prop to swap this component with a custom one.
+ *
  * @group Components
+ * @see https://react-day-picker.js.org/advanced-guides/custom-components
  */
 export function DropdownNav(props: {
   /** The month where the dropdown navigation is displayed. */
@@ -32,3 +35,5 @@ export function DropdownNav(props: {
     </div>
   );
 }
+
+export type DropdownNavProps = Parameters<typeof DropdownNav>[0];

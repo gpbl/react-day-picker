@@ -8,7 +8,10 @@ import { Chevron as DefaultChevron } from "./Chevron";
 /**
  * Render the navigation buttons to change the month.
  *
+ * Use the `components` prop to swap this component with a custom one.
+ *
  * @group Components
+ * @see https://react-day-picker.js.org/advanced-guides/custom-components
  */
 export function Nav() {
   const {

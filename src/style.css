@@ -85,6 +85,12 @@
 
   /* The font of the month caption. */
   --rdp-month-caption-font: bold larger var(--rdp-font-family);
+
+  /* The color of the range background. */
+  --rdp-range-background-color: var(--rdp-accent-color);
+
+  /* The color of the range text. */
+  --rdp-range-color: white;
 }
 
 .rdp-button_next,
@@ -312,7 +318,8 @@
 .rdp-range_end.rdp-selected,
 .rdp-range_middle.rdp-selected {
   border-color: transparent;
-  background-color: var(--rdp-accent-color);
+  background-color: var(--rdp-range-background-color);
+  color: var(--rdp-range-color);
 }
 
 .rdp-range_end {

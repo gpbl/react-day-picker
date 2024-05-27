@@ -4,137 +4,111 @@ sidebar_position: 4
 
 # Custom Components
 
-:::info Draft
+Use the `components` prop to swap the components used to render DayPicker. A list of the components that can be customized is available in the [Components Reference](../api#components).
 
-This documentation is still a work in progress. If you have any questions, ask to the [discussions](https://github.com/gpbl/react-day-picker/discussions) page on Github.
+:::tip Advanced Feature
+
+- Custom components may not have a stable API yet and may break in a next release.
+- Get familiar with the [API reference](../api#components) and the [DayPicker Anatomy](../using-daypicker/anatomy.mdx) first.
 
 :::
 
-Use the `components` prop to replace some of the internal components used by DayPicker with a custom implementation.
+---
 
-For example, if you need to customize the component creating the day cell, you can replace the `DayContent` component with a custom implementation.
+For example, if you need to customize the component creating the day cell, you can replace the `Day` component with a custom implementation.
 
-```tsx title="./CustomDayContent.tsx"
-import { type DayContentProps } from "react-day-picker";
+```tsx title="./CustomDay.tsx"
+import { DayPicker, type DayProps } from "react-day-picker";
 
-/** Replace the 19th with an emoji */
-export function CustomDayContent(props: DayContentProps) {
+function CustomDay(props: DayProps) {
   return (
-    <span style={{ position: "relative", overflow: "visible" }}>
-      {props.date.getDate() === 19 ? ` 🎉` : props.date.getDate()}
-    </span>
+    <div {...props.htmlAttributes}>
+      {props.day.date.getDate() === 19 && ` 🎉`}
+      {props.children}
+    </div>
   );
 }
-```
 
-Then passed the custom component to the `DayPicker` component:
-
-```tsx title="./MyApp.jsx"
-import { CustomDayContent } from "./CustomDayContent";
-
-<DayPicker
-  components={{
-    DayContent: CustomDayContent // Replace the DayContent component
-  }}
-/>;
+export function MyDatePicker() {
+  return <DayPicker mode="single" components={{ Day: CustomDay }} />;
+}
 ```
 
 <BrowserWindow>
-  <Examples.CustomDayContent />
+  <Examples.CustomDay />
 </BrowserWindow>
-
-## Supported Components
-
-The customizable components are defined by [`CustomComponents`](../api/type-aliases/CustomComponents). Pass any of these to the `components` prop.
-
-:::warning
-
-The custom components are not part of the stable API yet, and may change in future versions.
-
-:::
-
-| Component                                                        | Description                                                                                  |
-| ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| [`MonthCaption`](../api/functions/MonthCaption.md)               | The caption for each month.                                                                  |
-| [`CaptionLabel`](../api/functions/CaptionLabel.md)               | The caption for each month.                                                                  |
-| [`Day`](../api/functions/Day.md)                                 | The day cell.                                                                                |
-| [`DayContent`](../api/functions/DayContent.md)                   | The content of the day cell.                                                                 |
-| [`Dropdown`](../api/functions/Dropdown.md)                       | The [dropdown](../using-daypicker/customization.mdx#dropdown-navigation) used for navigation |
-| [`Footer`](../api/functions/Footer.md)                           | The footer element.                                                                          |
-| [`Head`](../api/functions/Head.md)                               | The head of the grid.                                                                        |
-| [`WeekdaysRow`](../api/functions/WeekdaysRow.md)                 | The row with the weekdays names.                                                             |
-| [`IconDropdown`](../api/functions/IconDropdown.md)               | The icon used for the dropdown.                                                              |
-| [`IconLeft`](../api/functions/IconLeft.md)                       | The icon used for the previous month navigation.                                             |
-| [`IconRight`](../api/functions/IconRight.md)                     | The icon used for the next month navigation.                                                 |
-| [`Months`](../api/functions/Months.md)                           | Wrapper for the Months grid.                                                                 |
-| [`WeekRow`](../api/functions/WeekRow.md)                         | Render the row with the week.                                                                |
-| [`WeekNumberRowHeader`](../api/functions/WeekNumberRowHeader.md) | Render the week number.                                                                      |
 
 ## DayPicker Hooks
 
-When creating custom components, you will find useful the DayPicker hooks.
+When creating custom components, you will find useful the [DayPicker hooks](../api/index.md#hooks).
+
+These utilities provide access to the internal state and methods of the DayPicker component.
+
+| Hook                                      | Description                                                                |
+| :---------------------------------------- | :------------------------------------------------------------------------- |
+| [useCalendar](functions/useCalendar.md)   | Return the calendar state and navigation methods to navigate the calendar. |
+| [useFocus](functions/useFocus.md)         | Share the focused day and the methods to move the focus.                   |
+| [useModifiers](functions/useModifiers.md) | Access the modifiers used by the calendar.                                 |
+| [useProps](functions/useProps.md)         | Access to the props passed to DayPicker.                                   |
+| [useSelection](functions/useSelection.md) | Access and change the currently selected values.                           |
+
+### Example: Range with Shift Key
+
+Implement a custom `Day` component to select ranges while pressing the <kbd>Shift</kbd> key.
 
 ```tsx
-import { useDayPicker } from "react-day-picker";
-```
+import React, { MouseEventHandler } from "react";
 
-| Hook                                                           | Returns                                                                 | Description                                        |
-| -------------------------------------------------------------- | ----------------------------------------------------------------------- | -------------------------------------------------- |
-| [`useDayPicker`](../api/functions/useDayPicker.md)             | [`DayPickerContextValue`](../api/interfaces/DayPickerContextValue.md)   | Get the props passed to DayPicker.                 |
-| [`useNavigation`](../api/functions/useNavigation.md)           | [`NavigationContextValue`](../api/interfaces/NavigationContextValue.md) | Navigate between months and years .                |
-| [`useDayRender`](../api/functions/useDayRender.md)             | [`DayRender`](../api/type-aliases/DayRender.md)                         | Render the day cell from a custom `Day` component. |
-| [`useFocusContext`](../api/functions/useFocusContext.md)       | [`FocusContextValue`](../api/type-aliases/FocusContextValue.md)         | Handle the focus between elements.                 |
-| [`useActiveModifiers`](../api/functions/useActiveModifiers.md) | [`ActiveModifiers`](../api/type-aliases/ActiveModifiers.md)             | Returns the modifiers applied to a day.            |
+import {
+  DateRange,
+  DayPicker,
+  type DayProps,
+  useSelection
+} from "react-day-picker";
 
-## Examples
+function DayWithShiftKey(props: DayProps) {
+  const { selected } = useSelection<"range">();
+  const onClick = props.htmlAttributes?.onClick;
 
-### Custom Caption
-
-Implement a custom `Caption` component with next/previous buttons. Note the use of the [useNavigation hook](../api/functions/useNavigation) to navigate between months.
-
-```tsx
-import { format } from "date-fns";
-import { CaptionProps, DayPicker, useNavigation } from "react-day-picker";
-
-function CustomCaptionComponent(props: CaptionProps) {
-  const { goToMonth, nextMonth, previousMonth } = useNavigation();
+  const handleClick: MouseEventHandler<HTMLElement> = (e) => {
+    if (selected.from && !selected.to && !isSameDay(props.day.date, selected.from) && !e.shiftKey && ) {
+      return;
+    }
+    onClick?.(e);
+  };
   return (
-    <h2>
-      {format(props.displayMonth, "MMM yyy")}
-      <button
-        disabled={!previousMonth}
-        onClick={() => previousMonth && goToMonth(previousMonth)}
-      >
-        Previous
-      </button>
-      <button
-        disabled={!nextMonth}
-        onClick={() => nextMonth && goToMonth(nextMonth)}
-      >
-        Next
-      </button>
-    </h2>
+    <div {...props.htmlAttributes} onClick={handleClick}>
+      {props.children}
+    </div>
   );
 }
 
-export function CustomCaption() {
+export function RangeShiftKey() {
+  const [range, setRange] = React.useState<DateRange>();
+
+  let footer = <p>Please pick a day.</p>;
+
+  if (range?.from && !range?.to) {
+    footer = <p>Press Shift to choose more days.</p>;
+  } else if (range?.to) {
+    footer = (
+      <p>
+        {range.from.toLocaleDateString()}—{range.to.toLocaleDateString()}.
+      </p>
+    );
+  }
   return (
     <DayPicker
       components={{
-        Caption: CustomCaptionComponent
+        Day: DayWithShiftKey
       }}
+      mode="range"
+      onSelect={setRange}
+      footer={footer}
     />
   );
 }
 ```
-
-<BrowserWindow>
-  <Examples.CustomCaption />
-</BrowserWindow>
-
-### Range Selections with Shift Key
-
-Implement a custom `Day` component to select ranges while pressing the <kbd>Shift</kbd> key. See [examples/RangeShiftKey.tsx](https://github.com/gpbl/react-day-picker/blob/main/website/examples/RangeShiftKey.tsx) for the full source code.
 
 <BrowserWindow>
   <Examples.RangeShiftKey />

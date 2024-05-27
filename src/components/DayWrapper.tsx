@@ -8,7 +8,7 @@ import {
   useRef
 } from "react";
 
-import { UI, UIDayModifier } from "../UI";
+import { UI, DayModifier } from "../UI";
 import { CalendarDay } from "../classes/CalendarDay";
 import { useFocus } from "../contexts/focus";
 import { useModifiers } from "../contexts/modifiers";
@@ -18,11 +18,11 @@ import { debounce } from "../helpers/debounce";
 import { getClassNamesForModifiers } from "../helpers/getClassNamesForModifiers";
 import { getStyleForModifiers } from "../helpers/getStyleForModifiers";
 
-import { DayGridCell as DefaultGridCell } from "./DayGridCell";
+import { Day as DefaultDay } from "./Day";
 
 /**
- * Provides a `DayGridCell` the day state and the html attributes. Developers
- * may use a `DayGridCell` component without the need to use hooks.
+ * Provides a `Day` the day state and the html attributes. Developers may use a
+ * `Day` component without the need to use hooks.
  *
  * @internal
  */
@@ -201,10 +201,10 @@ export function DayWrapper(props: {
     classNames
   );
 
-  const className = [classNames[UI.DayGridCell], ...classNameForModifiers];
+  const className = [classNames[UI.Day], ...classNameForModifiers];
 
   if (isFocused) {
-    className.push(classNames[UIDayModifier.focused]);
+    className.push(classNames[DayModifier.focused]);
   }
 
   const htmlAttributes: JSX.IntrinsicElements["div"] = {
@@ -242,15 +242,11 @@ export function DayWrapper(props: {
     cellRef.current.focus();
   }, [focusedDay, modifiers.disabled, modifiers.hidden, props.day]);
 
-  const DayGridCell = components?.DayGridCell ?? DefaultGridCell;
+  const Day = components?.Day ?? DefaultDay;
 
   return (
-    <DayGridCell
-      day={props.day}
-      modifiers={modifiers}
-      htmlAttributes={htmlAttributes}
-    >
+    <Day day={props.day} modifiers={modifiers} htmlAttributes={htmlAttributes}>
       {formatDay(props.day.date, { locale })}
-    </DayGridCell>
+    </Day>
   );
 }

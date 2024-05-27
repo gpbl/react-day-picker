@@ -1,4 +1,4 @@
-import { UI, UIDayModifier, UIFlag } from "../UI";
+import { UI, DayModifier, CalendarFlag } from "../UI";
 import type { ClassNames } from "../types";
 
 /** Get the default class names for the UI elements. */
@@ -10,14 +10,14 @@ export function getDefaultClassNames(): Required<ClassNames> {
       `rdp-${UI[key as keyof typeof UI]}`;
   }
 
-  for (const key in UIFlag) {
-    classNames[UIFlag[key as keyof typeof UIFlag]] =
-      `rdp-${UIFlag[key as keyof typeof UIFlag]}`;
+  for (const key in CalendarFlag) {
+    classNames[CalendarFlag[key as keyof typeof CalendarFlag]] =
+      `rdp-${CalendarFlag[key as keyof typeof CalendarFlag]}`;
   }
 
-  for (const key in UIDayModifier) {
-    classNames[UIDayModifier[key as keyof typeof UIDayModifier]] =
-      `rdp-${UIDayModifier[key as keyof typeof UIDayModifier]}`;
+  for (const key in DayModifier) {
+    classNames[DayModifier[key as keyof typeof DayModifier]] =
+      `rdp-${DayModifier[key as keyof typeof DayModifier]}`;
   }
 
   return classNames as Required<ClassNames>;

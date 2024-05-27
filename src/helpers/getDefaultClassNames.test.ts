@@ -32,10 +32,10 @@ test("should return the default classnames", () => {
     range_start: "rdp-range_start",
     selected: "rdp-selected",
     today: "rdp-today",
+    week_number: "rdp-week_number",
     week: "rdp-week",
     weekday: "rdp-weekday",
     weekdays: "rdp-weekdays",
-    weeknumber: "rdp-weeknumber",
     years_dropdown: "rdp-years_dropdown"
   });
 });

@@ -30,7 +30,7 @@ it("should use custom components", () => {
     footer: "foo",
     components: {
       Nav: () => <div>Custom Navigation</div>,
-      MonthGrid: () => <div>Custom MonthGrid</div>,
+      Month: () => <div>Custom Month</div>,
       Months: (props) => (
         <div {...props}>
           Custom Months<div>{props.children}</div>

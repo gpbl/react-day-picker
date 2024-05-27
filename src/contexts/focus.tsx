@@ -6,7 +6,7 @@ import {
   useState
 } from "react";
 
-import { CalendarDay } from "../classes";
+import type { CalendarDay } from "../classes";
 import { getNextFocus } from "../helpers/getNextFocus";
 
 import { useCalendar } from "./calendar";
@@ -26,7 +26,7 @@ export type MoveFocusDir = "after" | "before";
 /**
  * Share the focused day and the methods to move the focus.
  *
- * Access the focus context using the {@link useFocus} hook.
+ * Access this context from the {@link useFocus} hook.
  *
  * @group Contexts
  */
@@ -66,11 +66,6 @@ export interface FocusContext {
   focusEndOfWeek: () => void;
 }
 
-/**
- * The Focus context shares details about the focused day for the keyboard
- *
- * Access this context from the {@link useFocus} hook.
- */
 const focusContext = createContext<FocusContext | undefined>(undefined);
 
 /** @private */
@@ -141,7 +136,9 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
 }
 
 /**
- * Return the focused day and the methods to move the focus.
+ * Share the focused day and the methods to move the focus.
+ *
+ * Use this hook from the custom components passed via the `components` prop.
  *
  * @group Hooks
  * @see https://react-day-picker.js.org/advanced-guides/custom-components

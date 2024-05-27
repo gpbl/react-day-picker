@@ -1,55 +1,48 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 
 import { isSameDay } from "date-fns";
 import {
-  Button,
   DateRange,
   DayPicker,
-  DayProps,
-  useDayRender
+  type DayProps,
+  useSelection
 } from "react-day-picker";
 
 function DayWithShiftKey(props: DayProps) {
-  const buttonRef = React.useRef<HTMLButtonElement>(null);
-  const dayRender = useDayRender(props.date, props.displayMonth, buttonRef);
+  const { selected } = useSelection<"range">();
+  const onClick = props.htmlAttributes?.onClick;
 
-  if (dayRender.isHidden) {
-    return <></>;
-  }
-  if (!dayRender.isButton) {
-    return <div {...dayRender.divProps} />;
-  }
-
-  const handleClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+  const handleClick: MouseEventHandler<HTMLElement> = (e) => {
     if (
-      !dayRender.selectedDays ||
-      dayRender.activeModifiers.selected ||
-      e.shiftKey
+      selected.from &&
+      !selected.to &&
+      !isSameDay(props.day.date, selected.from) &&
+      !e.shiftKey
     ) {
-      dayRender.buttonProps?.onClick?.(e);
+      return;
     }
+    onClick?.(e);
   };
-
   return (
-    <Button {...dayRender.buttonProps} ref={buttonRef} onClick={handleClick} />
+    <div {...props.htmlAttributes} onClick={handleClick}>
+      {props.children}
+    </div>
   );
 }
 
 export function RangeShiftKey() {
-  const [range, setRange] = React.useState<DateRange>();
+  const [range, setRange] = React.useState<DateRange>({ from: undefined });
 
   let footer = <p>Please pick a day.</p>;
 
-  if (range?.from && range?.to) {
-    if (isSameDay(range.from, range.to)) {
-      footer = <p>Press Shift to choose more days.</p>;
-    } else {
-      footer = (
-        <p>
-          {range.from.toLocaleDateString()}—{range.to.toLocaleDateString()}.
-        </p>
-      );
-    }
+  if (range?.from && !range?.to) {
+    footer = <p>Press Shift to choose more days.</p>;
+  } else if (range?.to) {
+    footer = (
+      <p>
+        {range.from.toLocaleDateString()}—{range.to.toLocaleDateString()}.
+      </p>
+    );
   }
   return (
     <DayPicker
@@ -57,8 +50,8 @@ export function RangeShiftKey() {
         Day: DayWithShiftKey
       }}
       mode="range"
-      onSelect={setRange}
       selected={range}
+      onSelect={setRange}
       footer={footer}
     />
   );

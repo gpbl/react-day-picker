@@ -18,8 +18,8 @@ import type {
 } from "../types";
 
 /**
- * The props context holds the props passed to the DayPicker component, with
- * some optional props set to meaningful defaults.
+ * Holds the props passed to the DayPicker component, with some optional props
+ * set to meaningful defaults.
  *
  * Access the Props context using the {@link useProps} hook.
  *
@@ -91,7 +91,9 @@ export const PropsProvider = <T extends Mode>(
 };
 
 /**
- * Return the props passed to DayPicker.
+ * Access to the props passed to DayPicker.
+ *
+ * Use this hook from the custom components passed via the `components` prop.
  *
  * @group Hooks
  * @see https://react-day-picker.js.org/advanced-guides/custom-components

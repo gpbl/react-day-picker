@@ -2,14 +2,17 @@ import { UI } from "../UI";
 import { useProps } from "../contexts/props";
 import { getWeekdays } from "../helpers/getWeekdays";
 
-import { WeekdayHeader as DefaultWeekdayHeader } from "./WeekdayHeader";
+import { Weekday as DefaultWeekday } from "./Weekday";
 
 /**
  * Render the row with the weekday names.
  *
+ * Use the `components` prop to swap this component with a custom one.
+ *
  * @group Components
+ * @see https://react-day-picker.js.org/advanced-guides/custom-components
  */
-export function WeekdaysRow() {
+export function Weekdays() {
   const {
     classNames,
     components,
@@ -22,20 +25,20 @@ export function WeekdaysRow() {
   } = useProps();
 
   const weekdays = getWeekdays(locale, weekStartsOn, ISOWeek);
-  const WeekdayHeader = components?.WeekdayHeader ?? DefaultWeekdayHeader;
+  const Weekday = components?.Weekday ?? DefaultWeekday;
 
   return (
     <div
       role="row"
       hidden={hideWeekdayRow}
       aria-rowindex={1}
-      style={styles?.[UI.WeekdaysRow]}
-      className={classNames[UI.WeekdaysRow]}
+      style={styles?.[UI.Weekdays]}
+      className={classNames[UI.Weekdays]}
       onClick={(e) => e.stopPropagation()}
     >
-      {showWeekNumber && <WeekdayHeader aria-colindex={1} />}
+      {showWeekNumber && <Weekday aria-colindex={1} />}
       {weekdays.map((weekday, i) => (
-        <WeekdayHeader
+        <Weekday
           key={i}
           weekday={weekday}
           aria-colindex={showWeekNumber ? i + 2 : i + 1}

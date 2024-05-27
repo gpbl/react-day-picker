@@ -1,4 +1,4 @@
-import { CalendarMonth, CalendarWeek } from "../classes";
+import type { CalendarMonth, CalendarWeek } from "../classes";
 
 /** Returns an array of calendar weeks from an array of calendar months. */
 export function getWeeks(months: CalendarMonth[]) {

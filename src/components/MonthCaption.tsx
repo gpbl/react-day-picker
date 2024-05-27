@@ -7,7 +7,10 @@ import { DropdownNav } from "./DropdownNav";
 /**
  * Render the caption of a month in the calendar.
  *
+ * Use the `components` prop to swap this component with a custom one.
+ *
  * @group Components
+ * @see https://react-day-picker.js.org/advanced-guides/custom-components
  */
 export function MonthCaption(props: {
   /** The month where the grid is displayed. */
@@ -57,3 +60,5 @@ export function MonthCaption(props: {
     </div>
   );
 }
+
+export type MonthCaptionProps = Parameters<typeof MonthCaption>[0];

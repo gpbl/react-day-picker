@@ -1,34 +1,33 @@
 import { getUnixTime } from "date-fns/getUnixTime";
 
 import { UI } from "../UI";
-import { CalendarDay, type CalendarWeek } from "../classes";
+import type { CalendarDay, CalendarWeek } from "../classes";
 import { useProps } from "../contexts/props";
 
 import { DayWrapper } from "./DayWrapper";
-import { WeekNumberRowHeader as DefaultWeekNumberRowHeader } from "./WeekNumberRowHeader";
+import { WeekNumber as DefaultWeekNumber } from "./WeekNumber";
 
 /**
  * Render a row in the calendar, with the days and the week number.
  *
+ * Use the `components` prop to swap this component with a custom one.
+ *
  * @group Components
+ * @see https://react-day-picker.js.org/advanced-guides/custom-components
  */
-export function WeekRow(props: {
-  ["aria-rowindex"]: number;
-  week: CalendarWeek;
-}) {
+export function Week(props: { ["aria-rowindex"]: number; week: CalendarWeek }) {
   const { styles, classNames, showWeekNumber, components } = useProps();
 
-  const WeekNumberRowHeader =
-    components?.WeekNumberRowHeader ?? DefaultWeekNumberRowHeader;
+  const WeekNumber = components?.WeekNumber ?? DefaultWeekNumber;
 
   return (
     <div
       role="row"
       aria-rowindex={props["aria-rowindex"]}
-      className={classNames[UI.WeekRow]}
-      style={styles?.[UI.WeekRow]}
+      className={classNames[UI.Week]}
+      style={styles?.[UI.Week]}
     >
-      {showWeekNumber && <WeekNumberRowHeader week={props.week} />}
+      {showWeekNumber && <WeekNumber week={props.week} />}
       {props.week.days.map((day: CalendarDay, i: number) => (
         <DayWrapper
           day={day}
@@ -39,3 +38,5 @@ export function WeekRow(props: {
     </div>
   );
 }
+
+export type WeekProps = Parameters<typeof Week>[0];

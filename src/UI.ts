@@ -8,10 +8,10 @@ export enum UI {
   ButtonPrevious = "button_previous",
   /** The next button the navigation */
   ButtonNext = "button_next",
-  /** The calendar (root) element. */
+  /** The calendar element, the root of the component. */
   Calendar = "calendar",
   /** The gridcell with the day's date. */
-  DayGridCell = "day",
+  Day = "day",
   /** The label of a caption. */
   CaptionLabel = "caption_label",
   /** The Chevron SVG element used by navigation buttons and dropdowns. */
@@ -29,29 +29,29 @@ export enum UI {
   /** The dropdown of months. */
   MonthsDropdown = "months_dropdown",
   /** Wrapper of the month grid. */
-  MonthGridWrapper = "month_wrapper",
+  MonthWrapper = "month_wrapper",
   /** The month grid. */
-  MonthGrid = "month",
+  Month = "month",
   /** The group of weeks in a month. */
-  WeeksRowGroup = "weeks",
+  Weeks = "weeks",
   /** Container containing the months. */
-  MonthsWrapper = "months",
+  Months = "months",
   /** The navigation element. */
   Nav = "nav",
   /** The row in a week. */
-  WeekRow = "week",
-  /** The column header in a weekday. */
-  WeekdayHeader = "weekday",
-  /** The row of weekdays. */
-  WeekdaysRow = "weekdays",
+  Week = "week",
+  /** The column's header with the weekday. */
+  Weekday = "weekday",
+  /** The row grouping the weekdays. */
+  Weekdays = "weekdays",
   /** The row header in a week number. */
-  WeekNumberRowHeader = "weeknumber",
+  WeekNumber = "week_number",
   /** The dropdown of years. */
   YearsDropdown = "years_dropdown"
 }
 
-/** The modifiers for the {@link UI.DayGridCell}. */
-export enum UIDayModifier {
+/** The modifiers for the {@link UI.Day}. */
+export enum DayModifier {
   /** The day is disabled */
   disabled = "disabled",
   /** The day is hidden */
@@ -75,7 +75,7 @@ export enum UIDayModifier {
 }
 
 /** Flags that can be applied to the {@link UI.Calendar} element. */
-export enum UIFlag {
+export enum CalendarFlag {
   /** Assigned when the week numbers are show. */
   hasWeekNumbers = "week_numbers",
   /** Assigned when the weekdays are hidden. */

@@ -114,7 +114,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="2"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -122,7 +122,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="3"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -130,7 +130,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="4"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -138,7 +138,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="5"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -146,7 +146,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="6"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -154,7 +154,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="7"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -168,7 +168,7 @@ exports[`should match the snapshot 1`] = `
             >
               <div
                 aria-colindex="1"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -176,7 +176,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="2"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -184,7 +184,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="3"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -192,7 +192,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="4"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -200,7 +200,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="5"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -208,7 +208,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="6"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -216,7 +216,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="7"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -230,7 +230,7 @@ exports[`should match the snapshot 1`] = `
             >
               <div
                 aria-colindex="1"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -238,7 +238,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="2"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -246,7 +246,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="3"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -254,7 +254,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="4"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -262,7 +262,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="5"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -270,7 +270,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="6"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -278,7 +278,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="7"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -292,7 +292,7 @@ exports[`should match the snapshot 1`] = `
             >
               <div
                 aria-colindex="1"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -300,7 +300,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="2"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -308,7 +308,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="3"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -316,7 +316,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="4"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -324,15 +324,15 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="5"
-                class="rdp-day rdp-focusable rdp-today"
+                class="rdp-day rdp-today"
                 role="gridcell"
-                tabindex="0"
+                tabindex="-1"
               >
                 25
               </div>
               <div
                 aria-colindex="6"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -340,7 +340,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="7"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -354,7 +354,7 @@ exports[`should match the snapshot 1`] = `
             >
               <div
                 aria-colindex="1"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -362,7 +362,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="2"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -370,7 +370,7 @@ exports[`should match the snapshot 1`] = `
               </div>
               <div
                 aria-colindex="3"
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
                 role="gridcell"
                 tabindex="-1"
               >

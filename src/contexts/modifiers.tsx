@@ -4,8 +4,12 @@ import { createContext, useContext } from "react";
 import { isSameDay } from "date-fns/isSameDay";
 import { isSameMonth } from "date-fns/isSameMonth";
 
-import { CalendarDay } from "../classes";
-import { DayModifiers, InternalModifier, CalendarModifiers } from "../types";
+import type { CalendarDay } from "../classes";
+import type {
+  DayModifiers,
+  InternalModifier,
+  CalendarModifiers
+} from "../types";
 import { dateMatchModifiers } from "../utils/dateMatchModifiers";
 
 import { useCalendar } from "./calendar";
@@ -13,9 +17,10 @@ import { useProps } from "./props";
 import { useSelection } from "./selection";
 
 /**
- * The modifiers used in the the calendar.
+ * Holds all the modifiers used in the the calendar.
  *
- * Use the Modifiers context by calling the {@link useModifiers} hook.
+ * Use the Modifiers context in custom component by calling the
+ * {@link useModifiers} hook.
  *
  * @group Contexts
  */
@@ -154,7 +159,9 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
 }
 
 /**
- * Return the modifiers used by the calendar.
+ * Access the modifiers used by the calendar.
+ *
+ * Use this hook from the custom components passed via the `components` prop.
  *
  * @group Hooks
  * @see https://react-day-picker.js.org/advanced-guides/custom-components

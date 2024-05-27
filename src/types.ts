@@ -10,7 +10,7 @@ import type {
 
 import type { Locale } from "date-fns";
 
-import { UI, UIDayModifier, UIFlag } from "./UI";
+import { UI, DayModifier, CalendarFlag } from "./UI";
 import { CalendarDay } from "./classes";
 import * as components from "./components/custom-components";
 import {
@@ -366,7 +366,7 @@ export interface PropsRange {
   max?: number;
 }
 /**
- * The props for the default selection mode.
+ * Props for the default selection mode, when `mode="default"`.
  *
  * @group Props
  */
@@ -570,13 +570,13 @@ export type Styles = {
 export type ClassNames = {
   [element in UI]: string;
 } & {
-  [state in UIDayModifier]: string;
+  [state in DayModifier]: string;
 } & {
-  [flag in UIFlag]: string;
+  [flag in CalendarFlag]: string;
 };
 
 /** The modifiers that are internally used by DayPicker. */
-export type InternalModifier = keyof typeof UIDayModifier;
+export type InternalModifier = keyof typeof DayModifier;
 
 /** A map of all the modifiers with the calendar days. */
 export type CalendarModifiers = Record<string, CalendarDay[]> &

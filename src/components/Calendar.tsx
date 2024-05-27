@@ -1,16 +1,19 @@
-import { UI, UIFlag } from "../UI";
+import { UI, CalendarFlag } from "../UI";
 import { useCalendar } from "../contexts/calendar";
 import { useProps } from "../contexts/props";
 
 import { Footer as DefaultFooter } from "./Footer";
-import { MonthGrid as DefaultMonthGrid } from "./MonthGrid";
+import { Month as DefaultMonth } from "./Month";
 import { Months as DefaultMonths } from "./Months";
 import { Nav as DefaultNav } from "./Nav";
 
 /**
  * Render the DayPicker Calendar with navigation and the month grids.
  *
+ * Use the `components` prop to swap this component with a custom one.
+ *
  * @group Components
+ * @see https://react-day-picker.js.org/advanced-guides/custom-components
  */
 export function Calendar() {
   const {
@@ -40,18 +43,18 @@ export function Calendar() {
     cssClassNames.push(className);
   }
   if (numberOfMonths > 1) {
-    cssClassNames.push(classNames[UIFlag.hasMultipleMonths]);
+    cssClassNames.push(classNames[CalendarFlag.hasMultipleMonths]);
   }
   if (showWeekNumber) {
-    cssClassNames.push(classNames[UIFlag.hasWeekNumbers]);
+    cssClassNames.push(classNames[CalendarFlag.hasWeekNumbers]);
   }
   if (hideWeekdayRow) {
-    cssClassNames.push(classNames[UIFlag.noWeekdays]);
+    cssClassNames.push(classNames[CalendarFlag.noWeekdays]);
   }
 
   const Nav = components?.Nav ?? DefaultNav;
   const Months = components?.Months ?? DefaultMonths;
-  const MonthGrid = components?.MonthGrid ?? DefaultMonthGrid;
+  const Month = components?.Month ?? DefaultMonth;
   const Footer = components?.Footer ?? DefaultFooter;
 
   return (
@@ -65,9 +68,9 @@ export function Calendar() {
       title={title}
       {...dataAttributes}
     >
-      <Months className={classNames[UI.MonthsWrapper]} style={styles?.[UI.MonthsWrapper]}>
+      <Months className={classNames[UI.Months]} style={styles?.[UI.Months]}>
         {calendar.months.map((month, i) => (
-          <MonthGrid aria-labelledby={id} key={i} index={i} month={month} />
+          <Month aria-labelledby={id} key={i} index={i} month={month} />
         ))}
       </Months>
       {!hideNavigation && <Nav />}

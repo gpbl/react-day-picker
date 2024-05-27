@@ -5,9 +5,12 @@ import { useProps } from "../contexts/props";
 /**
  * Render the cell with the number of the week.
  *
+ * Use the `components` prop to swap this component with a custom one.
+ *
  * @group Components
+ * @see https://react-day-picker.js.org/advanced-guides/custom-components
  */
-export function WeekNumberRowHeader(props: { week: CalendarWeek }) {
+export function WeekNumber(props: { week: CalendarWeek }) {
   const {
     classNames,
     formatters: { formatWeekNumber },
@@ -21,8 +24,8 @@ export function WeekNumberRowHeader(props: { week: CalendarWeek }) {
       role="rowheader"
       aria-colindex={1}
       aria-label={labelWeekNumber(props.week.weekNumber, { locale })}
-      className={classNames[UI.WeekNumberRowHeader]}
-      style={styles?.[UI.WeekNumberRowHeader]}
+      className={classNames[UI.WeekNumber]}
+      style={styles?.[UI.WeekNumber]}
       onClick={(e) =>
         onWeekNumberClick?.(
           props.week.weekNumber,
@@ -35,3 +38,5 @@ export function WeekNumberRowHeader(props: { week: CalendarWeek }) {
     </div>
   );
 }
+
+export type WeekNumberProps = Parameters<typeof WeekNumber>[0];
