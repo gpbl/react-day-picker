@@ -4,7 +4,6 @@ export * from "./Controlled";
 export * from "./CssVariables";
 export * from "./CustomCaption";
 export * from "./CustomDay";
-export * from "./CustomDisableRow";
 export * from "./CustomMultiple";
 export * from "./CustomWeek";
 export * from "./CustomSingle";

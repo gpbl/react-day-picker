@@ -26,6 +26,8 @@ export function WeekNumber(props: { week: CalendarWeek }) {
       aria-label={labelWeekNumber(props.week.weekNumber, { locale })}
       className={classNames[UI.WeekNumber]}
       style={styles?.[UI.WeekNumber]}
+      tabIndex={onWeekNumberClick ? 0 : undefined}
+      data-onclick={onWeekNumberClick ? true : undefined}
       onClick={(e) =>
         onWeekNumberClick?.(
           props.week.weekNumber,

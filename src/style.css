@@ -54,22 +54,22 @@
   --rdp-nav-button-border-radius: 100%;
 
   /* The height of the week number cells. */
-  --rdp-weeknumber-height: var(--rdp-day-height);
+  --rdp-week_number-height: var(--rdp-day-height);
 
   /* The width of the week number cells. */
-  --rdp-weeknumber-width: var(--rdp-day-width);
+  --rdp-week_number-width: var(--rdp-day-width);
 
   /* The font of the week number cells. */
-  --rdp-weeknumber-font: 500 smaller var(--rdp-font-family);
+  --rdp-week_number-font: 400 small var(--rdp-font-family);
 
   /* The border radius of the week number. */
-  --rdp-weeknumber-border-radius: 100%;
+  --rdp-week_number-border-radius: 100%;
 
   /* The border of the week number. */
-  --rdp-weeknumber-border: 2px solid transparent;
+  --rdp-week_number-border: 2px solid transparent;
 
   /* The opacity of the week number. */
-  --rdp-weeknumber-opacity: 0.75;
+  --rdp-week_number-opacity: 0.75;
 
   /* The font of the weekday. */
   --rdp-weekday-font: 500 smaller var(--rdp-font-family);
@@ -262,20 +262,23 @@
   grid-template-columns: repeat(8, 1fr);
 }
 
-.rdp-weeknumber {
+.rdp-week_number {
   justify-content: center;
   align-items: center;
   display: flex;
 
-  opacity: var(--rdp-weeknumber-opacity);
-  font: var(--rdp-weeknumber-font);
-  height: var(--rdp-weeknumber-height);
-  width: var(--rdp-weeknumber-width);
-  border: var(--rdp-weeknumber-border);
-  border-radius: var(--rdp-weeknumber-border-radius);
+  opacity: var(--rdp-week_number-opacity);
+  font: var(--rdp-week_number-font);
+  height: var(--rdp-week_number-height);
+  width: var(--rdp-week_number-width);
+  border: var(--rdp-week_number-border);
+  border-radius: var(--rdp-week_number-border-radius);
+}
+.rdp-week_number[data-onclick] {
+  cursor: pointer;
 }
 
-.rdp-weekday {
+.rdp-weeknumber[data-interactive] .rdp-weekday {
   display: inline-flex;
   align-items: center;
   justify-content: center;
