@@ -1,6 +1,6 @@
 import { addDays } from "date-fns";
-import { DayPicker } from "./react-day-picker-v8";
 
+import { DayPicker } from "./react-day-picker-v8";
 import customStyles from "./styles/styling-modifiers.module.css";
 
 const today = new Date();

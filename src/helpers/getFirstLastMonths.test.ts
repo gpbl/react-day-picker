@@ -35,7 +35,7 @@ describe("when toDate is given", () => {
         const [firstMonth] = getFirstLastMonths({
           month,
           toDate,
-          numberOfMonths,
+          numberOfMonths
         });
         expect(isSameMonth(firstMonth, toDate)).toBe(true);
       });
@@ -46,7 +46,7 @@ describe("when toDate is given", () => {
         const [firstMonth] = getFirstLastMonths({
           month,
           toDate,
-          numberOfMonths,
+          numberOfMonths
         });
         const expectedMonth = addMonths(toDate, -1 * (numberOfMonths - 1));
         expect(isSameMonth(firstMonth, expectedMonth)).toBe(true);

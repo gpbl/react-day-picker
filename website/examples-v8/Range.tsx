@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { addDays, format } from "date-fns";
+
 import { DateRange, DayPicker } from "./react-day-picker-v8";
 
 const pastMonth = new Date(2020, 10, 15);

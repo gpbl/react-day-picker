@@ -35,7 +35,7 @@ describe("when displaying 3 months", () => {
     it("the previous month is 3 months back", () => {
       const result = getPreviousMonth(startingMonth, {
         numberOfMonths,
-        pagedNavigation,
+        pagedNavigation
       });
       const expectedPrevMonth = addMonths(startingMonth, -numberOfMonths);
       expect(result && isSameMonth(result, expectedPrevMonth)).toBeTruthy();
@@ -46,7 +46,7 @@ describe("when displaying 3 months", () => {
     it("the previous month is 1 months back", () => {
       const result = getPreviousMonth(startingMonth, {
         numberOfMonths,
-        pagedNavigation,
+        pagedNavigation
       });
       const expectedPrevMonth = addMonths(startingMonth, -1);
       expect(result && isSameMonth(result, expectedPrevMonth)).toBeTruthy();

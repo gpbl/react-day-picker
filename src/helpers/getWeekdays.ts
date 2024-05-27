@@ -1,5 +1,5 @@
-import { addDays } from "date-fns/addDays";
 import type { Locale } from "date-fns";
+import { addDays } from "date-fns/addDays";
 import { startOfISOWeek } from "date-fns/startOfISOWeek";
 import { startOfWeek } from "date-fns/startOfWeek";
 
@@ -12,7 +12,7 @@ export function getWeekdays(
   /** The index of the first day of the week (0 - Sunday). */
   weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6,
   /** Use ISOWeek instead of locale/ */
-  ISOWeek?: boolean,
+  ISOWeek?: boolean
 ): Date[] {
   const start = ISOWeek
     ? startOfISOWeek(new Date())
