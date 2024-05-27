@@ -14,7 +14,7 @@ function DayWithShiftKey(props: DayProps) {
 
   const handleClick: MouseEventHandler<HTMLElement> = (e) => {
     if (
-      selected.from &&
+      selected?.from &&
       !selected.to &&
       !isSameDay(props.day.date, selected.from) &&
       !e.shiftKey
@@ -40,7 +40,7 @@ export function RangeShiftKey() {
   } else if (range?.to) {
     footer = (
       <p>
-        {range.from.toLocaleDateString()}—{range.to.toLocaleDateString()}.
+        {range?.from?.toLocaleDateString()}—{range.to.toLocaleDateString()}.
       </p>
     );
   }

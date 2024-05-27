@@ -6,6 +6,7 @@
     "lib": ["DOM", "ESNext", "DOM.Iterable"],
     "jsx": "react-jsx",
     "baseUrl": ".",
+    "strict": true,
     "types": [
       "node",
       "jest",
