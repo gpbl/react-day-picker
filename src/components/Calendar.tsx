@@ -65,7 +65,7 @@ export function Calendar() {
       title={title}
       {...dataAttributes}
     >
-      <Months className={classNames[UI.Months]} style={styles?.[UI.Months]}>
+      <Months className={classNames[UI.MonthsWrapper]} style={styles?.[UI.MonthsWrapper]}>
         {calendar.months.map((month, i) => (
           <MonthGrid aria-labelledby={id} key={i} index={i} month={month} />
         ))}

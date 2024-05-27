@@ -35,7 +35,7 @@ export enum UI {
   /** The group of weeks in a month. */
   WeeksRowGroup = "weeks",
   /** Container containing the months. */
-  Months = "months",
+  MonthsWrapper = "months",
   /** The navigation element. */
   Nav = "nav",
   /** The row in a week. */
