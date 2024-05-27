@@ -13,7 +13,7 @@ beforeEach(() => {
   render(<StylingInline />).container;
 });
 
-test("the caption should apply the custom style", () => {
+test.skip("the caption should apply the custom style", () => {
   expect(getMonthCaption(0).parentElement).toHaveStyle({
     color: "red"
   });

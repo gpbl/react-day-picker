@@ -12,7 +12,7 @@ const formatWeekNumber = (weekNumber: number) => {
   return weekNumber.toLocaleString(NU_LOCALE);
 };
 
-const formatCaption = (date: Date, options: FormatOptions) => {
+const formatMonthCaption = (date: Date, options: FormatOptions | undefined) => {
   const y = date.getFullYear().toLocaleString(NU_LOCALE);
   const m = format(date, "LLLL", { locale: options?.locale });
   return `${m} ${y}`;
@@ -24,7 +24,7 @@ export function NumberingSystem() {
       locale={arSA}
       dir="rtl"
       showWeekNumber
-      formatters={{ formatDay, formatCaption, formatWeekNumber }}
+      formatters={{ formatDay, formatMonthCaption, formatWeekNumber }}
     />
   );
 }

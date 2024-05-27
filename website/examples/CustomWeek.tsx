@@ -36,8 +36,8 @@ export function CustomWeek() {
       footer={
         selectedWeek && (
           <p>
-            Week from {selectedWeek.from.toLocaleDateString()} to
-            {selectedWeek.to.toLocaleDateString()}
+            Week from {selectedWeek?.from?.toLocaleDateString()} to
+            {selectedWeek?.to?.toLocaleDateString()}
           </p>
         )
       }
