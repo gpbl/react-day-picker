@@ -1,4 +1,4 @@
-import { renderApp, screen, mockDate } from "@/test";
+import { renderApp, screen, mockDate } from "../test-v8";
 
 import { CustomDayContent } from "./CustomDayContent";
 

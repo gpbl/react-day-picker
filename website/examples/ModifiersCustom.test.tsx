@@ -1,4 +1,4 @@
-import { gridcell, renderApp } from "@/test";
+import { gridcell, renderApp } from "../test-v8";
 
 import { ModifiersCustom } from "./ModifiersCustom";
 
