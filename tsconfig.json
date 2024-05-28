@@ -1,27 +1,14 @@
 {
+  "extends": "./tsconfig-base.json",
   "compilerOptions": {
-    "target": "es5",
-    "jsx": "react-jsx",
-    "module": "es6",
-    "moduleResolution": "node",
-    "rootDir": "./",
-    "baseUrl": "./src",
-    "noEmit": true,
     "paths": {
-      "test/*": ["../test/*"]
+      "@/test": ["./test"],
+      "@/test/*": ["./test/*"]
     },
-    "declaration": true,
-    "sourceMap": true,
-    "outDir": "./dist",
-    "importHelpers": true,
-    "esModuleInterop": false,
-    "allowSyntheticDefaultImports": false,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "isolatedModules": false,
-    "types": ["jest", "node"]
+    "jsx": "react-jsx",
+    "noEmit": true,
+    "types": ["node", "jest", "@testing-library/jest-dom", "@types/jest"]
   },
-  "include": ["test", "src"]
+  "include": ["src", "test", "**/*.test.*"],
+  "exclude": ["website"]
 }

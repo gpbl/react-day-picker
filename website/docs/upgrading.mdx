@@ -1,0 +1,74 @@
+---
+sidebar_position: 5
+---
+
+# Upgrading
+
+## Upgrade from v8 to v9 alpha
+
+This major version introduce some important breaking changes.
+
+- Requires React 18+
+- Updated HTML Structure for better accessibility
+- Updated ARIA labels
+- Deprecated and renamed types
+- Formatters return type is now a string
+- Updated build script (rollup removed)
+- Removed useInput hook (see docs for alternatives)
+
+### Checklist
+
+Follow these steps to upgrade your project from v8 to v9:
+
+#### 1. Upgrade to the next version
+
+```bash npm2yarn
+npm install react-day-picker@next date-fns
+```
+
+#### 2. Update test selectors
+
+The following ARIA labels have been updated:
+
+- `Week nr.` to `Week`
+- `Previous Month` and `NextMonth`
+
+You may need to update your test selectors - for example:
+
+```diff
+- screen.getByRole('button', 'Go to previous month');
++ screen.getByRole('button', 'Previous Month');
+```
+
+#### 3. Formatters return type
+
+The formatters now return a string instead of a ReactNode. If you were using the formatters in a React component, you may need to update your code:
+
+```diff
+- const MyComponent = () => <DayPicker formatters={{ caption: () => <strong>My caption</strong> }} />;
++ const MyComponent = () => <DayPicker formatters={{ caption: () => 'My caption' }} />;
+```
+
+#### 4. Rename deprecated typings
+
+Many typings have been deprecated in favor of clarity and shorter names. If you were using the typings, you may need to update your code or it will break in the next major version.
+
+```diff
+- import { DayPickerDefaultProps } from 'react-day-picker';
++ import { PropsDefault } from 'react-day-picker/types';
+```
+
+##### DayPickerProps requires the Mode argument
+
+```diff
+- import { DayPickerProps } from 'react-day-picker';
++ import { DayPickerProps, Mode } from 'react-day-picker';
+- const props: DayPickerProps<Mode>;       // pass the `Mode` argument
++ const props: DayPickerProps<Mode>;
+```
+
+---
+
+## Upgrade from v7 to v8
+
+See the [migration guide](https://react-day-picker.js.org/upgrading) for the changes introduced in v8.

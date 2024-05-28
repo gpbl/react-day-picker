@@ -1,0 +1,124 @@
+---
+sidebar_position: 3
+---
+
+# Customization
+
+Use the customization props to customize the appearance of the calendar.
+
+### Customization Props
+
+| Prop Name         | Type                                                     | Description                                                      |
+| ----------------- | -------------------------------------------------------- | ---------------------------------------------------------------- |
+| `captionLayout`   | `"dropdown"` \| `"buttons"` \|<br/> `"dropdown-buttons"` | Change the layout of the caption. <br /> Default is `"buttons"`. |
+| `showOutsideDays` | `boolean`                                                | Display the days falling into the other months.                  |
+| `fixedWeeks`      | `boolean`                                                | Display 6 weeks per months.                                      |
+| `hideWeekdayRow`  | `boolean`                                                | Hide the row displaying the weekday names.                       |
+| `footer`          | `ReactNode`                                              | Displays a footer below the calendar.                            |
+
+## Caption Layout
+
+Use the `captionLayout` prop to the layout of the caption used to navigate the calendar.
+
+As default, DayPicker will show navigation buttons on the top corner.
+
+```tsx
+<DayPicker captionLayout="buttons" /> // Default value
+```
+
+### Dropdown Navigation
+
+Use `dropdown` or `dropdown-buttons` to display a navigation dropdown.
+
+:::warning
+
+To use this prop, you need to set both `fromYear` and `toYear`. (This requirement will be removed in a next version.)
+
+:::
+
+```tsx
+<DayPicker captionLayout="dropdown" fromYear={2010} toYear={2024} />
+<DayPicker captionLayout="dropdown-buttons" fromYear={2010} toYear={2024} />
+```
+
+<BrowserWindow>
+  <ExamplesV8.Dropdown />
+</BrowserWindow>
+
+### Outside Days
+
+By default, DayPicker hides the days falling into the other months. Use `showOutsideDays` to display them.
+
+```tsx
+<DayPicker showOutsideDays />
+```
+
+<BrowserWindow>
+  <ExamplesV8.OutsideDays />
+</BrowserWindow>
+
+### Fixed Weeks
+
+In a year, months can have between 4 an 6 weeks. Use `fixedWeeks` with `showOutsideDays` to always display 6 weeks per month. This will prevent the grid changing its height while navigating the calendar.
+
+:::note
+
+In the current version, this prop requires `showOutsideDays` set to work. This
+requirement will be removed in the next major version.
+
+:::
+
+```tsx
+<DayPicker showOutsideDays fixedWeeks />
+```
+
+<BrowserWindow>
+  <ExamplesV8.FixedWeeks />
+</BrowserWindow>
+
+## Multiple Months
+
+To display multiple months in the calendar, use the `numberOfMonths` prop.
+
+| Prop Name         | Type      | Description                                     |
+| ----------------- | --------- | ----------------------------------------------- |
+| `numberOfMonths`  | `number`  | The number of displayed months. Default is `1`. |
+| `pagedNavigation` | `boolean` | Paginate the navigation.                        |
+| `reverseMonths`   | `boolean` | Render multiple months in reversed order.       |
+
+```tsx
+<DayPicker numberOfMonths={2} />
+```
+
+<BrowserWindow>
+  <ExamplesV8.MultipleMonths />
+</BrowserWindow>
+
+### Paged Navigation
+
+With `pagedNavigation`, the navigation jumps by the specified number of months at time.
+
+```tsx
+<DayPicker numberOfMonths={2} pagedNavigation />
+```
+
+<BrowserWindow>
+  <ExamplesV8.MultipleMonthsPaged />
+</BrowserWindow>
+
+## Week Numbers
+
+To display the column with the week numbers, use the `showWeekNumber` prop. Use the `onWeekNumberClick` to handle the click event.
+
+| Prop Name           | Type                          | Description                                    |
+| ------------------- | ----------------------------- | ---------------------------------------------- |
+| `showWeekNumber`    | `boolean`                     | Display the week numbers.                      |
+| `onWeekNumberClick` | `WeekNumberClickEventHandler` | Event handler when the week number is clicked. |
+
+```tsx
+<DayPicker showWeekNumber onWeekNumberClick={setWeekNumber} />
+```
+
+<BrowserWindow>
+  <ExamplesV8.Weeknumber />
+</BrowserWindow>

@@ -1,0 +1,161 @@
+---
+sidebar_position: 2
+---
+
+# Custom Selections
+
+:::info Draft
+
+This documentation is still a work in progress. If you have any questions, ask to the [discussions](https://github.com/gpbl/react-day-picker/discussions) page on Github.
+
+:::
+
+If the built-in selection modes are not enough for your app’s requirements, you can control the selection behavior using `onDayClick`.
+
+## Examples
+
+### Week Selection
+
+The following example shows how to select the whole week when a day is clicked.
+
+Note the use of the `startOfWeek` and `endOfWeek` functions from `date-fns` and how the `selectedWeek` state is passed to the `modifiers` prop.
+
+```tsx
+import { useState } from "react";
+
+import { endOfWeek, isSameWeek, startOfWeek } from "date-fns";
+import { DateRange, DayPicker } from "react-day-picker";
+
+/** Select the whole week when the day is clicked. */
+export function CustomWeek() {
+  const [selectedWeek, setSelectedWeek] = useState<DateRange | undefined>();
+
+  return (
+    <DayPicker
+      showWeekNumber
+      modifiers={{
+        selected: selectedWeek
+      }}
+      onDayClick={(day, modifiers) => {
+        if (modifiers.selected) {
+          setSelectedWeek(undefined); // clear the selection if the week is already selected
+          return;
+        }
+        setSelectedWeek({
+          from: startOfWeek(day),
+          to: endOfWeek(day)
+        });
+      }}
+      onWeekNumberClick={(weekNumber, dates) => {
+        if (selectedWeek?.from && isSameWeek(dates[0], selectedWeek.from)) {
+          setSelectedWeek(undefined); // clear the selection if the week is already selected
+          return;
+        }
+        setSelectedWeek({
+          from: startOfWeek(dates[0]),
+          to: endOfWeek(dates[dates.length - 1])
+        });
+      }}
+      footer={
+        selectedWeek && (
+          <p>
+            Week from {selectedWeek.from.toLocaleDateString()} to
+            {selectedWeek.to.toLocaleDateString()}
+          </p>
+        )
+      }
+    />
+  );
+}
+```
+
+<BrowserWindow>
+  <ExamplesV8.CustomWeek />
+</BrowserWindow>
+
+### Single Selection
+
+For example, to implement the "single selection" behavior (like when `mode="single"`):
+
+```tsx
+import { useState } from "react";
+
+import { DayPicker, DayPickerProps } from "react-day-picker";
+
+export function CustomSingle() {
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>();
+
+  const modifiers: DayPickerProps["modifiers"] = {};
+  if (selectedDate) {
+    modifiers.selected = selectedDate;
+  }
+  return (
+    <DayPicker
+      modifiers={modifiers}
+      onDayClick={(day, modifiers) => {
+        if (modifiers.selected) {
+          setSelectedDate(undefined);
+        } else {
+          setSelectedDate(day);
+        }
+      }}
+      footer={selectedDate && `You selected ${selectedDate.toDateString()}`}
+    />
+  );
+}
+```
+
+<BrowserWindow>
+  <ExamplesV8.CustomSingle />
+</BrowserWindow>
+
+### Multi Selections
+
+The case of a multi-days select is a bit more complex as it deals with an array. The following example replicates the `mode="multiple"`
+selection mode.
+
+```tsx
+import { useState } from "react";
+
+import { isSameDay } from "date-fns";
+import { DayMouseEventHandler, DayPicker } from "react-day-picker";
+
+export function CustomMultiple() {
+  const [value, setValue] = useState<Date[]>([]);
+
+  const handleDayClick: DayMouseEventHandler = (day, modifiers) => {
+    const newValue = [...value];
+    if (modifiers.selected) {
+      const index = value.findIndex((d) => isSameDay(day, d));
+      newValue.splice(index, 1);
+    } else {
+      newValue.push(day);
+    }
+    setValue(newValue);
+  };
+
+  const handleResetClick = () => setValue([]);
+
+  let footer = <>Please pick one or more days.</>;
+
+  if (value.length > 0)
+    footer = (
+      <>
+        You selected {value.length} days.{" "}
+        <button onClick={handleResetClick}>Reset</button>
+      </>
+    );
+
+  return (
+    <DayPicker
+      onDayClick={handleDayClick}
+      modifiers={{ selected: value }}
+      footer={footer}
+    />
+  );
+}
+```
+
+<BrowserWindow>
+  <ExamplesV8.CustomMultiple />
+</BrowserWindow>

@@ -1,0 +1,135 @@
+---
+sidebar_position: 2
+---
+
+# Styling
+
+DayPicker comes with a minimal style inspired by MacOS date pickers, designed to be extended and customized.
+
+You can also use your own styles, or use a CSS framework like [Tailwind CSS](https://tailwindcss.com) or [Bootstrap](https://getbootstrap.com) to style the calendar.
+
+## Default Style
+
+To start with the included styles, import `react-day-picker/dist/style.css` into your app. This will add the `.rdp` class names used by DayPicker.
+
+<details>
+<summary>Using a bundler or a React framework</summary>
+
+If you are using a React framework, such as [Next.js](http://nextjs.org) or [Gatsby](https://www.gatsbyjs.com), or a bundler like Webpack with [css-loader](https://webpack.js.org/loaders/css-loader/), import the CSS file from your app's main JavaScript or TypeScript file:
+
+```tsx title="./App.jsx"
+import "react-day-picker/dist/style.css";
+```
+
+</details>
+
+<details>
+<summary>Importing the CSS Module</summary>
+
+When using CSS modules, you can import `style.module.css`. Pass the class names to the `classNames` prop.
+
+```tsx title="./DatePicker.jsx"
+import { DayPicker } from "react-day-picker";
+import { default as defaultStyles } from "react-day-picker/style.module.css";
+
+export function DatePicker() {
+  return <DayPicker classNames={defaultStyles} />;
+}
+```
+
+</details>
+
+### CSS Variables
+
+The default styles use CSS variables that can be overridden to customize the appearance of the calendar. Define the CSS variables in your app's CSS file, after importing the DayPicker CSS file:
+
+```css title="./app/global.css"
+@import "react-day-picker/style.css";
+
+:root {
+  --rdp-accent-color: indigo; /* Change the accent color to indigo. */
+}
+```
+
+The following table lists the CSS variables used by DayPicker:
+
+| CSS Variable Name                   | Description                                                         |
+| ----------------------------------- | ------------------------------------------------------------------- |
+| `--rdp-accent-color`                | The accent color used for selected days and UI elements.            |
+| `--rdp-day-border-radius`           | The border radius of the day cells.                                 |
+| `--rdp-day-border`                  | The border of the day cells.                                        |
+| `--rdp-day-font`                    | The font used for the day cells.                                    |
+| `--rdp-day-height`                  | The height of the day cells.                                        |
+| `--rdp-day-width`                   | The width of the day cells.                                         |
+| `--rdp-disabled-opacity`            | The opacity of the disabled days.                                   |
+| `--rdp-excluded-opacity`            | The opacity of the excluded days.                                   |
+| `--rdp-font-family`                 | The font family used by the calendar (`inherited` won't work here). |
+| `--rdp-month-caption-font`          | The font of the month caption.                                      |
+| `--rdp-months-gap`                  | The gap between the months in the multi-month view.                 |
+| `--rdp-nav-button-border-radius`    | The border radius of the navigation buttons.                        |
+| `--rdp-nav-button-disabled-opacity` | The opacity of the disabled navigation buttons.                     |
+| `--rdp-nav-button-height`           | The height of the navigation buttons.                               |
+| `--rdp-nav-button-width`            | The width of the navigation buttons.                                |
+| `--rdp-nav-height`                  | The height of the navigation bar.                                   |
+| `--rdp-outside-opacity`             | The opacity of the days outside the current month.                  |
+| `--rdp-range-background-color`      | The color of the range background.                                  |
+| `--rdp-range-color`                 | The color of the range text.                                        |
+| `--rdp-selected-border`             | The border of the selected days.                                    |
+| `--rdp-selected-font`               | The font of the selected days.                                      |
+| `--rdp-today-color`                 | The color of today's date.                                          |
+| `--rdp-weekday-font`                | The font of the weekday.                                            |
+| `--rdp-weekday-opacity`             | The opacity of the weekday.                                         |
+| `--rdp-weekday-padding`             | The padding of the weekday.                                         |
+| `--rdp-weekday-text-align`          | The text alignment of the weekday cells.                            |
+| `--rdp-week_number-border-radius`   | The border radius of the week number.                               |
+| `--rdp-week_number-border`          | The border of the week number.                                      |
+| `--rdp-week_number-font`            | The font of the week number cells.                                  |
+| `--rdp-week_number-height`          | The height of the week number cells.                                |
+| `--rdp-week_number-opacity`         | The opacity of the week number.                                     |
+| `--rdp-week_number-width`           | The width of the week number cells.                                 |
+
+### Light/Dark Appearance
+
+To toggle between dark and light appearance, override the accent color with the color to use in the dark mode.
+
+```css
+:root {
+  --rdp-accent-color: blue; /* Use blue as the accent color. */
+}
+[data-theme="dark"] {
+  --rdp-accent-color: yellow; /* Use yellow as the accent color in dark mode. */
+}
+```
+
+## Custom Style
+
+Use the `classNames` prop to use other classnames instead of the default ones.
+
+### Tailwind CSS
+
+> TODO: this section is still incomplete.
+
+### Custom CSS
+
+### Inline Styles
+
+To change the appearance of any DayPicker element via inline-styles use the `styles` prop.
+
+:::warning
+
+Mouse hover effects cannot be styled inline.
+
+:::
+
+```tsx
+const monthCaptionStyle = {
+  borderBottom: "1px solid currentColor",
+  paddingBottom: "0.5em"
+};
+// ...
+<DayPicker
+  styles={{
+    month_caption: monthCaptionStyle
+  }}
+/>;
+```

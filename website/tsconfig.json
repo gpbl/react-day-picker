@@ -1,17 +1,24 @@
 {
-  "extends": "@tsconfig/docusaurus/tsconfig.json",
+  // This file is not used in compilation. It is here just for a nice editor experience.
+  "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
-    "strict": true,
-    "jsx": "react",
+    "target": "ES2018",
+    "lib": ["DOM", "ESNext", "DOM.Iterable"],
+    "jsx": "react-jsx",
     "baseUrl": ".",
-    "lib": ["es2019", "DOM"],
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "module": "Node16",
+    "strict": true,
+    "types": [
+      "node",
+      "jest",
+      "@testing-library/jest-dom",
+      "@types/jest",
+      "@docusaurus/module-type-aliases"
+    ],
     "paths": {
-      "@examples/*": ["./examples/*"],
-      "@site/*": ["./*"]
-    },
-    "types": ["jest", "node"]
-  }
+      "@/test": ["./test"],
+      "@/test/*": ["./test/*"],
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src", "examples", "examples-v9", "test", "test-v8"]
 }

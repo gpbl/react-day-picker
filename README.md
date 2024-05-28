@@ -1,6 +1,6 @@
 # React DayPicker
 
-[DayPicker](http://react-day-picker.js.org) is a date picker component for [React](https://reactjs.org). Renders a monthly calendar to select days. DayPicker is customizable, works great with input fields and can be styled to match any design.
+[DayPicker](http://react-day-picker.js.org) is a date picker component for [React](https://react.dev/). Renders a monthly calendar to select days. DayPicker is customizable, works great with input fields and can be styled to match any design.
 
 ➡️ **[react-day-picker.js.org](http://react-day-picker.js.org)** for guides, examples and API reference.
 
@@ -35,18 +35,18 @@ yarn add react-day-picker date-fns     # using yarn
 ## Example
 
 ```tsx
-import { useState } from 'react';
-import { format } from 'date-fns';
+import { useState } from "react";
 
-import { DayPicker } from 'react-day-picker';
-import 'react-day-picker/dist/style.css';
+import { format } from "date-fns";
+import { DayPicker } from "react-day-picker";
+import "react-day-picker/dist/style.css";
 
 export default function Example() {
   const [selected, setSelected] = useState<Date>();
 
   let footer = <p>Please pick a day.</p>;
   if (selected) {
-    footer = <p>You picked {format(selected, 'PP')}.</p>;
+    footer = <p>You picked {format(selected, "PP")}.</p>;
   }
   return (
     <DayPicker

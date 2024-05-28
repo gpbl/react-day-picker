@@ -1,3 +1,6 @@
-import { userEvent } from '@testing-library/user-event';
+import { userEvent } from "@testing-library/user-event";
 
-export const user = userEvent.setup();
+/** Create a user that will advance timers. */
+export const user = userEvent.setup({
+  advanceTimers: jest.advanceTimersByTime
+});

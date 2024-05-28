@@ -1,0 +1,235 @@
+.docusaurus-reset code {
+  background-color: revert;
+  border: revert;
+  border-radius: revert;
+  font-family: revert;
+  font-size: revert;
+  padding: revert;
+  vertical-align: revert;
+}
+
+.docusaurus-reset a code {
+  color: revert;
+}
+
+.docusaurus-reset pre {
+  background-color: revert;
+  border-radius: revert;
+  color: revert;
+  font: revert)
+    var(--ifm-font-family-monospace);
+  margin: revert;
+  overflow: revert;
+  padding: revert;
+}
+
+.docusaurus-reset pre code {
+  background-color: revert;
+  border: revert;
+  font-size: revert;
+  line-height: revert;
+  padding: revert;
+}
+
+.docusaurus-reset kbd {
+  background-color: revert;
+  border: revert;
+  border-radius: revert;
+  box-shadow: revert;
+  color: revert;
+  font: revert;
+  padding: revert;
+}
+
+.docusaurus-reset h1,
+.docusaurus-reset h2,
+.docusaurus-reset h3,
+.docusaurus-reset h4,
+.docusaurus-reset h5,
+.docusaurus-reset h6 {
+  color: revert;
+  font-family: revert;
+  font-weight: revert;
+  line-height: revert;
+  margin: revert;
+}
+
+.docusaurus-reset h1 {
+  font-size: revert;
+}
+
+.docusaurus-reset h2 {
+  font-size: revert;
+}
+
+.docusaurus-reset h3 {
+  font-size: revert;
+}
+
+.docusaurus-reset h4 {
+  font-size: revert;
+}
+
+.docusaurus-reset h5 {
+  font-size: revert;
+}
+
+.docusaurus-reset h6 {
+  font-size: revert;
+}
+
+.docusaurus-reset img {
+  max-width: revert;
+}
+
+.docusaurus-reset img[align="right"] {
+  padding-left: revert;
+}
+
+.docusaurus-reset img[align="left"] {
+  padding-right: revert;
+}
+
+.docusaurus-reset ul,
+.docusaurus-reset ol {
+  margin: revert;
+  padding-left: revert;
+}
+
+.docusaurus-reset ol ol,
+.docusaurus-reset ul ol {
+  list-style-type: revert;
+}
+
+.docusaurus-reset ul ul,
+.docusaurus-reset ul ol,
+.docusaurus-reset ol ol,
+.docusaurus-reset ol ul {
+  margin: revert;
+}
+
+.docusaurus-reset ul ul ol,
+.docusaurus-reset ul ol ol,
+.docusaurus-reset ol ul ol,
+.docusaurus-reset ol ol ol {
+  list-style-type: revert;
+}
+
+.docusaurus-reset table {
+  display: revert;
+  margin-bottom: revert;
+  overflow: revert;
+}
+
+.docusaurus-reset table thead tr {
+  border-bottom: revert;
+}
+
+.docusaurus-reset table thead {
+  background-color: revert;
+}
+
+.docusaurus-reset table tr {
+  background-color: revert;
+  border-top: revert;
+}
+
+.docusaurus-reset table tr:nth-child(2n) {
+  background-color: revert;
+}
+
+.docusaurus-reset table th,
+.docusaurus-reset table td {
+  border: revert;
+  padding: revert;
+}
+
+.docusaurus-reset table th {
+  background-color: revert;
+  color: revert;
+  font-weight: revert;
+}
+
+.docusaurus-reset table td {
+  color: revert;
+}
+
+.docusaurus-reset strong {
+  font-weight: revert;
+}
+
+.docusaurus-reset a {
+  color: revert;
+  text-decoration: revert;
+  transition: revert;
+}
+
+.docusaurus-reset a:hover {
+  color: revert;
+  text-decoration: revert;
+}
+
+.docusaurus-reset a:not([href]) {
+  text-decoration: revert;
+}
+
+.docusaurus-reset p {
+  margin: revert;
+}
+
+.docusaurus-reset blockquote {
+  border-left: revert;
+  box-shadow: revert;
+  color: revert;
+  font-size: revert;
+  margin: revert;
+  padding: revert;
+}
+
+.docusaurus-reset blockquote > :first-child {
+  margin-top: revert;
+}
+
+.docusaurus-reset blockquote > :last-child {
+  margin-bottom: revert;
+}
+
+.docusaurus-reset hr {
+  background-color: revert;
+  border: revert;
+  height: revert;
+  margin: revert;
+}
+
+.docusaurus-reset pre {
+  --ifm-code-font-size: revert;
+  background-color: revert;
+}
+
+.markdown .docusaurus-reset table {
+  margin: revert;
+  display: revert;
+  width: revert;
+  font-size: revert;
+}
+
+.markdown .docusaurus-reset table tr {
+  border-bottom: revert;
+}
+
+.markdown .docusaurus-reset table tr:nth-child(2n) {
+  background-color: revert;
+}
+
+.markdown .docusaurus-reset table tr:nth-child(2n) td {
+}
+
+.markdown .docusaurus-reset table th {
+  font-weight: revert;
+  background-color: revert;
+  text-align: revert;
+}
+
+.markdown .docusaurus-reset table thead tr {
+  border-bottom-width: revert;
+}

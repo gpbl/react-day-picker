@@ -4,3 +4,4 @@ node_modules
 coverage
 build
 dist
+/website/docs/api

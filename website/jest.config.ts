@@ -1,24 +1,27 @@
-import type { Config } from '@jest/types';
-import { pathsToModuleNameMapper } from 'ts-jest';
-
-import { compilerOptions } from './tsconfig.json';
+import type { Config } from "@jest/types";
 
 const config: Config.InitialOptions = {
-  preset: 'ts-jest',
-  roots: ['./test-integration'],
+  verbose: true,
+  preset: "ts-jest",
+  roots: ["./src", "./examples", "./examples-v9"],
   transform: {
-    '^.+\\.tsx?$': 'ts-jest'
+    "^.+\\.tsx?$": [
+      "ts-jest",
+      {
+        "ts-jest": {
+          tsconfig: "./tsconfig.test.json"
+        }
+      }
+    ]
   },
   moduleNameMapper: {
-    ...pathsToModuleNameMapper(compilerOptions.paths, {
-      prefix: '<rootDir>'
-    }),
-    '\\.css$': 'identity-obj-proxy',
-    '@generated/(.*)': 'identity-obj-proxy'
+    "@/test": ["<rootDir>/test"],
+    "\\.css$": "identity-obj-proxy",
+    "react-day-picker/style.module.css": "identity-obj-proxy"
   },
-  testEnvironment: 'jsdom',
-  coverageReporters: ['lcov', 'text', 'clover'],
-  setupFilesAfterEnv: ['./test/setup.ts']
+  testEnvironment: "jsdom",
+  coverageReporters: ["lcov", "text", "clover"],
+  setupFilesAfterEnv: ["./test/setup.ts", "./test-v8/setup.ts"]
 };
 
 export default config;

@@ -1,0 +1,382 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #0000ff;
+  --ifm-color-primary-dark: #0000e6;
+  --ifm-color-primary-darker: #0000d9;
+  --ifm-color-primary-darkest: #0000b3;
+  --ifm-color-primary-light: #1a1aff;
+  --ifm-color-primary-lighter: #2626ff;
+  --ifm-color-primary-lightest: #4d4dff;
+  --ifm-global-shadow-lw: 1px 1px 1px 0px rgba(0, 0, 0, 0.1);
+  --ifm-menu-color: var(--ifm-color-emphasis-200);
+
+  /* --ifm-code-font-size: 80%; */
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  --ifm-menu-color: unset;
+  --ifm-font-weight-semibold: 400;
+  --ifm-heading-font-weight: 600;
+  --ifm-toc-border-color: transparent;
+  --ifm-table-background: rgba(0, 0, 0, 0.03);
+  --ifm-table-cell-padding: 0.25rem;
+  --ifm-transition-fast: 0;
+  --ifm-transition-slow: 0;
+  --ifm-transition-slow: 0;
+
+  --ifm-table-cell-padding: 0.35rem 0.5rem;
+  --ifm-table-border-width: 0;
+  --ifm-tabs-padding-vertical: 0.25rem;
+  --ifm-tabs-padding-horizontal: 0.5rem;
+  --ifm-global-spacing: 0.75rem;
+
+  /* --ifm-navbar-background-color: #eeeeff; */
+
+  --doc-sidebar-width: 260px !important;
+  --ifm-alert-border-left-width: 2px;
+
+  --ifm-menu-link-sublist-icon: url(/img/chevron.svg);
+
+  --rdp-accent-color: var(--ifm-color-primary);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+html[data-theme="dark"] {
+  --ifm-color-primary: #00c7fc;
+  --ifm-color-primary-dark: #00b3e3;
+  --ifm-color-primary-darker: #00a9d6;
+  --ifm-color-primary-darkest: #008bb0;
+  --ifm-color-primary-light: #16ceff;
+  --ifm-color-primary-lighter: #23d1ff;
+  --ifm-color-primary-lightest: #49d9ff;
+
+  --ifm-color-content: #fafafa;
+  /* --ifm-menu-color: var(--ifm-color-emphasis-400); */
+  --ifm-table-background: rgba(0, 0, 0, 0.1);
+  --ifm-table-border-color: var(--ifm-color-emphasis-100);
+
+  --ifm-background-color: #000;
+  --ifm-navbar-background-color: rgba(20, 20, 20);
+
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  --ifm-toc-border-color: transparent !important;
+
+  --rdp-accent-color: var(--ifm-color-primary);
+}
+
+html[data-theme="dark"] {
+  --rdp-background-color: var(--ifm-color-primary-darkest);
+  --rdp-selected-color: var(--ifm-color-content);
+}
+
+html[data-theme="dark"] {
+  background-image: linear-gradient(to bottom, #0a0a0a, #131313) !important;
+  background-attachment: fixed !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Style the main content area */
+.main-wrapper main {
+  max-width: 110ch; /* Constrain the maximum width of the content for better readability */
+  margin-inline: auto;
+}
+
+.markdown {
+  min-height: calc(100vh - var(--ifm-navbar-height) - 17rem);
+}
+
+.markdown a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.markdown a[href^="http"] {
+  position: relative;
+  display: inline-block;
+  margin-right: 0.75em;
+}
+.markdown a[href^="http"]:after {
+  content: "↗"; /* Example: Unicode character for an external link icon */
+  font-size: 0.75em;
+  padding-left: 1px;
+  top: 0.3em;
+  text-decoration: none;
+  position: absolute;
+}
+
+.markdown h1:first-child {
+  font-size: 2.25rem;
+  /* margin-block: 1em; */
+  letter-spacing: -0.015em;
+}
+@media (max-width: 996px) {
+  .markdown h1:first-child {
+    margin-block-start: 0em;
+  }
+}
+
+.markdown > h2 {
+  font-size: 1.75rem;
+  letter-spacing: -0.015em;
+  padding-bottom: 0.15em;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.markdown > h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.markdown > h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+code {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  white-space: break-spaces;
+  border-radius: 6px;
+  border: 0;
+}
+
+a > code {
+  padding: unset;
+  background: unset;
+  border: unset;
+}
+
+a.menu__link {
+  transition: unset;
+  font-size: 0.875rem;
+  background: unset;
+  line-height: 1.5;
+}
+
+a.menu__link:not(:hover):not(.menu__link--active) {
+  opacity: 0.7;
+}
+
+a.menu__link[aria-expanded] {
+  /* font-weight: 700; */
+  cursor: default;
+}
+
+.menu__list-item-collapsible {
+  /* margin-block-start: 1rem; */
+}
+
+a.menu__link[aria-expanded]:hover {
+  background: unset;
+}
+
+.menu__link--sublist {
+  font-weight: 600;
+}
+
+.menu__list-item {
+  /* margin-top: 0.5em; */
+}
+
+a.table-of-contents__link:not(:hover):not(.table-of-contents__link--active) {
+  opacity: 0.75;
+}
+
+@media (min-width: 997px) {
+  .table-of-contents::before {
+    content: "On This Page";
+    font-weight: 600;
+    font-size: 0.8rem;
+    margin: var(--ifm-toc-padding-vertical) var(--ifm-toc-padding-horizontal);
+  }
+}
+
+div.theme-doc-toc-desktop {
+  top: calc(var(--ifm-navbar-height) + 1rem);
+}
+
+a.theme-edit-this-page {
+  font-size: 0.8rem;
+}
+a.theme-edit-this-page > svg {
+  height: 1rem;
+  width: 1rem;
+}
+
+.markdown table {
+  margin: 2rem 0;
+  display: table;
+  width: 100%;
+  font-size: 0.875rem;
+}
+
+.markdown table tr {
+  border-bottom: 1px solid var(--ifm-table-border-color);
+}
+
+.markdown table tr {
+  background-color: unset;
+}
+
+.markdown table tr td {
+}
+
+.markdown table th {
+  font-weight: 600;
+  background-color: unset !important;
+  text-align: left;
+}
+
+.markdown table thead tr {
+  border-bottom-width: 1px;
+}
+
+pre {
+  --ifm-code-font-size: 85%;
+  background-color: var(--ifm-color-emphasis-100) !important;
+}
+
+.tabs__item {
+  border-bottom-width: 1px;
+  font-size: 0.875rem;
+  border-radius: 0;
+}
+
+.tabs {
+  margin-top: 1rem;
+}
+
+.tabs + .margin-top--md {
+  margin-top: 0 !important;
+}
+
+.markdown details {
+  font-size: 0.875rem;
+}
+
+.markdown details > summary:before {
+  top: 0.37rem;
+}
+
+.markdown div[class^="codeBlockTitle_"] {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+}
+
+@media (min-width: 997px) {
+  .navbar {
+    background: rgba(255, 255, 255, 0.6); /* Black with 60% opacity */
+    backdrop-filter: blur(10px);
+  }
+
+  html[data-theme="dark"] .navbar {
+    background: rgba(1, 1, 1, 0.6); /* Black with 60% opacity */
+  }
+}
+
+div[class^="docRoot"],
+.navbar__inner {
+  max-width: 1400px;
+  margin-inline: auto;
+}
+
+.navbar__item {
+  font-size: 0.875rem;
+}
+.navbar__title {
+  font-size: large;
+  text-transform: uppercase;
+}
+
+.navbar__brand {
+  /* min-width: var(--doc-sidebar-width); */
+}
+
+a.navbar__item svg {
+  width: 10px;
+  height: 10px;
+}
+
+span.DocSearch-Button-Keys {
+  display: none;
+}
+
+button.DocSearch {
+  padding: 0.25rem 0.5rem;
+  /* border-radius: 0.25rem; */
+  border-width: 1px;
+  height: 32px;
+  background: transparent;
+  box-shadow: none;
+}
+
+button.DocSearch svg {
+  width: 1rem;
+  height: 1rem;
+}
+span.DocSearch-Button-Placeholder {
+  font-size: small;
+}
+
+div[class^="collapsibleContent"] a,
+div[class^="admonitionContent"] a {
+  color: var(--ifm-color-primary) !important;
+  text-decoration-color: currentColor;
+  text-decoration-thickness: revert !important;
+}
+
+div[class^="admonitionHeading"] {
+  text-transform: uppercase;
+}
+
+pre code {
+  white-space: pre;
+}
+
+.theme-doc-version-banner {
+  font-size: 0.875rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.theme-doc-version-banner a {
+  text-decoration-color: currentColor;
+  text-decoration-thickness: revert !important;
+}
+.theme-doc-version-banner div.margin-top--md {
+  margin-top: 0 !important;
+}
+.theme-doc-version-badge {
+  font-size: 0.75rem;
+  border-radius: 0.25rem;
+  font-weight: normal;
+}
+
+div[class^="admonitionHeading"] {
+  text-transform: initial;
+}
+span[class^="admonitionIcon"] svg {
+  height: 1.2em;
+  width: 1.2em;
+}
+
+div.theme-admonition {
+  font-size: 0.875rem;
+  border-left-width: 0.1rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-radius: 0;
+}
+
+.theme-admonition p {
+  margin: revert;
+}

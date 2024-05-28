@@ -1,7 +1,7 @@
 ---
 name: 🐛 Bug report
 about: Create a reproducible bug report or a regression
-assignees: 'gpbl'
+assignees: "gpbl"
 ---
 
 ## Description
@@ -34,8 +34,9 @@ If you have a suggestion on how to fix the issue, please include it here.
 If applicable, add screenshots or GIFs to help explain your problem.
 
 ## Your Environment
+
 - React version:
-- Your Timezone: 
+- Your Timezone:
 - Browser [e.g. chrome, safari]:
 - Version [e.g. 22]:
 - Operating System [e.g. iOS, Windows]:

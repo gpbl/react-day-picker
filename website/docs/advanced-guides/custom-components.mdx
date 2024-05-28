@@ -1,0 +1,115 @@
+---
+sidebar_position: 4
+---
+
+# Custom Components
+
+Use the `components` prop to swap the components used to render DayPicker. A list of the components that can be customized is available in the [Components Reference](../api#components).
+
+:::tip Advanced Feature
+
+- Custom components may not have a stable API yet and may break in a next release.
+- Get familiar with the [API reference](../api#components) and the [DayPicker Anatomy](../using-daypicker/anatomy.mdx) first.
+
+:::
+
+---
+
+For example, if you need to customize the component creating the day cell, you can replace the `Day` component with a custom implementation.
+
+```tsx title="./CustomDay.tsx"
+import { DayPicker, type DayProps } from "react-day-picker";
+
+function CustomDay(props: DayProps) {
+  return (
+    <div {...props.htmlAttributes}>
+      {props.day.date.getDate() === 19 && ` 🎉`}
+      {props.children}
+    </div>
+  );
+}
+
+export function MyDatePicker() {
+  return <DayPicker mode="single" components={{ Day: CustomDay }} />;
+}
+```
+
+<BrowserWindow>
+  <Examples.CustomDay />
+</BrowserWindow>
+
+## DayPicker Hooks
+
+When creating custom components, you will find useful the [DayPicker hooks](../api/index.md#hooks).
+
+These utilities provide access to the internal state and methods of the DayPicker component.
+
+| Hook                                             | Description                                                                |
+| :----------------------------------------------- | :------------------------------------------------------------------------- |
+| [useCalendar](../api/functions/useCalendar.md)   | Return the calendar state and navigation methods to navigate the calendar. |
+| [useFocus](../api/functions/useFocus.md)         | Share the focused day and the methods to move the focus.                   |
+| [useModifiers](../api/functions/useModifiers.md) | Access the modifiers used by the calendar.                                 |
+| [useProps](../api/functions/useProps.md)         | Access to the props passed to DayPicker.                                   |
+| [useSelection](../api/functions/useSelection.md) | Access and change the currently selected values.                           |
+
+### Example: Range with Shift Key
+
+Implement a custom `Day` component to select ranges while pressing the <kbd>Shift</kbd> key.
+
+```tsx
+import React, { MouseEventHandler } from "react";
+
+import {
+  DateRange,
+  DayPicker,
+  type DayProps,
+  useSelection
+} from "react-day-picker";
+
+function DayWithShiftKey(props: DayProps) {
+  const { selected } = useSelection<"range">();
+  const onClick = props.htmlAttributes?.onClick;
+
+  const handleClick: MouseEventHandler<HTMLElement> = (e) => {
+    if (selected.from && !selected.to && !isSameDay(props.day.date, selected.from) && !e.shiftKey && ) {
+      return;
+    }
+    onClick?.(e);
+  };
+  return (
+    <div {...props.htmlAttributes} onClick={handleClick}>
+      {props.children}
+    </div>
+  );
+}
+
+export function RangeShiftKey() {
+  const [range, setRange] = React.useState<DateRange>();
+
+  let footer = <p>Please pick a day.</p>;
+
+  if (range?.from && !range?.to) {
+    footer = <p>Press Shift to choose more days.</p>;
+  } else if (range?.to) {
+    footer = (
+      <p>
+        {range.from.toLocaleDateString()}—{range.to.toLocaleDateString()}.
+      </p>
+    );
+  }
+  return (
+    <DayPicker
+      components={{
+        Day: DayWithShiftKey
+      }}
+      mode="range"
+      onSelect={setRange}
+      footer={footer}
+    />
+  );
+}
+```
+
+<BrowserWindow>
+  <Examples.RangeShiftKey />
+</BrowserWindow>
