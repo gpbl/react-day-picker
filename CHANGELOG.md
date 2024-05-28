@@ -2,6 +2,31 @@
 
 See the [Releases page](https://github.com/gpbl/react-day-picker/releases) on Github for the complete list of changes, diffs and contributors, or the [list of versions](https://www.npmjs.com/package/react-day-picker?activeTab=versions) published on npm.
 
+## v9 - in development 🚧
+
+9 is the next major version of React DayPicker, currently in development. See http://react-day-picker.js.org/next for the updated documentation.
+
+To try the new version, install the `next` tag:
+
+```bash
+npm install react-day-picker@next
+```
+
+### What’s New
+
+- Requires React 18+
+- New HTML structure based on `div` grids instead of tables
+- Updated style system with new CSS variables, CSS classes and selectors
+- Enhanced accessibility to complies with WCAG 2.1 AA
+- Updated typings - now DayPicker works in `strict` mode
+- Improved rendering performance, e.g. with multiple months
+- Updated custom components system, with new components and props
+- Removed the `useInput` hook (refer to the documentation for alternatives)
+
+### Breaking Changes
+
+Upgrading to v9 will require some changes in your code. See the [migration guide](https://react-day-picker.js.org/upgrading) for more information.
+
 ## v8.10.1
 
 _Release date: 2024-04-16_
