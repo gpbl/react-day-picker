@@ -87,7 +87,7 @@ html[data-theme="dark"] .browserWindow {
   background-color: var(--ifm-background-color);
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
-  padding: 1rem;
+  padding: 2rem 1rem;
   display: flex;
   justify-content: center;
 }

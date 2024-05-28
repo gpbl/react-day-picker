@@ -1,5 +1,4 @@
-import { DayPicker } from "react-day-picker";
-
+import { DayPicker } from "./react-day-picker-v8";
 import styles from "./styles/css-variables.module.css";
 
 export function CssVariables() {

@@ -6,6 +6,7 @@
     "lib": ["DOM", "ESNext", "DOM.Iterable"],
     "jsx": "react-jsx",
     "baseUrl": ".",
+    "strict": true,
     "types": [
       "node",
       "jest",
@@ -19,5 +20,5 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src", "examples", "test"]
+  "include": ["src", "examples", "examples-v9", "test", "test-v8"]
 }

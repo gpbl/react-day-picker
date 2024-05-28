@@ -1,3 +1,3 @@
-export function ShadowDomWrapper({ children }) {
+export function ShadowDomWrapper({ children }: { children: React.ReactNode }) {
   return children;
 }

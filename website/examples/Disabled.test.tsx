@@ -1,6 +1,6 @@
 import { act, screen } from "@testing-library/react";
 
-import { app, mockDate, grid, gridcell, renderApp, user } from "@/test";
+import { app, mockDate, grid, gridcell, renderApp, user } from "../test-v8";
 
 import { Disabled } from "./Disabled";
 

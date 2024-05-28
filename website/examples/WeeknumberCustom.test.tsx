@@ -1,4 +1,4 @@
-import { renderApp, screen } from "@/test";
+import { renderApp, screen } from "../test-v8";
 
 import { WeeknumberCustom } from "./WeeknumberCustom";
 
