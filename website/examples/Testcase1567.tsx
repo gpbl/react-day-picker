@@ -4,7 +4,7 @@ import {
   DateRange,
   DayPicker,
   SelectRangeEventHandler
-} from "react-day-picker";
+} from "./react-day-picker-v8";
 
 /**
  * Test case for issue #1567

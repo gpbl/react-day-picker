@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 
-import { renderApp, user } from "@/test";
+import { renderApp, user } from "../test-v8";
 
 /* eslint-disable jest/no-disabled-tests */
 import { Testcase1567 } from "./Testcase1567";

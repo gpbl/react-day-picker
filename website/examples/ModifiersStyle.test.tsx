@@ -1,4 +1,4 @@
-import { mockDate, gridcell, renderApp } from "@/test";
+import { mockDate, gridcell, renderApp } from "../test-v8";
 
 import { ModifiersStyle } from "./ModifiersStyle";
 

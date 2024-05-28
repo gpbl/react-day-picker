@@ -1,20 +1,16 @@
-import { DayPickerProps } from "../DayPicker";
-import { DayPickerContextValue } from "../contexts/DayPicker";
 import type {
   DateAfter,
   DateBefore,
   DateInterval,
   DateRange,
   DayOfWeek
-} from "../types/Matchers";
-import {
-  PropsDefault,
-  PropsMulti,
-  PropsRange,
-  PropsSingle
-} from "../types/props";
+} from "../types";
 
-/** Returns true if `matcher` is of type `DateInterval`. */
+/**
+ * Returns true if `matcher` is of type `DateInterval`.
+ *
+ * @group Utilities
+ */
 export function isDateInterval(matcher: unknown): matcher is DateInterval {
   return Boolean(
     matcher &&
@@ -24,49 +20,38 @@ export function isDateInterval(matcher: unknown): matcher is DateInterval {
   );
 }
 
-/** Returns true if `value` is a `DateRange` type. */
+/**
+ * Returns true if `value` is a `DateRange` type.
+ *
+ * @group Utilities
+ */
 export function isDateRange(value: unknown): value is DateRange {
   return Boolean(value && typeof value === "object" && "from" in value);
 }
 
-/** Returns true if `value` is of type `DateAfter`. */
+/**
+ * Returns true if `value` is of type `DateAfter`.
+ *
+ * @group Utilities
+ */
 export function isDateAfterType(value: unknown): value is DateAfter {
   return Boolean(value && typeof value === "object" && "after" in value);
 }
 
-/** Returns true if `value` is of type `DateBefore`. */
+/**
+ * Returns true if `value` is of type `DateBefore`.
+ *
+ * @group Utilities
+ */
 export function isDateBeforeType(value: unknown): value is DateBefore {
   return Boolean(value && typeof value === "object" && "before" in value);
 }
 
-/** Returns true if `value` is a `DayOfWeek` type. */
+/**
+ * Returns true if `value` is a `DayOfWeek` type.
+ *
+ * @group Utilities
+ */
 export function isDayOfWeekType(value: unknown): value is DayOfWeek {
   return Boolean(value && typeof value === "object" && "dayOfWeek" in value);
-}
-/** Returns true when the props are of type {@link PropsSingle}. */
-
-export function isDayPickerSingle(
-  props: DayPickerProps | DayPickerContextValue
-): props is PropsSingle {
-  return props.mode === "single";
-} /** Returns true when the props are of type {@link PropsRange}. */
-
-export function isDayPickerRange(
-  props: DayPickerProps | DayPickerContextValue
-): props is PropsRange {
-  return props.mode === "range";
-}
-/** Returns true when the props are of type {@link PropsMulti}. */
-
-export function isDayPickerMultiple(
-  props: DayPickerProps | DayPickerContextValue
-): props is PropsMulti {
-  return props.mode === "multiple";
-}
-/** Returns true when the props are of type {@link PropsDefault}. */
-
-export function isDayPickerDefault(
-  props: DayPickerProps
-): props is PropsDefault {
-  return props.mode === undefined || props.mode === "default";
 }

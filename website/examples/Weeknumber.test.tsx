@@ -1,4 +1,4 @@
-import { act, mockDate, renderApp, screen, user } from "@/test";
+import { act, mockDate, renderApp, screen, user } from "../test-v8";
 
 import { Weeknumber } from "./Weeknumber";
 
@@ -7,7 +7,7 @@ mockDate(today);
 
 function getWeekButton(week: number) {
   return screen.getByRole("button", {
-    name: `Week ${week}`
+    name: `Week n. ${week}`
   });
 }
 

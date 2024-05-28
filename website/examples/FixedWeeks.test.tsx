@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 
-import { mockDate, renderApp } from "@/test";
+import { mockDate, renderApp } from "../test-v8";
 
 import { FixedWeeks } from "./Fixedweeks";
 

@@ -1,4 +1,4 @@
-import { mockDate, gridcell, renderApp, user, act } from "@/test";
+import { mockDate, gridcell, renderApp, user, act } from "../test-v8";
 
 import { CustomWeek } from "./CustomWeek";
 

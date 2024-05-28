@@ -36,7 +36,7 @@ function MyDatePicker() {
 ```
 
 <BrowserWindow>
-  <Examples.Start />
+  <ExamplesV8.Start />
 </BrowserWindow>
 
 ## License

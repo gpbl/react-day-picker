@@ -2,11 +2,12 @@ import React from "react";
 
 import { format } from "date-fns";
 import { arSA } from "date-fns/locale";
+
 import {
   DateFormatter,
   DayPicker,
   WeekNumberFormatter
-} from "react-day-picker";
+} from "./react-day-picker-v8";
 
 const NU_LOCALE = "ar-u-nu-arab";
 
