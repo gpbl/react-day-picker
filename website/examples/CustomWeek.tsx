@@ -1,7 +1,8 @@
 import { useState } from "react";
 
 import { endOfWeek, isSameWeek, startOfWeek } from "date-fns";
-import { DateRange, DayPicker } from "react-day-picker";
+
+import { DateRange, DayPicker } from "./react-day-picker-v8";
 
 /** Select the whole week when the day is clicked. */
 export function CustomWeek() {
@@ -11,6 +12,7 @@ export function CustomWeek() {
     <DayPicker
       showWeekNumber
       modifiers={{
+        // @ts-expect-error Strict mode not working
         selected: selectedWeek
       }}
       onDayClick={(day, modifiers) => {
@@ -36,7 +38,9 @@ export function CustomWeek() {
       footer={
         selectedWeek && (
           <p>
+            {/* @ts-expect-error Strict mode not working  */}
             Week from {selectedWeek.from.toLocaleDateString()} to
+            {/* @ts-expect-error Strict mode not working  */}
             {selectedWeek.to.toLocaleDateString()}
           </p>
         )

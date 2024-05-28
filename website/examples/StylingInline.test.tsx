@@ -2,7 +2,7 @@ import React from "react";
 
 import { render } from "@testing-library/react";
 
-import { getMonthCaption, mockDate } from "@/test";
+import { getMonthCaption, mockDate } from "../test-v8";
 
 import { StylingInline } from "./StylingInline";
 

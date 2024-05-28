@@ -1,30 +1,28 @@
-import { useRef } from "react";
+import type { HTMLAttributes } from "react";
 
-import { useDayRender } from "../hooks/useDayRender";
-
-import { Button } from "./Button";
-
-/** Represent the props used by the {@link Day} component. */
-export interface DayProps {
-  /** The month where the date is displayed. */
-  displayMonth: Date;
-  /** The date to render. */
-  date: Date;
-}
+import type { CalendarDay } from "../classes";
+import type { DayModifiers } from "../types";
 
 /**
- * The content of a day cell – as a button or span element according to its
- * modifiers.
+ * Render the gridcell of a day in the calendar.
+ *
+ * Use the `components` prop to swap this component with a custom one.
+ *
+ * @group Components
+ * @see https://react-day-picker.js.org/advanced-guides/custom-components
  */
-export function Day(props: DayProps): JSX.Element {
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  const dayRender = useDayRender(props.date, props.displayMonth, buttonRef);
-
-  if (dayRender.isHidden) {
-    return <div role="gridcell"></div>;
-  }
-  if (!dayRender.isButton) {
-    return <div {...dayRender.divProps} />;
-  }
-  return <Button name="day" ref={buttonRef} {...dayRender.buttonProps} />;
+export function Day(props: {
+  /** The day to be rendered in the gridcell. */
+  day: CalendarDay;
+  /** Modifiers for the day. */
+  modifiers: DayModifiers;
+  /** HTML attributes for the gridcell. */
+  htmlAttributes: HTMLAttributes<HTMLElement>;
+  /** Children of the gridcell. */
+  children?: React.ReactNode;
+}) {
+  const { children, htmlAttributes } = props;
+  return <div {...htmlAttributes}>{children}</div>;
 }
+
+export type DayProps = Parameters<typeof Day>[0];

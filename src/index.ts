@@ -1,43 +1,11 @@
 export * from "./DayPicker";
 
-export * from "./components/Button";
-export * from "./components/MonthCaption";
-export * from "./components/CaptionDropdowns";
-export * from "./components/CaptionLabel";
-export * from "./components/CaptionNavigation";
-export * from "./components/Day";
-export * from "./components/DayContent";
-export * from "./components/Dropdown";
-export * from "./components/Footer";
-export * from "./components/Head";
-export * from "./components/WeekdaysRow";
-export * from "./components/IconDropdown";
-export * from "./components/IconRight";
-export * from "./components/IconLeft";
-export * from "./components/Months";
-export * from "./components/WeekRow";
-export * from "./components/WeekNumberRowHeader";
-
-export * from "./hooks/useDayRender";
-export * from "./hooks/useActiveModifiers";
-
-export * from "./contexts/DayPicker";
-export * from "./contexts/Focus";
-export * from "./contexts/Navigation";
-export * from "./contexts/ContextProviders";
-export * from "./contexts/SelectMultiple";
-export * from "./contexts/SelectRange";
-export * from "./contexts/SelectSingle";
-
-export * from "./types/props";
-export * from "./types/events";
-export * from "./types/Formatters";
-export * from "./types/Labels";
-export * from "./types/Matchers";
-export * from "./types/Modifiers";
-export * from "./types/Styles";
-
-export * from "./types/deprecated";
-
-export * from "./contexts/Modifiers/utils/isMatch";
-export * from "./contexts/SelectRange/utils/addToRange";
+export * from "./classes";
+export * from "./components/custom-components";
+export * from "./contexts";
+export * from "./formatters";
+export * from "./labels";
+export * from "./types-deprecated";
+export * from "./types";
+export * from "./utils";
+export * from "./UI";

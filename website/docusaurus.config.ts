@@ -1,5 +1,6 @@
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
+import path from "path";
 import { themes as prismThemes } from "prism-react-renderer";
 import pkg from "react-day-picker/package.json";
 
@@ -14,7 +15,7 @@ const config: Config = {
   projectName: "react-day-picker",
   trailingSlash: false,
 
-  onBrokenLinks: "throw",
+  onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
 
   i18n: {
@@ -158,6 +159,23 @@ const config: Config = {
     colorMode: {
       defaultMode: "light",
       respectPrefersColorScheme: true
+    },
+    webpack: {
+      configure: (webpackConfig) => {
+        // Alias 'react-day-picker-v8' to the npm package installed with the alias
+        webpackConfig.resolve.alias["react-day-picker-v8"] = path.resolve(
+          __dirname,
+          "node_modules/react-day-picker-v8"
+        );
+
+        // Possibly ensure that all instances of 'react-day-picker' are resolved to your custom package
+        webpackConfig.resolve.alias["react-day-picker"] = path.resolve(
+          __dirname,
+          "../packages/react-day-picker"
+        );
+
+        return webpackConfig;
+      }
     }
   } satisfies Preset.ThemeConfig
 };

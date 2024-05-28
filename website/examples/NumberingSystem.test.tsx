@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 
-import { mockDate, grid, renderApp } from "@/test";
+import { mockDate, grid, renderApp } from "../test-v8";
 
 import { NumberingSystem } from "./NumberingSystem";
 

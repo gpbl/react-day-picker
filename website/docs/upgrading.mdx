@@ -58,6 +58,15 @@ Many typings have been deprecated in favor of clarity and shorter names. If you 
 + import { PropsDefault } from 'react-day-picker/types';
 ```
 
+##### DayPickerProps requires the Mode argument
+
+```diff
+- import { DayPickerProps } from 'react-day-picker';
++ import { DayPickerProps, Mode } from 'react-day-picker';
+- const props: DayPickerProps<Mode>;       // pass the `Mode` argument
++ const props: DayPickerProps<Mode>;
+```
+
 ---
 
 ## Upgrade from v7 to v8

@@ -1,6 +1,6 @@
 import { addDays } from "date-fns";
 
-import { getDayButton, user, act, renderApp, screen } from "@/test";
+import { getDayButton, user, act, renderApp, screen } from "../test-v8";
 
 import { Range } from "./Range";
 

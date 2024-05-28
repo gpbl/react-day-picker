@@ -1,4 +1,4 @@
-import { DayPicker } from "react-day-picker";
+import { DayPicker } from "./react-day-picker-v8";
 
 const availableDays = [new Date(2021, 5, 23), new Date(2021, 5, 24)];
 
