@@ -3,7 +3,7 @@ import type { Config } from "@jest/types";
 const config: Config.InitialOptions = {
   verbose: true,
   preset: "ts-jest",
-  roots: ["./src", "./examples"],
+  roots: ["./src", "./examples", "./examples-v9"],
   transform: {
     "^.+\\.tsx?$": [
       "ts-jest",
@@ -21,7 +21,7 @@ const config: Config.InitialOptions = {
   },
   testEnvironment: "jsdom",
   coverageReporters: ["lcov", "text", "clover"],
-  setupFilesAfterEnv: ["./test/setup.ts"]
+  setupFilesAfterEnv: ["./test/setup.ts", "./test-v8/setup.ts"]
 };
 
 export default config;

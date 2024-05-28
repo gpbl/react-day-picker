@@ -1,4 +1,4 @@
-import { columnheader, renderApp } from "@/test";
+import { columnheader, renderApp } from "../test-v8";
 
 import { SpanishWeekStartsOn } from "./SpanishWeekStartsOn";
 

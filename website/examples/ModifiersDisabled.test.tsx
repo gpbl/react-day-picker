@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 
-import { gridcell } from "@/test";
+import { gridcell } from "../test-v8";
 
 import { ModifiersDisabled } from "./ModifiersDisabled";
 

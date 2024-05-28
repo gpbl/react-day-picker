@@ -19,5 +19,5 @@
     "noEmit": true,
     "types": ["node", "jest", "@testing-library/jest-dom", "@types/jest"]
   },
-  "include": ["src", "examples", "test"]
+  "include": ["src", "examples", "examples-v9", "test", "test-v8"]
 }

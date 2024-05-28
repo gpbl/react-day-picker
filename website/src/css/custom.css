@@ -41,6 +41,8 @@
   --ifm-alert-border-left-width: 2px;
 
   --ifm-menu-link-sublist-icon: url(/img/chevron.svg);
+
+  --rdp-accent-color: var(--ifm-color-primary);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -64,10 +66,11 @@ html[data-theme="dark"] {
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 
   --ifm-toc-border-color: transparent !important;
+
+  --rdp-accent-color: var(--ifm-color-primary);
 }
 
-html[data-theme="dark"] .rdp {
-  --rdp-accent-color: var(--ifm-color-primary);
+html[data-theme="dark"] {
   --rdp-background-color: var(--ifm-color-primary-darkest);
   --rdp-selected-color: var(--ifm-color-content);
 }
@@ -208,14 +211,6 @@ a.theme-edit-this-page {
 a.theme-edit-this-page > svg {
   height: 1rem;
   width: 1rem;
-}
-
-div.theme-admonition {
-  font-size: 0.875rem;
-  border-left-width: 0.1rem;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  border-radius: 0;
 }
 
 .markdown table {
@@ -364,4 +359,24 @@ pre code {
   font-size: 0.75rem;
   border-radius: 0.25rem;
   font-weight: normal;
+}
+
+div[class^="admonitionHeading"] {
+  text-transform: initial;
+}
+span[class^="admonitionIcon"] svg {
+  height: 1.2em;
+  width: 1.2em;
+}
+
+div.theme-admonition {
+  font-size: 0.875rem;
+  border-left-width: 0.1rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-radius: 0;
+}
+
+.theme-admonition p {
+  margin: revert;
 }

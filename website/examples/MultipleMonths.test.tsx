@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 
-import { mockDate, prevButton, renderApp, user } from "@/test";
+import { mockDate, prevButton, renderApp, user } from "../test-v8";
 
 import { MultipleMonths } from "./MultipleMonths";
 

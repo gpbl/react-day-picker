@@ -41,38 +41,63 @@ export function DatePicker() {
 
 ### CSS Variables
 
-The default styles use CSS variables to make it easier to customize the base appearance of the calendar. You can override the CSS variables to change the appearance of the calendar.
+The default styles use CSS variables that can be overridden to customize the appearance of the calendar. Define the CSS variables in your app's CSS file, after importing the DayPicker CSS file:
 
 ```css title="./app/global.css"
+@import "react-day-picker/style.css";
+
 :root {
-  --rdp-accent-color: indigo;
-  --rdp-background-color: gray;
+  --rdp-accent-color: indigo; /* Change the accent color to indigo. */
 }
 ```
 
 The following table lists the CSS variables used by DayPicker:
 
-| Variable Name                 | Variable Value      | Description                                        |
-| ----------------------------- | ------------------- | -------------------------------------------------- |
-| `--rdp-cell-size`             | `40px`              | Size of the day cells.                             |
-| `--rdp-caption-font-size`     | `18px`              | Font size for the caption labels.                  |
-| `--rdp-accent-color`          | `#0000ff`           | Accent color for the background of selected days.  |
-| `--rdp-accent-color-dark`     | `#3003e1`           | Accent color for the background of selected days   |
-| `--rdp-background-color`      | `#e7edff`           | Background color for the hovered/focused elements. |
-| `--rdp-background-color-dark` | `#180270`           | Background color for the hovered/focused elements  |
-| `--rdp-outline`               | `2px solid #0000ff` | Outline border for focused elements.               |
-| `--rdp-outline-selected`      | `3px solid #0000ff` | Outline border for focused and selected elements.  |
-| `--rdp-selected-color`        | `#fff`              | Color of selected day text.                        |
+| CSS Variable Name                   | Description                                                         |
+| ----------------------------------- | ------------------------------------------------------------------- |
+| `--rdp-accent-color`                | The accent color used for selected days and UI elements.            |
+| `--rdp-day-border-radius`           | The border radius of the day cells.                                 |
+| `--rdp-day-border`                  | The border of the day cells.                                        |
+| `--rdp-day-font`                    | The font used for the day cells.                                    |
+| `--rdp-day-height`                  | The height of the day cells.                                        |
+| `--rdp-day-width`                   | The width of the day cells.                                         |
+| `--rdp-disabled-opacity`            | The opacity of the disabled days.                                   |
+| `--rdp-excluded-opacity`            | The opacity of the excluded days.                                   |
+| `--rdp-font-family`                 | The font family used by the calendar (`inherited` won't work here). |
+| `--rdp-month-caption-font`          | The font of the month caption.                                      |
+| `--rdp-months-gap`                  | The gap between the months in the multi-month view.                 |
+| `--rdp-nav-button-border-radius`    | The border radius of the navigation buttons.                        |
+| `--rdp-nav-button-disabled-opacity` | The opacity of the disabled navigation buttons.                     |
+| `--rdp-nav-button-height`           | The height of the navigation buttons.                               |
+| `--rdp-nav-button-width`            | The width of the navigation buttons.                                |
+| `--rdp-nav-height`                  | The height of the navigation bar.                                   |
+| `--rdp-outside-opacity`             | The opacity of the days outside the current month.                  |
+| `--rdp-range-background-color`      | The color of the range background.                                  |
+| `--rdp-range-color`                 | The color of the range text.                                        |
+| `--rdp-selected-border`             | The border of the selected days.                                    |
+| `--rdp-selected-font`               | The font of the selected days.                                      |
+| `--rdp-today-color`                 | The color of today's date.                                          |
+| `--rdp-weekday-font`                | The font of the weekday.                                            |
+| `--rdp-weekday-opacity`             | The opacity of the weekday.                                         |
+| `--rdp-weekday-padding`             | The padding of the weekday.                                         |
+| `--rdp-weekday-text-align`          | The text alignment of the weekday cells.                            |
+| `--rdp-week_number-border-radius`   | The border radius of the week number.                               |
+| `--rdp-week_number-border`          | The border of the week number.                                      |
+| `--rdp-week_number-font`            | The font of the week number cells.                                  |
+| `--rdp-week_number-height`          | The height of the week number cells.                                |
+| `--rdp-week_number-opacity`         | The opacity of the week number.                                     |
+| `--rdp-week_number-width`           | The width of the week number cells.                                 |
 
 ### Light/Dark Appearance
 
-To toggle between dark and light appearance, you can switch the CSS variables:
+To toggle between dark and light appearance, override the accent color with the color to use in the dark mode.
 
 ```css
-[data-theme="dark"] .rdp,
-.dark .rdp {
-  --rdp-accent-color: var(--rdp-accent-color-dark);
-  --rdp-background-color: var(--rdp-background-color-dark);
+:root {
+  --rdp-accent-color: blue; /* Use blue as the accent color. */
+}
+[data-theme="dark"] {
+  --rdp-accent-color: yellow; /* Use yellow as the accent color in dark mode. */
 }
 ```
 

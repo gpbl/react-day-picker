@@ -1,34 +1,18 @@
-import { forwardRef } from "react";
+import { ButtonHTMLAttributes } from "react";
 
-import { useDayPicker } from "../contexts/DayPicker";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import type { PropsBase } from "../types";
 
-/** The props for the {@link Button} component. */
-export type ButtonProps = JSX.IntrinsicElements["button"];
+/**
+ * The component used to generate the button elements in the calendar.
+ *
+ * Use the `components` prop to swap this component with a custom one.
+ *
+ * @group Components
+ * @see https://react-day-picker.js.org/advanced-guides/custom-components
+ */
+export function Button(props: ButtonHTMLAttributes<HTMLButtonElement>) {
+  return <button {...props} />;
+}
 
-/** Render a button HTML element applying the reset class name. */
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  (props, ref) => {
-    const { classNames, styles } = useDayPicker();
-
-    const classNamesArr = [classNames.button_reset, classNames.button];
-    if (props.className) {
-      classNamesArr.push(props.className);
-    }
-    const className = classNamesArr.join(" ");
-
-    const style = { ...styles.button_reset, ...styles.button };
-    if (props.style) {
-      Object.assign(style, props.style);
-    }
-
-    return (
-      <button
-        {...props}
-        ref={ref}
-        type="button"
-        className={className}
-        style={style}
-      />
-    );
-  }
-);
+export type ButtonProps = Parameters<typeof Button>[0];

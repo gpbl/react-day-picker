@@ -1,23 +1,17 @@
-import { useDayPicker } from "../contexts/DayPicker";
+import { HTMLProps } from "react";
 
-export interface FooterProps {
-  /** The month where the footer is displayed. */
-  displayMonth?: Date;
+/**
+ * Component wrapping the footer.
+ *
+ * Use the `components` prop to swap this component with a custom one.
+ *
+ * @group Components
+ * @see https://react-day-picker.js.org/advanced-guides/custom-components
+ */
+export function Footer(
+  props: Pick<HTMLProps<HTMLElement>, "children" | "className" | "style">
+) {
+  return <div {...props}>{props.children}</div>;
 }
-/** Render the Footer component (empty as default). */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function Footer(props: FooterProps): JSX.Element {
-  const {
-    footer,
-    styles,
-    classNames: { tfoot }
-  } = useDayPicker();
-  if (!footer) return <></>;
-  return (
-    <tfoot className={tfoot} style={styles.tfoot}>
-      <tr>
-        <td colSpan={8}>{footer}</td>
-      </tr>
-    </tfoot>
-  );
-}
+
+export type FooterProps = Parameters<typeof Footer>[0];

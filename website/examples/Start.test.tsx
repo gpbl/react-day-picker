@@ -5,7 +5,7 @@ import {
   renderApp,
   user,
   mockDate
-} from "@/test";
+} from "../test-v8";
 
 import { Start } from "./Start";
 

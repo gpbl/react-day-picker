@@ -1,4 +1,4 @@
-import { mockDate, grid, renderApp } from "@/test";
+import { mockDate, grid, renderApp } from "../test-v8";
 
 import { DefaultMonth } from "./DefaultMonth";
 

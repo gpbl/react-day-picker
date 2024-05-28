@@ -1,11 +1,12 @@
 import { ChangeEventHandler, useState } from "react";
 
 import { format, isAfter, isBefore, isValid, parse } from "date-fns";
+
 import {
   DateRange,
   DayPicker,
   SelectRangeEventHandler
-} from "react-day-picker";
+} from "./react-day-picker-v8";
 
 export function InputRange() {
   const [selectedRange, setSelectedRange] = useState<DateRange>();
