@@ -25,7 +25,13 @@ npm install react-day-picker@next
 
 ### Breaking Changes
 
-Upgrading to v9 will require some changes in your code. See the [migration guide](https://react-day-picker.js.org/upgrading) for more information.
+Upgrading to v9 will require some changes in your code. See the [migration guide](https://react-day-picker.js.org/next/upgrading) for more information.
+
+### Help Testing this Version
+
+Please report any issues or provide feedback on the [GitHub repository](https://github.com/gpbl/react-day-picker/discussions/categories/daypicker-v9).
+
+We welcome feedback about the upgrade process to ensure it's smooth for everyone.
 
 ## v8.10.1
 
