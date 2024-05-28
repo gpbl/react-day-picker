@@ -7,7 +7,7 @@ mockDate(today);
 
 beforeEach(() => renderApp(<RangeMinMax />).container);
 
-// eslint-disable-next-line jest/no-disabled-tests
+// eslint-disable-next-line jest/no-disabled-tests, jest/expect-expect
 test.skip("when the first day is clicked", () => {
   // TODO: Implement test
 });

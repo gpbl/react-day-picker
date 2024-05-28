@@ -161,7 +161,7 @@ const config: Config = {
       respectPrefersColorScheme: true
     },
     webpack: {
-      configure: (webpackConfig, { env, paths }) => {
+      configure: (webpackConfig) => {
         // Alias 'react-day-picker-v8' to the npm package installed with the alias
         webpackConfig.resolve.alias["react-day-picker-v8"] = path.resolve(
           __dirname,

@@ -1,4 +1,4 @@
-import { UI, DayModifier } from "../UI";
+import { DayModifier } from "../UI";
 import type {
   DayModifiers,
   ModifiersClassNames,

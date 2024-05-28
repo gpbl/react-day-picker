@@ -17,9 +17,8 @@ const Test = () => {
       />
       <DayPicker />
       {/** @ts-expect-error Extra `selected` */}
-      <DayPicker mode="none" selected={new Date()} />
-      {/** @ts-expect-error Missing `onDayClick` */}
-      <DayPicker mode="none" onSelect={() => console.log(1)} />
+      <DayPicker mode="default" selected={new Date()} />
+      <DayPicker mode="default" />
 
       {/* <DayPicker
         mode="custom"
