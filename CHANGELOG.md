@@ -4,6 +4,8 @@ See the [Releases page](https://github.com/gpbl/react-day-picker/releases) on Gi
 
 ## v9 - in development 🚧
 
+_First beta release date: 2024-05-28_
+
 9 is the next major version of React DayPicker, currently in development. See http://react-day-picker.js.org/next for the updated documentation.
 
 To try the new version, install the `next` tag:
