@@ -111,7 +111,6 @@ export function Dialog() {
         <DayPicker
           month={month}
           onMonthChange={setMonth}
-          initialFocus
           mode="single"
           selected={selectedDate}
           onSelect={handleDayPickerSelect}

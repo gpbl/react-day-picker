@@ -7,6 +7,8 @@ import styles from "react-day-picker-v8/dist/style.module.css";
 
 export {
   Button,
+  Caption,
+  type CaptionProps,
   type DayPickerSingleProps,
   type DayContentProps,
   type DayMouseEventHandler,
@@ -15,6 +17,7 @@ export {
   type WeekNumberFormatter,
   type DateRange,
   type DayProps,
+  type SelectSingleEventHandler,
   useDayRender,
   useNavigation,
   useSelectRange,
