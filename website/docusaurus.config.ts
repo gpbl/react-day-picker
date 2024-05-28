@@ -72,6 +72,13 @@ const config: Config = {
   ],
 
   themeConfig: {
+    announcementBar: {
+      id: "9-beta", // Any unique string
+      content:
+        '📆 Preview: try the <a href="/next">beta version of DayPicker v9</a>.',
+      backgroundColor: "rebeccapurple",
+      textColor: "white"
+    },
     image: "img/social-card.png",
     metadata: [
       {
