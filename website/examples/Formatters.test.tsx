@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import { mockDate } from "@/test";
+import { mockDate } from "../test-v8";
 
 import { Formatters } from "./Formatters";
 

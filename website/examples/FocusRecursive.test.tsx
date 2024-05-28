@@ -5,7 +5,7 @@ import {
   mockDate,
   renderApp,
   user
-} from "@/test";
+} from "../test-v8";
 
 import { FocusRecursive } from "./FocusRecursive";
 

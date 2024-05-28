@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { DayPicker } from "react-day-picker";
+import { DayPicker } from "./react-day-picker-v8";
 
 export function Start() {
   const [selected, setSelected] = useState<Date>();

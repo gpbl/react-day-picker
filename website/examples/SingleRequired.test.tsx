@@ -1,4 +1,4 @@
-import { mockDate, gridcell, renderApp, user } from "@/test";
+import { mockDate, gridcell, renderApp, user } from "../test-v8";
 
 import { SingleRequired } from "./SingleRequired";
 

@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 
-import { mockDate, grid, renderApp, user } from "@/test";
+import { mockDate, grid, renderApp, user } from "../test-v8";
 
 import { DropdownMultipleMonths } from "./DropdownMultipleMonths";
 

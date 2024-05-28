@@ -2,7 +2,7 @@ import React from "react";
 
 import { setDate } from "date-fns";
 
-import { act, getDayButton, mockDate, renderApp, user } from "@/test";
+import { act, getDayButton, mockDate, renderApp, user } from "../test-v8";
 
 import { RangeMinMax } from "./RangeMinMax";
 

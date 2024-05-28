@@ -1,6 +1,6 @@
 import { differenceInMonths } from "date-fns";
 
-import { act, nextButton, prevButton, renderApp, user } from "@/test";
+import { act, nextButton, prevButton, renderApp, user } from "../test-v8";
 
 import { FromToMonth } from "./FromToMonth";
 

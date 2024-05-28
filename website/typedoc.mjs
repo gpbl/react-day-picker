@@ -9,14 +9,25 @@
 const options = {
   name: "API",
   includeVersion: true,
-
   basePath: "../",
   entryPoints: ["../src/index.ts"],
   tsconfig: "../tsconfig-docs.json",
-
+  categorizeByGroup: true,
+  groupOrder: [
+    "Props",
+    "Classes",
+    "Components",
+    "Hooks",
+    "Contexts",
+    "Utilities",
+    "Formatters",
+    "Labels",
+    "*"
+  ],
   readme: "none",
 
   excludePrivate: true,
+  excludeProtected: true,
   sort: ["alphabetical"],
 
   entryFileName: "index.mdx",
@@ -30,9 +41,13 @@ const options = {
   propertiesFormat: "list",
   enumMembersFormat: "table",
   typeDeclarationFormat: "table",
-  indexFormat: "table"
+  indexFormat: "table",
 
-  // plugin: ["typedoc-plugin-markdown", "typedoc-plugin-frontmatter"]
+  plugin: ["typedoc-plugin-markdown", "typedoc-plugin-frontmatter"],
+  frontmatterGlobals: {
+    pagination_next: null,
+    pagination_prev: null
+  }
 };
 
 export default options;

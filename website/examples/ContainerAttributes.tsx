@@ -1,4 +1,4 @@
-import { DayPicker } from "react-day-picker";
+import { DayPicker } from "./react-day-picker-v8";
 
 /**
  * Pass selected HTML attributes and `data-` attributes to the root element.
