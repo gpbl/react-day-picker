@@ -1,6 +1,6 @@
 import { addDays } from "date-fns";
 
-import { getDayButton, user, act, renderApp, screen } from "@/test";
+import { getDayButton, user, act, renderApp, screen } from "../test-v8";
 
 import { Range } from "./Range";
 
@@ -45,8 +45,8 @@ describe("when a day in the range is clicked", () => {
     describe("when a day in the range is clicked again", () => {
       const day = days[2];
       beforeEach(async () => act(() => user.click(getDayButton(day))));
-      test("no day should be selected (??)", () => {
-        expect(getAllSelectedDays()).toHaveLength(0);
+      test("only one day should be selected", () => {
+        expect(getAllSelectedDays()).toHaveLength(1);
       });
       test("should match the snapshot", () => {
         expect(container).toMatchSnapshot();
@@ -56,7 +56,10 @@ describe("when a day in the range is clicked", () => {
 });
 
 function getAllSelectedDays() {
-  const buttons = screen.getAllByRole("gridcell");
+  const buttons = screen
+    .getByRole("grid")
+    .getElementsByTagName("tbody")[0]
+    .getElementsByTagName("button");
 
   return Array.from(buttons).filter(
     (button) => button.getAttribute("aria-selected") === "true"

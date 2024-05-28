@@ -1,4 +1,4 @@
-import { renderApp, screen } from "@/test";
+import { renderApp, screen } from "../test-v8";
 
 import { WeeknumberCustom } from "./WeeknumberCustom";
 
@@ -7,5 +7,5 @@ beforeEach(() => {
 });
 
 test("should display the 1st week (even if December)", () => {
-  expect(screen.getByRole("rowheader", { name: `W1` })).toBeInTheDocument();
+  expect(screen.getByRole("cell", { name: `W1` })).toBeInTheDocument();
 });

@@ -1,5 +1,5 @@
-import { DayPicker } from "react-day-picker";
+import { DayPicker } from "./react-day-picker-v8";
 
 export function Dropdown() {
-  return <DayPicker dropdownNavigation fromYear={2015} toYear={2025} />;
+  return <DayPicker captionLayout="dropdown" fromYear={2015} toYear={2025} />;
 }

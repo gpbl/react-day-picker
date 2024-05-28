@@ -1,4 +1,4 @@
-import { act, getDayButton, mockDate, renderApp, user } from "@/test";
+import { act, getDayButton, mockDate, renderApp, user } from "../test-v8";
 
 import { RangeShiftKey } from "./RangeShiftKey";
 

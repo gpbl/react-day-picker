@@ -1,5 +1,6 @@
-import { FormatOptions, format } from "date-fns";
-import { DayPicker } from "react-day-picker";
+import { format } from "date-fns";
+
+import { DateFormatter, DayPicker } from "./react-day-picker-v8";
 
 const seasonEmoji: Record<string, string> = {
   winter: "⛄️",
@@ -16,17 +17,13 @@ const getSeason = (month: Date): string => {
   else return "autumn";
 };
 
-const formatCaption = (month: Date, options: FormatOptions | undefined) => {
+const formatCaption: DateFormatter = (month, options) => {
   const season = getSeason(month);
   return `${seasonEmoji[season]} ${format(month, "LLLL", { locale: options?.locale })}`;
 };
 
 export function Formatters() {
   return (
-    <DayPicker
-      fromYear={2020}
-      toYear={2025}
-      formatters={{ formatMonthCaption: formatCaption }}
-    />
+    <DayPicker fromYear={2020} toYear={2025} formatters={{ formatCaption }} />
   );
 }

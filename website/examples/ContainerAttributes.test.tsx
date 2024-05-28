@@ -1,4 +1,4 @@
-import { app, renderApp } from "@/test";
+import { app, renderApp } from "../test-v8";
 
 import { ContainerAttributes } from "./ContainerAttributes";
 

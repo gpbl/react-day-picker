@@ -5,7 +5,7 @@ import {
   mockDate,
   renderApp,
   user
-} from "@/test";
+} from "../test-v8";
 
 import { FocusRecursive } from "./FocusRecursive";
 
@@ -13,8 +13,7 @@ const today = new Date(2022, 5, 10);
 
 mockDate(today);
 
-// eslint-disable-next-line jest/no-disabled-tests
-test.skip("the first selected day should have focus", async () => {
+test("the first selected day should have focus", async () => {
   renderApp(<FocusRecursive />).container;
   await act(() => user.tab());
   await act(() => user.tab());

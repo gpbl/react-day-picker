@@ -1,4 +1,4 @@
-import { DayPicker } from "react-day-picker";
+import { DayPicker } from "./react-day-picker-v8";
 
 export function StylingCss() {
   const style = `
@@ -13,7 +13,7 @@ export function StylingCss() {
       <style>{style}</style>
       <DayPicker
         classNames={{
-          month_caption: "caption_aqua"
+          caption: "caption_aqua"
         }}
       />
     </>

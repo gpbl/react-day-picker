@@ -1,4 +1,4 @@
-import { app, mockDate, gridcell, renderApp, user, act } from "@/test";
+import { app, mockDate, gridcell, renderApp, user, act } from "../test-v8";
 
 import { CustomSingle } from "./CustomSingle";
 

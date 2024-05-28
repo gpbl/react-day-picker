@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import { DayPicker, type DayPickerProps } from "react-day-picker";
+import { DayPicker, DayPickerSingleProps } from "./react-day-picker-v8";
 
-export function Keyboard(props: DayPickerProps<"single">) {
+export function Keyboard(props: DayPickerSingleProps) {
   const [selected, setSelected] = useState<Date | undefined>(undefined);
   return (
     <DayPicker

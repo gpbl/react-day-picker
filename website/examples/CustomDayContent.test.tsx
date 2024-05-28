@@ -1,17 +1,17 @@
-import { renderApp, screen, mockDate } from "@/test";
+import { renderApp, screen, mockDate } from "../test-v8";
 
-import { CustomDay } from "./CustomDay";
+import { CustomDayContent } from "./CustomDayContent";
 
 mockDate(new Date(2021, 10, 25));
 
 beforeEach(() => {
   renderApp(
     <div role="app">
-      <CustomDay />
+      <CustomDayContent />
     </div>
   );
 });
 
-test("should render the emoji", () => {
-  expect(screen.getByText("🎉19")).toBeInTheDocument();
+test("should render time elements", () => {
+  expect(screen.getByText("🎉")).toBeInTheDocument();
 });
