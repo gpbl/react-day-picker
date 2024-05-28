@@ -20,5 +20,5 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src", "examples", "examples-v8", "test", "test-v8"]
+  "include": ["src", "examples", "examples-v9", "test", "test-v8"]
 }
