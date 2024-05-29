@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ES2018",
-    "lib": ["DOM", "ESNext", "DOM.Iterable"],
+    "target": "ES2020",
+    "lib": ["DOM", "ES2020", "DOM.Iterable"],
     "jsx": "react",
-    "module": "ESNext",
+    "module": "ES2020",
     "moduleResolution": "Node",
     "sourceMap": true,
     "declaration": true,
@@ -12,9 +12,6 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "alwaysStrict": true,
-    "skipLibCheck": true,
-
-    "importHelpers": false,
-    "noEmitHelpers": true
+    "skipLibCheck": true
   }
 }

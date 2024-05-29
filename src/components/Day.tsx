@@ -1,5 +1,5 @@
 import React from "react";
-import type { HTMLAttributes } from "react";
+import type { HTMLAttributes, ReactNode } from "react";
 
 import type { CalendarDay } from "../classes";
 import type { DayModifiers } from "../types";
@@ -20,7 +20,7 @@ export function Day(props: {
   /** HTML attributes for the gridcell. */
   htmlAttributes: HTMLAttributes<HTMLElement>;
   /** Children of the gridcell. */
-  children?: React.ReactNode;
+  children?: ReactNode;
 }) {
   const { children, htmlAttributes } = props;
   return <div {...htmlAttributes}>{children}</div>;
