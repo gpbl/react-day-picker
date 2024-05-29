@@ -1,3 +1,5 @@
+import React from "react";
+
 import { UI } from "../UI";
 import type { CalendarWeek } from "../classes";
 import { useProps } from "../contexts/props";

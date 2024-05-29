@@ -1,3 +1,4 @@
+import React from "react";
 import type { HTMLAttributes } from "react";
 
 import type { CalendarDay } from "../classes";
