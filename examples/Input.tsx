@@ -51,7 +51,7 @@ export function Input() {
   return (
     <div>
       <label htmlFor={inputId}>
-        <strong>Date: </strong>
+        <strong>Date:</strong>
       </label>
       <input
         style={{ fontSize: "inherit", padding: "0.25em 0.5em" }}
