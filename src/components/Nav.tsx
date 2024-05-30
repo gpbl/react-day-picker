@@ -1,4 +1,4 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 
 import { UI } from "../UI";
 import { useCalendar } from "../contexts/calendar";
@@ -22,10 +22,24 @@ export function Nav() {
     labels: { labelNext, labelPrevious },
     locale,
     components,
-    id
+    id,
+    onNextClick,
+    onPrevClick
   } = useProps();
 
   const calendar = useCalendar();
+
+  const handlePreviousClick = () => {
+    if (!calendar.previousMonth) return;
+    calendar.goToPreviousMonth();
+    onPrevClick?.(calendar.previousMonth);
+  };
+
+  const handleNextClick = () => {
+    if (!calendar.nextMonth) return;
+    calendar.goToNextMonth();
+    onNextClick?.(calendar.nextMonth);
+  };
 
   const Button = components?.Button ?? DefaultButton;
   const Chevron = components?.Chevron ?? DefaultChevron;
@@ -40,7 +54,7 @@ export function Nav() {
         disabled={calendar.previousMonth ? undefined : true}
         aria-label={labelPrevious(calendar.previousMonth, { locale })}
         aria-controls={id}
-        onClick={calendar.goToPreviousMonth}
+        onClick={handlePreviousClick}
       >
         <Chevron />
       </Button>
@@ -52,7 +66,7 @@ export function Nav() {
         disabled={calendar.nextMonth ? undefined : true}
         aria-label={labelNext(calendar.nextMonth, { locale })}
         aria-controls={id}
-        onClick={calendar.goToNextMonth}
+        onClick={handleNextClick}
       >
         <Chevron orientation="right" />
       </Button>
