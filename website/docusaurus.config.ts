@@ -65,8 +65,7 @@ const config: Config = {
       "docusaurus-plugin-typedoc",
       {
         entryPoints: ["../src/index.ts"],
-        tsconfig: "../tsconfig-docs.json",
-        watch: process.env.TYPEDOC_WATCH
+        tsconfig: "../tsconfig-docs.json"
       }
     ]
   ],
