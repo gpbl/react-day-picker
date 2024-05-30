@@ -23,21 +23,24 @@ import "react-day-picker/style.css";
 
 </details>
 
-<details>
-<summary>Importing the CSS Module</summary>
+### Importing the CSS Module
 
-When using CSS modules, you can import `style.module.css`. Pass the class names to the `classNames` prop.
+You can import `style.module.css` if you want your CSS pre-processor to parse it. Pass the imported styles to the `classNames` prop.
 
-```tsx title="./DatePicker.jsx"
+```tsx title="./MyDatePicker.jsx"
 import { DayPicker } from "react-day-picker";
-import { default as defaultStyles } from "react-day-picker/style.module.css";
+import styles from "react-day-picker/style.module.css";
 
-export function DatePicker() {
-  return <DayPicker classNames={defaultStyles} />;
+console.log(styles); // Output the class names as parsed by CSS modules.
+
+export function MyDatePicker() {
+  return <DayPicker classNames={styles} />;
 }
 ```
 
-</details>
+<BrowserWindow>
+  <Examples.CssModules />
+</BrowserWindow>
 
 ### CSS Variables
 
@@ -107,9 +110,11 @@ Use the `classNames` prop to use other classnames instead of the default ones.
 
 ### Tailwind CSS
 
-> TODO: this section is still incomplete.
+...
 
 ### Custom CSS
+
+...
 
 ### Inline Styles
 

@@ -3,6 +3,11 @@
  *
  * These elements are mapped to the components directory.
  */
+/**
+ * The UI elements composing DayPicker.
+ *
+ * These elements are mapped to the components directory.
+ */
 export enum UI {
   /** The previous button in the navigation. */
   ButtonPrevious = "button_previous",
@@ -10,12 +15,12 @@ export enum UI {
   ButtonNext = "button_next",
   /** The calendar element, the root of the component. */
   Calendar = "calendar",
+  /** The Chevron SVG element used by navigation buttons and dropdowns. */
+  Chevron = "chevron",
   /** The gridcell with the day's date. */
   Day = "day",
   /** The label of a caption. */
   CaptionLabel = "caption_label",
-  /** The Chevron SVG element used by navigation buttons and dropdowns. */
-  Chevron = "chevron",
   /** The container of the dropdown navigation.. */
   DropdownNav = "dropdown_nav",
   /** The dropdown used for years and months. */
@@ -24,22 +29,22 @@ export enum UI {
   DropdownRoot = "dropdown_root",
   /** The root element of the {@link Footer} component. */
   Footer = "footer",
+  /** The month grid. */
+  Month = "month",
   /** The caption of a month. */
   MonthCaption = "month_caption",
   /** The dropdown of months. */
   MonthsDropdown = "months_dropdown",
   /** Wrapper of the month grid. */
   MonthWrapper = "month_wrapper",
-  /** The month grid. */
-  Month = "month",
-  /** The group of weeks in a month. */
-  Weeks = "weeks",
   /** Container containing the months. */
   Months = "months",
   /** The navigation element. */
   Nav = "nav",
   /** The row in a week. */
   Week = "week",
+  /** The group of weeks in a month. */
+  Weeks = "weeks",
   /** The column's header with the weekday. */
   Weekday = "weekday",
   /** The row grouping the weekdays. */
@@ -77,9 +82,9 @@ export enum DayModifier {
 /** Flags that can be applied to the {@link UI.Calendar} element. */
 export enum CalendarFlag {
   /** Assigned when the week numbers are show. */
-  hasWeekNumbers = "week_numbers",
+  hasWeekNumbers = "has_week_numbers",
   /** Assigned when the weekdays are hidden. */
   noWeekdays = "no_weekdays",
   /** Assigned when the calendar has multiple months. */
-  hasMultipleMonths = "multiple_months"
+  hasMultipleMonths = "has_multiple_months"
 }
