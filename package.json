@@ -35,25 +35,25 @@
       "require": "./src/style.css",
       "import": "./src/style.css",
       "default": "./src/style.css",
-      "types": "./src/style.d.ts"
+      "types": "./src/style.css.d.ts"
     },
     "./dist/style.css": {
       "require": "./src/style.css",
       "import": "./src/style.css",
       "default": "./src/style.css",
-      "types": "./src/style.d.ts"
+      "types": "./src/style.css.d.ts"
     },
     "./style.module.css": {
-      "require": "./src/style.css",
-      "import": "./src/style.css",
-      "default": "./src/style.css",
-      "types": "./src/style.d.ts"
+      "require": "./src/style.module.css",
+      "import": "./src/style.module.css",
+      "default": "./src/style.module.css",
+      "types": "./src/style.module.css.d.ts"
     },
     "./dist/style.module.css": {
-      "require": "./src/style.css",
-      "import": "./src/style.css",
-      "default": "./src/style.css",
-      "types": "./src/style.d.ts"
+      "require": "./src/style.module.css",
+      "import": "./src/style.module.css",
+      "default": "./src/style.module.css",
+      "types": "./src/style.module.css.d.ts"
     },
     "./package.json": {
       "require": "./package.json",
@@ -66,6 +66,7 @@
     "build": "pnpm build:cjs && pnpm build:esm",
     "build:cjs": "tsc --project tsconfig-cjs.json",
     "build:esm": "tsc --project tsconfig-esm.json",
+    "build:css": "tcm src",
     "lint": "eslint .",
     "test": "jest",
     "test-watch": "jest --watch",
@@ -110,7 +111,8 @@
     "ts-jest": "^29.1.3",
     "ts-node": "^10.9.2",
     "tslib": "^2.6.2",
-    "typescript": "~5.4.5"
+    "typescript": "~5.4.5",
+    "typescript-css-modules": "^1.0.4"
   },
   "peerDependencies": {
     "date-fns": "^2.28.0 || ^3.0.0",
