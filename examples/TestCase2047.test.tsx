@@ -14,7 +14,6 @@ test("disabled date is not selected", () => {
   expect(gridcell(new Date(2024, 5, 10))).not.toHaveAttribute("aria-selected");
 });
 
-// eslint-disable-next-line jest/no-disabled-tests
 describe("when the calendar is focused", () => {
   beforeEach(async () => {
     await user.click(gridcell(new Date(2024, 5, 10)));
