@@ -1,3 +1,5 @@
+import React from "react";
+
 import { renderHook as testingLibraryRenderHook } from "@testing-library/react";
 
 import { ContextProviders } from "../src/contexts";

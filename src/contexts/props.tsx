@@ -1,4 +1,9 @@
-import { createContext, PropsWithChildren, useContext, useId } from "react";
+import React, {
+  createContext,
+  PropsWithChildren,
+  useContext,
+  useId
+} from "react";
 
 import { getClassNames } from "../helpers/getClassNames";
 import { getDataAttributes } from "../helpers/getDataAttributes";
