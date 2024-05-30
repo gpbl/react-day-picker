@@ -1,4 +1,4 @@
-import { SelectHTMLAttributes } from "react";
+import React, { SelectHTMLAttributes } from "react";
 
 import { UI } from "../UI";
 import { useProps } from "../contexts/props";

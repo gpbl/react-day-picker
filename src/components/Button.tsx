@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from "react";
+import React, { ButtonHTMLAttributes } from "react";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type { PropsBase } from "../types";

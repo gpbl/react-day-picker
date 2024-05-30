@@ -1,3 +1,5 @@
+import React from "react";
+
 import type { PropsBase } from "../types";
 
 /** Return the `data-` attributes from the props. */

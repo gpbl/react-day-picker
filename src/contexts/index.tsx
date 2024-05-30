@@ -1,3 +1,4 @@
+import React from "react";
 import type { FunctionComponent, PropsWithChildren } from "react";
 
 import type { DayPickerProps, Mode } from "../types";
