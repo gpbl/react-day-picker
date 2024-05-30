@@ -1,10 +1,10 @@
 /* eslint-disable jest/no-disabled-tests */
 import React from "react";
 
-import { userEvent } from "@testing-library/user-event";
 import { format } from "date-fns";
 
-import { render, screen } from "@/test/render";
+import { act, render, screen } from "@/test/render";
+import { user } from "@/test/user";
 
 import { Input } from "./Input";
 
@@ -20,15 +20,15 @@ function selectedCells() {
   return gridcells().filter((cell) => cell.hasAttribute("aria-selected"));
 }
 
-test.skip("renders a textbox", () => {
+test("renders a textbox", () => {
   render(<Input />);
   expect(textbox()).toBeInTheDocument();
 });
 
-test.skip("updates the calendar when a date is typed in", async () => {
+test("updates the calendar when a date is typed in", async () => {
   render(<Input />);
   const testDate = new Date(2022, 11, 31); // Dec 31, 2022
-  await act(() => userEvent.type(textbox(), format(testDate, "MM/dd/yyyy")));
+  await user.type(textbox(), format(testDate, "MM/dd/yyyy"));
 
   expect(
     screen.getByText(`Selected: ${testDate.toDateString()}`)
@@ -38,10 +38,10 @@ test.skip("updates the calendar when a date is typed in", async () => {
   expect(selectedCells()[0]).toHaveTextContent(`${testDate.getDate()}`);
 });
 
-test.skip("updates the input when a day is picked from the calendar", async () => {
+test("updates the input when a day is picked from the calendar", async () => {
   render(<Input />);
   const testDate = new Date(2022, 11, 31); // Dec 31, 2022
-  await userEvent.type(textbox(), format(testDate, "MM/dd/yyyy"));
+  await user.type(textbox(), format(testDate, "MM/dd/yyyy"));
 
   expect(
     screen.getByText(`Selected: ${testDate.toDateString()}`)
@@ -51,15 +51,15 @@ test.skip("updates the input when a day is picked from the calendar", async () =
   expect(selectedCells()[0]).toHaveTextContent(`${testDate.getDate()}`);
 });
 
-test.skip("clears the selected days when an invalid date is entered", async () => {
+test("clears the selected days when an invalid date is entered", async () => {
   render(<Input />);
-  await userEvent.type(textbox(), "invalid date");
+  await user.type(textbox(), "invalid date");
   expect(selectedCells()).toHaveLength(0);
 });
 
-test.skip("updates the month when a date is typed in", async () => {
+test("updates the month when a date is typed in", async () => {
   render(<Input />);
   const testDate = new Date(2022, 11, 31); // Dec 31, 2022
-  await userEvent.type(textbox(), format(testDate, "MM/dd/yyyy"));
+  await user.type(textbox(), format(testDate, "MM/dd/yyyy"));
   expect(screen.getByText(`December 2022`)).toBeInTheDocument();
 });
