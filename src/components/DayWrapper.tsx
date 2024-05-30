@@ -78,7 +78,6 @@ export function DayWrapper(props: {
     focusStartOfWeek,
     focusEndOfWeek
   } = useFocus();
-
   const modifiers = getModifiers(props.day);
 
   const onClick: MouseEventHandler = (e) => {
@@ -95,6 +94,11 @@ export function DayWrapper(props: {
   };
 
   const onFocus: FocusEventHandler = (e) => {
+    if (modifiers.disabled) {
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
     focus(props.day);
     onDayFocus?.(props.day.date, modifiers, e);
   };

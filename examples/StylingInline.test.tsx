@@ -11,7 +11,6 @@ beforeEach(() => {
   render(<StylingInline />);
 });
 
-// eslint-disable-next-line jest/no-disabled-tests
 test("the caption should apply the custom style", () => {
   expect(screen.getByRole("status").parentElement).toHaveStyle({
     color: "red"
