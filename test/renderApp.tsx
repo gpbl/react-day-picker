@@ -1,4 +1,5 @@
 import { type ReactElement } from "react";
+import React from "react";
 
 import { type RenderResult, render, screen } from "@testing-library/react";
 

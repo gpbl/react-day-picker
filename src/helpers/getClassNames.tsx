@@ -1,3 +1,5 @@
+import React from "react";
+
 import type { PropsBase } from "../types";
 
 import { getDefaultClassNames } from "./getDefaultClassNames";

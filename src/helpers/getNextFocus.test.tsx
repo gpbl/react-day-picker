@@ -1,3 +1,5 @@
+import React from "react";
+
 import { CalendarDay } from "../classes";
 import type { MoveFocusBy, MoveFocusDir } from "../contexts/focus";
 import type { PropsContext } from "../contexts/props";

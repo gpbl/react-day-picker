@@ -1,3 +1,5 @@
+import React from "react";
+
 import * as defaultLabels from "../labels";
 import type { Labels, PropsBase } from "../types";
 

@@ -1,3 +1,5 @@
+import React from "react";
+
 import * as defaultFormatters from "../formatters";
 import type { PropsBase } from "../types";
 

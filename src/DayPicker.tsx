@@ -1,3 +1,5 @@
+import React from "react";
+
 import { Calendar } from "./components/Calendar";
 import { ContextProviders } from "./contexts";
 import type { DayPickerProps, Mode } from "./types";
