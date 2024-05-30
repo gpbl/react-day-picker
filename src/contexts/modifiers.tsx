@@ -72,10 +72,11 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
     const isDisabled = Boolean(disabled && dateMatchModifiers(date, disabled));
 
     const isSelected =
-      selection.isSelected(date) ||
-      Boolean(
-        modifiers?.selected && dateMatchModifiers(date, modifiers.selected)
-      );
+      !isDisabled &&
+      (selection.isSelected(date) ||
+        Boolean(
+          modifiers?.selected && dateMatchModifiers(date, modifiers.selected)
+        ));
 
     const isHidden =
       Boolean(hidden && dateMatchModifiers(date, hidden)) ||
@@ -83,6 +84,7 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
 
     const isInteractive =
       mode !== "default" || (mode === "default" && onDayClick !== undefined);
+
     const isFocusable = isInteractive && !isDisabled && !isHidden;
 
     const isToday = isSameDay(date, today);
