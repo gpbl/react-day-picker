@@ -1,6 +1,6 @@
 import React from "react";
 
-import { nextButton } from "@/test/elements";
+import { nextButton, previousButton } from "@/test/elements";
 import { render } from "@/test/render";
 import { user } from "@/test/user";
 
@@ -19,7 +19,7 @@ describe("when clicking the previous button", () => {
   test("should call the onPrevClick callback", async () => {
     const onPrevClick = jest.fn();
     render(<Nav />, { onPrevClick });
-    await user.click(nextButton());
+    await user.click(previousButton());
     expect(onPrevClick).toHaveBeenCalled();
   });
 });
