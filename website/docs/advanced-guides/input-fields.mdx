@@ -4,11 +4,7 @@ sidebar_position: 1
 
 # Input Fields
 
-Implementing DayPicker together with an input field requires complex interaction and design considerations, which we do not bake into the DayPicker component.
-
-As a developer, you will need to handle the integration of DayPicker with an input field in your application. This involves managing user interactions, syncing the selected date between the calendar and the input field, and ensuring accessibility and usability.
-
-See the [examples below](#examples) as a starting point for implementing a date picker with input fields.
+To bind a DayPicker with sn input field, you need to handle the integration in your application. This involves managing user interactions, syncing the selected date between the calendar and the input field, and ensuring accessibility and usability.
 
 :::info Native Date Pickers
 
@@ -19,11 +15,9 @@ However, the appearance and format of the date picker can vary between different
 
 ## Examples
 
-These examples showcase different approaches for integrating DayPicker with input fields, such as using an inline calendar or a date picker dialog.
-
 ### Input with Inline Calendar
 
-This example demonstrates how to integrate an input field with an inline DayPicker calendar. The input field allows users to type a date, and the calendar updates the selected date based on the input value.
+Integrate an input field with an inline DayPicker calendar. The input field allows users to type a date, and the calendar updates the selected date based on the input value.
 
 See also the [full source code](https://github.com/gpbl/react-day-picker/blob/main/website/examples/Input.tsx) and [the unit tests](https://github.com/gpbl/react-day-picker/blob/main/website/examples/Input.test.tsx) for this example.
 
@@ -158,10 +152,6 @@ export function Dialog() {
     };
   }, [isDialogOpen]);
 
-  /**
-   * Function to handle the DayPicker select event: update the input value and
-   * the selected date, and set the month.
-   */
   const handleDayPickerSelect = (date: Date) => {
     if (!date) {
       setInputValue("");
@@ -172,10 +162,7 @@ export function Dialog() {
     }
     dialogRef.current?.close();
   };
-  /**
-   * Handle the input change event: parse the input value to a date, update the
-   * selected date and set the month.
-   */
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value); // keep the input value in sync
 

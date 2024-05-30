@@ -54,25 +54,27 @@ export function Input() {
         <strong>Date: </strong>
       </label>
       <input
-        style={{ fontSize: "inherit" }}
+        style={{ fontSize: "inherit", padding: "0.25em 0.5em" }}
         id={inputId}
         type="text"
         value={inputValue}
         placeholder="MM/dd/yyyy"
         onChange={handleInputChange}
       />
-      <DayPicker
-        month={month}
-        onMonthChange={setMonth}
-        mode="single"
-        selected={selectedDate}
-        onSelect={handleDayPickerSelect}
-        footer={
-          <p aria-live="assertive" aria-atomic="true">
-            Selected: {selectedDate?.toDateString()}
-          </p>
-        }
-      />
+      <div style={{ marginBlock: "1em" }}>
+        <DayPicker
+          month={month}
+          onMonthChange={setMonth}
+          mode="single"
+          selected={selectedDate}
+          onSelect={handleDayPickerSelect}
+          footer={
+            <p aria-live="assertive" aria-atomic="true">
+              Selected: {selectedDate?.toDateString()}
+            </p>
+          }
+        />
+      </div>
     </div>
   );
 }
