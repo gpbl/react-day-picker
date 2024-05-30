@@ -18,3 +18,5 @@ export function render(
     options
   );
 }
+
+export { screen, act } from "@testing-library/react";

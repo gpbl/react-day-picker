@@ -55,7 +55,11 @@ export function MonthCaption(props: {
           }
         />
       ) : (
-        <span className={classNames[UI.CaptionLabel]} aria-live="polite">
+        <span
+          className={classNames[UI.CaptionLabel]}
+          role="status"
+          aria-live="polite"
+        >
           {formatCaption(props.month.date, { locale })}
         </span>
       )}

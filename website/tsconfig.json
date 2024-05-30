@@ -15,10 +15,11 @@
       "@docusaurus/module-type-aliases"
     ],
     "paths": {
+      "react-day-picker": ["../src"],
       "@/test": ["./test"],
       "@/test/*": ["./test/*"],
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src", "examples", "examples-v9", "test", "test-v8"]
+  "include": ["src", "examples", "test", "test-v8"]
 }

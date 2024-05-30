@@ -3,11 +3,13 @@
   "compilerOptions": {
     "paths": {
       "@/test": ["./test"],
-      "@/test/*": ["./test/*"]
+      "@/test/*": ["./test/*"],
+      "react-day-picker": ["./src"],
+      "react-day-picker/*": ["./src/*"]
     },
     "noEmit": true,
     "types": ["node", "jest", "@testing-library/jest-dom", "@types/jest"]
   },
-  "include": ["src", "test", "**/*.test.*"],
+  "include": ["src", "test", "**/*.test.*", "examples"],
   "exclude": ["website"]
 }

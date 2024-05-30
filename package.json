@@ -59,6 +59,12 @@
       "require": "./package.json",
       "import": "./package.json",
       "default": "./package.json"
+    },
+    "./examples": {
+      "require": "./examples/index.ts",
+      "import": "./examples/index.ts",
+      "default": "./examples/index.ts",
+      "types": "./examples/index.ts"
     }
   },
   "scripts": {
@@ -76,6 +82,8 @@
   "files": [
     "dist",
     "src",
+    "examples",
+    "website/docs",
     "tsconfig.json"
   ],
   "devDependencies": {
