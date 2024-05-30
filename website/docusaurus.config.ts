@@ -97,10 +97,6 @@ const config: Config = {
           "date picker, react component, calendar component, react datepicker, daypicker, react day picker, date-fns date picker, typescript date picker"
       }
     ],
-    // announcementBar: {
-    // id: "announcement-v9", // Increment on change
-    // content: ``,
-    // },
     navbar: {
       title: "React DayPicker",
       logo: {
@@ -166,23 +162,6 @@ const config: Config = {
     colorMode: {
       defaultMode: "light",
       respectPrefersColorScheme: true
-    },
-    webpack: {
-      configure: (webpackConfig) => {
-        // Alias 'react-day-picker-v8' to the npm package installed with the alias
-        webpackConfig.resolve.alias["react-day-picker-v8"] = path.resolve(
-          __dirname,
-          "node_modules/react-day-picker-v8"
-        );
-
-        // Possibly ensure that all instances of 'react-day-picker' are resolved to your custom package
-        webpackConfig.resolve.alias["react-day-picker"] = path.resolve(
-          __dirname,
-          "../packages/react-day-picker"
-        );
-
-        return webpackConfig;
-      }
     }
   } satisfies Preset.ThemeConfig
 };

@@ -2,6 +2,7 @@ export * from "./ContainerAttributes";
 export * from "./Controlled";
 
 export * from "./CssVariables";
+export * from "./CssModules";
 export * from "./CustomCaption";
 export * from "./CustomDay";
 export * from "./CustomMultiple";
@@ -49,7 +50,6 @@ export * from "./Spanish";
 export * from "./SpanishWeekStartsOn";
 export * from "./Start";
 export * from "./StylingCss";
-export * from "./StylingCssModules";
 export * from "./StylingInline";
 export * from "./StylingModifiers";
 export * from "./Testcase1567";

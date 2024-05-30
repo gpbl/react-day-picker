@@ -1,0 +1,37 @@
+declare const styles: {
+  readonly "button_next": string;
+  readonly "button_previous": string;
+  readonly "calendar": string;
+  readonly "caption_label": string;
+  readonly "chevron": string;
+  readonly "day": string;
+  readonly "disabled": string;
+  readonly "dropdown": string;
+  readonly "dropdown_nav": string;
+  readonly "dropdown_root": string;
+  readonly "focusable": string;
+  readonly "footer": string;
+  readonly "has_week_numbers": string;
+  readonly "hidden": string;
+  readonly "month": string;
+  readonly "month_caption": string;
+  readonly "month_wrapper": string;
+  readonly "months": string;
+  readonly "months_dropdown": string;
+  readonly "nav": string;
+  readonly "no_weekdays": string;
+  readonly "outside": string;
+  readonly "range_end": string;
+  readonly "range_middle": string;
+  readonly "range_start": string;
+  readonly "selected": string;
+  readonly "today": string;
+  readonly "week": string;
+  readonly "week_number": string;
+  readonly "weekday": string;
+  readonly "weekdays": string;
+  readonly "weeks": string;
+  readonly "years_dropdown": string;
+};
+export = styles;
+

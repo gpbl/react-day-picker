@@ -93,8 +93,8 @@
   --rdp-range-color: white;
 }
 
-.rdp-button_next,
-.rdp-button_previous {
+.button_next,
+.button_previous {
   -moz-appearance: none;
   -webkit-appearance: none;
   display: inline-flex;
@@ -115,23 +115,23 @@
   height: var(--rdp-nav-button-height);
 }
 
-.rdp-button_next:disabled,
-.rdp-button_previous:disabled {
+.button_next:disabled,
+.button_previous:disabled {
   opacity: var(--rdp-nav-button-disabled-opacity);
   cursor: revert;
 }
 
-.rdp-calendar {
+.calendar {
   display: inline-block;
   position: relative;
 }
 
-.rdp-calendar,
-.rdp-calendar * {
+.calendar,
+.calendar * {
   box-sizing: border-box;
 }
 
-.rdp-day {
+.day {
   justify-content: center;
   align-items: center;
   display: flex;
@@ -143,7 +143,7 @@
   font: var(--rdp-day-font);
 }
 
-.rdp-caption_label {
+.caption_label {
   z-index: 1;
 
   position: relative;
@@ -154,25 +154,25 @@
   border: 0;
 }
 
-.rdp-chevron {
+.chevron {
   display: inline-block;
   fill: var(--rdp-accent-color);
 }
 
-.rdp-calendar[dir="rtl"] .rdp-chevron {
+.calendar[dir="rtl"] .chevron {
   transform: rotate(180deg);
 }
 
-.rdp-calendar[dir="rtl"] .rdp-chevron {
+.calendar[dir="rtl"] .chevron {
   transform: rotate(180deg);
   transform-origin: 50%;
 }
 
-.rdp-dropdown_nav {
+.dropdown_nav {
   position: relative;
   display: inline-flex;
 }
-.rdp-dropdown {
+.dropdown {
   z-index: 2; /* Remove ? */
 
   /* Reset */
@@ -192,18 +192,18 @@
   /* font: 1rem; */
 }
 
-.rdp-dropdown[disabled] {
+.dropdown[disabled] {
   opacity: unset;
   color: unset;
 }
 
-.rdp-dropdown_root {
+.dropdown_root {
   position: relative;
   display: inline-flex;
   align-items: center;
 }
 
-.rdp-dropdown_root::after {
+.dropdown_root::after {
   position: absolute;
   inset-block-start: 50%;
   inset-inline-end: 5px;
@@ -211,21 +211,21 @@
   pointer-events: none;
 }
 
-.rdp-month_caption {
+.month_caption {
   display: flex;
   align-content: center;
   height: var(--rdp-nav-height);
   font: var(--rdp-month-caption-font);
 }
 
-.rdp-months {
+.months {
   display: flex;
   flex-wrap: wrap;
   gap: var(--rdp-months-gap);
   justify-content: center;
 }
 
-.rdp-nav {
+.nav {
   position: absolute;
   inset-block-start: 0;
   inset-inline-end: 0;
@@ -236,16 +236,16 @@
   height: var(--rdp-nav-height);
 }
 
-.rdp-week {
+.week {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
 }
 
-.rdp-has_week_numbers .rdp-week {
+.has_week_numbers .week {
   grid-template-columns: repeat(8, 1fr);
 }
 
-.rdp-weekday {
+.weekday {
   opacity: var(--rdp-weekday-opacity);
   padding-block: var(--rdp-weekday-padding);
   font: var(--rdp-weekday-font);
@@ -253,16 +253,16 @@
   text-transform: var(--rdp-weekday-text-transform);
 }
 
-.rdp-weekdays {
+.weekdays {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
 }
 
-.rdp-has_week_numbers .rdp-weekdays {
+.has_week_numbers .weekdays {
   grid-template-columns: repeat(8, 1fr);
 }
 
-.rdp-week_number {
+.week_number {
   justify-content: center;
   align-items: center;
   display: flex;
@@ -274,11 +274,11 @@
   border: var(--rdp-week_number-border);
   border-radius: var(--rdp-week_number-border-radius);
 }
-.rdp-week_number[data-onclick] {
+.week_number[data-onclick] {
   cursor: pointer;
 }
 
-.rdp-week_number[data-interactive] .rdp-weekday {
+.week_number[data-interactive] .weekday {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -289,66 +289,66 @@
 
 /* DAY MODIFIERS */
 
-.rdp-today:not(.rdp-outside) {
+.today:not(.outside) {
   color: var(--rdp-today-color);
 }
 
-.rdp-selected,
-.rdp-selected.rdp-outside {
+.selected,
+.selected.outside {
   font: var(--rdp-selected-font);
   border: var(--rdp-selected-border);
 }
 
-.rdp-outside {
+.outside {
   opacity: var(--rdp-outside-opacity);
 }
 
-.rdp-disabled {
+.disabled {
   opacity: var(--rdp-disabled-opacity);
   cursor: revert;
 }
 
-.rdp-hidden {
+.hidden {
   visibility: hidden;
 }
 
-.rdp-range_start {
+.range_start {
   border-start-end-radius: 0;
   border-end-end-radius: 0;
 }
 
-.rdp-range_start.rdp-selected,
-.rdp-range_end.rdp-selected,
-.rdp-range_middle.rdp-selected {
+.range_start.selected,
+.range_end.selected,
+.range_middle.selected {
   border-color: transparent;
   background-color: var(--rdp-range-background-color);
   color: var(--rdp-range-color);
 }
 
-.rdp-range_end {
+.range_end {
   border-start-start-radius: 0;
   border-end-start-radius: 0;
 }
 
-.rdp-range_end.rdp-range_start {
+.range_end.range_start {
   border-radius: var(--rdp-day-border-radius);
 }
 
-.rdp-range_middle {
+.range_middle {
   border-radius: 0;
 }
 
-.rdp-focusable {
+.focusable {
   cursor: pointer;
 }
 
-.rdp-footer,
-.rdp-months_dropdown,
-.rdp-month_wrapper,
-.rdp-month,
-.rdp-weeks,
-.rdp-no_weekdays,
-.rdp-years_dropdown {
+.footer,
+.months_dropdown,
+.month_wrapper,
+.month,
+.weeks,
+.no_weekdays,
+.years_dropdown {
   /* These classes are not used by the default style, but are available to use */
   /* Keep anyway for the CSS type definition. */
 }
