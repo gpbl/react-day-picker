@@ -27,13 +27,13 @@ import "react-day-picker/style.css";
 
 You can import `style.module.css` if you want your CSS pre-processor to parse it. Pass the imported styles to the `classNames` prop.
 
-```tsx title="./DatePicker.jsx"
+```tsx title="./MyDatePicker.jsx"
 import { DayPicker } from "react-day-picker";
 import styles from "react-day-picker/style.module.css";
 
-console.log(styles); // Log the classnames parsed as CSS module,
+console.log(styles); // Output the class names as parsed by CSS modules.
 
-export function StylingCssModules() {
+export function MyDatePicker() {
   return <DayPicker classNames={styles} />;
 }
 ```
