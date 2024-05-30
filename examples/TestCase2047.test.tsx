@@ -15,7 +15,7 @@ test("disabled date is not selected", () => {
 });
 
 // eslint-disable-next-line jest/no-disabled-tests
-describe.skip("when the calendar is focused", () => {
+describe("when the calendar is focused", () => {
   beforeEach(async () => {
     await user.click(gridcell(new Date(2024, 5, 10)));
   });
