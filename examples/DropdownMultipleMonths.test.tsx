@@ -1,8 +1,7 @@
 import React from "react";
 
-import { screen } from "@/test/render";
 import { grid } from "@/test/elements";
-import { render } from "@/test/render";
+import { screen, render } from "@/test/render";
 import { user } from "@/test/user";
 
 import { DropdownMultipleMonths } from "./DropdownMultipleMonths";
