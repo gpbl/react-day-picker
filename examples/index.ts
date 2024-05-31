@@ -50,6 +50,7 @@ export * from "./Start";
 export * from "./StylingCss";
 export * from "./StylingInline";
 export * from "./StylingModifiers";
+export * from "./TailwindCSS";
 export * from "./Testcase1567";
 export * from "./TestCase2047";
 export * from "./WeekIso";
