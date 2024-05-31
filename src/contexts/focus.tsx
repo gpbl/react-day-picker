@@ -6,8 +6,7 @@ import React, {
   useState
 } from "react";
 
-import { DayModifier } from "react-day-picker/UI";
-
+import { DayModifier } from "../UI";
 import type { CalendarDay } from "../classes";
 import { getNextFocus } from "../helpers/getNextFocus";
 

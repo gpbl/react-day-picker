@@ -9,10 +9,9 @@ import {
   useRef
 } from "react";
 
-import { useCalendar } from "react-day-picker/contexts";
-
 import { UI, DayModifier } from "../UI";
 import { CalendarDay } from "../classes/CalendarDay";
+import { useCalendar } from "../contexts/calendar";
 import { useFocus } from "../contexts/focus";
 import { useModifiers } from "../contexts/modifiers";
 import { useProps } from "../contexts/props";
