@@ -7,16 +7,10 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "strict": true,
-    "types": [
-      "node",
-      "@docusaurus/module-type-aliases"
-    ],
+    "types": ["node", "@docusaurus/module-type-aliases"],
     "paths": {
-      "react-day-picker": ["../src"],
-      "@/test": ["./test"],
-      "@/test/*": ["./test/*"],
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src", "examples", "test", "test-v8"]
+  "include": ["src", "examples"]
 }
