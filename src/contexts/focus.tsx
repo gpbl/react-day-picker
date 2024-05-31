@@ -73,18 +73,19 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
   const { goToDay, isDayDisplayed } = useCalendar();
 
   const { autoFocus = false, ...dayPickerProps } = useProps();
-  const { calendarModifiers } = useModifiers();
+  const { calendarModifiers, getModifiers } = useModifiers();
 
   const [focused, setFocused] = useState<CalendarDay | undefined>();
   const [lastFocused, setLastFocused] = useState<CalendarDay | undefined>();
   const [initiallyFocused, setInitiallyFocused] = useState(false);
 
+  const today = calendarModifiers.today[0];
+
   const autoFocusTarget =
     focused ?? (lastFocused && isDayDisplayed(lastFocused))
       ? lastFocused
       : calendarModifiers.selected[0] ?? // autofocus the first selected day
-        // TOFIX: possible bug here selecting a today date when disabled
-        // calendarModifiers.today[0] ?? // autofocus today
+        (today && !getModifiers(today).disabled) ?? // autofocus today
         calendarModifiers.focusable[0]; // otherwise autofocus the first focusable day;
 
   // Focus the focus target when autoFocus is passed in
