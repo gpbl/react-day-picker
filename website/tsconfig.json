@@ -9,9 +9,6 @@
     "strict": true,
     "types": [
       "node",
-      "jest",
-      "@testing-library/jest-dom",
-      "@types/jest",
       "@docusaurus/module-type-aliases"
     ],
     "paths": {
