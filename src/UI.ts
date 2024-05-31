@@ -1,53 +1,57 @@
+import type { CustomComponents, ClassNames, Styles } from "./types";
+
 /**
- * The UI elements composing DayPicker.
- *
- * These elements are mapped to the classnames used by DayPicker. Use the
- * `classNames` prop to customize the classnames.
+ * The UI elements composing DayPicker. These elements are mapped to
+ * {@link CustomComponents}, the {@link ClassNames} and the {@link Styles} used by
+ * DayPicker.
  */
 export enum UI {
   /** The previous button in the navigation. */
   ButtonPrevious = "button_previous",
   /** The next button the navigation */
   ButtonNext = "button_next",
-  /** The calendar element, the root of the component. */
+  /**
+   * The calendar element: the root component displaying the months and the
+   * navigation bar. Extended by {@link CalendarFlag}.
+   */
   Calendar = "calendar",
   /** The Chevron SVG element used by navigation buttons and dropdowns. */
   Chevron = "chevron",
-  /** The gridcell with the day's date. */
+  /** The gridcell with the day's date. Extended by {@link DayModifier}. */
   Day = "day",
-  /** The label of a caption. */
+  /** The caption label of the month (when not showing the dropdown navigation). */
   CaptionLabel = "caption_label",
-  /** The container of the dropdown navigation.. */
+  /** The container of the dropdown navigation (when enabled). */
   DropdownNav = "dropdown_nav",
-  /** The dropdown used for years and months. */
+  /** The dropdown element to select for years and months. */
   Dropdown = "dropdown",
-  /** The root element of the {@link Dropdown} component. */
+  /** The container element of the dropdown. */
   DropdownRoot = "dropdown_root",
-  /** The root element of the {@link Footer} component. */
+  /** The root element of the footer. */
   Footer = "footer",
   /** The month grid. */
   Month = "month",
-  /** The caption of a month. */
+  /** Contains the dropdown navigation or the caption label. */
   MonthCaption = "month_caption",
-  /** The dropdown of months. */
+  /** The dropdown with the months. */
   MonthsDropdown = "months_dropdown",
-  /** Wrapper of the month grid. */
+  /** Wrapper of the {@link} grid. */
   MonthWrapper = "month_wrapper",
-  /** Container containing the months. */
+  /** The container of the displayed months. */
   Months = "months",
-  /** The navigation element. */
+  /** The navigation bar with the previous and next buttons */
   Nav = "nav",
-  /** The row in a week. */
+  /** The row containing the week. */
   Week = "week",
-  /** The group of weeks in a month. */
+  /** The group of row weeks in a month. */
   Weeks = "weeks",
-  /** The column's header with the weekday. */
+  /** The column header with the weekday. */
   Weekday = "weekday",
-  /** The row grouping the weekdays. */
+  /** The row grouping the weekdays in the column headers. */
   Weekdays = "weekdays",
-  /** The row header in a week number. */
+  /** The row header containing the week number. */
   WeekNumber = "week_number",
-  /** The dropdown of years. */
+  /** The dropdown with the years. */
   YearsDropdown = "years_dropdown"
 }
 

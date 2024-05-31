@@ -395,7 +395,11 @@ export type SelectHandler<T extends Mode> = (
   e: MouseEvent | KeyboardEvent
 ) => void;
 
-/** The components that can be changed using the `components` prop. */
+/**
+ * The components that can be changed using the `components` prop.
+ *
+ * @see https://github.com/gpbl/react-day-picker/blob/main/src/components/custom-components.ts
+ */
 export type CustomComponents = {
   [key in keyof typeof components]?: (typeof components)[key];
 };
@@ -561,12 +565,12 @@ export type WeekNumberMouseEventHandler = (
   e: MouseEvent
 ) => void;
 
-/** Maps UI elements to their CSS properties. */
+/** Maps {@link UI} elements to their CSS properties. */
 export type Styles = {
   [uiElement in UI]: CSSProperties | undefined;
 };
 
-/** Maps UI elements to their class names. */
+/** Maps {@link UI} elements to their class names. */
 export type ClassNames = {
   [element in UI]: string;
 } & {
