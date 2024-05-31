@@ -11,6 +11,7 @@ import {
 
 import { UI, DayModifier } from "../UI";
 import { CalendarDay } from "../classes/CalendarDay";
+import { useCalendar } from "../contexts/calendar";
 import { useFocus } from "../contexts/focus";
 import { useModifiers } from "../contexts/modifiers";
 import { useProps } from "../contexts/props";
@@ -60,8 +61,10 @@ export function DayWrapper(props: {
     styles = {}
   } = useProps();
 
+  const { isInteractive } = useCalendar();
   const { setSelected } = useSelection();
   const { getModifiers } = useModifiers();
+
   const {
     autoFocusTarget,
     focusedDay,
@@ -195,8 +198,6 @@ export function DayWrapper(props: {
 
   const isAutoFocusTarget = Boolean(autoFocusTarget?.isEqualTo(props.day));
   const isFocused = Boolean(focusedDay?.isEqualTo(props.day));
-
-  const isInteractive = mode !== "default" || Boolean(onDayClick);
 
   const style = getStyleForModifiers(modifiers, modifiersStyles, styles);
 

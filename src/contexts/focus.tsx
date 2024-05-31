@@ -6,6 +6,7 @@ import React, {
   useState
 } from "react";
 
+import { DayModifier } from "../UI";
 import type { CalendarDay } from "../classes";
 import { getNextFocus } from "../helpers/getNextFocus";
 
@@ -69,23 +70,44 @@ export interface FocusContext {
 const focusContext = createContext<FocusContext | undefined>(undefined);
 
 /** @private */
-export function FocusProvider(props: { children: ReactNode }): JSX.Element {
-  const { goToDay, isDayDisplayed } = useCalendar();
+export function FocusProvider({
+  children
+}: {
+  children: ReactNode;
+}): JSX.Element {
+  const { goToDay, isDayDisplayed, days, isInteractive } = useCalendar();
 
-  const { autoFocus = false, ...dayPickerProps } = useProps();
-  const { calendarModifiers } = useModifiers();
+  const { autoFocus = false, ...props } = useProps();
+  const { calendarModifiers, getModifiers } = useModifiers();
 
   const [focused, setFocused] = useState<CalendarDay | undefined>();
   const [lastFocused, setLastFocused] = useState<CalendarDay | undefined>();
   const [initiallyFocused, setInitiallyFocused] = useState(false);
 
-  const autoFocusTarget =
-    focused ?? (lastFocused && isDayDisplayed(lastFocused))
-      ? lastFocused
-      : calendarModifiers.selected[0] ?? // autofocus the first selected day
-        // TOFIX: possible bug here selecting a today date when disabled
-        // calendarModifiers.today[0] ?? // autofocus today
-        calendarModifiers.focusable[0]; // otherwise autofocus the first focusable day;
+  const today = calendarModifiers.today[0];
+
+  let autoFocusTarget: CalendarDay | undefined;
+
+  const isValidFocusTarget = (day: CalendarDay) => {
+    return isDayDisplayed(day) && !getModifiers(day)[DayModifier.disabled];
+  };
+
+  if (isInteractive) {
+    if (focused) {
+      autoFocusTarget = focused;
+    } else if (lastFocused) {
+      autoFocusTarget = lastFocused;
+    } else if (
+      calendarModifiers.selected[0] &&
+      isValidFocusTarget(calendarModifiers.selected[0])
+    ) {
+      autoFocusTarget = calendarModifiers.selected[0];
+    } else if (today && isValidFocusTarget(today)) {
+      autoFocusTarget = today;
+    } else if (calendarModifiers.focusable[0]) {
+      autoFocusTarget = calendarModifiers.focusable[0];
+    }
+  }
 
   // Focus the focus target when autoFocus is passed in
   useEffect(() => {
@@ -103,7 +125,7 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
 
   function moveFocus(moveBy: MoveFocusBy, moveDir: MoveFocusDir) {
     if (!focused) return;
-    const nextFocus = getNextFocus(moveBy, moveDir, focused, dayPickerProps);
+    const nextFocus = getNextFocus(moveBy, moveDir, focused, props);
     if (!nextFocus) return;
 
     goToDay(nextFocus);
@@ -129,9 +151,7 @@ export function FocusProvider(props: { children: ReactNode }): JSX.Element {
   };
 
   return (
-    <focusContext.Provider value={value}>
-      {props.children}
-    </focusContext.Provider>
+    <focusContext.Provider value={value}>{children}</focusContext.Provider>
   );
 }
 

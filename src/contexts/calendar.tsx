@@ -83,6 +83,12 @@ export interface CalendarContext {
   goToDay: (day: CalendarDay) => void;
   /** Whether the given date is included in the displayed months. */
   isDayDisplayed: (day: CalendarDay) => boolean;
+
+  /**
+   * Whether the calendar is interactive, i.e. DayPicker has a selection `mode`
+   * set or the `onDayClick` prop is set.
+   */
+  isInteractive: boolean;
 }
 
 const calendarContext = createContext<CalendarContext | undefined>(undefined);
@@ -161,6 +167,9 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
     return previousMonth ? goToMonth(previousMonth) : undefined;
   }
 
+  const isInteractive =
+    props.mode !== "default" || props.onDayClick !== undefined;
+
   const calendar: CalendarContext = {
     dates,
     months,
@@ -176,6 +185,8 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
     goToNextMonth,
     goToPreviousMonth,
     goToDay,
+
+    isInteractive,
     isDayDisplayed,
 
     dropdownOptions: {
