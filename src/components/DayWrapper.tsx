@@ -9,6 +9,8 @@ import {
   useRef
 } from "react";
 
+import { useCalendar } from "react-day-picker/contexts";
+
 import { UI, DayModifier } from "../UI";
 import { CalendarDay } from "../classes/CalendarDay";
 import { useFocus } from "../contexts/focus";
@@ -60,8 +62,10 @@ export function DayWrapper(props: {
     styles = {}
   } = useProps();
 
+  const { isInteractive } = useCalendar();
   const { setSelected } = useSelection();
   const { getModifiers } = useModifiers();
+
   const {
     autoFocusTarget,
     focusedDay,
@@ -195,8 +199,6 @@ export function DayWrapper(props: {
 
   const isAutoFocusTarget = Boolean(autoFocusTarget?.isEqualTo(props.day));
   const isFocused = Boolean(focusedDay?.isEqualTo(props.day));
-
-  const isInteractive = mode !== "default" || Boolean(onDayClick);
 
   const style = getStyleForModifiers(modifiers, modifiersStyles, styles);
 
