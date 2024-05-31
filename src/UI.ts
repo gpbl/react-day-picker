@@ -1,12 +1,8 @@
 /**
  * The UI elements composing DayPicker.
  *
- * These elements are mapped to the components directory.
- */
-/**
- * The UI elements composing DayPicker.
- *
- * These elements are mapped to the components directory.
+ * These elements are mapped to the classnames used by DayPicker. Use the
+ * `classNames` prop to customize the classnames.
  */
 export enum UI {
   /** The previous button in the navigation. */
