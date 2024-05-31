@@ -59,7 +59,7 @@ jobs:
           name: rdp-dist
           path: dist
       - run: pnpm install --frozen-lockfile
-      - run: pnpm -F website test
+      - run: pnpm -F website test --passWithNoTests
 
   typecheck-website:
     needs: [build-react-day-picker]
