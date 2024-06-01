@@ -24,7 +24,7 @@ export function MonthCaption(props: {
 }) {
   const {
     classNames,
-    dropdownNavigation,
+    captionLayout,
     formatters: { formatCaption },
     locale,
     styles
@@ -36,22 +36,15 @@ export function MonthCaption(props: {
       className={classNames[UI.MonthCaption]}
       style={styles?.[UI.MonthCaption]}
     >
-      {dropdownNavigation ? (
-        <DropdownNav
-          month={props.month}
-          index={props.index}
-          showMonths
-          showYears
-        />
-      ) : dropdownNavigation ? (
+      {captionLayout?.startsWith("dropdown") ? (
         <DropdownNav
           month={props.month}
           index={props.index}
           showMonths={
-            dropdownNavigation === true || dropdownNavigation === "month"
+            captionLayout === "dropdown" || captionLayout === "dropdown-months"
           }
           showYears={
-            dropdownNavigation === true || dropdownNavigation === "year"
+            captionLayout === "dropdown" || captionLayout === "dropdown-years"
           }
         />
       ) : (

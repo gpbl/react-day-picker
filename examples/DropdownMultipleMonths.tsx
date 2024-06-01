@@ -6,7 +6,7 @@ export function DropdownMultipleMonths() {
   return (
     <DayPicker
       numberOfMonths={5}
-      dropdownNavigation
+      captionLayout="dropdown"
       fromYear={2015}
       toYear={2025}
     />

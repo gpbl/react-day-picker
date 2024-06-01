@@ -8,37 +8,39 @@ Use the customization props to customize the appearance of the calendar.
 
 ### Customization Props
 
-| Prop Name         | Type                                                     | Description                                                      |
-| ----------------- | -------------------------------------------------------- | ---------------------------------------------------------------- |
-| `captionLayout`   | `"dropdown"` \| `"buttons"` \|<br/> `"dropdown-buttons"` | Change the layout of the caption. <br /> Default is `"buttons"`. |
-| `showOutsideDays` | `boolean`                                                | Display the days falling into the other months.                  |
-| `fixedWeeks`      | `boolean`                                                | Display 6 weeks per months.                                      |
-| `hideWeekdayRow`  | `boolean`                                                | Hide the row displaying the weekday names.                       |
-| `footer`          | `ReactNode`                                              | Displays a footer below the calendar.                            |
+| Prop Name         | Type                                                                                  | Description                                                 |
+| ----------------- | ------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| `captionLayout`   | \| `label`<br/> \| `"dropdown"`<br/> \| `"dropdown-months"`<br/> \|`"dropdown-years"` | Choose the layout of the month caption. Default is `label`. |
+| `showOutsideDays` | `boolean`                                                                             | Display the days falling into the other months.             |
+| `fixedWeeks`      | `boolean`                                                                             | Display 6 weeks per months.                                 |
+| `hideWeekdayRow`  | `boolean`                                                                             | Hide the row displaying the weekday names.                  |
+| `footer`          | `ReactNode`                                                                           | Displays a footer below the calendar.                       |
 
 ## Caption Layout
 
-Use the `captionLayout` prop to the layout of the caption used to navigate the calendar.
-
-As default, DayPicker will show navigation buttons on the top corner.
+Use the `captionLayout` prop to choose the layout of the month caption:
 
 ```tsx
-<DayPicker captionLayout="buttons" /> // Default value
+<DayPicker captionLayout="label" /> // Default value: shows the month and year.
 ```
 
-### Dropdown Navigation
+| Caption Layout      | Description                                           |
+| ------------------- | ----------------------------------------------------- |
+| `"label"`           | Display the month and year as a label. Default value. |
+| `"dropdown"`        | Display a dropdown with the months and years.         |
+| `"dropdown-months"` | Display a dropdown with the months only.              |
+| `"dropdown-years"`  | Display a dropdown with the years only.               |
 
-Use `dropdown` or `dropdown-buttons` to display a navigation dropdown.
+### Caption Dropdown
 
-:::warning
-
-To use this prop, you need to set both `fromYear` and `toYear`. (This requirement will be removed in a next version.)
-
-:::
+Set `captionLayout="dropdown"` to display a navigation dropdown. This will allow navigation within the last 100 years. Use the `from*` and `to*` props to [set the start and end dates](./navigation.mdx#start-and-end-dates).
 
 ```tsx
-<DayPicker captionLayout="dropdown" fromYear={2010} toYear={2024} />
-<DayPicker captionLayout="dropdown-buttons" fromYear={2010} toYear={2024} />
+<DayPicker captionLayout="dropdown" />
+<DayPicker captionLayout="dropdown-months"  /> // Only months
+<DayPicker captionLayout="dropdown-years"  /> // Only years
+
+<DayPicker captionLayout="dropdown" fromYear={2015} toYear={2025} /> // Set the years range
 ```
 
 <BrowserWindow>
@@ -59,17 +61,10 @@ By default, DayPicker hides the days falling into the other months. Use `showOut
 
 ### Fixed Weeks
 
-In a year, months can have between 4 an 6 weeks. Use `fixedWeeks` with `showOutsideDays` to always display 6 weeks per month. This will prevent the grid changing its height while navigating the calendar.
-
-:::note
-
-In the current version, this prop requires `showOutsideDays` set to work. This
-requirement will be removed in the next major version.
-
-:::
+In a year, months can have between 4 an 6 weeks. Use `fixedWeeks` to always display 6 weeks per month. This will prevent the grid changing its height while navigating the calendar.
 
 ```tsx
-<DayPicker showOutsideDays fixedWeeks />
+<DayPicker fixedWeeks showWeekNumber />
 ```
 
 <BrowserWindow>
@@ -122,3 +117,21 @@ To display the column with the week numbers, use the `showWeekNumber` prop. Use 
 <BrowserWindow>
   <Examples.Weeknumber />
 </BrowserWindow>
+
+## Formatters and Labels
+
+Use the [formatters](./localization.mdx#formatters) and [labels](./localization.mdx#labels) to customize the format of the dates and the ARIA labels.
+
+| Prop Name    | Type                                              | Description                                    |
+| ------------ | ------------------------------------------------- | ---------------------------------------------- |
+| `formatters` | [`Formatters`](../api/type-aliases/Formatters.md) | Format of the dates displayed in the calendar. |
+| `labels`     | [`Labels`](../api/type-aliases/Labels.md)         | Set the ARIA labels used in the calendar.      |
+
+## Custom Components
+
+In DayPicker, you can replace the components used internally to render the calendar. See the [Custom Components](../advanced-guides/custom-components.mdx) guide for more information.
+
+| Prop Name    | Type                                                          | Description                                                 |
+| ------------ | ------------------------------------------------------------- | ----------------------------------------------------------- |
+| `components` | [`CustomComponents`](../api/type-aliases/CustomComponents.md) | Change the internal components used to render the calendar. |
+| `classNames` | [`ClassNames`](../api/type-aliases/ClassNames.md)             | Use custom class names instead of the default ones.         |

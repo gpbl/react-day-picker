@@ -26,6 +26,7 @@ export function MonthsDropdown(props: {
   const {
     classNames,
     components,
+    disableNavigation,
     labels: { labelMonthDropdown }
   } = useProps();
 
@@ -43,6 +44,7 @@ export function MonthsDropdown(props: {
     <Dropdown
       name="month"
       aria-label={labelMonthDropdown()}
+      aria-disabled={disableNavigation ? "true" : undefined}
       rootClassName={classNames[UI.MonthsDropdown]}
       options={dropdown.months}
       value={props.month.date.getMonth()}
