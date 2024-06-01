@@ -91,6 +91,9 @@
 
   /* The color of the range text. */
   --rdp-range-color: white;
+
+  /* The gap between the dropdown. */
+  --rdp-dropdown-gap: 0.5rem;
 }
 
 .rdp-button_next,
@@ -171,6 +174,7 @@
 .rdp-dropdown_nav {
   position: relative;
   display: inline-flex;
+  gap: var(--rdp-dropdown-gap);
 }
 .rdp-dropdown {
   z-index: 2; /* Remove ? */
