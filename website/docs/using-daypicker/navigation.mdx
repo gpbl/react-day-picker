@@ -60,7 +60,7 @@ export function Controlled() {
   <Examples.Controlled />
 </BrowserWindow>
 
-## Navigation Between Dates
+## Start and End Dates
 
 Limit the dates the user can navigate to by using the `from*`, `to*` props.
 
@@ -81,7 +81,7 @@ Limit the dates the user can navigate to by using the `from*`, `to*` props.
   <Examples.FromToYear />
 </BrowserWindow>
 
-## Disabling Navigation
+## Disabling the Navigation
 
 To prevent the user from navigating between months, set the `disableNavigation` prop to `true`.
 
@@ -95,4 +95,20 @@ To prevent the user from navigating between months, set the `disableNavigation` 
 
 <BrowserWindow>
   <Examples.DisableNavigation />
+</BrowserWindow>
+
+## Hiding the Navigation
+
+To hide the navigation completely, set the `hideNavigation` prop to `true`. Useful to display only the dropdown in the caption.
+
+| Prop Name        | Type      | Description              |
+| ---------------- | --------- | ------------------------ |
+| `hideNavigation` | `boolean` | Hide the navigation bar. |
+
+```tsx
+<DayPicker hideNavigation captionLayout="dropdown" />
+```
+
+<BrowserWindow>
+  <Examples.HideNavigation />
 </BrowserWindow>

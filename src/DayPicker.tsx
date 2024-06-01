@@ -6,10 +6,7 @@ import type { DayPickerProps, Mode } from "./types";
 
 /**
  * DayPicker is a React component to create date pickers, calendars, and date
- * inputs for web applications. Use the `components` prop to swap this component
- * with a custom one.
- *
- * Use the `components` prop to swap this component with a custom one.
+ * inputs for web applications.
  *
  * @group Components
  * @see http://daypicker.dev
