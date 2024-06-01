@@ -1,7 +1,11 @@
 import { UI, DayModifier, CalendarFlag } from "../UI";
 import type { ClassNames } from "../types";
 
-/** Get the default class names for the UI elements. */
+/**
+ * Get the default class names for the UI elements.
+ *
+ * @group Utilities
+ */
 export function getDefaultClassNames(): Required<ClassNames> {
   const classNames: Partial<Required<ClassNames>> = {};
 
