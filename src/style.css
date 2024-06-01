@@ -94,6 +94,9 @@
 
   /* The gap between the dropdown. */
   --rdp-dropdown-gap: 0.5rem;
+
+  /* The gap between the dropdown. */
+  --rdp-chevron-disabled-opacity: 0.5;
 }
 
 .rdp-button_next,
@@ -162,6 +165,10 @@
   fill: var(--rdp-accent-color);
 }
 
+.rdp-chevron_disabled {
+  opacity: var(--rdp-chevron-disabled-opacity);
+}
+
 .rdp-calendar[dir="rtl"] .rdp-chevron {
   transform: rotate(180deg);
 }
@@ -197,8 +204,6 @@
 }
 
 .rdp-dropdown[disabled] {
-  opacity: unset;
-  color: unset;
 }
 
 .rdp-dropdown_root {

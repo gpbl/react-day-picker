@@ -1,6 +1,6 @@
 import React from "react";
 
-import { UI } from "../UI";
+import { ChevronFlag, UI } from "../UI";
 import { useProps } from "../contexts/props";
 
 /**
@@ -16,11 +16,17 @@ export function Chevron(props: {
   orientation?: "up" | "down" | "left" | "right";
 }) {
   const { size = 24, orientation = "left" } = props;
-  const { classNames } = useProps();
+  const { classNames, disableNavigation } = useProps();
 
+  const svgClassName = [
+    classNames[UI.Chevron],
+    disableNavigation ? classNames[ChevronFlag.disabled] : ""
+  ]
+    .join(" ")
+    .trim();
   return (
     <svg
-      className={classNames[UI.Chevron]}
+      className={svgClassName}
       width={size}
       height={size}
       viewBox="0 0 24 24"

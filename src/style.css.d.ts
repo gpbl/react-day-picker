@@ -4,6 +4,7 @@ declare const styles: {
   readonly "rdp-calendar": string;
   readonly "rdp-caption_label": string;
   readonly "rdp-chevron": string;
+  readonly "rdp-chevron_disabled": string;
   readonly "rdp-day": string;
   readonly "rdp-disabled": string;
   readonly "rdp-dropdown": string;

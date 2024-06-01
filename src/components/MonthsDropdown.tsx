@@ -42,9 +42,8 @@ export function MonthsDropdown(props: {
 
   return (
     <Dropdown
-      name="month"
       aria-label={labelMonthDropdown()}
-      aria-disabled={disableNavigation ? "true" : undefined}
+      disabled={Boolean(disableNavigation)}
       rootClassName={classNames[UI.MonthsDropdown]}
       options={dropdown.months}
       value={props.month.date.getMonth()}
