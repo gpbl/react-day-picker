@@ -44,7 +44,7 @@ export function YearsDropdown(props: {
   return (
     <Dropdown
       aria-label={labelYearDropdown()}
-      aria-disabled={disableNavigation ? "true" : undefined}
+      disabled={Boolean(disableNavigation)}
       rootClassName={classNames[UI.YearsDropdown]}
       options={dropdown.years}
       value={props.month.date.getFullYear()}

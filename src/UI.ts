@@ -88,3 +88,9 @@ export enum CalendarFlag {
   /** Assigned when the calendar has multiple months. */
   hasMultipleMonths = "has_multiple_months"
 }
+
+/** Flags that can be applied to the {@link UI.Chevron} element. */
+export enum ChevronFlag {
+  /** Assigned when the week numbers are show. */
+  disabled = "chevron_disabled"
+}

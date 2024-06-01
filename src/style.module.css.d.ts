@@ -4,6 +4,7 @@ declare const styles: {
   readonly "calendar": string;
   readonly "caption_label": string;
   readonly "chevron": string;
+  readonly "chevron_disabled": string;
   readonly "day": string;
   readonly "disabled": string;
   readonly "dropdown": string;
