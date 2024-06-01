@@ -7,6 +7,7 @@ test("should return the default classnames", () => {
     calendar: "rdp-calendar",
     caption_label: "rdp-caption_label",
     chevron: "rdp-chevron",
+    chevron_disabled: "rdp-chevron_disabled",
     day: "rdp-day",
     disabled: "rdp-disabled",
     dropdown_nav: "rdp-dropdown_nav",
