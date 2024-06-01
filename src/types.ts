@@ -143,15 +143,17 @@ export interface PropsBase {
   /**
    * Show dropdowns to navigate between months or years.
    *
-   * - `true`: display the dropdowns for both month and year.
-   * - `month`: display the dropdown for the month.
-   * - `year`: display the dropdown for the year.
-   * - `false`: hide the dropdowns.
+   * - `true`: display the dropdowns for both month and year
+   * - `label`: display the month and the year as a label. Change the label with
+   *   the `formatCaption` formatter.
+   * - `month`: display only the dropdown for the months
+   * - `year`: display only the dropdown for the years
    *
-   * **Note:** showing the dropdown will default {@link fromYear} to the 100
-   * years ago, and {@link toYear} to the current year.
+   * **Note:** showing the dropdown will set the start/end months
+   * {@link fromYear} to the 100 years ago, and {@link toYear} to the current
+   * year.
    */
-  dropdownNavigation?: boolean | "month" | "year";
+  captionLayout?: "label" | "dropdown" | "dropdown-months" | "dropdown-years";
   /**
    * Display always 6 weeks per each month, regardless the month’s number of
    * weeks. Weeks will be filled with the days from the next month.

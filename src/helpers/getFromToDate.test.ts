@@ -50,10 +50,10 @@ describe('when "toYear" is passed in', () => {
   });
 });
 
-describe('when "showCaption" is passed in', () => {
+describe('when "captionLayout" is dropdown', () => {
   const today = new Date(2024, 4, 3);
   const { fromDate, toDate } = getFromToDate({
-    dropdownNavigation: true,
+    captionLayout: "dropdown",
     today
   });
   test('"fromDate" should be 100 years ago', () => {
@@ -62,35 +62,34 @@ describe('when "showCaption" is passed in', () => {
   test('"toDate" should be the end of this year', () => {
     expect(toDate).toEqual(new Date(2024, 11, 31));
   });
-});
-
-describe('when "fromYear" and "showCaption" are passed in', () => {
-  const today = new Date(2024, 4, 3);
-  const fromYear = 2022;
-  const { fromDate, toDate } = getFromToDate({
-    dropdownNavigation: true,
-    fromYear,
-    today
+  describe('when "fromYear" is set', () => {
+    const today = new Date(2024, 4, 3);
+    const fromYear = 2022;
+    const { fromDate, toDate } = getFromToDate({
+      captionLayout: "dropdown",
+      fromYear,
+      today
+    });
+    test('"fromDate" should be equal to the "fromYear"', () => {
+      expect(fromDate).toEqual(new Date(2022, 0, 1));
+    });
+    test('"toDate" should be the end of this year', () => {
+      expect(toDate).toEqual(new Date(2024, 11, 31));
+    });
   });
-  test('"fromDate" should be equal to the "fromYear"', () => {
-    expect(fromDate).toEqual(new Date(2022, 0, 1));
-  });
-  test('"toDate" should be the end of this year', () => {
-    expect(toDate).toEqual(new Date(2024, 11, 31));
-  });
-});
-describe('when "toYear" and "showCaption" are passed in', () => {
-  const today = new Date(2021, 4, 3);
-  const toYear = 2022;
-  const { toDate, fromDate } = getFromToDate({
-    dropdownNavigation: true,
-    toYear,
-    today
-  });
-  test('"fromDate" should be 100 years ago', () => {
-    expect(fromDate).toEqual(new Date(1921, 0, 1));
-  });
-  test('"toDate" should be equal to "toYear"', () => {
-    expect(toDate).toEqual(new Date(2022, 11, 31));
+  describe('when "toYear" is set', () => {
+    const today = new Date(2021, 4, 3);
+    const toYear = 2022;
+    const { toDate, fromDate } = getFromToDate({
+      captionLayout: "dropdown",
+      toYear,
+      today
+    });
+    test('"fromDate" should be 100 years ago', () => {
+      expect(fromDate).toEqual(new Date(1921, 0, 1));
+    });
+    test('"toDate" should be equal to "toYear"', () => {
+      expect(toDate).toEqual(new Date(2022, 11, 31));
+    });
   });
 });
