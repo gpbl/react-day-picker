@@ -1,6 +1,7 @@
 export * from "./Button";
 export * from "./Chevron";
 export * from "./Day";
+export * from "./DayDate";
 export * from "./Dropdown";
 export * from "./DropdownNav";
 export * from "./Footer";

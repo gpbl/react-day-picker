@@ -20,7 +20,8 @@ import { debounce } from "../helpers/debounce";
 import { getClassNamesForModifiers } from "../helpers/getClassNamesForModifiers";
 import { getStyleForModifiers } from "../helpers/getStyleForModifiers";
 
-import { Day as DefaultDay } from "./Day";
+import { DayProps, Day as DefaultDay } from "./Day";
+import { DayDateProps, DayDate as DefaultDayDate } from "./DayDate";
 
 /**
  * Provides a `Day` the day state and the html attributes. Developers may use a
@@ -41,7 +42,6 @@ export function DayWrapper(props: {
     dir,
     formatters: { formatDay },
     locale,
-    mode,
     modifiersClassNames = {},
     modifiersStyles = {},
     onDayFocus,
@@ -213,7 +213,7 @@ export function DayWrapper(props: {
     className.push(classNames[DayModifier.focused]);
   }
 
-  const htmlAttributes: JSX.IntrinsicElements["div"] = {
+  const dayRootProps: DayProps["rootProps"] = {
     role: "gridcell",
     className: className.join(" "),
     style,
@@ -250,9 +250,21 @@ export function DayWrapper(props: {
 
   const Day = components?.Day ?? DefaultDay;
 
+  const dayDateRootProps: DayDateProps["rootProps"] = {
+    className: classNames[UI.DayDate],
+    style: styles[UI.DayDate]
+  };
+
+  const DayDate = components?.DayDate ?? DefaultDayDate;
+
   return (
-    <Day day={props.day} modifiers={modifiers} htmlAttributes={htmlAttributes}>
-      {formatDay(props.day.date, { locale })}
+    <Day day={props.day} modifiers={modifiers} rootProps={dayRootProps}>
+      <DayDate
+        day={props.day}
+        modifiers={modifiers}
+        formattedDate={formatDay(props.day.date, { locale })}
+        rootProps={dayDateRootProps}
+      />
     </Day>
   );
 }

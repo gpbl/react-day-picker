@@ -86,11 +86,28 @@
   /* The font of the month caption. */
   --rdp-month-caption-font: bold larger var(--rdp-font-family);
 
-  /* The color of the range background. */
-  --rdp-range-background-color: var(--rdp-accent-color);
+  /* The color of the background for days in the middle of a range. */
+  --rdp-range-middle-background-color: #ababff;
+
+  /* The font for days in the middle of a range. */
+  --rdp-range-middle-font: normal medium var(--rdp-font-family);
 
   /* The color of the range text. */
   --rdp-range-color: white;
+
+  /* Used for the background of the start of the selected range. */
+  --rdp-range-start-background: linear-gradient(
+    90deg,
+    transparent 50%,
+    var(--rdp-range-middle-background-color) 50%
+  );
+
+  /* Used for the background of the end of the selected range. */
+  --rdp-range-end-background: linear-gradient(
+    90deg,
+    var(--rdp-range-middle-background-color) 50%,
+    transparent 50%
+  );
 
   /* The gap between the dropdown. */
   --rdp-dropdown-gap: 0.5rem;
@@ -144,9 +161,20 @@
 
   width: var(--rdp-day-width);
   height: var(--rdp-day-height);
+
+  font: var(--rdp-day-font);
+}
+
+.rdp-day_date {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+  width: var(--rdp-day-width);
+  height: var(--rdp-day-height);
+
   border: var(--rdp-day-border);
   border-radius: var(--rdp-day-border-radius);
-  font: var(--rdp-day-font);
 }
 
 .rdp-caption_label {
@@ -302,9 +330,11 @@
   color: var(--rdp-today-color);
 }
 
-.rdp-selected,
-.rdp-selected.rdp-outside {
+.rdp-selected {
   font: var(--rdp-selected-font);
+}
+
+.rdp-selected .rdp-day_date {
   border: var(--rdp-selected-border);
 }
 

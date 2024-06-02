@@ -3,7 +3,7 @@ export * from "./Controlled";
 export * from "./CssModules";
 export * from "./CssVariables";
 export * from "./CustomCaption";
-export * from "./CustomDay";
+export * from "./CustomDayDate";
 export * from "./CustomMultiple";
 export * from "./CustomSingle";
 export * from "./CustomWeek";

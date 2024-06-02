@@ -2,12 +2,12 @@ import React from "react";
 
 import { render, screen } from "@/test/render";
 
-import { CustomDay } from "./CustomDay";
+import { CustomDayDate } from "./CustomDayDate";
 
 jest.useFakeTimers().setSystemTime(new Date(2021, 10, 25));
 
 beforeEach(() => {
-  render(<CustomDay />);
+  render(<CustomDayDate />);
 });
 
 test("should render the emoji", () => {

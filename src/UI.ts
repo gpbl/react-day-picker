@@ -17,8 +17,10 @@ export enum UI {
   Calendar = "calendar",
   /** The Chevron SVG element used by navigation buttons and dropdowns. */
   Chevron = "chevron",
-  /** The gridcell with the day's date. Extended by {@link DayModifier}. */
+  /** The grid cell with the day's date. Extended by {@link DayModifier}. */
   Day = "day",
+  /** The element containing the formatted day's date, inside the grid cell. */
+  DayDate = "day_date",
   /** The caption label of the month (when not showing the dropdown navigation). */
   CaptionLabel = "caption_label",
   /** The container of the dropdown navigation (when enabled). */
