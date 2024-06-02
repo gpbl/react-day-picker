@@ -2,7 +2,7 @@
 import { Calendar } from "./components/Calendar";
 import { MonthCaption } from "./components/MonthCaption";
 import { Week, type WeekProps } from "./components/Week";
-import { useCalendar } from "./contexts";
+import { useCalendar } from "./contexts/calendar";
 import { PropsContext, useProps } from "./contexts/props";
 import { labelDay, labelNext, labelWeekday, labelWeekNumber } from "./labels";
 import type {

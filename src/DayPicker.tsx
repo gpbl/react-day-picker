@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Calendar } from "./components/Calendar";
-import { ContextProviders } from "./contexts";
+import { ContextProviders } from "./contexts/root";
 import type { DayPickerProps, Mode } from "./types";
 
 /**

@@ -12,7 +12,7 @@ import { addToRange } from "../utils/addToRange";
 import { isDateInRange } from "../utils/isDateInRange";
 import { isDateRange } from "../utils/typeguards";
 
-import { useProps } from ".";
+import { useProps } from "./props";
 
 /**
  * Provides access to the currently selected value, allows setting the selected

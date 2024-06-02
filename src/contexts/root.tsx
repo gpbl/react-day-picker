@@ -9,12 +9,6 @@ import { ModifiersProvider } from "./modifiers";
 import { PropsProvider } from "./props";
 import { SelectionProvider } from "./selection";
 
-export * from "./calendar";
-export * from "./focus";
-export * from "./modifiers";
-export * from "./props";
-export * from "./selection";
-
 /**
  * Provide the value for all the contexts used by DayPicker.
  *

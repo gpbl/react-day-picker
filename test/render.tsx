@@ -1,8 +1,9 @@
 import React, { ReactElement } from "react";
 
 import { render as testingLibraryRender } from "@testing-library/react";
+import type { Mode, DayPickerProps } from "react-day-picker";
 
-import { ContextProviders, type DayPickerProps, type Mode } from "../src";
+import { ContextProviders } from "../src/contexts/root";
 
 /** Render a React Element wrapped with the Root Provider. */
 export function render(
