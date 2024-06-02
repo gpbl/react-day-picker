@@ -12,7 +12,7 @@ function DayWithShiftKey(props: DayProps) {
   const { selected } = useSelection<"range">();
   const onClick = props.rootProps?.onClick;
 
-  const handleClick: MouseEventHandler<HTMLElement> = (e) => {
+  const handleClick: MouseEventHandler<HTMLDivElement> = (e) => {
     if (
       selected?.from &&
       !selected.to &&
