@@ -196,7 +196,7 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
 
   function isStartOfRange(date: Date) {
     if (!isDateRange(value)) return false;
-    return Boolean(value.from && isSameDay(value.from, date));
+    return Boolean(value.from && isSameDay(value.from, date) && value.to);
   }
 
   function isEndOfRange(date: Date) {
