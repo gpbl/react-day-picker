@@ -15,6 +15,7 @@ export * from "./Dropdown";
 export * from "./DropdownMultipleMonths";
 export * from "./Fixedweeks";
 export * from "./FocusRecursive";
+export * from "./Footer";
 export * from "./Formatters";
 export * from "./FromToMonth";
 export * from "./FromToYear";

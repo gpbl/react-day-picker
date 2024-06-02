@@ -127,6 +127,18 @@ Use the [formatters](./localization.mdx#formatters) and [labels](./localization.
 | `formatters` | [`Formatters`](../api/type-aliases/Formatters.md) | Format of the dates displayed in the calendar. |
 | `labels`     | [`Labels`](../api/type-aliases/Labels.md)         | Set the ARIA labels used in the calendar.      |
 
+## Footer
+
+Use the `footer` prop to display a footer below the calendar.
+
+```tsx
+<DayPicker mode="single" footer={<p>Please pick a date.</p>} />
+```
+
+<BrowserWindow>
+  <Examples.Footer />
+</BrowserWindow>
+
 ## Custom Components
 
 In DayPicker, you can replace the components used internally to render the calendar. See the [Custom Components](../advanced-guides/custom-components.mdx) guide for more information.
