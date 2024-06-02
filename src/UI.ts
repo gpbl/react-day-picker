@@ -102,6 +102,9 @@ export enum ChevronFlag {
 
 /** Flags that can be applied to the {@link UI.WeekNumber} element. */
 export enum WeekNumberFlag {
-  /** Assigned when the week numbers are clickable. */
+  /**
+   * Assigned when the week number is interactive, i.e. has an
+   * `onWeekNumberClick` event attached to it.
+   */
   isInteractive = "week_number_interactive"
 }
