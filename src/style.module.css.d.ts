@@ -6,6 +6,7 @@ declare const styles: {
   readonly "chevron": string;
   readonly "chevron_disabled": string;
   readonly "day": string;
+  readonly "day_date": string;
   readonly "disabled": string;
   readonly "dropdown": string;
   readonly "dropdown_nav": string;
@@ -29,6 +30,7 @@ declare const styles: {
   readonly "today": string;
   readonly "week": string;
   readonly "week_number": string;
+  readonly "week_number_interactive": string;
   readonly "weekday": string;
   readonly "weekdays": string;
   readonly "weeks": string;

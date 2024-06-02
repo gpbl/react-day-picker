@@ -86,11 +86,28 @@
   /* The font of the month caption. */
   --rdp-month-caption-font: bold larger var(--rdp-font-family);
 
-  /* The color of the range background. */
-  --rdp-range-background-color: var(--rdp-accent-color);
+  /* The color of the background for days in the middle of a range. */
+  --rdp-range-middle-background-color: #ababff;
+
+  /* The font for days in the middle of a range. */
+  --rdp-range-middle-font: normal medium var(--rdp-font-family);
 
   /* The color of the range text. */
   --rdp-range-color: white;
+
+  /* Used for the background of the start of the selected range. */
+  --rdp-range-start-background: linear-gradient(
+    90deg,
+    transparent 50%,
+    var(--rdp-range-middle-background-color) 50%
+  );
+
+  /* Used for the background of the end of the selected range. */
+  --rdp-range-end-background: linear-gradient(
+    90deg,
+    var(--rdp-range-middle-background-color) 50%,
+    transparent 50%
+  );
 
   /* The gap between the dropdown. */
   --rdp-dropdown-gap: 0.5rem;
@@ -144,9 +161,20 @@
 
   width: var(--rdp-day-width);
   height: var(--rdp-day-height);
+
+  font: var(--rdp-day-font);
+}
+
+.day_date {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+  width: var(--rdp-day-width);
+  height: var(--rdp-day-height);
+
   border: var(--rdp-day-border);
   border-radius: var(--rdp-day-border-radius);
-  font: var(--rdp-day-font);
 }
 
 .caption_label {
@@ -283,28 +311,21 @@
   border: var(--rdp-week_number-border);
   border-radius: var(--rdp-week_number-border-radius);
 }
-.week_number[data-onclick] {
+
+.week_number_interactive {
   cursor: pointer;
 }
 
-.week_number[data-interactive] .weekday {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  width: var(--rdp-weekday-width);
-  height: var(--rdp-weekday-height);
-}
-
 /* DAY MODIFIERS */
-
 .today:not(.outside) {
   color: var(--rdp-today-color);
 }
 
-.selected,
-.selected.outside {
+.selected {
   font: var(--rdp-selected-font);
+}
+
+.selected .day_date {
   border: var(--rdp-selected-border);
 }
 
@@ -322,29 +343,30 @@
 }
 
 .range_start {
-  border-start-end-radius: 0;
-  border-end-end-radius: 0;
+  background: var(--rdp-range-start-background);
 }
 
-.range_start.selected,
-.range_end.selected,
-.range_middle.selected {
-  border-color: transparent;
+.range_start .day_date {
   background-color: var(--rdp-range-background-color);
   color: var(--rdp-range-color);
 }
 
+.range_middle .day_date {
+  border-color: transparent;
+  border: unset;
+  border-radius: unset;
+  background-color: var(--rdp-range-middle-background-color);
+  color: var(--rdp-range-color);
+  font: var(--rdp-range-middle-font);
+}
+
 .range_end {
-  border-start-start-radius: 0;
-  border-end-start-radius: 0;
+  background: var(--rdp-range-end-background);
 }
 
-.range_end.range_start {
-  border-radius: var(--rdp-day-border-radius);
-}
-
-.range_middle {
-  border-radius: 0;
+.range_end .day_date {
+  background-color: var(--rdp-range-background-color);
+  color: var(--rdp-range-color);
 }
 
 .focusable {
