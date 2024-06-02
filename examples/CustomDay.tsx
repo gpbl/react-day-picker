@@ -4,13 +4,13 @@ import { type DayProps, DayPicker } from "react-day-picker";
 
 function HighlightedDay(props: DayProps) {
   return (
-    <div {...props.htmlAttributes}>
+    <div {...props.rootProps}>
       {props.day.date.getDate() === 19 && ` 🎉`}
       {props.children}
     </div>
   );
 }
 
-export function CustomDay() {
-  return <DayPicker mode="single" components={{ Day: HighlightedDay }} />;
+export function CustomDayDate() {
+  return <DayPicker mode="single" components={{ DayDate: HighlightedDay }} />;
 }
