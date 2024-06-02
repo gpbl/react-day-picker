@@ -48,41 +48,49 @@ The default styles use CSS variables that can be overridden to customize the app
 
 The following table lists the CSS variables used by DayPicker:
 
-| CSS Variable Name                   | Description                                                         |
-| ----------------------------------- | ------------------------------------------------------------------- |
-| `--rdp-accent-color`                | The accent color used for selected days and UI elements.            |
-| `--rdp-day-border-radius`           | The border radius of the day cells.                                 |
-| `--rdp-day-border`                  | The border of the day cells.                                        |
-| `--rdp-day-font`                    | The font used for the day cells.                                    |
-| `--rdp-day-height`                  | The height of the day cells.                                        |
-| `--rdp-day-width`                   | The width of the day cells.                                         |
-| `--rdp-disabled-opacity`            | The opacity of the disabled days.                                   |
-| `--rdp-dropdown-gap`                | The distance bete=ween the dropdowns.                               |
-| `--rdp-excluded-opacity`            | The opacity of the excluded days.                                   |
-| `--rdp-font-family`                 | The font family used by the calendar (`inherited` won't work here). |
-| `--rdp-month-caption-font`          | The font of the month caption.                                      |
-| `--rdp-months-gap`                  | The distance between the month grids in the multi-month view.       |
-| `--rdp-nav-button-border-radius`    | The border radius of the navigation buttons.                        |
-| `--rdp-nav-button-disabled-opacity` | The opacity of the disabled navigation buttons.                     |
-| `--rdp-nav-button-height`           | The height of the navigation buttons.                               |
-| `--rdp-nav-button-width`            | The width of the navigation buttons.                                |
-| `--rdp-nav-height`                  | The height of the navigation bar.                                   |
-| `--rdp-outside-opacity`             | The opacity of the days outside the current month.                  |
-| `--rdp-range-background-color`      | The color of the range background.                                  |
-| `--rdp-range-color`                 | The color of the range text.                                        |
-| `--rdp-selected-border`             | The border of the selected days.                                    |
-| `--rdp-selected-font`               | The font of the selected days.                                      |
-| `--rdp-today-color`                 | The color of today's date.                                          |
-| `--rdp-weekday-font`                | The font of the weekday.                                            |
-| `--rdp-weekday-opacity`             | The opacity of the weekday.                                         |
-| `--rdp-weekday-padding`             | The padding of the weekday.                                         |
-| `--rdp-weekday-text-align`          | The text alignment of the weekday cells.                            |
-| `--rdp-week_number-border-radius`   | The border radius of the week number.                               |
-| `--rdp-week_number-border`          | The border of the week number.                                      |
-| `--rdp-week_number-font`            | The font of the week number cells.                                  |
-| `--rdp-week_number-height`          | The height of the week number cells.                                |
-| `--rdp-week_number-opacity`         | The opacity of the week number.                                     |
-| `--rdp-week_number-width`           | The width of the week number cells.                                 |
+| Name of the var                           | Description                                                                   |
+| ----------------------------------------- | ----------------------------------------------------------------------------- |
+| `--rdp-accent-color`                      | The accent color used for selected days and UI elements.                      |
+| `--rdp-accent-background-color`           | The accent background color used for selected days and UI elements.           |
+| `--rdp-font-family`                       | The font family used by the calendar. Note that `inherit` does not work here. |
+| `--rdp-day-font`                          | The font used for the day cells.                                              |
+| `--rdp-day-height`                        | The height of the day cells.                                                  |
+| `--rdp-day-width`                         | The width of the day cells.                                                   |
+| `--rdp-chevron-disabled-opacity`          | The opacity of the chevron when its container is disabled.                    |
+| `--rdp-day_date-border-radius`            | The border radius of the day cells.                                           |
+| `--rdp-day_date-border`                   | The border of the day cells.                                                  |
+| `--rdp-day_date-height`                   | The height of the day cells.                                                  |
+| `--rdp-day_date-width`                    | The width of the day cells.                                                   |
+| `--rdp-selected-border`                   | The border of the selected days.                                              |
+| `--rdp-selected-font`                     | The font of the selected days.                                                |
+| `--rdp-disabled-opacity`                  | The opacity of the disabled days.                                             |
+| `--rdp-outside-opacity`                   | The opacity of the days outside the current month.                            |
+| `--rdp-today-color`                       | The color of today's date.                                                    |
+| `--rdp-dropdown-gap`                      | The gap between the dropdowns used in the month captions.                     |
+| `--rdp-month_caption-font`                | The font of the month caption.                                                |
+| `--rdp-months-gap`                        | The gap between the months in the multi-month view.                           |
+| `--rdp-nav_button-border-radius`          | The border radius of the navigation buttons.                                  |
+| `--rdp-nav_button-disabled-opacity`       | The opacity of the disabled navigation buttons.                               |
+| `--rdp-nav_button-height`                 | The height of the navigation buttons.                                         |
+| `--rdp-nav_button-width`                  | The width of the navigation buttons.                                          |
+| `--rdp-nav-height`                        | The height of the navigation bar.                                             |
+| `--rdp-range_middle-background-color`     | The color of the background for days in the middle of a range.                |
+| `--rdp-range_middle-font`                 | The font for days in the middle of a range.                                   |
+| `--rdp-range_start-color`                 | The color of the range text at the start of the range.                        |
+| `--rdp-range_start-background`            | Used for the background of the start of the selected range.                   |
+| `--rdp-range_start-date-background-color` | The background color of the date at the start of the selected range.          |
+| `--rdp-range_end-background`              | Used for the background of the end of the selected range.                     |
+| `--rdp-range_end-color`                   | The color of the range text at the end of the range.                          |
+| `--rdp-range_end-date-background-color`   | The background color of the date at the end of the selected range.            |
+| `--rdp-week_number-border-radius`         | The border radius of the week number.                                         |
+| `--rdp-week_number-border`                | The border of the week number.                                                |
+| `--rdp-week_number-font`                  | The font of the week number cells.                                            |
+| `--rdp-week_number-height`                | The height of the week number cells.                                          |
+| `--rdd-week_number-width`                 | The width of the week number cells.                                           |
+| `--rdp-weekday-font`                      | The font of the weekday.                                                      |
+| `--rdp-weekday-opacity`                   | The opacity of the weekday.                                                   |
+| `--rdp-weekday-padding`                   | The padding of the weekday.                                                   |
+| `--rdp-weekday-text-align`                | The text alignment of the weekday cells.                                      |
 
 ### Light/Dark Appearance
 
@@ -115,6 +123,7 @@ export function MyDatePicker() {
 <BrowserWindow>
   <Examples.CssModules />
 </BrowserWindow>
+
 ## Custom Class Names
 
 Use the `classNames` prop to use other classnames instead of the default ones. The [`ClassNames`](../api/type-aliases/ClassNames.md) type lists all the class names used by DayPicker. They are the value of the [`UI`](../api/enumerations/UI.md), [`DayModifiers`](../api/enumerations/DayModifier.md) and [`CalendarFlag`](../api/enumerations/CalendarFlag.md) enums.

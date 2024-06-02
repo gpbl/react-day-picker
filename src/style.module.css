@@ -1,119 +1,105 @@
+/* Variables declaration */
+/* prettier-ignore */
 :root {
-  /* The accent color used for selected days and ui elements. */
-  --rdp-accent-color: blue;
+  --rdp-accent-color: blue; /* The accent color used for selected days and UI elements. */
+  --rdp-accent-background-color: #f0f0ff; /* The accent background color used for selected days and UI elements. */
+  --rdp-font-family: system-ui; /* The font family used by the calendar. Note that `inherit`does not work here. */
 
-  /* The font family used by the calendar. (`inherited` won't work here) */
-  --rdp-font-family: system-ui;
+  --rdp-day-font: inherit; /* The font used for the day cells. */
+  --rdp-day-height: 2.75rem; /* The height of the day cells. */
+  --rdp-day-width: 2.75rem; /* The width of the day cells. */
+  
+  --rdp-chevron-disabled-opacity: 0.5; /* The opacity of the chevron when its container is disabled. */
+  
+  --rdp-day_date-border-radius: 100%; /* The border radius of the day cells. */
+  --rdp-day_date-border: 2px solid transparent; /* The border of the day cells. */
+  --rdp-day_date-height: var(--rdp-day-width); /* The height of the day cells. */
+  --rdp-day_date-width: var(--rdp-day-height); /* The width of the day cells. */
+  
+  --rdp-selected-border: 2px solid var(--rdp-accent-color); /* The border of the selected days. */
+  --rdp-selected-font: bold large var(--rdp-font-family); /* The font of the selected days. */
+  --rdp-disabled-opacity: 0.5; /* The opacity of the disabled days. */
+  --rdp-outside-opacity: 0.75; /* The opacity of the days outside the current month. */
+  --rdp-today-color: var(--rdp-accent-color); /* The color of the today's date. */
+  
+  --rdp-dropdown-gap: 0.5rem;/* The gap between the dropdowns used in the month captons. */
+  
+  --rdp-month_caption-font: bold larger var(--rdp-font-family); /* The font of the month caption. */
+  --rdp-months-gap: 2rem; /* The gap between the months in the multi-month view. */
+  
+  --rdp-nav_button-border-radius: 100%; /* The border radius of the navigation buttons. */
+  --rdp-nav_button-disabled-opacity: 0.5; /* The opacity of the disabled navigation buttons. */
+  --rdp-nav_button-height: 2.25rem; /* The height of the navigation buttons. */
+  --rdp-nav_button-width: 2.25rem; /* The width of the navigation buttons. */
+  --rdp-nav-height: 2.75rem; /* The height of the navigation bar. */
+  
+  --rdp-range_middle-background-color: var(--rdp-accent-background-color); /* The color of the background for days in the middle of a range. */
+  --rdp-range_middle-font: normal medium var(--rdp-font-family); /* The font for days in the middle of a range. */
+  
+  --rdp-range_start-color: white; /* The color of the range text. */
+  --rdp-range_start-background: linear-gradient(90deg, transparent 50%, var(--rdp-range_middle-background-color) 50%); /* Used for the background of the start of the selected range. */
+  --rdp-range_start-date-background-color: var(--rdp-accent-color); /* The background color of the date when at the start of the selected range. */
+  
+  --rdp-range_end-background: linear-gradient(90deg, var(--rdp-range_middle-background-color) 50%, transparent 50%); /* Used for the background of the end of the selected range. */
+  --rdp-range_end-color: white;/* The color of the range text. */
+  --rdp-range_end-date-background-color: var(--rdp-accent-color); /* The background color of the date when at the end of the selected range. */
+  
+  --rdp-week_number-border-radius: 100%; /* The border radius of the week number. */
+  --rdp-week_number-border: 2px solid transparent; /* The border of the week number. */
+  --rdp-week_number-font: 400 small var(--rdp-font-family); /* The font of the week number cells. */
+  --rdp-week_number-height: var(--rdp-day-height); /* The height of the week number cells. */
+  --rdp-week_number-opacity: 0.75; /* The opacity of the week number. */
+  --rdp-week_number-width: var(--rdp-day-width); /* The width of the week number cells. */
+  
+  --rdp-weekday-font: 500 smaller var(--rdp-font-family); /* The font of the weekday. */
+  --rdp-weekday-opacity: 0.75; /* The opacity of the weekday. */
+  --rdp-weekday-padding: 0.25rem 0.75rem; /* THe padding of the weekday. */
+  --rdp-weekday-text-align: center; /* The text alignment of the weekday cells. */
+}
 
-  /* The gap between the months in the multi-month view. */
-  --rdp-months-gap: 2rem;
+/* prettier-ignore: false */
 
-  /* The font used for the day cells. */
-  --rdp-day-font: inherit;
+/* Root of the component. */
+.calendar {
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+}
 
-  /* The width of the day cells. */
-  --rdp-day-width: 2.75rem;
+.calendar * {
+  box-sizing: border-box;
+}
 
-  /* The height of the day cells. */
-  --rdp-day-height: 2.75rem;
+.day {
+  justify-content: center;
+  align-items: center;
+  display: flex;
 
-  /* The border of the day cells. */
-  --rdp-day-border: 2px solid transparent;
+  width: var(--rdp-day-width);
+  height: var(--rdp-day-height);
+  font: var(--rdp-day-font);
+}
 
-  /* The border radius of the day cells. */
-  --rdp-day-border-radius: 100%;
+.day_date {
+  justify-content: center;
+  align-items: center;
+  display: flex;
 
-  /* The opacity of the days outside the current month. */
-  --rdp-outside-opacity: 0.75;
+  width: var(--rdp-day_date-width);
+  height: var(--rdp-day_date-height);
+  border: var(--rdp-day_date-border);
+  border-radius: var(--rdp-day_date-border-radius);
+}
 
-  /* The opacity of the disabled days. */
-  --rdp-disabled-opacity: 0.5;
+.caption_label {
+  z-index: 1;
 
-  /* The border of the selected days. */
-  --rdp-selected-border: 2px solid var(--rdp-accent-color);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
 
-  /* The font of the selected days. */
-  --rdp-selected-font: bold large var(--rdp-font-family);
-
-  /* The color of the today's date. */
-  --rdp-today-color: var(--rdp-accent-color);
-
-  /* The height of the navigation bar. */
-  --rdp-nav-height: 2.75rem;
-
-  /* The width of the navigation buttons. */
-  --rdp-nav-button-width: 2.25rem;
-
-  /* The height of the navigation buttons. */
-  --rdp-nav-button-height: 2.25rem;
-
-  /* The opacity of the disabled navigation buttons. */
-  --rdp-nav-button-disabled-opacity: 0.5;
-
-  /* The border radius of the navigation buttons. */
-  --rdp-nav-button-border-radius: 100%;
-
-  /* The height of the week number cells. */
-  --rdp-week_number-height: var(--rdp-day-height);
-
-  /* The width of the week number cells. */
-  --rdp-week_number-width: var(--rdp-day-width);
-
-  /* The font of the week number cells. */
-  --rdp-week_number-font: 400 small var(--rdp-font-family);
-
-  /* The border radius of the week number. */
-  --rdp-week_number-border-radius: 100%;
-
-  /* The border of the week number. */
-  --rdp-week_number-border: 2px solid transparent;
-
-  /* The opacity of the week number. */
-  --rdp-week_number-opacity: 0.75;
-
-  /* The font of the weekday. */
-  --rdp-weekday-font: 500 smaller var(--rdp-font-family);
-
-  /* The opacity of the weekday. */
-  --rdp-weekday-opacity: 0.75;
-
-  /* THe padding of the weekday. */
-  --rdp-weekday-padding: 0.25rem 0.75rem;
-
-  /* The text alignment of the weekday cells. */
-  --rdp-weekday-text-align: center;
-
-  /* The font of the month caption. */
-  --rdp-month-caption-font: bold larger var(--rdp-font-family);
-
-  /* The color of the background for days in the middle of a range. */
-  --rdp-range-middle-background-color: #ababff;
-
-  /* The font for days in the middle of a range. */
-  --rdp-range-middle-font: normal medium var(--rdp-font-family);
-
-  /* The color of the range text. */
-  --rdp-range-color: white;
-
-  /* Used for the background of the start of the selected range. */
-  --rdp-range-start-background: linear-gradient(
-    90deg,
-    transparent 50%,
-    var(--rdp-range-middle-background-color) 50%
-  );
-
-  /* Used for the background of the end of the selected range. */
-  --rdp-range-end-background: linear-gradient(
-    90deg,
-    var(--rdp-range-middle-background-color) 50%,
-    transparent 50%
-  );
-
-  /* The gap between the dropdown. */
-  --rdp-dropdown-gap: 0.5rem;
-
-  /* The gap between the dropdown. */
-  --rdp-chevron-disabled-opacity: 0.5;
+  white-space: nowrap;
+  border: 0;
 }
 
 .button_next,
@@ -133,59 +119,16 @@
   color: inherit;
   cursor: pointer;
 
-  border-radius: var(--rdp-nav-button-border-radius);
-  width: var(--rdp-nav-button-width);
-  height: var(--rdp-nav-button-height);
+  border-radius: var(--rdp-nav_button-border-radius);
+  width: var(--rdp-nav_button-width);
+  height: var(--rdp-nav_button-height);
 }
 
 .button_next:disabled,
 .button_previous:disabled {
-  opacity: var(--rdp-nav-button-disabled-opacity);
   cursor: revert;
-}
 
-.calendar {
-  display: inline-block;
-  position: relative;
-}
-
-.calendar,
-.calendar * {
-  box-sizing: border-box;
-}
-
-.day {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-
-  width: var(--rdp-day-width);
-  height: var(--rdp-day-height);
-
-  font: var(--rdp-day-font);
-}
-
-.day_date {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-
-  width: var(--rdp-day-width);
-  height: var(--rdp-day-height);
-
-  border: var(--rdp-day-border);
-  border-radius: var(--rdp-day-border-radius);
-}
-
-.caption_label {
-  z-index: 1;
-
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-
-  white-space: nowrap;
-  border: 0;
+  opacity: var(--rdp-nav_button-disabled-opacity);
 }
 
 .chevron {
@@ -252,7 +195,7 @@
   display: flex;
   align-content: center;
   height: var(--rdp-nav-height);
-  font: var(--rdp-month-caption-font);
+  font: var(--rdp-month_caption-font);
 }
 
 .months {
@@ -340,33 +283,36 @@
 
 .hidden {
   visibility: hidden;
+  color: var(end-range_start-color);
 }
 
 .range_start {
-  background: var(--rdp-range-start-background);
+  background: var(--rdp-range_start-background);
+  color: var(--rdp-range_start-color);
 }
 
 .range_start .day_date {
-  background-color: var(--rdp-range-background-color);
-  color: var(--rdp-range-color);
+  background-color: var(--rdp-range_start-date-background-color);
+}
+
+.range_middle {
+  background-color: var(--rdp-range_middle-background-color);
+  font: var(--rdp-range_middle-font);
 }
 
 .range_middle .day_date {
   border-color: transparent;
   border: unset;
   border-radius: unset;
-  background-color: var(--rdp-range-middle-background-color);
-  color: var(--rdp-range-color);
-  font: var(--rdp-range-middle-font);
 }
 
 .range_end {
-  background: var(--rdp-range-end-background);
+  background: var(--rdp-range_end-background);
+  color: var(--rdp-range_end-color);
 }
 
 .range_end .day_date {
-  background-color: var(--rdp-range-background-color);
-  color: var(--rdp-range-color);
+  background-color: var(--rdp-range_end-date-background-color);
 }
 
 .focusable {
