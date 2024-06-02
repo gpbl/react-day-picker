@@ -352,29 +352,30 @@
 }
 
 .rdp-range_start {
-  border-start-end-radius: 0;
-  border-end-end-radius: 0;
+  background: var(--rdp-range-start-background);
 }
 
-.rdp-range_start.rdp-selected,
-.rdp-range_end.rdp-selected,
-.rdp-range_middle.rdp-selected {
-  border-color: transparent;
+.rdp-range_start .rdp-day_date {
   background-color: var(--rdp-range-background-color);
   color: var(--rdp-range-color);
 }
 
+.rdp-range_middle .rdp-day_date {
+  border-color: transparent;
+  border: unset;
+  border-radius: unset;
+  background-color: var(--rdp-range-middle-background-color);
+  color: var(--rdp-range-color);
+  font: var(--rdp-range-middle-font);
+}
+
 .rdp-range_end {
-  border-start-start-radius: 0;
-  border-end-start-radius: 0;
+  background: var(--rdp-range-end-background);
 }
 
-.rdp-range_end.rdp-range_start {
-  border-radius: var(--rdp-day-border-radius);
-}
-
-.rdp-range_middle {
-  border-radius: 0;
+.rdp-range_end .rdp-day_date {
+  background-color: var(--rdp-range-background-color);
+  color: var(--rdp-range-color);
 }
 
 .rdp-focusable {
