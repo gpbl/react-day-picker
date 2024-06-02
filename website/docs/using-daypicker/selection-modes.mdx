@@ -205,6 +205,25 @@ To disable specific days, use the `disabled` prop. The prop accepts a [`Matcher`
   <Examples.ModifiersDisabled />
 </BrowserWindow>
 
-## Custom Mode
+## Customizing Selections
 
-- See the [Custom Selections](../advanced-guides/custom-selections.mdx) guide to create custom selection modes.
+To change the behavior of a selection mode, use the `select` and `onSelect` props to handle the selection event and update the selected dates according to your app requirement:
+
+```jsx
+import { useState } from "react";
+
+import { DayPicker } from "react-day-picker";
+
+export function App() {
+  const [selected, setSelected] = useState();
+  const handleSelect = (newSelected) => {
+    // Update the selected dates
+    setSelected(newSelected);
+  };
+  return (
+    <DayPicker mode="multiple" selected={selected} onSelect={handleSelect} />
+  );
+}
+```
+
+You can also toggle the selection mode to `default` and implement your own mode by using `modifiers` and `onDayClick`. Read the [Custom Selections](../advanced-guides/custom-selections.mdx) guide for more information.
