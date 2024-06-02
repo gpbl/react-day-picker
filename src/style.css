@@ -311,21 +311,12 @@
   border: var(--rdp-week_number-border);
   border-radius: var(--rdp-week_number-border-radius);
 }
-.rdp-week_number[data-onclick] {
+
+.rdp-week_number_interactive {
   cursor: pointer;
 }
 
-.rdp-week_number[data-interactive] .rdp-weekday {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  width: var(--rdp-weekday-width);
-  height: var(--rdp-weekday-height);
-}
-
 /* DAY MODIFIERS */
-
 .rdp-today:not(.rdp-outside) {
   color: var(--rdp-today-color);
 }

@@ -1,4 +1,10 @@
-import { UI, DayModifier, CalendarFlag, ChevronFlag } from "../UI";
+import {
+  UI,
+  DayModifier,
+  CalendarFlag,
+  ChevronFlag,
+  WeekNumberFlag
+} from "../UI";
 import type { ClassNames } from "../types";
 
 /**
@@ -22,6 +28,11 @@ export function getDefaultClassNames(): Required<ClassNames> {
   for (const key in ChevronFlag) {
     classNames[ChevronFlag[key as keyof typeof ChevronFlag]] =
       `rdp-${ChevronFlag[key as keyof typeof ChevronFlag]}`;
+  }
+
+  for (const key in WeekNumberFlag) {
+    classNames[WeekNumberFlag[key as keyof typeof WeekNumberFlag]] =
+      `rdp-${WeekNumberFlag[key as keyof typeof WeekNumberFlag]}`;
   }
 
   for (const key in DayModifier) {

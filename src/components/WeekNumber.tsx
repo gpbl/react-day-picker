@@ -1,6 +1,6 @@
 import React from "react";
 
-import { UI } from "../UI";
+import { UI, WeekNumberFlag } from "../UI";
 import type { CalendarWeek } from "../classes";
 import { useProps } from "../contexts/props";
 
@@ -21,15 +21,20 @@ export function WeekNumber(props: { week: CalendarWeek }) {
     styles,
     onWeekNumberClick
   } = useProps();
+
+  const isInteractive = Boolean(onWeekNumberClick);
+
   return (
     <div
       role="rowheader"
       aria-colindex={1}
       aria-label={labelWeekNumber(props.week.weekNumber, { locale })}
-      className={classNames[UI.WeekNumber]}
+      className={[
+        classNames[UI.WeekNumber],
+        isInteractive ? classNames[WeekNumberFlag.isInteractive] : ""
+      ].join(" ")}
       style={styles?.[UI.WeekNumber]}
-      tabIndex={onWeekNumberClick ? 0 : undefined}
-      data-onclick={onWeekNumberClick ? true : undefined}
+      tabIndex={isInteractive ? 0 : undefined}
       onClick={(e) =>
         onWeekNumberClick?.(
           props.week.weekNumber,
