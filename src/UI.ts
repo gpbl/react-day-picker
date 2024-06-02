@@ -51,7 +51,10 @@ export enum UI {
   Weekday = "weekday",
   /** The row grouping the weekdays in the column headers. */
   Weekdays = "weekdays",
-  /** The row header containing the week number. */
+  /**
+   * The row header containing the week number. Extended by
+   * {@link WeekNumberFlag}.
+   */
   WeekNumber = "week_number",
   /** The dropdown with the years. */
   YearsDropdown = "years_dropdown"
