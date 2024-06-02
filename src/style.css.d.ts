@@ -6,6 +6,7 @@ declare const styles: {
   readonly "rdp-chevron": string;
   readonly "rdp-chevron_disabled": string;
   readonly "rdp-day": string;
+  readonly "rdp-day_date": string;
   readonly "rdp-disabled": string;
   readonly "rdp-dropdown": string;
   readonly "rdp-dropdown_nav": string;
@@ -29,6 +30,7 @@ declare const styles: {
   readonly "rdp-today": string;
   readonly "rdp-week": string;
   readonly "rdp-week_number": string;
+  readonly "rdp-week_number_interactive": string;
   readonly "rdp-weekday": string;
   readonly "rdp-weekdays": string;
   readonly "rdp-weeks": string;

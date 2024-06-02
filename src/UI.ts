@@ -51,7 +51,10 @@ export enum UI {
   Weekday = "weekday",
   /** The row grouping the weekdays in the column headers. */
   Weekdays = "weekdays",
-  /** The row header containing the week number. */
+  /**
+   * The row header containing the week number. Extended by
+   * {@link WeekNumberFlag}.
+   */
   WeekNumber = "week_number",
   /** The dropdown with the years. */
   YearsDropdown = "years_dropdown"
@@ -95,4 +98,13 @@ export enum CalendarFlag {
 export enum ChevronFlag {
   /** Assigned when the week numbers are show. */
   disabled = "chevron_disabled"
+}
+
+/** Flags that can be applied to the {@link UI.WeekNumber} element. */
+export enum WeekNumberFlag {
+  /**
+   * Assigned when the week number is interactive, i.e. has an
+   * `onWeekNumberClick` event attached to it.
+   */
+  isInteractive = "week_number_interactive"
 }

@@ -35,6 +35,7 @@ test("should return the default classnames", () => {
     selected: "rdp-selected",
     today: "rdp-today",
     week_number: "rdp-week_number",
+    week_number_interactive: "rdp-week_number_interactive",
     week: "rdp-week",
     weekday: "rdp-weekday",
     weekdays: "rdp-weekdays",

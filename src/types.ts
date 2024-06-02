@@ -10,7 +10,13 @@ import type {
 
 import type { Locale } from "date-fns";
 
-import { UI, DayModifier, CalendarFlag, ChevronFlag } from "./UI";
+import {
+  UI,
+  DayModifier,
+  CalendarFlag,
+  ChevronFlag,
+  WeekNumberFlag
+} from "./UI";
 import { CalendarDay } from "./classes";
 import * as components from "./components/custom-components";
 import {
@@ -581,6 +587,8 @@ export type ClassNames = {
   [flag in CalendarFlag]: string;
 } & {
   [flag in ChevronFlag]: string;
+} & {
+  [flag in WeekNumberFlag]: string;
 };
 
 /** The modifiers that are internally used by DayPicker. */
