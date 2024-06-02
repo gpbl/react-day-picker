@@ -17,20 +17,20 @@ Use the `components` prop to swap the components used to render DayPicker. A lis
 
 For example, if you need to customize the component creating the day cell, you can replace the `Day` component with a custom implementation.
 
-```tsx title="./CustomDay.tsx"
+```tsx title="./CustomDayDate.tsx"
 import { DayPicker, type DayProps } from "react-day-picker";
 
-function CustomDay(props: DayProps) {
+function CustomDayDate(props: DayDateProps) {
   return (
-    <div {...props.htmlAttributes}>
+    <span {...props.rootProps}>
       {props.day.date.getDate() === 19 && ` 🎉`}
-      {props.children}
-    </div>
+      {props.formattedDate}
+    </span>
   );
 }
 
 export function MyDatePicker() {
-  return <DayPicker mode="single" components={{ Day: CustomDay }} />;
+  return <DayPicker mode="single" components={{ DayDate: CustomDayDate }} />;
 }
 ```
 
