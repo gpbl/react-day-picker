@@ -15,7 +15,7 @@ const config: Config = {
   projectName: "react-day-picker",
   trailingSlash: false,
 
-  onBrokenLinks: "warn",
+  onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
 
   i18n: {

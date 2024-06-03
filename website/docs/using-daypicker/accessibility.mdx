@@ -10,10 +10,15 @@ Depending on your design, you may need to add new accessibility features. For in
 
 ## Accessibility Tips
 
-- Test your date picker with a screen reader.
-- In your UI, implement an `aria-live` region to announce when a selection is made.
-- Use the `role` prop to define the ARIA role of the date picker.
-- Use the [`labels`](../api/interfaces/PropsBase.md#labels) prop to customize the ARIA labels.
+- Regularly test your date picker with a screen reader to ensure it's accessible to all users.
+- Use an `aria-live` region in your user interface to audibly announce when a date is selected.
+- Specify the ARIA role of the date picker with the `role` prop to provide context to assistive technologies.
+- Customize the ARIA labels with the [`labels`](../api/interfaces/PropsBase.md#labels) prop to improve the clarity of instructions and feedback provided to the user.
+- Ensure that the date picker is fully navigable using only the keyboard. This includes selection, navigation between months, and closing the date picker.
+- Use clear visual indicators for focus states to assist users who rely on keyboard navigation.
+- Provide alternative text for any icons used in the date picker.
+- Ensure sufficient color contrast between text and background colors to assist users with visual impairments.
+- Consider providing instructions for how to use the date picker for **first-time users** or those unfamiliar with the interface.
 
 ### Example
 
@@ -79,7 +84,6 @@ DayPicker supports keyboard navigation to make it easier for users to navigate t
 
 ## Reporting Issues With Accessibility
 
-Accessibility is a field that is constantly evolving. If you encounter any issues with DayPicker, please [open an issue](https://github.com/gpbl/react-day-picker/issues/new/choose) or share
-your feedback to help make the library more accessible.
+Accessibility is an evolving field. If you find any issues with DayPicker, please [open an issue](https://github.com/gpbl/react-day-picker/issues/new/choose). Your feedback helps improve our library's accessibility.
 
-See also the [existing accessibility issues](https://github.com/gpbl/react-day-picker/issues?q=is%3Aopen+label%3Aaccessibility+sort%3Aupdated-desc).
+Check out the [current accessibility issues](https://github.com/gpbl/react-day-picker/issues?q=is%3Aopen+label%3Aaccessibility+sort%3Aupdated-desc).

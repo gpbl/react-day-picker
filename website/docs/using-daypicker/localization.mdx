@@ -4,6 +4,8 @@ sidebar_position: 5
 
 # Localization
 
+Learn how to set the locale, adjust the week start day, and apply ISO Week Dates to enhance the user experience across different regions and languages.
+
 ## Configure the Locale
 
 | Prop Name               | Type                                          | Description                                                        |
@@ -15,7 +17,7 @@ sidebar_position: 5
 
 ### Set a Different Locale
 
-To set a locale different than the the default `English (US)`, pass to the `locale` prop a [Locale](https://date-fns.org/docs/I18n) object imported from `date-fns`.
+By default, the locale is set to English (US). To localize the calendar, pass a [`Locale`](https://date-fns.org/docs/I18n) object to the `locale` prop.
 
 For example, to localize the calendar in Spanish, import the `es` locale object from date-fns and pass it to the component.
 
@@ -31,19 +33,21 @@ import { es } from "date-fns/locale";
 
 ### First Date of the Week
 
-Use `weekStartsOn` to override the first date of the week.
+Utilize the `weekStartsOn` prop to specify the starting day of the week.
 
 ```tsx
-<DayPicker weekStartsOn={0} />
+<DayPicker locale={es} weekStartsOn={0} /> // Start the week on Domingo
 ```
 
 <BrowserWindow>
   <Examples.SpanishWeekStartsOn />
 </BrowserWindow>
 
-### First Week of the Year
+### First Week Contains Date
 
-Use `weekStartsOn` to override the first date of the first week of the year, used to calculate the week numbers. Possible values are `1` (Monday) or `4` (Thursday).
+The `firstWeekContainsDate` prop can be used to change the first day of the week for the year's initial week, which is used in the calculation of week numbers.
+
+Acceptable values are `1` for Monday and `4` for Thursday.
 
 ```tsx caption="render:WeeknumberCustom"
 <DayPicker
@@ -73,13 +77,7 @@ Use `ISOWeek` to switch using [ISO Week Dates](https://en.wikipedia.org/wiki/ISO
 
 ## Translate DayPicker
 
-:::info Draft
-
-This paragraph is still a work in progress. If you have any questions, ask to the [discussions](https://github.com/gpbl/react-day-picker/discussions) page on Github.
-
-:::
-
-Use these props to translate DayPicker in any language.
+These props will assist in translating the labels and formatters utilized in DayPicker.
 
 | Prop Name    | Type                                              | Description                                |
 | ------------ | ------------------------------------------------- | ------------------------------------------ |
@@ -89,7 +87,7 @@ Use these props to translate DayPicker in any language.
 
 ### ARIA Labels
 
-ARIA labels are used by DayPicker to provide a better accessibility experience. Use the `labels` prop to translate the labels used in the component.
+DayPicker utilizes ARIA labels to enhance screen reader accessibility. The `labels` prop allows for customization of these ARIA labels. For additional information, please refer to the [Accessibility guide](./accessibility.mdx).
 
 ```tsx
 <DayPicker
@@ -100,27 +98,38 @@ ARIA labels are used by DayPicker to provide a better accessibility experience. 
 />
 ```
 
-| Member               | Type                                                        | Description                                        |
-| :------------------- | :---------------------------------------------------------- | :------------------------------------------------- |
-| `labelMonthDropdown` | () => `string`                                              | Returns the label for the "Months" dropwdown       |
-| `labelNext`          | [`NavButtonLabel`](../api/type-aliases/NavButtonLabel.md)   | Label for the "Next month" button.                 |
-| `labelPrevious`      | [`NavButtonLabel`](../api/type-aliases/NavButtonLabel.md)   | Label for the "Previous month" button.             |
-| `labelWeekNumber`    | [`WeekNumberLabel`](../api/type-aliases/WeekNumberLabel.md) | Label for the "Next month" button.                 |
-| `labelWeekday`       | [`WeekdayLabel`](../api/type-aliases/WeekdayLabel.md)       | Label for the week day used in the head component. |
-| `labelYearDropdown`  | () => `string`                                              | Label for the "Years" dropdown.                    |
+| Label                   | Type                                                                          | Description                                         |
+| :---------------------- | :---------------------------------------------------------------------------- | :-------------------------------------------------- |
+| `labelCaption`          | _typeof_ [`labelCaption`](../api/functions/labelCaption.md)                   | Return the label for the month dropdown.            |
+| `labelDay`              | _typeof_ [`labelDay`](../api/functions/labelDay.md)                           | Return the label for the day cell.                  |
+| `labelMonthDropdown`    | _typeof_ [`labelMonthDropdown`](../api/functions/labelMonthDropdown.md)       | Return the label for the month dropdown.            |
+| `labelNext`             | _typeof_ [`labelNext`](../api/functions/labelNext.md)                         | Return the label for the next month button.         |
+| `labelPrevious`         | _typeof_ [`labelPrevious`](../api/functions/labelPrevious.md)                 | Return the label for the previous month button.     |
+| `labelWeekNumber`       | _typeof_ [`labelWeekNumber`](../api/functions/labelWeekNumber.md)             | Return the label for the week number.               |
+| `labelWeekNumberHeader` | _typeof_ [`labelWeekNumberHeader`](../api/functions/labelWeekNumberHeader.md) | Return the label for the column of the week number. |
+| `labelWeekday`          | _typeof_ [`labelWeekday`](../api/functions/labelWeekday.md)                   | Return the label for the weekday.                   |
+| `labelYearDropdown`     | _typeof_ [`labelYearDropdown`](../api/functions/labelYearDropdown.md)         | Return the label for the year dropdown.             |
 
 ### Formatters
 
-Use the `formatters` prop to format the dates and the week numbers.
+The `formatters` prop can be used to format dates and week numbers:
 
-| Member               | Type                                                                | Description                                                        |
-| :------------------- | :------------------------------------------------------------------ | :----------------------------------------------------------------- |
-| `formatCaption`      | [`DateFormatter`](../api/type-aliases/DateFormatter.md)             | Format the month in the caption when `captionLayout` is `buttons`. |
-| `formatDay`          | [`DateFormatter`](../api/type-aliases/DateFormatter.md)             | Format the day in the day cell.                                    |
-| `formatMonthCaption` | [`DateFormatter`](../api/type-aliases/DateFormatter.md)             | Format the month in the navigation dropdown.                       |
-| `formatWeekNumber`   | [`WeekNumberFormatter`](../api/type-aliases/WeekNumberFormatter.md) | Format the week number.                                            |
-| `formatWeekdayName`  | [`DateFormatter`](../api/type-aliases/DateFormatter.md)             | Format the week day name in the header                             |
-| `formatYearCaption`  | [`DateFormatter`](../api/type-aliases/DateFormatter.md)             | Format the year in the navigation dropdown.                        |
+```tsx
+<DayPicker
+  formatters={{
+    formatCaption: (date, options) => format(date, "LLLL yyyy", options)
+  }}
+/>
+```
+
+| Formatter             | Type                                                                      | Description                             |
+| :-------------------- | :------------------------------------------------------------------------ | :-------------------------------------- |
+| `formatCaption`       | _typeof_ [`formatCaption`](../api/functions/formatCaption.md)             | Format the caption of a month grid.     |
+| `formatDay`           | _typeof_ [`formatDay`](../api/functions/formatDay.md)                     | Format the day in the day cell.         |
+| `formatMonthDropdown` | _typeof_ [`formatMonthDropdown`](../api/functions/formatMonthDropdown.md) | Format the label in the month dropdown. |
+| `formatWeekNumber`    | _typeof_ [`formatWeekNumber`](../api/functions/formatWeekNumber.md)       | Format the week number.                 |
+| `formatWeekdayName`   | _typeof_ [`formatWeekdayName`](../api/functions/formatWeekdayName.md)     | Format the week day name in the header  |
+| `formatYearDropdown`  | _typeof_ [`formatYearDropdown`](../api/functions/formatYearDropdown.md)   | Format the label in the year dropdown.  |
 
 ### RTL Text Direction
 

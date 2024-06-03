@@ -31,11 +31,11 @@ When the `mode` prop is set to `"single"`, only one day can be selected at a tim
 
 ### Single Mode Props
 
-| Prop Name  | Type                                                                          | Description                             |
-| ---------- | ----------------------------------------------------------------------------- | --------------------------------------- |
-| `selected` | `Date \| undefined`                                                           | The selected date.                      |
-| `onSelect` | [`SelectSingleEventHandler`](../api/type-aliases/SelectSingleEventHandler.md) | Event callback when a date is selected. |
-| `required` | `boolean`                                                                     | Make the selection required.            |
+| Prop Name  | Type                                                              | Description                             |
+| ---------- | ----------------------------------------------------------------- | --------------------------------------- |
+| `selected` | `Date \| undefined`                                               | The selected date.                      |
+| `onSelect` | [`SelectHandler<'single'>`](../api/type-aliases/SelectHandler.md) | Event callback when a date is selected. |
+| `required` | `boolean`                                                         | Make the selection required.            |
 
 The following code snippet will render a date picker with a single selected date. When a day is clicked, the `selectedDate` state is updated.
 
@@ -83,12 +83,12 @@ By setting the `mode` prop to `"multiple"`, DayPicker allows selecting multiple 
 
 ### Multiple Mode Props
 
-| Prop Name  | Type                                                                              | Description                             |
-| ---------- | --------------------------------------------------------------------------------- | --------------------------------------- |
-| `selected` | `Date[] \| undefined`                                                             | The selected dates.                     |
-| `onSelect` | [`SelectMultipleEventHandler`](../api/type-aliases/SelectMultipleEventHandler.md) | Event callback when a date is selected. |
-| `min`      | `number`                                                                          | The minimum dates that can be selected. |
-| `max`      | `number`                                                                          | The maximum dates that can be selected. |
+| Prop Name  | Type                                                                | Description                             |
+| ---------- | ------------------------------------------------------------------- | --------------------------------------- |
+| `selected` | `Date[] \| undefined`                                               | The selected dates.                     |
+| `onSelect` | [`SelectHandler<'multiple'>`](../api/type-aliases/SelectHandler.md) | Event callback when a date is selected. |
+| `min`      | `number`                                                            | The minimum dates that can be selected. |
+| `max`      | `number`                                                            | The maximum dates that can be selected. |
 
 ### Min and Max Dates
 
@@ -123,12 +123,12 @@ When the `mode` prop is set to `"range"`, DayPicker allows selecting a continuou
 <DayPicker mode="range" />
 ```
 
-| Prop Name  | Type                                                                        | Description                             |
-| ---------- | --------------------------------------------------------------------------- | --------------------------------------- |
-| `selected` | [`DateRange`](../api/type-aliases/DateRange.md)                             | The selected range.                     |
-| `onSelect` | [`SelectRangeEventHandler`](../api/type-aliases/SelectRangeEventHandler.md) | Event callback when a date is selected. |
-| `min`      | `number`                                                                    | The minimum dates that can be selected. |
-| `max`      | `number`                                                                    | The maximum dates that can be selected. |
+| Prop Name  | Type                                                             | Description                             |
+| ---------- | ---------------------------------------------------------------- | --------------------------------------- |
+| `selected` | [`DateRange`](../api/type-aliases/DateRange.md)                  | The selected range.                     |
+| `onSelect` | [`SelectHandler<'range'>`](../api/type-aliases/SelectHandler.md) | Event callback when a date is selected. |
+| `min`      | `number`                                                         | The minimum dates that can be selected. |
+| `max`      | `number`                                                         | The maximum dates that can be selected. |
 
 ```tsx
 import { useState } from "react";

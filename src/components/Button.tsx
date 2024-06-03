@@ -4,7 +4,7 @@ import React, { ButtonHTMLAttributes } from "react";
 import type { PropsBase } from "../types";
 
 /**
- * The component used to generate the button elements in the calendar.
+ * Render the button elements in the calendar.
  *
  * Use the `components` prop to swap this component with a custom one.
  *

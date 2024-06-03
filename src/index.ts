@@ -6,6 +6,7 @@ export * from "./contexts/calendar";
 export * from "./contexts/focus";
 export * from "./contexts/props";
 export * from "./contexts/selection";
+export * from "./contexts/modifiers";
 export * from "./formatters";
 export * from "./helpers";
 export * from "./labels";
