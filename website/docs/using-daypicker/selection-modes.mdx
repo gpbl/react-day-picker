@@ -4,22 +4,24 @@ sidebar_position: 4
 
 # Selection Modes
 
-DayPicker comes with some predefined rules for selecting days:
+DayPicker provides predefined rules for day selection:
 
-- [Single mode](#single-mode): only one day can be selected.
-- [Multiple mode](#multiple-mode): select multiple days.
-- [Range mode](#range-mode): select a continuous range of days.
+- [Single mode](#single-mode): allows selection of a single day.
+- [Multiple mode](#multiple-mode): enables selection of multiple individual days.
+- [Range mode](#range-mode): allows the selection of a continuous range of days.
 
-To make days selectable, set the `mode` prop. Disallow the selection of specific days by using the `disabled` prop. [Customize the selection](#customizing-selections) with the `select` and `onSelect` props.
+The `mode` prop determines the selection mode. The `disabled` prop can be used to prevent the selection of specific days. The `selected` and `onSelect` props offer customization of the selection process.
 
-| Prop Name  | Type                                                       | Description                                |
-| ---------- | ---------------------------------------------------------- | ------------------------------------------ |
-| `mode`     | `"single"` \| `"multiple"` \| `"range"` \| `"none"`        | Set a selection mode. Default is `"none"`. |
-| `disabled` | [`Matcher`](../api/type-aliases/Matcher.md) \| `Matcher[]` | Disabled days that cannot be selected.     |
+| Prop Name  | Type                                                                  | Description                                |
+| ---------- | --------------------------------------------------------------------- | ------------------------------------------ |
+| `mode`     | \| `"single"` <br/>\| `"multiple"` <br/>\| `"range"` <br/>\| `"none"` | Set a selection mode. Default is `"none"`. |
+| `disabled` | [`Matcher`](../api/type-aliases/Matcher.md) \| `Matcher[]`            | Disabled days that cannot be selected.     |
+| `selected` | [`Selected`](../api/type-aliases/Selected.md)                         | The selected day(s).                       |
+| `onSelect` | [`SelectHandler`](../api/type-aliases/SelectHandler.md)               | Event callback when a date is selected.    |
 
 ## Single Mode
 
-When the `mode` prop is set to `"single"`, only one day can be selected at a time.
+When the `mode` prop is set to `"single"`, only one day can be selected.
 
 ```tsx
 <DayPicker mode="single" />
@@ -179,14 +181,6 @@ export function RangeMinMax() {
 
 <BrowserWindow>
   <Examples.RangeMinMax />
-</BrowserWindow>
-
-### Shift Key
-
-The following DayPicker requires the <kbd>Shift</kbd> key to select a range of dates. See [examples/RangeShiftKey.tsx](https://github.com/gpbl/react-day-picker/blob/website/examples/RangeShiftKey.tsx) for the full source code.
-
-<BrowserWindow>
-  <Examples.RangeShiftKey />
 </BrowserWindow>
 
 ## Disabling Dates
