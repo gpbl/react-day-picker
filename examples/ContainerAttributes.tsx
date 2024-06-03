@@ -2,11 +2,6 @@ import React from "react";
 
 import { DayPicker } from "react-day-picker";
 
-/**
- * Pass selected HTML attributes and `data-` attributes to the root element.
- *
- * @exampleTitle Container Attributes
- */
 export function ContainerAttributes() {
   return (
     <DayPicker

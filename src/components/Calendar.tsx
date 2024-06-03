@@ -71,11 +71,11 @@ export function Calendar() {
       {...dataAttributes}
     >
       <Months className={classNames[UI.Months]} style={styles?.[UI.Months]}>
+        {!hideNavigation && <Nav />}
         {calendar.months.map((month, i) => (
           <Month aria-labelledby={id} key={i} index={i} month={month} />
         ))}
       </Months>
-      {!hideNavigation && <Nav />}
       {footer && (
         <Footer className={classNames[UI.Footer]} style={styles?.[UI.Footer]}>
           {footer}

@@ -199,6 +199,7 @@
 }
 
 .months {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   gap: var(--rdp-months-gap);

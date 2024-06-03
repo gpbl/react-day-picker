@@ -31,6 +31,7 @@ import {
 } from "./formatters";
 import {
   labelDay,
+  labelCaption,
   labelMonthDropdown,
   labelNext,
   labelPrevious,
@@ -434,6 +435,8 @@ export type Formatters = {
 
 /** Map of functions to translate ARIA labels for the relative elements. */
 export type Labels = {
+  /** Return the label for the month dropdown. */
+  labelCaption: typeof labelCaption;
   /** Return the label for the month dropdown. */
   labelMonthDropdown: typeof labelMonthDropdown;
   /** Return the label for the year dropdown. */

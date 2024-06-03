@@ -19,7 +19,7 @@ export function DayDate(props: {
   modifiers: DayModifiers;
   /** The HTML attributes for the root element. */
   rootProps: {
-    className?: string;
+    className: string;
     style?: React.CSSProperties;
   };
 }) {

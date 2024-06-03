@@ -8,11 +8,60 @@ DayPicker is designed to adhere to the [ARIA Authoring Practices Guide](https://
 
 Depending on your design, you may need to add new accessibility features. For instance, when working with [Input Fields](../advanced-guides/input-fields), there could be some restrictions depending on the level of accessibility you aim to achieve. Stay updated with the best practices by following the [ARIA Patterns](https://www.w3.org/WAI/ARIA/apg/patterns/).
 
-## ARIA Labels Translation
+## Accessibility Tips
 
-When translating the date picker to another language, it's necessary to update the ARIA labels to match the new language. Refer to [Localization](../using-daypicker/localization#aria-labels) for more information.
+- Test your date picker with a screen reader.
+- In your UI, implement an `aria-live` region to announce when a selection is made.
+- Use the `role` prop to define the ARIA role of the date picker.
+- Use the [`labels`](../api/interfaces/PropsBase.md#labels) prop to customize the ARIA labels.
+
+### Example
+
+An accessible date picker with a live region that announces the selected date.
+
+```tsx title="./AccessibleDatePicker.tsx"
+import React, { useState } from "react";
+
+import { format } from "date-fns";
+import { DayPicker } from "react-day-picker";
+
+export function AccessibleDatePicker() {
+  const [meetingDate, setMeetingDate] = useState<Date | undefined>(undefined);
+  return (
+    <div role="group" aria-labelledby="meeting-date">
+      <h2 id="meeting-date">Meeting Date</h2>
+      <DayPicker
+        mode="single"
+        onSelect={setMeetingDate}
+        selected={meetingDate}
+        labels={{
+          labelCaption: () => "Select a date for the meeting",
+          labelDay: (date, modifiers) => {
+            return modifiers.selected
+              ? `Selected Meeting Date: ${format(date, "PPP")}`
+              : "";
+          }
+        }}
+        footer={
+          <p aria-live="polite">
+            {meetingDate
+              ? `Meeting date is set to ${format(meetingDate, "PPPP")}`
+              : "Please pick a date for the meeting."}
+          </p>
+        }
+      />
+    </div>
+  );
+}
+```
+
+<BrowserWindow>
+  <Examples.AccessibleDatePicker />
+</BrowserWindow>
 
 ## Keyboard Navigation
+
+DayPicker supports keyboard navigation to make it easier for users to navigate the calendar. The following keys are supported:
 
 | Keys                         | Function                            |
 | ---------------------------- | ----------------------------------- |

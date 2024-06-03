@@ -27,6 +27,7 @@ export function Day(props: {
     | "aria-colindex"
     | "aria-disabled"
     | "aria-hidden"
+    | "aria-label"
     | "aria-selected"
     | "onClick"
     | "onBlur"
