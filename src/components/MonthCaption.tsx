@@ -26,6 +26,7 @@ export function MonthCaption(props: {
     classNames,
     captionLayout,
     formatters: { formatCaption },
+    labels: { labelCaption },
     locale,
     styles
   } = useProps();
@@ -52,6 +53,7 @@ export function MonthCaption(props: {
           className={classNames[UI.CaptionLabel]}
           role="status"
           aria-live="polite"
+          aria-label={labelCaption(props.month.date, { locale }) ?? undefined}
         >
           {formatCaption(props.month.date, { locale })}
         </span>

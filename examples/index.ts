@@ -1,3 +1,4 @@
+export * from "./AccessibleDatePicker";
 export * from "./ContainerAttributes";
 export * from "./Controlled";
 export * from "./CssModules";

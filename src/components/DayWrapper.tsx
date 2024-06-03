@@ -220,7 +220,8 @@ export function DayWrapper(props: {
     style,
     tabIndex: isFocused || isAutoFocusTarget ? 0 : -1,
     ["aria-colindex"]: props["aria-colindex"],
-    ["aria-label"]: labelDay(props.day.date, modifiers, { locale }),
+    ["aria-label"]:
+      labelDay(props.day.date, modifiers, { locale }) ?? undefined,
     ["aria-disabled"]: modifiers.disabled || undefined,
     ["aria-hidden"]: modifiers.hidden || undefined,
     ["aria-selected"]: modifiers.selected || undefined,

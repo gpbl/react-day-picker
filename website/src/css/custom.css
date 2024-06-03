@@ -71,8 +71,10 @@ html[data-theme="dark"] {
 }
 
 html[data-theme="dark"] {
-  --rdp-background-color: var(--ifm-color-primary-darkest);
-  --rdp-selected-color: var(--ifm-color-content);
+  --rdp-accent-color: var(--ifm-color-primary);
+  --rdp-accent-background-color: #073845;
+  --rdp-range_end-color: black;
+  --rdp-range_start-color: black;
 }
 
 html[data-theme="dark"] {

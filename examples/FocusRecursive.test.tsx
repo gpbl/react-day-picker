@@ -13,6 +13,8 @@ jest.useFakeTimers().setSystemTime(today);
 test("the first selected day should have focus", async () => {
   render(<FocusRecursive />).container;
   await act(() => user.tab());
+  await act(() => user.tab());
+  await act(() => user.tab());
   await act(() => user.type(activeElement(), "{arrowdown}"));
   await act(() => user.type(activeElement(), "{arrowdown}"));
   await act(() => user.type(activeElement(), "{arrowdown}"));
