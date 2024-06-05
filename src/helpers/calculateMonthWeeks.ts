@@ -13,7 +13,7 @@ import {
 import { MonthWeek } from "./getMonthWeeks";
 
 /** Return the weeks between two dates. */
-export function daysToMonthWeeks(
+export function calculateMonthWeeks(
   fromDate: Date,
   toDate: Date,
   options?: {

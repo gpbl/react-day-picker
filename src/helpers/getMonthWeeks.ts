@@ -6,7 +6,7 @@ import {
   startOfMonth
 } from "date-fns";
 
-import { daysToMonthWeeks } from "./daysToMonthWeeks";
+import { calculateMonthWeeks } from "./calculateMonthWeeks";
 
 /** Represent a week in the month. */
 export type MonthWeek = {
@@ -30,7 +30,7 @@ export function getMonthWeeks(
     ISOWeek?: boolean;
   }
 ): MonthWeek[] {
-  const weeksInMonth: MonthWeek[] = daysToMonthWeeks(
+  const weeksInMonth: MonthWeek[] = calculateMonthWeeks(
     startOfMonth(month),
     endOfMonth(month),
     options
@@ -43,7 +43,7 @@ export function getMonthWeeks(
       const lastWeek = weeksInMonth[weeksInMonth.length - 1];
       const lastDate = lastWeek.dates[lastWeek.dates.length - 1];
       const toDate = addWeeks(lastDate, 6 - nrOfMonthWeeks);
-      const extraWeeks = daysToMonthWeeks(
+      const extraWeeks = calculateMonthWeeks(
         addWeeks(lastDate, 1),
         toDate,
         options
