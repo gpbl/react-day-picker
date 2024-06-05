@@ -1,9 +1,7 @@
-import React from "react";
-
 import * as defaultFormatters from "../formatters";
 import type { PropsBase } from "../types";
 
-/** Return the formatters from the props. */
+/** Return the formatters from the props merged with the default formatters. */
 export function getFormatters(customFormatters: PropsBase["formatters"]) {
   if (customFormatters?.formatMonthCaption && !customFormatters.formatCaption) {
     customFormatters.formatCaption = customFormatters.formatMonthCaption;
