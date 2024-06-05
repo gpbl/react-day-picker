@@ -9,7 +9,7 @@ import { getDataAttributes } from "../helpers/getDataAttributes";
 import { getDefaultClassNames } from "../helpers/getDefaultClassNames";
 import { getFormatters } from "../helpers/getFormatters";
 import { getFromToDate } from "../helpers/getFromToDate";
-import { getLabels } from "../helpers/getLabels";
+import * as defaultLabels from "../labels";
 import type {
   ClassNames,
   DataAttributes,
@@ -76,7 +76,7 @@ export const PropsProvider = <T extends Mode>(
     formatters: getFormatters(props.formatters),
     fromDate,
     id: props.id ?? reactId,
-    labels: getLabels(props.labels),
+    labels: { ...defaultLabels, ...restProps.labels },
     required: "required" in props ? props.required ?? false : false,
     min: "min" in props ? props.min ?? undefined : undefined,
     max: "max" in props ? props.max ?? undefined : undefined,
