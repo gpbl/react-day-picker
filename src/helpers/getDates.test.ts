@@ -51,7 +51,7 @@ describe("when the first month and the last month are the same", () => {
     const month = new Date(2023, 4, 1);
     it("the first day should be Monday", () => {
       const dates = getDates([month], undefined, { weekStartsOn: 1 });
-      expect(dates[0].getDay()).toEqual(1);
+      expect(dates[0]).toBeMonday();
       expect(dates[0]).toEqual(new Date(2023, 4, 1));
       expect(dates[dates.length - 1]).toEqual(new Date(2023, 5, 4));
     });
@@ -70,7 +70,7 @@ describe("when the first month and the last month are the same", () => {
     const month = new Date(2023, 4, 1);
     it("the first day should be Monday", () => {
       const dates = getDates([month], undefined, { ISOWeek: true });
-      expect(dates[0].getDay()).toEqual(1);
+      expect(dates[0]).toBeMonday();
       expect(dates[0]).toEqual(new Date(2023, 4, 1));
       expect(dates[dates.length - 1]).toEqual(new Date(2023, 5, 4));
     });
@@ -107,7 +107,7 @@ describe("when the first month and the last month are different", () => {
     const month = new Date(2023, 4, 1);
     it("the first day should be Monday", () => {
       const dates = getDates([month], undefined, { ISOWeek: true });
-      expect(dates[0].getDay()).toEqual(1);
+      expect(dates[0]).toBeMonday();
       expect(dates[0]).toEqual(new Date(2023, 4, 1));
       expect(dates[dates.length - 1]).toEqual(new Date(2023, 5, 4));
     });
