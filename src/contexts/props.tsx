@@ -5,8 +5,8 @@ import React, {
   useId
 } from "react";
 
-import { getClassNames } from "../helpers/getClassNames";
 import { getDataAttributes } from "../helpers/getDataAttributes";
+import { getDefaultClassNames } from "../helpers/getDefaultClassNames";
 import { getFormatters } from "../helpers/getFormatters";
 import { getFromToDate } from "../helpers/getFromToDate";
 import { getLabels } from "../helpers/getLabels";
@@ -71,7 +71,7 @@ export const PropsProvider = <T extends Mode>(
 
   const context = {
     ...restProps,
-    classNames: getClassNames(props.classNames),
+    classNames: { ...getDefaultClassNames(), ...restProps.classNames },
     dataAttributes: getDataAttributes(props),
     formatters: getFormatters(props.formatters),
     fromDate,
