@@ -44,14 +44,25 @@ import {
 /**
  * The props for the {@link DayPicker} component.
  *
+ * @template T - The {@link Mode | selection mode}. Defaults to `"default"`.
+ * @template R - Whether the selection is required. Defaults to `false`.
  * @group Props
  */
-export type DayPickerProps<T extends Mode> = PropsBase & {
+export type DayPickerProps<
+  T extends Mode = "default",
+  R extends boolean = false
+> = PropsBase & {
+  /** The selection mode. */
   mode?: T | undefined;
+  /** Makes the selection required. */
+  required?: R | undefined;
 } & {
-    single: PropsSingle;
-    multiple: PropsMulti;
-    range: PropsRange;
+    /** Props for the single selection mode. */
+    single: PropsSingle<R>;
+    /** Props for the multi selection mode. */
+    multiple: PropsMulti<R>;
+    /** Props for the range selection mode. */
+    range: PropsRange<R>;
     default: object;
   }[T];
 
@@ -63,6 +74,8 @@ export type DayPickerProps<T extends Mode> = PropsBase & {
  * - `range`: use DayPicker to select a range of days
  * - `default`: disable any built-in selection behavior. Customize what is
  *   selected by using `onDayClick` and `modifiers`.
+ *
+ * @see https://react-day-picker.js.org/next/using-daypicker/selection-modes
  */
 export type Mode = "single" | "multiple" | "range" | "default";
 
@@ -72,7 +85,7 @@ export type Mode = "single" | "multiple" | "range" | "default";
  * @group Props
  */
 export interface PropsBase {
-  /** The CSS class to add to the container element. */
+  /** Class name to add to the root element */
   className?: string;
   /**
    * Change the class names used by DayPicker.
@@ -83,7 +96,7 @@ export interface PropsBase {
   classNames?: Partial<ClassNames>;
   /** Change the class name for the day matching the `modifiers`. */
   modifiersClassNames?: ModifiersClassNames;
-  /** Style to apply to the container element. */
+  /** Style to apply to the root element. */
   style?: CSSProperties;
   /** Change the inline styles of the HTML elements. */
   styles?: Partial<Styles>;
@@ -318,57 +331,56 @@ export interface PropsBase {
 /**
  * Props for the single selection mode, when `mode="single"`.
  *
+ * @template R - Whether the selection is required. Defaults to `false`.
  * @group Props
  */
-export interface PropsSingle {
+export interface PropsSingle<R extends boolean = false> {
   /** Makes the selection required. */
-  required?: boolean;
+  required?: R | undefined;
   /** The selected Date. */
-  selected?: Selected<"single"> | undefined;
+  selected?: Selected<"single", R>;
   /** The initially selected value when not controlled. */
-  defaultSelected?: Selected<"single"> | undefined;
+  defaultSelected?: Selected<"single", R>;
   /** The callback called when the user selects a day. */
-  onSelect?: SelectHandler<"single"> | undefined;
+  onSelect?: SelectHandler<"single", R> | undefined;
 }
 
 /**
  * Props for the multi selection mode, when `mode="multiple"`.
  *
+ * @template R - Whether the selection is required. Defaults to `false`.
  * @group Props
  */
-export interface PropsMulti {
+export interface PropsMulti<R extends boolean = false> {
   /** The selected dates. */
-  selected?: Selected<"multiple"> | undefined;
+  selected?: Selected<"multiple", R>;
   /** The initially selected values when not controlled. */
-  defaultSelected?: Selected<"multiple"> | undefined;
+  defaultSelected?: Selected<"multiple", R>;
   /** The callback called when the user selects a day. */
-  onSelect?: SelectHandler<"multiple"> | undefined;
-  /**
-   * Makes the selection required.
-   *
-   * @deprecated Use `min={1}` instead
-   */
-  required?: boolean;
+  onSelect?: SelectHandler<"multiple", R>;
+  /** Makes the selection required. */
+  required?: R | undefined;
   /** The minimum number of days that can be selected. */
-  min?: number;
+  min?: number | undefined;
   /** The maximum number of days that can be selected. */
-  max?: number;
+  max?: number | undefined;
 }
 
 /**
  * Props for the range selection mode, when `mode="range"`.
  *
+ * @template R - Whether the selection is required. Defaults to `false`.
  * @group Props
  */
-export interface PropsRange {
+export interface PropsRange<R extends boolean = false> {
   /** The selected range. */
-  selected?: Selected<"range"> | undefined;
+  selected?: Selected<"range", R>;
   /** The initially selected range when not controlled. */
-  defaultSelected?: Selected<"range"> | undefined;
+  defaultSelected?: Selected<"range", R>;
   /** The callback called when the user selects a day. */
-  onSelect?: SelectHandler<"range"> | undefined;
+  onSelect?: SelectHandler<"range", R>;
   /** Makes the selection required. */
-  required?: boolean;
+  required?: R;
   /** The minimum number of days that can be selected. */
   min?: number;
   /** The maximum number of days that can be selected. */
@@ -383,19 +395,35 @@ export interface PropsDefault extends PropsBase {
   mode?: undefined | "default";
 }
 
-/** The selected value when in selection mode. */
-export type Selected<T extends Mode> = T extends "single"
-  ? Date
+/**
+ * The selected value when in selection mode.
+ *
+ * @template T - The {@link Mode | selection mode}. Defaults to `"default"`.
+ * @template R - Whether the selection is required. Defaults to `false`.
+ */
+export type Selected<
+  T extends Mode = "default",
+  R extends boolean = false
+> = T extends "single"
+  ? Date | (R extends true ? Date : undefined)
   : T extends "multiple"
-    ? Date[]
+    ? Date[] | (R extends true ? Date[] : undefined)
     : T extends "range"
-      ? DateRange
+      ? DateRange | (R extends true ? DateRange : undefined)
       : undefined;
 
-/** The callback called when the user select a days from the calendar. */
-export type SelectHandler<T extends Mode> = (
+/**
+ * The callback called when the user select a days from the calendar. *
+ *
+ * @template T - The {@link Mode | selection mode}. Defaults to `"default"`.
+ * @template R - Whether the selection is required. Defaults to `false`.
+ */
+export type SelectHandler<
+  T extends Mode = "default",
+  R extends boolean = false
+> = (
   /** The new selected value. */
-  selected: Selected<T>,
+  selected: Selected<T, R>,
   /** The date that triggered the selection. */
   date: Date,
   /** The modifiers for the day that triggered the selection. */
@@ -461,10 +489,6 @@ export type Labels = {
 
 /**
  * A value or a function that matches a specific day.
- *
- * Matchers are passed to DayPicker via {@link PropsBase.disabled},
- * {@link PropsBase.hidden]] or [[DayPickerProps.selected} and are used to
- * determine if a day should get a {@link Modifier}.
  *
  * Matchers can be of different types:
  *
@@ -553,7 +577,11 @@ export type DayOfWeek = { dayOfWeek: number[] };
 /** A record with `data-*` attributes passed to `<DayPicker />`. */
 export type DataAttributes = Record<`data-${string}`, unknown>;
 
-/** The event handler triggered when interacting with a day. */
+/**
+ * The event handler triggered when interacting with a day.
+ *
+ * @template T - The event type that triggered the day event.
+ */
 export type DayEventHandler<T> = (
   /** The date that has triggered the event. */
   date: Date,
@@ -581,17 +609,17 @@ export type Styles = {
   [uiElement in UI]: CSSProperties | undefined;
 };
 
-/** Maps {@link UI} elements to their class names. */
+/**
+ * Maps {@link UI}, {@link DayModifier}, {@link CalendarFlag}, {@link ChevronFlag},
+ * and {@link WeekNumberFlag} elements to their class names.
+ */
 export type ClassNames = {
-  [element in UI]: string;
-} & {
-  [state in DayModifier]: string;
-} & {
-  [flag in CalendarFlag]: string;
-} & {
-  [flag in ChevronFlag]: string;
-} & {
-  [flag in WeekNumberFlag]: string;
+  [key in
+    | UI
+    | DayModifier
+    | CalendarFlag
+    | ChevronFlag
+    | WeekNumberFlag]: string;
 };
 
 /** The modifiers that are internally used by DayPicker. */

@@ -8,7 +8,7 @@ import type { Mode } from "../types";
 import { getNextFocus } from "./getNextFocus";
 
 const defaultDayPicker: Pick<
-  PropsContext<Mode>,
+  PropsContext<Mode, boolean>,
   "disabled" | "hidden" | "fromDate" | "toDate"
 > = {
   disabled: [],

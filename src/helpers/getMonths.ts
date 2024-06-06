@@ -17,7 +17,7 @@ export function getMonths(
   /** The dates to display in the calendar. */
   dates: Date[],
   options: Pick<
-    DayPickerProps<Mode>,
+    DayPickerProps<Mode, boolean>,
     | "fixedWeeks"
     | "ISOWeek"
     | "locale"

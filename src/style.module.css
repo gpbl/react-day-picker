@@ -27,7 +27,6 @@
   --rdp-month_caption-font: bold larger var(--rdp-font-family); /* The font of the month caption. */
   --rdp-months-gap: 2rem; /* The gap between the months in the multi-month view. */
   
-  --rdp-nav_button-border-radius: 100%; /* The border radius of the navigation buttons. */
   --rdp-nav_button-disabled-opacity: 0.5; /* The opacity of the disabled navigation buttons. */
   --rdp-nav_button-height: 2.25rem; /* The height of the navigation buttons. */
   --rdp-nav_button-width: 2.25rem; /* The width of the navigation buttons. */
@@ -119,7 +118,6 @@
   color: inherit;
   cursor: pointer;
 
-  border-radius: var(--rdp-nav_button-border-radius);
   width: var(--rdp-nav_button-width);
   height: var(--rdp-nav_button-height);
 }

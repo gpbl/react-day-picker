@@ -4,7 +4,9 @@ import type { PropsContext } from "../contexts/props";
 import type { Mode } from "../types";
 
 /** Return the initial month according to the given options. */
-export function getInitialMonth(context: Partial<PropsContext<Mode>>): Date {
+export function getInitialMonth(
+  context: Partial<PropsContext<Mode, boolean>>
+): Date {
   const { month, defaultMonth, today } = context;
   let initialMonth = month || defaultMonth || today || new Date();
 
