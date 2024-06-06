@@ -16,7 +16,7 @@ Use the customization props to customize the appearance of the calendar.
 | `hideWeekdayRow`  | `boolean`                                                                             | Hide the row displaying the weekday names.                  |
 | `footer`          | `ReactNode`                                                                           | Displays a footer below the calendar.                       |
 
-### Caption Layout
+## Caption Layouts
 
 Use the `captionLayout` prop to choose the layout of the month caption:
 
@@ -33,19 +33,25 @@ Use the `captionLayout` prop to choose the layout of the month caption:
 
 ### Caption Dropdown
 
-Set `captionLayout="dropdown"` to display a navigation dropdown. This will allow navigation within the last 100 years. Use the `from*` and `to*` props to [set the start and end dates](./navigation.mdx#start-and-end-dates).
+To enable a navigation dropdown, assign `captionLayout="dropdown"`. Utilize `from*` and `to*` properties to define the [the start and end dates](./navigation.mdx#start-and-end-dates).
 
 ```tsx
-<DayPicker captionLayout="dropdown" />
-<DayPicker captionLayout="dropdown-months"  /> // Only months
-<DayPicker captionLayout="dropdown-years"  /> // Only years
-
-<DayPicker captionLayout="dropdown" fromYear={2015} toYear={2025} /> // Set the years range
+<DayPicker
+  captionLayout="dropdown"
+  fromMonth={new Date(2015, 6)}
+  toMonth={new Date(2025, 9)}
+/>
 ```
 
 <BrowserWindow>
   <Examples.Dropdown />
 </BrowserWindow>
+
+:::info Default Range
+
+Without specifing the `from*` and `to*` properties, the dropdown will show the last 100 years.
+
+:::
 
 ### Outside Days
 
