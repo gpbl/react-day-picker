@@ -9,7 +9,7 @@ import { Formatters, Mode } from "../types";
 
 /** Return the months to show in the dropdown. */
 export function getDropdownMonths(
-  props: Pick<PropsContext<Mode>, "fromDate" | "toDate" | "locale"> & {
+  props: Pick<PropsContext<Mode, boolean>, "fromDate" | "toDate" | "locale"> & {
     formatters: Pick<Formatters, "formatMonthDropdown">;
   }
 ): DropdownOption[] | undefined {

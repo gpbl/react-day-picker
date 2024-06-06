@@ -15,8 +15,8 @@ import { SelectionProvider } from "./selection";
  * @private
  */
 export const ContextProviders: FunctionComponent<
-  PropsWithChildren<DayPickerProps<Mode>>
-> = <T extends Mode>(props: PropsWithChildren<DayPickerProps<T>>) => {
+  PropsWithChildren<DayPickerProps<Mode, boolean>>
+> = <T extends Mode>(props: PropsWithChildren<DayPickerProps<T, boolean>>) => {
   const { children, ...dayPickerProps } = props;
 
   return (

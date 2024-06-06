@@ -19,7 +19,7 @@ import { getPossibleFocusDate } from "./getPossibleFocusDate";
 
 const baseDate = new Date(2023, 0, 1); // Jan 1, 2023
 const options: Pick<
-  PropsContext<Mode>,
+  PropsContext<Mode, boolean>,
   "locale" | "ISOWeek" | "weekStartsOn" | "fromDate" | "toDate"
 > = {
   locale: undefined,

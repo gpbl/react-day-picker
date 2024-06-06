@@ -26,11 +26,16 @@ import type {
  * Holds the props passed to the DayPicker component, with some optional props
  * set to meaningful defaults.
  *
- * Access the Props context using the {@link useProps} hook.
+ * Access this context using the {@link useProps} hook.
  *
+ * @template T - The {@link Mode | selection mode}. Defaults to `"default"`.
+ * @template R - Whether the selection is required. Defaults to `false`.
  * @group Contexts
  */
-export interface PropsContext<T extends Mode> extends PropsBase {
+export interface PropsContext<
+  T extends Mode = "default",
+  R extends boolean = false
+> extends PropsBase {
   classNames: ClassNames;
   /** The `data-*` attributes passed to `<DayPicker />`. */
   dataAttributes: DataAttributes;
@@ -46,14 +51,14 @@ export interface PropsContext<T extends Mode> extends PropsBase {
   toDate: Date | undefined;
   today: Date;
   /** The currently selected value. */
-  selected: Selected<Mode> | undefined;
+  selected: Selected<Mode, R> | undefined;
   /** The default selected value. */
-  defaultSelected: Selected<Mode> | undefined;
+  defaultSelected: Selected<Mode, R> | undefined;
   /** The function that handles the day selection. */
-  onSelect: SelectHandler<Mode> | undefined;
+  onSelect: SelectHandler<Mode, R> | undefined;
 }
 
-const propsContext = createContext<PropsContext<Mode> | null>(null);
+const propsContext = createContext<PropsContext<Mode, boolean> | null>(null);
 
 /**
  * Provide the props to the DayPicker components. Must be used as root of the
@@ -61,8 +66,8 @@ const propsContext = createContext<PropsContext<Mode> | null>(null);
  *
  * @private
  */
-export const PropsProvider = <T extends Mode>(
-  props: PropsWithChildren<DayPickerProps<T>>
+export const PropsProvider = <T extends Mode, R extends boolean>(
+  props: PropsWithChildren<DayPickerProps<T, R>>
 ) => {
   const reactId = useId();
   const { children, ...restProps } = props;

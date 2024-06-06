@@ -11,6 +11,8 @@ export type DispatchStateAction<T> = React.Dispatch<React.SetStateAction<T>>;
  *
  * If the value is controlled, pass the controlled value as the second argument,
  * which will always be returned as `value`.
+ *
+ * @template T - The type of the value.
  */
 export function useControlledValue<T>(
   defaultValue: T,

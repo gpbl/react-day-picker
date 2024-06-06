@@ -76,19 +76,19 @@ export type RowProps = WeekProps;
  * @deprecated This type has been renamed. Use `PropsSingle` instead.
  * @protected
  */
-export type DayPickerSingleProps = PropsSingle;
+export type DayPickerSingleProps = PropsSingle<boolean>;
 
 /**
  * @deprecated This type has been renamed. Use `PropsMulti` instead.
  * @protected
  */
-export type DayPickerMultipleProps = PropsMulti;
+export type DayPickerMultipleProps = PropsMulti<boolean>;
 
 /**
  * @deprecated This type has been renamed. Use `PropsRange` instead.
  * @protected
  */
-export type DayPickerRangeProps = PropsRange;
+export type DayPickerRangeProps = PropsRange<boolean>;
 
 /**
  * @deprecated This type will be removed.
@@ -112,20 +112,20 @@ export type Modifier = string;
  * @deprecated This type will be removed. Use `SelectHandler<"single">` instead.
  * @protected
  */
-export type SelectSingleEventHandler = SelectHandler<"single">;
+export type SelectSingleEventHandler = SelectHandler<"single", false>;
 
 /**
  * @deprecated This type will be removed. Use `SelectHandler<"multiple">`
  *   instead.
  * @protected
  */
-export type SelectMultipleEventHandler = SelectHandler<"multiple">;
+export type SelectMultipleEventHandler = SelectHandler<"multiple", false>;
 
 /**
  * @deprecated This type will be removed. Use `SelectHandler<"range">` instead.
  * @protected
  */
-export type SelectRangeEventHandler = SelectHandler<"range">;
+export type SelectRangeEventHandler = SelectHandler<"range", false>;
 
 /**
  * @deprecated This type is not used anymore.
@@ -236,4 +236,4 @@ export type DayTouchEventHandler = DayEventHandler<React.TouchEvent>;
  *   `PropsContext` instead.
  * @protected
  */
-export type DayPickerContext = PropsContext<Mode>;
+export type DayPickerContext = PropsContext;

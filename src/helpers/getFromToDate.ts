@@ -13,7 +13,7 @@ import type { DayPickerProps, Mode } from "../types";
  */
 export function getFromToDate(
   props: Pick<
-    DayPickerProps<Mode>,
+    DayPickerProps<Mode, boolean>,
     | "fromYear"
     | "toYear"
     | "fromDate"
@@ -23,7 +23,7 @@ export function getFromToDate(
     | "today"
     | "captionLayout"
   >
-): Pick<DayPickerProps<Mode>, "fromDate" | "toDate"> {
+): Pick<DayPickerProps<Mode, boolean>, "fromDate" | "toDate"> {
   const { fromYear, toYear, fromMonth, toMonth } = props;
   let { fromDate, toDate } = props;
   const hasDropdowns = props.captionLayout?.startsWith("dropdown");

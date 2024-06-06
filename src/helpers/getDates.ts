@@ -29,7 +29,7 @@ export function getDates(
   displayMonths: Date[],
   maxDate?: Date | undefined,
   options?: Pick<
-    DayPickerProps<Mode>,
+    DayPickerProps<Mode, boolean>,
     "ISOWeek" | "fixedWeeks" | "locale" | "weekStartsOn"
   >
 ): Date[] {
