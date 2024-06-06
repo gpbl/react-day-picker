@@ -20,11 +20,16 @@ import { useProps } from "./props";
  *
  * Access the selection context using the {@link useSelection} hook.
  *
+ * @template T - The {@link Mode | selection mode}. Defaults to `"default"`.
+ * @template R - Whether the selection is required. Defaults to `false`.
  * @group Contexts
  */
-export interface SelectionContext<T extends Mode> {
+export interface SelectionContext<
+  T extends Mode = "default",
+  R extends boolean = false
+> {
   /** The currently selected value. */
-  selected: Selected<T> | undefined;
+  selected: Selected<T, R>;
   /** Set the selected days. */
   setSelected: (
     date: Date,
@@ -50,7 +55,7 @@ export interface SelectionContext<T extends Mode> {
   isMiddleOfRange: (date: Date) => boolean;
 }
 
-const contextValue: SelectionContext<Mode> = {
+const contextValue: SelectionContext<Mode, boolean> = {
   selected: undefined,
   setSelected: () => undefined,
   isSelected: () => false,
@@ -59,7 +64,8 @@ const contextValue: SelectionContext<Mode> = {
   isMiddleOfRange: () => false
 };
 
-const selectionContext = createContext<SelectionContext<Mode>>(contextValue);
+const selectionContext =
+  createContext<SelectionContext<Mode, boolean>>(contextValue);
 
 /** @private */
 export function SelectionProvider(providerProps: PropsWithChildren) {
@@ -112,11 +118,14 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
         selected = value;
       } else {
         // Remove the date from the selection
-        selected = value?.filter((day) => !isSameDay(day, date)) || [];
+        selected =
+          value?.filter((day: Date | undefined) => {
+            return Boolean(day && date && !isSameDay(day, date));
+          }) || ([] as Date[]);
       }
     } else if (max !== undefined && value?.length === max) {
       // Max value reached, reset the selection to date
-      selected = [date];
+      selected = date ? [date] : [];
     } else {
       // Add the date to the selection
       selected = [...(value ?? []), date];
@@ -140,7 +149,7 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
     if (value !== undefined && !isDateRange(value)) {
       return;
     }
-    const selected = addToRange(date, value);
+    const selected = date ? addToRange(date, value) : undefined;
 
     if (min) {
       if (
@@ -238,13 +247,18 @@ export function SelectionProvider(providerProps: PropsWithChildren) {
  *
  * Use this hook from the custom components passed via the `components` prop.
  *
+ * @template T - The {@link Mode | selection mode}. Defaults to `"default"`.
+ * @template R - Whether the selection is required. Defaults to `false`.
  * @group Hooks
  * @see https://react-day-picker.js.org/advanced-guides/custom-components
  */
-export function useSelection<T extends Mode>() {
+export function useSelection<
+  T extends Mode = "default",
+  R extends boolean = false
+>() {
   const context = useContext(selectionContext);
   if (!context) {
     throw new Error(`useSelection must be used within a SelectionProvider.`);
   }
-  return context as SelectionContext<T>;
+  return context as SelectionContext<T, R>;
 }

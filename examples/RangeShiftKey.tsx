@@ -31,7 +31,9 @@ function DayWithShiftKey(props: DayProps) {
 }
 
 export function RangeShiftKey() {
-  const [range, setRange] = React.useState<DateRange>({ from: undefined });
+  const [range, setRange] = React.useState<DateRange | undefined>({
+    from: undefined
+  });
 
   let footer = <p>Please pick a day.</p>;
 
