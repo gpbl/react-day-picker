@@ -396,3 +396,18 @@ div.theme-admonition {
   padding: 0;
   border: 0;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0 !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0 !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
