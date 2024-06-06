@@ -11,26 +11,38 @@ import { Formatters, Mode } from "../types";
 export function getDropdownMonths(
   props: Pick<PropsContext<Mode, boolean>, "fromDate" | "toDate" | "locale"> & {
     formatters: Pick<Formatters, "formatMonthDropdown">;
-  }
+  },
+  year?: number | undefined
 ): DropdownOption[] | undefined {
   if (!props.fromDate) return undefined;
   if (!props.toDate) return undefined;
   const navStartMonth = startOfMonth(props.fromDate);
   const navEndMonth = startOfMonth(props.toDate);
 
-  const months: Month[] = [];
+  const months: number[] = [];
   let month = navStartMonth;
   while (months.length < 12 && isBefore(month, addMonths(navEndMonth, 1))) {
-    months.push(month.getMonth() as Month);
+    months.push(month.getMonth());
     month = addMonths(month, 1);
   }
   const sortedMonths = months.sort((a, b) => {
     return a - b;
   });
-  const options = sortedMonths.map((m) => {
-    const label = props.formatters.formatMonthDropdown(m, props.locale);
-    const option: [number, string] = [m, label];
-    return option;
+  const options = sortedMonths.map((value) => {
+    const label = props.formatters.formatMonthDropdown(
+      value as Month,
+      props.locale
+    );
+    const disabled =
+      (year &&
+        props.fromDate &&
+        new Date(year, value) < startOfMonth(props.fromDate)) ||
+      (year &&
+        props.toDate &&
+        new Date(year, value) > startOfMonth(props.toDate)) ||
+      false;
+    return { value, label, disabled };
   });
+
   return options;
 }

@@ -39,7 +39,15 @@ describe("dropdown", () => {
     const { result } = renderHook(useCalendar, dayPicker);
     const months = result.current.dropdownOptions.months;
     expect(months).toHaveLength(12);
-    expect(months?.[0]).toEqual([0, "January"]);
-    expect(months?.[months.length - 1]).toEqual([11, "December"]);
+    expect(months?.[0]).toEqual({
+      value: 0,
+      label: "January",
+      disabled: false
+    });
+    expect(months?.[months.length - 1]).toEqual({
+      value: 11,
+      label: "December",
+      disabled: true
+    });
   });
 });

@@ -138,9 +138,17 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
     if (props.disableNavigation) {
       return;
     }
-    const month = startOfMonth(date);
-    setFirstMonth(month);
-    props.onMonthChange?.(month);
+    let newMonth = startOfMonth(date);
+    // if month is before fromDate, use the first month instead
+    if (props.fromDate && newMonth < startOfMonth(props.fromDate)) {
+      newMonth = startOfMonth(props.fromDate);
+    }
+    // if month is after toDate, use the last month instead
+    if (props.toDate && newMonth > startOfMonth(props.toDate)) {
+      newMonth = startOfMonth(props.toDate);
+    }
+    setFirstMonth(newMonth);
+    props.onMonthChange?.(newMonth);
   }
 
   function goToDay(day: CalendarDay) {
@@ -148,7 +156,7 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
       return;
     }
 
-    // TODO:
+    // TODO:??
     // if (refDate && isBefore(date, refDate)) {
     //   console.log('date is before refDate');
     //   const month = addMonths(date, 1 + dayPicker.numberOfMonths * -1);
@@ -190,8 +198,8 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
     isDayDisplayed,
 
     dropdownOptions: {
-      months: getDropdownMonths(props),
-      years: getDropdownYears(props)
+      months: getDropdownMonths(props, firstMonth.getFullYear()),
+      years: getDropdownYears(props, lastMonth.getMonth())
     }
   };
 

@@ -33,9 +33,21 @@ it("returns an array of years between `fromDate` and `toDate`", () => {
   });
 
   expect(result).toEqual([
-    [2020, "Formatted 2020"],
-    [2021, "Formatted 2021"],
-    [2022, "Formatted 2022"]
+    {
+      disabled: false,
+      label: "Formatted 2020",
+      value: 2020
+    },
+    {
+      disabled: false,
+      label: "Formatted 2021",
+      value: 2021
+    },
+    {
+      disabled: false,
+      label: "Formatted 2022",
+      value: 2022
+    }
   ]);
 });
 
@@ -50,5 +62,11 @@ it("handles same year for fromDate and toDate", () => {
     }
   });
 
-  expect(result).toEqual([[2021, "Formatted 2021"]]);
+  expect(result).toEqual([
+    {
+      disabled: false,
+      label: "Formatted 2021",
+      value: 2021
+    }
+  ]);
 });
