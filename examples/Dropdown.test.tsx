@@ -6,6 +6,9 @@ import { user } from "@/test/user";
 
 import { Dropdown } from "./Dropdown";
 
+const today = new Date(2015, 6, 1);
+jest.useFakeTimers().setSystemTime(today);
+
 beforeEach(() => {
   render(<Dropdown />);
 });
@@ -18,13 +21,24 @@ test("should display the year dropdown", () => {
   expect(yearDropdown()).toBeInTheDocument();
 });
 
+test("should disable the months out of range", () => {
+  expect(
+    within(monthDropdown()).getByRole("option", { name: "January" })
+  ).toBeDisabled();
+});
+
 describe("when choosing a month", () => {
-  const monthName = "January";
+  const monthName = "December";
   beforeEach(async () => {
     await user.selectOptions(monthDropdown(), monthName);
   });
   test("should display the month", () => {
-    expect(grid()).toHaveAccessibleName(`${monthName} 2022`);
+    expect(grid()).toHaveAccessibleName(`${monthName} 2015`);
+  });
+  test("should disable the years out of range", () => {
+    expect(
+      within(yearDropdown()).getByRole("option", { name: "2025" })
+    ).toBeDisabled();
   });
 });
 
@@ -34,35 +48,16 @@ describe("when choosing a year", () => {
     await user.selectOptions(yearDropdown(), year);
   });
   test("should display the year", () => {
-    expect(grid()).toHaveAccessibleName(`June ${year}`);
+    expect(grid()).toHaveAccessibleName(`July ${year}`);
   });
 });
 
-describe("when choosing a month and year", () => {
+describe("when choosing a disabled month", () => {
   const monthName = "February";
-  const year = "2023";
   beforeEach(async () => {
     await user.selectOptions(monthDropdown(), monthName);
-    await user.selectOptions(yearDropdown(), year);
   });
-  test("should display the month and year", () => {
-    expect(grid()).toHaveAccessibleName(`${monthName} ${year}`);
-  });
-});
-
-describe("when a month falls out the from date", () => {
-  test("the year option be disabled", async () => {
-    await user.selectOptions(monthDropdown(), "December");
-    expect(
-      within(yearDropdown()).getByRole("option", { name: "2025" })
-    ).toBeDisabled();
-    expect(monthDropdown()).toHaveValue(6);
-  });
-  test("the month option be disabled", async () => {
-    await user.selectOptions(yearDropdown(), "2015");
-    expect(yearDropdown()).toHaveValue("2015");
-    expect(
-      within(monthDropdown()).getByRole("option", { name: "January" })
-    ).toBeDisabled();
+  test("should display the first available month", () => {
+    expect(grid()).toHaveAccessibleName(`July 2015`);
   });
 });
