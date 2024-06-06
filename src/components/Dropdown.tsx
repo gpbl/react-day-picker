@@ -1,5 +1,7 @@
 import React, { SelectHTMLAttributes } from "react";
 
+import type { Month } from "date-fns";
+
 import { UI } from "../UI";
 import { useProps } from "../contexts/props";
 
@@ -8,12 +10,17 @@ import { Option as DefaultOption } from "./Option";
 import { Select as DefaultSelect } from "./Select";
 
 /** An option to use in the dropdown. Maps to the `<option>` HTML element. */
-export type DropdownOption = [
+export type DropdownOption = {
   /** The value of the option. */
-  value: number,
+  value: Month | number;
   /** The label of the option. */
-  label: string
-];
+  label: string;
+  /**
+   * The dropdown option is disabled when it cannot be selected because out of
+   * the calendar range.
+   */
+  disabled: boolean;
+};
 
 /**
  * Render a dropdown component to use in the navigation bar.
@@ -40,19 +47,19 @@ export function Dropdown(
   const Chevron = components?.Chevron ?? DefaultChevron;
 
   const selectedOption = options?.find(
-    ([value]) => value === selectProps.value
+    ({ value }) => value === selectProps.value
   );
   return (
     <span className={cssClassRoot}>
       <Select className={cssClassSelect} {...selectProps}>
-        {options?.map(([value, label]) => (
-          <Option key={value} value={value}>
+        {options?.map(({ value, label, disabled }) => (
+          <Option key={value} value={value} disabled={disabled}>
             {label}
           </Option>
         ))}
       </Select>
       <span className={classNames[UI.CaptionLabel]} aria-hidden>
-        {selectedOption?.[1]}
+        {selectedOption?.label}
         <Chevron orientation="down" size={18} />
       </span>
     </span>
