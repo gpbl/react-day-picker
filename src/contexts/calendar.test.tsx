@@ -19,22 +19,22 @@ it("should return the previous month", () => {
 });
 
 describe("dropdown", () => {
-  it("should return undefined if no fromDate is provided", () => {
+  it("should return undefined if no fromMonth is provided", () => {
     const { result } = renderHook(useCalendar, {
-      fromDate: undefined
+      fromMonth: undefined
     });
     expect(result.current.dropdownOptions.months).toBeUndefined();
   });
 
-  it("should return undefined if no toDate is provided", () => {
-    const { result } = renderHook(useCalendar, { toDate: undefined });
+  it("should return undefined if no toMonth is provided", () => {
+    const { result } = renderHook(useCalendar, { toMonth: undefined });
     expect(result.current.dropdownOptions.months).toBeUndefined();
   });
 
-  it("should return an array of months between the fromDate and toDate", () => {
+  it("should return an array of months between the fromMonth and toMonth", () => {
     const dayPicker = {
-      fromDate: new Date(2020, 1, 1),
-      toDate: new Date(2023, 2, 1)
+      fromMonth: new Date(2020, 1, 1),
+      toMonth: new Date(2023, 2, 1)
     };
     const { result } = renderHook(useCalendar, dayPicker);
     const months = result.current.dropdownOptions.months;

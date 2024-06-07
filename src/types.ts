@@ -129,10 +129,6 @@ export interface PropsBase {
    * @defaultValue 1
    */
   numberOfMonths?: number;
-  /** The earliest day to start the month navigation. */
-  fromDate?: Date;
-  /** The latest day to end the month navigation. */
-  toDate?: Date;
   /** The earliest month to start the month navigation. */
   fromMonth?: Date;
   /** The latest month to end the month navigation. */

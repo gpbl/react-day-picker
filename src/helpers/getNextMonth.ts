@@ -8,15 +8,15 @@ import { startOfMonth } from "date-fns/startOfMonth";
  *
  * Please note that the next month is not always the next calendar month:
  *
- * - If after the `toDate` range, is `undefined`;
+ * - If after the `toMonth` range, is `undefined`;
  * - If the navigation is paged , is the number of months displayed ahead.
  */
 export function getNextMonth(
   firstMonth: Date,
   options: {
     numberOfMonths?: number;
-    fromDate?: Date;
-    toDate?: Date;
+    fromMonth?: Date;
+    toMonth?: Date;
     pagedNavigation?: boolean;
     today?: Date;
     disableNavigation?: boolean;
@@ -25,15 +25,15 @@ export function getNextMonth(
   if (options.disableNavigation) {
     return undefined;
   }
-  const { toDate, pagedNavigation, numberOfMonths = 1 } = options;
+  const { toMonth, pagedNavigation, numberOfMonths = 1 } = options;
   const offset = pagedNavigation ? numberOfMonths : 1;
   const month = startOfMonth(firstMonth);
 
-  if (!toDate) {
+  if (!toMonth) {
     return addMonths(month, offset);
   }
 
-  const monthsDiff = differenceInCalendarMonths(toDate, firstMonth);
+  const monthsDiff = differenceInCalendarMonths(toMonth, firstMonth);
 
   if (monthsDiff < numberOfMonths) {
     return undefined;

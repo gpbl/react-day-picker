@@ -9,15 +9,18 @@ import { Formatters, Mode } from "../types";
 
 /** Return the months to show in the dropdown. */
 export function getDropdownMonths(
-  props: Pick<PropsContext<Mode, boolean>, "fromDate" | "toDate" | "locale"> & {
+  props: Pick<
+    PropsContext<Mode, boolean>,
+    "fromMonth" | "toMonth" | "locale"
+  > & {
     formatters: Pick<Formatters, "formatMonthDropdown">;
   },
   year?: number | undefined
 ): DropdownOption[] | undefined {
-  if (!props.fromDate) return undefined;
-  if (!props.toDate) return undefined;
-  const navStartMonth = startOfMonth(props.fromDate);
-  const navEndMonth = startOfMonth(props.toDate);
+  if (!props.fromMonth) return undefined;
+  if (!props.toMonth) return undefined;
+  const navStartMonth = startOfMonth(props.fromMonth);
+  const navEndMonth = startOfMonth(props.toMonth);
 
   const months: number[] = [];
   let month = navStartMonth;
@@ -35,11 +38,11 @@ export function getDropdownMonths(
     );
     const disabled =
       (year &&
-        props.fromDate &&
-        new Date(year, value) < startOfMonth(props.fromDate)) ||
+        props.fromMonth &&
+        new Date(year, value) < startOfMonth(props.fromMonth)) ||
       (year &&
-        props.toDate &&
-        new Date(year, value) > startOfMonth(props.toDate)) ||
+        props.toMonth &&
+        new Date(year, value) > startOfMonth(props.toMonth)) ||
       false;
     return { value, label, disabled };
   });
