@@ -5,9 +5,9 @@ sidebar_position: 1
 slug: /
 ---
 
-# Introduction
+# Introduction to DayPicker
 
-React DayPicker is a [React](https://react.dev) component to create date pickers, calendars, and date inputs for web applications.
+DayPicker is a [React](https://react.dev) component to create date pickers, calendars, and date inputs for web applications.
 
 ## Features
 
