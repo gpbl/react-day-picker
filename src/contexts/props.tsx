@@ -8,7 +8,7 @@ import React, {
 import { getDataAttributes } from "../helpers/getDataAttributes";
 import { getDefaultClassNames } from "../helpers/getDefaultClassNames";
 import { getFormatters } from "../helpers/getFormatters";
-import { getFromToDate } from "../helpers/getFromToDate";
+import { getStartEndMonths } from "../helpers/getStartEndMonths";
 import * as defaultLabels from "../labels";
 import type {
   ClassNames,
@@ -40,7 +40,7 @@ export interface PropsContext<
   /** The `data-*` attributes passed to `<DayPicker />`. */
   dataAttributes: DataAttributes;
   formatters: Formatters;
-  fromDate: Date | undefined;
+  fromMonth: Date | undefined;
   id: string;
   labels: Labels;
   max: number | undefined;
@@ -48,7 +48,7 @@ export interface PropsContext<
   mode: T;
   numberOfMonths: number;
   required: boolean;
-  toDate: Date | undefined;
+  toMonth: Date | undefined;
   today: Date;
   /** The currently selected value. */
   selected: Selected<Mode, R> | undefined;
@@ -72,14 +72,14 @@ export const PropsProvider = <T extends Mode, R extends boolean>(
   const reactId = useId();
   const { children, ...restProps } = props;
 
-  const { fromDate, toDate } = getFromToDate(props);
+  const { fromMonth, toMonth } = getStartEndMonths(props);
 
   const context = {
     ...restProps,
     classNames: { ...getDefaultClassNames(), ...restProps.classNames },
     dataAttributes: getDataAttributes(props),
     formatters: getFormatters(props.formatters),
-    fromDate,
+    fromMonth,
     id: props.id ?? reactId,
     labels: { ...defaultLabels, ...restProps.labels },
     required: "required" in props ? props.required ?? false : false,
@@ -88,7 +88,7 @@ export const PropsProvider = <T extends Mode, R extends boolean>(
     mode: props.mode ?? ("default" as Mode),
     numberOfMonths: props.numberOfMonths ?? 1,
     today: props.today ?? new Date(),
-    toDate,
+    toMonth,
     selected: "selected" in props ? props.selected : undefined,
     defaultSelected:
       "defaultSelected" in props ? props.defaultSelected : undefined,

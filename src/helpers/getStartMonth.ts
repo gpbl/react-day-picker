@@ -4,7 +4,7 @@ import { startOfMonth } from "date-fns/startOfMonth";
 
 import { PropsBase } from "../types";
 
-import { getFromToDate } from "./getFromToDate";
+import { getStartEndMonths } from "./getStartEndMonths";
 
 /** Return the start month based on the props passed to DayPicker. */
 
@@ -14,8 +14,6 @@ export function getStartMonth(
       PropsBase,
       | "fromYear"
       | "toYear"
-      | "fromDate"
-      | "toDate"
       | "fromMonth"
       | "toMonth"
       | "month"
@@ -27,16 +25,16 @@ export function getStartMonth(
 ): Date {
   const { month, defaultMonth, today, numberOfMonths = 1 } = props;
   let initialMonth = month || defaultMonth || today || new Date();
-  const { fromDate, toDate } = getFromToDate(props);
+  const { fromMonth, toMonth } = getStartEndMonths(props);
 
   // Fix the initialMonth if is after the to-date
-  if (toDate && differenceInCalendarMonths(toDate, initialMonth) < 0) {
+  if (toMonth && differenceInCalendarMonths(toMonth, initialMonth) < 0) {
     const offset = -1 * (numberOfMonths - 1);
-    initialMonth = addMonths(toDate, offset);
+    initialMonth = addMonths(toMonth, offset);
   }
   // Fix the initialMonth if is before the from-date
-  if (fromDate && differenceInCalendarMonths(initialMonth, fromDate) < 0) {
-    initialMonth = fromDate;
+  if (fromMonth && differenceInCalendarMonths(initialMonth, fromMonth) < 0) {
+    initialMonth = fromMonth;
   }
   return startOfMonth(initialMonth);
 }

@@ -26,7 +26,7 @@ export function TestCase1567() {
         numberOfMonths={2}
         showOutsideDays
         selected={selected}
-        fromDate={new Date(2020, 5)}
+        fromMonth={new Date(2020, 5)}
       />
       <button>I should be focusable</button>
     </div>

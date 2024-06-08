@@ -11,15 +11,15 @@ import type { Formatters, Mode } from "../types";
 
 /** Return the years to show in the dropdown. */
 export function getDropdownYears(
-  props: Pick<PropsContext<Mode>, "fromDate" | "toDate"> & {
+  props: Pick<PropsContext<Mode>, "fromMonth" | "toMonth"> & {
     formatters: Pick<Formatters, "formatYearDropdown">;
   },
   month?: number | undefined
 ): DropdownOption[] | undefined {
-  if (!props.fromDate) return undefined;
-  if (!props.toDate) return undefined;
-  const firstNavYear = startOfYear(props.fromDate);
-  const lastNavYear = endOfYear(props.toDate);
+  if (!props.fromMonth) return undefined;
+  if (!props.toMonth) return undefined;
+  const firstNavYear = startOfYear(props.fromMonth);
+  const lastNavYear = endOfYear(props.toMonth);
   const years: number[] = [];
   let year = firstNavYear;
   while (isBefore(year, lastNavYear) || isSameYear(year, lastNavYear)) {
@@ -29,11 +29,11 @@ export function getDropdownYears(
   return years.map((value) => {
     const disabled =
       (month &&
-        props.fromDate &&
-        new Date(value, month) < startOfMonth(props.fromDate)) ||
+        props.fromMonth &&
+        new Date(value, month) < startOfMonth(props.fromMonth)) ||
       (month &&
-        props.toDate &&
-        new Date(value, month) > startOfMonth(props.toDate)) ||
+        props.toMonth &&
+        new Date(value, month) > startOfMonth(props.toMonth)) ||
       false;
     const label = props.formatters.formatYearDropdown(value);
     return {

@@ -112,7 +112,7 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
   const lastMonth = displayMonths[displayMonths.length - 1];
 
   /** An array of the dates displayed in the calendar. */
-  const dates = getDates(displayMonths, props.toDate, props);
+  const dates = getDates(displayMonths, props.toMonth, props);
 
   /** An array of the Months displayed in the calendar. */
   const months = getMonths(displayMonths, dates, props);
@@ -139,13 +139,13 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
       return;
     }
     let newMonth = startOfMonth(date);
-    // if month is before fromDate, use the first month instead
-    if (props.fromDate && newMonth < startOfMonth(props.fromDate)) {
-      newMonth = startOfMonth(props.fromDate);
+    // if month is before fromMonth, use the first month instead
+    if (props.fromMonth && newMonth < startOfMonth(props.fromMonth)) {
+      newMonth = startOfMonth(props.fromMonth);
     }
-    // if month is after toDate, use the last month instead
-    if (props.toDate && newMonth > startOfMonth(props.toDate)) {
-      newMonth = startOfMonth(props.toDate);
+    // if month is after toMonth, use the last month instead
+    if (props.toMonth && newMonth > startOfMonth(props.toMonth)) {
+      newMonth = startOfMonth(props.toMonth);
     }
     setFirstMonth(newMonth);
     props.onMonthChange?.(newMonth);

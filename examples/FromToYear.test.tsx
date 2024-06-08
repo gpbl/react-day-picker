@@ -8,8 +8,8 @@ import { user } from "@/test/user";
 
 import { FromToYear } from "./FromToYear";
 
-const fromDate = new Date(2024, 0);
-const toDate = new Date(2026, 11);
+const fromMonth = new Date(2024, 0);
+const toMonth = new Date(2026, 11);
 const today = new Date(2025, 10, 25);
 jest.useFakeTimers().setSystemTime(today);
 
@@ -25,7 +25,7 @@ test("the next month button should not be disabled", () => {
 });
 
 describe("when navigating to the last month", () => {
-  const nOfMonths = differenceInMonths(toDate, fromDate);
+  const nOfMonths = differenceInMonths(toMonth, fromMonth);
   beforeEach(async () => {
     for (let i = 0; i < nOfMonths; i++) {
       await act(() => user.click(nextButton()));

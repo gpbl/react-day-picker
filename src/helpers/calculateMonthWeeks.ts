@@ -14,8 +14,8 @@ import { MonthWeek } from "./getMonthWeeks";
 
 /** Return the weeks between two dates. */
 export function calculateMonthWeeks(
-  fromDate: Date,
-  toDate: Date,
+  startDate: Date,
+  endDate: Date,
   options?: {
     ISOWeek?: boolean;
     locale?: Locale;
@@ -24,11 +24,11 @@ export function calculateMonthWeeks(
   }
 ): MonthWeek[] {
   const toWeek = options?.ISOWeek
-    ? endOfISOWeek(toDate)
-    : endOfWeek(toDate, options);
+    ? endOfISOWeek(endDate)
+    : endOfWeek(endDate, options);
   const fromWeek = options?.ISOWeek
-    ? startOfISOWeek(fromDate)
-    : startOfWeek(fromDate, options);
+    ? startOfISOWeek(startDate)
+    : startOfWeek(startDate, options);
 
   const nOfDays = differenceInCalendarDays(toWeek, fromWeek);
   const days: Date[] = [];

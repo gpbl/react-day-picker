@@ -10,7 +10,7 @@ import { getPossibleFocusDate } from "./getPossibleFocusDate";
 
 export type Options = Pick<
   PropsContext<Mode, boolean>,
-  "modifiers" | "locale" | "ISOWeek" | "weekStartsOn" | "fromDate" | "toDate"
+  "modifiers" | "locale" | "ISOWeek" | "weekStartsOn" | "fromMonth" | "toMonth"
 >;
 
 export function getNextFocus(
@@ -26,8 +26,8 @@ export function getNextFocus(
     | "locale"
     | "ISOWeek"
     | "weekStartsOn"
-    | "fromDate"
-    | "toDate"
+    | "fromMonth"
+    | "toMonth"
   >,
   attempt: number = 0
 ): CalendarDay | undefined {

@@ -9,12 +9,12 @@ import { getNextFocus } from "./getNextFocus";
 
 const defaultDayPicker: Pick<
   PropsContext<Mode, boolean>,
-  "disabled" | "hidden" | "fromDate" | "toDate"
+  "disabled" | "hidden" | "fromMonth" | "toMonth"
 > = {
   disabled: [],
   hidden: [],
-  fromDate: undefined,
-  toDate: undefined
+  fromMonth: undefined,
+  toMonth: undefined
 };
 
 it("should return `undefined` if `attempt` exceeds 365", () => {

@@ -13,17 +13,17 @@ describe("when number of months is 1", () => {
     });
   });
   describe("when in the navigable range", () => {
-    const fromDate = addMonths(startingMonth, -3);
+    const fromMonth = addMonths(startingMonth, -3);
     it("the previous month is not undefined", () => {
-      const result = getPreviousMonth(startingMonth, { fromDate });
+      const result = getPreviousMonth(startingMonth, { fromMonth });
       const expectedPrevMonth = addMonths(startingMonth, -1);
       expect(result && isSameMonth(result, expectedPrevMonth)).toBeTruthy();
     });
   });
   describe("when not in the navigable range", () => {
-    const fromDate = startingMonth;
+    const fromMonth = startingMonth;
     it("the previous month is undefined", () => {
-      const result = getPreviousMonth(startingMonth, { fromDate });
+      const result = getPreviousMonth(startingMonth, { fromMonth });
       expect(result).toBe(undefined);
     });
   });
