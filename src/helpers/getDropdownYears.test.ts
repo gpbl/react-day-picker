@@ -2,30 +2,30 @@ import { formatYearDropdown } from "../formatters";
 
 import { getDropdownYears } from "./getDropdownYears";
 
-it("returns undefined if fromMonth is not defined", () => {
+it("returns undefined if endMonth is not defined", () => {
   const result = getDropdownYears({
-    toMonth: new Date(),
-    fromMonth: undefined,
+    startMonth: new Date(),
+    endMonth: undefined,
     formatters: { formatYearDropdown }
   });
   expect(result).toBeUndefined();
 });
 
-it("returns undefined if `toMonth` is not defined", () => {
+it("returns undefined if `startMonth` is not defined", () => {
   const result = getDropdownYears({
-    fromMonth: new Date(),
-    toMonth: undefined,
+    endMonth: new Date(),
+    startMonth: undefined,
     formatters: { formatYearDropdown }
   });
   expect(result).toBeUndefined();
 });
 
-it("returns an array of years between `fromMonth` and `toMonth`", () => {
-  const fromMonth = new Date(2020, 0, 1);
-  const toMonth = new Date(2022, 11, 31);
+it("returns an array of years between `endMonth` and `startMonth`", () => {
+  const endMonth = new Date(2020, 0, 1);
+  const startMonth = new Date(2022, 11, 31);
   const result = getDropdownYears({
-    fromMonth,
-    toMonth,
+    endMonth,
+    startMonth,
     formatters: {
       formatYearDropdown: (year: number): string =>
         `Formatted ${year.toString()}`
@@ -51,11 +51,11 @@ it("returns an array of years between `fromMonth` and `toMonth`", () => {
   ]);
 });
 
-it("handles same year for fromMonth and toMonth", () => {
+it("handles same year for endMonth and startMonth", () => {
   const year = new Date(2021, 5, 15);
   const result = getDropdownYears({
-    fromMonth: year,
-    toMonth: year,
+    endMonth: year,
+    startMonth: year,
     formatters: {
       formatYearDropdown: (year: number): string =>
         `Formatted ${year.toString()}`
