@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Calendar } from "./components/Calendar";
-import { MonthCaption } from "./components/MonthCaption";
+import { MonthCaption, MonthCaptionProps } from "./components/MonthCaption";
 import { Week, type WeekProps } from "./components/Week";
 import { useCalendar } from "./contexts/calendar";
 import { PropsContext, useProps } from "./contexts/props";
@@ -44,11 +44,10 @@ export const Root = Calendar;
 export const Caption = MonthCaption;
 
 /**
- * @deprecated This type has been renamed. Use `Parameters<typeof
- *   MonthCaption>[0]` instead.
+ * @deprecated This type has been renamed. Use `MonthCaptionProps` instead.
  * @protected
  */
-export type CaptionProps = Parameters<typeof MonthCaption>[0];
+export type CaptionProps = MonthCaptionProps;
 
 /**
  * @deprecated This component has been removed.
@@ -134,22 +133,21 @@ export type SelectRangeEventHandler = SelectHandler<"range", false>;
 export type DayPickerProviderProps = any;
 
 /**
- * @deprecated This type has been renamed to `useProps`
+ * @deprecated This type has been renamed to `useProps`.
  * @protected
  * @group Hooks
  */
 export const useDayPicker = useProps;
 
 /**
- * @deprecated This type has been renamed to `useProps`
+ * @deprecated This type has been renamed to `useProps`.
  * @protected
  * @group Hooks
  */
 export const useNavigation = useCalendar;
 
 /**
- * @deprecated This hook has been removed. To customize the rendering of a day,
- *   use the `htmlAttributes` prop in a custom `Day` component.
+ * @deprecated This hook has been removed. Use a custom `Day` component instead.
  * @protected
  * @group Hooks
  * @see https://react-day-picker.js.org/advanced-guides/custom-components
@@ -187,16 +185,14 @@ export type WeekdayLabel = typeof labelWeekday;
 export type WeekNumberLabel = typeof labelWeekNumber;
 
 /**
- * @deprecated The event handler when a day is clicked. Use
- *   {@link DayMouseEventHandler} instead.
+ * @deprecated Use {@link DayMouseEventHandler} instead.
  * @protected
  */
 export type DayClickEventHandler = DayEventHandler<React.MouseEvent>;
 
 /**
- * @deprecated The event handler when a day is focused. This type will be
- *   removed. Use `DayEventHandler<React.FocusEvent | React.KeyboardEvent>`
- *   instead.
+ * @deprecated This type will be removed. Use `DayEventHandler<React.FocusEvent
+ *   | React.KeyboardEvent>` instead.
  * @protected
  */
 export type DayFocusEventHandler = DayEventHandler<
@@ -204,36 +200,35 @@ export type DayFocusEventHandler = DayEventHandler<
 >;
 
 /**
- * @deprecated The event handler when a day gets a keyboard event. This type
- *   will be removed. Use `DayEventHandler<React.KeyboardEvent>` instead.
+ * @deprecated This type will be removed. Use
+ *   `DayEventHandler<React.KeyboardEvent>` instead.
  * @protected
  */
 export type DayKeyboardEventHandler = DayEventHandler<React.KeyboardEvent>;
 
 /**
- * @deprecated The event handler when a day gets a mouse event. This type will
- *   be removed. Use `DayEventHandler<React.MouseEvent>` instead.
+ * @deprecated This type will be removed. Use
+ *   `DayEventHandler<React.MouseEvent>` instead.
  * @protected
  */
 export type DayMouseEventHandler = DayEventHandler<React.MouseEvent>;
 
 /**
- * @deprecated The event handler when a day gets a pointer event. This type will
- *   be removed. Use `DayEventHandler<React.PointerEvent>` instead.
+ * @deprecated This type will be removed. Use
+ *   `DayEventHandler<React.PointerEvent>` instead.
  * @protected
  */
 export type DayPointerEventHandler = DayEventHandler<React.PointerEvent>;
 
 /**
- * @deprecated The event handler when a day gets a touch event. This type will
- *   be removed. Use `DayEventHandler<React.TouchEvent>` instead.
+ * @deprecated This type will be removed. Use
+ *   `DayEventHandler<React.TouchEvent>` instead.
  * @protected
  */
 export type DayTouchEventHandler = DayEventHandler<React.TouchEvent>;
 
 /**
- * @deprecated The type has been renamed and needs a `Mode` argument. Use
- *   `PropsContext` instead.
+ * @deprecated The type has been renamed. Use `PropsContext` instead.
  * @protected
  */
 export type DayPickerContext = PropsContext;
