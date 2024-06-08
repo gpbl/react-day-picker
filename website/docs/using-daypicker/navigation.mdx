@@ -62,23 +62,19 @@ export function Controlled() {
 
 ## Start and End Dates
 
-Limit the dates the user can navigate to by using the `from*`, `to*` props.
+Limit the dates the user can navigate to by using the `startMonth` and `endMonth` props.
 
-| Prop Name   | Type     | Description                                 |
-| ----------- | -------- | ------------------------------------------- |
-| `fromYear`  | `number` | The earliest year to start the navigation.  |
-| `toYear`    | `number` | The latest year to start the navigation.    |
-| `fromMonth` | `Date`   | The earliest month to start the navigation. |
-| `toMonth`   | `Date`   | The latest month to end the navigation.     |
-| `fromDate`  | `Date`   | The earliest day to start the navigation.   |
-| `toDate`    | `Date`   | The latest day to end the navigation.       |
+| Prop Name    | Type   | Description                                 |
+| ------------ | ------ | ------------------------------------------- |
+| `startMonth` | `Date` | The earliest month to start the navigation. |
+| `endMonth`   | `Date` | The latest month to end the navigation.     |
 
 ```tsx
-<DayPicker defaultMonth={new Date(2024, 0)} fromYear={2024} toYear={2026} />
+<DayPicker startMonth={new Date(2024, 0)} endMonth={new Date(2025, 11)} />
 ```
 
 <BrowserWindow>
-  <Examples.FromToYear />
+  <Examples.StartEndMonths />
 </BrowserWindow>
 
 ## Disabling the Navigation
