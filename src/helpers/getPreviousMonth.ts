@@ -9,15 +9,15 @@ import { startOfMonth } from "date-fns/startOfMonth";
  * Please note that the previous month is not always the previous calendar
  * month:
  *
- * - If before the `fromMonth` date, is `undefined`;
+ * - If before the `startMonth` date, is `undefined`;
  * - If the navigation is paged, is the number of months displayed before.
  */
 export function getPreviousMonth(
-  startingMonth: Date,
+  firstDisplayedMonth: Date,
   options: {
     numberOfMonths?: number;
-    fromMonth?: Date;
-    toMonth?: Date;
+    startMonth: Date | undefined;
+    endMonth: Date | undefined;
     pagedNavigation?: boolean;
     today?: Date;
     disableNavigation?: boolean;
@@ -26,13 +26,13 @@ export function getPreviousMonth(
   if (options.disableNavigation) {
     return undefined;
   }
-  const { fromMonth, pagedNavigation, numberOfMonths = 1 } = options;
+  const { startMonth, pagedNavigation, numberOfMonths = 1 } = options;
   const offset = pagedNavigation ? numberOfMonths : 1;
-  const month = startOfMonth(startingMonth);
-  if (!fromMonth) {
+  const month = startOfMonth(firstDisplayedMonth);
+  if (!startMonth) {
     return addMonths(month, -offset);
   }
-  const monthsDiff = differenceInCalendarMonths(month, fromMonth);
+  const monthsDiff = differenceInCalendarMonths(month, startMonth);
 
   if (monthsDiff <= 0) {
     return undefined;

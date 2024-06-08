@@ -6,8 +6,8 @@ export function Dropdown() {
   return (
     <DayPicker
       captionLayout="dropdown"
-      fromMonth={new Date(2015, 6)}
-      toMonth={new Date(2025, 9)}
+      startMonth={new Date(2015, 6)}
+      endMonth={new Date(2025, 9)}
     />
   );
 }

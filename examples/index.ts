@@ -49,6 +49,7 @@ export * from "./SingleRequired";
 export * from "./Spanish";
 export * from "./SpanishWeekStartsOn";
 export * from "./Start";
+export * from "./StartEndMonths";
 export * from "./StylingCss";
 export * from "./StylingInline";
 export * from "./StylingModifiers";
