@@ -677,3 +677,23 @@ export type ModifiersClassNames = Record<string, string> &
   Partial<Record<InternalModifier, string>>;
 
 export type test = DayPickerProps;
+
+/**
+ * The props that have been deprecated since version 9.0.0.
+ *
+ * @since 9.0.0
+ * @see https://react-day-picker.js.org/next/upgrading
+ */
+export type V9DeprecatedProps =
+  /** Use `hidden` prop instead. */
+  | "fromDate"
+  /** Use `hidden` prop instead. */
+  | "toDate"
+  /** Use `startMonth` instead. */
+  | "fromMonth"
+  /** Use `endMonth` instead. */
+  | "toMonth"
+  /** Use `startMonth` instead. */
+  | "fromYear"
+  /** Use `endMonth` instead. */
+  | "toYear";

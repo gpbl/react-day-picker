@@ -5,7 +5,7 @@ import React, {
   useId
 } from "react";
 
-import { startOfMonth } from "date-fns";
+import { V9DeprecatedProps } from "react-day-picker/types";
 
 import { getDataAttributes } from "../helpers/getDataAttributes";
 import { getDefaultClassNames } from "../helpers/getDefaultClassNames";
@@ -24,15 +24,6 @@ import type {
   SelectHandler
 } from "../types";
 
-/** @private */
-export type DeprecatedProps =
-  | "fromDate"
-  | "toDate"
-  | "fromMonth"
-  | "toMonth"
-  | "fromYear"
-  | "toYear";
-
 /**
  * Holds the props passed to the DayPicker component, with some optional props
  * set to meaningful defaults.
@@ -46,7 +37,7 @@ export type DeprecatedProps =
 export interface PropsContext<
   T extends Mode = "default",
   R extends boolean = false
-> extends Omit<PropsBase, DeprecatedProps> {
+> extends Omit<PropsBase, V9DeprecatedProps> {
   classNames: ClassNames;
   /** The `data-*` attributes passed to `<DayPicker />`. */
   dataAttributes: DataAttributes;
