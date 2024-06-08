@@ -8,6 +8,7 @@ export function formatYearDropdown(year: number): string {
 }
 
 /**
+ * @private
  * @deprecated Use `formatYearDropdown` instead.
  * @group Formatters
  */

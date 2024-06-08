@@ -13,6 +13,7 @@ export function formatCaption(
 }
 
 /**
+ * @private
  * @deprecated Use {@link formatCaption} instead.
  * @group Formatters
  */
