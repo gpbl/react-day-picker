@@ -17,8 +17,8 @@ export function getFirstLastMonths(
       PropsBase,
       | "fromYear"
       | "toYear"
-      | "fromMonth"
-      | "toMonth"
+      | "startMonth"
+      | "endMonth"
       | "month"
       | "defaultMonth"
       | "today"
@@ -28,16 +28,16 @@ export function getFirstLastMonths(
 ): [firstMonth: Date, lastMonth?: Date] {
   const { month, defaultMonth, today, numberOfMonths = 1 } = props;
   let initialMonth = month || defaultMonth || today || new Date();
-  const { fromMonth, toMonth } = getStartEndMonths(props);
+  const { startMonth, endMonth } = getStartEndMonths(props);
 
   // Fix the initialMonth if is after the to-date
-  if (toMonth && differenceInCalendarMonths(toMonth, initialMonth) < 0) {
+  if (endMonth && differenceInCalendarMonths(endMonth, initialMonth) < 0) {
     const offset = -1 * (numberOfMonths - 1);
-    initialMonth = addMonths(toMonth, offset);
+    initialMonth = addMonths(endMonth, offset);
   }
   // Fix the initialMonth if is before the from-date
-  if (fromMonth && differenceInCalendarMonths(initialMonth, fromMonth) < 0) {
-    initialMonth = fromMonth;
+  if (startMonth && differenceInCalendarMonths(initialMonth, startMonth) < 0) {
+    initialMonth = startMonth;
   }
-  return [startOfMonth(initialMonth), toMonth];
+  return [startOfMonth(initialMonth), endMonth];
 }

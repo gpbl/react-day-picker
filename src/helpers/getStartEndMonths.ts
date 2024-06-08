@@ -8,34 +8,30 @@ import { startOfYear } from "date-fns/startOfYear";
 import type { DayPickerProps, Mode } from "../types";
 
 /**
- * Return the `fromMonth` and `toMonth` prop values values parsing the DayPicker
- * props.
+ * Return the `startMonth` and `endMonth` prop values values parsing the
+ * DayPicker props.
  */
 export function getStartEndMonths(
   props: Pick<
     DayPickerProps<Mode, boolean>,
-    "fromYear" | "toYear" | "fromMonth" | "toMonth" | "today" | "captionLayout"
+    | "fromYear"
+    | "toYear"
+    | "startMonth"
+    | "endMonth"
+    | "today"
+    | "captionLayout"
   >
-): Pick<DayPickerProps<Mode, boolean>, "fromMonth" | "toMonth"> {
-  const { fromYear, toYear } = props;
-  let { fromMonth, toMonth } = props;
+): Pick<DayPickerProps<Mode, boolean>, "startMonth" | "endMonth"> {
+  let { startMonth, endMonth } = props;
   const hasDropdowns = props.captionLayout?.startsWith("dropdown");
-  if (fromMonth) {
-    fromMonth = startOfMonth(fromMonth);
-  } else if (fromYear) {
-    fromMonth = new Date(fromYear, 0, 1);
-  } else if (!fromMonth && hasDropdowns) {
-    fromMonth = startOfYear(addYears(props.today ?? new Date(), -100));
+  if (startMonth) {
+    startMonth = startOfMonth(startMonth);
   }
-  if (toMonth) {
-    toMonth = endOfMonth(toMonth);
-  } else if (toYear) {
-    toMonth = new Date(toYear, 11, 31);
-  } else if (!toMonth && hasDropdowns) {
-    toMonth = endOfYear(props.today ?? new Date());
+  if (endMonth) {
+    endMonth = endOfMonth(endMonth);
   }
   return {
-    fromMonth: fromMonth ? startOfDay(fromMonth) : undefined,
-    toMonth: toMonth ? startOfDay(toMonth) : undefined
+    startMonth: startMonth ? startOfDay(startMonth) : undefined,
+    endMonth: endMonth ? startOfDay(endMonth) : undefined
   };
 }

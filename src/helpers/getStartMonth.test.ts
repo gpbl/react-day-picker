@@ -2,7 +2,7 @@ import { addMonths, isSameMonth } from "date-fns";
 
 import { getStartMonth } from "./getStartMonth";
 
-describe("when no toMonth is given", () => {
+describe("when no endMonth is given", () => {
   describe("when month is in context", () => {
     const month = new Date(2010, 11, 12);
     it("return that month", () => {
@@ -25,30 +25,30 @@ describe("when no toMonth is given", () => {
     });
   });
 });
-describe("when toMonth is given", () => {
-  describe("when toMonth is before the default initial date", () => {
+describe("when endMonth is given", () => {
+  describe("when endMonth is before the default initial date", () => {
     const month = new Date(2010, 11, 12);
-    const toMonth = addMonths(month, -2);
+    const endMonth = addMonths(month, -2);
     describe("when the number of month is 1", () => {
       const numberOfMonths = 1;
-      it("return the toMonth", () => {
+      it("return the endMonth", () => {
         const startMonth = getStartMonth({
           month,
-          toMonth,
+          endMonth,
           numberOfMonths
         });
-        expect(isSameMonth(startMonth, toMonth)).toBe(true);
+        expect(isSameMonth(startMonth, endMonth)).toBe(true);
       });
     });
     describe("when the number of month is 3", () => {
       const numberOfMonths = 3;
-      it("return the toMonth plus the number of months", () => {
+      it("return the endMonth plus the number of months", () => {
         const startMonth = getStartMonth({
           month,
-          toMonth,
+          endMonth,
           numberOfMonths
         });
-        const expectedMonth = addMonths(toMonth, -1 * (numberOfMonths - 1));
+        const expectedMonth = addMonths(endMonth, -1 * (numberOfMonths - 1));
         expect(isSameMonth(startMonth, expectedMonth)).toBe(true);
       });
     });

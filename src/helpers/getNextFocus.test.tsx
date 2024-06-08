@@ -7,14 +7,14 @@ import type { Mode } from "../types";
 
 import { getNextFocus } from "./getNextFocus";
 
-const defaultDayPicker: Pick<
+const props: Pick<
   PropsContext<Mode, boolean>,
-  "disabled" | "hidden" | "fromMonth" | "toMonth"
+  "disabled" | "hidden" | "startMonth" | "endMonth"
 > = {
   disabled: [],
   hidden: [],
-  fromMonth: undefined,
-  toMonth: undefined
+  startMonth: undefined,
+  endMonth: undefined
 };
 
 it("should return `undefined` if `attempt` exceeds 365", () => {
@@ -24,13 +24,7 @@ it("should return `undefined` if `attempt` exceeds 365", () => {
   );
   const moveBy: MoveFocusBy = "day";
   const moveDir: MoveFocusDir = "after";
-  const result = getNextFocus(
-    moveBy,
-    moveDir,
-    focusedDay,
-    defaultDayPicker,
-    366
-  );
+  const result = getNextFocus(moveBy, moveDir, focusedDay, props, 366);
   expect(result).toBeUndefined();
 });
 
@@ -40,7 +34,7 @@ it("should return the focus date if it is not disabled or hidden", () => {
     new Date(2020, 0, 1)
   );
   const expectedDate = new Date(2020, 0, 2);
-  const result = getNextFocus("day", "after", focusedDay, defaultDayPicker);
+  const result = getNextFocus("day", "after", focusedDay, props);
   expect(result?.date).toEqual(expectedDate);
 });
 
@@ -52,7 +46,7 @@ it("should return the next focus date if it is disabled", () => {
   const disabledDate = new Date(2020, 0, 2);
   const expectedDate = new Date(2020, 0, 3);
   const result = getNextFocus("day", "after", focusedDay, {
-    ...defaultDayPicker,
+    ...props,
     disabled: [disabledDate]
   });
   expect(result?.date).toEqual(expectedDate);
@@ -66,7 +60,7 @@ it("should return the next focus date if it is hidden", () => {
   const hiddenDate = new Date(2020, 0, 2);
   const expectedDate = new Date(2020, 0, 3);
   const result = getNextFocus("day", "after", focusedDay, {
-    ...defaultDayPicker,
+    ...props,
     hidden: [hiddenDate]
   });
   expect(result?.date).toEqual(expectedDate);

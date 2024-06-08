@@ -20,13 +20,13 @@ import { getPossibleFocusDate } from "./getPossibleFocusDate";
 const baseDate = new Date(2023, 0, 1); // Jan 1, 2023
 const options: Pick<
   PropsContext<Mode, boolean>,
-  "locale" | "ISOWeek" | "weekStartsOn" | "fromMonth" | "toMonth"
+  "locale" | "ISOWeek" | "weekStartsOn" | "startMonth" | "endMonth"
 > = {
   locale: undefined,
   ISOWeek: false,
   weekStartsOn: 0, // Sunday
-  fromMonth: new Date(2022, 0, 1), // Jan 1, 2022
-  toMonth: new Date(2024, 0, 1) // Jan 1, 2024
+  startMonth: new Date(2022, 0, 1), // Jan 1, 2022
+  endMonth: new Date(2024, 0, 1) // Jan 1, 2024
 };
 
 const testCases: {
@@ -98,22 +98,22 @@ ISOWeekTestCases.forEach(({ moveBy, moveDir, expectedFn }) => {
   });
 });
 
-test("should not move before fromMonth", () => {
+test("should not move before startMonth", () => {
   const result = getPossibleFocusDate(
     "day",
     "before",
     new Date(2022, 0, 2),
     options
   );
-  expect(result).toEqual(options.fromMonth);
+  expect(result).toEqual(options.startMonth);
 });
 
-test("should not move after toMonth", () => {
+test("should not move after endMonth", () => {
   const result = getPossibleFocusDate(
     "day",
     "after",
     new Date(2023, 11, 31),
     options
   );
-  expect(result).toEqual(options.toMonth);
+  expect(result).toEqual(options.endMonth);
 });
