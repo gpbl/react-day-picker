@@ -16,8 +16,8 @@ export function getPreviousMonth(
   firstDisplayedMonth: Date,
   options: {
     numberOfMonths?: number;
-    startMonth?: Date;
-    endMonth?: Date;
+    startMonth: Date | undefined;
+    endMonth: Date | undefined;
     pagedNavigation?: boolean;
     today?: Date;
     disableNavigation?: boolean;

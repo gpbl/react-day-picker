@@ -8,22 +8,32 @@ describe("when number of months is 1", () => {
   describe("when the navigation is disabled", () => {
     const disableNavigation = true;
     it("the next month is undefined", () => {
-      const result = getNextMonth(startingMonth, { disableNavigation });
+      const result = getNextMonth(startingMonth, {
+        disableNavigation,
+        endMonth: undefined,
+        startMonth: undefined
+      });
       expect(result).toBe(undefined);
     });
   });
   describe("when in the navigable range", () => {
-    const toMonth = addMonths(startingMonth, 3);
+    const endMonth = addMonths(startingMonth, 3);
     it("the next month is not undefined", () => {
-      const result = getNextMonth(startingMonth, { toMonth });
+      const result = getNextMonth(startingMonth, {
+        endMonth,
+        startMonth: undefined
+      });
       const expectedNextMonth = addMonths(startingMonth, 1);
       expect(result && isSameMonth(result, expectedNextMonth)).toBeTruthy();
     });
   });
   describe("when not in the navigable range", () => {
-    const toMonth = startingMonth;
+    const endMonth = startingMonth;
     it("the next month is undefined", () => {
-      const result = getNextMonth(startingMonth, { toMonth });
+      const result = getNextMonth(startingMonth, {
+        endMonth,
+        startMonth: undefined
+      });
       expect(result).toBe(undefined);
     });
   });
@@ -35,7 +45,9 @@ describe("when displaying 3 months", () => {
     it("the next month is 3 months ahead", () => {
       const result = getNextMonth(startingMonth, {
         numberOfMonths,
-        pagedNavigation
+        pagedNavigation,
+        startMonth: undefined,
+        endMonth: undefined
       });
       const expectedNextMonth = addMonths(startingMonth, 3);
       expect(result && isSameMonth(result, expectedNextMonth)).toBeTruthy();
@@ -45,7 +57,8 @@ describe("when displaying 3 months", () => {
         const result = getNextMonth(startingMonth, {
           numberOfMonths,
           pagedNavigation,
-          toMonth: addMonths(startingMonth, 1)
+          startMonth: undefined,
+          endMonth: addMonths(startingMonth, 1)
         });
         expect(result).toBe(undefined);
       });
@@ -56,7 +69,9 @@ describe("when displaying 3 months", () => {
     it("the next month is 1 months ahead", () => {
       const result = getNextMonth(startingMonth, {
         numberOfMonths,
-        pagedNavigation
+        pagedNavigation,
+        endMonth: undefined,
+        startMonth: undefined
       });
       const expectedNextMonth = addMonths(startingMonth, 1);
       expect(result && isSameMonth(result, expectedNextMonth)).toBeTruthy();
@@ -66,7 +81,8 @@ describe("when displaying 3 months", () => {
         const result = getNextMonth(startingMonth, {
           numberOfMonths,
           pagedNavigation,
-          toMonth: addMonths(startingMonth, 2)
+          startMonth: undefined,
+          endMonth: addMonths(startingMonth, 2)
         });
         expect(result).toBe(undefined);
       });
