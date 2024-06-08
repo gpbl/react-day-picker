@@ -2,31 +2,31 @@ import * as formatters from "../formatters";
 
 import { getDropdownMonths } from "./getDropdownMonths";
 
-test("returns undefined if `fromMonth` is not defined", () => {
+test("returns undefined if `startMonth` is not defined", () => {
   const result = getDropdownMonths({
-    fromMonth: undefined,
-    toMonth: new Date(),
+    startMonth: undefined,
+    endMonth: new Date(),
     formatters
   });
   expect(result).toBeUndefined();
 });
 
-test("returns undefined if `toMonth` is not defined", () => {
+test("returns undefined if `endMonth` is not defined", () => {
   const result = getDropdownMonths({
-    fromMonth: new Date(),
-    toMonth: undefined,
+    startMonth: new Date(),
+    endMonth: undefined,
     formatters
   });
   expect(result).toBeUndefined();
 });
 
-test("returns sorted months between `fromMonth` and `toMonth`", () => {
-  const fromMonth = new Date(2023, 0, 1);
-  const toMonth = new Date(2023, 11, 31);
+test("returns sorted months between `startMonth` and `endMonth`", () => {
+  const startMonth = new Date(2023, 0, 1);
+  const endMonth = new Date(2023, 11, 31);
 
   const result = getDropdownMonths(
-    { fromMonth, toMonth, formatters },
-    fromMonth.getFullYear()
+    { startMonth, endMonth, formatters },
+    startMonth.getFullYear()
   );
 
   expect(result).toBeDefined();
@@ -38,11 +38,11 @@ test("returns sorted months between `fromMonth` and `toMonth`", () => {
 });
 
 test("formats month labels correctly", () => {
-  const fromMonth = new Date(2023, 3, 1);
-  const toMonth = new Date(2023, 11, 31);
+  const startMonth = new Date(2023, 3, 1);
+  const endMonth = new Date(2023, 11, 31);
   const result = getDropdownMonths(
-    { fromMonth, toMonth, formatters },
-    fromMonth.getFullYear()
+    { startMonth, endMonth, formatters },
+    startMonth.getFullYear()
   );
   if (!result) throw new Error("Unexpected undefined result");
   expect(result[0]).toEqual({ disabled: false, label: "April", value: 3 });
@@ -51,17 +51,17 @@ test("formats month labels correctly", () => {
 
 describe("when using a custom formatter", () => {
   test("formats month labels correctly", () => {
-    const fromMonth = new Date(2023, 0, 1);
-    const toMonth = new Date(2023, 11, 31);
+    const startMonth = new Date(2023, 0, 1);
+    const endMonth = new Date(2023, 11, 31);
     const result = getDropdownMonths(
       {
-        fromMonth,
-        toMonth,
+        startMonth,
+        endMonth,
         formatters: {
           formatMonthDropdown: (month) => `Month ${month.toString()}`
         }
       },
-      fromMonth.getFullYear()
+      startMonth.getFullYear()
     );
     if (!result) throw new Error("Unexpected undefined result");
     expect(result[0]).toEqual({ disabled: false, label: "Month 0", value: 0 });

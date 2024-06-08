@@ -8,22 +8,32 @@ describe("when number of months is 1", () => {
   describe("when the navigation is disabled", () => {
     const disableNavigation = true;
     it("the previous month is undefined", () => {
-      const result = getPreviousMonth(startingMonth, { disableNavigation });
+      const result = getPreviousMonth(startingMonth, {
+        disableNavigation,
+        startMonth: undefined,
+        endMonth: undefined
+      });
       expect(result).toBe(undefined);
     });
   });
   describe("when in the navigable range", () => {
-    const fromMonth = addMonths(startingMonth, -3);
+    const startMonth = addMonths(startingMonth, -3);
     it("the previous month is not undefined", () => {
-      const result = getPreviousMonth(startingMonth, { fromMonth });
+      const result = getPreviousMonth(startingMonth, {
+        startMonth,
+        endMonth: undefined
+      });
       const expectedPrevMonth = addMonths(startingMonth, -1);
       expect(result && isSameMonth(result, expectedPrevMonth)).toBeTruthy();
     });
   });
   describe("when not in the navigable range", () => {
-    const fromMonth = startingMonth;
+    const startMonth = startingMonth;
     it("the previous month is undefined", () => {
-      const result = getPreviousMonth(startingMonth, { fromMonth });
+      const result = getPreviousMonth(startingMonth, {
+        startMonth,
+        endMonth: undefined
+      });
       expect(result).toBe(undefined);
     });
   });
@@ -35,7 +45,9 @@ describe("when displaying 3 months", () => {
     it("the previous month is 3 months back", () => {
       const result = getPreviousMonth(startingMonth, {
         numberOfMonths,
-        pagedNavigation
+        pagedNavigation,
+        startMonth: undefined,
+        endMonth: undefined
       });
       const expectedPrevMonth = addMonths(startingMonth, -numberOfMonths);
       expect(result && isSameMonth(result, expectedPrevMonth)).toBeTruthy();
@@ -46,7 +58,9 @@ describe("when displaying 3 months", () => {
     it("the previous month is 1 months back", () => {
       const result = getPreviousMonth(startingMonth, {
         numberOfMonths,
-        pagedNavigation
+        pagedNavigation,
+        startMonth: undefined,
+        endMonth: undefined
       });
       const expectedPrevMonth = addMonths(startingMonth, -1);
       expect(result && isSameMonth(result, expectedPrevMonth)).toBeTruthy();

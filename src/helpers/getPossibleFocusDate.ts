@@ -19,11 +19,11 @@ export function getPossibleFocusDate(
   moveDir: MoveFocusDir,
   focusedDate: Date,
   options: Pick<
-    PropsContext<Mode, boolean>,
-    "locale" | "ISOWeek" | "weekStartsOn" | "fromMonth" | "toMonth"
+    PropsContext,
+    "locale" | "ISOWeek" | "weekStartsOn" | "startMonth" | "endMonth"
   >
 ): Date {
-  const { weekStartsOn, fromMonth, toMonth, locale, ISOWeek } = options;
+  const { weekStartsOn, startMonth, endMonth, locale, ISOWeek } = options;
 
   const moveFns = {
     day: addDays,
@@ -42,10 +42,10 @@ export function getPossibleFocusDate(
     focusedDate,
     moveDir === "after" ? 1 : -1
   );
-  if (moveDir === "before" && fromMonth) {
-    nextFocusedDate = max([fromMonth, nextFocusedDate]);
-  } else if (moveDir === "after" && toMonth) {
-    nextFocusedDate = min([toMonth, nextFocusedDate]);
+  if (moveDir === "before" && startMonth) {
+    nextFocusedDate = max([startMonth, nextFocusedDate]);
+  } else if (moveDir === "after" && endMonth) {
+    nextFocusedDate = min([endMonth, nextFocusedDate]);
   }
   return nextFocusedDate;
 }

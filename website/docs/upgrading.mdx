@@ -47,6 +47,16 @@ The formatters now return a string instead of a ReactNode. If you were using the
 + const MyComponent = () => <DayPicker formatters={{ caption: () => 'My caption' }} />;
 ```
 
+
+#### 4. DayPicker
+
+```diff
+- import { DayPickerProps } from 'react-day-picker';
++ import { DayPickerProps, Mode } from 'react-day-picker';
+- const props: DayPickerProps;
++ const props: DayPickerProps<Mode, boolan>;
+```
+
 #### 4. Rename deprecated typings
 
 Many typings have been deprecated in favor of clarity and shorter names. If you were using the typings, you may need to update your code or it will break in the next major version.
@@ -56,14 +66,6 @@ Many typings have been deprecated in favor of clarity and shorter names. If you 
 + import { PropsDefault } from 'react-day-picker/types';
 ```
 
-##### DayPickerProps requires the Mode argument
-
-```diff
-- import { DayPickerProps } from 'react-day-picker';
-+ import { DayPickerProps, Mode } from 'react-day-picker';
-- const props: DayPickerProps<Mode>;       // pass the `Mode` argument
-+ const props: DayPickerProps<Mode>;
-```
 
 ---
 

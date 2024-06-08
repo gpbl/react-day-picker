@@ -10,6 +10,7 @@ import { getDefaultClassNames } from "../helpers/getDefaultClassNames";
 import { getFormatters } from "../helpers/getFormatters";
 import { getStartEndMonths } from "../helpers/getStartEndMonths";
 import * as defaultLabels from "../labels";
+import { V9DeprecatedProps } from "../types";
 import type {
   ClassNames,
   DataAttributes,
@@ -35,12 +36,12 @@ import type {
 export interface PropsContext<
   T extends Mode = "default",
   R extends boolean = false
-> extends PropsBase {
+> extends Omit<PropsBase, V9DeprecatedProps> {
   classNames: ClassNames;
   /** The `data-*` attributes passed to `<DayPicker />`. */
   dataAttributes: DataAttributes;
+  endMonth: Date | undefined;
   formatters: Formatters;
-  fromMonth: Date | undefined;
   id: string;
   labels: Labels;
   max: number | undefined;
@@ -48,7 +49,7 @@ export interface PropsContext<
   mode: T;
   numberOfMonths: number;
   required: boolean;
-  toMonth: Date | undefined;
+  startMonth: Date | undefined;
   today: Date;
   /** The currently selected value. */
   selected: Selected<Mode, R> | undefined;
@@ -66,29 +67,38 @@ const propsContext = createContext<PropsContext<Mode, boolean> | null>(null);
  *
  * @private
  */
-export const PropsProvider = <T extends Mode, R extends boolean>(
+export function PropsProvider<T extends Mode, R extends boolean>(
   props: PropsWithChildren<DayPickerProps<T, R>>
-) => {
+) {
   const reactId = useId();
-  const { children, ...restProps } = props;
-
-  const { fromMonth, toMonth } = getStartEndMonths(props);
+  const { startMonth, endMonth } = getStartEndMonths(props);
+  const {
+    children,
+    // Remove deprecated props
+    fromDate,
+    fromMonth,
+    fromYear,
+    toDate,
+    toMonth,
+    toYear,
+    ...restProps
+  } = props;
 
   const context = {
     ...restProps,
     classNames: { ...getDefaultClassNames(), ...restProps.classNames },
     dataAttributes: getDataAttributes(props),
+    endMonth,
     formatters: getFormatters(props.formatters),
-    fromMonth,
     id: props.id ?? reactId,
     labels: { ...defaultLabels, ...restProps.labels },
-    required: "required" in props ? props.required ?? false : false,
-    min: "min" in props ? props.min ?? undefined : undefined,
     max: "max" in props ? props.max ?? undefined : undefined,
+    min: "min" in props ? props.min ?? undefined : undefined,
     mode: props.mode ?? ("default" as Mode),
     numberOfMonths: props.numberOfMonths ?? 1,
+    required: "required" in props ? props.required ?? false : false,
+    startMonth,
     today: props.today ?? new Date(),
-    toMonth,
     selected: "selected" in props ? props.selected : undefined,
     defaultSelected:
       "defaultSelected" in props ? props.defaultSelected : undefined,
@@ -98,7 +108,7 @@ export const PropsProvider = <T extends Mode, R extends boolean>(
   return (
     <propsContext.Provider value={context}>{children}</propsContext.Provider>
   );
-};
+}
 
 /**
  * Access to the props passed to DayPicker.

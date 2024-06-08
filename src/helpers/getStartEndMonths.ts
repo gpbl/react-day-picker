@@ -14,28 +14,51 @@ import type { DayPickerProps, Mode } from "../types";
 export function getStartEndMonths(
   props: Pick<
     DayPickerProps<Mode, boolean>,
-    "fromYear" | "toYear" | "fromMonth" | "toMonth" | "today" | "captionLayout"
+    | "startMonth"
+    | "endMonth"
+    | "today"
+    | "captionLayout"
+    // Deprecated:
+    | "fromYear"
+    | "toYear"
+    | "fromMonth"
+    | "toMonth"
   >
-): Pick<DayPickerProps<Mode, boolean>, "fromMonth" | "toMonth"> {
-  const { fromYear, toYear } = props;
-  let { fromMonth, toMonth } = props;
-  const hasDropdowns = props.captionLayout?.startsWith("dropdown");
-  if (fromMonth) {
-    fromMonth = startOfMonth(fromMonth);
-  } else if (fromYear) {
-    fromMonth = new Date(fromYear, 0, 1);
-  } else if (!fromMonth && hasDropdowns) {
-    fromMonth = startOfYear(addYears(props.today ?? new Date(), -100));
+): Pick<DayPickerProps<Mode, boolean>, "startMonth" | "endMonth"> {
+  let { startMonth, endMonth } = props;
+
+  // Handle deprecated code
+  const { fromYear, toYear, fromMonth, toMonth } = props;
+  if (!startMonth && fromMonth) {
+    startMonth = fromMonth;
   }
-  if (toMonth) {
-    toMonth = endOfMonth(toMonth);
+  if (!startMonth && fromYear) {
+    startMonth = new Date(fromYear, 0, 1);
+  }
+  if (!endMonth && toMonth) {
+    endMonth = toMonth;
+  }
+  if (!endMonth && toYear) {
+    endMonth = new Date(toYear, 11, 31);
+  }
+
+  const hasDropdowns = props.captionLayout?.startsWith("dropdown");
+  if (startMonth) {
+    startMonth = startOfMonth(startMonth);
+  } else if (fromYear) {
+    startMonth = new Date(fromYear, 0, 1);
+  } else if (!startMonth && hasDropdowns) {
+    startMonth = startOfYear(addYears(props.today ?? new Date(), -100));
+  }
+  if (endMonth) {
+    endMonth = endOfMonth(endMonth);
   } else if (toYear) {
-    toMonth = new Date(toYear, 11, 31);
-  } else if (!toMonth && hasDropdowns) {
-    toMonth = endOfYear(props.today ?? new Date());
+    endMonth = new Date(toYear, 11, 31);
+  } else if (!endMonth && hasDropdowns) {
+    endMonth = endOfYear(props.today ?? new Date());
   }
   return {
-    fromMonth: fromMonth ? startOfDay(fromMonth) : undefined,
-    toMonth: toMonth ? startOfDay(toMonth) : undefined
+    startMonth: startMonth ? startOfDay(startMonth) : startMonth,
+    endMonth: endMonth ? startOfDay(endMonth) : endMonth
   };
 }

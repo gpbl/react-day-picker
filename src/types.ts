@@ -44,7 +44,7 @@ import {
 /**
  * The props for the {@link DayPicker} component.
  *
- * @template T - The {@link Mode | selection mode}. Defaults to `"default"`.
+ * @template T - The selection mode. Defaults to `"default"`.
  * @template R - Whether the selection is required. Defaults to `false`.
  * @group Props
  */
@@ -129,14 +129,53 @@ export interface PropsBase {
    * @defaultValue 1
    */
   numberOfMonths?: number;
-  /** The earliest month to start the month navigation. */
-  fromMonth?: Date;
-  /** The latest month to end the month navigation. */
+  /**
+   * The earliest month to start the month navigation.
+   *
+   * @since 9.0.0
+   */
+  startMonth?: Date | undefined;
+  /**
+   * @private
+   * @deprecated This prop has been removed. Use `hidden={{ before: date }}`
+   *   instead.
+   */
+  fromDate?: Date | undefined;
+  /**
+   * @private
+   * @deprecated This prop has been renamed to `startMonth`.
+   */
+  fromMonth?: Date | undefined;
+  /**
+   * @private
+   * @deprecated Use `startMonth` instead. E.g. `startMonth={new Date(year,
+   *   0)}`.
+   */
+  fromYear?: number | undefined;
+
+  /**
+   * The latest month to end the month navigation.
+   *
+   * @since 9.0.0
+   */
+  endMonth?: Date;
+  /**
+   * @private
+   * @deprecated This prop has been removed. Use `hidden={{ after: date }}`
+   *   instead.
+   */
+  toDate?: Date;
+  /**
+   * @private
+   * @deprecated This prop has been renamed to `endMonth`.
+   */
   toMonth?: Date;
-  /** The earliest year to start the month navigation. */
-  fromYear?: number;
-  /** The latest year to end the month navigation. */
+  /**
+   * @private
+   * @deprecated Use `endMonth` instead. E.g. `endMonth={new Date(year, 0)}`.
+   */
   toYear?: number;
+
   /** Paginate the month navigation displaying the `numberOfMonths` at time. */
   pagedNavigation?: boolean;
   /**
@@ -636,3 +675,25 @@ export type ModifiersStyles = Record<string, CSSProperties> &
 /** The classnames to assign to each day element matching a modifier. */
 export type ModifiersClassNames = Record<string, string> &
   Partial<Record<InternalModifier, string>>;
+
+export type test = DayPickerProps;
+
+/**
+ * The props that have been deprecated since version 9.0.0.
+ *
+ * @since 9.0.0
+ * @see https://react-day-picker.js.org/next/upgrading
+ */
+export type V9DeprecatedProps =
+  /** Use `hidden` prop instead. */
+  | "fromDate"
+  /** Use `hidden` prop instead. */
+  | "toDate"
+  /** Use `startMonth` instead. */
+  | "fromMonth"
+  /** Use `endMonth` instead. */
+  | "toMonth"
+  /** Use `startMonth` instead. */
+  | "fromYear"
+  /** Use `endMonth` instead. */
+  | "toYear";
