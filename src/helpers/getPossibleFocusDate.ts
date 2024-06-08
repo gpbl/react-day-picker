@@ -19,7 +19,7 @@ export function getPossibleFocusDate(
   moveDir: MoveFocusDir,
   focusedDate: Date,
   options: Pick<
-    PropsContext<Mode, boolean>,
+    PropsContext,
     "locale" | "ISOWeek" | "weekStartsOn" | "startMonth" | "endMonth"
   >
 ): Date {

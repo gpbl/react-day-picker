@@ -5,13 +5,12 @@ import React, {
   useId
 } from "react";
 
-import { V9DeprecatedProps } from "react-day-picker/types";
-
 import { getDataAttributes } from "../helpers/getDataAttributes";
 import { getDefaultClassNames } from "../helpers/getDefaultClassNames";
 import { getFormatters } from "../helpers/getFormatters";
 import { getStartEndMonths } from "../helpers/getStartEndMonths";
 import * as defaultLabels from "../labels";
+import { V9DeprecatedProps } from "../types";
 import type {
   ClassNames,
   DataAttributes,
