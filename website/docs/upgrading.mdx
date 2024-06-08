@@ -47,7 +47,7 @@ The following props have been deprecated, and will be removed in the next major 
 | ~`fromYear`~    | `startMonth` | Pass the first month of the year, e.g. `startMonth = new Date(2024,0)`. |
 | ~`toYear`~      | `endMonth`   | Pass the last month of the year, e.g. `endMonth = new Date(2024,11)`.   |
 
-### 2. Updates for ARIA labels
+### 4. Updates for ARIA labels
 
 The following ARIA labels have been updated:
 
@@ -64,7 +64,7 @@ You may need to update your test selectors — for example:
 + screen.getByRole('button', 'Previous Month');
 ```
 
-### 3. Formatters: update to return a string
+### 5. Formatters: update to return a string
 
 The `formatters` prop now requires functions returning a `string` instead of a `ReactNode`.
 
@@ -75,7 +75,7 @@ If you were [using the formatters](./using-daypicker/localization.mdx#formatters
 + const MyComponent = () => <DayPicker formatters={{ caption: () => 'My caption' }} />;
 ```
 
-### 4. Custom Components: update the hooks
+### 6. Custom Components: update the hooks
 
 In case you are using DayPicker hooks in your custom components, you need to update your code:
 
@@ -85,7 +85,7 @@ In case you are using DayPicker hooks in your custom components, you need to upd
 | ~`useNavigation`~ | Renamed to [`useCalendar`](./api/functions/useCalendar.md).                                                             |
 | ~`useDayPicker`~  | Removed in favor of the `Day` custom component. See [custom components guide](./advanced-guides/custom-components.mdx). |
 
-### 5. TypeScript: check for deprecated types
+### 7. TypeScript: check for deprecated types
 
 Many typings have been deprecated in favor of clarity and shorter names. If you were using the typings, you may need to update your code or it will break in the next major version.
 
