@@ -1,0 +1,106 @@
+/* eslint-disable @typescript-eslint/ban-types */
+import React, { createContext, useState } from "react";
+import type { ReactElement } from "react";
+
+import type { Mode, Selected } from "../types";
+
+import { usePropsContext } from "./usePropsContext";
+
+export const SelectionContext = createContext<
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  SelectionContextValue<any, any> | undefined
+>(undefined);
+/**
+ * Hold in state the selected days.
+ *
+ * @template ModeType - The selection mode. Required.
+ * @template IsRequired - Whether the selection is required.
+ * @group Contexts
+ */
+export type SelectionContextValue<
+  ModeType extends Mode,
+  IsRequired extends boolean = false
+> = [
+  /** The currently selected value. */
+  value: Selected<ModeType, IsRequired>,
+  /** Set the selected days. */
+  setValue: (value: Selected<ModeType, IsRequired>) => void
+];
+
+/** @private */
+export function SelectionProvider<
+  ModeType extends Mode,
+  IsRequired extends boolean = false
+>({ children }: { children: ReactElement }) {
+  const { selected, mode, required } = usePropsContext<ModeType, IsRequired>();
+
+  const [singleRequired, setSingleRequired] = useState<
+    Selected<"single", true>
+  >(selected as Selected<"single", true>);
+  const [singleOptional, setSingleOptional] = useState<
+    Selected<"single", false>
+  >(selected as Selected<"single", false>);
+
+  const [multiRequired, setMultiRequired] = useState<
+    Selected<"multiple", true>
+  >(selected as Selected<"multiple", true>);
+  const [multiOptional, setMultiOptional] = useState<
+    Selected<"multiple", false>
+  >(selected as Selected<"multiple", false>);
+
+  const [rangeRequired, setRangeRequired] = useState<Selected<"range", true>>(
+    selected as Selected<"range", true>
+  );
+  const [rangeOptional, setRangeOptional] = useState<Selected<"range", false>>(
+    selected as Selected<"range", false>
+  );
+
+  const setValue = (value: Selected<ModeType, IsRequired>) => {
+    if (mode === "single") {
+      if (required) {
+        setSingleRequired(value as Selected<"single", true>);
+      } else {
+        setSingleOptional(value as Selected<"single", false>);
+      }
+    } else if (mode === "multiple") {
+      if (required) {
+        setMultiRequired(value as Selected<"multiple", true>);
+      } else {
+        setMultiOptional(value as Selected<"multiple", false>);
+      }
+    } else if (mode === "range") {
+      if (required) {
+        setRangeRequired(value as Selected<"range", true>);
+      } else {
+        setRangeOptional(value as Selected<"range", false>);
+      }
+    }
+  };
+
+  let value: Selected<ModeType, IsRequired>;
+
+  switch (mode) {
+    case "single":
+      value = required
+        ? (singleRequired as Selected<ModeType, IsRequired>)
+        : (singleOptional as Selected<ModeType, IsRequired>);
+      break;
+    case "multiple":
+      value = required
+        ? (multiRequired as Selected<ModeType, IsRequired>)
+        : (multiOptional as Selected<ModeType, IsRequired>);
+      break;
+    case "range":
+      value = required
+        ? (rangeRequired as Selected<ModeType, IsRequired>)
+        : (rangeOptional as Selected<ModeType, IsRequired>);
+      break;
+    default:
+      throw new Error("Invalid mode");
+  }
+  return (
+    <SelectionContext.Provider value={[value, setValue]}>
+      {children}
+    </SelectionContext.Provider>
+  );
+}

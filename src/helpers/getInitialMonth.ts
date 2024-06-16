@@ -2,14 +2,13 @@ import { addMonths } from "date-fns/addMonths";
 import { differenceInCalendarMonths } from "date-fns/differenceInCalendarMonths";
 import { startOfMonth } from "date-fns/startOfMonth";
 
-import { PropsBase } from "../types";
+import type { PropsContextValue } from "../contexts/usePropsContext";
 
 /** Return the start month based on the props passed to DayPicker. */
-
-export function getStartMonth(
+export function getInitialMonth(
   props: Partial<
     Pick<
-      PropsBase,
+      PropsContextValue,
       | "fromYear"
       | "toYear"
       | "startMonth"

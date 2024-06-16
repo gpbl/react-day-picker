@@ -3,7 +3,7 @@ import React, { SelectHTMLAttributes } from "react";
 import type { Month } from "date-fns";
 
 import { UI } from "../UI";
-import { useProps } from "../contexts/props";
+import { usePropsContext } from "../contexts/usePropsContext";
 
 import { Chevron as DefaultChevron } from "./Chevron";
 import { Option as DefaultOption } from "./Option";
@@ -37,7 +37,7 @@ export function Dropdown(
   } & Omit<SelectHTMLAttributes<HTMLSelectElement>, "children">
 ) {
   const { options, rootClassName, className, ...selectProps } = props;
-  const { classNames, components } = useProps();
+  const { classNames, components } = usePropsContext();
 
   const cssClassRoot = [classNames[UI.DropdownRoot], rootClassName].join(" ");
   const cssClassSelect = [classNames[UI.Dropdown], className].join(" ");

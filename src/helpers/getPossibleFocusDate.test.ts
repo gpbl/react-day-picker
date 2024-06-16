@@ -11,15 +11,16 @@ import {
   endOfWeek
 } from "date-fns";
 
-import type { MoveFocusBy, MoveFocusDir } from "../contexts/focus";
-import type { PropsContext } from "../contexts/props";
+import type { PropsContextValue } from "../contexts/usePropsContext";
+import type { MoveFocusBy } from "../types";
+import type { MoveFocusDir } from "../types";
 import type { Mode } from "../types";
 
 import { getPossibleFocusDate } from "./getPossibleFocusDate";
 
 const baseDate = new Date(2023, 0, 1); // Jan 1, 2023
 const options: Pick<
-  PropsContext<Mode, boolean>,
+  PropsContextValue<Mode, boolean>,
   "locale" | "ISOWeek" | "weekStartsOn" | "startMonth" | "endMonth"
 > = {
   locale: undefined,

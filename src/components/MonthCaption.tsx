@@ -2,7 +2,7 @@ import React from "react";
 
 import { UI } from "../UI";
 import type { CalendarMonth } from "../classes";
-import { useProps } from "../contexts/props";
+import { usePropsContext } from "../contexts/usePropsContext";
 
 import { DropdownNav } from "./DropdownNav";
 
@@ -29,7 +29,7 @@ export function MonthCaption(props: {
     labels: { labelCaption },
     locale,
     styles
-  } = useProps();
+  } = usePropsContext();
 
   return (
     <div

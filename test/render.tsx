@@ -3,7 +3,7 @@ import React, { ReactElement } from "react";
 import { render as testingLibraryRender } from "@testing-library/react";
 import type { Mode, DayPickerProps } from "react-day-picker";
 
-import { ContextProviders } from "../src/contexts/root";
+import { ContextProviders } from "../src/contexts/providers";
 
 /** Render a React Element wrapped with the Root Provider. */
 export function render(

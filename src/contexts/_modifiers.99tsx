@@ -1,0 +1,32 @@
+import React, { createContext } from "react";
+import type { ReactNode } from "react";
+
+import { isSameDay } from "date-fns/isSameDay";
+import { isSameMonth } from "date-fns/isSameMonth";
+
+import type { CalendarDay } from "../classes";
+import type { InternalModifier, Mode } from "../types";
+import { dateMatchModifiers } from "../utils/dateMatchModifiers";
+
+import { useCalendar } from "./useCalendarContext";
+import { usePropsContext } from "./usePropsContext";
+
+/** Maps of all the modifiers with the calendar days. */
+export type ModifiersContextValue<ModeType, IsRequired> = {
+  /** List the custom modifiers passed via the `modifiers` props. */
+  custom: Record<string, CalendarDay[]>;
+  /** List the internal modifiers. */
+  internal: Record<InternalModifier, CalendarDay[]>;
+};
+
+/** @private */
+export function ModifiersProvider<
+  ModeType extends Mode | undefined = undefined,
+  IsRequired extends boolean = false
+>({ children }: { children: ReactNode }) {
+  return (
+    <ModifiersContext.Provider value={modifiersContext}>
+      {children}
+    </ModifiersContext.Provider>
+  );
+}

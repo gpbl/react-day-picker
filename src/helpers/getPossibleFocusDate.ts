@@ -9,9 +9,9 @@ import { min } from "date-fns/min";
 import { startOfISOWeek } from "date-fns/startOfISOWeek";
 import { startOfWeek } from "date-fns/startOfWeek";
 
-import type { MoveFocusBy, MoveFocusDir } from "../contexts/focus";
-import type { PropsContext } from "../contexts/props";
-import type { Mode } from "../types";
+import type { PropsContextValue } from "../contexts/usePropsContext";
+import type { MoveFocusBy, MoveFocusDir } from "../types";
+import { Mode } from "../types";
 
 /** Return the next date that should be focused. */
 export function getPossibleFocusDate(
@@ -19,7 +19,7 @@ export function getPossibleFocusDate(
   moveDir: MoveFocusDir,
   focusedDate: Date,
   options: Pick<
-    PropsContext,
+    PropsContextValue<Mode | undefined, boolean>,
     "locale" | "ISOWeek" | "weekStartsOn" | "startMonth" | "endMonth"
   >
 ): Date {

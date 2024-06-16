@@ -6,37 +6,49 @@ const Test = () => {
   return (
     <>
       <DayPicker />
-      <DayPicker mode="default" />
+      <DayPicker mode="single" />
+      <DayPicker
+        mode="single"
+        selected={undefined}
+        onSelect={(date: Date | undefined) => {}}
+      />
       <DayPicker
         mode="single"
         selected={new Date()}
         onSelect={(date: Date | undefined) => {}}
       />
+      {/* @ts-expect-error Missing `selected` */}
       <DayPicker
         mode="single"
-        required={true}
-        /* // @ts-expect-error Missing `selected` *. */
-        selected={undefined}
-        onSelect={(selected: Date, date: Date, modifiers) => {}}
+        required
+        onSelect={(date: Date | undefined) => {}}
       />
-      {/** @ts-expect-error Wrong selected prop */}
-      <DayPicker mode="multi" selected={new Date()} />
       <DayPicker
         mode="multiple"
-        // @ts-expect-error Wrong `onSelect`
-        onSelect={(date: Date) => {}}
-      />
-
-      {/** @ts-expect-error Extra `selected` */}
-      <DayPicker mode="default" selected={new Date()} />
-
-      <DayPicker
-        mode="default"
-        modifiers={{ selected: new Date() }}
-        onDayClick={() => {}}
+        required={true}
+        // @ts-expect-error Missing `selected`
+        selected={undefined}
+        onSelect={(selected: Date[], date: Date, modifiers) => {}}
       />
       <DayPicker
-        mode="default"
+        mode="multiple"
+        required={false}
+        selected={undefined}
+        // @ts-expect-error Selected can be also undefined
+        onSelect={(selected: Date[], date: Date, modifiers) => {}}
+      />
+      {/** @ts-expect-error Wrong selected prop */}
+      <DayPicker mode="multiple" selected={new Date()} />
+      <DayPicker mode="multiple" onSelect={(date: Date[] | undefined) => {}} />
+      <DayPicker
+        mode="multiple"
+        required
+        selected={[]}
+        onSelect={(date: Date[]) => {}}
+      />
+      <DayPicker mode="single" selected={new Date()} />
+      <DayPicker modifiers={{ selected: new Date() }} onDayClick={() => {}} />
+      <DayPicker
         // @ts-expect-error Extra `selected`
         selected={new Date()}
         onDayClick={() => {}}

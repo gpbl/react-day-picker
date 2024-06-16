@@ -3,7 +3,8 @@ import {
   DayModifier,
   CalendarFlag,
   ChevronFlag,
-  WeekNumberFlag
+  WeekNumberFlag,
+  SelectionModifier
 } from "../UI";
 import type { ClassNames } from "../types";
 
@@ -38,6 +39,11 @@ export function getDefaultClassNames(): Required<ClassNames> {
   for (const key in DayModifier) {
     classNames[DayModifier[key as keyof typeof DayModifier]] =
       `rdp-${DayModifier[key as keyof typeof DayModifier]}`;
+  }
+
+  for (const key in SelectionModifier) {
+    classNames[SelectionModifier[key as keyof typeof SelectionModifier]] =
+      `rdp-${SelectionModifier[key as keyof typeof SelectionModifier]}`;
   }
 
   return classNames as Required<ClassNames>;

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { UI } from "../UI";
-import { useProps } from "../contexts/props";
+import { usePropsContext } from "../contexts/usePropsContext";
 
 /**
  * Render the column header with the weekday name (e.g. "Mo", "Tu", etc.).
@@ -23,7 +23,7 @@ export function Weekday(props: {
     locale,
     hideWeekdayRow,
     styles
-  } = useProps();
+  } = usePropsContext();
   return (
     <span
       role="columnheader"

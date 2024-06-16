@@ -34,6 +34,16 @@
       "**/node_modules": true,
       "**/versioned_docs": true
     },
-    "jest.runMode": "on-save"
+    "jest.runMode": "on-demand",
+    "git.showProgress": true,
+    "scm.diffDecorationsGutterVisibility": "hover",
+    "scm.diffDecorationsGutterPattern": {
+      "modified": false
+    },
+    "scm.diffDecorationsGutterWidth": 1,
+    "scm.diffDecorations": "none",
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
   }
 }

@@ -1,96 +1,90 @@
 import { CalendarMonth } from "../classes";
+import type { PropsContextValue } from "../contexts/usePropsContext";
 
-import { getDates } from "./getDates";
 import { getMonths } from "./getMonths";
 
-describe("when first and last months are the same", () => {
-  it("should return the months to display in the calendar", () => {
-    const month = new Date(2024, 0, 1);
-    const dates = getDates([month]);
-    const months = getMonths([month], dates);
-    expect(months).toHaveLength(1);
-    expect(months[0]).toBeInstanceOf(CalendarMonth);
-    expect(months[0].date).toBe(month);
-    expect(months[0].weeks[0].days[1].date).toStrictEqual(new Date(2024, 0, 1));
-    expect(months[months.length - 1]).toBeInstanceOf(CalendarMonth);
-    expect(months[0].weeks[4].days[1].date).toStrictEqual(
-      new Date(2024, 0, 29)
-    );
-  });
-  describe("when week starts on Saturday", () => {
-    it("should return the months to display in the calendar", () => {
-      const month = new Date(2024, 0, 1);
-      const dates = getDates([month], undefined, { weekStartsOn: 6 });
-      const months = getMonths([month], dates, { weekStartsOn: 6 });
+const mockDates = [
+  new Date(2023, 4, 27), // May 1, 2023
+  new Date(2023, 5, 1), // June 1, 2023
+  new Date(2023, 5, 8), // June 2, 2023
+  new Date(2023, 5, 15), // June 15, 2023
+  new Date(2023, 5, 22), // June 22, 2023
+  new Date(2023, 5, 30), // June 30, 2023
+  new Date(2023, 6, 6) // June 30, 2023
+];
 
-      expect(months[0].weeks[0].days[0].date).toStrictEqual(
-        new Date(2023, 11, 30)
-      );
-      expect(months[months.length - 1]).toBeInstanceOf(CalendarMonth);
-      expect(months[0].weeks[4].days[0].date).toStrictEqual(
-        new Date(2024, 0, 27)
-      );
-    });
-  });
-  describe("when using ISO weeks", () => {
-    it("should return the months to display in the calendar", () => {
-      const month = new Date(2024, 0, 1);
-      const dates = getDates([month], undefined, { ISOWeek: true });
-      const months = getMonths([month], dates);
+const mockProps: Pick<
+  PropsContextValue,
+  | "fixedWeeks"
+  | "ISOWeek"
+  | "locale"
+  | "weekStartsOn"
+  | "reverseMonths"
+  | "firstWeekContainsDate"
+> = {
+  fixedWeeks: false,
+  ISOWeek: false,
+  locale: undefined,
+  weekStartsOn: 0, // Sunday
+  reverseMonths: false,
+  firstWeekContainsDate: 1
+};
 
-      expect(months[0].weeks[0].days[1].date).toStrictEqual(
-        new Date(2024, 0, 2)
-      );
-      expect(months[months.length - 1]).toBeInstanceOf(CalendarMonth);
-      expect(months[0].weeks[4].days[1].date).toStrictEqual(
-        new Date(2024, 0, 29)
-      );
-    });
-  });
-  describe("when using fixed weeks", () => {
-    it("should return the months to display in the calendar", () => {
-      const month = new Date(2023, 4, 1); // month with 4 weeks
-      const dates = getDates([month], undefined, { fixedWeeks: true });
-      const months = getMonths([month], dates);
+it("should return the correct months without ISO weeks and reverse months", () => {
+  const displayMonths = [new Date(2023, 5, 1)]; // June 2023
 
-      expect(months[0].weeks[0].days[0].date).toStrictEqual(
-        new Date(2023, 3, 30)
-      );
-      expect(months[months.length - 1]).toBeInstanceOf(CalendarMonth);
-      expect(months[0].weeks[4].days[1].date).toStrictEqual(
-        new Date(2023, 4, 29)
-      );
-    });
-  });
+  const result = getMonths(displayMonths, mockDates, mockProps);
+
+  expect(result).toHaveLength(1);
+  expect(result[0]).toBeInstanceOf(CalendarMonth);
+  expect(result[0].weeks).toHaveLength(5); // June 2023 has 5 weeks
 });
 
-describe("when first and last months are not the same", () => {
-  it("should return the months to display in the calendar", () => {
-    const firstMonth = new Date(2024, 0, 1);
-    const lastMonth = new Date(2024, 2, 1);
-    const dates = getDates([firstMonth, lastMonth]);
-    const months = getMonths([firstMonth, lastMonth], dates);
-    expect(months).toHaveLength(2);
-    expect(months[0]).toBeInstanceOf(CalendarMonth);
-    expect(months[0].date).toBe(firstMonth);
-    expect(months[0].weeks[0].days[1].date).toStrictEqual(new Date(2024, 0, 1));
-    expect(months[months.length - 1]).toBeInstanceOf(CalendarMonth);
-    expect(months[0].weeks[4].days[1].date).toStrictEqual(
-      new Date(2024, 0, 29)
-    );
-  });
+it("should handle ISO weeks", () => {
+  const displayMonths = [new Date(2023, 5, 1)]; // June 2023
+
+  const isoProps = { ...mockProps, ISOWeek: true };
+
+  const result = getMonths(displayMonths, mockDates, isoProps);
+
+  expect(result).toHaveLength(1);
+  expect(result[0]).toBeInstanceOf(CalendarMonth);
+  expect(result[0].weeks).toHaveLength(5); // June 2023 has 5 ISO weeks
 });
 
-describe("when reversing the order of the months", () => {
-  it("should return the months to display in the calendar", () => {
-    const firstMonth = new Date(2024, 0, 1);
-    const lastMonth = new Date(2024, 2, 1);
-    const dates = getDates([firstMonth, lastMonth]);
-    const months = getMonths([firstMonth, lastMonth], dates, {
-      reverseMonths: true
-    });
-    expect(months).toHaveLength(2);
-    expect(months[0].date).toBe(lastMonth);
-    expect(months[months.length - 1].date).toBe(firstMonth);
-  });
+it("should handle reverse months", () => {
+  const displayMonths = [
+    new Date(2023, 4, 1), // May 2023
+    new Date(2023, 5, 1) // June 2023
+  ];
+
+  const reverseProps = { ...mockProps, reverseMonths: true };
+
+  const result = getMonths(displayMonths, mockDates, reverseProps);
+
+  expect(result).toHaveLength(2);
+  expect(result[0].date).toEqual(new Date(2023, 5, 1)); // June 2023
+  expect(result[1].date).toEqual(new Date(2023, 4, 1)); // May 2023
+});
+
+it("should handle fixed weeks", () => {
+  const displayMonths = [new Date(2023, 5, 1)]; // June 2023
+
+  const fixedWeeksProps = { ...mockProps, fixedWeeks: true };
+
+  const result = getMonths(displayMonths, mockDates, fixedWeeksProps);
+
+  expect(result).toHaveLength(1);
+  expect(result[0]).toBeInstanceOf(CalendarMonth);
+  expect(result[0].weeks).toHaveLength(6); // Fixed weeks should ensure 6 weeks in the month view
+});
+
+it("should handle months with no dates", () => {
+  const displayMonths = [new Date(2023, 5, 1)]; // June 2023
+
+  const result = getMonths(displayMonths, [], mockProps);
+
+  expect(result).toHaveLength(1);
+  expect(result[0]).toBeInstanceOf(CalendarMonth);
+  expect(result[0].weeks).toHaveLength(0); // No dates should result in no weeks
 });

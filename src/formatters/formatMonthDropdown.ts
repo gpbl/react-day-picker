@@ -6,6 +6,9 @@ import { enUS } from "date-fns/locale/en-US";
  *
  * @group Formatters
  */
-export function formatMonthDropdown(monthNumber: Month, locale = enUS): string {
-  return locale.localize?.month(monthNumber) ?? monthNumber.toString();
+export function formatMonthDropdown(
+  monthNumber: number,
+  locale = enUS
+): string {
+  return locale.localize?.month(monthNumber as Month) ?? monthNumber.toString();
 }

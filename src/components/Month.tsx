@@ -2,7 +2,7 @@ import React, { useId } from "react";
 
 import { UI } from "../UI";
 import type { CalendarMonth } from "../classes/CalendarMonth";
-import { useProps } from "../contexts/props";
+import { usePropsContext } from "../contexts/usePropsContext";
 
 import { MonthCaption as DefaultMonthCaption } from "./MonthCaption";
 import { Week as DefaultWeek } from "./Week";
@@ -24,7 +24,7 @@ export function Month(props: {
   index: number;
 }) {
   const { id, mode, hideWeekdayRow, components, classNames, styles } =
-    useProps();
+    usePropsContext();
 
   const reactId = useId();
   const captionId = id ? `${id}-caption-${props.index}` : reactId;

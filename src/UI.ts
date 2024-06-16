@@ -68,6 +68,19 @@ export enum DayModifier {
   hidden = "hidden",
   /** The day is outside the current month */
   outside = "outside",
+  /** The day is focusable. */
+  focusable = "focusable",
+  /** The day is focused. */
+  focused = "focused",
+  /** The day is today. */
+  today = "today"
+}
+
+/**
+ * The modifiers that can be applied to the {@link UI.Day} element when in
+ * selection mode.
+ */
+export enum SelectionModifier {
   /** The day is at the end of a selected range. */
   range_end = "range_end",
   /** The day is at the middle of a selected range. */
@@ -75,13 +88,7 @@ export enum DayModifier {
   /** The day is at the start of a selected range. */
   range_start = "range_start",
   /** The day is selected. */
-  selected = "selected",
-  /** The day is focusable. */
-  focusable = "focusable",
-  /** The day is focused. */
-  focused = "focused",
-  /** The day is today. */
-  today = "today"
+  selected = "selected"
 }
 
 /** Flags that can be applied to the {@link UI.Calendar} element. */

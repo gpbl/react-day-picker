@@ -1,8 +1,8 @@
 import React, { MouseEventHandler } from "react";
 
 import { UI } from "../UI";
-import { useCalendar } from "../contexts/calendar";
-import { useProps } from "../contexts/props";
+import { useCalendarContext } from "../contexts/useCalendarContext";
+import { usePropsContext } from "../contexts/usePropsContext";
 
 import { Button as DefaultButton } from "./Button";
 import { Chevron as DefaultChevron } from "./Chevron";
@@ -25,9 +25,9 @@ export function Nav() {
     id,
     onNextClick,
     onPrevClick
-  } = useProps();
+  } = usePropsContext();
 
-  const calendar = useCalendar();
+  const calendar = useCalendarContext();
 
   const handlePreviousClick = () => {
     if (!calendar.previousMonth) return;

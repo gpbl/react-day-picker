@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { DateRange, DayPicker, SelectHandler } from "react-day-picker";
+import { DateRange, DayPicker } from "react-day-picker";
 
 /**
  * Test case for issue #1567
@@ -13,9 +13,7 @@ export function TestCase1567() {
     to: new Date(2022, 9, 1)
   });
 
-  const handleChange: SelectHandler<"range"> = (
-    range: DateRange | undefined
-  ) => {
+  const handleChange = (range: DateRange | undefined) => {
     range && setSelected(range);
   };
   return (

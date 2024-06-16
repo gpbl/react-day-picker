@@ -2,7 +2,7 @@ import React from "react";
 
 import { renderHook as testingLibraryRenderHook } from "@testing-library/react";
 
-import { ContextProviders } from "../src/contexts/root";
+import { ContextProviders } from "../src/contexts/providers";
 import { DayPickerProps, Mode } from "../src/types";
 
 /** Render a hook wrapped with the {@link ContextProviders} Provider. */

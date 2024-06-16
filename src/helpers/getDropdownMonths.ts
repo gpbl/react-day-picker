@@ -1,26 +1,28 @@
-import type { Month } from "date-fns";
+import type { Locale, Month } from "date-fns";
 import { addMonths } from "date-fns/addMonths";
 import { isBefore } from "date-fns/isBefore";
 import { startOfMonth } from "date-fns/startOfMonth";
 
 import { DropdownOption } from "../components/Dropdown";
-import { PropsContext } from "../contexts/props";
-import { Formatters, Mode } from "../types";
+import { PropsContextValue } from "../contexts/usePropsContext";
 
 /** Return the months to show in the dropdown. */
 export function getDropdownMonths(
+  displayMonth: Date,
   props: Pick<
-    PropsContext<Mode, boolean>,
-    "startMonth" | "endMonth" | "locale"
-  > & {
-    formatters: Pick<Formatters, "formatMonthDropdown">;
-  },
-  year?: number | undefined
+    PropsContextValue,
+    "formatters" | "locale" | "startMonth" | "endMonth"
+  >
 ): DropdownOption[] | undefined {
-  if (!props.startMonth) return undefined;
-  if (!props.endMonth) return undefined;
-  const navStartMonth = startOfMonth(props.startMonth);
-  const navEndMonth = startOfMonth(props.endMonth);
+  const { startMonth, endMonth } = props;
+
+  if (!startMonth) return undefined;
+  if (!endMonth) return undefined;
+
+  const year = displayMonth.getFullYear();
+
+  const navStartMonth = startOfMonth(startMonth);
+  const navEndMonth = startOfMonth(endMonth);
 
   const months: number[] = [];
   let month = navStartMonth;
@@ -32,17 +34,10 @@ export function getDropdownMonths(
     return a - b;
   });
   const options = sortedMonths.map((value) => {
-    const label = props.formatters.formatMonthDropdown(
-      value as Month,
-      props.locale
-    );
+    const label = props.formatters.formatMonthDropdown(value, props.locale);
     const disabled =
-      (year &&
-        props.startMonth &&
-        new Date(year, value) < startOfMonth(props.startMonth)) ||
-      (year &&
-        props.endMonth &&
-        new Date(year, value) > startOfMonth(props.endMonth)) ||
+      (startMonth && new Date(year, value) < startOfMonth(startMonth)) ||
+      (endMonth && new Date(year, value) > startOfMonth(endMonth)) ||
       false;
     return { value, label, disabled };
   });

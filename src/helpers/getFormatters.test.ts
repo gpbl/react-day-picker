@@ -1,5 +1,4 @@
 import * as defaultFormatters from "../formatters";
-import type { PropsBase } from "../types";
 
 import { getFormatters } from "./getFormatters";
 

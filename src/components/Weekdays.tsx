@@ -1,7 +1,7 @@
 import React from "react";
 
 import { UI } from "../UI";
-import { useProps } from "../contexts/props";
+import { usePropsContext } from "../contexts/usePropsContext";
 import { getWeekdays } from "../helpers/getWeekdays";
 
 import { Weekday as DefaultWeekday } from "./Weekday";
@@ -24,7 +24,7 @@ export function Weekdays() {
     showWeekNumber,
     styles,
     weekStartsOn
-  } = useProps();
+  } = usePropsContext();
 
   const weekdays = getWeekdays(locale, weekStartsOn, ISOWeek);
   const Weekday = components?.Weekday ?? DefaultWeekday;

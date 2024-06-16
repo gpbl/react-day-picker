@@ -1,6 +1,6 @@
 import React, {
-  createContext,
   ReactNode,
+  createContext,
   useContext,
   useEffect,
   useState
@@ -9,31 +9,17 @@ import React, {
 import { DayModifier } from "../UI";
 import type { CalendarDay } from "../classes";
 import { getNextFocus } from "../helpers/getNextFocus";
+import type { MoveFocusBy, MoveFocusDir, Mode } from "../types";
 
-import { useCalendar } from "./calendar";
-import { useModifiers } from "./modifiers";
-import { useProps } from "./props";
+import { useCalendarContext } from "./useCalendarContext";
+import { useModifiersContext } from "./useModifiersContext";
+import { usePropsContext } from "./usePropsContext";
 
-export type MoveFocusBy =
-  | "day"
-  | "week"
-  | "startOfWeek"
-  | "endOfWeek"
-  | "month"
-  | "year";
+const FocusContext = createContext<FocusContextValue | undefined>(undefined);
 
-export type MoveFocusDir = "after" | "before";
-
-/**
- * Share the focused day and the methods to move the focus.
- *
- * Access this context from the {@link useFocus} hook.
- *
- * @group Contexts
- */
-export interface FocusContext {
+export type FocusContextValue = {
   /** The date that is currently focused. */
-  focusedDay: CalendarDay | undefined;
+  focused: CalendarDay | undefined;
   /**
    * The date that is target of the focus when tabbing into the month grid. The
    * focus target is the selected date first, then the today date, then the
@@ -41,8 +27,11 @@ export interface FocusContext {
    */
   autoFocusTarget: CalendarDay | undefined;
   initiallyFocused: boolean;
-  /** Focus a date. */
+  /** Focus the given day. */
   focus: (day: CalendarDay | undefined) => void;
+  /** Set the last focused day. */
+  setLastFocused: (day: CalendarDay | undefined) => void;
+
   /** Blur the focused day. */
   blur: () => void;
   /** Focus the day after the focused day. */
@@ -65,26 +54,29 @@ export interface FocusContext {
   focusStartOfWeek: () => void;
   /* Focus the day at the end of the week of focused day. */
   focusEndOfWeek: () => void;
-}
+};
 
-const focusContext = createContext<FocusContext | undefined>(undefined);
+/**
+ * Share the focused day and the methods to move the focus.
+ *
+ * Use this hook from the custom components passed via the `components` prop.
+ *
+ * @group Hooks
+ * @see https://react-day-picker.js.org/advanced-guides/custom-components
+ */
 
-/** @private */
-export function FocusProvider({
-  children
-}: {
-  children: ReactNode;
-}): JSX.Element {
-  const { goToDay, isDayDisplayed, days, isInteractive } = useCalendar();
+function useFocus(): FocusContextValue {
+  const { goToDay, isDayDisplayed, isInteractive } = useCalendarContext();
 
-  const { autoFocus = false, ...props } = useProps();
-  const { calendarModifiers, getModifiers } = useModifiers();
+  const props = usePropsContext();
+  const { autoFocus } = props;
+  const { internal, getDayModifiers: getModifiers } = useModifiersContext();
 
-  const [focused, setFocused] = useState<CalendarDay | undefined>();
+  const [focused, focus] = useState<CalendarDay | undefined>();
   const [lastFocused, setLastFocused] = useState<CalendarDay | undefined>();
   const [initiallyFocused, setInitiallyFocused] = useState(false);
 
-  const today = calendarModifiers.today[0];
+  const today = internal.today[0];
 
   let autoFocusTarget: CalendarDay | undefined;
 
@@ -97,15 +89,15 @@ export function FocusProvider({
       autoFocusTarget = focused;
     } else if (lastFocused) {
       autoFocusTarget = lastFocused;
-    } else if (
-      calendarModifiers.selected[0] &&
-      isValidFocusTarget(calendarModifiers.selected[0])
-    ) {
-      autoFocusTarget = calendarModifiers.selected[0];
+      // } else if (
+      // internal.selected[0] &&
+      // isValidFocusTarget(internal.selected[0])
+      // ) {
+      // autoFocusTarget = internal.selected[0];
     } else if (today && isValidFocusTarget(today)) {
       autoFocusTarget = today;
-    } else if (calendarModifiers.focusable[0]) {
-      autoFocusTarget = calendarModifiers.focusable[0];
+    } else if (internal.focusable[0]) {
+      autoFocusTarget = internal.focusable[0];
     }
   }
 
@@ -114,14 +106,15 @@ export function FocusProvider({
     if (!autoFocus) return;
     if (!autoFocusTarget) return;
     if (!initiallyFocused) return;
+    // TODO: bug here?
     setInitiallyFocused(true);
-    setFocused(autoFocusTarget);
+    focus(autoFocusTarget);
   }, [autoFocus, autoFocusTarget, focused, initiallyFocused]);
 
-  function blur() {
+  const blur = () => {
     setLastFocused(focused);
-    setFocused(undefined);
-  }
+    focus(undefined);
+  };
 
   function moveFocus(moveBy: MoveFocusBy, moveDir: MoveFocusDir) {
     if (!focused) return;
@@ -129,15 +122,16 @@ export function FocusProvider({
     if (!nextFocus) return;
 
     goToDay(nextFocus);
-    setFocused(nextFocus);
+    focus(nextFocus);
   }
 
-  const value: FocusContext = {
+  const contextValue: FocusContextValue = {
     autoFocusTarget,
     initiallyFocused,
-    focusedDay: focused,
+    focus,
+    focused,
+    setLastFocused,
     blur,
-    focus: setFocused,
     focusDayAfter: () => moveFocus("day", "after"),
     focusDayBefore: () => moveFocus("day", "before"),
     focusWeekAfter: () => moveFocus("week", "after"),
@@ -150,23 +144,29 @@ export function FocusProvider({
     focusEndOfWeek: () => moveFocus("endOfWeek", "after")
   };
 
+  return contextValue;
+}
+
+/** @private */
+export function FocusContextProvider<
+  ModeType extends Mode | undefined = undefined,
+  IsRequired extends boolean = false
+>({ children }: { children: ReactNode }) {
+  const focusContextValue = useFocus();
+
   return (
-    <focusContext.Provider value={value}>{children}</focusContext.Provider>
+    <FocusContext.Provider value={focusContextValue}>
+      {children}
+    </FocusContext.Provider>
   );
 }
 
-/**
- * Share the focused day and the methods to move the focus.
- *
- * Use this hook from the custom components passed via the `components` prop.
- *
- * @group Hooks
- * @see https://react-day-picker.js.org/advanced-guides/custom-components
- */
-export function useFocus(): FocusContext {
-  const context = useContext(focusContext);
-  if (!context) {
-    throw new Error("useFocus must be used within a FocusProvider");
+export function useFocusContext() {
+  const propsContext = useContext(FocusContext);
+  if (!propsContext) {
+    throw new Error(
+      "useFocusContext() must be used within a FocusContextProvider"
+    );
   }
-  return context;
+  return propsContext;
 }

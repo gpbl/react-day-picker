@@ -4,7 +4,7 @@ import { getUnixTime } from "date-fns/getUnixTime";
 
 import { UI } from "../UI";
 import type { CalendarDay, CalendarWeek } from "../classes";
-import { useProps } from "../contexts/props";
+import { usePropsContext } from "../contexts/usePropsContext";
 
 import { DayWrapper } from "./DayWrapper";
 import { WeekNumber as DefaultWeekNumber } from "./WeekNumber";
@@ -18,7 +18,7 @@ import { WeekNumber as DefaultWeekNumber } from "./WeekNumber";
  * @see https://react-day-picker.js.org/advanced-guides/custom-components
  */
 export function Week(props: { ["aria-rowindex"]: number; week: CalendarWeek }) {
-  const { styles, classNames, showWeekNumber, components } = useProps();
+  const { styles, classNames, showWeekNumber, components } = usePropsContext();
 
   const WeekNumber = components?.WeekNumber ?? DefaultWeekNumber;
 

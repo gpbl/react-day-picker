@@ -2,11 +2,13 @@ export * from "./DayPicker";
 
 export * from "./classes";
 export * from "./components/custom-components";
-export * from "./contexts/calendar";
-export * from "./contexts/focus";
-export * from "./contexts/props";
-export * from "./contexts/selection";
-export * from "./contexts/modifiers";
+
+export * from "./contexts/useCalendarContext";
+export * from "./contexts/useFocusContext";
+export * from "./contexts/useModifiersContext";
+export * from "./contexts/usePropsContext";
+export * from "./contexts/useSingleContext";
+
 export * from "./formatters";
 export * from "./helpers";
 export * from "./labels";

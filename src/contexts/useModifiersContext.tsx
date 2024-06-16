@@ -1,20 +1,14 @@
-import React, { createContext, useContext } from "react";
-import type { ReactNode } from "react";
+import React, { type ReactElement, createContext, useContext } from "react";
 
 import { isSameDay } from "date-fns/isSameDay";
 import { isSameMonth } from "date-fns/isSameMonth";
 
-import type { CalendarDay } from "../classes";
-import type {
-  DayModifiers,
-  InternalModifier,
-  CalendarModifiers
-} from "../types";
+import { CalendarDay } from "../classes";
+import type { DayModifiers, InternalModifier } from "../types";
 import { dateMatchModifiers } from "../utils/dateMatchModifiers";
 
-import { useCalendar } from "./calendar";
-import { useProps } from "./props";
-import { useSelection } from "./selection";
+import { useCalendarContext } from "./useCalendarContext";
+import { usePropsContext } from "./usePropsContext";
 
 /**
  * Holds all the modifiers used in the the calendar.
@@ -24,17 +18,23 @@ import { useSelection } from "./selection";
  *
  * @group Contexts
  */
-export interface ModifiersContext {
-  /** Return the modifiers of the specified day. */
-  getModifiers: (day: CalendarDay) => DayModifiers;
-  /** A map of all the modifiers used by the calendar. */
-  calendarModifiers: CalendarModifiers;
-}
 
-const modifiersContext = createContext<ModifiersContext | undefined>(undefined);
+export const ModifiersContext = createContext<
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ModifiersContextValue | undefined
+>(undefined);
 
-/** @private */
-export function ModifiersProvider({ children }: { children: ReactNode }) {
+/** Maps of all the modifiers with the calendar days. */
+export type ModifiersContextValue = {
+  /** List the custom modifiers passed via the `modifiers` props. */
+  custom: Record<string, CalendarDay[]>;
+  /** List the internal modifiers. */
+  internal: Record<InternalModifier, CalendarDay[]>;
+  /** Get the modifiers for a given day. */
+  getDayModifiers: (day: CalendarDay) => DayModifiers;
+};
+
+function useModifiers() {
   const {
     disabled,
     hidden,
@@ -43,9 +43,9 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
     onDayClick,
     showOutsideDays,
     today
-  } = useProps();
-  const calendar = useCalendar();
-  const selection = useSelection();
+  } = usePropsContext();
+
+  const calendar = useCalendarContext();
 
   /** Modifiers that are set internally. */
   const internal: Record<InternalModifier, CalendarDay[]> = {
@@ -54,11 +54,7 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
     disabled: [],
     hidden: [],
     today: [],
-    focusable: [],
-    selected: [],
-    range_start: [],
-    range_middle: [],
-    range_end: []
+    focusable: []
   };
 
   /** Custom modifiers that are coming from the `modifiers` props */
@@ -71,37 +67,21 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
 
     const isDisabled = Boolean(disabled && dateMatchModifiers(date, disabled));
 
-    const isSelected =
-      !isDisabled &&
-      (selection.isSelected(date) ||
-        Boolean(
-          modifiers?.selected && dateMatchModifiers(date, modifiers.selected)
-        ));
-
     const isHidden =
       Boolean(hidden && dateMatchModifiers(date, hidden)) ||
       (!showOutsideDays && isOutside);
 
-    const isInteractive =
-      mode !== "default" || (mode === "default" && onDayClick !== undefined);
+    const isInteractive = !mode || onDayClick !== undefined;
 
     const isFocusable = isInteractive && !isDisabled && !isHidden;
 
     const isToday = isSameDay(date, today);
 
-    const isStartOfRange = selection.isStartOfRange(date);
-    const isEndOfRange = selection.isEndOfRange(date);
-    const isMiddleOfRange = selection.isMiddleOfRange(date);
-
     if (isOutside) internal.outside.push(day);
     if (isDisabled) internal.disabled.push(day);
     if (isHidden) internal.hidden.push(day);
     if (isFocusable) internal.focusable.push(day);
-    if (isSelected) internal.selected.push(day);
     if (isToday) internal.today.push(day);
-    if (isStartOfRange) internal.range_start.push(day);
-    if (isEndOfRange) internal.range_end.push(day);
-    if (isMiddleOfRange) internal.range_middle.push(day);
 
     // Now add custom modifiers
     if (modifiers) {
@@ -120,17 +100,13 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
     }
   }
 
-  const getModifiers = (day: CalendarDay) => {
+  const getDayModifiers = (day: CalendarDay) => {
     const modifiers: DayModifiers = {
       focused: false,
       disabled: false,
       focusable: false,
       hidden: false,
       outside: false,
-      range_end: false,
-      range_middle: false,
-      range_start: false,
-      selected: false,
       today: false
     };
 
@@ -146,32 +122,35 @@ export function ModifiersProvider({ children }: { children: ReactNode }) {
     return modifiers;
   };
 
-  const calendarModifiers: CalendarModifiers = { ...internal, ...custom };
-
-  const value: ModifiersContext = {
-    calendarModifiers,
-    getModifiers
-  };
-
-  return (
-    <modifiersContext.Provider value={value}>
-      {children}
-    </modifiersContext.Provider>
-  );
+  return { internal, custom, getDayModifiers };
 }
 
 /**
- * Access the modifiers used by the calendar.
+ * Provide the shared props to the DayPicker components. Must be used as root of
+ * the other providers.
  *
- * Use this hook from the custom components passed via the `components` prop.
- *
- * @group Hooks
- * @see https://react-day-picker.js.org/advanced-guides/custom-components
+ * @private
  */
-export function useModifiers(): ModifiersContext {
-  const context = useContext(modifiersContext);
-  if (!context)
-    throw new Error(`useProps must be used within a PropsProvider.`);
+export function ModifiersContextProvider({
+  children
+}: {
+  children: ReactElement;
+}) {
+  const modifiers = useModifiers();
 
-  return context;
+  return (
+    <ModifiersContext.Provider value={modifiers}>
+      {children}
+    </ModifiersContext.Provider>
+  );
+}
+
+export function useModifiersContext() {
+  const modifiersContext = useContext(ModifiersContext);
+  if (!modifiersContext) {
+    throw new Error(
+      "useModifiersContext() must be used within a ModifiersContextProvider"
+    );
+  }
+  return modifiersContext;
 }

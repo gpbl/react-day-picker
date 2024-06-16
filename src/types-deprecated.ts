@@ -2,18 +2,13 @@
 import { Calendar } from "./components/Calendar";
 import { MonthCaption, MonthCaptionProps } from "./components/MonthCaption";
 import { Week, type WeekProps } from "./components/Week";
-import { useCalendar } from "./contexts/calendar";
-import { PropsContext, useProps } from "./contexts/props";
+import { useCalendarContext } from "./contexts/useCalendarContext";
+import {
+  usePropsContext,
+  type PropsContextValue
+} from "./contexts/usePropsContext";
 import { labelDay, labelNext, labelWeekday, labelWeekNumber } from "./labels";
-import type {
-  Mode,
-  PropsSingle,
-  PropsDefault,
-  PropsMulti,
-  PropsRange,
-  SelectHandler,
-  DayEventHandler
-} from "./types";
+import type { Mode, DayEventHandler, DayPickerProps } from "./types";
 
 /**
  * @deprecated This type will be removed.
@@ -72,28 +67,31 @@ export const Row = Week;
 export type RowProps = WeekProps;
 
 /**
- * @deprecated This type has been renamed. Use `PropsSingle` instead.
+ * @deprecated This type has been renamed. Use `DayPickerProps<"single">`
+ *   instead.
  * @protected
  */
-export type DayPickerSingleProps = PropsSingle<boolean>;
+export type DayPickerSingleProps = DayPickerProps<"single">;
 
 /**
- * @deprecated This type has been renamed. Use `PropsMulti` instead.
+ * @deprecated This type has been renamed. Use `DayPickerProps<"multiple">`
+ *   instead.
  * @protected
  */
-export type DayPickerMultipleProps = PropsMulti<boolean>;
+export type DayPickerMultipleProps = DayPickerProps<"multiple">;
 
 /**
- * @deprecated This type has been renamed. Use `PropsRange` instead.
+ * @deprecated This type has been renamed. Use `DayPickerProps<"range">`
+ *   instead.
  * @protected
  */
-export type DayPickerRangeProps = PropsRange<boolean>;
+export type DayPickerRangeProps = DayPickerProps<"range">;
 
 /**
- * @deprecated This type will be removed.
+ * @deprecated This type will be removed. Use `NonNullable<unknown>` instead
  * @protected
  */
-export type DayPickerDefaultProps = PropsDefault;
+export type DayPickerDefaultProps = NonNullable<unknown>;
 
 /**
  * @deprecated This type has been renamed. Use `Mode` instead.
@@ -111,20 +109,20 @@ export type Modifier = string;
  * @deprecated This type will be removed. Use `SelectHandler<"single">` instead.
  * @protected
  */
-export type SelectSingleEventHandler = SelectHandler<"single", false>;
+export type SelectSingleEventHandler = DayPickerProps<"single">["onSelect"];
 
 /**
  * @deprecated This type will be removed. Use `SelectHandler<"multiple">`
  *   instead.
  * @protected
  */
-export type SelectMultipleEventHandler = SelectHandler<"multiple", false>;
+export type SelectMultipleEventHandler = DayPickerProps<"multiple">["onSelect"];
 
 /**
  * @deprecated This type will be removed. Use `SelectHandler<"range">` instead.
  * @protected
  */
-export type SelectRangeEventHandler = SelectHandler<"range", false>;
+export type SelectRangeEventHandler = DayPickerProps<"range">["onSelect"];
 
 /**
  * @deprecated This type is not used anymore.
@@ -137,14 +135,14 @@ export type DayPickerProviderProps = any;
  * @protected
  * @group Hooks
  */
-export const useDayPicker = useProps;
+export const useDayPicker = usePropsContext;
 
 /**
  * @deprecated This type has been renamed to `useProps`.
  * @protected
  * @group Hooks
  */
-export const useNavigation = useCalendar;
+export const useNavigation = useCalendarContext;
 
 /**
  * @deprecated This hook has been removed. Use a custom `Day` component instead.
@@ -231,4 +229,4 @@ export type DayTouchEventHandler = DayEventHandler<React.TouchEvent>;
  * @deprecated The type has been renamed. Use `PropsContext` instead.
  * @protected
  */
-export type DayPickerContext = PropsContext;
+export type DayPickerContext = PropsContextValue<Mode | undefined, boolean>;

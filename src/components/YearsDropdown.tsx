@@ -6,8 +6,8 @@ import { startOfMonth } from "date-fns/startOfMonth";
 
 import { UI } from "../UI";
 import type { CalendarMonth } from "../classes/CalendarMonth";
-import { useCalendar } from "../contexts/calendar";
-import { useProps } from "../contexts/props";
+import { useCalendarContext } from "../contexts/useCalendarContext";
+import { usePropsContext } from "../contexts/usePropsContext";
 
 import { Dropdown as DefaultDropdown } from "./Dropdown";
 
@@ -28,9 +28,9 @@ export function YearsDropdown(props: {
     components,
     disableNavigation,
     labels: { labelYearDropdown }
-  } = useProps();
+  } = usePropsContext();
 
-  const { dropdownOptions: dropdown, goToMonth } = useCalendar();
+  const { dropdownOptions, goToMonth } = useCalendarContext();
 
   const handleChange: ChangeEventHandler<HTMLSelectElement> = (e) => {
     const month = setYear(
@@ -46,7 +46,7 @@ export function YearsDropdown(props: {
       aria-label={labelYearDropdown()}
       disabled={Boolean(disableNavigation)}
       rootClassName={classNames[UI.YearsDropdown]}
-      options={dropdown.years}
+      options={dropdownOptions.years}
       value={props.month.date.getFullYear()}
       onChange={handleChange}
     />

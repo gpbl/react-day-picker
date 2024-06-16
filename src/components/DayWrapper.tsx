@@ -9,13 +9,13 @@ import {
   useRef
 } from "react";
 
-import { UI, DayModifier } from "../UI";
+import { UI, DayModifier, SelectionModifier } from "../UI";
 import { CalendarDay } from "../classes/CalendarDay";
-import { useCalendar } from "../contexts/calendar";
-import { useFocus } from "../contexts/focus";
-import { useModifiers } from "../contexts/modifiers";
-import { useProps } from "../contexts/props";
-import { useSelection } from "../contexts/selection";
+import { useCalendarContext } from "../contexts/useCalendarContext";
+import { useFocusContext } from "../contexts/useFocusContext";
+import { useModifiersContext } from "../contexts/useModifiersContext";
+import { usePropsContext } from "../contexts/usePropsContext";
+import { useSingleContext } from "../contexts/useSingleContext";
 import { debounce } from "../helpers/debounce";
 import { getClassNamesForModifiers } from "../helpers/getClassNamesForModifiers";
 import { getStyleForModifiers } from "../helpers/getStyleForModifiers";
@@ -43,6 +43,7 @@ export function DayWrapper(props: {
     formatters: { formatDay },
     labels: { labelDay },
     locale,
+    mode,
     modifiersClassNames = {},
     modifiersStyles = {},
     onDayFocus,
@@ -60,15 +61,16 @@ export function DayWrapper(props: {
     onDayTouchMove,
     onDayTouchStart,
     styles = {}
-  } = useProps();
+  } = usePropsContext();
 
-  const { isInteractive } = useCalendar();
-  const { setSelected } = useSelection();
-  const { getModifiers } = useModifiers();
+  const { isInteractive } = useCalendarContext();
+  const { getDayModifiers } = useModifiersContext();
+
+  const single = useSingleContext();
 
   const {
     autoFocusTarget,
-    focusedDay,
+    focused: focusedDay,
     focus,
     blur,
     focusDayBefore,
@@ -81,8 +83,16 @@ export function DayWrapper(props: {
     focusYearAfter,
     focusStartOfWeek,
     focusEndOfWeek
-  } = useFocus();
-  const modifiers = getModifiers(props.day);
+  } = useFocusContext();
+
+  const dayModifiers = getDayModifiers(props.day);
+
+  const selectionModifier = {
+    [SelectionModifier.selected]:
+      mode === "single" ? single.isSelected(props.day.date) : false
+  };
+
+  const modifiers = { ...dayModifiers, ...selectionModifier };
 
   const onClick: MouseEventHandler = (e) => {
     if (modifiers.disabled) {
@@ -90,7 +100,9 @@ export function DayWrapper(props: {
       e.stopPropagation();
       return;
     }
-    setSelected(props.day.date, modifiers, e);
+    if (mode === "single") {
+      single.setValue(props.day.date);
+    }
     if (modifiers.focusable) {
       focus(props.day);
     }
@@ -171,7 +183,9 @@ export function DayWrapper(props: {
       case "Enter":
         e.preventDefault();
         e.stopPropagation();
-        setSelected(props.day.date, modifiers, e);
+        if (mode === "single" && !modifiers.disabled) {
+          single.setValue(props.day.date);
+        }
         break;
       case "PageUp":
         e.preventDefault();

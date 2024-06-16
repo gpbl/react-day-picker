@@ -1,0 +1,71 @@
+import React, { createContext, ReactNode, useEffect, useState } from "react";
+
+import { DayModifier } from "../UI";
+import type { CalendarDay } from "../classes";
+
+import { useCalendar } from "./useCalendarContext";
+import { useModifiers } from "./useModifiersContext";
+import { usePropsContext } from "./usePropsContext";
+
+/** @private */
+export function FocusProvider({
+  children
+}: {
+  children: ReactNode;
+}): JSX.Element {
+  const { isDayDisplayed, isInteractive } = useCalendar();
+
+  const { autoFocus } = usePropsContext();
+  const { internal, getDayModifiers: getModifiers } = useModifiers();
+
+  const [focused, focus] = useState<CalendarDay | undefined>();
+  const [lastFocused, setLastFocused] = useState<CalendarDay | undefined>();
+  const [initiallyFocused, setInitiallyFocused] = useState(false);
+
+  const today = internal.today[0];
+
+  let autoFocusTarget: CalendarDay | undefined;
+
+  const isValidFocusTarget = (day: CalendarDay) => {
+    return isDayDisplayed(day) && !getModifiers(day)[DayModifier.disabled];
+  };
+
+  if (isInteractive) {
+    if (focused) {
+      autoFocusTarget = focused;
+    } else if (lastFocused) {
+      autoFocusTarget = lastFocused;
+      // } else if (
+      // internal.selected[0] &&
+      // isValidFocusTarget(internal.selected[0])
+      // ) {
+      // autoFocusTarget = internal.selected[0];
+    } else if (today && isValidFocusTarget(today)) {
+      autoFocusTarget = today;
+    } else if (internal.focusable[0]) {
+      autoFocusTarget = internal.focusable[0];
+    }
+  }
+
+  // Focus the focus target when autoFocus is passed in
+  useEffect(() => {
+    if (!autoFocus) return;
+    if (!autoFocusTarget) return;
+    if (!initiallyFocused) return;
+    // TODO: bug here?
+    setInitiallyFocused(true);
+    focus(autoFocusTarget);
+  }, [autoFocus, autoFocusTarget, focused, initiallyFocused]);
+
+  const value: FocusContextValue = {
+    autoFocusTarget,
+    initiallyFocused,
+    focus,
+    focused,
+    setLastFocused
+  };
+
+  return (
+    <FocusContext.Provider value={value}>{children}</FocusContext.Provider>
+  );
+}
