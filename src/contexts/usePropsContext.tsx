@@ -34,7 +34,6 @@ const PropsContext = createContext<
  *
  * @template ModeType - The selection mode.
  * @template IsRequired - Whether the selection is required.
- * @group Contexts
  */
 export type PropsContextValue<
   ModeType extends Mode | undefined = undefined,
@@ -87,8 +86,8 @@ function useProps<
       ...initialProps.classNames
     },
     components: {
-      ...initialProps.components,
-      ...customComponents
+      ...customComponents,
+      ...initialProps.components
     },
     dataAttributes: getDataAttributes(initialProps),
     formatters: getFormatters(initialProps.formatters),
@@ -133,7 +132,7 @@ export function PropsContextProvider<
  *
  * Use this hook from the custom components passed via the `components` prop.
  *
- * @group Hooks
+ * @group Contexts
  * @see https://react-day-picker.js.org/advanced-guides/custom-components
  */
 export function usePropsContext() {

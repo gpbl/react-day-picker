@@ -23,13 +23,11 @@ export const CalendarContext = createContext<CalendarContextValue | undefined>(
 );
 
 /**
- * Share the calendar state and navigation methods across the components.
+ * Share the calendar state and navigation methods across the components.\
  *
  * Access the calendar context using the {@link useCalendarContext} hook.
- *
- * @group Contexts
  */
-export interface CalendarContextValue {
+export type CalendarContextValue = {
   today: Date;
   /** All the unique dates displayed to the calendar. */
   dates: Date[];
@@ -88,7 +86,7 @@ export interface CalendarContextValue {
   goToDay: (day: CalendarDay) => void;
   /** Whether the given date is included in the displayed months. */
   isDayDisplayed: (day: CalendarDay) => boolean;
-}
+};
 
 function useCalendar(): CalendarContextValue {
   const props = usePropsContext();
@@ -225,7 +223,7 @@ export function CalendarContextProvider({
  *
  * Use this hook from the custom components passed via the `components` prop.
  *
- * @group Hooks
+ * @group Contexts
  * @see https://react-day-picker.js.org/advanced-guides/custom-components
  */
 export function useCalendarContext() {

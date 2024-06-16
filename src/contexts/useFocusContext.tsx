@@ -61,7 +61,7 @@ export type FocusContextValue = {
  *
  * Use this hook from the custom components passed via the `components` prop.
  *
- * @group Hooks
+ * @group Contexts
  * @see https://react-day-picker.js.org/advanced-guides/custom-components
  */
 
@@ -70,7 +70,7 @@ function useFocus(): FocusContextValue {
 
   const props = usePropsContext();
   const { autoFocus } = props;
-  const { internal, getDayModifiers: getModifiers } = useModifiersContext();
+  const { internal, selection, getModifiers } = useModifiersContext();
 
   const [focused, focus] = useState<CalendarDay | undefined>();
   const [lastFocused, setLastFocused] = useState<CalendarDay | undefined>();
@@ -89,11 +89,11 @@ function useFocus(): FocusContextValue {
       autoFocusTarget = focused;
     } else if (lastFocused) {
       autoFocusTarget = lastFocused;
-      // } else if (
-      // internal.selected[0] &&
-      // isValidFocusTarget(internal.selected[0])
-      // ) {
-      // autoFocusTarget = internal.selected[0];
+    } else if (
+      selection.selected[0] &&
+      isValidFocusTarget(selection.selected[0])
+    ) {
+      autoFocusTarget = selection.selected[0];
     } else if (today && isValidFocusTarget(today)) {
       autoFocusTarget = today;
     } else if (internal.focusable[0]) {
@@ -161,6 +161,7 @@ export function FocusContextProvider<
   );
 }
 
+/** @group Contexts */
 export function useFocusContext() {
   const propsContext = useContext(FocusContext);
   if (!propsContext) {

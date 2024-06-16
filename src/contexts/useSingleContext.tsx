@@ -67,7 +67,7 @@ function useSingle<T extends UseSingleOptions>({
   } as UseSingle<T>;
 }
 
-interface SingleContextValue {
+export interface SingleContextValue {
   value: Date | undefined;
   setValue: React.Dispatch<React.SetStateAction<Date | undefined>>;
   isSelected: (date: Date) => boolean;
@@ -92,7 +92,7 @@ export function SingleProvider({
     </SingleContext.Provider>
   );
 }
-
+/** @group Contexts */
 export function useSingleContext(): SingleContextValue {
   const context = useContext(SingleContext);
   if (!context) {

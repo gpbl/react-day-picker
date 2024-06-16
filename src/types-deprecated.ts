@@ -133,21 +133,21 @@ export type DayPickerProviderProps = any;
 /**
  * @deprecated This type has been renamed to `useProps`.
  * @protected
- * @group Hooks
+ * @group Contexts
  */
 export const useDayPicker = usePropsContext;
 
 /**
  * @deprecated This type has been renamed to `useProps`.
  * @protected
- * @group Hooks
+ * @group Contexts
  */
 export const useNavigation = useCalendarContext;
 
 /**
  * @deprecated This hook has been removed. Use a custom `Day` component instead.
  * @protected
- * @group Hooks
+ * @group Contexts
  * @see https://react-day-picker.js.org/advanced-guides/custom-components
  */
 export type useDayRender = any;

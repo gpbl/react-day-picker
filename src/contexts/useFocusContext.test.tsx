@@ -28,7 +28,7 @@ describe("autoFocusTarget", () => {
         const { result } = renderHook(useFocusContext, {
           month,
           today,
-          mode: "multiple",
+          mode: "single",
           disabled: [today]
         });
         expect(result.current.autoFocusTarget?.date).toEqual(month);

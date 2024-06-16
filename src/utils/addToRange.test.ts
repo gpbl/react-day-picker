@@ -58,7 +58,7 @@ describe('when "from", "to" and "day" are the same', () => {
     result = addToRange(day, range);
   });
   test("should return an undefined range (reset)", () => {
-    expect(result).toBeUndefined();
+    expect(result).toEqual({ from: undefined, to: undefined });
   });
 });
 
@@ -85,8 +85,8 @@ describe('when "from" and "day" are the same', () => {
   beforeAll(() => {
     result = addToRange(day, range);
   });
-  test("should return an undefined range (reset)", () => {
-    expect(result).toBeUndefined();
+  test("should reset the range", () => {
+    expect(result).toEqual({ from: undefined, to: undefined });
   });
 });
 

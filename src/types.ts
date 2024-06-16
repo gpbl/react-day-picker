@@ -19,7 +19,6 @@ import {
   WeekNumberFlag,
   SelectionModifier
 } from "./UI";
-import { CalendarDay } from "./classes";
 import * as components from "./components/custom-components";
 import {
   formatCaption,
@@ -43,6 +42,7 @@ import {
   labelYearDropdown
 } from "./labels";
 
+/** @group Props */
 export type SingleRequiredOnSelect = (
   selected: Selected<"single", true>,
   date: Date,
@@ -50,6 +50,7 @@ export type SingleRequiredOnSelect = (
   e: MouseEvent | KeyboardEvent
 ) => void;
 
+/** @group Props */
 export type SingleOptionalOnSelect = (
   selected: Selected<"single", false>,
   date: Date,
@@ -57,6 +58,7 @@ export type SingleOptionalOnSelect = (
   e: MouseEvent | KeyboardEvent
 ) => void;
 
+/** @group Props */
 export type MultiRequiredOnSelect = (
   selected: Selected<"multiple", true>,
   date: Date,
@@ -64,6 +66,7 @@ export type MultiRequiredOnSelect = (
   e: MouseEvent | KeyboardEvent
 ) => void;
 
+/** @group Props */
 export type MultiOptionalOnSelect = (
   selected: Selected<"multiple", false>,
   date: Date,
@@ -71,6 +74,7 @@ export type MultiOptionalOnSelect = (
   e: MouseEvent | KeyboardEvent
 ) => void;
 
+/** @group Props */
 export type RangeRequiredOnSelect = (
   selected: Selected<"range", true>,
   date: Date,
@@ -78,6 +82,7 @@ export type RangeRequiredOnSelect = (
   e: MouseEvent | KeyboardEvent
 ) => void;
 
+/** @group Props */
 export type RangeOptionalOnSelect = (
   selected: Selected<"range", false>,
   date: Date,
@@ -85,6 +90,7 @@ export type RangeOptionalOnSelect = (
   e: MouseEvent | KeyboardEvent
 ) => void;
 
+/** @group Props */
 export interface SingleRequiredProps {
   selected: Selected<"single", true>;
   defaultSelected?: Selected<"single", true>;
@@ -93,6 +99,7 @@ export interface SingleRequiredProps {
   max?: number;
 }
 
+/** @group Props */
 export interface SingleOptionalProps {
   selected?: Selected<"single", false>;
   defaultSelected?: Selected<"single", false>;
@@ -101,6 +108,7 @@ export interface SingleOptionalProps {
   max?: number;
 }
 
+/** @group Props */
 export interface MultiRequiredProps {
   selected: Selected<"multiple", true>;
   defaultSelected?: Selected<"multiple", true>;
@@ -109,6 +117,7 @@ export interface MultiRequiredProps {
   max?: number;
 }
 
+/** @group Props */
 export interface MultiOptionalProps {
   selected?: Selected<"multiple", false>;
   defaultSelected?: Selected<"multiple", false>;
@@ -116,6 +125,8 @@ export interface MultiOptionalProps {
   min?: number;
   max?: number;
 }
+
+/** @group Props */
 export interface RangeRequiredProps {
   selected: Selected<"range", true>;
   defaultSelected?: Selected<"range", true>;
@@ -124,6 +135,7 @@ export interface RangeRequiredProps {
   max?: number;
 }
 
+/** @group Props */
 export interface RangeOptionalProps {
   selected?: Selected<"range", false> | undefined;
   defaultSelected?: Selected<"range", false> | undefined;
@@ -144,17 +156,11 @@ export type ModeProps<ModeType extends Mode, isRequired extends boolean> = {
   range: isRequired extends true ? RangeRequiredProps : RangeOptionalProps;
 }[ModeType];
 
-/**
- * The props for the {@link DayPicker} component.
- *
- * @template ModeType - The selection mode
- * @template IsRequired - Whether the selection is required
- * @group Props
- */
-export type DayPickerProps<
+/** @group Props */
+export interface BaseProps<
   ModeType extends Mode | undefined = undefined,
   IsRequired extends boolean = false
-> = {
+> {
   /** Class name to add to the root element */
   className?: string;
   /**
@@ -428,16 +434,22 @@ export type DayPickerProps<
    * to be set.
    */
   onWeekNumberClick?: WeekNumberMouseEventHandler;
-
-  /**
-   * Toggle the selection mode.
-   *
-   * @see https://react-day-picker.js.org/next/using-daypicker/selection-modes
-   */
+}
+/**
+ * The props for the {@link DayPicker} component.
+ *
+ * @template ModeType - The selection mode
+ * @template IsRequired - Whether the selection is required
+ * @group Props
+ */
+export type DayPickerProps<
+  ModeType extends Mode | undefined = undefined,
+  IsRequired extends boolean = false
+> = BaseProps<ModeType, IsRequired> & {
+  /** Toggle the selection mode. */
   mode?: ModeType;
-
   /** When a selection mode is set, makes the selection required. */
-  required?: IsRequired;
+  required?: ModeType extends Mode ? IsRequired : undefined;
 } & (ModeType extends Mode ? ModeProps<ModeType, IsRequired> : {});
 
 /**
@@ -666,6 +678,9 @@ export type InternalModifier = keyof typeof DayModifier;
 /** The modifiers that are matching the day in the calendar. */
 export type DayModifiers = Record<string, boolean> &
   Record<InternalModifier, boolean>;
+
+/** The modifiers that are matching the day in the calendar. */
+export type SelectionModifiers = Record<SelectionModifier, boolean>;
 
 /** The style to apply to each day element matching a modifier. */
 export type ModifiersStyles = Record<string, CSSProperties> &

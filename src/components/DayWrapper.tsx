@@ -9,6 +9,8 @@ import {
   useRef
 } from "react";
 
+import { useSelection } from "react-day-picker/contexts/useSelection";
+
 import { UI, DayModifier, SelectionModifier } from "../UI";
 import { CalendarDay } from "../classes/CalendarDay";
 import { useCalendarContext } from "../contexts/useCalendarContext";
@@ -64,13 +66,12 @@ export function DayWrapper(props: {
   } = usePropsContext();
 
   const { isInteractive } = useCalendarContext();
-  const { getDayModifiers } = useModifiersContext();
-
-  const single = useSingleContext();
+  const { getModifiers } = useModifiersContext();
+  const { single } = useSelection();
 
   const {
     autoFocusTarget,
-    focused: focusedDay,
+    focused,
     focus,
     blur,
     focusDayBefore,
@@ -85,14 +86,7 @@ export function DayWrapper(props: {
     focusEndOfWeek
   } = useFocusContext();
 
-  const dayModifiers = getDayModifiers(props.day);
-
-  const selectionModifier = {
-    [SelectionModifier.selected]:
-      mode === "single" ? single.isSelected(props.day.date) : false
-  };
-
-  const modifiers = { ...dayModifiers, ...selectionModifier };
+  const modifiers = getModifiers(props.day);
 
   const onClick: MouseEventHandler = (e) => {
     if (modifiers.disabled) {
@@ -100,7 +94,7 @@ export function DayWrapper(props: {
       e.stopPropagation();
       return;
     }
-    if (mode === "single") {
+    if (mode === "single" && !modifiers.disabled) {
       single.setValue(props.day.date);
     }
     if (modifiers.focusable) {
@@ -212,7 +206,7 @@ export function DayWrapper(props: {
   };
 
   const isAutoFocusTarget = Boolean(autoFocusTarget?.isEqualTo(props.day));
-  const isFocused = Boolean(focusedDay?.isEqualTo(props.day));
+  const isFocused = Boolean(focused?.isEqualTo(props.day));
 
   const style = getStyleForModifiers(modifiers, modifiersStyles, styles);
 
@@ -258,12 +252,12 @@ export function DayWrapper(props: {
 
   useEffect(() => {
     if (!cellRef.current) return; // no element to focus
-    if (!focusedDay) return; // no day to focus
-    if (!props.day.isEqualTo(focusedDay)) return; // not this day`
+    if (!focused) return; // no day to focus
+    if (!props.day.isEqualTo(focused)) return; // not this day`
     if (modifiers.disabled || modifiers.hidden) return; // cannot focus
 
     cellRef.current.focus();
-  }, [focusedDay, modifiers.disabled, modifiers.hidden, props.day]);
+  }, [focused, modifiers.disabled, modifiers.hidden, props.day]);
 
   const Day = components?.Day ?? DefaultDay;
 
