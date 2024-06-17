@@ -6,13 +6,39 @@ import type { DayPickerProps, Mode } from "../types";
 import { CalendarContextProvider } from "./useCalendarContext";
 import { FocusContextProvider } from "./useFocusContext";
 import { ModifiersContextProvider } from "./useModifiersContext";
-import { PropsContextProvider } from "./usePropsContext";
+import { MultiProvider } from "./useMultiContext";
+import { PropsContextProvider, usePropsContext } from "./usePropsContext";
 import { SingleProvider } from "./useSingleContext";
 
 function isSingle(
   props: DayPickerProps<Mode, boolean>
 ): props is DayPickerProps<"single", boolean> {
   return props.mode === "single";
+}
+
+function isMulti(
+  props: DayPickerProps<Mode, boolean>
+): props is DayPickerProps<"multiple", boolean> {
+  return props.mode === "multiple";
+}
+
+function SelectionProviders({ children }: PropsWithChildren) {
+  const props = usePropsContext();
+  return (
+    <SingleProvider
+      required={props.required}
+      initialValue={isSingle(props) ? props.selected : undefined}
+    >
+      <MultiProvider
+        min={isMulti(props) ? props.min : undefined}
+        max={isMulti(props) ? props.min : undefined}
+        required={props.required}
+        initialValue={isMulti(props) ? props.selected : undefined}
+      >
+        {children}
+      </MultiProvider>
+    </SingleProvider>
+  );
 }
 
 /**
@@ -27,16 +53,11 @@ export function ContextProviders(
   return (
     <PropsContextProvider initialProps={initialProps}>
       <CalendarContextProvider>
-        <SingleProvider
-          required={initialProps.required}
-          initialValue={
-            isSingle(initialProps) ? initialProps.selected : undefined
-          }
-        >
+        <SelectionProviders>
           <ModifiersContextProvider>
             <FocusContextProvider>{children}</FocusContextProvider>
           </ModifiersContextProvider>
-        </SingleProvider>
+        </SelectionProviders>
       </CalendarContextProvider>
     </PropsContextProvider>
   );

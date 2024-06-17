@@ -1,3 +1,5 @@
+import { selected } from "react-day-picker/style.module.css";
+
 import type { CalendarDay } from "../classes";
 import type { DayModifiers, Mode, SelectionModifiers } from "../types";
 
@@ -25,8 +27,15 @@ export function useSelection() {
     return modifiers;
   };
 
+  const setSelected = (day: CalendarDay) => {
+    if (mode === "single") {
+      single.setValue(day.date);
+    }
+  };
+
   return {
-    single,
+    selected: single.value,
+    setSelected,
     getSelectionModifiers
   };
 }

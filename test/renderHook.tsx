@@ -10,7 +10,7 @@ export function renderHook<TResult>(
   /** The hook to render. */
   hook: () => TResult,
   /** The props to pass to the {@link ContextProviders}. */
-  props?: DayPickerProps<Mode>,
+  props?: DayPickerProps<any, any>,
   /** The options to pass to the testing library render function. */
   options?: Omit<Parameters<typeof testingLibraryRenderHook>[1], "wrapper">
 ) {

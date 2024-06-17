@@ -43,103 +43,78 @@ import {
 } from "./labels";
 
 /** @group Props */
-export type SingleRequiredOnSelect = (
-  selected: Selected<"single", true>,
-  date: Date,
-  modifiers: DayModifiers & SelectionModifier,
-  e: MouseEvent | KeyboardEvent
-) => void;
-
-/** @group Props */
-export type SingleOptionalOnSelect = (
-  selected: Selected<"single", false>,
-  date: Date,
-  modifiers: DayModifiers & SelectionModifier,
-  e: MouseEvent | KeyboardEvent
-) => void;
-
-/** @group Props */
-export type MultiRequiredOnSelect = (
-  selected: Selected<"multiple", true>,
-  date: Date,
-  modifiers: DayModifiers & SelectionModifier,
-  e: MouseEvent | KeyboardEvent
-) => void;
-
-/** @group Props */
-export type MultiOptionalOnSelect = (
-  selected: Selected<"multiple", false>,
-  date: Date,
-  modifiers: DayModifiers & SelectionModifier,
-  e: MouseEvent | KeyboardEvent
-) => void;
-
-/** @group Props */
-export type RangeRequiredOnSelect = (
-  selected: Selected<"range", true>,
-  date: Date,
-  modifiers: DayModifiers & SelectionModifier,
-  e: MouseEvent | KeyboardEvent
-) => void;
-
-/** @group Props */
-export type RangeOptionalOnSelect = (
-  selected: Selected<"range", false>,
-  date: Date,
-  modifiers: DayModifiers & SelectionModifier,
-  e: MouseEvent | KeyboardEvent
-) => void;
-
-/** @group Props */
-export interface SingleRequiredProps {
-  selected: Selected<"single", true>;
-  defaultSelected?: Selected<"single", true>;
-  onSelect?: SingleRequiredOnSelect;
+export interface PropsSingleRequired {
+  selected: Date;
+  onSelect?: (
+    selected: Date,
+    triggerDate: Date,
+    modifiers: DayModifiers & SelectionModifier,
+    e: MouseEvent | KeyboardEvent
+  ) => void | undefined;
   min?: number;
   max?: number;
 }
 
 /** @group Props */
-export interface SingleOptionalProps {
-  selected?: Selected<"single", false>;
-  defaultSelected?: Selected<"single", false>;
-  onSelect?: SingleOptionalOnSelect;
+export interface PropsSingle {
+  selected?: Date | undefined;
+  onSelect?: (
+    selected: Date | undefined,
+    triggerDate: Date,
+    modifiers: DayModifiers & SelectionModifier,
+    e: MouseEvent | KeyboardEvent
+  ) => void;
+}
+
+/** @group Props */
+export interface PropsMultiRequired {
+  selected: Date[];
+  onSelect?: (
+    selected: Date[],
+    triggerDate: Date,
+    modifiers: DayModifiers & SelectionModifier,
+    e: MouseEvent | KeyboardEvent
+  ) => void;
   min?: number;
   max?: number;
 }
 
 /** @group Props */
-export interface MultiRequiredProps {
-  selected: Selected<"multiple", true>;
-  defaultSelected?: Selected<"multiple", true>;
-  onSelect?: MultiRequiredOnSelect;
+export interface PropsMulti {
+  selected?: Date[] | undefined;
+  onSelect?: (
+    selected: Date[] | undefined,
+    triggerDate: Date,
+    modifiers: DayModifiers & SelectionModifier,
+    e: MouseEvent | KeyboardEvent
+  ) => void;
   min?: number;
   max?: number;
 }
 
 /** @group Props */
-export interface MultiOptionalProps {
-  selected?: Selected<"multiple", false>;
-  defaultSelected?: Selected<"multiple", false>;
-  onSelect?: MultiOptionalOnSelect;
+export interface PropsRangeRequired {
+  selected: DateRange;
+  onSelect?: (
+    selected: DateRange,
+    triggerDate: Date,
+    modifiers: DayModifiers & SelectionModifier,
+    e: MouseEvent | KeyboardEvent
+  ) => void;
   min?: number;
   max?: number;
 }
 
 /** @group Props */
-export interface RangeRequiredProps {
-  selected: Selected<"range", true>;
-  defaultSelected?: Selected<"range", true>;
-  onSelect?: RangeRequiredOnSelect;
-  min?: number;
-  max?: number;
-}
-
-/** @group Props */
-export interface RangeOptionalProps {
-  selected?: Selected<"range", false> | undefined;
-  defaultSelected?: Selected<"range", false> | undefined;
-  onSelect?: RangeOptionalOnSelect;
+export interface PropsRange {
+  required?: false | undefined;
+  selected?: DateRange | undefined;
+  onSelect?: (
+    selected: DateRange | undefined,
+    triggerDate: Date,
+    modifiers: DayModifiers & SelectionModifier,
+    e: MouseEvent | KeyboardEvent
+  ) => void | undefined;
   min?: number;
   max?: number;
 }
@@ -151,9 +126,9 @@ export interface RangeOptionalProps {
  * @template IsRequired - Whether the selection is required
  */
 export type ModeProps<ModeType extends Mode, isRequired extends boolean> = {
-  single: isRequired extends true ? SingleRequiredProps : SingleOptionalProps;
-  multiple: isRequired extends true ? MultiRequiredProps : MultiOptionalProps;
-  range: isRequired extends true ? RangeRequiredProps : RangeOptionalProps;
+  single: isRequired extends true ? PropsSingleRequired : PropsSingle;
+  multiple: isRequired extends true ? PropsMultiRequired : PropsMulti;
+  range: isRequired extends true ? PropsRangeRequired : PropsRange;
 }[ModeType];
 
 /** @group Props */
@@ -434,7 +409,13 @@ export interface BaseProps<
    * to be set.
    */
   onWeekNumberClick?: WeekNumberMouseEventHandler;
+
+  /** The selection mode. */
+  mode?: ModeType;
+  /** Whether the selection is required. */
+  required?: IsRequired;
 }
+
 /**
  * The props for the {@link DayPicker} component.
  *
@@ -446,10 +427,8 @@ export type DayPickerProps<
   ModeType extends Mode | undefined = undefined,
   IsRequired extends boolean = false
 > = BaseProps<ModeType, IsRequired> & {
-  /** Toggle the selection mode. */
+  required?: IsRequired;
   mode?: ModeType;
-  /** When a selection mode is set, makes the selection required. */
-  required?: ModeType extends Mode ? IsRequired : undefined;
 } & (ModeType extends Mode ? ModeProps<ModeType, IsRequired> : {});
 
 /**

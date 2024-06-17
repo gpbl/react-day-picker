@@ -9,15 +9,15 @@ import {
   useRef
 } from "react";
 
-import { useSelection } from "react-day-picker/contexts/useSelection";
+import { useSingleContext } from "react-day-picker/contexts/useSingleContext";
 
-import { UI, DayModifier, SelectionModifier } from "../UI";
+import { UI, DayModifier } from "../UI";
 import { CalendarDay } from "../classes/CalendarDay";
 import { useCalendarContext } from "../contexts/useCalendarContext";
 import { useFocusContext } from "../contexts/useFocusContext";
 import { useModifiersContext } from "../contexts/useModifiersContext";
 import { usePropsContext } from "../contexts/usePropsContext";
-import { useSingleContext } from "../contexts/useSingleContext";
+import { useSelection } from "../contexts/useSelection";
 import { debounce } from "../helpers/debounce";
 import { getClassNamesForModifiers } from "../helpers/getClassNamesForModifiers";
 import { getStyleForModifiers } from "../helpers/getStyleForModifiers";
@@ -67,7 +67,8 @@ export function DayWrapper(props: {
 
   const { isInteractive } = useCalendarContext();
   const { getModifiers } = useModifiersContext();
-  const { single } = useSelection();
+
+  const single = useSingleContext();
 
   const {
     autoFocusTarget,
@@ -94,7 +95,7 @@ export function DayWrapper(props: {
       e.stopPropagation();
       return;
     }
-    if (mode === "single" && !modifiers.disabled) {
+    if (mode && !modifiers.disabled) {
       single.setValue(props.day.date);
     }
     if (modifiers.focusable) {

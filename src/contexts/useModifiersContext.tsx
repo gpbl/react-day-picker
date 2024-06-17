@@ -2,8 +2,8 @@ import React, { type ReactElement, createContext, useContext } from "react";
 
 import { isSameDay } from "date-fns/isSameDay";
 import { isSameMonth } from "date-fns/isSameMonth";
-import { SelectionModifier } from "react-day-picker/UI";
 
+import { SelectionModifier } from "../UI";
 import { CalendarDay } from "../classes";
 import type {
   DayModifiers,
@@ -86,9 +86,9 @@ function useModifiers(): ModifiersContextValue {
       Boolean(hidden && dateMatchModifiers(date, hidden)) ||
       (!showOutsideDays && isOutside);
 
-    const isInteractive = mode || onDayClick !== undefined;
+    const isElementInteractive = mode || onDayClick !== undefined;
 
-    const isFocusable = isInteractive && !isDisabled && !isHidden;
+    const isFocusable = isElementInteractive && !isDisabled && !isHidden;
 
     const isToday = isSameDay(date, today);
 
@@ -117,7 +117,7 @@ function useModifiers(): ModifiersContextValue {
     // Add the selection modifiers
     const selectionModifiers = getSelectionModifiers(day);
     for (const name in selectionModifiers) {
-      if (selectionModifiers[name as SelectionModifier]) {
+      if (!isDisabled && selectionModifiers[name as SelectionModifier]) {
         selection[name as SelectionModifier].push(day);
       }
     }
@@ -138,10 +138,6 @@ function useModifiers(): ModifiersContextValue {
       dayModifiers[name] = days.some((d) => d === day);
     }
 
-    for (const name in custom) {
-      dayModifiers[name] = custom[name].some((d) => d === day);
-    }
-
     const selectionModifiers: SelectionModifiers = {
       [SelectionModifier.range_end]: false,
       [SelectionModifier.range_middle]: false,
@@ -156,9 +152,15 @@ function useModifiers(): ModifiersContextValue {
       );
     }
 
+    const customModifiers: Record<string, boolean> = {};
+    for (const name in custom) {
+      customModifiers[name] = custom[name].some((d) => d === day);
+    }
+
     return {
+      ...selectionModifiers,
       ...dayModifiers,
-      ...selectionModifiers
+      ...customModifiers
     };
   };
 
