@@ -2,20 +2,9 @@ import React from "react";
 
 import { differenceInCalendarDays } from "date-fns";
 
-import { DateRange } from "../types";
+import { DateRange, PropsRange } from "../types";
 import { addToRange, isDateRange } from "../utils";
 import { isDateInRange } from "../utils/isDateInRange";
-
-export interface RangeContextOptions {
-  /** If the date is required. */
-  required?: boolean;
-  /** The initial value of the selection. */
-  defaultSelected?: DateRange | undefined;
-  /** The minimum number of dates that can be selected. */
-  min?: number;
-  /** The maximum number of dates that can be selected. */
-  max?: number;
-}
 
 export type RangeContextValue<T> = T extends { required: true }
   ? {
@@ -34,15 +23,13 @@ const RangeContext = React.createContext<RangeContextValue<any> | undefined>(
   undefined
 );
 
-function useRange<T extends RangeContextOptions>({
-  required = false,
-  min = undefined,
-  max = undefined,
-  defaultSelected
+function useRange<T extends PropsRange>({
+  required,
+  min,
+  max,
+  selected
 }: T): RangeContextValue<T> {
-  const [range, setRange] = React.useState<DateRange | undefined>(
-    defaultSelected
-  );
+  const [range, setRange] = React.useState<DateRange | undefined>(selected);
 
   // Update the selected date if the required flag is set.
   React.useEffect(() => {
@@ -50,10 +37,10 @@ function useRange<T extends RangeContextOptions>({
       setRange({ from: undefined, to: undefined });
   }, [required, range]);
 
-  // Update the selected date if the initialValue changes.
+  // Update the selected date if the selected changes.
   React.useEffect(() => {
-    if (defaultSelected) setRange(defaultSelected);
-  }, [defaultSelected]);
+    if (selected) setRange(selected);
+  }, [selected]);
 
   const isSelected = required
     ? (date: Date) => isDateInRange(date, range as DateRange)
@@ -97,35 +84,26 @@ function useRange<T extends RangeContextOptions>({
   } as RangeContextValue<T>;
 }
 
-export function RangeProvider({
-  children,
-  initialValue,
-  min,
-  max,
-  required = false
-}: {
-  children: React.ReactNode;
-  min: number | undefined;
-  max: number | undefined;
-  initialValue: DateRange | undefined;
-  required?: boolean;
-}) {
-  const contextValue = useRange({ required, initialValue, min, max });
-
+/** @private */
+export function RangeProvider(props: React.PropsWithChildren<PropsRange>) {
+  const value = useRange(props);
   return (
-    <RangeContext.Provider value={contextValue}>
-      {children}
+    <RangeContext.Provider value={value}>
+      {props.children}
     </RangeContext.Provider>
   );
 }
-/** @group Contexts */
-export function useRangeContext<
-  T extends RangeContextOptions
->(): RangeContextValue<T> {
+
+/**
+ * Access to the range context to get the selected range or update it.
+ *
+ * @group Contexts
+ */
+export function useRangeContext<T extends { required: boolean }>() {
   const context = React.useContext(RangeContext);
   if (!context) {
     throw new Error(
-      "useRangeContext must be used within a RangeContextProvider."
+      "useRangeContext() must be used within a RangeContextProvider."
     );
   }
   return context as RangeContextValue<T>;

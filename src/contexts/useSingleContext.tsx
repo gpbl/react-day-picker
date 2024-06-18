@@ -2,12 +2,7 @@ import React from "react";
 
 import { isSameDay } from "date-fns";
 
-interface SingleContextOptions {
-  /** If the date is required. */
-  required?: boolean;
-  /** The initial value of the selection. */
-  defaultSelected?: Date;
-}
+import { PropsSingle } from "../types";
 
 export type SingleContextValue<T> = T extends { required: true }
   ? {
@@ -26,22 +21,21 @@ const SingleContext = React.createContext<SingleContextValue<any> | undefined>(
   undefined
 );
 
-/** @private */
-function useSingle<T extends SingleContextOptions>({
+function useSingle<T extends PropsSingle>({
   required = false,
-  defaultSelected: initialValue
+  selected
 }: T): SingleContextValue<T> {
-  const [date, setDate] = React.useState<Date | undefined>(initialValue);
+  const [date, setDate] = React.useState<Date | undefined>(selected);
 
   // Update the selected date if the required flag is set.
   React.useEffect(() => {
     if (required && date === undefined) setDate(new Date());
   }, [required, date]);
 
-  // Update the selected date if the initialValue changes.
+  // Update the selected date if the selected changes.
   React.useEffect(() => {
-    if (initialValue) setDate(initialValue);
-  }, [initialValue]);
+    if (selected) setDate(selected);
+  }, [selected]);
 
   const isSelected = (compareDate: Date) =>
     date ? isSameDay(date, compareDate) : false;
@@ -60,19 +54,11 @@ function useSingle<T extends SingleContextOptions>({
   return { selected: date, setSelected, isSelected } as SingleContextValue<T>;
 }
 /** @private */
-export function SingleProvider({
-  children,
-  required = false,
-  initialValue
-}: {
-  children: React.ReactNode;
-  required?: boolean;
-  initialValue?: Date;
-}) {
-  const contextValue = useSingle({ required, initialValue });
+export function SingleProvider(props: React.PropsWithChildren<PropsSingle>) {
+  const value = useSingle(props);
   return (
-    <SingleContext.Provider value={contextValue}>
-      {children}
+    <SingleContext.Provider value={value}>
+      {props.children}
     </SingleContext.Provider>
   );
 }

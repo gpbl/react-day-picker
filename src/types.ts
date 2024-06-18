@@ -63,6 +63,7 @@ export interface PropsSingleRequired {
  * @group Props
  */
 export interface PropsSingle {
+  required?: boolean | undefined;
   selected?: Date | undefined;
   onSelect?: (
     selected: Date | undefined,
@@ -95,6 +96,7 @@ export interface PropsMultiRequired {
  * @group Props
  */
 export interface PropsMulti {
+  required?: boolean | undefined;
   selected?: Date[] | undefined;
   onSelect?: (
     selected: Date[] | undefined,
@@ -129,7 +131,7 @@ export interface PropsRangeRequired {
  * @group Props
  */
 export interface PropsRange {
-  required?: false | undefined;
+  required?: boolean | undefined;
   selected?: DateRange | undefined;
   onSelect?: (
     selected: DateRange | undefined,
@@ -141,9 +143,7 @@ export interface PropsRange {
   max?: number;
 }
 
-/**
- * 
- *  @group Props */
+/** @group Props */
 export interface PropsBase {
   /** Class name to add to the root element */
   className?: string;

@@ -55,8 +55,6 @@ const Test = () => {
         selected={new Date()}
         onDayClick={() => {}}
       />
-      {/* <DayPicker mode="custom" selected={undefined} /> */}
-      {/* <DayPicker mode="custom" onSelect={() => console.log(1)} /> */}
     </>
   );
 };

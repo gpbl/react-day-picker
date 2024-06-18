@@ -11,6 +11,7 @@ import type {
   Modifiers,
   SelectionStates
 } from "../types";
+import { isDateInRange } from "../utils";
 import { dateMatchModifiers } from "../utils/dateMatchModifiers";
 
 import { useCalendarContext } from "./useCalendarContext";
@@ -33,11 +34,11 @@ export const ModifiersContext = createContext<
 /** Maps of all the modifiers with the calendar days. */
 export type ModifiersContextValue = {
   /** List the days with custom modifiers passed via the `modifiers` prop. */
-  custom: Record<string, CalendarDay[]>;
+  customModifiers: Record<string, CalendarDay[]>;
   /** List the days with the internal modifiers. */
-  internal: Record<DayFlag, CalendarDay[]>;
+  dayFlags: Record<DayFlag, CalendarDay[]>;
   /** List the days with selection modifiers. */
-  selection: Record<SelectionState, CalendarDay[]>;
+  selectionStates: Record<SelectionState, CalendarDay[]>;
   /** Get the modifiers for a given day. */
   getModifiers: (day: CalendarDay) => Modifiers;
 };
@@ -100,20 +101,31 @@ function useModifiers(): ModifiersContextValue {
     if (isToday) internal.today.push(day);
 
     // Add the selection modifiers
-    if (mode === "single") {
+    if (mode === "single" && !isDisabled) {
       if (single.isSelected(day.date)) {
         selection[SelectionState.selected].push(day);
       }
     }
-    if (mode === "multiple") {
+    if (mode === "multiple" && !isDisabled) {
       if (multi.isSelected(day.date)) {
         selection[SelectionState.selected].push(day);
       }
     }
 
-    if (mode === "range") {
+    if (mode === "range" && !isDisabled) {
       if (range.isSelected(day.date)) {
         selection[SelectionState.selected].push(day);
+        if (range.selected?.from && isSameDay(day.date, range.selected.from)) {
+          if (range.selected?.to)
+            selection[SelectionState.range_start].push(day);
+        } else if (
+          range.selected?.to &&
+          isSameDay(day.date, range.selected.to)
+        ) {
+          selection[SelectionState.range_end].push(day);
+        } else if (range.selected && isDateInRange(day.date, range.selected)) {
+          selection[SelectionState.range_middle].push(day);
+        }
       }
     }
 
@@ -144,7 +156,7 @@ function useModifiers(): ModifiersContextValue {
       [DayFlag.outside]: false,
       [DayFlag.today]: false
     };
-    const selectionModifiers: SelectionStates = {
+    const selectionStates: SelectionStates = {
       [SelectionState.range_end]: false,
       [SelectionState.range_middle]: false,
       [SelectionState.range_start]: false,
@@ -159,21 +171,26 @@ function useModifiers(): ModifiersContextValue {
     }
     for (const name in selection) {
       const days = selection[name as SelectionState];
-      selectionModifiers[name as SelectionState] = days.some((d) => d === day);
+      selectionStates[name as SelectionState] = days.some((d) => d === day);
     }
     for (const name in custom) {
       customModifiers[name] = custom[name].some((d) => d === day);
     }
 
     return {
-      ...selectionModifiers,
+      ...selectionStates,
       ...dayFlags,
       // custom modifiers should override all the previous ones
       ...customModifiers
     };
   };
 
-  return { internal, custom, selection, getModifiers };
+  return {
+    dayFlags: internal,
+    customModifiers: custom,
+    selectionStates: selection,
+    getModifiers
+  };
 }
 
 /**

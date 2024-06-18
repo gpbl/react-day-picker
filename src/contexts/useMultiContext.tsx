@@ -2,16 +2,7 @@ import React from "react";
 
 import { isSameDay } from "date-fns";
 
-export interface MultiContextOptions {
-  /** If the date is required. */
-  required?: boolean;
-  /** The initial value of the selection. */
-  defaultSelected?: Date[];
-  /** The minimum number of dates that can be selected. */
-  min?: number;
-  /** The maximum number of dates that can be selected. */
-  max?: number;
-}
+import { PropsMulti } from "../types";
 
 export type MultiContextValue<T> = T extends { required: true }
   ? {
@@ -30,23 +21,23 @@ const MultiContext = React.createContext<MultiContextValue<any> | undefined>(
   undefined
 );
 
-function useMulti<T extends MultiContextOptions>({
+function useMulti<T extends PropsMulti>({
   required = false,
   min = undefined,
   max = undefined,
-  defaultSelected
+  selected
 }: T): MultiContextValue<T> {
-  const [dates, setDates] = React.useState<Date[] | undefined>(defaultSelected);
+  const [dates, setDates] = React.useState<Date[] | undefined>(selected);
 
   // Update the selected date if the required flag is set.
   React.useEffect(() => {
     if (required && dates === undefined) setDates([new Date()]);
   }, [required, dates]);
 
-  // Update the selected date if the initialValue changes.
+  // Update the selected date if the initialDates changes.
   React.useEffect(() => {
-    if (defaultSelected) setDates(defaultSelected);
-  }, [defaultSelected]);
+    if (selected) setDates(selected);
+  }, [selected]);
 
   const isSelected = (date: Date) =>
     dates?.some((d) => isSameDay(d, date)) ?? false;
@@ -80,31 +71,22 @@ function useMulti<T extends MultiContextOptions>({
   } as MultiContextValue<T>;
 }
 
-export function MultiProvider({
-  children,
-  initialValue,
-  min,
-  max,
-  required = false
-}: {
-  children: React.ReactNode;
-  min: number | undefined;
-  max: number | undefined;
-  initialValue: Date[] | undefined;
-  required?: boolean;
-}) {
-  const contextValue = useMulti({ required, initialValue, min, max });
-
+/** @private */
+export function MultiProvider(props: React.PropsWithChildren<PropsMulti>) {
+  const value = useMulti(props);
   return (
-    <MultiContext.Provider value={contextValue}>
-      {children}
+    <MultiContext.Provider value={value}>
+      {props.children}
     </MultiContext.Provider>
   );
 }
-/** @group Contexts */
-export function useMultiContext<
-  T extends MultiContextOptions
->(): MultiContextValue<T> {
+
+/**
+ * Access to the multi context to get the selected dates or update them.
+ *
+ * @group Contexts
+ */
+export function useMultiContext<T extends { required: boolean }>() {
   const context = React.useContext(MultiContext);
   if (!context) {
     throw new Error(

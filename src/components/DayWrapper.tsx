@@ -97,18 +97,23 @@ export function DayWrapper(props: {
       e.stopPropagation();
       return;
     }
-    if (mode === "single" && !modifiers.disabled) {
-      single.setSelected(props.day.date);
+
+    switch (mode) {
+      case "single":
+        single.setSelected(props.day.date);
+        break;
+      case "multiple":
+        multi.setSelected(props.day.date);
+        break;
+      case "range":
+        range.setSelected(props.day.date);
+        break;
     }
-    if (mode === "multiple" && !modifiers.disabled) {
-      multi.setSelected(props.day.date);
-    }
-    if (mode === "range" && !modifiers.disabled) {
-      range.setSelected(props.day.date);
-    }
+
     if (modifiers.focusable) {
       focus(props.day);
     }
+
     onDayClick?.(props.day.date, modifiers, e);
   };
 

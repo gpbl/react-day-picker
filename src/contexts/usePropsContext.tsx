@@ -22,8 +22,7 @@ import type {
 } from "../types";
 
 const PropsContext = createContext<
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  PropsContextValue<any, any> | undefined
+  PropsContextValue<Mode, boolean> | undefined
 >(undefined);
 
 /**
@@ -118,7 +117,7 @@ export function PropsContextProvider<
 }: PropsWithChildren<{
   initialProps: DayPickerProps<ModeType, IsRequired>;
 }>) {
-  const propsContextValue = useProps(initialProps);
+  const propsContextValue = useProps<ModeType, IsRequired>(initialProps);
 
   return (
     <PropsContext.Provider value={propsContextValue}>
