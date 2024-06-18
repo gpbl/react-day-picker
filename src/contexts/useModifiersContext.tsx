@@ -16,6 +16,7 @@ import { dateMatchModifiers } from "../utils/dateMatchModifiers";
 import { useCalendarContext } from "./useCalendarContext";
 import { useMultiContext } from "./useMultiContext";
 import { usePropsContext } from "./usePropsContext";
+import { useRangeContext } from "./useRangeContext";
 import { useSingleContext } from "./useSingleContext";
 
 /**
@@ -55,6 +56,7 @@ function useModifiers(): ModifiersContextValue {
   const calendar = useCalendarContext();
   const single = useSingleContext();
   const multi = useMultiContext();
+  const range = useRangeContext();
 
   const internal: Record<DayFlag, CalendarDay[]> = {
     [DayFlag.focused]: [],
@@ -105,6 +107,12 @@ function useModifiers(): ModifiersContextValue {
     }
     if (mode === "multiple") {
       if (multi.isSelected(day.date)) {
+        selection[SelectionState.selected].push(day);
+      }
+    }
+
+    if (mode === "range") {
+      if (range.isSelected(day.date)) {
         selection[SelectionState.selected].push(day);
       }
     }

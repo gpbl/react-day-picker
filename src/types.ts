@@ -141,7 +141,9 @@ export interface PropsRange {
   max?: number;
 }
 
-/** @group Props */
+/**
+ * 
+ *  @group Props */
 export interface PropsBase {
   /** Class name to add to the root element */
   className?: string;
@@ -416,7 +418,7 @@ export interface PropsBase {
 }
 
 /**
- * The props for the {@link DayPicker} component.
+ * The props for the `<DayPicker />` component.
  *
  * @template ModeType - The selection mode
  * @template IsRequired - Whether the selection is required
@@ -448,24 +450,6 @@ export type DayPickerProps<
  * @see https://react-day-picker.js.org/next/using-daypicker/selection-modes
  */
 export type Mode = "single" | "multiple" | "range";
-
-/** The selected value when in selection mode. */
-export type Selected<
-  ModeType extends Mode,
-  IsRequired extends boolean = false
-> = IsRequired extends true
-  ? {
-      single: Date;
-      multiple: Date[];
-      range: DateRange;
-    }[ModeType]
-  :
-      | {
-          single: Date;
-          multiple: Date[];
-          range: DateRange;
-        }[ModeType]
-      | undefined;
 
 /**
  * The components that can be changed using the `components` prop.

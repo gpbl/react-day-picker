@@ -21,7 +21,7 @@ export type MultiContextValue<T> = T extends { required: true }
     }
   : {
       selected: Date[] | undefined;
-      setSelected: (selected: Date | undefined) => void;
+      setSelected: (selected: Date) => void;
       isSelected: (date: Date) => boolean;
     };
 

@@ -8,6 +8,8 @@ export * from "./contexts/useFocusContext";
 export * from "./contexts/useModifiersContext";
 export * from "./contexts/usePropsContext";
 export * from "./contexts/useSingleContext";
+export * from "./contexts/useMultiContext";
+export * from "./contexts/useRangeContext";
 
 export * from "./formatters";
 export * from "./helpers";

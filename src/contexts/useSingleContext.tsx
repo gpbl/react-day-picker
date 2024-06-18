@@ -12,12 +12,12 @@ interface SingleContextOptions {
 export type SingleContextValue<T> = T extends { required: true }
   ? {
       selected: Date;
-      setSelected: (selected: Date) => void;
+      setSelected: (date: Date) => void;
       isSelected: (date: Date) => boolean;
     }
   : {
       selected: Date | undefined;
-      setSelected: (selected: Date | undefined) => void;
+      setSelected: (date: Date | undefined) => void;
       isSelected: (date: Date) => boolean;
     };
 

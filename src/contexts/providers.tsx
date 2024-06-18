@@ -8,6 +8,7 @@ import { FocusContextProvider } from "./useFocusContext";
 import { ModifiersContextProvider } from "./useModifiersContext";
 import { MultiProvider } from "./useMultiContext";
 import { PropsContextProvider, usePropsContext } from "./usePropsContext";
+import { RangeProvider } from "./useRangeContext";
 import { SingleProvider } from "./useSingleContext";
 
 function isSingle(
@@ -20,6 +21,12 @@ function isMulti(
   props: DayPickerProps<Mode, boolean>
 ): props is DayPickerProps<"multiple", boolean> {
   return props.mode === "multiple";
+}
+
+function isRange(
+  props: DayPickerProps<Mode, boolean>
+): props is DayPickerProps<"range", boolean> {
+  return props.mode === "range";
 }
 
 function SelectionProviders({ children }: PropsWithChildren) {
@@ -35,7 +42,14 @@ function SelectionProviders({ children }: PropsWithChildren) {
         required={props.required}
         initialValue={isMulti(props) ? props.selected : undefined}
       >
-        {children}
+        <RangeProvider
+          min={isMulti(props) ? props.min : undefined}
+          max={isMulti(props) ? props.max : undefined}
+          required={props.required}
+          initialValue={isRange(props) ? props.selected : undefined}
+        >
+          {children}
+        </RangeProvider>
       </MultiProvider>
     </SingleProvider>
   );

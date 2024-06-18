@@ -16,6 +16,7 @@ import { useFocusContext } from "../contexts/useFocusContext";
 import { useModifiersContext } from "../contexts/useModifiersContext";
 import { useMultiContext } from "../contexts/useMultiContext";
 import { usePropsContext } from "../contexts/usePropsContext";
+import { useRangeContext } from "../contexts/useRangeContext";
 import { useSingleContext } from "../contexts/useSingleContext";
 import { debounce } from "../helpers/debounce";
 import { getClassNamesForModifiers } from "../helpers/getClassNamesForModifiers";
@@ -69,6 +70,7 @@ export function DayWrapper(props: {
 
   const single = useSingleContext();
   const multi = useMultiContext();
+  const range = useRangeContext();
 
   const {
     autoFocusTarget,
@@ -100,6 +102,9 @@ export function DayWrapper(props: {
     }
     if (mode === "multiple" && !modifiers.disabled) {
       multi.setSelected(props.day.date);
+    }
+    if (mode === "range" && !modifiers.disabled) {
+      range.setSelected(props.day.date);
     }
     if (modifiers.focusable) {
       focus(props.day);
@@ -186,6 +191,9 @@ export function DayWrapper(props: {
         }
         if (mode === "multiple" && !modifiers.disabled) {
           multi.setSelected(props.day.date);
+        }
+        if (mode === "range" && !modifiers.disabled) {
+          range.setSelected(props.day.date);
         }
         break;
       case "PageUp":
