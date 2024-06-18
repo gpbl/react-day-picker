@@ -3,18 +3,20 @@ import React, { type ReactElement, createContext, useContext } from "react";
 import { isSameDay } from "date-fns/isSameDay";
 import { isSameMonth } from "date-fns/isSameMonth";
 
-import { SelectionModifier } from "../UI";
+import { DayFlag, SelectionState } from "../UI";
 import { CalendarDay } from "../classes";
 import type {
-  DayModifiers,
-  InternalModifier,
-  SelectionModifiers
+  CustomModifiers,
+  DayFlags,
+  Modifiers,
+  SelectionStates
 } from "../types";
 import { dateMatchModifiers } from "../utils/dateMatchModifiers";
 
 import { useCalendarContext } from "./useCalendarContext";
+import { useMultiContext } from "./useMultiContext";
 import { usePropsContext } from "./usePropsContext";
-import { useSelection } from "./useSelection";
+import { useSingleContext } from "./useSingleContext";
 
 /**
  * Holds all the modifiers used in the the calendar.
@@ -32,11 +34,11 @@ export type ModifiersContextValue = {
   /** List the days with custom modifiers passed via the `modifiers` prop. */
   custom: Record<string, CalendarDay[]>;
   /** List the days with the internal modifiers. */
-  internal: Record<InternalModifier, CalendarDay[]>;
+  internal: Record<DayFlag, CalendarDay[]>;
   /** List the days with selection modifiers. */
-  selection: Record<SelectionModifier, CalendarDay[]>;
+  selection: Record<SelectionState, CalendarDay[]>;
   /** Get the modifiers for a given day. */
-  getModifiers: (day: CalendarDay) => DayModifiers;
+  getModifiers: (day: CalendarDay) => Modifiers;
 };
 
 function useModifiers(): ModifiersContextValue {
@@ -51,28 +53,25 @@ function useModifiers(): ModifiersContextValue {
   } = usePropsContext();
 
   const calendar = useCalendarContext();
+  const single = useSingleContext();
+  const multi = useMultiContext();
 
-  const { getSelectionModifiers } = useSelection();
-
-  /** Modifiers that are set internally. */
-  const internal: Record<InternalModifier, CalendarDay[]> = {
-    focused: [],
-    outside: [],
-    disabled: [],
-    hidden: [],
-    today: [],
-    focusable: []
+  const internal: Record<DayFlag, CalendarDay[]> = {
+    [DayFlag.focused]: [],
+    [DayFlag.outside]: [],
+    [DayFlag.disabled]: [],
+    [DayFlag.hidden]: [],
+    [DayFlag.today]: [],
+    [DayFlag.focusable]: []
   };
 
-  /** Custom modifiers that are coming from the `modifiers` props */
   const custom: Record<string, CalendarDay[]> = {};
 
-  /** Modifiers that are coming from the selection */
-  const selection: Record<SelectionModifier, CalendarDay[]> = {
-    [SelectionModifier.range_end]: [],
-    [SelectionModifier.range_middle]: [],
-    [SelectionModifier.range_start]: [],
-    [SelectionModifier.selected]: []
+  const selection: Record<SelectionState, CalendarDay[]> = {
+    [SelectionState.range_end]: [],
+    [SelectionState.range_middle]: [],
+    [SelectionState.range_start]: [],
+    [SelectionState.selected]: []
   };
 
   for (const day of calendar.days) {
@@ -98,7 +97,19 @@ function useModifiers(): ModifiersContextValue {
     if (isFocusable) internal.focusable.push(day);
     if (isToday) internal.today.push(day);
 
-    // Now add custom modifiers
+    // Add the selection modifiers
+    if (mode === "single") {
+      if (single.isSelected(day.date)) {
+        selection[SelectionState.selected].push(day);
+      }
+    }
+    if (mode === "multiple") {
+      if (multi.isSelected(day.date)) {
+        selection[SelectionState.selected].push(day);
+      }
+    }
+
+    // Add custom modifiers
     if (modifiers) {
       Object.keys(modifiers).forEach((name) => {
         const modifierValue = modifiers?.[name];
@@ -113,53 +124,43 @@ function useModifiers(): ModifiersContextValue {
         }
       });
     }
-
-    // Add the selection modifiers
-    const selectionModifiers = getSelectionModifiers(day);
-    for (const name in selectionModifiers) {
-      if (!isDisabled && selectionModifiers[name as SelectionModifier]) {
-        selection[name as SelectionModifier].push(day);
-      }
-    }
   }
 
   const getModifiers = (day: CalendarDay) => {
-    const dayModifiers: DayModifiers = {
-      focused: false,
-      disabled: false,
-      focusable: false,
-      hidden: false,
-      outside: false,
-      today: false
+    // Initialize all the modifiers to false
+    const dayFlags: DayFlags = {
+      [DayFlag.focused]: false,
+      [DayFlag.disabled]: false,
+      [DayFlag.focusable]: false,
+      [DayFlag.hidden]: false,
+      [DayFlag.outside]: false,
+      [DayFlag.today]: false
     };
+    const selectionModifiers: SelectionStates = {
+      [SelectionState.range_end]: false,
+      [SelectionState.range_middle]: false,
+      [SelectionState.range_start]: false,
+      [SelectionState.selected]: false
+    };
+    const customModifiers: CustomModifiers = {};
 
+    // Find the modifiers for the given day
     for (const name in internal) {
-      const days = internal[name as InternalModifier];
-      dayModifiers[name] = days.some((d) => d === day);
+      const days = internal[name as DayFlag];
+      dayFlags[name as DayFlag] = days.some((d) => d === day);
     }
-
-    const selectionModifiers: SelectionModifiers = {
-      [SelectionModifier.range_end]: false,
-      [SelectionModifier.range_middle]: false,
-      [SelectionModifier.range_start]: false,
-      [SelectionModifier.selected]: false
-    };
-
     for (const name in selection) {
-      const days = selection[name as SelectionModifier];
-      selectionModifiers[name as SelectionModifier] = days.some(
-        (d) => d === day
-      );
+      const days = selection[name as SelectionState];
+      selectionModifiers[name as SelectionState] = days.some((d) => d === day);
     }
-
-    const customModifiers: Record<string, boolean> = {};
     for (const name in custom) {
       customModifiers[name] = custom[name].some((d) => d === day);
     }
 
     return {
       ...selectionModifiers,
-      ...dayModifiers,
+      ...dayFlags,
+      // custom modifiers should override all the previous ones
       ...customModifiers
     };
   };

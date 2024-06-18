@@ -13,11 +13,11 @@ import type { Locale } from "date-fns";
 
 import {
   UI,
-  DayModifier,
+  DayFlag,
   CalendarFlag,
   ChevronFlag,
   WeekNumberFlag,
-  SelectionModifier
+  SelectionState
 } from "./UI";
 import * as components from "./components/custom-components";
 import {
@@ -42,100 +42,107 @@ import {
   labelYearDropdown
 } from "./labels";
 
-/** @group Props */
+/**
+ * The props when the single selection is required.
+ *
+ * @group Props
+ */
 export interface PropsSingleRequired {
   selected: Date;
   onSelect?: (
     selected: Date,
     triggerDate: Date,
-    modifiers: DayModifiers & SelectionModifier,
+    modifiers: Modifiers,
     e: MouseEvent | KeyboardEvent
   ) => void | undefined;
-  min?: number;
-  max?: number;
 }
 
-/** @group Props */
+/**
+ * The props when the single selection is optional.
+ *
+ * @group Props
+ */
 export interface PropsSingle {
   selected?: Date | undefined;
   onSelect?: (
     selected: Date | undefined,
     triggerDate: Date,
-    modifiers: DayModifiers & SelectionModifier,
+    modifiers: Modifiers,
     e: MouseEvent | KeyboardEvent
   ) => void;
 }
 
-/** @group Props */
+/**
+ * The props when the multiple selection is required.
+ *
+ * @group Props
+ */
 export interface PropsMultiRequired {
   selected: Date[];
   onSelect?: (
     selected: Date[],
     triggerDate: Date,
-    modifiers: DayModifiers & SelectionModifier,
+    modifiers: Modifiers,
     e: MouseEvent | KeyboardEvent
   ) => void;
   min?: number;
   max?: number;
 }
 
-/** @group Props */
+/**
+ * The props when the multiple selection is optional.
+ *
+ * @group Props
+ */
 export interface PropsMulti {
   selected?: Date[] | undefined;
   onSelect?: (
     selected: Date[] | undefined,
     triggerDate: Date,
-    modifiers: DayModifiers & SelectionModifier,
+    modifiers: Modifiers,
     e: MouseEvent | KeyboardEvent
   ) => void;
   min?: number;
   max?: number;
 }
 
-/** @group Props */
+/**
+ * The props when the range selection is required.
+ *
+ * @group Props
+ */
 export interface PropsRangeRequired {
   selected: DateRange;
   onSelect?: (
     selected: DateRange,
     triggerDate: Date,
-    modifiers: DayModifiers & SelectionModifier,
+    modifiers: Modifiers,
     e: MouseEvent | KeyboardEvent
   ) => void;
   min?: number;
   max?: number;
 }
 
-/** @group Props */
+/**
+ * The props when the range selection is optional.
+ *
+ * @group Props
+ */
 export interface PropsRange {
   required?: false | undefined;
   selected?: DateRange | undefined;
   onSelect?: (
     selected: DateRange | undefined,
     triggerDate: Date,
-    modifiers: DayModifiers & SelectionModifier,
+    modifiers: Modifiers,
     e: MouseEvent | KeyboardEvent
   ) => void | undefined;
   min?: number;
   max?: number;
 }
 
-/**
- * Map the props for the selection modes.
- *
- * @template ModeType - The selection mode
- * @template IsRequired - Whether the selection is required
- */
-export type ModeProps<ModeType extends Mode, isRequired extends boolean> = {
-  single: isRequired extends true ? PropsSingleRequired : PropsSingle;
-  multiple: isRequired extends true ? PropsMultiRequired : PropsMulti;
-  range: isRequired extends true ? PropsRangeRequired : PropsRange;
-}[ModeType];
-
 /** @group Props */
-export interface BaseProps<
-  ModeType extends Mode | undefined = undefined,
-  IsRequired extends boolean = false
-> {
+export interface PropsBase {
   /** Class name to add to the root element */
   className?: string;
   /**
@@ -404,16 +411,8 @@ export interface BaseProps<
   onNextClick?: MonthChangeEventHandler;
   /** Event handler when the previous month button is clicked. */
   onPrevClick?: MonthChangeEventHandler;
-  /**
-   * Event handler when a week number is clicked. Requires {@link showWeekNumber}
-   * to be set.
-   */
+  /** Event handler when a week number is clicked */
   onWeekNumberClick?: WeekNumberMouseEventHandler;
-
-  /** The selection mode. */
-  mode?: ModeType;
-  /** Whether the selection is required. */
-  required?: IsRequired;
 }
 
 /**
@@ -426,17 +425,25 @@ export interface BaseProps<
 export type DayPickerProps<
   ModeType extends Mode | undefined = undefined,
   IsRequired extends boolean = false
-> = BaseProps<ModeType, IsRequired> & {
-  required?: IsRequired;
+> = PropsBase & {
+  /** The selection mode. */
   mode?: ModeType;
-} & (ModeType extends Mode ? ModeProps<ModeType, IsRequired> : {});
+  /** Whether the selection is required. */
+  required?: IsRequired;
+} & (ModeType extends Mode
+    ? {
+        single: IsRequired extends true ? PropsSingleRequired : PropsSingle;
+        multiple: IsRequired extends true ? PropsMultiRequired : PropsMulti;
+        range: IsRequired extends true ? PropsRangeRequired : PropsRange;
+      }[ModeType]
+    : {});
 
 /**
  * Selection modes supported by DayPicker.
  *
  * - `single`: use DayPicker to select single days.
  * - `multiple`: allow selecting multiple days.
- * - `range`: use DayPicker to select a range of days
+ * - `range`: use DayPicker to select a range of days.
  *
  * @see https://react-day-picker.js.org/next/using-daypicker/selection-modes
  */
@@ -614,7 +621,7 @@ export type DayEventHandler<T> = (
   /** The date that has triggered the event. */
   date: Date,
   /** The modifiers belonging to the date. */
-  modifiers: DayModifiers,
+  modifiers: Modifiers,
   /** The DOM event that triggered this event. */
   e: T
 ) => void;
@@ -632,42 +639,50 @@ export type WeekNumberMouseEventHandler = (
   e: MouseEvent
 ) => void;
 
-/** Maps {@link UI} elements to their CSS properties. */
+/** Maps user interface elements, selection states, and flags to a CSS style. */
 export type Styles = {
-  [uiElement in UI]: CSSProperties | undefined;
+  [element in
+    | UI
+    | SelectionState
+    | DayFlag
+    | CalendarFlag
+    | ChevronFlag
+    | WeekNumberFlag]: CSSProperties | undefined;
 };
 
 /**
- * Maps {@link UI}, {@link DayModifier}, {@link CalendarFlag}, {@link ChevronFlag},
- * and {@link WeekNumberFlag} elements to their class names.
+ * Maps user interface elements, selection states, and flags to a CSS class
+ * name.
  */
 export type ClassNames = {
   [key in
     | UI
-    | SelectionModifier
-    | DayModifier
+    | SelectionState
+    | DayFlag
     | CalendarFlag
     | ChevronFlag
     | WeekNumberFlag]: string;
 };
 
-/** The modifiers that are internally used by DayPicker. */
-export type InternalModifier = keyof typeof DayModifier;
+/** The flags that are matching a day in the calendar. */
+export type DayFlags = Record<DayFlag, boolean>;
 
-/** The modifiers that are matching the day in the calendar. */
-export type DayModifiers = Record<string, boolean> &
-  Record<InternalModifier, boolean>;
+/** The selection state that are matching a day in the calendar. */
+export type SelectionStates = Record<SelectionState, boolean>;
 
-/** The modifiers that are matching the day in the calendar. */
-export type SelectionModifiers = Record<SelectionModifier, boolean>;
+/** The modifiers that are matching a day in the calendar. */
+export type Modifiers = DayFlags & SelectionStates & CustomModifiers;
+
+/** The custom modifiers matching a day, passed to the `modifiers` prop. */
+export type CustomModifiers = Record<string, boolean>;
 
 /** The style to apply to each day element matching a modifier. */
 export type ModifiersStyles = Record<string, CSSProperties> &
-  Partial<Record<InternalModifier, CSSProperties>>;
+  Partial<Record<DayFlag, CSSProperties>>;
 
 /** The classnames to assign to each day element matching a modifier. */
 export type ModifiersClassNames = Record<string, string> &
-  Partial<Record<InternalModifier, string>>;
+  Partial<Record<DayFlag & SelectionState, string>>;
 
 /**
  * The props that have been deprecated since version 9.0.0.

@@ -1,108 +1,97 @@
-import React, {
-  useState,
-  useEffect,
-  createContext,
-  useContext,
-  ReactNode
-} from "react";
+import React from "react";
 
 import { isSameDay } from "date-fns";
 
-interface UseMultiOptions {
+export interface MultiContextOptions {
   /** If the date is required. */
   required?: boolean;
   /** The initial value of the selection. */
-  initialValue?: Date[];
+  defaultSelected?: Date[];
   /** The minimum number of dates that can be selected. */
   min?: number;
   /** The maximum number of dates that can be selected. */
   max?: number;
 }
 
-type UseMulti<T> = T extends { required: true }
+export type MultiContextValue<T> = T extends { required: true }
   ? {
       selected: Date[];
-      setSelected: React.Dispatch<React.SetStateAction<Date[]>>;
+      setSelected: (selected: Date) => void;
       isSelected: (date: Date) => boolean;
     }
   : {
       selected: Date[] | undefined;
-      setSelected: React.Dispatch<React.SetStateAction<Date[] | undefined>>;
+      setSelected: (selected: Date | undefined) => void;
       isSelected: (date: Date) => boolean;
     };
 
-function useMulti<T extends UseMultiOptions>({
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const MultiContext = React.createContext<MultiContextValue<any> | undefined>(
+  undefined
+);
+
+function useMulti<T extends MultiContextOptions>({
   required = false,
   min = undefined,
   max = undefined,
-  initialValue
-}: T): UseMulti<T> {
-  const [selected, setValue] = useState<Date[] | undefined>(initialValue);
+  defaultSelected
+}: T): MultiContextValue<T> {
+  const [dates, setDates] = React.useState<Date[] | undefined>(defaultSelected);
 
   // Update the selected date if the required flag is set.
-  useEffect(() => {
-    if (required && selected === undefined) {
-      setValue([new Date()]);
-    }
-  }, [required, selected]);
+  React.useEffect(() => {
+    if (required && dates === undefined) setDates([new Date()]);
+  }, [required, dates]);
 
   // Update the selected date if the initialValue changes.
-  useEffect(() => {
-    if (initialValue) {
-      setValue(initialValue);
-    }
-  }, [initialValue]);
+  React.useEffect(() => {
+    if (defaultSelected) setDates(defaultSelected);
+  }, [defaultSelected]);
 
   const isSelected = (date: Date) =>
-    selected?.some((d) => isSameDay(d, date)) ?? false;
+    dates?.some((d) => isSameDay(d, date)) ?? false;
 
   const setSelected = (date: Date) => {
-    let newValue: Date[] | undefined;
     if (isSelected(date)) {
-      if (selected?.length === 1 || selected?.length === min) {
-        // min reached - cannot remove date
-        newValue = [date];
-      } else {
-        // remove the date
-        newValue = selected?.filter((d) => !isSameDay(d, date));
+      if (dates?.length === min) {
+        // Min value reached, do nothing
+        return;
       }
-    } else if (selected?.length === max) {
-      // Max value reached, reset the selection to date
-      newValue = [date];
+      if (required && dates?.length === 1) {
+        // Required value already selected do nothing
+        return;
+      }
+      setDates(dates?.filter((d) => !isSameDay(d, date)));
     } else {
-      // Add the date to the selection
-      newValue = [...(selected ?? []), date];
+      if (dates?.length === max) {
+        // Max value reached, reset the selection to date
+        setDates([date]);
+      } else {
+        // Add the date to the selection
+        setDates([...(dates ?? []), date]);
+      }
     }
-    setValue(newValue);
   };
 
   return {
-    value: selected,
-    setSelected: setSelected,
+    selected: dates,
+    setSelected,
     isSelected
-  } as unknown as UseMulti<T>;
+  } as MultiContextValue<T>;
 }
-
-export interface MultiContextValue {
-  value: Date[] | undefined;
-  setValue: React.Dispatch<React.SetStateAction<Date[] | undefined>>;
-  isSelected: (date: Date) => boolean;
-}
-
-const MultiContext = createContext<MultiContextValue | undefined>(undefined);
 
 export function MultiProvider({
   children,
-  required = false,
   initialValue,
   min,
-  max
+  max,
+  required = false
 }: {
-  children: ReactNode;
-  required: boolean;
+  children: React.ReactNode;
   min: number | undefined;
   max: number | undefined;
   initialValue: Date[] | undefined;
+  required?: boolean;
 }) {
   const contextValue = useMulti({ required, initialValue, min, max });
 
@@ -113,10 +102,14 @@ export function MultiProvider({
   );
 }
 /** @group Contexts */
-export function useMultiContext(): MultiContextValue {
-  const context = useContext(MultiContext);
+export function useMultiContext<
+  T extends MultiContextOptions
+>(): MultiContextValue<T> {
+  const context = React.useContext(MultiContext);
   if (!context) {
-    throw new Error("useSingleContext must be used within a SingleProvider");
+    throw new Error(
+      "useMultiContext must be used within a MultiContextProvider."
+    );
   }
-  return context;
+  return context as MultiContextValue<T>;
 }

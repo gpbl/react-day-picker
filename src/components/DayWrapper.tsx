@@ -9,15 +9,14 @@ import {
   useRef
 } from "react";
 
-import { useSingleContext } from "react-day-picker/contexts/useSingleContext";
-
-import { UI, DayModifier } from "../UI";
+import { UI, DayFlag } from "../UI";
 import { CalendarDay } from "../classes/CalendarDay";
 import { useCalendarContext } from "../contexts/useCalendarContext";
 import { useFocusContext } from "../contexts/useFocusContext";
 import { useModifiersContext } from "../contexts/useModifiersContext";
+import { useMultiContext } from "../contexts/useMultiContext";
 import { usePropsContext } from "../contexts/usePropsContext";
-import { useSelection } from "../contexts/useSelection";
+import { useSingleContext } from "../contexts/useSingleContext";
 import { debounce } from "../helpers/debounce";
 import { getClassNamesForModifiers } from "../helpers/getClassNamesForModifiers";
 import { getStyleForModifiers } from "../helpers/getStyleForModifiers";
@@ -69,6 +68,7 @@ export function DayWrapper(props: {
   const { getModifiers } = useModifiersContext();
 
   const single = useSingleContext();
+  const multi = useMultiContext();
 
   const {
     autoFocusTarget,
@@ -95,8 +95,11 @@ export function DayWrapper(props: {
       e.stopPropagation();
       return;
     }
-    if (mode && !modifiers.disabled) {
-      single.setValue(props.day.date);
+    if (mode === "single" && !modifiers.disabled) {
+      single.setSelected(props.day.date);
+    }
+    if (mode === "multiple" && !modifiers.disabled) {
+      multi.setSelected(props.day.date);
     }
     if (modifiers.focusable) {
       focus(props.day);
@@ -179,7 +182,10 @@ export function DayWrapper(props: {
         e.preventDefault();
         e.stopPropagation();
         if (mode === "single" && !modifiers.disabled) {
-          single.setValue(props.day.date);
+          single.setSelected(props.day.date);
+        }
+        if (mode === "multiple" && !modifiers.disabled) {
+          multi.setSelected(props.day.date);
         }
         break;
       case "PageUp":
@@ -220,7 +226,7 @@ export function DayWrapper(props: {
   const className = [classNames[UI.Day], ...classNameForModifiers];
 
   if (isFocused) {
-    className.push(classNames[DayModifier.focused]);
+    className.push(classNames[DayFlag.focused]);
   }
 
   const dayRootProps: DayProps["rootProps"] = {

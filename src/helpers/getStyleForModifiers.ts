@@ -1,10 +1,10 @@
 import type { CSSProperties } from "react";
 
 import { UI } from "../UI";
-import type { DayModifiers, ModifiersStyles, Styles } from "../types";
+import type { Modifiers, ModifiersStyles, Styles } from "../types";
 
 export function getStyleForModifiers(
-  dayModifiers: DayModifiers,
+  dayModifiers: Modifiers,
   modifiersStyles: Partial<ModifiersStyles>,
   styles: Partial<Styles>
 ): CSSProperties {

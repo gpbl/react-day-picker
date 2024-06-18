@@ -1,11 +1,11 @@
 import { es } from "date-fns/locale/es";
 
-import type { DayModifiers } from "../types";
+import type { Modifiers } from "../types";
 
 import { labelDay } from "./labelDay";
 
 const day = new Date(2022, 10, 21);
-const dayModifiers: DayModifiers = {
+const dayModifiers: Modifiers = {
   disabled: false,
   focusable: false,
   focused: false,

@@ -45,13 +45,13 @@ export function Calendar() {
     cssClassNames.push(className);
   }
   if (numberOfMonths > 1) {
-    cssClassNames.push(classNames[CalendarFlag.hasMultipleMonths]);
+    cssClassNames.push(classNames[CalendarFlag.has_multiple_months]);
   }
   if (showWeekNumber) {
-    cssClassNames.push(classNames[CalendarFlag.hasWeekNumbers]);
+    cssClassNames.push(classNames[CalendarFlag.has_week_numbers]);
   }
   if (hideWeekdayRow) {
-    cssClassNames.push(classNames[CalendarFlag.noWeekdays]);
+    cssClassNames.push(classNames[CalendarFlag.no_weekdays]);
   }
 
   const Nav = components?.Nav ?? DefaultNav;

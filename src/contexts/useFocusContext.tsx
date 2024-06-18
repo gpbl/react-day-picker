@@ -6,7 +6,7 @@ import React, {
   useState
 } from "react";
 
-import { DayModifier } from "../UI";
+import { DayFlag } from "../UI";
 import type { CalendarDay } from "../classes";
 import { getNextFocus } from "../helpers/getNextFocus";
 import type { MoveFocusBy, MoveFocusDir, Mode } from "../types";
@@ -81,7 +81,7 @@ function useFocus(): FocusContextValue {
   let autoFocusTarget: CalendarDay | undefined;
 
   const isValidFocusTarget = (day: CalendarDay) => {
-    return isDayDisplayed(day) && !getModifiers(day)[DayModifier.disabled];
+    return isDayDisplayed(day) && !getModifiers(day)[DayFlag.disabled];
   };
 
   if (isInteractive) {

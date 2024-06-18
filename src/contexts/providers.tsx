@@ -31,7 +31,7 @@ function SelectionProviders({ children }: PropsWithChildren) {
     >
       <MultiProvider
         min={isMulti(props) ? props.min : undefined}
-        max={isMulti(props) ? props.min : undefined}
+        max={isMulti(props) ? props.max : undefined}
         required={props.required}
         initialValue={isMulti(props) ? props.selected : undefined}
       >

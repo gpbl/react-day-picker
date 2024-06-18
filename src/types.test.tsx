@@ -23,6 +23,8 @@ const Test = () => {
         required
         onSelect={(date: Date | undefined) => {}}
       />
+      {/* @ts-expect-error selected should be undefined. */}
+      <DayPicker mode="single" required selected={undefined} />
       <DayPicker
         mode="multiple"
         required={true}

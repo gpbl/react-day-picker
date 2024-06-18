@@ -1,81 +1,63 @@
-import React, {
-  useState,
-  useEffect,
-  createContext,
-  useContext,
-  ReactNode,
-  Dispatch,
-  SetStateAction
-} from "react";
+import React from "react";
 
 import { isSameDay } from "date-fns";
 
-export interface UseSingleOptions {
+interface SingleContextOptions {
   /** If the date is required. */
   required?: boolean;
   /** The initial value of the selection. */
-  initialValue?: Date;
+  defaultSelected?: Date;
 }
 
-type SingleContextValue<T> = T extends { required: true }
+export type SingleContextValue<T> = T extends { required: true }
   ? {
-      value: Date;
-      setValue: Dispatch<SetStateAction<Date>>;
+      selected: Date;
+      setSelected: (selected: Date) => void;
       isSelected: (date: Date) => boolean;
     }
   : {
-      value: Date;
-      setValue: Dispatch<SetStateAction<Date | undefined>>;
+      selected: Date | undefined;
+      setSelected: (selected: Date | undefined) => void;
       isSelected: (date: Date) => boolean;
     };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const SingleContext = createContext<SingleContextValue<any> | undefined>(
+const SingleContext = React.createContext<SingleContextValue<any> | undefined>(
   undefined
 );
 
 /** @private */
-function useSingle<T extends UseSingleOptions>({
+function useSingle<T extends SingleContextOptions>({
   required = false,
-  initialValue
+  defaultSelected: initialValue
 }: T): SingleContextValue<T> {
-  const [date, setDate] = useState<Date | undefined>(initialValue);
+  const [date, setDate] = React.useState<Date | undefined>(initialValue);
 
   // Update the selected date if the required flag is set.
-  useEffect(() => {
-    if (required && date === undefined) {
-      setDate(new Date());
-    }
+  React.useEffect(() => {
+    if (required && date === undefined) setDate(new Date());
   }, [required, date]);
 
   // Update the selected date if the initialValue changes.
-  useEffect(() => {
-    if (initialValue) {
-      setDate(initialValue);
-    }
+  React.useEffect(() => {
+    if (initialValue) setDate(initialValue);
   }, [initialValue]);
 
-  const isSelected = (compareDate: Date) => {
-    return date ? isSameDay(date, compareDate) : false;
-  };
+  const isSelected = (compareDate: Date) =>
+    date ? isSameDay(date, compareDate) : false;
 
-  const setValue = (newDate: Date | undefined) => {
-    if (newDate === undefined && required) {
+  const setSelected = (newDate: Date | undefined) => {
+    if (newDate === undefined) {
       // If the date is required, do not allow to clear the selection.
-      return required ? date : undefined;
-    }
-    if (date && newDate && isSameDay(date, newDate)) {
+      setDate(required ? date : undefined);
+    } else if (!required && date && newDate && isSameDay(date, newDate)) {
       // If the date is the same, clear the selection.
-      return required ? newDate : undefined;
+      setDate(undefined);
+    } else {
+      setDate(newDate);
     }
-    return newDate;
   };
-
-  return {
-    value: date,
-    setValue,
-    isSelected
-  } as SingleContextValue<T>;
+  return { selected: date, setSelected, isSelected } as SingleContextValue<T>;
 }
 /** @private */
 export function SingleProvider({
@@ -83,12 +65,11 @@ export function SingleProvider({
   required = false,
   initialValue
 }: {
-  children: ReactNode;
+  children: React.ReactNode;
   required?: boolean;
   initialValue?: Date;
 }) {
   const contextValue = useSingle({ required, initialValue });
-
   return (
     <SingleContext.Provider value={contextValue}>
       {children}
@@ -97,12 +78,12 @@ export function SingleProvider({
 }
 
 /** @group Contexts */
-export function useSingleContext<
-  T extends UseSingleOptions
->(): SingleContextValue<T> {
-  const context = useContext(SingleContext);
+export function useSingleContext() {
+  const context = React.useContext(SingleContext);
   if (!context) {
-    throw new Error("useSingleContext must be used within a SingleProvider");
+    throw new Error(
+      "useSingleContext must be used within a SingleContextProvider"
+    );
   }
-  return context as SingleContextValue<T>;
+  return context;
 }

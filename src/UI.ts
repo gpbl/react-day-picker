@@ -17,7 +17,7 @@ export enum UI {
   Calendar = "calendar",
   /** The Chevron SVG element used by navigation buttons and dropdowns. */
   Chevron = "chevron",
-  /** The grid cell with the day's date. Extended by {@link DayModifier}. */
+  /** The grid cell with the day's date. Extended by {@link DayFlag}. */
   Day = "day",
   /** The element containing the formatted day's date, inside the grid cell. */
   DayDate = "day_date",
@@ -60,8 +60,8 @@ export enum UI {
   YearsDropdown = "years_dropdown"
 }
 
-/** The modifiers for the {@link UI.Day}. */
-export enum DayModifier {
+/** The flags for the {@link UI.Day}. */
+export enum DayFlag {
   /** The day is disabled */
   disabled = "disabled",
   /** The day is hidden */
@@ -77,10 +77,10 @@ export enum DayModifier {
 }
 
 /**
- * The modifiers that can be applied to the {@link UI.Day} element when in
- * selection mode.
+ * The state that can be applied to the {@link UI.Day} element when in selection
+ * mode.
  */
-export enum SelectionModifier {
+export enum SelectionState {
   /** The day is at the end of a selected range. */
   range_end = "range_end",
   /** The day is at the middle of a selected range. */
@@ -94,11 +94,11 @@ export enum SelectionModifier {
 /** Flags that can be applied to the {@link UI.Calendar} element. */
 export enum CalendarFlag {
   /** Assigned when the week numbers are show. */
-  hasWeekNumbers = "has_week_numbers",
+  has_week_numbers = "has_week_numbers",
   /** Assigned when the weekdays are hidden. */
-  noWeekdays = "no_weekdays",
+  no_weekdays = "no_weekdays",
   /** Assigned when the calendar has multiple months. */
-  hasMultipleMonths = "has_multiple_months"
+  has_multiple_months = "has_multiple_months"
 }
 
 /** Flags that can be applied to the {@link UI.Chevron} element. */
@@ -113,5 +113,5 @@ export enum WeekNumberFlag {
    * Assigned when the week number is interactive, i.e. has an
    * `onWeekNumberClick` event attached to it.
    */
-  isInteractive = "week_number_interactive"
+  week_number_interactive = "week_number_interactive"
 }

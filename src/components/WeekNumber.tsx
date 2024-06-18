@@ -31,7 +31,7 @@ export function WeekNumber(props: { week: CalendarWeek }) {
       aria-label={labelWeekNumber(props.week.weekNumber, { locale })}
       className={[
         classNames[UI.WeekNumber],
-        isInteractive ? classNames[WeekNumberFlag.isInteractive] : ""
+        isInteractive ? classNames[WeekNumberFlag.week_number_interactive] : ""
       ].join(" ")}
       style={styles?.[UI.WeekNumber]}
       tabIndex={isInteractive ? 0 : undefined}
