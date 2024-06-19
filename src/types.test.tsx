@@ -51,7 +51,7 @@ const Test = () => {
       <DayPicker mode="single" selected={new Date()} />
       <DayPicker modifiers={{ selected: new Date() }} onDayClick={() => {}} />
       <DayPicker
-        // @ts-expect-error Extra `selected`
+        onSelect={() => {}}
         selected={new Date()}
         onDayClick={() => {}}
       />

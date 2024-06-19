@@ -2,7 +2,8 @@ import React from "react";
 
 import { differenceInCalendarDays } from "date-fns";
 
-import { DateRange, PropsRange } from "../types";
+import { PropsRange } from "../DayPickerProps";
+import { DateRange } from "../types";
 import { addToRange, isDateRange } from "../utils";
 import { isDateInRange } from "../utils/isDateInRange";
 

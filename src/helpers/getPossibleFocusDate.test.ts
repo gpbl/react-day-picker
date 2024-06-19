@@ -12,15 +12,13 @@ import {
 } from "date-fns";
 
 import type { PropsContextValue } from "../contexts/usePropsContext";
-import type { MoveFocusBy } from "../types";
-import type { MoveFocusDir } from "../types";
-import type { Mode } from "../types";
+import type { MoveFocusBy, MoveFocusDir, Mode } from "../types";
 
 import { getPossibleFocusDate } from "./getPossibleFocusDate";
 
 const baseDate = new Date(2023, 0, 1); // Jan 1, 2023
 const options: Pick<
-  PropsContextValue<Mode, boolean>,
+  PropsContextValue,
   "locale" | "ISOWeek" | "weekStartsOn" | "startMonth" | "endMonth"
 > = {
   locale: undefined,

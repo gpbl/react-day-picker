@@ -1,8 +1,9 @@
-import type { DayPickerProps, Mode } from "../types";
+import type { DayPickerProps } from "../DayPickerProps";
+import type { Mode } from "../types";
 
 /** Return the `data-` attributes from the props. */
 export function getDataAttributes(
-  props: DayPickerProps<Mode, boolean>
+  props: DayPickerProps
 ): Record<string, unknown> {
   const dataAttributes: Record<string, unknown> = {};
   Object.entries(props).forEach(([key, val]) => {

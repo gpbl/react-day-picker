@@ -1,4 +1,5 @@
 export * from "./DayPicker";
+export * from "./DayPickerProps";
 
 export * from "./classes";
 export * from "./components/custom-components";

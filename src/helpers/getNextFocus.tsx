@@ -8,7 +8,7 @@ import { dateMatchModifiers } from "../utils/dateMatchModifiers";
 import { getPossibleFocusDate } from "./getPossibleFocusDate";
 
 export type Options = Pick<
-  PropsContextValue<Mode, boolean>,
+  PropsContextValue,
   | "modifiers"
   | "locale"
   | "ISOWeek"
@@ -23,7 +23,7 @@ export function getNextFocus(
   /** The date that is currently focused. */
   focused: CalendarDay,
   options: Pick<
-    PropsContextValue<Mode | undefined, boolean>,
+    PropsContextValue,
     | "disabled"
     | "hidden"
     | "modifiers"

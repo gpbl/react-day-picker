@@ -2,12 +2,12 @@ import React from "react";
 import type { PropsWithChildren } from "react";
 
 import type {
-  DayPickerProps,
-  Mode,
   PropsMulti,
   PropsRange,
-  PropsSingle
-} from "../types";
+  PropsSingle,
+  DayPickerProps
+} from "../DayPickerProps";
+import type { Mode } from "../types";
 
 import { CalendarContextProvider } from "./useCalendarContext";
 import { FocusContextProvider } from "./useFocusContext";
@@ -33,9 +33,7 @@ function SelectionProviders({ children }: PropsWithChildren) {
  *
  * @private
  */
-export function ContextProviders(
-  props: PropsWithChildren<DayPickerProps<Mode, boolean>>
-) {
+export function ContextProviders(props: PropsWithChildren<DayPickerProps>) {
   const { children, ...initialProps } = props;
   return (
     <PropsContextProvider initialProps={initialProps}>

@@ -1,4 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import type {
+  DayPickerProps,
+  PropsMulti,
+  PropsRange,
+  PropsSingle
+} from "./DayPickerProps";
 import { Calendar } from "./components/Calendar";
 import { MonthCaption, MonthCaptionProps } from "./components/MonthCaption";
 import { Week, type WeekProps } from "./components/Week";
@@ -8,7 +14,7 @@ import {
   type PropsContextValue
 } from "./contexts/usePropsContext";
 import { labelDay, labelNext, labelWeekday, labelWeekNumber } from "./labels";
-import type { Mode, DayEventHandler, DayPickerProps } from "./types";
+import type { Mode, DayEventHandler } from "./types";
 
 /**
  * @deprecated This type will be removed.
@@ -67,25 +73,22 @@ export const Row = Week;
 export type RowProps = WeekProps;
 
 /**
- * @deprecated This type has been renamed. Use `DayPickerProps<"single">`
- *   instead.
+ * @deprecated This type has been renamed. Use `PropsSingle` instead.
  * @protected
  */
-export type DayPickerSingleProps = DayPickerProps<"single">;
+export type DayPickerSingleProps = PropsSingle;
 
 /**
- * @deprecated This type has been renamed. Use `DayPickerProps<"multiple">`
- *   instead.
+ * @deprecated This type has been renamed. Use `PropsMulti` instead.
  * @protected
  */
-export type DayPickerMultipleProps = DayPickerProps<"multiple">;
+export type DayPickerMultipleProps = PropsMulti;
 
 /**
- * @deprecated This type has been renamed. Use `DayPickerProps<"range">`
- *   instead.
+ * @deprecated This type has been renamed. Use `PropsRange` instead.
  * @protected
  */
-export type DayPickerRangeProps = DayPickerProps<"range">;
+export type DayPickerRangeProps = PropsRange;
 
 /**
  * @deprecated This type will be removed. Use `NonNullable<unknown>` instead
@@ -109,20 +112,20 @@ export type Modifier = string;
  * @deprecated This type will be removed. Use `SelectHandler<"single">` instead.
  * @protected
  */
-export type SelectSingleEventHandler = DayPickerProps<"single">["onSelect"];
+export type SelectSingleEventHandler = PropsSingle["onSelect"];
 
 /**
  * @deprecated This type will be removed. Use `SelectHandler<"multiple">`
  *   instead.
  * @protected
  */
-export type SelectMultipleEventHandler = DayPickerProps<"multiple">["onSelect"];
+export type SelectMultipleEventHandler = PropsMulti["onSelect"];
 
 /**
  * @deprecated This type will be removed. Use `SelectHandler<"range">` instead.
  * @protected
  */
-export type SelectRangeEventHandler = DayPickerProps<"range">["onSelect"];
+export type SelectRangeEventHandler = PropsRange["onSelect"];
 
 /**
  * @deprecated This type is not used anymore.
@@ -229,4 +232,4 @@ export type DayTouchEventHandler = DayEventHandler<React.TouchEvent>;
  * @deprecated The type has been renamed. Use `PropsContext` instead.
  * @protected
  */
-export type DayPickerContext = PropsContextValue<Mode | undefined, boolean>;
+export type DayPickerContext = PropsContextValue;

@@ -5,6 +5,7 @@ import React, {
   useId
 } from "react";
 
+import type { DayPickerProps } from "../DayPickerProps";
 import * as customComponents from "../components/custom-components";
 import { getDataAttributes } from "../helpers/getDataAttributes";
 import { getDefaultClassNames } from "../helpers/getDefaultClassNames";
@@ -15,29 +16,21 @@ import type {
   ClassNames,
   CustomComponents,
   DataAttributes,
-  DayPickerProps,
   Formatters,
   Labels,
   Mode
 } from "../types";
 
-const PropsContext = createContext<
-  PropsContextValue<Mode, boolean> | undefined
->(undefined);
+const PropsContext = createContext<PropsContextValue | undefined>(undefined);
 
 /**
  * Holds the props passed to the DayPicker component, with some optional props
  * set to meaningful defaults.
  *
  * Access this context using the {@link usePropsContext} hook.
- *
- * @template ModeType - The selection mode.
- * @template IsRequired - Whether the selection is required.
  */
-export type PropsContextValue<
-  ModeType extends Mode | undefined = undefined,
-  IsRequired extends boolean = false
-> = DayPickerProps<ModeType, IsRequired> & {
+export type PropsContextValue = DayPickerProps & {
+  mode: Mode | undefined;
   /** The class names to add to the UI. */
   classNames: ClassNames;
 
@@ -68,15 +61,12 @@ export type PropsContextValue<
   endMonth: Date | undefined;
 };
 
-function useProps<
-  ModeType extends Mode | undefined = undefined,
-  IsRequired extends boolean = false
->(initialProps: DayPickerProps<ModeType, IsRequired>) {
+function useProps(initialProps: DayPickerProps) {
   const reactId = useId();
 
   const { startMonth, endMonth } = getStartEndMonths(initialProps);
 
-  const propsContext: PropsContextValue<ModeType, IsRequired> = {
+  const propsContext: PropsContextValue = {
     ...initialProps,
     startMonth,
     endMonth,
@@ -115,9 +105,9 @@ export function PropsContextProvider<
   initialProps,
   children
 }: PropsWithChildren<{
-  initialProps: DayPickerProps<ModeType, IsRequired>;
+  initialProps: DayPickerProps;
 }>) {
-  const propsContextValue = useProps<ModeType, IsRequired>(initialProps);
+  const propsContextValue = useProps(initialProps);
 
   return (
     <PropsContext.Provider value={propsContextValue}>

@@ -70,7 +70,11 @@ function useFocus(): FocusContextValue {
 
   const props = usePropsContext();
   const { autoFocus } = props;
-  const { dayFlags: internal, selectionStates: selection, getModifiers } = useModifiersContext();
+  const {
+    dayFlags: internal,
+    selectionStates: selection,
+    getModifiers
+  } = useModifiersContext();
 
   const [focused, focus] = useState<CalendarDay | undefined>();
   const [lastFocused, setLastFocused] = useState<CalendarDay | undefined>();

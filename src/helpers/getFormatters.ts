@@ -1,5 +1,5 @@
+import type { DayPickerProps } from "../DayPickerProps";
 import * as defaultFormatters from "../formatters";
-import type { DayPickerProps } from "../types";
 
 /** Return the formatters from the props merged with the default formatters. */
 export function getFormatters(customFormatters: DayPickerProps["formatters"]) {

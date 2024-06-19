@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 
 import { isSameDay } from "date-fns";
-import { DayMouseEventHandler, DayPicker } from "react-day-picker";
+import { DayEventHandler, DayPicker } from "react-day-picker";
 
 export function CustomMultiple() {
   const [value, setValue] = useState<Date[]>([]);
 
-  const handleDayClick: DayMouseEventHandler = (day, modifiers) => {
+  const handleDayClick: DayEventHandler<React.MouseEvent> = (
+    day,
+    modifiers
+  ) => {
     const newValue = [...value];
     if (modifiers.selected) {
       const index = value.findIndex((d) => isSameDay(day, d));

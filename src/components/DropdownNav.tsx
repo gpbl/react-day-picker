@@ -1,8 +1,8 @@
 import React from "react";
 
-import { usePropsContext } from "../contexts/usePropsContext";
 import { UI } from "../UI";
 import type { CalendarMonth } from "../classes";
+import { usePropsContext } from "../contexts/usePropsContext";
 
 import { MonthsDropdown } from "./MonthsDropdown";
 import { YearsDropdown } from "./YearsDropdown";
