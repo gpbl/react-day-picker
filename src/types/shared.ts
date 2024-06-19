@@ -8,8 +8,8 @@ import {
   ChevronFlag,
   WeekNumberFlag,
   SelectionState
-} from "./UI";
-import * as components from "./components/custom-components";
+} from "../UI";
+import * as components from "../components/custom-components";
 import {
   formatCaption,
   formatDay,
@@ -19,7 +19,7 @@ import {
   formatWeekNumber,
   formatYearCaption,
   formatYearDropdown
-} from "./formatters";
+} from "../formatters";
 import {
   labelDay,
   labelCaption,
@@ -30,7 +30,7 @@ import {
   labelWeekNumber,
   labelWeekNumberHeader,
   labelYearDropdown
-} from "./labels";
+} from "../labels";
 
 /**
  * Selection modes supported by DayPicker.

@@ -5,13 +5,13 @@ import React, {
   useId
 } from "react";
 
-import type { DayPickerProps } from "../DayPickerProps";
 import * as customComponents from "../components/custom-components";
 import { getDataAttributes } from "../helpers/getDataAttributes";
 import { getDefaultClassNames } from "../helpers/getDefaultClassNames";
 import { getFormatters } from "../helpers/getFormatters";
 import { getStartEndMonths } from "../helpers/getStartEndMonths";
 import * as defaultLabels from "../labels";
+import type { DayPickerProps } from "../types/props";
 import type {
   ClassNames,
   CustomComponents,
@@ -19,7 +19,7 @@ import type {
   Formatters,
   Labels,
   Mode
-} from "../types";
+} from "../types/shared";
 
 const PropsContext = createContext<PropsContextValue | undefined>(undefined);
 
@@ -30,31 +30,24 @@ const PropsContext = createContext<PropsContextValue | undefined>(undefined);
  * Access this context using the {@link usePropsContext} hook.
  */
 export type PropsContextValue = DayPickerProps & {
+  /** The mode of the selectionx. */
   mode: Mode | undefined;
   /** The class names to add to the UI. */
   classNames: ClassNames;
-
   /** The unique ID of the DayPicker instance. */
   id: string;
-
   /** The data attributes to add to the calendar. */
   dataAttributes: DataAttributes;
-
   /** The components used in the UI. */
   components: CustomComponents;
-
   /** The formatters used in the UI. */
   formatters: Formatters;
-
   /** The labels used in the UI. */
   labels: Labels;
-
   /** The number of months displayed in the calendar. */
   numberOfMonths: number;
-
   /** The date of today. */
   today: Date;
-
   /** The month where the navigation starts. */
   startMonth: Date | undefined;
   /** The month where the navigation ends. */
@@ -88,6 +81,11 @@ function useProps(initialProps: DayPickerProps) {
     numberOfMonths: initialProps.numberOfMonths ?? 1,
     today: initialProps.today ?? new Date()
   };
+
+  if (initialProps.mode === "single") {
+    propsContext.mode = "single";
+    propsContext.onDayClick = (day) => {};
+  }
 
   return propsContext;
 }

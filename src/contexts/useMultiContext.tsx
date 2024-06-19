@@ -2,7 +2,7 @@ import React from "react";
 
 import { isSameDay } from "date-fns";
 
-import { PropsMulti } from "../DayPickerProps";
+import { PropsMulti } from "../types/props";
 
 export type MultiContextValue<T> = T extends { required: true }
   ? {

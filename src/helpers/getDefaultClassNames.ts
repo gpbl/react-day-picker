@@ -6,7 +6,7 @@ import {
   WeekNumberFlag,
   SelectionState
 } from "../UI";
-import type { ClassNames } from "../types";
+import type { ClassNames } from "../types/shared";
 
 /**
  * Get the default class names for the UI elements.

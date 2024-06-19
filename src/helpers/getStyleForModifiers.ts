@@ -1,7 +1,7 @@
 import type { CSSProperties } from "react";
 
 import { UI } from "../UI";
-import type { Modifiers, ModifiersStyles, Styles } from "../types";
+import type { Modifiers, ModifiersStyles, Styles } from "../types/shared";
 
 export function getStyleForModifiers(
   dayModifiers: Modifiers,

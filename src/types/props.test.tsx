@@ -1,6 +1,6 @@
 import React from "react";
 
-import { DayPicker } from "./DayPicker";
+import { DayPicker } from "../DayPicker";
 
 const Test = () => {
   return (
@@ -23,7 +23,7 @@ const Test = () => {
         required
         onSelect={(date: Date | undefined) => {}}
       />
-      {/* @ts-expect-error selected should be undefined. */}
+      {/* @ts-expect-error selected should not be undefined. */}
       <DayPicker mode="single" required selected={undefined} />
       <DayPicker
         mode="multiple"

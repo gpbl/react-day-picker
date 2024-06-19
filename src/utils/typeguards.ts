@@ -4,7 +4,7 @@ import type {
   DateInterval,
   DateRange,
   DayOfWeek
-} from "../types";
+} from "../types/shared";
 
 /**
  * Returns true if `matcher` is of type `DateInterval`.

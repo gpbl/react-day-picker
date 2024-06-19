@@ -1,5 +1,5 @@
 import type { CalendarDay } from "../classes";
-import type { SelectionStates } from "../types";
+import type { SelectionStates } from "../types/shared";
 
 import { usePropsContext } from "./usePropsContext";
 import { useSingleContext } from "./useSingleContext";

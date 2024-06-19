@@ -10,7 +10,7 @@ import type {
   DayFlags,
   Modifiers,
   SelectionStates
-} from "../types";
+} from "../types/shared";
 import { isDateInRange } from "../utils";
 import { dateMatchModifiers } from "../utils/dateMatchModifiers";
 

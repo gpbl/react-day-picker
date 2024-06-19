@@ -18,7 +18,7 @@ import type {
   Modifiers,
   DateRange,
   Mode
-} from "./types";
+} from "./shared";
 
 /**
  * The props for the `<DayPicker />` component.

@@ -6,8 +6,8 @@ import type {
   PropsRange,
   PropsSingle,
   DayPickerProps
-} from "../DayPickerProps";
-import type { Mode } from "../types";
+} from "../types/props";
+import type { Mode } from "../types/shared";
 
 import { CalendarContextProvider } from "./useCalendarContext";
 import { FocusContextProvider } from "./useFocusContext";

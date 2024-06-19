@@ -6,7 +6,7 @@ import {
   DateInterval,
   DateRange,
   DayOfWeek
-} from "../types";
+} from "../types/shared";
 
 import { dateMatchModifiers } from "./dateMatchModifiers";
 

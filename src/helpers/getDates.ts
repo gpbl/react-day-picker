@@ -8,9 +8,9 @@ import { isAfter } from "date-fns/isAfter";
 import { startOfISOWeek } from "date-fns/startOfISOWeek";
 import { startOfWeek } from "date-fns/startOfWeek";
 
-import type { DayPickerProps } from "../DayPickerProps";
 import { PropsContextValue } from "../contexts/usePropsContext";
-import type { Mode } from "../types";
+import type { DayPickerProps } from "../types/props";
+import type { Mode } from "../types/shared";
 
 /** The number of days in a month when having 6 weeks. */
 const NrOfDaysWithFixedWeeks = 42;

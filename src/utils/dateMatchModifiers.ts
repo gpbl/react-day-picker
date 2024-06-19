@@ -3,7 +3,7 @@ import { isAfter } from "date-fns/isAfter";
 import { isDate } from "date-fns/isDate";
 import { isSameDay } from "date-fns/isSameDay";
 
-import type { Matcher } from "../types";
+import type { Matcher } from "../types/shared";
 
 import { isDateInRange } from "./isDateInRange";
 import {

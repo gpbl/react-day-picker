@@ -1,7 +1,7 @@
 import { differenceInCalendarDays } from "date-fns/differenceInCalendarDays";
 import { isSameDay } from "date-fns/isSameDay";
 
-import type { DateRange } from "../types";
+import type { DateRange } from "../types/shared";
 
 /**
  * Determines whether a given date is inside a specified date range.

@@ -1,5 +1,5 @@
 export * from "./DayPicker";
-export * from "./DayPickerProps";
+export * from "./types/props";
 
 export * from "./classes";
 export * from "./components/custom-components";
@@ -15,7 +15,7 @@ export * from "./contexts/useRangeContext";
 export * from "./formatters";
 export * from "./helpers";
 export * from "./labels";
-export * from "./types-deprecated";
-export * from "./types";
+export * from "./types/deprecated";
+export * from "./types/shared";
 export * from "./utils";
 export * from "./UI";

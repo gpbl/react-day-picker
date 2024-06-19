@@ -2,7 +2,7 @@ import React from "react";
 
 import { isSameDay } from "date-fns";
 
-import { PropsSingle } from "../DayPickerProps";
+import { PropsSingle } from "../types/props";
 
 export type SingleContextValue<T> = T extends { required: true }
   ? {

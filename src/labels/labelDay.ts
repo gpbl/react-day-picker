@@ -1,6 +1,6 @@
 import { format } from "date-fns/format";
 
-import type { Modifiers } from "../types";
+import type { Modifiers } from "../types/shared";
 
 /**
  * Return an ARIA label for the day button. By default, it returns an empty

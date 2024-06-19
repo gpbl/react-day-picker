@@ -1,6 +1,6 @@
 import { addDays, subDays } from "date-fns";
 
-import type { DateRange } from "../types";
+import type { DateRange } from "../types/shared";
 
 import { addToRange } from "./addToRange";
 

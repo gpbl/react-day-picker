@@ -2,7 +2,7 @@ import { isAfter } from "date-fns/isAfter";
 import { isBefore } from "date-fns/isBefore";
 import { isSameDay } from "date-fns/isSameDay";
 
-import type { DateRange } from "../types";
+import type { DateRange } from "../types/shared";
 
 /**
  * Add a day to an existing range.

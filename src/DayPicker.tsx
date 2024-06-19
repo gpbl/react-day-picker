@@ -1,8 +1,8 @@
 import React from "react";
 
-import type { DayPickerProps } from "./DayPickerProps";
 import { Calendar } from "./components/Calendar";
 import { ContextProviders } from "./contexts/providers";
+import type { DayPickerProps } from "./types/props";
 
 /**
  * DayPicker is a React component to create date pickers, calendars, and date

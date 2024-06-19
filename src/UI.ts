@@ -1,4 +1,4 @@
-import type { CustomComponents, ClassNames, Styles } from "./types";
+import type { CustomComponents, ClassNames, Styles } from "./types/shared";
 
 /**
  * The UI elements composing DayPicker. These elements are mapped to

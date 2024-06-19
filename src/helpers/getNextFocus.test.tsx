@@ -2,7 +2,7 @@ import React from "react";
 
 import { CalendarDay } from "../classes";
 import type { PropsContextValue } from "../contexts/usePropsContext";
-import type { MoveFocusBy, MoveFocusDir } from "../types";
+import type { MoveFocusBy, MoveFocusDir } from "../types/shared";
 
 import { getNextFocus } from "./getNextFocus";
 

@@ -12,7 +12,7 @@ import {
 } from "date-fns";
 
 import type { PropsContextValue } from "../contexts/usePropsContext";
-import type { MoveFocusBy, MoveFocusDir, Mode } from "../types";
+import type { MoveFocusBy, MoveFocusDir, Mode } from "../types/shared";
 
 import { getPossibleFocusDate } from "./getPossibleFocusDate";
 

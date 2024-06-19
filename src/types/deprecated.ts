@@ -1,20 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { Calendar } from "../components/Calendar";
+import { MonthCaption, MonthCaptionProps } from "../components/MonthCaption";
+import { Week, type WeekProps } from "../components/Week";
+import { useCalendarContext } from "../contexts/useCalendarContext";
+import {
+  usePropsContext,
+  type PropsContextValue
+} from "../contexts/usePropsContext";
+import { labelDay, labelNext, labelWeekday, labelWeekNumber } from "../labels";
+
 import type {
   DayPickerProps,
   PropsMulti,
   PropsRange,
   PropsSingle
-} from "./DayPickerProps";
-import { Calendar } from "./components/Calendar";
-import { MonthCaption, MonthCaptionProps } from "./components/MonthCaption";
-import { Week, type WeekProps } from "./components/Week";
-import { useCalendarContext } from "./contexts/useCalendarContext";
-import {
-  usePropsContext,
-  type PropsContextValue
-} from "./contexts/usePropsContext";
-import { labelDay, labelNext, labelWeekday, labelWeekNumber } from "./labels";
-import type { Mode, DayEventHandler } from "./types";
+} from "./props";
+import type { Mode, DayEventHandler } from "./shared";
 
 /**
  * @deprecated This type will be removed.

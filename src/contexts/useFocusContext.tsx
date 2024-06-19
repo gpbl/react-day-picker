@@ -9,7 +9,7 @@ import React, {
 import { DayFlag } from "../UI";
 import type { CalendarDay } from "../classes";
 import { getNextFocus } from "../helpers/getNextFocus";
-import type { MoveFocusBy, MoveFocusDir, Mode } from "../types";
+import type { MoveFocusBy, MoveFocusDir, Mode } from "../types/shared";
 
 import { useCalendarContext } from "./useCalendarContext";
 import { useModifiersContext } from "./useModifiersContext";
