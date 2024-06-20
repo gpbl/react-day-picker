@@ -12,12 +12,12 @@ DayPicker provides predefined rules for day selection:
 
 The `mode` prop determines the selection mode. The `disabled` prop can be used to prevent the selection of specific days. The `selected` and `onSelect` props offer customization of the selection process.
 
-| Prop Name  | Type                                                                  | Description                                |
-| ---------- | --------------------------------------------------------------------- | ------------------------------------------ |
-| `mode`     | \| `"single"` <br/>\| `"multiple"` <br/>\| `"range"` <br/>\| `"none"` | Set a selection mode. Default is `"none"`. |
-| `disabled` | [`Matcher`](../api/type-aliases/Matcher.md) \| `Matcher[]`            | Disabled days that cannot be selected.     |
-| `selected` | [`Selected`](../api/type-aliases/Selected.md)                         | The selected day(s).                       |
-| `onSelect` | [`SelectHandler`](../api/type-aliases/SelectHandler.md)               | Event callback when a date is selected.    |
+| Prop Name  | Type                                                                               | Description                                |
+| ---------- | ---------------------------------------------------------------------------------- | ------------------------------------------ |
+| `mode`     | \| `"single"` <br/>\| `"multiple"` <br/>\| `"range"` <br/>\| `"none"`              | Set a selection mode. Default is `"none"`. |
+| `disabled` | [`Matcher`](../api/type-aliases/Matcher.md) \| `Matcher[]`                         | Disabled days that cannot be selected.     |
+| `selected` | `Date` \| `Date[]` \| [`DateRange`](../api/type-aliases/DateRange.md) \| undefined | The selected day(s).                       |
+| `onSelect` | `(selected, triggerDate, modifiers, e) => void`                                    | Event callback when a date is selected.    |
 
 ## Single Mode
 
@@ -33,11 +33,11 @@ When the `mode` prop is set to `"single"`, only one day can be selected.
 
 ### Single Mode Props
 
-| Prop Name  | Type                                                              | Description                             |
-| ---------- | ----------------------------------------------------------------- | --------------------------------------- |
-| `selected` | `Date \| undefined`                                               | The selected date.                      |
-| `onSelect` | [`SelectHandler<'single'>`](../api/type-aliases/SelectHandler.md) | Event callback when a date is selected. |
-| `required` | `boolean`                                                         | Make the selection required.            |
+| Prop Name  | Type                                            | Description                             |
+| ---------- | ----------------------------------------------- | --------------------------------------- |
+| `selected` | `Date \| undefined`                             | The selected date.                      |
+| `onSelect` | `(selected, triggerDate, modifiers, e) => void` | Event callback when a date is selected. |
+| `required` | `boolean`                                       | Make the selection required.            |
 
 The following code snippet will render a date picker with a single selected date. When a day is clicked, the `selectedDate` state is updated.
 
@@ -85,12 +85,12 @@ By setting the `mode` prop to `"multiple"`, DayPicker allows selecting multiple 
 
 ### Multiple Mode Props
 
-| Prop Name  | Type                                                                | Description                             |
-| ---------- | ------------------------------------------------------------------- | --------------------------------------- |
-| `selected` | `Date[] \| undefined`                                               | The selected dates.                     |
-| `onSelect` | [`SelectHandler<'multiple'>`](../api/type-aliases/SelectHandler.md) | Event callback when a date is selected. |
-| `min`      | `number`                                                            | The minimum dates that can be selected. |
-| `max`      | `number`                                                            | The maximum dates that can be selected. |
+| Prop Name  | Type                                            | Description                             |
+| ---------- | ----------------------------------------------- | --------------------------------------- |
+| `selected` | `Date[] \| undefined`                           | The selected dates.                     |
+| `onSelect` | `(selected, triggerDate, modifiers, e) => void` | Event callback when a date is selected. |
+| `min`      | `number`                                        | The minimum dates that can be selected. |
+| `max`      | `number`                                        | The maximum dates that can be selected. |
 
 ### Min and Max Dates
 
@@ -125,12 +125,12 @@ When the `mode` prop is set to `"range"`, DayPicker allows selecting a continuou
 <DayPicker mode="range" />
 ```
 
-| Prop Name  | Type                                                             | Description                             |
-| ---------- | ---------------------------------------------------------------- | --------------------------------------- |
-| `selected` | [`DateRange`](../api/type-aliases/DateRange.md)                  | The selected range.                     |
-| `onSelect` | [`SelectHandler<'range'>`](../api/type-aliases/SelectHandler.md) | Event callback when a date is selected. |
-| `min`      | `number`                                                         | The minimum dates that can be selected. |
-| `max`      | `number`                                                         | The maximum dates that can be selected. |
+| Prop Name  | Type                                            | Description                             |
+| ---------- | ----------------------------------------------- | --------------------------------------- |
+| `selected` | [`DateRange`](../api/type-aliases/DateRange.md) | The selected range.                     |
+| `onSelect` | `(selected, triggerDate, modifiers, e) => void` | Event callback when a date is selected. |
+| `min`      | `number`                                        | The minimum dates that can be selected. |
+| `max`      | `number`                                        | The maximum dates that can be selected. |
 
 ```tsx
 import { useState } from "react";

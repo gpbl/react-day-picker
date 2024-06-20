@@ -205,15 +205,12 @@ function useCalendar(): CalendarContextValue {
   return calendarContextValue;
 }
 
-export function CalendarContextProvider({
-  children
-}: {
-  children: ReactElement;
-}) {
+/** @private */
+export function CalendarContextProvider(props: { children: ReactElement }) {
   const calendarContextValue = useCalendar();
   return (
     <CalendarContext.Provider value={calendarContextValue}>
-      {children}
+      {props.children}
     </CalendarContext.Provider>
   );
 }

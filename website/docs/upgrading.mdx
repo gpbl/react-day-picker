@@ -81,8 +81,8 @@ In case you are using DayPicker hooks in your custom components, you need to upd
 
 | Hook              | Upgrade Note                                                                                                            |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| ~`useDayPicker`~  | Renamed to [`useProps`](./api/functions/useProps.md).                                                                   |
-| ~`useNavigation`~ | Renamed to [`useCalendar`](./api/functions/useCalendar.md).                                                             |
+| ~`useDayPicker`~  | Renamed to [`usePropsContext`](./api/functions/usePropsContext.md).                                                     |
+| ~`useNavigation`~ | Renamed to [`useCalendarContext`](./api/functions/useCalendarContext.md).                                               |
 | ~`useDayPicker`~  | Removed in favor of the `Day` custom component. See [custom components guide](./advanced-guides/custom-components.mdx). |
 
 ### 7. TypeScript: check for deprecated types
@@ -91,7 +91,7 @@ Many typings have been deprecated in favor of clarity and shorter names. If you 
 
 ```diff
 - import type { DayPickerDefaultProps } from 'react-day-picker';
-+ import type { PropsDefault } from 'react-day-picker';
++ import type { PropsBase } from 'react-day-picker';
 ```
 
 See also the source of [types-deprecated.ts](https://github.com/gpbl/react-day-picker/blob/next/src/types-deprecated.ts).
@@ -104,15 +104,15 @@ See also the source of [types-deprecated.ts](https://github.com/gpbl/react-day-p
 | ~`DayPickerSingleProps`~       | This type has been renamed. Use [`PropsSingle`](./api/interfaces/PropsSingle.md) instead.                                   |
 | ~`DayPickerMultipleProps`~     | This type has been renamed. Use [`PropsMulti`](./api/interfaces/PropsMulti.md) instead.                                     |
 | ~`DayPickerRangeProps`~        | This type has been renamed. Use [`PropsRange`](./api/interfaces/PropsRange.md) instead.                                     |
-| ~`DayPickerDefaultProps`~      | This type has been renamed. Use [`PropsDefault`](./api/interfaces/PropsDefault.md) instead.                                 |
+| ~`DayPickerDefaultProps`~      | This type has been renamed. Use [`PropsBase`](./api/interfaces/PropsBase.md) instead.                                       |
 | ~`DaySelectionMode`~           | This type has been renamed. Use [`Mode`](./api/type-aliases/Mode.md) instead.                                               |
 | ~`Modifier`~                   | This type will be removed. Use `string` instead.                                                                            |
-| ~`SelectSingleEventHandler`~   | This type will be removed. Use [`SelectHandler<"single">`](./api/type-aliases/SelectHandler.md) instead.                    |
-| ~`SelectMultipleEventHandler`~ | This type will be removed. Use [`SelectHandler<"multiple">`](./api/type-aliases/SelectHandler.md) instead.                  |
-| ~`SelectRangeEventHandler`~    | This type will be removed. Use [`SelectHandler<"range">`](./api/type-aliases/SelectHandler.md) instead.                     |
+| ~`SelectSingleEventHandler`~   | This type will be removed. Use [`PropsSingle["onSelect]`](./api/interfaces/PropsSingle.md) instead.                         |
+| ~`SelectMultipleEventHandler`~ | This type will be removed. Use [`PropsMulti["onSelect]`](./api/interfaces/PropsMulti.md) instead.                           |
+| ~`SelectRangeEventHandler`~    | This type will be removed. Use [`PropsRange["onSelect]`](./api/interfaces/PropsRange.md) instead.                           |
 | ~`DayPickerProviderProps`~     | This type is not used anymore.                                                                                              |
-| ~`useDayPicker`~               | This type has been renamed to [`useProps`](./api/functions/useProps.md).                                                    |
-| ~`useNavigation`~              | This type has been renamed to [`useCalendar`](./api/functions/useCalendar.md).                                              |
+| ~`useDayPicker`~               | This type has been renamed to [`usePropsContext`](./api/functions/usePropsContext.md).                                      |
+| ~`useNavigation`~              | This type has been renamed to [`useCalendarContext`](./api/functions/useCalendarContext.md).                                |
 | ~`useDayRender`~               | This hook has been removed. To customize the rendering of a day, use the `htmlAttributes` prop in a custom `Day` component. |
 | ~`ContextProvidersProps`~      | This type is not used anymore.                                                                                              |
 | ~`DayLabel`~                   | Use `typeof labelDay` instead.                                                                                              |

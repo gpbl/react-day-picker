@@ -4,6 +4,8 @@ import type { CustomComponents, ClassNames, Styles } from "./types";
  * The UI elements composing DayPicker. These elements are mapped to
  * {@link CustomComponents}, the {@link ClassNames} and the {@link Styles} used by
  * DayPicker.
+ *
+ * Some of these elements are extended by flags and modifiers.
  */
 export enum UI {
   /** The previous button in the navigation. */
@@ -17,7 +19,10 @@ export enum UI {
   Calendar = "calendar",
   /** The Chevron SVG element used by navigation buttons and dropdowns. */
   Chevron = "chevron",
-  /** The grid cell with the day's date. Extended by {@link DayFlag}. */
+  /**
+   * The grid cell with the day's date. Extended by {@link DayFlag} and
+   * {@link SelectionFlag}.
+   */
   Day = "day",
   /** The element containing the formatted day's date, inside the grid cell. */
   DayDate = "day_date",

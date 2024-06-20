@@ -309,12 +309,12 @@ export interface PropsBase {
   onPrevClick?: MonthChangeEventHandler;
   /** Event handler when a week number is clicked */
   onWeekNumberClick?: WeekNumberMouseEventHandler;
-} /**
+}
+/**
  * The props when the single selection is required.
  *
  * @group Props
  */
-
 export interface PropsSingleRequired {
   mode: "single";
   required: true;
@@ -331,7 +331,6 @@ export interface PropsSingleRequired {
  *
  * @group Props
  */
-
 export interface PropsSingle {
   mode: "single";
   required?: false | undefined;
@@ -348,7 +347,6 @@ export interface PropsSingle {
  *
  * @group Props
  */
-
 export interface PropsMultiRequired {
   mode: "multiple";
   required: true;
@@ -367,7 +365,6 @@ export interface PropsMultiRequired {
  *
  * @group Props
  */
-
 export interface PropsMulti {
   mode: "multiple";
   required?: false | undefined;
@@ -386,7 +383,6 @@ export interface PropsMulti {
  *
  * @group Props
  */
-
 export interface PropsRangeRequired {
   mode: "range";
   required: true;
@@ -405,7 +401,6 @@ export interface PropsRangeRequired {
  *
  * @group Props
  */
-
 export interface PropsRange {
   mode: "range";
   required?: false | undefined;
