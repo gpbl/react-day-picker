@@ -1,7 +1,7 @@
 import React, { useEffect, useId, useRef, useState } from "react";
 
 import { format, isValid, parse } from "date-fns";
-import { DayPicker, type SelectHandler } from "react-day-picker";
+import { DayPicker } from "react-day-picker";
 
 export function Dialog() {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -45,7 +45,7 @@ export function Dialog() {
    * Function to handle the DayPicker select event: update the input value and
    * the selected date, and set the month.
    */
-  const handleDayPickerSelect: SelectHandler<"single"> = (date) => {
+  const handleDayPickerSelect = (date: Date | undefined) => {
     if (!date) {
       setInputValue("");
       setSelectedDate(undefined);

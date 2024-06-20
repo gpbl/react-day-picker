@@ -70,12 +70,11 @@ export function MyDatePicker() {
 
 When creating custom components, you will find useful the [DayPicker hooks](../api/index.md#hooks). These utilities provide access to the internal state and methods of the DayPicker component.
 
-| Hooks                                              | Description                                                                |
-| :------------------------------------------------- | :------------------------------------------------------------------------- |
-| [`useCalendar`](../api/functions/useCalendar.md)   | Return the calendar state and navigation methods to navigate the calendar. |
-| [`useFocus`](../api/functions/useFocus.md)         | Share the focused day and the methods to move the focus.                   |
-| [`useProps`](../api/functions/useProps.md)         | Access to the props passed to DayPicker.                                   |
-| [`useSelection`](../api/functions/useSelection.md) | Access and change the currently selected values.                           |
+| Hooks                                                          | Description                                                                |
+| :------------------------------------------------------------- | :------------------------------------------------------------------------- |
+| [`useCalendarContext`](../api/functions/useCalendarContext.md) | Return the calendar state and navigation methods to navigate the calendar. |
+| [`useFocusContext`](../api/functions/useFocusContext.md)       | Share the focused day and the methods to move the focus.                   |
+| [`usePropsContext`](../api/functions/usePropsContext.md)       | Access to the props passed to DayPicker.                                   |
 
 ### Example: Range with Shift Key
 
@@ -88,11 +87,11 @@ import {
   DateRange,
   DayPicker,
   type DayProps,
-  useSelection
+  useRangeContext
 } from "react-day-picker";
 
 function DayWithShiftKey(props: DayProps) {
-  const { selected } = useSelection<"range">();
+  const { selected } = useRangeContext();
   const onClick = props.htmlAttributes?.onClick;
 
   const handleClick: MouseEventHandler<HTMLElement> = (e) => {

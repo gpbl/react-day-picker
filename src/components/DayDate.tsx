@@ -1,7 +1,7 @@
 import React from "react";
 
 import type { CalendarDay } from "../classes";
-import type { DayModifiers } from "../types";
+import type { Modifiers } from "../types";
 
 /**
  * Render the date as string inside the day grid cell.
@@ -16,7 +16,7 @@ export function DayDate(props: {
   /** The date to display. */
   formattedDate: string;
   /** The modifiers for the day. */
-  modifiers: DayModifiers;
+  modifiers: Modifiers;
   /** The HTML attributes for the root element. */
   rootProps: {
     className: string;
@@ -27,3 +27,14 @@ export function DayDate(props: {
 }
 
 export type DayDateProps = Parameters<typeof DayDate>[0];
+
+/**
+ * @deprecated The component has been renamed. Use `DayDate` instead.
+ * @protected
+ */
+export const DayContent = DayDate;
+/**
+ * @deprecated The type has been renamed. Use `DayDateProps` instead.
+ * @protected
+ */
+export type DayContentProps = DayDateProps;

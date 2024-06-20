@@ -342,7 +342,7 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="1"
                 aria-label=""
                 aria-selected="true"
-                class="rdp-day rdp-focusable rdp-range_start rdp-selected"
+                class="rdp-day rdp-range_start rdp-selected rdp-focusable"
                 role="gridcell"
                 tabindex="0"
               >
@@ -356,7 +356,7 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="2"
                 aria-label=""
                 aria-selected="true"
-                class="rdp-day rdp-focusable rdp-range_middle rdp-selected"
+                class="rdp-day rdp-range_middle rdp-selected rdp-focusable"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -370,7 +370,7 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="3"
                 aria-label=""
                 aria-selected="true"
-                class="rdp-day rdp-focusable rdp-range_middle rdp-selected"
+                class="rdp-day rdp-range_middle rdp-selected rdp-focusable"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -384,7 +384,7 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="4"
                 aria-label=""
                 aria-selected="true"
-                class="rdp-day rdp-focusable rdp-range_middle rdp-selected"
+                class="rdp-day rdp-range_middle rdp-selected rdp-focusable"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -398,7 +398,7 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="5"
                 aria-label=""
                 aria-selected="true"
-                class="rdp-day rdp-focusable rdp-range_end rdp-selected"
+                class="rdp-day rdp-range_end rdp-selected rdp-focusable"
                 role="gridcell"
                 tabindex="-1"
               >

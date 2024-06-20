@@ -1,6 +1,6 @@
 import { format } from "date-fns/format";
 
-import type { DayModifiers } from "../types";
+import type { Modifiers } from "../types";
 
 /**
  * Return an ARIA label for the day button. By default, it returns an empty
@@ -13,7 +13,7 @@ import type { DayModifiers } from "../types";
  */
 export function labelDay(
   date: Date,
-  modifiers: DayModifiers,
+  modifiers: Modifiers,
   options: Parameters<typeof format>[2]
 ) {
   return "";

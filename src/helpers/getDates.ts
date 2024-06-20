@@ -8,7 +8,8 @@ import { isAfter } from "date-fns/isAfter";
 import { startOfISOWeek } from "date-fns/startOfISOWeek";
 import { startOfWeek } from "date-fns/startOfWeek";
 
-import type { DayPickerProps, Mode } from "../types";
+import { PropsContextValue } from "../contexts/props";
+import type { Mode, DayPickerProps } from "../types";
 
 /** The number of days in a month when having 6 weeks. */
 const NrOfDaysWithFixedWeeks = 42;
@@ -19,7 +20,7 @@ const NrOfDaysWithFixedWeeks = 42;
  * @param firstMonth The first month of the calendar
  * @param lastMonth The last month of the calendar
  * @param maxDate The date to end the calendar at
- * @param options Options for the calendar
+ * @param props Options for the calendar
  * @param options.ISOWeek Whether or not to use ISOWeek
  * @param options.fixedWeeks Whether or not to use fixed weeks
  * @param options.locale The locale to use
@@ -27,16 +28,16 @@ const NrOfDaysWithFixedWeeks = 42;
  */
 export function getDates(
   displayMonths: Date[],
-  maxDate?: Date | undefined,
-  options?: Pick<
-    DayPickerProps<Mode, boolean>,
+  maxDate: Date | undefined,
+  props: Pick<
+    PropsContextValue,
     "ISOWeek" | "fixedWeeks" | "locale" | "weekStartsOn"
   >
 ): Date[] {
   const firstMonth = displayMonths[0];
   const lastMonth = displayMonths[displayMonths.length - 1];
 
-  const { ISOWeek, fixedWeeks, locale, weekStartsOn } = options ?? {};
+  const { ISOWeek, fixedWeeks, locale, weekStartsOn } = props ?? {};
 
   const startWeekFirstDate = ISOWeek
     ? startOfISOWeek(firstMonth)

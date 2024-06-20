@@ -1,8 +1,8 @@
 import React from "react";
 
 import { UI, CalendarFlag } from "../UI";
-import { useCalendar } from "../contexts/calendar";
-import { useProps } from "../contexts/props";
+import { useCalendarContext } from "../contexts/calendar";
+import { usePropsContext } from "../contexts/props";
 
 import { Footer as DefaultFooter } from "./Footer";
 import { Month as DefaultMonth } from "./Month";
@@ -35,9 +35,9 @@ export function Calendar() {
     style,
     styles,
     title
-  } = useProps();
+  } = usePropsContext();
 
-  const calendar = useCalendar();
+  const calendar = useCalendarContext();
 
   // Apply classnames according to props
   const cssClassNames = [classNames[UI.Calendar]];
@@ -45,13 +45,13 @@ export function Calendar() {
     cssClassNames.push(className);
   }
   if (numberOfMonths > 1) {
-    cssClassNames.push(classNames[CalendarFlag.hasMultipleMonths]);
+    cssClassNames.push(classNames[CalendarFlag.has_multiple_months]);
   }
   if (showWeekNumber) {
-    cssClassNames.push(classNames[CalendarFlag.hasWeekNumbers]);
+    cssClassNames.push(classNames[CalendarFlag.has_week_numbers]);
   }
   if (hideWeekdayRow) {
-    cssClassNames.push(classNames[CalendarFlag.noWeekdays]);
+    cssClassNames.push(classNames[CalendarFlag.no_weekdays]);
   }
 
   const Nav = components?.Nav ?? DefaultNav;

@@ -1,8 +1,6 @@
-import { gridcell } from "@/test/elements";
 import { renderHook } from "@/test/renderHook";
-import { user } from "@/test/user";
 
-import { useFocus } from "./focus";
+import { useFocusContext } from "./focus";
 
 const month = new Date(2020, 0, 1);
 const today = new Date(2020, 0, 14);
@@ -10,13 +8,13 @@ const today = new Date(2020, 0, 14);
 describe("autoFocusTarget", () => {
   describe("when not in interactive", () => {
     test("the auto focus target is undefined", () => {
-      const { result } = renderHook(useFocus, { month, today });
+      const { result } = renderHook(useFocusContext, { month, today });
       expect(result.current.autoFocusTarget).toBeUndefined();
     });
   });
   describe("when in selection mode", () => {
     test("the autofocus target should be today", () => {
-      const { result } = renderHook(useFocus, {
+      const { result } = renderHook(useFocusContext, {
         month,
         today,
         mode: "single"
@@ -27,10 +25,10 @@ describe("autoFocusTarget", () => {
     });
     describe("if today is disabled", () => {
       test("the autofocus target should be the first focusable day (the 1st of month)", () => {
-        const { result } = renderHook(useFocus, {
+        const { result } = renderHook(useFocusContext, {
           month,
           today,
-          mode: "multiple",
+          mode: "single",
           disabled: [today]
         });
         expect(result.current.autoFocusTarget?.date).toEqual(month);

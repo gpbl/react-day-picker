@@ -10,7 +10,7 @@ export function TestCase2047() {
   const [selected, setSelected] = React.useState<Date>(defaultSelected);
   return (
     <DayPicker
-      defaultMonth={new Date(2024, 5, 10)}
+      defaultMonth={defaultMonth}
       mode="single"
       required
       selected={selected}

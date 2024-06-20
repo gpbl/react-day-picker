@@ -1,15 +1,14 @@
 import React from "react";
 
 import { CalendarDay } from "../classes";
-import type { MoveFocusBy, MoveFocusDir } from "../contexts/focus";
-import type { PropsContext } from "../contexts/props";
-import type { Mode } from "../types";
+import type { PropsContextValue } from "../contexts/props";
+import type { MoveFocusBy, MoveFocusDir, Mode } from "../types";
 import { dateMatchModifiers } from "../utils/dateMatchModifiers";
 
 import { getPossibleFocusDate } from "./getPossibleFocusDate";
 
 export type Options = Pick<
-  PropsContext<Mode, boolean>,
+  PropsContextValue,
   | "modifiers"
   | "locale"
   | "ISOWeek"
@@ -24,7 +23,7 @@ export function getNextFocus(
   /** The date that is currently focused. */
   focused: CalendarDay,
   options: Pick<
-    PropsContext<Mode, boolean>,
+    PropsContextValue,
     | "disabled"
     | "hidden"
     | "modifiers"

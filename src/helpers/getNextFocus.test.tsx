@@ -1,14 +1,13 @@
 import React from "react";
 
 import { CalendarDay } from "../classes";
-import type { MoveFocusBy, MoveFocusDir } from "../contexts/focus";
-import type { PropsContext } from "../contexts/props";
-import type { Mode } from "../types";
+import type { PropsContextValue } from "../contexts/props";
+import type { MoveFocusBy, MoveFocusDir } from "../types";
 
 import { getNextFocus } from "./getNextFocus";
 
 const props: Pick<
-  PropsContext<Mode, boolean>,
+  PropsContextValue,
   "disabled" | "hidden" | "startMonth" | "endMonth"
 > = {
   disabled: [],

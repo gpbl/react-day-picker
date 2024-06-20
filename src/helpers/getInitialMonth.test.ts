@@ -1,26 +1,26 @@
 import { addMonths, isSameMonth } from "date-fns";
 
-import { getStartMonth } from "./getStartMonth";
+import { getInitialMonth } from "./getInitialMonth";
 
 describe("when no endMonth is given", () => {
   describe("when month is in context", () => {
     const month = new Date(2010, 11, 12);
     it("return that month", () => {
-      const startMonth = getStartMonth({ month });
+      const startMonth = getInitialMonth({ month });
       expect(isSameMonth(startMonth, month)).toBe(true);
     });
   });
   describe("when defaultMonth is in context", () => {
     const defaultMonth = new Date(2010, 11, 12);
     it("return that month", () => {
-      const startMonth = getStartMonth({ defaultMonth });
+      const startMonth = getInitialMonth({ defaultMonth });
       expect(isSameMonth(startMonth, defaultMonth)).toBe(true);
     });
   });
   describe("when no month or defaultMonth are in context", () => {
     const today = new Date(2010, 11, 12);
     it("return the today month", () => {
-      const startMonth = getStartMonth({ today });
+      const startMonth = getInitialMonth({ today });
       expect(isSameMonth(startMonth, today)).toBe(true);
     });
   });
@@ -32,7 +32,7 @@ describe("when endMonth is given", () => {
     describe("when the number of month is 1", () => {
       const numberOfMonths = 1;
       it("return the endMonth", () => {
-        const startMonth = getStartMonth({
+        const startMonth = getInitialMonth({
           month,
           endMonth,
           numberOfMonths
@@ -43,7 +43,7 @@ describe("when endMonth is given", () => {
     describe("when the number of month is 3", () => {
       const numberOfMonths = 3;
       it("return the endMonth plus the number of months", () => {
-        const startMonth = getStartMonth({
+        const startMonth = getInitialMonth({
           month,
           endMonth,
           numberOfMonths

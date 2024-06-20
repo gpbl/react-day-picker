@@ -6,8 +6,8 @@ import { startOfMonth } from "date-fns/startOfMonth";
 
 import { UI } from "../UI";
 import type { CalendarMonth } from "../classes";
-import { useCalendar } from "../contexts/calendar";
-import { useProps } from "../contexts/props";
+import { useCalendarContext } from "../contexts/calendar";
+import { usePropsContext } from "../contexts/props";
 
 import { Dropdown as DefaultDropdown } from "./Dropdown";
 
@@ -28,9 +28,9 @@ export function MonthsDropdown(props: {
     components,
     disableNavigation,
     labels: { labelMonthDropdown }
-  } = useProps();
+  } = usePropsContext();
 
-  const { dropdownOptions: dropdown, goToMonth } = useCalendar();
+  const { dropdownOptions, goToMonth } = useCalendarContext();
 
   const Dropdown = components?.Dropdown ?? DefaultDropdown;
 
@@ -45,7 +45,7 @@ export function MonthsDropdown(props: {
       aria-label={labelMonthDropdown()}
       disabled={Boolean(disableNavigation)}
       rootClassName={classNames[UI.MonthsDropdown]}
-      options={dropdown.months}
+      options={dropdownOptions.months}
       value={props.month.date.getMonth()}
       onChange={handleChange}
     />

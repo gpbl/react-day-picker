@@ -1,69 +1,36 @@
-import * as formatters from "../formatters";
+import { type Locale, format } from "date-fns";
+import { enUS as locale } from "date-fns/locale";
 
 import { getDropdownMonths } from "./getDropdownMonths";
+import { getFormatters } from "./getFormatters";
 
-test("returns undefined if `startMonth` is not defined", () => {
-  const result = getDropdownMonths({
-    startMonth: undefined,
-    endMonth: new Date(),
-    formatters
+test("return correct dropdown options", () => {
+  const displayMonth = new Date(2022, 0, 1); // January 2022
+  const startMonth = new Date(2022, 0, 1); // January 2022
+  const endMonth = new Date(2022, 11, 31); // December 2022
+  const formatters = getFormatters({
+    formatMonthDropdown: (month: number, locale?: Locale) =>
+      format(new Date(2022, month), "MMMM", { locale })
   });
-  expect(result).toBeUndefined();
-});
-
-test("returns undefined if `endMonth` is not defined", () => {
-  const result = getDropdownMonths({
-    startMonth: new Date(),
-    endMonth: undefined,
-    formatters
+  const result = getDropdownMonths(displayMonth, {
+    formatters,
+    locale,
+    startMonth,
+    endMonth
   });
-  expect(result).toBeUndefined();
-});
 
-test("returns sorted months between `startMonth` and `endMonth`", () => {
-  const startMonth = new Date(2023, 0, 1);
-  const endMonth = new Date(2023, 11, 31);
-
-  const result = getDropdownMonths(
-    { startMonth, endMonth, formatters },
-    startMonth.getFullYear()
-  );
-
-  expect(result).toBeDefined();
-  expect(result).toHaveLength(12);
-  if (!result) throw new Error("Unexpected undefined result");
-  for (let i = 0; i < result.length - 1; i++) {
-    expect(result[i].value).toBeLessThan(result[i + 1].value);
-  }
-});
-
-test("formats month labels correctly", () => {
-  const startMonth = new Date(2023, 3, 1);
-  const endMonth = new Date(2023, 11, 31);
-  const result = getDropdownMonths(
-    { startMonth, endMonth, formatters },
-    startMonth.getFullYear()
-  );
-  if (!result) throw new Error("Unexpected undefined result");
-  expect(result[0]).toEqual({ disabled: false, label: "April", value: 3 });
-  expect(result[8]).toEqual({ disabled: false, label: "December", value: 11 });
-});
-
-describe("when using a custom formatter", () => {
-  test("formats month labels correctly", () => {
-    const startMonth = new Date(2023, 0, 1);
-    const endMonth = new Date(2023, 11, 31);
-    const result = getDropdownMonths(
-      {
-        startMonth,
-        endMonth,
-        formatters: {
-          formatMonthDropdown: (month) => `Month ${month.toString()}`
-        }
-      },
-      startMonth.getFullYear()
-    );
-    if (!result) throw new Error("Unexpected undefined result");
-    expect(result[0]).toEqual({ disabled: false, label: "Month 0", value: 0 });
-  });
+  expect(result).toEqual([
+    { value: 0, label: "January", disabled: false },
+    { value: 1, label: "February", disabled: false },
+    { value: 2, label: "March", disabled: false },
+    { value: 3, label: "April", disabled: false },
+    { value: 4, label: "May", disabled: false },
+    { value: 5, label: "June", disabled: false },
+    { value: 6, label: "July", disabled: false },
+    { value: 7, label: "August", disabled: false },
+    { value: 8, label: "September", disabled: false },
+    { value: 9, label: "October", disabled: false },
+    { value: 10, label: "November", disabled: false },
+    { value: 11, label: "December", disabled: false }
+  ]);
 });

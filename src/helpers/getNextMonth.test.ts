@@ -9,6 +9,7 @@ describe("when number of months is 1", () => {
     const disableNavigation = true;
     it("the next month is undefined", () => {
       const result = getNextMonth(startingMonth, {
+        numberOfMonths: 1,
         disableNavigation,
         endMonth: undefined,
         startMonth: undefined
@@ -20,6 +21,7 @@ describe("when number of months is 1", () => {
     const endMonth = addMonths(startingMonth, 3);
     it("the next month is not undefined", () => {
       const result = getNextMonth(startingMonth, {
+        numberOfMonths: 1,
         endMonth,
         startMonth: undefined
       });
@@ -31,6 +33,7 @@ describe("when number of months is 1", () => {
     const endMonth = startingMonth;
     it("the next month is undefined", () => {
       const result = getNextMonth(startingMonth, {
+        numberOfMonths: 1,
         endMonth,
         startMonth: undefined
       });

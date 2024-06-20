@@ -12,20 +12,17 @@ import type { DateRange } from "../types";
  *
  * @group Utilities
  */
-export function addToRange(
-  date: Date,
-  range?: DateRange
-): DateRange | undefined {
+export function addToRange(date: Date, range?: DateRange): DateRange {
   const { from, to } = range || {};
   if (from && to) {
     if (isSameDay(to, date) && isSameDay(from, date)) {
-      return undefined;
+      return { from: undefined, to: undefined };
     }
     if (isSameDay(to, date)) {
       return { from: to, to: undefined };
     }
     if (isSameDay(from, date)) {
-      return undefined;
+      return { from: undefined, to: undefined };
     }
     if (isAfter(from, date)) {
       return { from: date, to };

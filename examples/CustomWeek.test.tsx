@@ -15,7 +15,7 @@ beforeEach(() => {
 
 describe("when a day is clicked", () => {
   beforeEach(async () => {
-    await act(() => user.click(gridcell(today)));
+    await user.click(gridcell(today));
   });
   test("the whole week should appear selected", () => {
     const week = [
@@ -33,7 +33,7 @@ describe("when a day is clicked", () => {
   });
   describe("when clicking the day again", () => {
     beforeEach(async () => {
-      await act(() => user.click(gridcell(today)));
+      await user.click(gridcell(today));
     });
     test("the whole week should not be selected", () => {
       const week = [

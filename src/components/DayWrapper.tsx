@@ -1,24 +1,17 @@
 import React from "react";
-import {
-  type FocusEventHandler,
-  type KeyboardEventHandler,
-  type MouseEventHandler,
-  type PointerEventHandler,
-  type TouchEventHandler,
-  useEffect,
-  useRef
-} from "react";
 
-import { UI, DayModifier } from "../UI";
+import { UI, DayFlag } from "../UI";
 import { CalendarDay } from "../classes/CalendarDay";
-import { useCalendar } from "../contexts/calendar";
-import { useFocus } from "../contexts/focus";
-import { useModifiers } from "../contexts/modifiers";
-import { useProps } from "../contexts/props";
-import { useSelection } from "../contexts/selection";
+import { useCalendarContext } from "../contexts/calendar";
+import { useFocusContext } from "../contexts/focus";
+import { useModifiersContext } from "../contexts/modifiers";
+import { usePropsContext } from "../contexts/props";
 import { debounce } from "../helpers/debounce";
 import { getClassNamesForModifiers } from "../helpers/getClassNamesForModifiers";
 import { getStyleForModifiers } from "../helpers/getStyleForModifiers";
+import { useMultiContext } from "../selection/multi";
+import { useRangeContext } from "../selection/range";
+import { useSingleContext } from "../selection/single";
 
 import { DayProps, Day as DefaultDay } from "./Day";
 import { DayDateProps, DayDate as DefaultDayDate } from "./DayDate";
@@ -34,7 +27,7 @@ export function DayWrapper(props: {
   /** The day to be rendered in the gridcell. */
   day: CalendarDay;
 }) {
-  const cellRef = useRef<HTMLDivElement>(null);
+  const cellRef = React.useRef<HTMLDivElement>(null);
 
   const {
     classNames,
@@ -43,6 +36,7 @@ export function DayWrapper(props: {
     formatters: { formatDay },
     labels: { labelDay },
     locale,
+    mode,
     modifiersClassNames = {},
     modifiersStyles = {},
     onDayFocus,
@@ -60,15 +54,18 @@ export function DayWrapper(props: {
     onDayTouchMove,
     onDayTouchStart,
     styles = {}
-  } = useProps();
+  } = usePropsContext();
 
-  const { isInteractive } = useCalendar();
-  const { setSelected } = useSelection();
-  const { getModifiers } = useModifiers();
+  const { isInteractive } = useCalendarContext();
+  const { getModifiers } = useModifiersContext();
+
+  const single = useSingleContext();
+  const multi = useMultiContext();
+  const range = useRangeContext();
 
   const {
     autoFocusTarget,
-    focusedDay,
+    focused,
     focus,
     blur,
     focusDayBefore,
@@ -81,23 +78,37 @@ export function DayWrapper(props: {
     focusYearAfter,
     focusStartOfWeek,
     focusEndOfWeek
-  } = useFocus();
+  } = useFocusContext();
+
   const modifiers = getModifiers(props.day);
 
-  const onClick: MouseEventHandler = (e) => {
+  const onClick: React.MouseEventHandler = (e) => {
     if (modifiers.disabled) {
       e.preventDefault();
       e.stopPropagation();
       return;
     }
-    setSelected(props.day.date, modifiers, e);
+
+    switch (mode) {
+      case "single":
+        single.setSelected(props.day.date, modifiers, e);
+        break;
+      case "multiple":
+        multi.setSelected(props.day.date, modifiers, e);
+        break;
+      case "range":
+        range.setSelected(props.day.date, modifiers, e);
+        break;
+    }
+
     if (modifiers.focusable) {
       focus(props.day);
     }
+
     onDayClick?.(props.day.date, modifiers, e);
   };
 
-  const onFocus: FocusEventHandler = (e) => {
+  const onFocus: React.FocusEventHandler = (e) => {
     if (modifiers.disabled) {
       e.preventDefault();
       e.stopPropagation();
@@ -107,45 +118,45 @@ export function DayWrapper(props: {
     onDayFocus?.(props.day.date, modifiers, e);
   };
 
-  const onBlur: FocusEventHandler = (e) => {
+  const onBlur: React.FocusEventHandler = (e) => {
     blur();
     onDayBlur?.(props.day.date, modifiers, e);
   };
 
-  const onMouseEnter: MouseEventHandler = (e) => {
+  const onMouseEnter: React.MouseEventHandler = (e) => {
     onDayMouseEnter?.(props.day.date, modifiers, e);
   };
-  const onMouseLeave: MouseEventHandler = (e) => {
+  const onMouseLeave: React.MouseEventHandler = (e) => {
     onDayMouseLeave?.(props.day.date, modifiers, e);
   };
-  const onPointerEnter: PointerEventHandler = (e) => {
+  const onPointerEnter: React.PointerEventHandler = (e) => {
     onDayPointerEnter?.(props.day.date, modifiers, e);
   };
-  const onPointerLeave: PointerEventHandler = (e) => {
+  const onPointerLeave: React.PointerEventHandler = (e) => {
     onDayPointerLeave?.(props.day.date, modifiers, e);
   };
-  const onTouchCancel: TouchEventHandler = (e) => {
+  const onTouchCancel: React.TouchEventHandler = (e) => {
     onDayTouchCancel?.(props.day.date, modifiers, e);
   };
-  const onTouchEnd: TouchEventHandler = (e) => {
+  const onTouchEnd: React.TouchEventHandler = (e) => {
     onDayTouchEnd?.(props.day.date, modifiers, e);
   };
-  const onTouchMove: TouchEventHandler = (e) => {
+  const onTouchMove: React.TouchEventHandler = (e) => {
     onDayTouchMove?.(props.day.date, modifiers, e);
   };
-  const onTouchStart: TouchEventHandler = (e) => {
+  const onTouchStart: React.TouchEventHandler = (e) => {
     onDayTouchStart?.(props.day.date, modifiers, e);
   };
 
-  const onKeyUp: KeyboardEventHandler = (e) => {
+  const onKeyUp: React.KeyboardEventHandler = (e) => {
     onDayKeyUp?.(props.day.date, modifiers, e);
   };
 
-  const onKeyPress: KeyboardEventHandler = (e) => {
+  const onKeyPress: React.KeyboardEventHandler = (e) => {
     onDayKeyPress?.(props.day.date, modifiers, e);
   };
 
-  const onKeyDown: KeyboardEventHandler = (e) => {
+  const onKeyDown: React.KeyboardEventHandler = (e) => {
     switch (e.key) {
       case "ArrowLeft":
         e.preventDefault();
@@ -171,7 +182,15 @@ export function DayWrapper(props: {
       case "Enter":
         e.preventDefault();
         e.stopPropagation();
-        setSelected(props.day.date, modifiers, e);
+        if (mode === "single" && !modifiers.disabled) {
+          single.setSelected(props.day.date, modifiers, e);
+        }
+        if (mode === "multiple" && !modifiers.disabled) {
+          multi.setSelected(props.day.date, modifiers, e);
+        }
+        if (mode === "range" && !modifiers.disabled) {
+          range.setSelected(props.day.date, modifiers, e);
+        }
         break;
       case "PageUp":
         e.preventDefault();
@@ -198,7 +217,7 @@ export function DayWrapper(props: {
   };
 
   const isAutoFocusTarget = Boolean(autoFocusTarget?.isEqualTo(props.day));
-  const isFocused = Boolean(focusedDay?.isEqualTo(props.day));
+  const isFocused = Boolean(focused?.isEqualTo(props.day));
 
   const style = getStyleForModifiers(modifiers, modifiersStyles, styles);
 
@@ -211,7 +230,7 @@ export function DayWrapper(props: {
   const className = [classNames[UI.Day], ...classNameForModifiers];
 
   if (isFocused) {
-    className.push(classNames[DayModifier.focused]);
+    className.push(classNames[DayFlag.focused]);
   }
 
   const dayRootProps: DayProps["rootProps"] = {
@@ -242,14 +261,14 @@ export function DayWrapper(props: {
     ref: cellRef
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!cellRef.current) return; // no element to focus
-    if (!focusedDay) return; // no day to focus
-    if (!props.day.isEqualTo(focusedDay)) return; // not this day`
+    if (!focused) return; // no day to focus
+    if (!props.day.isEqualTo(focused)) return; // not this day`
     if (modifiers.disabled || modifiers.hidden) return; // cannot focus
 
     cellRef.current.focus();
-  }, [focusedDay, modifiers.disabled, modifiers.hidden, props.day]);
+  }, [focused, modifiers.disabled, modifiers.hidden, props.day]);
 
   const Day = components?.Day ?? DefaultDay;
 

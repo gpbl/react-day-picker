@@ -1,7 +1,4 @@
-import React, { ButtonHTMLAttributes } from "react";
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import type { PropsBase } from "../types";
+import React, { type ButtonHTMLAttributes } from "react";
 
 /**
  * Render the button elements in the calendar.
