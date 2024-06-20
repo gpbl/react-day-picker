@@ -1,4 +1,4 @@
-import React, { useId } from "react";
+import React from "react";
 
 import { UI } from "../UI";
 import type { CalendarMonth } from "../classes/CalendarMonth";
@@ -26,7 +26,7 @@ export function Month(props: {
   const { id, mode, hideWeekdayRow, components, classNames, styles } =
     usePropsContext();
 
-  const reactId = useId();
+  const reactId = React.useId();
   const captionId = id ? `${id}-caption-${props.index}` : reactId;
   const gridId = id ? `${id}-grid-${props.index}` : reactId;
 

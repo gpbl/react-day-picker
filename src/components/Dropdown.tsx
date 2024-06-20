@@ -1,4 +1,4 @@
-import React, { SelectHTMLAttributes } from "react";
+import React, { type SelectHTMLAttributes } from "react";
 
 import type { Month } from "date-fns";
 

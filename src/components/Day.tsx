@@ -1,5 +1,5 @@
 import React from "react";
-import type { HTMLAttributes, ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import type { CalendarDay } from "../classes";
 import type { Modifiers } from "../types";

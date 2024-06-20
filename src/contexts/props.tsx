@@ -1,9 +1,4 @@
-import React, {
-  PropsWithChildren,
-  createContext,
-  useContext,
-  useId
-} from "react";
+import React from "react";
 
 import * as customComponents from "../components/custom-components";
 import { getDataAttributes } from "../helpers/getDataAttributes";
@@ -11,7 +6,6 @@ import { getDefaultClassNames } from "../helpers/getDefaultClassNames";
 import { getFormatters } from "../helpers/getFormatters";
 import { getStartEndMonths } from "../helpers/getStartEndMonths";
 import * as defaultLabels from "../labels";
-import { useSingleContext } from "../selection/single";
 import type {
   ClassNames,
   CustomComponents,
@@ -22,7 +16,9 @@ import type {
   DayPickerProps
 } from "../types";
 
-const PropsContext = createContext<PropsContextValue | undefined>(undefined);
+const PropsContext = React.createContext<PropsContextValue | undefined>(
+  undefined
+);
 
 /**
  * Holds the props passed to the DayPicker component, with some optional props
@@ -31,7 +27,7 @@ const PropsContext = createContext<PropsContextValue | undefined>(undefined);
  * Access this context using the {@link usePropsContext} hook.
  */
 export type PropsContextValue = DayPickerProps & {
-  /** The mode of the selectionx. */
+  /** The mode of the selection. */
   mode: Mode | undefined;
   /** The class names to add to the UI. */
   classNames: ClassNames;
@@ -56,7 +52,7 @@ export type PropsContextValue = DayPickerProps & {
 };
 
 function useProps(initialProps: DayPickerProps) {
-  const reactId = useId();
+  const reactId = React.useId();
 
   const { startMonth, endMonth } = getStartEndMonths(initialProps);
 
@@ -98,7 +94,7 @@ export function PropsContextProvider<
 >({
   initialProps,
   children
-}: PropsWithChildren<{
+}: React.PropsWithChildren<{
   initialProps: DayPickerProps;
 }>) {
   const propsContextValue = useProps(initialProps);
@@ -119,7 +115,7 @@ export function PropsContextProvider<
  * @see https://react-day-picker.js.org/advanced-guides/custom-components
  */
 export function usePropsContext() {
-  const propsContext = useContext(PropsContext);
+  const propsContext = React.useContext(PropsContext);
   if (!propsContext) {
     throw new Error(
       "usePropsContext() must be used within a PropsContextProvider"
