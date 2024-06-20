@@ -2,7 +2,7 @@ import React, { useId } from "react";
 
 import { UI } from "../UI";
 import type { CalendarMonth } from "../classes/CalendarMonth";
-import { usePropsContext } from "../contexts/usePropsContext";
+import { usePropsContext } from "../contexts/props";
 
 import { MonthCaption as DefaultMonthCaption } from "./MonthCaption";
 import { Week as DefaultWeek } from "./Week";

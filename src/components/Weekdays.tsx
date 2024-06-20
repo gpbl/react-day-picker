@@ -1,7 +1,7 @@
 import React from "react";
 
 import { UI } from "../UI";
-import { usePropsContext } from "../contexts/usePropsContext";
+import { usePropsContext } from "../contexts/props";
 import { getWeekdays } from "../helpers/getWeekdays";
 
 import { Weekday as DefaultWeekday } from "./Weekday";

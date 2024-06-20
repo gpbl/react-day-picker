@@ -1,8 +1,8 @@
 import React from "react";
 
 import { UI, CalendarFlag } from "../UI";
-import { useCalendarContext } from "../contexts/useCalendarContext";
-import { usePropsContext } from "../contexts/usePropsContext";
+import { useCalendarContext } from "../contexts/calendar";
+import { usePropsContext } from "../contexts/props";
 
 import { Footer as DefaultFooter } from "./Footer";
 import { Month as DefaultMonth } from "./Month";

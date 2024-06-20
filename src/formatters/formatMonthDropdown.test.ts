@@ -1,4 +1,4 @@
-import { Month } from "date-fns";
+import { Month } from "date-fns/Month";
 import { es } from "date-fns/locale/es";
 
 import { formatMonthDropdown } from "./formatMonthDropdown";

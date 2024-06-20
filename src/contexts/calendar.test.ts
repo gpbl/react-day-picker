@@ -1,6 +1,6 @@
 import { renderHook } from "@/test/renderHook";
 
-import { useCalendarContext } from "./useCalendarContext";
+import { useCalendarContext } from "./calendar";
 
 it("should return the next month", () => {
   const { result } = renderHook(useCalendarContext, {

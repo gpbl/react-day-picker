@@ -1,5 +1,5 @@
 import { CalendarMonth } from "../classes";
-import type { PropsContextValue } from "../contexts/usePropsContext";
+import type { PropsContextValue } from "../contexts/props";
 
 import { getMonths } from "./getMonths";
 

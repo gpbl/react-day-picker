@@ -1,9 +1,8 @@
 import React from "react";
 
-import { differenceInCalendarDays } from "date-fns";
+import { differenceInCalendarDays } from "date-fns/differenceInCalendarDays";
 
-import { PropsRange } from "../types/props";
-import { DateRange, Modifiers } from "../types/shared";
+import { DateRange, Modifiers, PropsRange } from "../types";
 import { addToRange, isDateRange } from "../utils";
 import { isDateInRange } from "../utils/isDateInRange";
 

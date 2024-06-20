@@ -2,7 +2,7 @@ import React from "react";
 import type { HTMLAttributes, ReactNode } from "react";
 
 import type { CalendarDay } from "../classes";
-import type { Modifiers } from "../types/shared";
+import type { Modifiers } from "../types";
 
 /**
  * Render the gridcell of a day in the calendar and handle the interaction and

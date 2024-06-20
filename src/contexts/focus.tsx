@@ -9,11 +9,11 @@ import React, {
 import { DayFlag } from "../UI";
 import type { CalendarDay } from "../classes";
 import { getNextFocus } from "../helpers/getNextFocus";
-import type { MoveFocusBy, MoveFocusDir, Mode } from "../types/shared";
+import type { MoveFocusBy, MoveFocusDir, Mode } from "../types";
 
-import { useCalendarContext } from "./useCalendarContext";
-import { useModifiersContext } from "./useModifiersContext";
-import { usePropsContext } from "./usePropsContext";
+import { useCalendarContext } from "./calendar";
+import { useModifiersContext } from "./modifiers";
+import { usePropsContext } from "./props";
 
 const FocusContext = createContext<FocusContextValue | undefined>(undefined);
 

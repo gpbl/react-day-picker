@@ -1,6 +1,6 @@
 import { es } from "date-fns/locale/es";
 
-import type { Modifiers } from "../types/shared";
+import type { Modifiers } from "../types";
 
 import { labelDay } from "./labelDay";
 

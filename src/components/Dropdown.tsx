@@ -3,7 +3,7 @@ import React, { SelectHTMLAttributes } from "react";
 import type { Month } from "date-fns";
 
 import { UI } from "../UI";
-import { usePropsContext } from "../contexts/usePropsContext";
+import { usePropsContext } from "../contexts/props";
 
 import { Chevron as DefaultChevron } from "./Chevron";
 import { Option as DefaultOption } from "./Option";

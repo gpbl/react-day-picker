@@ -1,6 +1,6 @@
 import React from "react";
 
-import { isSameDay } from "date-fns";
+import { isSameDay } from "date-fns/isSameDay";
 
 import type { Modifiers, PropsMulti } from "../types";
 

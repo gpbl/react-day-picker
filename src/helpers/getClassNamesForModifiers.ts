@@ -1,5 +1,5 @@
 import { DayFlag, SelectionState } from "../UI";
-import type { ModifiersClassNames, ClassNames } from "../types/shared";
+import type { ModifiersClassNames, ClassNames } from "../types";
 
 export function getClassNamesForModifiers(
   modifiers: Record<string, boolean>,

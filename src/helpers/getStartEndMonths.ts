@@ -5,8 +5,7 @@ import { startOfDay } from "date-fns/startOfDay";
 import { startOfMonth } from "date-fns/startOfMonth";
 import { startOfYear } from "date-fns/startOfYear";
 
-import type { DayPickerProps } from "../types/props";
-import type { Mode } from "../types/shared";
+import type { Mode, DayPickerProps } from "../types";
 
 /**
  * Return the `fromMonth` and `toMonth` prop values values parsing the DayPicker

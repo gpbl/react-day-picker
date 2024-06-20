@@ -2,7 +2,7 @@ import React from "react";
 
 import { UI, WeekNumberFlag } from "../UI";
 import type { CalendarWeek } from "../classes";
-import { usePropsContext } from "../contexts/usePropsContext";
+import { usePropsContext } from "../contexts/props";
 
 /**
  * Render the cell with the number of the week.

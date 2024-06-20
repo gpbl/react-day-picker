@@ -16,7 +16,7 @@ import { getPreviousMonth } from "../helpers/getPreviousMonth";
 import { getWeeks } from "../helpers/getWeeks";
 import { useControlledValue } from "../helpers/useControlledValue";
 
-import { usePropsContext } from "./usePropsContext";
+import { usePropsContext } from "./props";
 
 export const CalendarContext = createContext<CalendarContextValue | undefined>(
   undefined

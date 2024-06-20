@@ -5,20 +5,20 @@ import { isSameMonth } from "date-fns/isSameMonth";
 
 import { DayFlag, SelectionState } from "../UI";
 import { CalendarDay } from "../classes";
+import { useMultiContext } from "../selection/multi";
+import { useRangeContext } from "../selection/range";
+import { useSingleContext } from "../selection/single";
 import type {
   CustomModifiers,
   DayFlags,
   Modifiers,
   SelectionStates
-} from "../types/shared";
+} from "../types";
 import { isDateInRange } from "../utils";
 import { dateMatchModifiers } from "../utils/dateMatchModifiers";
 
-import { useCalendarContext } from "./useCalendarContext";
-import { useMultiContext } from "./useMultiContext";
-import { usePropsContext } from "./usePropsContext";
-import { useRangeContext } from "./useRangeContext";
-import { useSingleContext } from "./useSingleContext";
+import { useCalendarContext } from "./calendar";
+import { usePropsContext } from "./props";
 
 /**
  * Holds all the modifiers used in the the calendar.
@@ -26,7 +26,6 @@ import { useSingleContext } from "./useSingleContext";
  * Use the Modifiers context in custom component by calling the
  * {@link useModifiers} hook.
  */
-
 export const ModifiersContext = createContext<
   ModifiersContextValue | undefined
 >(undefined);

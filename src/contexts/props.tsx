@@ -11,17 +11,16 @@ import { getDefaultClassNames } from "../helpers/getDefaultClassNames";
 import { getFormatters } from "../helpers/getFormatters";
 import { getStartEndMonths } from "../helpers/getStartEndMonths";
 import * as defaultLabels from "../labels";
-import type { DayPickerProps } from "../types/props";
+import { useSingleContext } from "../selection/single";
 import type {
   ClassNames,
   CustomComponents,
   DataAttributes,
   Formatters,
   Labels,
-  Mode
-} from "../types/shared";
-
-import { useSingleContext } from "./useSingleContext";
+  Mode,
+  DayPickerProps
+} from "../types";
 
 const PropsContext = createContext<PropsContextValue | undefined>(undefined);
 

@@ -1,8 +1,8 @@
 import React, { MouseEventHandler } from "react";
 
 import { UI } from "../UI";
-import { useCalendarContext } from "../contexts/useCalendarContext";
-import { usePropsContext } from "../contexts/usePropsContext";
+import { useCalendarContext } from "../contexts/calendar";
+import { usePropsContext } from "../contexts/props";
 
 import { Button as DefaultButton } from "./Button";
 import { Chevron as DefaultChevron } from "./Chevron";

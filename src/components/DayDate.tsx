@@ -1,7 +1,7 @@
 import React from "react";
 
 import type { CalendarDay } from "../classes";
-import type { Modifiers } from "../types/shared";
+import type { Modifiers } from "../types";
 
 /**
  * Render the date as string inside the day grid cell.

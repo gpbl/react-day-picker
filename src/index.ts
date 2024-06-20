@@ -4,13 +4,13 @@ export * from "./types";
 export * from "./classes";
 export * from "./components/custom-components";
 
-export * from "./contexts/useCalendarContext";
-export * from "./contexts/useFocusContext";
-export * from "./contexts/useModifiersContext";
-export * from "./contexts/usePropsContext";
-export * from "./contexts/useSingleContext";
-export * from "./contexts/useMultiContext";
-export * from "./contexts/useRangeContext";
+export * from "./contexts/calendar";
+export * from "./contexts/focus";
+export * from "./contexts/modifiers";
+export * from "./contexts/props";
+export * from "./selection/single";
+export * from "./selection/multi";
+export * from "./selection/range";
 
 export * from "./formatters";
 export * from "./helpers";

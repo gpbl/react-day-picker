@@ -11,8 +11,8 @@ import {
   endOfWeek
 } from "date-fns";
 
-import type { PropsContextValue } from "../contexts/usePropsContext";
-import type { MoveFocusBy, MoveFocusDir, Mode } from "../types/shared";
+import type { PropsContextValue } from "../contexts/props";
+import type { MoveFocusBy, MoveFocusDir, Mode } from "../types";
 
 import { getPossibleFocusDate } from "./getPossibleFocusDate";
 

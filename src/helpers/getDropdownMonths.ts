@@ -4,7 +4,7 @@ import { isBefore } from "date-fns/isBefore";
 import { startOfMonth } from "date-fns/startOfMonth";
 
 import { DropdownOption } from "../components/Dropdown";
-import { PropsContextValue } from "../contexts/usePropsContext";
+import { PropsContextValue } from "../contexts/props";
 
 /** Return the months to show in the dropdown. */
 export function getDropdownMonths(

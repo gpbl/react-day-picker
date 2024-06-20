@@ -1,9 +1,8 @@
 import React from "react";
 
-import { isSameDay } from "date-fns";
+import { isSameDay } from "date-fns/isSameDay";
 
-import { Modifiers } from "../types";
-import { PropsSingle } from "../types/props";
+import { Modifiers, PropsSingle } from "../types";
 
 export type SingleContextValue<T> = {
   setSelected: (

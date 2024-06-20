@@ -2,11 +2,8 @@
 import { Calendar } from "../components/Calendar";
 import { MonthCaption, MonthCaptionProps } from "../components/MonthCaption";
 import { Week, type WeekProps } from "../components/Week";
-import { useCalendarContext } from "../contexts/useCalendarContext";
-import {
-  usePropsContext,
-  type PropsContextValue
-} from "../contexts/usePropsContext";
+import { useCalendarContext } from "../contexts/calendar";
+import { usePropsContext, type PropsContextValue } from "../contexts/props";
 import { labelDay, labelNext, labelWeekday, labelWeekNumber } from "../labels";
 
 import type {

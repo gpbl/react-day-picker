@@ -1,7 +1,7 @@
 import React from "react";
 
 import { UI } from "../UI";
-import { usePropsContext } from "../contexts/usePropsContext";
+import { usePropsContext } from "../contexts/props";
 
 /**
  * Render the column header with the weekday name (e.g. "Mo", "Tu", etc.).

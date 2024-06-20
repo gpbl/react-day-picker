@@ -2,7 +2,7 @@ import { addMonths } from "date-fns/addMonths";
 import { differenceInCalendarMonths } from "date-fns/differenceInCalendarMonths";
 import { startOfMonth } from "date-fns/startOfMonth";
 
-import type { PropsContextValue } from "../contexts/usePropsContext";
+import type { PropsContextValue } from "../contexts/props";
 
 /** Return the start month based on the props passed to DayPicker. */
 export function getInitialMonth(

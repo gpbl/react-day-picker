@@ -2,16 +2,16 @@ import React from "react";
 
 import { UI, DayFlag } from "../UI";
 import { CalendarDay } from "../classes/CalendarDay";
-import { useCalendarContext } from "../contexts/useCalendarContext";
-import { useFocusContext } from "../contexts/useFocusContext";
-import { useModifiersContext } from "../contexts/useModifiersContext";
-import { useMultiContext } from "../contexts/useMultiContext";
-import { usePropsContext } from "../contexts/usePropsContext";
-import { useRangeContext } from "../contexts/useRangeContext";
-import { useSingleContext } from "../contexts/useSingleContext";
+import { useCalendarContext } from "../contexts/calendar";
+import { useFocusContext } from "../contexts/focus";
+import { useModifiersContext } from "../contexts/modifiers";
+import { usePropsContext } from "../contexts/props";
 import { debounce } from "../helpers/debounce";
 import { getClassNamesForModifiers } from "../helpers/getClassNamesForModifiers";
 import { getStyleForModifiers } from "../helpers/getStyleForModifiers";
+import { useMultiContext } from "../selection/multi";
+import { useRangeContext } from "../selection/range";
+import { useSingleContext } from "../selection/single";
 
 import { DayProps, Day as DefaultDay } from "./Day";
 import { DayDateProps, DayDate as DefaultDayDate } from "./DayDate";
