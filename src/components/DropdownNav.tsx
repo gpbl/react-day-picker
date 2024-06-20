@@ -2,7 +2,7 @@ import React from "react";
 
 import { UI } from "../UI";
 import type { CalendarMonth } from "../classes";
-import { usePropsContext } from "../contexts/props";
+import { useProps } from "../contexts/props";
 
 import { MonthsDropdown } from "./MonthsDropdown";
 import { YearsDropdown } from "./YearsDropdown";
@@ -25,7 +25,7 @@ export function DropdownNav(props: {
   /** The index where this month is displayed. */
   index: number;
 }) {
-  const { classNames, styles } = usePropsContext();
+  const { classNames, styles } = useProps();
 
   return (
     <div

@@ -6,8 +6,7 @@ import { startOfMonth } from "date-fns/startOfMonth";
 
 import { UI } from "../UI";
 import type { CalendarMonth } from "../classes";
-import { useCalendarContext } from "../contexts/calendar";
-import { usePropsContext } from "../contexts/props";
+import { useCalendar, useProps } from "../contexts";
 
 import { Dropdown as DefaultDropdown } from "./Dropdown";
 
@@ -28,9 +27,9 @@ export function MonthsDropdown(props: {
     components,
     disableNavigation,
     labels: { labelMonthDropdown }
-  } = usePropsContext();
+  } = useProps();
 
-  const { dropdownOptions, goToMonth } = useCalendarContext();
+  const { dropdownOptions, goToMonth } = useCalendar();
 
   const Dropdown = components?.Dropdown ?? DefaultDropdown;
 

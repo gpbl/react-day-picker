@@ -8,7 +8,7 @@ import type { DayPickerProps } from "./types";
  * DayPicker is a React component to create date pickers, calendars, and date
  * inputs for web applications.
  *
- * @group Components
+ * @group DayPicker
  * @see http://daypicker.dev
  */
 export function DayPicker(props: DayPickerProps) {

@@ -133,20 +133,28 @@ When the `mode` prop is set to `"range"`, DayPicker allows selecting a continuou
 | `max`      | `number`                                        | The maximum dates that can be selected. |
 
 ```tsx
-import { useState } from "react";
-
-import { addDays } from "date-fns";
+import { addDays, format } from "date-fns";
 import { DateRange, DayPicker } from "react-day-picker";
 
-export function Range() {
-  const initialRange: DateRange = {
-    from: new Date(),
-    to: addDays(new Date(), 4)
+export function RangeExample() {
+  const defaultMonth = new Date(2020, 5, 15);
+
+  const defaultSelected: DateRange = {
+    from: defaultMonth,
+    to: addDays(defaultMonth, 4)
   };
+  const [range, setRange] = React.useState<DateRange | undefined>(
+    defaultSelected
+  );
 
-  const [range, setRange] = useState<DateRange | undefined>(initialRange);
-
-  return <DayPicker mode="range" selected={range} onSelect={setRange} />;
+  return (
+    <DayPicker
+      mode="range"
+      defaultMonth={defaultMonth}
+      selected={range}
+      onSelect={setRange}
+    />
+  );
 }
 ```
 

@@ -11,9 +11,9 @@ import type { CalendarDay } from "../classes";
 import { getNextFocus } from "../helpers/getNextFocus";
 import type { MoveFocusBy, MoveFocusDir, Mode } from "../types";
 
-import { useCalendarContext } from "./calendar";
-import { useModifiersContext } from "./modifiers";
-import { usePropsContext } from "./props";
+import { useCalendar } from "./calendar";
+import { useModifiers } from "./modifiers";
+import { useProps } from "./props";
 
 const FocusContext = createContext<FocusContextValue | undefined>(undefined);
 
@@ -24,12 +24,23 @@ export type FocusContextValue = {
    * The date that is target of the focus when tabbing into the month grid. The
    * focus target is the selected date first, then the today date, then the
    * first focusable date.
+   *
+   * @private
    */
   autoFocusTarget: CalendarDay | undefined;
+  /**
+   * True if the focus is set by the autoFocus prop.
+   *
+   * @private
+   */
   initiallyFocused: boolean;
   /** Focus the given day. */
   focus: (day: CalendarDay | undefined) => void;
-  /** Set the last focused day. */
+  /**
+   * Set the last focused day.
+   *
+   * @private
+   */
   setLastFocused: (day: CalendarDay | undefined) => void;
 
   /** Blur the focused day. */
@@ -56,25 +67,16 @@ export type FocusContextValue = {
   focusEndOfWeek: () => void;
 };
 
-/**
- * Share the focused day and the methods to move the focus.
- *
- * Use this hook from the custom components passed via the `components` prop.
- *
- * @group Contexts
- * @see https://react-day-picker.js.org/advanced-guides/custom-components
- */
+function useFocusContextValue(): FocusContextValue {
+  const { goToDay, isDayDisplayed, isInteractive } = useCalendar();
 
-function useFocus(): FocusContextValue {
-  const { goToDay, isDayDisplayed, isInteractive } = useCalendarContext();
-
-  const props = usePropsContext();
+  const props = useProps();
   const { autoFocus } = props;
   const {
     dayFlags: internal,
     selectionStates: selection,
     getModifiers
-  } = useModifiersContext();
+  } = useModifiers();
 
   const [focused, focus] = useState<CalendarDay | undefined>();
   const [lastFocused, setLastFocused] = useState<CalendarDay | undefined>();
@@ -156,7 +158,7 @@ export function FocusContextProvider<
   ModeType extends Mode | undefined = undefined,
   IsRequired extends boolean = false
 >({ children }: { children: ReactNode }) {
-  const focusContextValue = useFocus();
+  const focusContextValue = useFocusContextValue();
 
   return (
     <FocusContext.Provider value={focusContextValue}>
@@ -165,8 +167,15 @@ export function FocusContextProvider<
   );
 }
 
-/** @group Contexts */
-export function useFocusContext() {
+/**
+ * Share the focused day and the methods to move the focus.
+ *
+ * Use this hook from the custom components passed via the `components` prop.
+ *
+ * @group Hooks
+ * @see https://react-day-picker.js.org/advanced-guides/custom-components
+ */
+export function useFocus() {
   const propsContext = useContext(FocusContext);
   if (!propsContext) {
     throw new Error(

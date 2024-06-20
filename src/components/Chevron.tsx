@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ChevronFlag, UI } from "../UI";
-import { usePropsContext } from "../contexts/props";
+import { useProps } from "../contexts/props";
 
 /**
  * Render the chevron icon used in the navigation buttons and dropdowns.
@@ -16,7 +16,7 @@ export function Chevron(props: {
   orientation?: "up" | "down" | "left" | "right";
 }) {
   const { size = 24, orientation = "left" } = props;
-  const { classNames, disableNavigation } = usePropsContext();
+  const { classNames, disableNavigation } = useProps();
 
   const svgClassName = [
     classNames[UI.Chevron],

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-types */
 import React from "react";
 
 import type { Locale } from "date-fns";
@@ -23,7 +22,7 @@ import type {
 /**
  * The props for the `<DayPicker />` component.
  *
- * @group Props
+ * @group DayPicker
  */
 export type DayPickerProps = PropsBase &
   (
@@ -36,7 +35,12 @@ export type DayPickerProps = PropsBase &
     | { mode?: undefined }
   );
 
-/** @group Props */
+/**
+ * Props used for customization of the calendar, localization, and event
+ * handling.
+ *
+ * @group Props
+ */
 export interface PropsBase {
   mode?: Mode | undefined;
   /** Class name to add to the root element */

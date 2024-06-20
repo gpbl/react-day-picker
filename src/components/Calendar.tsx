@@ -1,8 +1,7 @@
 import React from "react";
 
 import { UI, CalendarFlag } from "../UI";
-import { useCalendarContext } from "../contexts/calendar";
-import { usePropsContext } from "../contexts/props";
+import { useCalendar, useProps } from "../contexts";
 
 import { Footer as DefaultFooter } from "./Footer";
 import { Month as DefaultMonth } from "./Month";
@@ -35,9 +34,9 @@ export function Calendar() {
     style,
     styles,
     title
-  } = usePropsContext();
+  } = useProps();
 
-  const calendar = useCalendarContext();
+  const calendar = useCalendar();
 
   // Apply classnames according to props
   const cssClassNames = [classNames[UI.Calendar]];

@@ -5,8 +5,8 @@ import {
   type MonthCaptionProps
 } from "../components/MonthCaption";
 import { Week, type WeekProps } from "../components/Week";
-import { useCalendarContext } from "../contexts/calendar";
-import { usePropsContext, type PropsContextValue } from "../contexts/props";
+import { useCalendar } from "../contexts/calendar";
+import { useProps, type PropsContextValue } from "../contexts/props";
 import { labelDay, labelNext, labelWeekday, labelWeekNumber } from "../labels";
 
 import type { PropsMulti, PropsRange, PropsSingle } from "./props";
@@ -132,21 +132,21 @@ export type DayPickerProviderProps = any;
 /**
  * @deprecated This type has been renamed to `useProps`.
  * @protected
- * @group Contexts
+ * @group Hooks
  */
-export const useDayPicker = usePropsContext;
+export const useDayPicker = useProps;
 
 /**
- * @deprecated This type has been renamed to `useProps`.
+ * @deprecated This type has been renamed to `useCalendar`.
  * @protected
- * @group Contexts
+ * @group Hooks
  */
-export const useNavigation = useCalendarContext;
+export const useNavigation = useCalendar;
 
 /**
  * @deprecated This hook has been removed. Use a custom `Day` component instead.
  * @protected
- * @group Contexts
+ * @group Hooks
  * @see https://react-day-picker.js.org/advanced-guides/custom-components
  */
 export type useDayRender = any;

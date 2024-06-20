@@ -4,12 +4,12 @@ import { isSameDay } from "date-fns";
 import {
   DateRange,
   DayPicker,
-  useRangeContext,
+  useRange,
   type DayProps
 } from "react-day-picker";
 
 function DayWithShiftKey(props: DayProps) {
-  const { selected } = useRangeContext();
+  const { selected } = useRange();
   const onClick = props.rootProps?.onClick;
 
   const handleClick: MouseEventHandler<HTMLDivElement> = (e) => {

@@ -20,12 +20,6 @@ const PropsContext = React.createContext<PropsContextValue | undefined>(
   undefined
 );
 
-/**
- * Holds the props passed to the DayPicker component, with some optional props
- * set to meaningful defaults.
- *
- * Access this context using the {@link usePropsContext} hook.
- */
 export type PropsContextValue = DayPickerProps & {
   /** The mode of the selection. */
   mode: Mode | undefined;
@@ -51,7 +45,7 @@ export type PropsContextValue = DayPickerProps & {
   endMonth: Date | undefined;
 };
 
-function useProps(initialProps: DayPickerProps) {
+function usePropsContextValue(initialProps: DayPickerProps) {
   const reactId = React.useId();
 
   const { startMonth, endMonth } = getStartEndMonths(initialProps);
@@ -97,7 +91,7 @@ export function PropsContextProvider<
 }: React.PropsWithChildren<{
   initialProps: DayPickerProps;
 }>) {
-  const propsContextValue = useProps(initialProps);
+  const propsContextValue = usePropsContextValue(initialProps);
 
   return (
     <PropsContext.Provider value={propsContextValue}>
@@ -111,10 +105,10 @@ export function PropsContextProvider<
  *
  * Use this hook from the custom components passed via the `components` prop.
  *
- * @group Contexts
+ * @group Hooks
  * @see https://react-day-picker.js.org/advanced-guides/custom-components
  */
-export function usePropsContext() {
+export function useProps() {
   const propsContext = React.useContext(PropsContext);
   if (!propsContext) {
     throw new Error(

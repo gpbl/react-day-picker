@@ -81,8 +81,8 @@ In case you are using DayPicker hooks in your custom components, you need to upd
 
 | Hook              | Upgrade Note                                                                                                            |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| ~`useDayPicker`~  | Renamed to [`usePropsContext`](./api/functions/usePropsContext.md).                                                     |
-| ~`useNavigation`~ | Renamed to [`useCalendarContext`](./api/functions/useCalendarContext.md).                                               |
+| ~`useDayPicker`~  | Renamed to [`useProps`](./api/functions/useProps.md).                                                                   |
+| ~`useNavigation`~ | Renamed to [`useCalendar`](./api/functions/useCalendar.md).                                                             |
 | ~`useDayPicker`~  | Removed in favor of the `Day` custom component. See [custom components guide](./advanced-guides/custom-components.mdx). |
 
 ### 7. TypeScript: check for deprecated types
@@ -111,8 +111,8 @@ See also the source of [types-deprecated.ts](https://github.com/gpbl/react-day-p
 | ~`SelectMultipleEventHandler`~ | This type will be removed. Use [`PropsMulti["onSelect]`](./api/interfaces/PropsMulti.md) instead.                           |
 | ~`SelectRangeEventHandler`~    | This type will be removed. Use [`PropsRange["onSelect]`](./api/interfaces/PropsRange.md) instead.                           |
 | ~`DayPickerProviderProps`~     | This type is not used anymore.                                                                                              |
-| ~`useDayPicker`~               | This type has been renamed to [`usePropsContext`](./api/functions/usePropsContext.md).                                      |
-| ~`useNavigation`~              | This type has been renamed to [`useCalendarContext`](./api/functions/useCalendarContext.md).                                |
+| ~`useDayPicker`~               | This type has been renamed to [`useProps`](./api/functions/useProps.md).                                                    |
+| ~`useNavigation`~              | This type has been renamed to [`useCalendar`](./api/functions/useCalendar.md).                                              |
 | ~`useDayRender`~               | This hook has been removed. To customize the rendering of a day, use the `htmlAttributes` prop in a custom `Day` component. |
 | ~`ContextProvidersProps`~      | This type is not used anymore.                                                                                              |
 | ~`DayLabel`~                   | Use `typeof labelDay` instead.                                                                                              |
@@ -120,7 +120,7 @@ See also the source of [types-deprecated.ts](https://github.com/gpbl/react-day-p
 | ~`WeekdayLabel`~               | Use `typeof labelWeekday` instead.                                                                                          |
 | ~`WeekNumberLabel`~            | Use `typeof labelWeekNumber` instead.                                                                                       |
 | ~`DayClickEventHandler`~       | Use `DayMouseEventHandler` instead.                                                                                         |
-| ~`DayFocusEventHandler`~       | This type will be removed. Use `DayEventHandlerReact.FocusEvent \| React.KeyboardEvent>` instead.                           |
+| ~`DayFocusEventHandler`~       | This type will be removed. Use `DayEventHandler<React.FocusEvent \| React.KeyboardEvent>` instead.                          |
 | ~`DayKeyboardEventHandler`~    | This type will be removed. Use `DayEventHandler<React.KeyboardEvent>` instead.                                              |
 | ~`DayMouseEventHandler`~       | This type will be removed. Use `DayEventHandler<React.MouseEvent>` instead.                                                 |
 | ~`DayPointerEventHandler`~     | This type will be removed. Use `DayEventHandler<React.PointerEvent>` instead.                                               |

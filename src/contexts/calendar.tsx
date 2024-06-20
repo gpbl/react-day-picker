@@ -16,18 +16,13 @@ import { getPreviousMonth } from "../helpers/getPreviousMonth";
 import { getWeeks } from "../helpers/getWeeks";
 import { useControlledValue } from "../helpers/useControlledValue";
 
-import { usePropsContext } from "./props";
+import { useProps } from "./props";
 
 /** @private */
-export const CalendarContext = createContext<CalendarContextValue | undefined>(
+const CalendarContext = createContext<CalendarContextValue | undefined>(
   undefined
 );
 
-/**
- * Share the calendar state and navigation methods across the components.\
- *
- * Access the calendar context using the {@link useCalendarContext} hook.
- */
 export type CalendarContextValue = {
   today: Date;
   /** All the unique dates displayed to the calendar. */
@@ -89,8 +84,8 @@ export type CalendarContextValue = {
   isDayDisplayed: (day: CalendarDay) => boolean;
 };
 
-function useCalendar(): CalendarContextValue {
-  const props = usePropsContext();
+function useCalendarContextValue(): CalendarContextValue {
+  const props = useProps();
 
   const initialDisplayMonth = getInitialMonth(props);
 
@@ -208,7 +203,7 @@ function useCalendar(): CalendarContextValue {
 
 /** @private */
 export function CalendarContextProvider(props: { children: ReactElement }) {
-  const calendarContextValue = useCalendar();
+  const calendarContextValue = useCalendarContextValue();
   return (
     <CalendarContext.Provider value={calendarContextValue}>
       {props.children}
@@ -221,14 +216,14 @@ export function CalendarContextProvider(props: { children: ReactElement }) {
  *
  * Use this hook from the custom components passed via the `components` prop.
  *
- * @group Contexts
+ * @group Hooks
  * @see https://react-day-picker.js.org/advanced-guides/custom-components
  */
-export function useCalendarContext() {
+export function useCalendar() {
   const calendarContext = useContext(CalendarContext);
   if (!calendarContext) {
     throw new Error(
-      "useCalendarContext() must be used within a CalendarContextProvider"
+      "useCalendar() must be used within a CalendarContextProvider"
     );
   }
   return calendarContext;

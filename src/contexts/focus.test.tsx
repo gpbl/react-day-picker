@@ -1,6 +1,6 @@
 import { renderHook } from "@/test/renderHook";
 
-import { useFocusContext } from "./focus";
+import { useFocus } from "./focus";
 
 const month = new Date(2020, 0, 1);
 const today = new Date(2020, 0, 14);
@@ -8,13 +8,13 @@ const today = new Date(2020, 0, 14);
 describe("autoFocusTarget", () => {
   describe("when not in interactive", () => {
     test("the auto focus target is undefined", () => {
-      const { result } = renderHook(useFocusContext, { month, today });
+      const { result } = renderHook(useFocus, { month, today });
       expect(result.current.autoFocusTarget).toBeUndefined();
     });
   });
   describe("when in selection mode", () => {
     test("the autofocus target should be today", () => {
-      const { result } = renderHook(useFocusContext, {
+      const { result } = renderHook(useFocus, {
         month,
         today,
         mode: "single"
@@ -25,7 +25,7 @@ describe("autoFocusTarget", () => {
     });
     describe("if today is disabled", () => {
       test("the autofocus target should be the first focusable day (the 1st of month)", () => {
-        const { result } = renderHook(useFocusContext, {
+        const { result } = renderHook(useFocus, {
           month,
           today,
           mode: "single",

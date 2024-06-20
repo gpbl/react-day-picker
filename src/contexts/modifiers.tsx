@@ -5,9 +5,9 @@ import { isSameMonth } from "date-fns/isSameMonth";
 
 import { DayFlag, SelectionState } from "../UI";
 import { CalendarDay } from "../classes";
-import { useMultiContext } from "../selection/multi";
-import { useRangeContext } from "../selection/range";
-import { useSingleContext } from "../selection/single";
+import { useMulti } from "../selection/multi";
+import { useRange } from "../selection/range";
+import { useSingle } from "../selection/single";
 import type {
   CustomModifiers,
   DayFlags,
@@ -17,15 +17,14 @@ import type {
 import { isDateInRange } from "../utils";
 import { dateMatchModifiers } from "../utils/dateMatchModifiers";
 
-import { useCalendarContext } from "./calendar";
-import { usePropsContext } from "./props";
+import { useCalendar } from "./calendar";
+import { useProps } from "./props";
 
 /** @private */
-export const ModifiersContext = createContext<
-  ModifiersContextValue | undefined
->(undefined);
+const ModifiersContext = createContext<ModifiersContextValue | undefined>(
+  undefined
+);
 
-/** Maps of all the modifiers with the calendar days. */
 export type ModifiersContextValue = {
   /** List the days with custom modifiers passed via the `modifiers` prop. */
   customModifiers: Record<string, CalendarDay[]>;
@@ -37,7 +36,7 @@ export type ModifiersContextValue = {
   getModifiers: (day: CalendarDay) => Modifiers;
 };
 
-function useModifiers(): ModifiersContextValue {
+function useModifiersContextValue(): ModifiersContextValue {
   const {
     disabled,
     hidden,
@@ -46,12 +45,12 @@ function useModifiers(): ModifiersContextValue {
     onDayClick,
     showOutsideDays,
     today
-  } = usePropsContext();
+  } = useProps();
 
-  const calendar = useCalendarContext();
-  const single = useSingleContext();
-  const multi = useMultiContext();
-  const range = useRangeContext();
+  const calendar = useCalendar();
+  const single = useSingle();
+  const multi = useMulti();
+  const range = useRange();
 
   const internal: Record<DayFlag, CalendarDay[]> = {
     [DayFlag.focused]: [],
@@ -187,18 +186,13 @@ function useModifiers(): ModifiersContextValue {
   };
 }
 
-/**
- * Provide the shared props to the DayPicker components. Must be used as root of
- * the other providers.
- *
- * @private
- */
+/** @private */
 export function ModifiersContextProvider({
   children
 }: {
   children: ReactElement;
 }) {
-  const modifiers = useModifiers();
+  const modifiers = useModifiersContextValue();
 
   return (
     <ModifiersContext.Provider value={modifiers}>
@@ -207,8 +201,12 @@ export function ModifiersContextProvider({
   );
 }
 
-/** @group Contexts */
-export function useModifiersContext() {
+/**
+ * Access to the modifiers for the days in the calendar.
+ *
+ * @group Hooks
+ */
+export function useModifiers() {
   const modifiersContext = useContext(ModifiersContext);
   if (!modifiersContext) {
     throw new Error(

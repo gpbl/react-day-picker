@@ -6,8 +6,8 @@ import { startOfMonth } from "date-fns/startOfMonth";
 
 import { UI } from "../UI";
 import type { CalendarMonth } from "../classes/CalendarMonth";
-import { useCalendarContext } from "../contexts/calendar";
-import { usePropsContext } from "../contexts/props";
+import { useCalendar } from "../contexts/calendar";
+import { useProps } from "../contexts/props";
 
 import { Dropdown as DefaultDropdown } from "./Dropdown";
 
@@ -28,9 +28,9 @@ export function YearsDropdown(props: {
     components,
     disableNavigation,
     labels: { labelYearDropdown }
-  } = usePropsContext();
+  } = useProps();
 
-  const { dropdownOptions, goToMonth } = useCalendarContext();
+  const { dropdownOptions, goToMonth } = useCalendar();
 
   const handleChange: ChangeEventHandler<HTMLSelectElement> = (e) => {
     const month = setYear(

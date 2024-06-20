@@ -11,5 +11,5 @@ beforeEach(() => {
 });
 
 test("should render the emoji", () => {
-  expect(screen.getByText("🎉19")).toBeInTheDocument();
+  expect(screen.getByText("🎉")).toBeInTheDocument();
 });

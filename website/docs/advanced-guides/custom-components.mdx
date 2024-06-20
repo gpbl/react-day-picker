@@ -13,7 +13,7 @@ Use the `components` prop to swap the components used to render DayPicker.
 - Make sure you don't break [accessibility](../using-daypicker/accessibility.mdx) when customizing components.
 - Custom components may not have a stable API yet and may break in a minor release.
 
-  :::
+:::
 
 ## List of Custom Components
 
@@ -23,20 +23,20 @@ See the [Components API Reference](../api#components) for a list of components y
 
 For example, if you need to customize the component displaying the date, replace the [`DayDate`](../api/functions//DayDate.md) component:
 
-```tsx title="./CustomDayDate.tsx"
+```tsx title="./MyDatePicker.tsx"
 import { DayPicker, type DayDateProps } from "react-day-picker";
 
-function CustomDate(props: DayDateProps) {
+/** When the date is 19, will display an emoji. */
+function HighlightDay(props: DayDateProps) {
   return (
-    <span {...props.rootProps}>
-      {props.day.date.getDate() === 19 && ` 🎉`}
-      {props.formattedDate}
+    <span {...props.rootProps} style={{ whiteSpace: "nowrap" }}>
+      {props.day.date.getDate() === 19 ? `🎉` : props.formattedDate}
     </span>
   );
 }
 
 export function MyDatePicker() {
-  return <DayPicker mode="single" components={{ DayDate: CustomDate }} />;
+  return <DayPicker mode="single" components={{ DayDate: HighlightDay }} />;
 }
 ```
 
@@ -70,11 +70,15 @@ export function MyDatePicker() {
 
 When creating custom components, you will find useful the [DayPicker hooks](../api/index.md#hooks). These utilities provide access to the internal state and methods of the DayPicker component.
 
-| Hooks                                                          | Description                                                                |
-| :------------------------------------------------------------- | :------------------------------------------------------------------------- |
-| [`useCalendarContext`](../api/functions/useCalendarContext.md) | Return the calendar state and navigation methods to navigate the calendar. |
-| [`useFocusContext`](../api/functions/useFocusContext.md)       | Share the focused day and the methods to move the focus.                   |
-| [`usePropsContext`](../api/functions/usePropsContext.md)       | Access to the props passed to DayPicker.                                   |
+| Function                                         | Description                                                               |
+| :----------------------------------------------- | :------------------------------------------------------------------------ |
+| [useCalendar](../api/functions/useCalendar.md)   | Access to the props passed to `DayPicker`, with some meaningful defaults. |
+| [useFocus](../api/functions/useFocus.md)         | Share the focused day and the methods to move the focus.                  |
+| [useModifiers](../api/functions/useModifiers.md) | -                                                                         |
+| [useMulti](../api/functions/useMulti.md)         | Access to the multi context to get the selected dates or update them.     |
+| [useProps](../api/functions/useProps.md)         | Access to the props passed to `DayPicker`, with some meaningful defaults. |
+| [useRange](../api/functions/useRange.md)         | Access to the range context to get the selected range or update it.       |
+| [useSingle](../api/functions/useSingle.md)       | Access to the single context to get the selected date or update it.       |
 
 ### Example: Range with Shift Key
 
@@ -87,11 +91,11 @@ import {
   DateRange,
   DayPicker,
   type DayProps,
-  useRangeContext
+  useRange
 } from "react-day-picker";
 
 function DayWithShiftKey(props: DayProps) {
-  const { selected } = useRangeContext();
+  const { selected } = useRange();
   const onClick = props.htmlAttributes?.onClick;
 
   const handleClick: MouseEventHandler<HTMLElement> = (e) => {

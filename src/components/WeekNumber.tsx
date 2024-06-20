@@ -2,7 +2,7 @@ import React from "react";
 
 import { UI, WeekNumberFlag } from "../UI";
 import type { CalendarWeek } from "../classes";
-import { usePropsContext } from "../contexts/props";
+import { useProps } from "../contexts/props";
 
 /**
  * Render the cell with the number of the week.
@@ -20,7 +20,7 @@ export function WeekNumber(props: { week: CalendarWeek }) {
     locale,
     styles,
     onWeekNumberClick
-  } = usePropsContext();
+  } = useProps();
 
   const isInteractive = Boolean(onWeekNumberClick);
 

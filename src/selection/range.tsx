@@ -3,7 +3,7 @@ import React from "react";
 import { differenceInCalendarDays } from "date-fns/differenceInCalendarDays";
 
 import { DateRange, Modifiers, PropsRange } from "../types";
-import { addToRange, isDateRange } from "../utils";
+import { addToRange } from "../utils";
 import { isDateInRange } from "../utils/isDateInRange";
 
 export type RangeContextValue<T> = {
@@ -26,7 +26,7 @@ const RangeContext = React.createContext<RangeContextValue<any> | undefined>(
   undefined
 );
 
-function useRange<T extends PropsRange>({
+function useRangeContextValue<T extends PropsRange>({
   required,
   min,
   max,
@@ -93,7 +93,7 @@ function useRange<T extends PropsRange>({
 
 /** @private */
 export function RangeProvider(props: React.PropsWithChildren<PropsRange>) {
-  const value = useRange(props);
+  const value = useRangeContextValue(props);
   return (
     <RangeContext.Provider value={value}>
       {props.children}
@@ -104,14 +104,15 @@ export function RangeProvider(props: React.PropsWithChildren<PropsRange>) {
 /**
  * Access to the range context to get the selected range or update it.
  *
- * @group Contexts
+ * Use this hook from the custom components passed via the `components` prop.
+ *
+ * @group Hooks
+ * @see https://react-day-picker.js.org/advanced-guides/custom-components
  */
-export function useRangeContext<T extends { required: boolean }>() {
+export function useRange<T extends { required: boolean }>() {
   const context = React.useContext(RangeContext);
   if (!context) {
-    throw new Error(
-      "useRangeContext() must be used within a RangeContextProvider."
-    );
+    throw new Error("useRange() must be used within a RangeContextProvider.");
   }
   return context as RangeContextValue<T>;
 }

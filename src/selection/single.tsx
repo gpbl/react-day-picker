@@ -24,7 +24,7 @@ const SingleContext = React.createContext<SingleContextValue<any> | undefined>(
   undefined
 );
 
-function useSingle<T extends PropsSingle>({
+function useSingleContextValue<T extends PropsSingle>({
   required = false,
   selected,
   onSelect
@@ -64,7 +64,7 @@ function useSingle<T extends PropsSingle>({
 
 /** @private */
 export function SingleProvider(props: React.PropsWithChildren<PropsSingle>) {
-  const value = useSingle(props);
+  const value = useSingleContextValue(props);
   return (
     <SingleContext.Provider value={value}>
       {props.children}
@@ -72,13 +72,18 @@ export function SingleProvider(props: React.PropsWithChildren<PropsSingle>) {
   );
 }
 
-/** @group Contexts */
-export function useSingleContext() {
+/**
+ * Access to the single context to get the selected date or update it.
+ *
+ * Use this hook from the custom components passed via the `components` prop.
+ *
+ * @group Hooks
+ * @see https://react-day-picker.js.org/advanced-guides/custom-components
+ */
+export function useSingle() {
   const context = React.useContext(SingleContext);
   if (!context) {
-    throw new Error(
-      "useSingleContext must be used within a SingleContextProvider"
-    );
+    throw new Error("useSingle() must be used within a SingleContextProvider");
   }
   return context;
 }

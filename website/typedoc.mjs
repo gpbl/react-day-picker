@@ -14,6 +14,7 @@ const options = {
   tsconfig: "../tsconfig-docs.json",
   categorizeByGroup: true,
   groupOrder: [
+    "DayPicker",
     "Props",
     "Classes",
     "Components",
@@ -40,7 +41,7 @@ const options = {
   parametersFormat: "table",
   propertiesFormat: "list",
   enumMembersFormat: "table",
-  typeDeclarationFormat: "table",
+  typeDeclarationFormat: "list",
   indexFormat: "table",
 
   plugin: ["typedoc-plugin-markdown", "typedoc-plugin-frontmatter"],

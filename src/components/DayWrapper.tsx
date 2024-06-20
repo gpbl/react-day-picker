@@ -2,19 +2,14 @@ import React from "react";
 
 import { UI, DayFlag } from "../UI";
 import { CalendarDay } from "../classes/CalendarDay";
-import { useCalendarContext } from "../contexts/calendar";
-import { useFocusContext } from "../contexts/focus";
-import { useModifiersContext } from "../contexts/modifiers";
-import { usePropsContext } from "../contexts/props";
+import { useCalendar, useFocus, useModifiers, useProps } from "../contexts";
 import { debounce } from "../helpers/debounce";
 import { getClassNamesForModifiers } from "../helpers/getClassNamesForModifiers";
 import { getStyleForModifiers } from "../helpers/getStyleForModifiers";
-import { useMultiContext } from "../selection/multi";
-import { useRangeContext } from "../selection/range";
-import { useSingleContext } from "../selection/single";
+import { useMulti, useRange, useSingle } from "../selection";
 
-import { DayProps, Day as DefaultDay } from "./Day";
-import { DayDateProps, DayDate as DefaultDayDate } from "./DayDate";
+import { type DayProps, Day as DefaultDay } from "./Day";
+import { type DayDateProps, DayDate as DefaultDayDate } from "./DayDate";
 
 /**
  * Provides a `Day` the day state and the html attributes. Developers may use a
@@ -54,14 +49,14 @@ export function DayWrapper(props: {
     onDayTouchMove,
     onDayTouchStart,
     styles = {}
-  } = usePropsContext();
+  } = useProps();
 
-  const { isInteractive } = useCalendarContext();
-  const { getModifiers } = useModifiersContext();
+  const { isInteractive } = useCalendar();
+  const { getModifiers } = useModifiers();
 
-  const single = useSingleContext();
-  const multi = useMultiContext();
-  const range = useRangeContext();
+  const single = useSingle();
+  const multi = useMulti();
+  const range = useRange();
 
   const {
     autoFocusTarget,
@@ -78,7 +73,7 @@ export function DayWrapper(props: {
     focusYearAfter,
     focusStartOfWeek,
     focusEndOfWeek
-  } = useFocusContext();
+  } = useFocus();
 
   const modifiers = getModifiers(props.day);
 

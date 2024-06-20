@@ -24,7 +24,7 @@ const MultiContext = React.createContext<MultiContextValue<any> | undefined>(
   undefined
 );
 
-function useMulti<T extends PropsMulti>({
+function useMultiContextValue<T extends PropsMulti>({
   required = false,
   min = undefined,
   max = undefined,
@@ -86,7 +86,7 @@ function useMulti<T extends PropsMulti>({
 
 /** @private */
 export function MultiProvider(props: React.PropsWithChildren<PropsMulti>) {
-  const value = useMulti(props);
+  const value = useMultiContextValue(props);
   return (
     <MultiContext.Provider value={value}>
       {props.children}
@@ -97,14 +97,15 @@ export function MultiProvider(props: React.PropsWithChildren<PropsMulti>) {
 /**
  * Access to the multi context to get the selected dates or update them.
  *
- * @group Contexts
+ * Use this hook from the custom components passed via the `components` prop.
+ *
+ * @group Hooks
+ * @see https://react-day-picker.js.org/advanced-guides/custom-components
  */
-export function useMultiContext<T extends { required: boolean }>() {
+export function useMulti<T extends { required: boolean }>() {
   const context = React.useContext(MultiContext);
   if (!context) {
-    throw new Error(
-      "useMultiContext must be used within a MultiContextProvider."
-    );
+    throw new Error("useMulti() must be used within a MultiContextProvider.");
   }
   return context as MultiContextValue<T>;
 }
