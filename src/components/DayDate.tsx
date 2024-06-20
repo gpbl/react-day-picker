@@ -27,3 +27,14 @@ export function DayDate(props: {
 }
 
 export type DayDateProps = Parameters<typeof DayDate>[0];
+
+/**
+ * @deprecated The component has been renamed. Use `DayDate` instead.
+ * @protected
+ */
+export const DayContent = DayDate;
+/**
+ * @deprecated The type has been renamed. Use `DayDateProps` instead.
+ * @protected
+ */
+export type DayContentProps = DayDateProps;

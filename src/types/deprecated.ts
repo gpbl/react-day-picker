@@ -1,17 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Calendar } from "../components/Calendar";
-import { MonthCaption, MonthCaptionProps } from "../components/MonthCaption";
+import {
+  MonthCaption,
+  type MonthCaptionProps
+} from "../components/MonthCaption";
 import { Week, type WeekProps } from "../components/Week";
 import { useCalendarContext } from "../contexts/calendar";
 import { usePropsContext, type PropsContextValue } from "../contexts/props";
 import { labelDay, labelNext, labelWeekday, labelWeekNumber } from "../labels";
 
-import type {
-  DayPickerProps,
-  PropsMulti,
-  PropsRange,
-  PropsSingle
-} from "./props";
+import type { PropsMulti, PropsRange, PropsSingle } from "./props";
 import type { Mode, DayEventHandler } from "./shared";
 
 /**
