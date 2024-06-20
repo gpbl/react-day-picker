@@ -1288,9 +1288,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
       class="rdp-footer"
     >
       <p>
-        November 15th, 2020
-        –
-        November 19th, 2020
+        Please pick the first day.
       </p>
     </div>
   </div>

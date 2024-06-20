@@ -1,39 +1,39 @@
-import type { CalendarDay } from "../classes";
-import type { SelectionStates } from "../types/shared";
+// import type { CalendarDay } from "../classes";
+// import type { SelectionStates } from "../types/shared";
 
-import { usePropsContext } from "./usePropsContext";
-import { useSingleContext } from "./useSingleContext";
+// import { usePropsContext } from "./usePropsContext";
+// import { useSingleContext } from "./useSingleContext";
 
-export function useSelection() {
-  const { mode } = usePropsContext();
-  const single = useSingleContext();
+// export function useSelection() {
+//   const { mode } = usePropsContext();
+//   const single = useSingleContext();
 
-  const getSelectionModifiers = (day: CalendarDay) => {
-    const modifiers: SelectionStates = {
-      selected: false,
-      range_start: false,
-      range_middle: false,
-      range_end: false
-    };
+//   const getSelectionModifiers = (day: CalendarDay) => {
+//     const modifiers: SelectionStates = {
+//       selected: false,
+//       range_start: false,
+//       range_middle: false,
+//       range_end: false
+//     };
 
-    if (mode === "single") {
-      return single.isSelected(day.date)
-        ? { ...modifiers, selected: true }
-        : { ...modifiers, selected: false };
-    }
+//     if (mode === "single") {
+//       return single.isSelected(day.date)
+//         ? { ...modifiers, selected: true }
+//         : { ...modifiers, selected: false };
+//     }
 
-    return modifiers;
-  };
+//     return modifiers;
+//   };
 
-  const setSelected = (day: CalendarDay) => {
-    if (mode === "single") {
-      single.setSelected(day.date);
-    }
-  };
+//   const setSelected = (day: CalendarDay) => {
+//     if (mode === "single") {
+//       single.setSelected(day.date);
+//     }
+//   };
 
-  return {
-    selected: single.selected,
-    setSelected,
-    getSelectionModifiers
-  };
-}
+//   return {
+//     selected: single.selected,
+//     setSelected,
+//     getSelectionModifiers
+//   };
+// }

@@ -91,13 +91,13 @@ export function DayWrapper(props: {
 
     switch (mode) {
       case "single":
-        single.setSelected(props.day.date);
+        single.setSelected(props.day.date, modifiers, e);
         break;
       case "multiple":
-        multi.setSelected(props.day.date);
+        multi.setSelected(props.day.date, modifiers, e);
         break;
       case "range":
-        range.setSelected(props.day.date);
+        range.setSelected(props.day.date, modifiers, e);
         break;
     }
 
@@ -183,13 +183,13 @@ export function DayWrapper(props: {
         e.preventDefault();
         e.stopPropagation();
         if (mode === "single" && !modifiers.disabled) {
-          single.setSelected(props.day.date);
+          single.setSelected(props.day.date, modifiers, e);
         }
         if (mode === "multiple" && !modifiers.disabled) {
-          multi.setSelected(props.day.date);
+          multi.setSelected(props.day.date, modifiers, e);
         }
         if (mode === "range" && !modifiers.disabled) {
-          range.setSelected(props.day.date);
+          range.setSelected(props.day.date, modifiers, e);
         }
         break;
       case "PageUp":

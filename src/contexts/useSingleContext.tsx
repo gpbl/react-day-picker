@@ -2,19 +2,23 @@ import React from "react";
 
 import { isSameDay } from "date-fns";
 
+import { Modifiers } from "../types";
 import { PropsSingle } from "../types/props";
 
-export type SingleContextValue<T> = T extends { required: true }
+export type SingleContextValue<T> = {
+  setSelected: (
+    triggerDate: Date,
+    modifiers: Modifiers,
+    e: React.MouseEvent | React.KeyboardEvent
+  ) => void;
+  isSelected: (date: Date) => boolean;
+} & (T extends { required: true }
   ? {
       selected: Date;
-      setSelected: (date: Date) => void;
-      isSelected: (date: Date) => boolean;
     }
   : {
       selected: Date | undefined;
-      setSelected: (date: Date | undefined) => void;
-      isSelected: (date: Date) => boolean;
-    };
+    });
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const SingleContext = React.createContext<SingleContextValue<any> | undefined>(
@@ -23,7 +27,8 @@ const SingleContext = React.createContext<SingleContextValue<any> | undefined>(
 
 function useSingle<T extends PropsSingle>({
   required = false,
-  selected
+  selected,
+  onSelect
 }: T): SingleContextValue<T> {
   const [date, setDate] = React.useState<Date | undefined>(selected);
 
@@ -40,19 +45,24 @@ function useSingle<T extends PropsSingle>({
   const isSelected = (compareDate: Date) =>
     date ? isSameDay(date, compareDate) : false;
 
-  const setSelected = (newDate: Date | undefined) => {
-    if (newDate === undefined) {
-      // If the date is required, do not allow to clear the selection.
-      setDate(required ? date : undefined);
-    } else if (!required && date && newDate && isSameDay(date, newDate)) {
+  const setSelected = (
+    triggerDate: Date,
+    modifiers: Modifiers,
+    e: React.MouseEvent | React.KeyboardEvent
+  ) => {
+    let newDate: Date | undefined = triggerDate;
+    if (!required && date && date && isSameDay(triggerDate, date)) {
       // If the date is the same, clear the selection.
-      setDate(undefined);
-    } else {
-      setDate(newDate);
+      newDate = undefined;
     }
+    setDate(newDate);
+    onSelect?.(newDate, triggerDate, modifiers, e);
+    return newDate;
   };
+
   return { selected: date, setSelected, isSelected } as SingleContextValue<T>;
 }
+
 /** @private */
 export function SingleProvider(props: React.PropsWithChildren<PropsSingle>) {
   const value = useSingle(props);

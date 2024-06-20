@@ -21,6 +21,8 @@ import type {
   Mode
 } from "../types/shared";
 
+import { useSingleContext } from "./useSingleContext";
+
 const PropsContext = createContext<PropsContextValue | undefined>(undefined);
 
 /**
@@ -81,11 +83,6 @@ function useProps(initialProps: DayPickerProps) {
     numberOfMonths: initialProps.numberOfMonths ?? 1,
     today: initialProps.today ?? new Date()
   };
-
-  if (initialProps.mode === "single") {
-    propsContext.mode = "single";
-    propsContext.onDayClick = (day) => {};
-  }
 
   return propsContext;
 }

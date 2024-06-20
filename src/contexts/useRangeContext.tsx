@@ -3,21 +3,24 @@ import React from "react";
 import { differenceInCalendarDays } from "date-fns";
 
 import { PropsRange } from "../types/props";
-import { DateRange } from "../types/shared";
+import { DateRange, Modifiers } from "../types/shared";
 import { addToRange, isDateRange } from "../utils";
 import { isDateInRange } from "../utils/isDateInRange";
 
-export type RangeContextValue<T> = T extends { required: true }
+export type RangeContextValue<T> = {
+  setSelected: (
+    triggerDate: Date,
+    modifiers: Modifiers,
+    e: React.MouseEvent | React.KeyboardEvent
+  ) => DateRange | undefined;
+  isSelected: (date: Date) => boolean;
+} & (T extends { required: true }
   ? {
       selected: DateRange;
-      setSelected: (date: Date) => void;
-      isSelected: (date: Date) => boolean;
     }
   : {
       selected: DateRange | undefined;
-      setSelected: (date: Date | undefined) => void;
-      isSelected: (date: Date) => boolean;
-    };
+    });
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const RangeContext = React.createContext<RangeContextValue<any> | undefined>(
@@ -28,7 +31,8 @@ function useRange<T extends PropsRange>({
   required,
   min,
   max,
-  selected
+  selected,
+  onSelect
 }: T): RangeContextValue<T> {
   const [range, setRange] = React.useState<DateRange | undefined>(selected);
 
@@ -47,11 +51,12 @@ function useRange<T extends PropsRange>({
     ? (date: Date) => isDateInRange(date, range as DateRange)
     : (date: Date) => range && isDateInRange(date, range);
 
-  const setSelected = (date: Date | undefined) => {
-    if (range !== undefined && !isDateRange(range)) {
-      return;
-    }
-    const newRange = date ? addToRange(date, range) : undefined;
+  const setSelected = (
+    triggerDate: Date,
+    modifiers: Modifiers,
+    e: React.MouseEvent | React.KeyboardEvent
+  ) => {
+    const newRange = addToRange(triggerDate, range);
 
     if (min) {
       if (
@@ -59,7 +64,7 @@ function useRange<T extends PropsRange>({
         newRange.to &&
         differenceInCalendarDays(newRange.to, newRange.from) <= min
       ) {
-        newRange.from = date;
+        newRange.from = triggerDate;
         newRange.to = undefined;
       }
     }
@@ -70,12 +75,14 @@ function useRange<T extends PropsRange>({
         newRange.to &&
         differenceInCalendarDays(newRange.to, newRange.from) + 1 > max
       ) {
-        newRange.from = date;
+        newRange.from = triggerDate;
         newRange.to = undefined;
       }
     }
 
     setRange(newRange);
+    onSelect?.(newRange, triggerDate, modifiers, e);
+    return newRange;
   };
 
   return {

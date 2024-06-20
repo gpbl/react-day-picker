@@ -2,19 +2,22 @@ import React from "react";
 
 import { isSameDay } from "date-fns";
 
-import { PropsMulti } from "../types/props";
+import type { Modifiers, PropsMulti } from "../types";
 
-export type MultiContextValue<T> = T extends { required: true }
+export type MultiContextValue<T> = {
+  setSelected: (
+    triggerDate: Date,
+    modifiers: Modifiers,
+    e: React.MouseEvent | React.KeyboardEvent
+  ) => Date[] | undefined;
+  isSelected: (date: Date) => boolean;
+} & (T extends { required: true }
   ? {
       selected: Date[];
-      setSelected: (selected: Date) => void;
-      isSelected: (date: Date) => boolean;
     }
   : {
       selected: Date[] | undefined;
-      setSelected: (selected: Date) => void;
-      isSelected: (date: Date) => boolean;
-    };
+    });
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const MultiContext = React.createContext<MultiContextValue<any> | undefined>(
@@ -25,7 +28,8 @@ function useMulti<T extends PropsMulti>({
   required = false,
   min = undefined,
   max = undefined,
-  selected
+  selected,
+  onSelect
 }: T): MultiContextValue<T> {
   const [dates, setDates] = React.useState<Date[] | undefined>(selected);
 
@@ -42,8 +46,13 @@ function useMulti<T extends PropsMulti>({
   const isSelected = (date: Date) =>
     dates?.some((d) => isSameDay(d, date)) ?? false;
 
-  const setSelected = (date: Date) => {
-    if (isSelected(date)) {
+  const setSelected = (
+    triggerDate: Date,
+    modifiers: Modifiers,
+    e: React.MouseEvent | React.KeyboardEvent
+  ) => {
+    let newDates = [...(dates ?? [])];
+    if (isSelected(triggerDate)) {
       if (dates?.length === min) {
         // Min value reached, do nothing
         return;
@@ -52,16 +61,20 @@ function useMulti<T extends PropsMulti>({
         // Required value already selected do nothing
         return;
       }
-      setDates(dates?.filter((d) => !isSameDay(d, date)));
+      const newDates = dates?.filter((d) => !isSameDay(d, triggerDate));
+      setDates(newDates);
     } else {
       if (dates?.length === max) {
         // Max value reached, reset the selection to date
-        setDates([date]);
+        newDates = [triggerDate];
       } else {
         // Add the date to the selection
-        setDates([...(dates ?? []), date]);
+        newDates = [...newDates, triggerDate];
       }
     }
+    onSelect?.(newDates, triggerDate, modifiers, e);
+    setDates(newDates);
+    return newDates;
   };
 
   return {

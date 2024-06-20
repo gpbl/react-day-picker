@@ -49,7 +49,7 @@ describe("when a day in the range is clicked", () => {
     describe("when a day in the range is clicked again", () => {
       const day = days[2];
       beforeEach(async () => act(() => user.click(gridcell(day))));
-      test("no day should be selected (??)", () => {
+      test("no day should be selected", () => {
         expect(getAllSelectedDays()).toHaveLength(0);
       });
       test("should match the snapshot", () => {
