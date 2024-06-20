@@ -20,12 +20,7 @@ import { dateMatchModifiers } from "../utils/dateMatchModifiers";
 import { useCalendarContext } from "./calendar";
 import { usePropsContext } from "./props";
 
-/**
- * Holds all the modifiers used in the the calendar.
- *
- * Use the Modifiers context in custom component by calling the
- * {@link useModifiers} hook.
- */
+/** @private */
 export const ModifiersContext = createContext<
   ModifiersContextValue | undefined
 >(undefined);

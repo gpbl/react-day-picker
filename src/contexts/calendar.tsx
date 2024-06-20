@@ -18,6 +18,7 @@ import { useControlledValue } from "../helpers/useControlledValue";
 
 import { usePropsContext } from "./props";
 
+/** @private */
 export const CalendarContext = createContext<CalendarContextValue | undefined>(
   undefined
 );
