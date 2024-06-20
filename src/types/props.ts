@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import React from "react";
 
-import { Locale } from "date-fns/Locale";
+import type { Locale } from "date-fns";
 
 import type {
   ClassNames,
