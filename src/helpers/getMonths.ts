@@ -8,7 +8,7 @@ import { startOfISOWeek } from "date-fns/startOfISOWeek";
 import { startOfWeek } from "date-fns/startOfWeek";
 
 import { CalendarWeek, CalendarDay, CalendarMonth } from "../classes";
-import type { PropsContextValue } from "../contexts/props";
+import type { PropsContextValue } from "../contexts";
 
 /** Return the months to display in the calendar. */
 export function getMonths(

@@ -1,6 +1,6 @@
 import { addMonths } from "date-fns/addMonths";
 
-import type { PropsContextValue } from "../contexts/props";
+import type { PropsContextValue } from "../contexts";
 
 export function getDisplayMonths(
   firstDisplayedMonth: Date,

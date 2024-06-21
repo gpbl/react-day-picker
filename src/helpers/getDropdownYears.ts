@@ -6,7 +6,7 @@ import { startOfMonth } from "date-fns/startOfMonth";
 import { startOfYear } from "date-fns/startOfYear";
 
 import { DropdownOption } from "../components/Dropdown";
-import { PropsContextValue } from "../contexts/props";
+import { PropsContextValue } from "../contexts";
 
 /** Return the years to show in the dropdown. */
 export function getDropdownYears(

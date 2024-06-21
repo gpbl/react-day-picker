@@ -2,7 +2,7 @@ import { addMonths } from "date-fns/addMonths";
 import { differenceInCalendarMonths } from "date-fns/differenceInCalendarMonths";
 import { startOfMonth } from "date-fns/startOfMonth";
 
-import type { PropsContextValue } from "../contexts/props";
+import type { PropsContextValue } from "../contexts";
 
 /**
  * Return the next previous the user can navigate to, according to the given

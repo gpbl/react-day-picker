@@ -2,7 +2,7 @@ import React from "react";
 
 import { UI } from "../UI";
 import type { CalendarMonth } from "../classes";
-import { useProps } from "../contexts/props";
+import { useProps } from "../contexts";
 
 import { DropdownNav } from "./DropdownNav";
 

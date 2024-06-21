@@ -17,8 +17,8 @@ import type {
 import { isDateInRange } from "../utils";
 import { dateMatchModifiers } from "../utils/dateMatchModifiers";
 
-import { useCalendar } from "./calendar";
-import { useProps } from "./props";
+import { useCalendar } from "./useCalendar";
+import { useProps } from "./useProps";
 
 /** @private */
 const ModifiersContext = createContext<ModifiersContextValue | undefined>(

@@ -9,10 +9,10 @@ import type {
   PropsSingle
 } from "../types";
 
-import { CalendarContextProvider } from "./calendar";
-import { FocusContextProvider } from "./focus";
-import { ModifiersContextProvider } from "./modifiers";
-import { PropsContextProvider, useProps } from "./props";
+import { CalendarContextProvider } from "./useCalendar";
+import { FocusContextProvider } from "./useFocus";
+import { ModifiersContextProvider } from "./useModifiers";
+import { PropsContextProvider, useProps } from "./useProps";
 
 function SelectionProviders({ children }: PropsWithChildren) {
   const props = useProps();

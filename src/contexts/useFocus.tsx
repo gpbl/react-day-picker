@@ -11,9 +11,9 @@ import type { CalendarDay } from "../classes";
 import { getNextFocus } from "../helpers/getNextFocus";
 import type { MoveFocusBy, MoveFocusDir, Mode } from "../types";
 
-import { useCalendar } from "./calendar";
-import { useModifiers } from "./modifiers";
-import { useProps } from "./props";
+import { useCalendar } from "./useCalendar";
+import { useModifiers } from "./useModifiers";
+import { useProps } from "./useProps";
 
 const FocusContext = createContext<FocusContextValue | undefined>(undefined);
 

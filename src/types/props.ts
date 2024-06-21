@@ -16,7 +16,8 @@ import type {
   WeekNumberMouseEventHandler,
   Modifiers,
   DateRange,
-  Mode
+  Mode,
+  DateUtils
 } from "./shared";
 
 /**
@@ -324,6 +325,8 @@ export interface PropsBase {
   onPrevClick?: MonthChangeEventHandler;
   /** Event handler when a week number is clicked */
   onWeekNumberClick?: WeekNumberMouseEventHandler;
+
+  dateUtils?: Partial<DateUtils> | undefined;
 }
 /**
  * The props when the single selection is required.

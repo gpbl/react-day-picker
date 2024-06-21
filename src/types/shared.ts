@@ -10,6 +10,7 @@ import {
   SelectionState
 } from "../UI";
 import * as components from "../components/custom-components";
+import * as dateUtils from "../dateUtils";
 import {
   formatCaption,
   formatDay,
@@ -51,6 +52,8 @@ export type Mode = "single" | "multiple" | "range";
 export type CustomComponents = {
   [key in keyof typeof components]?: (typeof components)[key];
 };
+
+export type DateUtils = typeof dateUtils;
 
 /** Represent a map of formatters used to render localized content. */
 export type Formatters = {

@@ -5,8 +5,8 @@ import {
   type MonthCaptionProps
 } from "../components/MonthCaption";
 import { Week, type WeekProps } from "../components/Week";
-import { useCalendar } from "../contexts/calendar";
-import { useProps, type PropsContextValue } from "../contexts/props";
+import { useCalendar } from "../contexts";
+import { useProps, type PropsContextValue } from "../contexts";
 import { labelDay, labelNext, labelWeekday, labelWeekNumber } from "../labels";
 
 import type { PropsMulti, PropsRange, PropsSingle } from "./props";

@@ -1,7 +1,7 @@
 import React, { type SelectHTMLAttributes } from "react";
 
 import { UI } from "../UI";
-import { useProps } from "../contexts/props";
+import { useProps } from "../contexts";
 
 import { Chevron as DefaultChevron } from "./Chevron";
 import { Option as DefaultOption } from "./Option";

@@ -6,8 +6,7 @@ import { startOfMonth } from "date-fns/startOfMonth";
 
 import { UI } from "../UI";
 import type { CalendarMonth } from "../classes/CalendarMonth";
-import { useCalendar } from "../contexts/calendar";
-import { useProps } from "../contexts/props";
+import { useCalendar, useProps } from "../contexts";
 
 import { Dropdown as DefaultDropdown } from "./Dropdown";
 

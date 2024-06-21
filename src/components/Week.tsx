@@ -4,7 +4,7 @@ import { getUnixTime } from "date-fns/getUnixTime";
 
 import { UI } from "../UI";
 import type { CalendarDay, CalendarWeek } from "../classes";
-import { useProps } from "../contexts/props";
+import { useProps } from "../contexts";
 
 import { DayWrapper } from "./DayWrapper";
 import { WeekNumber as DefaultWeekNumber } from "./WeekNumber";
