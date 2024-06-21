@@ -1,3 +1,3 @@
-export * from "./single";
-export * from "./multi";
-export * from "./range";
+export * from "./useSingle";
+export * from "./useMulti";
+export * from "./useRange";

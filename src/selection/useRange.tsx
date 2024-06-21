@@ -55,13 +55,13 @@ function useRangeContextValue<T extends PropsRange>({
     modifiers: Modifiers,
     e: React.MouseEvent | React.KeyboardEvent
   ) => {
-    const newRange = addToRange(triggerDate, range);
+    const newRange = triggerDate ? addToRange(triggerDate, range) : undefined;
 
     if (min) {
       if (
         newRange?.from &&
         newRange.to &&
-        differenceInCalendarDays(newRange.to, newRange.from) <= min
+        differenceInCalendarDays(newRange.to, newRange.from) < min - 1
       ) {
         newRange.from = triggerDate;
         newRange.to = undefined;
@@ -72,7 +72,7 @@ function useRangeContextValue<T extends PropsRange>({
       if (
         newRange?.from &&
         newRange.to &&
-        differenceInCalendarDays(newRange.to, newRange.from) + 1 > max
+        differenceInCalendarDays(newRange.to, newRange.from) >= max
       ) {
         newRange.from = triggerDate;
         newRange.to = undefined;
@@ -81,6 +81,7 @@ function useRangeContextValue<T extends PropsRange>({
 
     setRange(newRange);
     onSelect?.(newRange, triggerDate, modifiers, e);
+
     return newRange;
   };
 

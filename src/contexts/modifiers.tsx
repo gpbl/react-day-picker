@@ -5,9 +5,9 @@ import { isSameMonth } from "date-fns/isSameMonth";
 
 import { DayFlag, SelectionState } from "../UI";
 import { CalendarDay } from "../classes";
-import { useMulti } from "../selection/multi";
-import { useRange } from "../selection/range";
-import { useSingle } from "../selection/single";
+import { useMulti } from "../selection/useMulti";
+import { useRange } from "../selection/useRange";
+import { useSingle } from "../selection/useSingle";
 import type {
   CustomModifiers,
   DayFlags,
