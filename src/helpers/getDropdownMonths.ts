@@ -1,4 +1,3 @@
-import type { Locale, Month } from "date-fns";
 import { addMonths } from "date-fns/addMonths";
 import { isBefore } from "date-fns/isBefore";
 import { startOfMonth } from "date-fns/startOfMonth";

@@ -1,7 +1,5 @@
 import React, { type SelectHTMLAttributes } from "react";
 
-import type { Month } from "date-fns";
-
 import { UI } from "../UI";
 import { useProps } from "../contexts/props";
 
@@ -12,7 +10,7 @@ import { Select as DefaultSelect } from "./Select";
 /** An option to use in the dropdown. Maps to the `<option>` HTML element. */
 export type DropdownOption = {
   /** The value of the option. */
-  value: Month | number;
+  value: number;
   /** The label of the option. */
   label: string;
   /**
