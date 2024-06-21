@@ -42,7 +42,18 @@ export type DayPickerProps = PropsBase &
  * @group Props
  */
 export interface PropsBase {
+  /**
+   * The selection mode. Use this prop to enable the selection of multiple days
+   * or a range of days.
+   *
+   * - `single`: a single day
+   * - `multiple`: multiple days
+   * - `range`: a range of days
+   */
   mode?: Mode | undefined;
+
+  utc?: boolean | undefined;
+
   /** Class name to add to the root element */
   className?: string;
   /**
