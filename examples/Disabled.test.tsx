@@ -8,7 +8,14 @@ import { Disabled } from "./Disabled";
 
 const today = new Date(2022, 5, 10);
 const firstOfMonth = new Date(2022, 5, 1);
-jest.useFakeTimers().setSystemTime(today);
+
+beforeAll(() => {
+  jest.setSystemTime(today);
+});
+
+afterAll(() => {
+  jest.useRealTimers();
+});
 
 beforeEach(async () => {
   render(

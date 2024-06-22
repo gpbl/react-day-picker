@@ -6,7 +6,14 @@ import { render } from "@/test/render";
 import { ModifiersStyle } from "./ModifiersStyle";
 
 const today = new Date(2021, 10, 25);
-jest.useFakeTimers().setSystemTime(today);
+
+beforeAll(() => {
+  jest.setSystemTime(today);
+});
+
+afterAll(() => {
+  jest.useRealTimers();
+});
 
 beforeEach(() => {
   render(<ModifiersStyle />);

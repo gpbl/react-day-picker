@@ -6,7 +6,14 @@ import { render } from "@/test/render";
 import { MultipleMonthsId } from "./MultipleMonthsId";
 
 const today = new Date(2021, 10, 25);
-jest.useFakeTimers().setSystemTime(today);
+
+beforeAll(() => {
+  jest.setSystemTime(today);
+});
+
+afterAll(() => {
+  jest.useRealTimers();
+});
 
 test("the table ids should include the display index", () => {
   render(<MultipleMonthsId />);
