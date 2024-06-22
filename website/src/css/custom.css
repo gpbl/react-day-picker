@@ -411,3 +411,8 @@ html {
     scroll-behavior: auto;
   }
 }
+
+.navbar__inner,
+div[class^="docRoot"] {
+  max-width: 100%;
+}
