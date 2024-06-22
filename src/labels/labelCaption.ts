@@ -1,4 +1,6 @@
-import { format } from "date-fns/format";
+import type { DateLib } from "../";
+import type { format } from "../lib/dateLib";
+import { dateLib as defaultDateLib } from "../lib/dateLib";
 
 /**
  * Return an ARIA label for the month caption. The label is used in an aria-live
@@ -8,7 +10,8 @@ import { format } from "date-fns/format";
  */
 export function labelCaption(
   date: Date,
-  options: Parameters<typeof format>[2]
+  options?: Parameters<typeof format>[2],
+  dateLib: DateLib = defaultDateLib
 ) {
   return "";
 }

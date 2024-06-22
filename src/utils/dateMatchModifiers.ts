@@ -1,9 +1,5 @@
-import { differenceInCalendarDays } from "date-fns/differenceInCalendarDays";
-import { isAfter } from "date-fns/isAfter";
-import { isDate } from "date-fns/isDate";
-import { isSameDay } from "date-fns/isSameDay";
-
-import type { Matcher } from "../types";
+import { dateLib } from "../lib";
+import type { DateLib, Matcher } from "../types";
 
 import { isDateInRange } from "./isDateInRange";
 import {
@@ -16,12 +12,12 @@ import {
 
 /** Returns true if `value` is a Date type. */
 function isDateType(value: unknown): value is Date {
-  return isDate(value);
+  return dateLib.isDate(value);
 }
 
 /** Returns true if `value` is an array of valid dates. */
 function isArrayOfDates(value: unknown): value is Date[] {
-  return Array.isArray(value) && value.every(isDate);
+  return Array.isArray(value) && value.every(dateLib.isDate);
 }
 
 /**
@@ -44,9 +40,11 @@ function isArrayOfDates(value: unknown): value is Date[] {
  */
 export function dateMatchModifiers(
   date: Date,
-  matchers: Matcher | Matcher[]
+  matchers: Matcher | Matcher[],
+  dateUtils: DateLib
 ): boolean {
   const matchersArr = !Array.isArray(matchers) ? [matchers] : matchers;
+  const { isSameDay, differenceInCalendarDays, isAfter } = dateUtils;
   return matchersArr.some((matcher: Matcher) => {
     if (typeof matcher === "boolean") {
       return matcher;
@@ -58,7 +56,7 @@ export function dateMatchModifiers(
       return matcher.includes(date);
     }
     if (isDateRange(matcher)) {
-      return isDateInRange(date, matcher);
+      return isDateInRange(date, matcher, dateUtils);
     }
     if (isDayOfWeekType(matcher)) {
       return matcher.dayOfWeek.includes(date.getDay());

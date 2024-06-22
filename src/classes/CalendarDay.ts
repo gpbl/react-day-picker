@@ -1,5 +1,5 @@
-import { isSameDay } from "date-fns/isSameDay";
-import { isSameMonth } from "date-fns/isSameMonth";
+import { dateLib as defaultDateLib } from "../lib/dateLib";
+import type { DateLib } from "../types";
 
 /**
  * Represent the day displayed in the calendar.
@@ -9,11 +9,21 @@ import { isSameMonth } from "date-fns/isSameMonth";
  * information about the day.
  */
 export class CalendarDay {
-  constructor(date: Date, displayMonth: Date) {
+  constructor(
+    date: Date,
+    displayMonth: Date,
+    dateLib: DateLib = defaultDateLib
+  ) {
     this.date = date;
     this.displayMonth = displayMonth;
-    this.outside = Boolean(displayMonth && !isSameMonth(date, displayMonth));
+    this.outside = Boolean(
+      displayMonth && !dateLib.isSameMonth(date, displayMonth)
+    );
+    this.dateLib = dateLib;
   }
+
+  /** The utility functions to manipulate dates. */
+  readonly dateLib: DateLib;
 
   /**
    * Whether the day is not belonging to the displayed month.
@@ -41,8 +51,8 @@ export class CalendarDay {
    */
   isEqualTo(day: CalendarDay) {
     return (
-      isSameDay(day.date, this.date) &&
-      isSameMonth(day.displayMonth, this.displayMonth)
+      this.dateLib.isSameDay(day.date, this.date) &&
+      this.dateLib.isSameMonth(day.displayMonth, this.displayMonth)
     );
   }
 }

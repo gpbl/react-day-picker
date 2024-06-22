@@ -7,6 +7,8 @@ export * from "./components/custom-components";
 export * from "./contexts";
 export * from "./selection";
 
+export * from "./lib";
+
 export * from "./formatters";
 export * from "./helpers";
 export * from "./labels";

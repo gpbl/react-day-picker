@@ -1,7 +1,6 @@
 import React from "react";
 
-import { isSameDay } from "date-fns/isSameDay";
-
+import { useProps } from "../contexts";
 import type { Modifiers, PropsMulti } from "../types";
 
 export type MultiContextValue<T> = {
@@ -31,12 +30,15 @@ function useMultiContextValue<T extends PropsMulti>({
   selected,
   onSelect
 }: T): MultiContextValue<T> {
+  const {
+    dateLib: { isSameDay, Date }
+  } = useProps();
   const [dates, setDates] = React.useState<Date[] | undefined>(selected);
 
   // Update the selected date if the required flag is set.
   React.useEffect(() => {
     if (required && dates === undefined) setDates([new Date()]);
-  }, [required, dates]);
+  }, [required, dates, Date]);
 
   // Update the selected date if the initialDates changes.
   React.useEffect(() => {

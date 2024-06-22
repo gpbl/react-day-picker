@@ -1,8 +1,5 @@
 import React, { type ReactElement, createContext, useContext } from "react";
 
-import { isSameDay } from "date-fns/isSameDay";
-import { isSameMonth } from "date-fns/isSameMonth";
-
 import { DayFlag, SelectionState } from "../UI";
 import { CalendarDay } from "../classes";
 import { useMulti } from "../selection/useMulti";
@@ -38,6 +35,7 @@ export type ModifiersContextValue = {
 
 function useModifiersContextValue(): ModifiersContextValue {
   const {
+    dateLib,
     disabled,
     hidden,
     modifiers,
@@ -52,6 +50,7 @@ function useModifiersContextValue(): ModifiersContextValue {
   const multi = useMulti();
   const range = useRange();
 
+  const { isSameDay, isSameMonth } = dateLib;
   const internal: Record<DayFlag, CalendarDay[]> = {
     [DayFlag.focused]: [],
     [DayFlag.outside]: [],
@@ -75,10 +74,12 @@ function useModifiersContextValue(): ModifiersContextValue {
 
     const isOutside = Boolean(displayMonth && !isSameMonth(date, displayMonth));
 
-    const isDisabled = Boolean(disabled && dateMatchModifiers(date, disabled));
+    const isDisabled = Boolean(
+      disabled && dateMatchModifiers(date, disabled, dateLib)
+    );
 
     const isHidden =
-      Boolean(hidden && dateMatchModifiers(date, hidden)) ||
+      Boolean(hidden && dateMatchModifiers(date, hidden, dateLib)) ||
       (!showOutsideDays && isOutside);
 
     const isElementInteractive = mode || onDayClick !== undefined;
@@ -116,7 +117,10 @@ function useModifiersContextValue(): ModifiersContextValue {
           isSameDay(day.date, range.selected.to)
         ) {
           selection[SelectionState.range_end].push(day);
-        } else if (range.selected && isDateInRange(day.date, range.selected)) {
+        } else if (
+          range.selected &&
+          isDateInRange(day.date, range.selected, dateLib)
+        ) {
           selection[SelectionState.range_middle].push(day);
         }
       }
@@ -127,7 +131,7 @@ function useModifiersContextValue(): ModifiersContextValue {
       Object.keys(modifiers).forEach((name) => {
         const modifierValue = modifiers?.[name];
         const isMatch = modifierValue
-          ? dateMatchModifiers(date, modifierValue)
+          ? dateMatchModifiers(date, modifierValue, dateLib)
           : false;
         if (!isMatch) return;
         if (custom[name]) {

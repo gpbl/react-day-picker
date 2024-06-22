@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@date-fns/utc':
+        specifier: ^1.2.0
+        version: 1.2.0
       '@jest/types':
         specifier: ^29.6.3
         version: 29.6.3
@@ -47,6 +50,9 @@ importers:
       date-fns:
         specifier: ^3.6.0
         version: 3.6.0
+      date-fns-jalali:
+        specifier: 3.6.0-0
+        version: 3.6.0-0
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
@@ -116,6 +122,9 @@ importers:
 
   website:
     dependencies:
+      '@date-fns/utc':
+        specifier: ^1.2.0
+        version: 1.2.0
       '@docusaurus/core':
         specifier: 3.4.0
         version: 3.4.0(@docusaurus/types@3.4.0)(eslint@8.57.0)(react-dom@18.3.1)(react@18.3.1)(typescript@5.4.5)
@@ -131,6 +140,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      date-fns-jalali:
+        specifier: 3.6.0-0
+        version: 3.6.0-0
       prism-react-renderer:
         specifier: ^2.3.1
         version: 2.3.1(react@18.3.1)
@@ -2219,6 +2231,9 @@ packages:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
     dev: true
+
+  /@date-fns/utc@1.2.0:
+    resolution: {integrity: sha512-YLq+crMPJiBmIdkRmv9nZuZy1mVtMlDcUKlg4mvI0UsC/dZeIaGoGB5p/C4FrpeOhZ7zBTK03T58S0DFkRNMnw==}
 
   /@discoveryjs/json-ext@0.5.7:
     resolution: {integrity: sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==}
@@ -6063,6 +6078,9 @@ packages:
       es-errors: 1.3.0
       is-data-view: 1.0.1
     dev: true
+
+  /date-fns-jalali@3.6.0-0:
+    resolution: {integrity: sha512-rcOocwhBFgEN4i+vXPoEp/irCxAmX8yloK/l/oeMOVCLpaFQfkq7jVn0vCWK91P2H9I/doSAPEN4WSWQeqwsug==}
 
   /date-fns@3.6.0:
     resolution: {integrity: sha512-fRHTG8g/Gif+kSh50gaGEdToemgfj74aRX3swtiouboip5JDLAyDE9F11nHMIcvOaXeOC6D7SpNhi7uFyB7Uww==}

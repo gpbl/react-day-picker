@@ -1,4 +1,5 @@
-import { format } from "date-fns/format";
+import { dateLib as defaultDateLib, type format } from "../lib/dateLib";
+import type { DateLib } from "../types";
 
 /**
  * The default formatter for the caption element.
@@ -7,9 +8,10 @@ import { format } from "date-fns/format";
  */
 export function formatCaption(
   month: Date,
-  options?: Parameters<typeof format>[2]
+  options?: Parameters<typeof format>[2],
+  dateLib: DateLib = defaultDateLib
 ) {
-  return format(month, "LLLL y", options);
+  return dateLib.format(month, "LLLL y", options);
 }
 
 /**

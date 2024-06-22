@@ -1,9 +1,6 @@
 import React from "react";
 import type { ChangeEventHandler } from "react";
 
-import { setYear } from "date-fns/setYear";
-import { startOfMonth } from "date-fns/startOfMonth";
-
 import { UI } from "../UI";
 import type { CalendarMonth } from "../classes/CalendarMonth";
 import { useCalendar, useProps } from "../contexts";
@@ -25,6 +22,7 @@ export function YearsDropdown(props: {
   const {
     classNames,
     components,
+    dateLib: { startOfMonth, setYear },
     disableNavigation,
     labels: { labelYearDropdown }
   } = useProps();

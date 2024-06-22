@@ -1,9 +1,6 @@
 import React from "react";
 import type { ChangeEventHandler } from "react";
 
-import { setMonth } from "date-fns/setMonth";
-import { startOfMonth } from "date-fns/startOfMonth";
-
 import { UI } from "../UI";
 import type { CalendarMonth } from "../classes";
 import { useCalendar, useProps } from "../contexts";
@@ -26,6 +23,7 @@ export function MonthsDropdown(props: {
     classNames,
     components,
     disableNavigation,
+    dateLib: _,
     labels: { labelMonthDropdown }
   } = useProps();
 
@@ -35,7 +33,7 @@ export function MonthsDropdown(props: {
 
   const handleChange: ChangeEventHandler<HTMLSelectElement> = (e) => {
     const selectedMonth = Number((e.target as HTMLSelectElement).value);
-    const month = setMonth(startOfMonth(props.month.date), selectedMonth);
+    const month = _.setMonth(_.startOfMonth(props.month.date), selectedMonth);
     goToMonth(month);
   };
 

@@ -43,7 +43,7 @@ export function WeekNumber(props: { week: CalendarWeek }) {
         )
       }
     >
-      {formatWeekNumber(props.week.weekNumber, { locale })}
+      {formatWeekNumber(props.week.weekNumber)}
     </div>
   );
 }

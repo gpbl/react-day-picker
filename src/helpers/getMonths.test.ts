@@ -1,5 +1,6 @@
 import { CalendarMonth } from "../classes";
 import type { PropsContextValue } from "../contexts/useProps";
+import { dateLib } from "../lib";
 
 import { getMonths } from "./getMonths";
 
@@ -21,13 +22,15 @@ const mockProps: Pick<
   | "weekStartsOn"
   | "reverseMonths"
   | "firstWeekContainsDate"
+  | "dateLib"
 > = {
   fixedWeeks: false,
   ISOWeek: false,
   locale: undefined,
   weekStartsOn: 0, // Sunday
   reverseMonths: false,
-  firstWeekContainsDate: 1
+  firstWeekContainsDate: 1,
+  dateLib
 };
 
 it("should return the correct months without ISO weeks and reverse months", () => {

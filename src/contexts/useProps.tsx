@@ -6,6 +6,7 @@ import { getDefaultClassNames } from "../helpers/getDefaultClassNames";
 import { getFormatters } from "../helpers/getFormatters";
 import { getStartEndMonths } from "../helpers/getStartEndMonths";
 import * as defaultLabels from "../labels";
+import { dateLib as defaultDateLib } from "../lib";
 import type {
   ClassNames,
   CustomComponents,
@@ -13,7 +14,8 @@ import type {
   Formatters,
   Labels,
   Mode,
-  DayPickerProps
+  DayPickerProps,
+  DateLib
 } from "../types";
 
 const PropsContext = React.createContext<PropsContextValue | undefined>(
@@ -27,6 +29,7 @@ export type PropsContextValue = DayPickerProps & {
   classNames: ClassNames;
   /** The unique ID of the DayPicker instance. */
   id: string;
+  dateLib: DateLib;
   /** The data attributes to add to the calendar. */
   dataAttributes: DataAttributes;
   /** The components used in the UI. */
@@ -50,6 +53,11 @@ function usePropsContextValue(initialProps: DayPickerProps) {
 
   const { startMonth, endMonth } = getStartEndMonths(initialProps);
 
+  const dateLib = {
+    ...defaultDateLib,
+    ...initialProps.dateLib
+  };
+
   const propsContext: PropsContextValue = {
     ...initialProps,
     startMonth,
@@ -70,7 +78,8 @@ function usePropsContextValue(initialProps: DayPickerProps) {
       ...initialProps.labels
     },
     numberOfMonths: initialProps.numberOfMonths ?? 1,
-    today: initialProps.today ?? new Date()
+    today: initialProps.today ?? new dateLib.Date(),
+    dateLib
   };
 
   return propsContext;

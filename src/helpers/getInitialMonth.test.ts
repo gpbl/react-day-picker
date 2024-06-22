@@ -1,4 +1,5 @@
 import { addMonths, isSameMonth } from "date-fns";
+import { dateLib } from "react-day-picker";
 
 import { getInitialMonth } from "./getInitialMonth";
 
@@ -6,21 +7,41 @@ describe("when no endMonth is given", () => {
   describe("when month is in context", () => {
     const month = new Date(2010, 11, 12);
     it("return that month", () => {
-      const startMonth = getInitialMonth({ month });
+      const startMonth = getInitialMonth({
+        month,
+        dateLib,
+        startMonth: undefined,
+        endMonth: undefined,
+        today: new Date(),
+        numberOfMonths: 0
+      });
       expect(isSameMonth(startMonth, month)).toBe(true);
     });
   });
   describe("when defaultMonth is in context", () => {
     const defaultMonth = new Date(2010, 11, 12);
     it("return that month", () => {
-      const startMonth = getInitialMonth({ defaultMonth });
+      const startMonth = getInitialMonth({
+        defaultMonth,
+        startMonth: undefined,
+        endMonth: undefined,
+        today: new Date(),
+        numberOfMonths: 0,
+        dateLib
+      });
       expect(isSameMonth(startMonth, defaultMonth)).toBe(true);
     });
   });
   describe("when no month or defaultMonth are in context", () => {
     const today = new Date(2010, 11, 12);
     it("return the today month", () => {
-      const startMonth = getInitialMonth({ today });
+      const startMonth = getInitialMonth({
+        today,
+        startMonth: undefined,
+        endMonth: undefined,
+        numberOfMonths: 0,
+        dateLib
+      });
       expect(isSameMonth(startMonth, today)).toBe(true);
     });
   });
@@ -35,7 +56,10 @@ describe("when endMonth is given", () => {
         const startMonth = getInitialMonth({
           month,
           endMonth,
-          numberOfMonths
+          numberOfMonths,
+          startMonth: undefined,
+          today: new Date(),
+          dateLib
         });
         expect(isSameMonth(startMonth, endMonth)).toBe(true);
       });
@@ -46,7 +70,10 @@ describe("when endMonth is given", () => {
         const startMonth = getInitialMonth({
           month,
           endMonth,
-          numberOfMonths
+          numberOfMonths,
+          startMonth: undefined,
+          today: new Date(),
+          dateLib
         });
         const expectedMonth = addMonths(endMonth, -1 * (numberOfMonths - 1));
         expect(isSameMonth(startMonth, expectedMonth)).toBe(true);

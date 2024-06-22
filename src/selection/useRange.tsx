@@ -1,7 +1,6 @@
 import React from "react";
 
-import { differenceInCalendarDays } from "date-fns/differenceInCalendarDays";
-
+import { useProps } from "../contexts";
 import { DateRange, Modifiers, PropsRange } from "../types";
 import { addToRange } from "../utils";
 import { isDateInRange } from "../utils/isDateInRange";
@@ -33,6 +32,8 @@ function useRangeContextValue<T extends PropsRange>({
   selected,
   onSelect
 }: T): RangeContextValue<T> {
+  const { dateLib } = useProps();
+  const { differenceInCalendarDays } = dateLib;
   const [range, setRange] = React.useState<DateRange | undefined>(selected);
 
   // Update the selected date if the required flag is set.
@@ -47,15 +48,17 @@ function useRangeContextValue<T extends PropsRange>({
   }, [selected]);
 
   const isSelected = required
-    ? (date: Date) => isDateInRange(date, range as DateRange)
-    : (date: Date) => range && isDateInRange(date, range);
+    ? (date: Date) => isDateInRange(date, range as DateRange, dateLib)
+    : (date: Date) => range && isDateInRange(date, range, dateLib);
 
   const setSelected = (
     triggerDate: Date,
     modifiers: Modifiers,
     e: React.MouseEvent | React.KeyboardEvent
   ) => {
-    const newRange = triggerDate ? addToRange(triggerDate, range) : undefined;
+    const newRange = triggerDate
+      ? addToRange(triggerDate, range, dateLib)
+      : undefined;
 
     if (min) {
       if (

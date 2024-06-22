@@ -18,6 +18,7 @@ export function Weekdays() {
   const {
     classNames,
     components,
+    dateLib,
     hideWeekdayRow,
     ISOWeek,
     locale,
@@ -26,7 +27,7 @@ export function Weekdays() {
     weekStartsOn
   } = useProps();
 
-  const weekdays = getWeekdays(locale, weekStartsOn, ISOWeek);
+  const weekdays = getWeekdays(locale, weekStartsOn, ISOWeek, dateLib);
   const Weekday = components?.Weekday ?? DefaultWeekday;
 
   return (
