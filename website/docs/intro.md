@@ -11,13 +11,13 @@ DayPicker is a [React](https://react.dev) component to create date pickers, cale
 
 ## Features
 
-- 🛠 An extensive set of props for configuring and customizing the calendar.
-- 🎨 Minimal design that can be easily styled with CSS or any CSS framework.
-- 📅 Supports selections of single day, multiple days, ranges of days, or custom selections.
-- 🌍 Can be localized into any language.
-- 📆 Supports for ISO 8601 dates, UTC dates, and Jalali Calendar.
-- ♿ Complies with WCAG 2.1 AA requirements for accessibility.
-- ⚙️ Customizable internal components for complex use cases.
+- 🛠 An extensive set of props for [customizing](./using-daypicker/customization.mdx) the calendar.
+- 🎨 Minimal design that can be [easily styled](./using-daypicker/styling.mdx) with CSS or any CSS framework.
+- 📅 Supports [selections](./using-daypicker//selection-modes.mdx) of single day, multiple days, ranges of days, or [custom selections](./advanced-guides/custom-selections.mdx).
+- 🌍 Can be [localized](./using-daypicker/localization.mdx) into any language, supports [ISO 8601 dates](./using-daypicker/localization.mdx#iso-week-dates), [UTC dates](./using-daypicker/localization.mdx#utc-dates), and [Jalali calendar](./using-daypicker/localization.mdx#jalali-calendar).
+- ♿ Complies with WCAG 2.1 AA requirements for [accessibility](./using-daypicker/accessibility.mdx).
+- ⚙️ [Customizable components](./advanced-guides/custom-components.mdx) for more complex use cases.
+- 🔤 Unopinionated integration [with input fields](./advanced-guides//input-field.mdx).
 
 DayPicker is written in TypeScript and compiled to CommonJS and ESM. It requires [date-fns](https://date-fns.org) as a peer dependency.
 
