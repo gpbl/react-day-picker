@@ -13,7 +13,7 @@ import type { Modifiers } from "../types";
  * `DayDate` component instead.
  *
  * @group Components
- * @see https://react-day-picker.js.org/advanced-guides/custom-components
+ * @see https://daypicker.dev/advanced-guides/custom-components
  */
 export function Day(props: {
   day: CalendarDay;

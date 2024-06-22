@@ -79,7 +79,7 @@ export function SingleProvider(props: React.PropsWithChildren<PropsSingle>) {
  * Use this hook from the custom components passed via the `components` prop.
  *
  * @group Hooks
- * @see https://react-day-picker.js.org/advanced-guides/custom-components
+ * @see https://daypicker.dev/advanced-guides/custom-components
  */
 export function useSingle() {
   const context = React.useContext(SingleContext);

@@ -111,7 +111,7 @@ export function RangeProvider(props: React.PropsWithChildren<PropsRange>) {
  * Use this hook from the custom components passed via the `components` prop.
  *
  * @group Hooks
- * @see https://react-day-picker.js.org/advanced-guides/custom-components
+ * @see https://daypicker.dev/advanced-guides/custom-components
  */
 export function useRange<T extends { required: boolean }>() {
   const context = React.useContext(RangeContext);

@@ -44,7 +44,7 @@ export const dateLib = {
    * You can pass a `DateConstructor` such as `UTCDate` from `@date-fns/utc` to
    * use UTC dates.
    *
-   * @see https://react-day-picker.js.org/using-daypicker/localization#utc-dates
+   * @see https://daypicker.dev/using-daypicker/localization#utc-dates
    */
   Date: Date as GenericDateConstructor,
   addDays,

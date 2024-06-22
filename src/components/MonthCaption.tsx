@@ -12,7 +12,7 @@ import { DropdownNav } from "./DropdownNav";
  * Use the `components` prop to swap this component with a custom one.
  *
  * @group Components
- * @see https://react-day-picker.js.org/advanced-guides/custom-components
+ * @see https://daypicker.dev/advanced-guides/custom-components
  */
 export function MonthCaption(props: {
   /** The month where the grid is displayed. */

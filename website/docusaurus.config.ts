@@ -9,7 +9,7 @@ const config: Config = {
   tagline:
     "Date picker component for React. Add date pickers, calendars, and date inputs to your web applications.",
   favicon: "img/favicon.ico",
-  url: "https://react-day-picker.js.org",
+  url: "https://daypicker.dev",
   baseUrl: "/",
   organizationName: "gpbl",
   projectName: "react-day-picker",

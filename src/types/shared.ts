@@ -40,7 +40,7 @@ import { dateLib } from "../lib";
  * - `multiple`: allow selecting multiple days.
  * - `range`: use DayPicker to select a range of days.
  *
- * @see https://react-day-picker.js.org/next/using-daypicker/selection-modes
+ * @see https://daypicker.dev/next/using-daypicker/selection-modes
  */
 export type Mode = "single" | "multiple" | "range";
 
@@ -267,7 +267,7 @@ export type ModifiersClassNames = Record<string, string> &
  * The props that have been deprecated since version 9.0.0.
  *
  * @since 9.0.0
- * @see https://react-day-picker.js.org/next/upgrading
+ * @see https://daypicker.dev/next/upgrading
  */
 export type V9DeprecatedProps =
   /** Use `hidden` prop instead. */

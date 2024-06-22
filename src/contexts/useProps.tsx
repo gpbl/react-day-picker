@@ -115,7 +115,7 @@ export function PropsContextProvider<
  * Use this hook from the custom components passed via the `components` prop.
  *
  * @group Hooks
- * @see https://react-day-picker.js.org/advanced-guides/custom-components
+ * @see https://daypicker.dev/advanced-guides/custom-components
  */
 export function useProps() {
   const propsContext = React.useContext(PropsContext);
