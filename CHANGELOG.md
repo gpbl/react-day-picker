@@ -6,7 +6,7 @@ See the [Releases page](https://github.com/gpbl/react-day-picker/releases) on Gi
 
 _First beta release date: 2024-05-28_
 
-9 is the next major version of React DayPicker, currently in development. See http://daypicker.dev/next for the updated documentation.
+DayPicker v9 is in development as the next major release. See updated docs at http://daypicker.dev/next.
 
 To try the new version, install the `next` tag:
 
@@ -14,20 +14,20 @@ To try the new version, install the `next` tag:
 npm install react-day-picker@next
 ```
 
-### What’s New
+### What’s New in DayPicker 9
 
-- DayPicker requires React 18+.
-- Added support for UTC dates.
-- Improved selection mode logic for range dates.
-- Updated HTML output based on `div` grids instead of tables.
-- Simplified styles and selectors, with new CSS variables.
-- Enhanced accessibility to complies with WCAG 2.1 AA.
-- Improved typings and props to work well in `strict` mode.
-- Updated custom components system.
-- Improved rendering performance and memory impact.
-- Added support for Jalali Calendar.
-- Removed the `useInput` hook (refer to the documentation for alternatives).
-- Added new `hideWeekdayRow`, `hideNavigation` props.
+- Requires React 18+ for DayPicker.
+- Adds support for UTC dates.
+- Improves selection mode logic for range dates.
+- Updates HTML output to use `div` grids instead of tables.
+- Simplifies styles and selectors with new CSS variables.
+- Enhances accessibility to comply with WCAG 2.1 AA.
+- Improves typings and props for better compatibility in `strict` mode.
+- Updates the custom components system.
+- Improves rendering performance and reduces memory impact.
+- Adds support for the Jalali Calendar.
+- Removes the `useInput` hook (see documentation for alternatives).
+- Adds `hideWeekdayRow` and `hideNavigation` props.
 
 ### Breaking Changes
 
