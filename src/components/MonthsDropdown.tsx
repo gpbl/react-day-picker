@@ -23,7 +23,7 @@ export function MonthsDropdown(props: {
     classNames,
     components,
     disableNavigation,
-    dateLib: _,
+    dateLib: { setMonth, startOfMonth },
     labels: { labelMonthDropdown }
   } = useProps();
 
@@ -33,7 +33,7 @@ export function MonthsDropdown(props: {
 
   const handleChange: ChangeEventHandler<HTMLSelectElement> = (e) => {
     const selectedMonth = Number((e.target as HTMLSelectElement).value);
-    const month = _.setMonth(_.startOfMonth(props.month.date), selectedMonth);
+    const month = setMonth(startOfMonth(props.month.date), selectedMonth);
     goToMonth(month);
   };
 

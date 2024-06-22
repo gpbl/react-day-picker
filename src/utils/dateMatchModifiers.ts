@@ -1,4 +1,4 @@
-import { dateLib } from "../lib";
+import { dateLib as defaultDateLib } from "../lib";
 import type { DateLib, Matcher } from "../types";
 
 import { isDateInRange } from "./isDateInRange";
@@ -12,12 +12,12 @@ import {
 
 /** Returns true if `value` is a Date type. */
 function isDateType(value: unknown): value is Date {
-  return dateLib.isDate(value);
+  return defaultDateLib.isDate(value);
 }
 
 /** Returns true if `value` is an array of valid dates. */
 function isArrayOfDates(value: unknown): value is Date[] {
-  return Array.isArray(value) && value.every(dateLib.isDate);
+  return Array.isArray(value) && value.every(defaultDateLib.isDate);
 }
 
 /**
@@ -41,7 +41,7 @@ function isArrayOfDates(value: unknown): value is Date[] {
 export function dateMatchModifiers(
   date: Date,
   matchers: Matcher | Matcher[],
-  dateUtils: DateLib
+  dateUtils: DateLib = defaultDateLib
 ): boolean {
   const matchersArr = !Array.isArray(matchers) ? [matchers] : matchers;
   const { isSameDay, differenceInCalendarDays, isAfter } = dateUtils;

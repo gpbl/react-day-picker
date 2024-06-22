@@ -1,3 +1,4 @@
+import { dateLib as defaultDateLib } from "../lib";
 import type { DateRange, DateLib } from "../types";
 
 /**
@@ -8,7 +9,7 @@ import type { DateRange, DateLib } from "../types";
 export function isDateInRange(
   date: Date,
   range: DateRange,
-  dateLib: DateLib
+  dateLib: DateLib = defaultDateLib
 ): boolean {
   let { from, to } = range;
   const { differenceInCalendarDays, isSameDay } = dateLib;

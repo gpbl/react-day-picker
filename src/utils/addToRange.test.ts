@@ -1,6 +1,5 @@
 import { addDays, subDays } from "date-fns";
 
-import { dateLib } from "../lib";
 import type { DateRange } from "../types";
 
 import { addToRange } from "./addToRange";
@@ -10,7 +9,7 @@ describe('when no "from" is the range', () => {
   const day = new Date();
   let result: DateRange | undefined;
   beforeAll(() => {
-    result = addToRange(day, range, dateLib);
+    result = addToRange(day, range);
   });
   test('should set "from" as the given day', () => {
     expect(result).toEqual({ from: day, to: undefined });
@@ -23,7 +22,7 @@ describe('when no "to" is the range', () => {
   describe('and the day is the same as the "from" day', () => {
     let result: DateRange | undefined;
     beforeAll(() => {
-      result = addToRange(day, range, dateLib);
+      result = addToRange(day, range);
     });
     test("should reset the range", () => {
       expect(result).toEqual({ from: undefined, to: undefined });
@@ -33,7 +32,7 @@ describe('when no "to" is the range', () => {
     const day = subDays(range.from, 1);
     let result: DateRange | undefined;
     beforeAll(() => {
-      result = addToRange(day, range, dateLib);
+      result = addToRange(day, range);
     });
     test('should set the day as the "from" range', () => {
       expect(result).toEqual({ from: day, to: range.from });
@@ -43,7 +42,7 @@ describe('when no "to" is the range', () => {
     const day = addDays(range.from, 1);
     let result: DateRange | undefined;
     beforeAll(() => {
-      result = addToRange(day, range, dateLib);
+      result = addToRange(day, range);
     });
     test('should set the day as the "to" date', () => {
       expect(result).toEqual({ from: range.from, to: day });
@@ -56,7 +55,7 @@ describe('when "from", "to" and "day" are the same', () => {
   const range = { from: day, to: day };
   let result: DateRange | undefined;
   beforeAll(() => {
-    result = addToRange(day, range, dateLib);
+    result = addToRange(day, range);
   });
   test("should return an undefined range (reset)", () => {
     expect(result).toEqual({ from: undefined, to: undefined });
@@ -70,7 +69,7 @@ describe('when "to" and "day" are the same', () => {
   const range = { from, to };
   let result: DateRange | undefined;
   beforeAll(() => {
-    result = addToRange(day, range, dateLib);
+    result = addToRange(day, range);
   });
   test('should set "to" to undefined', () => {
     expect(result).toEqual({ from: to, to: undefined });
@@ -84,7 +83,7 @@ describe('when "from" and "day" are the same', () => {
   const range = { from, to };
   let result: DateRange | undefined;
   beforeAll(() => {
-    result = addToRange(day, range, dateLib);
+    result = addToRange(day, range);
   });
   test("should reset the range", () => {
     expect(result).toEqual({ from: undefined, to: undefined });
@@ -98,7 +97,7 @@ describe('when "from" is after "day"', () => {
   const range = { from, to };
   let result: DateRange | undefined;
   beforeAll(() => {
-    result = addToRange(day, range, dateLib);
+    result = addToRange(day, range);
   });
   test('should set the day as "from"', () => {
     expect(result).toEqual({ from: day, to: range.to });
@@ -112,7 +111,7 @@ describe('when "from" is before "day"', () => {
   const range = { from, to };
   let result: DateRange | undefined;
   beforeAll(() => {
-    result = addToRange(day, range, dateLib);
+    result = addToRange(day, range);
   });
   test('should set the day as "to"', () => {
     expect(result).toEqual({ from: range.from, to: day });

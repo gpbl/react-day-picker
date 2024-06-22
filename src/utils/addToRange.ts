@@ -1,3 +1,4 @@
+import { dateLib as defaultDateLib } from "../lib";
 import type { DateRange, DateLib } from "../types";
 
 /**
@@ -11,7 +12,7 @@ import type { DateRange, DateLib } from "../types";
 export function addToRange(
   date: Date,
   range: DateRange | undefined,
-  dateLib: DateLib
+  dateLib: DateLib = defaultDateLib
 ): DateRange {
   const { from, to } = range || {};
   const { isSameDay, isAfter, isBefore } = dateLib;
