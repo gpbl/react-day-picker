@@ -330,6 +330,7 @@ export interface PropsBase {
    * Replace the default date library with a custom one.
    *
    * @private
+   * @since 9.0.0
    * @experimental
    */
   dateLib?: Partial<DateLib> | undefined;

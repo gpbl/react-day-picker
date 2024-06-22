@@ -17,7 +17,7 @@ DayPicker is a [React](https://react.dev) component to create date pickers, cale
 - 🌍 Can be [localized](./using-daypicker/localization.mdx) into any language, supports [ISO 8601 dates](./using-daypicker/localization.mdx#iso-week-dates), [UTC dates](./using-daypicker/localization.mdx#utc-dates), and [Jalali calendar](./using-daypicker/localization.mdx#jalali-calendar).
 - ♿ Complies with WCAG 2.1 AA requirements for [accessibility](./using-daypicker/accessibility.mdx).
 - ⚙️ [Customizable components](./advanced-guides/custom-components.mdx) for more complex use cases.
-- 🔤 Unopinionated integration [with input fields](./advanced-guides/input-field.mdx).
+- 🔤 Unopinionated integration [with input fields](./advanced-guides/input-fields.mdx).
 
 DayPicker is written in TypeScript and compiled to CommonJS and ESM. It requires [date-fns](https://date-fns.org) as a peer dependency.
 
