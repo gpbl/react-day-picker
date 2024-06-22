@@ -153,7 +153,7 @@ const config: Config = {
     },
     algolia: {
       appId: "N44150BS2A",
-      apiKey: "42c559dd71da40a168be6f6d81d2bbbc",
+      apiKey: "263c558c76fc0b83a5def5fb818391d7",
       indexName: "react-day-picker-js",
       contextualSearch: true,
       searchPagePath: "search"
