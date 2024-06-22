@@ -16,14 +16,18 @@ npm install react-day-picker@next
 
 ### What’s New
 
-- Requires React 18+
-- New HTML structure based on `div` grids instead of tables
-- Updated style system with new CSS variables, CSS classes and selectors
-- Enhanced accessibility to complies with WCAG 2.1 AA
-- Updated typings - now DayPicker works in `strict` mode
-- Improved rendering performance, e.g. with multiple months
-- Updated custom components system, with new components and props
-- Removed the `useInput` hook (refer to the documentation for alternatives)
+- DayPicker requires React 18+.
+- Added support for UTC dates.
+- Improved selection mode logic for range dates.
+- Updated HTML output based on `div` grids instead of tables.
+- Simplified styles and selectors, with new CSS variables.
+- Enhanced accessibility to complies with WCAG 2.1 AA.
+- Improved typings and props to work well in `strict` mode.
+- Updated custom components system.
+- Improved rendering performance and memory impact.
+- Added support for Jalali Calendar.
+- Removed the `useInput` hook (refer to the documentation for alternatives).
+- Added new `hideWeekdayRow`, `hideNavigation` props.
 
 ### Breaking Changes
 
@@ -33,7 +37,7 @@ Upgrading to v9 will require some changes in your code. See the [migration guide
 
 Please report any issues or provide feedback on the [GitHub repository](https://github.com/gpbl/react-day-picker/discussions/categories/daypicker-v9).
 
-We welcome feedback about the upgrade process to ensure it's smooth for everyone.
+We welcome feedback about the upgrade process, to ensure it's smooth for everyone.
 
 ## v8.10.1
 
