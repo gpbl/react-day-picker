@@ -1,5 +1,5 @@
-import type { format } from "../lib/dateLib";
-import { dateLib as defaultDateLib } from "../lib/dateLib";
+import { dateLib as defaultDateLib } from "../lib";
+import type { FormatOptions } from "../lib/dateLib";
 import type { DateLib } from "../types";
 
 /**
@@ -9,7 +9,7 @@ import type { DateLib } from "../types";
  */
 export function labelWeekday(
   date: Date,
-  options?: Parameters<typeof format>[2],
+  options?: FormatOptions,
   dateLib: DateLib = defaultDateLib
 ): string {
   return dateLib.format(date, "cccc", options);

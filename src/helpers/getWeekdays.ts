@@ -1,5 +1,5 @@
+import { dateLib as defaultDateLib } from "../lib";
 import type { Locale } from "../lib/dateLib";
-import { dateLib as defaultDateLib } from "../lib/dateLib";
 import type { DateLib } from "../types";
 
 /**

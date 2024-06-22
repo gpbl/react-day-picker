@@ -1,6 +1,6 @@
 import type { DateLib } from "../";
-import type { format } from "../lib/dateLib";
-import { dateLib as defaultDateLib } from "../lib/dateLib";
+import { dateLib as defaultDateLib } from "../lib";
+import type { FormatOptions } from "../lib/dateLib";
 import type { Modifiers } from "../types";
 
 /**
@@ -15,7 +15,7 @@ import type { Modifiers } from "../types";
 export function labelDay(
   date: Date,
   modifiers: Modifiers,
-  options?: Parameters<typeof format>[2],
+  options?: FormatOptions,
   dateLib: DateLib = defaultDateLib
 ) {
   return "";

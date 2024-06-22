@@ -1,4 +1,4 @@
-import { dateLib as defaultDateLib } from "../lib/dateLib";
+import { dateLib as defaultDateLib } from "../lib";
 import type { DateLib } from "../types";
 
 /**

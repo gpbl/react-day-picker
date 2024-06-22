@@ -1,4 +1,4 @@
-import type { format } from "../lib/dateLib";
+import type { FormatOptions } from "../lib/dateLib";
 
 /**
  * Return the default ARIA label for next month button.
@@ -10,7 +10,7 @@ export function labelNext(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   month: Date | undefined,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  options?: Parameters<typeof format>[2]
+  options?: FormatOptions
 ) {
   return "Next Month";
 }

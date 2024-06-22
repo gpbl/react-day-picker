@@ -1,5 +1,6 @@
-import type { format } from "../lib/dateLib";
-import { dateLib as defaultDateLib } from "../lib/dateLib";
+import type { FormatOptions } from "date-fns";
+
+import { dateLib as defaultDateLib } from "../lib";
 import type { DateLib } from "../types";
 
 /**
@@ -9,7 +10,7 @@ import type { DateLib } from "../types";
  */
 export function labelGrid(
   month: Date,
-  options?: Parameters<typeof format>[2],
+  options?: FormatOptions,
   dateLib: DateLib = defaultDateLib
 ) {
   return dateLib.format(month, "LLLL y", options);

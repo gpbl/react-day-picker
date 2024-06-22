@@ -1,4 +1,4 @@
-import { dateLib as defaultDateLib, type format } from "../lib/dateLib";
+import { FormatOptions, dateLib as defaultDateLib } from "../lib";
 import type { DateLib } from "../types";
 
 /**
@@ -8,7 +8,7 @@ import type { DateLib } from "../types";
  */
 export function formatCaption(
   month: Date,
-  options?: Parameters<typeof format>[2],
+  options?: FormatOptions,
   dateLib: DateLib = defaultDateLib
 ) {
   return dateLib.format(month, "LLLL y", options);

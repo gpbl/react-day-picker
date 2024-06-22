@@ -32,7 +32,7 @@ import { startOfYear } from "date-fns/startOfYear";
 /** @private */
 export type { Locale } from "date-fns";
 /** @private */
-export type { format } from "date-fns";
+export type { FormatOptions } from "date-fns";
 /** @private */
 export type { Month as DateFnsMonth } from "date-fns";
 
