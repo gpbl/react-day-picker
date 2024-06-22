@@ -1,7 +1,6 @@
 import React from "react";
 
-import { isSameDay } from "date-fns/isSameDay";
-
+import { useProps } from "../contexts";
 import { Modifiers, PropsSingle } from "../types";
 
 export type SingleContextValue<T> = {
@@ -30,11 +29,13 @@ function useSingleContextValue<T extends PropsSingle>({
   onSelect
 }: T): SingleContextValue<T> {
   const [date, setDate] = React.useState<Date | undefined>(selected);
-
+  const {
+    dateLib: { isSameDay, Date }
+  } = useProps();
   // Update the selected date if the required flag is set.
   React.useEffect(() => {
     if (required && date === undefined) setDate(new Date());
-  }, [required, date]);
+  }, [required, date, Date]);
 
   // Update the selected date if the selected changes.
   React.useEffect(() => {

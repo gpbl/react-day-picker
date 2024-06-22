@@ -1,7 +1,3 @@
-import { addMonths } from "date-fns/addMonths";
-import { isBefore } from "date-fns/isBefore";
-import { startOfMonth } from "date-fns/startOfMonth";
-
 import { DropdownOption } from "../components/Dropdown";
 import { PropsContextValue } from "../contexts";
 
@@ -10,14 +6,14 @@ export function getDropdownMonths(
   displayMonth: Date,
   props: Pick<
     PropsContextValue,
-    "formatters" | "locale" | "startMonth" | "endMonth"
+    "formatters" | "locale" | "startMonth" | "endMonth" | "dateLib"
   >
 ): DropdownOption[] | undefined {
   const { startMonth, endMonth } = props;
-
   if (!startMonth) return undefined;
   if (!endMonth) return undefined;
 
+  const { addMonths, startOfMonth, isBefore, Date } = props.dateLib;
   const year = displayMonth.getFullYear();
 
   const navStartMonth = startOfMonth(startMonth);

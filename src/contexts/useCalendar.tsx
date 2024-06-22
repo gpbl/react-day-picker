@@ -1,7 +1,5 @@
 import React, { type ReactElement, createContext, useContext } from "react";
 
-import { startOfMonth } from "date-fns/startOfMonth";
-
 import type { CalendarWeek, CalendarDay, CalendarMonth } from "../classes";
 import type { DropdownOption } from "../components/Dropdown";
 import { getDates } from "../helpers/getDates";
@@ -86,6 +84,7 @@ export type CalendarContextValue = {
 
 function useCalendarContextValue(): CalendarContextValue {
   const props = useProps();
+  const { startOfMonth } = props.dateLib;
 
   const initialDisplayMonth = getInitialMonth(props);
 

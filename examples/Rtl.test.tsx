@@ -1,5 +1,7 @@
 import React from "react";
 
+import MockDate from "mockdate";
+
 import { app, grid, nextButton, previousButton } from "@/test/elements";
 import { renderApp } from "@/test/renderApp";
 import { user } from "@/test/user";
@@ -7,7 +9,14 @@ import { user } from "@/test/user";
 import { Rtl } from "./Rtl";
 
 const today = new Date(2021, 10, 25);
-jest.useFakeTimers().setSystemTime(today);
+
+beforeAll(() => {
+  jest.setSystemTime(today);
+});
+
+afterAll(() => {
+  jest.useRealTimers();
+});
 
 beforeEach(() => {
   renderApp(<Rtl />);

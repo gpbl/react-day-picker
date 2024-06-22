@@ -24,7 +24,14 @@ import { user } from "@/test/user";
 import { Keyboard } from "./Keyboard";
 
 const today = new Date(2022, 5, 10);
-jest.useFakeTimers().setSystemTime(today);
+
+beforeAll(() => {
+  jest.setSystemTime(today);
+});
+
+afterAll(() => {
+  jest.useRealTimers();
+});
 
 describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
   beforeEach(() => {

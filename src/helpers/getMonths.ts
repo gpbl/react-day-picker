@@ -1,14 +1,6 @@
-import { addDays } from "date-fns/addDays";
-import { endOfISOWeek } from "date-fns/endOfISOWeek";
-import { endOfMonth } from "date-fns/endOfMonth";
-import { endOfWeek } from "date-fns/endOfWeek";
-import { getISOWeek } from "date-fns/getISOWeek";
-import { getWeek } from "date-fns/getWeek";
-import { startOfISOWeek } from "date-fns/startOfISOWeek";
-import { startOfWeek } from "date-fns/startOfWeek";
-
 import { CalendarWeek, CalendarDay, CalendarMonth } from "../classes";
 import type { PropsContextValue } from "../contexts";
+import type { DateLib } from "../types";
 
 /** Return the months to display in the calendar. */
 export function getMonths(
@@ -19,6 +11,7 @@ export function getMonths(
   /** Options from the props context. */
   props: Pick<
     PropsContextValue,
+    | "dateLib"
     | "fixedWeeks"
     | "ISOWeek"
     | "locale"
@@ -27,6 +20,16 @@ export function getMonths(
     | "firstWeekContainsDate"
   >
 ): CalendarMonth[] {
+  const {
+    startOfWeek,
+    endOfWeek,
+    startOfISOWeek,
+    endOfISOWeek,
+    endOfMonth,
+    addDays,
+    getWeek,
+    getISOWeek
+  } = props.dateLib;
   const dayPickerMonths = displayMonths.reduce<CalendarMonth[]>(
     (months, month) => {
       const firstDateOfFirstWeek = props.ISOWeek
@@ -68,7 +71,7 @@ export function getMonths(
               });
           const week = weeks.find((week) => week.weekNumber === weekNumber);
 
-          const day = new CalendarDay(date, month);
+          const day = new CalendarDay(date, month, props.dateLib);
           if (!week) {
             weeks.push(new CalendarWeek(weekNumber, [day]));
           } else {

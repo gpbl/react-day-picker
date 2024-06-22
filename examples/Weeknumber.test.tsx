@@ -7,7 +7,14 @@ import { user } from "@/test/user";
 import { Weeknumber } from "./Weeknumber";
 
 const today = new Date(2021, 10, 25);
-jest.useFakeTimers().setSystemTime(today);
+
+beforeAll(() => {
+  jest.setSystemTime(today);
+});
+
+afterAll(() => {
+  jest.useRealTimers();
+});
 
 function getWeekButton(week: number) {
   return screen.getByRole("rowheader", {

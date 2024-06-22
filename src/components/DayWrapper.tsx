@@ -27,6 +27,7 @@ export function DayWrapper(props: {
   const {
     classNames,
     components,
+    dateLib,
     dir,
     formatters: { formatDay },
     labels: { labelDay },
@@ -235,7 +236,7 @@ export function DayWrapper(props: {
     tabIndex: isFocused || isAutoFocusTarget ? 0 : -1,
     ["aria-colindex"]: props["aria-colindex"],
     ["aria-label"]:
-      labelDay(props.day.date, modifiers, { locale }) ?? undefined,
+      labelDay(props.day.date, modifiers, { locale }, dateLib) ?? undefined,
     ["aria-disabled"]: modifiers.disabled || undefined,
     ["aria-hidden"]: modifiers.hidden || undefined,
     ["aria-selected"]: modifiers.selected || undefined,
@@ -279,7 +280,7 @@ export function DayWrapper(props: {
       <DayDate
         day={props.day}
         modifiers={modifiers}
-        formattedDate={formatDay(props.day.date, { locale })}
+        formattedDate={formatDay(props.day.date, { locale }, dateLib)}
         rootProps={dayDateRootProps}
       />
     </Day>

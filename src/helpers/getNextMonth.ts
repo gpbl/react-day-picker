@@ -1,7 +1,3 @@
-import { addMonths } from "date-fns/addMonths";
-import { differenceInCalendarMonths } from "date-fns/differenceInCalendarMonths";
-import { startOfMonth } from "date-fns/startOfMonth";
-
 import { PropsContextValue } from "../contexts";
 
 /**
@@ -22,12 +18,14 @@ export function getNextMonth(
     | "numberOfMonths"
     | "pagedNavigation"
     | "disableNavigation"
+    | "dateLib"
   >
 ): Date | undefined {
   if (props.disableNavigation) {
     return undefined;
   }
   const { pagedNavigation, numberOfMonths } = props;
+  const { startOfMonth, addMonths, differenceInCalendarMonths } = props.dateLib;
   const offset = pagedNavigation ? numberOfMonths : 1;
   const month = startOfMonth(firstDisplayedMonth);
 

@@ -1,17 +1,5 @@
-import { addDays } from "date-fns/addDays";
-import { addMonths } from "date-fns/addMonths";
-import { addWeeks } from "date-fns/addWeeks";
-import { addYears } from "date-fns/addYears";
-import { endOfISOWeek } from "date-fns/endOfISOWeek";
-import { endOfWeek } from "date-fns/endOfWeek";
-import { max } from "date-fns/max";
-import { min } from "date-fns/min";
-import { startOfISOWeek } from "date-fns/startOfISOWeek";
-import { startOfWeek } from "date-fns/startOfWeek";
-
 import type { PropsContextValue } from "../contexts";
 import type { MoveFocusBy, MoveFocusDir } from "../types";
-import { Mode } from "../types";
 
 /** Return the next date that should be focused. */
 export function getPossibleFocusDate(
@@ -20,11 +8,27 @@ export function getPossibleFocusDate(
   focusedDate: Date,
   options: Pick<
     PropsContextValue,
-    "locale" | "ISOWeek" | "weekStartsOn" | "startMonth" | "endMonth"
+    | "locale"
+    | "ISOWeek"
+    | "weekStartsOn"
+    | "startMonth"
+    | "endMonth"
+    | "dateLib"
   >
 ): Date {
   const { weekStartsOn, startMonth, endMonth, locale, ISOWeek } = options;
-
+  const {
+    addDays,
+    addMonths,
+    addYears,
+    addWeeks,
+    startOfISOWeek,
+    endOfISOWeek,
+    startOfWeek,
+    endOfWeek,
+    max,
+    min
+  } = options.dateLib;
   const moveFns = {
     day: addDays,
     week: addWeeks,

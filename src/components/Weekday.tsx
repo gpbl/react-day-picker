@@ -18,6 +18,7 @@ export function Weekday(props: {
 }) {
   const {
     classNames,
+    dateLib,
     formatters: { formatWeekdayName },
     labels: { labelWeekday, labelWeekNumberHeader },
     locale,
@@ -30,14 +31,16 @@ export function Weekday(props: {
       aria-colindex={props["aria-colindex"]}
       aria-label={
         props.weekday
-          ? labelWeekday(props.weekday, { locale })
+          ? labelWeekday(props.weekday, { locale }, dateLib)
           : labelWeekNumberHeader({ locale })
       }
       className={classNames[UI.Weekday]}
       style={styles?.[UI.Weekday]}
     >
       {!hideWeekdayRow &&
-        (props.weekday ? formatWeekdayName(props.weekday, { locale }) : "#")}
+        (props.weekday
+          ? formatWeekdayName(props.weekday, { locale }, dateLib)
+          : "#")}
     </span>
   );
 }

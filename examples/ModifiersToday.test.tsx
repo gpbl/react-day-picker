@@ -9,7 +9,14 @@ import { user } from "@/test/user";
 import { ModifiersToday } from "./ModifiersToday";
 
 const today = new Date(2022, 5, 10);
-jest.useFakeTimers().setSystemTime(today);
+
+beforeAll(() => {
+  jest.setSystemTime(today);
+});
+
+afterAll(() => {
+  jest.useRealTimers();
+});
 
 beforeEach(() => {
   renderApp(<ModifiersToday />);

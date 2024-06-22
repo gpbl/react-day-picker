@@ -1,4 +1,5 @@
 import { enUS as locale } from "date-fns/locale";
+import { dateLib } from "react-day-picker";
 
 import { getDropdownYears } from "./getDropdownYears";
 import { getFormatters } from "./getFormatters";
@@ -12,13 +13,15 @@ test("return undefined if startMonth or endMonth is not provided", () => {
     formatters,
     locale,
     startMonth: undefined,
-    endMonth: new Date(2022, 11, 31)
+    endMonth: new Date(2022, 11, 31),
+    dateLib
   });
   const result2 = getDropdownYears(displayMonth, {
     formatters,
     locale,
     startMonth: new Date(2022, 0, 1),
-    endMonth: undefined
+    endMonth: undefined,
+    dateLib
   });
 
   expect(result1).toBeUndefined();
@@ -37,7 +40,8 @@ test("return correct dropdown options", () => {
     formatters,
     locale,
     startMonth,
-    endMonth
+    endMonth,
+    dateLib
   });
 
   expect(result).toEqual([

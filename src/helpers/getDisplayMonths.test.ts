@@ -1,3 +1,5 @@
+import { dateLib } from "react-day-picker";
+
 import { getDisplayMonths } from "./getDisplayMonths";
 
 describe("getDisplayMonths", () => {
@@ -6,7 +8,8 @@ describe("getDisplayMonths", () => {
     const expectedResult = [new Date(2020, 0)];
     const result = getDisplayMonths(firstMonth, {
       numberOfMonths: 1,
-      endMonth: undefined
+      endMonth: undefined,
+      dateLib
     });
     expect(result).toEqual(expectedResult);
   });
@@ -20,7 +23,8 @@ describe("getDisplayMonths", () => {
     ];
     const result = getDisplayMonths(firstMonth, {
       numberOfMonths: 3,
-      endMonth: undefined
+      endMonth: undefined,
+      dateLib
     });
     expect(result).toEqual(expectedResult);
   });
@@ -30,7 +34,8 @@ describe("getDisplayMonths", () => {
     const expectedResult = [new Date(2020, 0), new Date(2020, 1)];
     const result = getDisplayMonths(firstMonth, {
       numberOfMonths: 3,
-      endMonth: new Date(2020, 1, 10)
+      endMonth: new Date(2020, 1, 10),
+      dateLib
     });
     expect(result).toEqual(expectedResult);
   });

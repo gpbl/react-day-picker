@@ -1,6 +1,8 @@
 import React from "react";
 
-import type { Locale } from "date-fns";
+import { GenericDateConstructor } from "date-fns";
+
+import type { Locale } from "../lib/dateLib";
 
 import type {
   ClassNames,
@@ -17,7 +19,7 @@ import type {
   Modifiers,
   DateRange,
   Mode,
-  DateUtils
+  DateLib
 } from "./shared";
 
 /**
@@ -52,8 +54,6 @@ export interface PropsBase {
    * - `range`: a range of days
    */
   mode?: Mode | undefined;
-
-  utc?: boolean | undefined;
 
   /** Class name to add to the root element */
   className?: string;
@@ -326,7 +326,14 @@ export interface PropsBase {
   /** Event handler when a week number is clicked */
   onWeekNumberClick?: WeekNumberMouseEventHandler;
 
-  dateUtils?: Partial<DateUtils> | undefined;
+  /**
+   * Replace the default date library with a custom one.
+   *
+   * @private
+   * @since 9.0.0
+   * @experimental
+   */
+  dateLib?: Partial<DateLib> | undefined;
 }
 /**
  * The props when the single selection is required.

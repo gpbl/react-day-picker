@@ -1,4 +1,4 @@
-import type { format } from "date-fns/format";
+import type { format } from "../lib/dateLib";
 
 /**
  * Return the default ARIA label for next month button.

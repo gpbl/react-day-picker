@@ -1,3 +1,5 @@
+import { dateLib } from "../";
+
 import { getPreviousMonth } from "./getPreviousMonth";
 
 it("should return undefined if navigation is disabled", () => {
@@ -6,7 +8,8 @@ it("should return undefined if navigation is disabled", () => {
     disableNavigation: true,
     pagedNavigation: false,
     numberOfMonths: 1,
-    startMonth: new Date(2022, 0, 1)
+    startMonth: new Date(2022, 0, 1),
+    dateLib
   };
 
   const result = getPreviousMonth(firstDisplayedMonth, props);
@@ -20,7 +23,8 @@ it("should return the previous month if startMonth is not provided", () => {
     disableNavigation: false,
     pagedNavigation: false,
     numberOfMonths: 1,
-    startMonth: undefined
+    startMonth: undefined,
+    dateLib
   };
 
   const result = getPreviousMonth(firstDisplayedMonth, props);
@@ -34,7 +38,8 @@ it("should return undefined if the previous month is before the startMonth", () 
     disableNavigation: false,
     pagedNavigation: false,
     numberOfMonths: 1,
-    startMonth: new Date(2022, 0, 1)
+    startMonth: new Date(2022, 0, 1),
+    dateLib: dateLib
   };
 
   const result = getPreviousMonth(firstDisplayedMonth, props);
@@ -48,7 +53,8 @@ it("should return the correct previous month when pagedNavigation is true", () =
     disableNavigation: false,
     pagedNavigation: true,
     numberOfMonths: 2,
-    startMonth: new Date(2022, 0, 1)
+    startMonth: new Date(2022, 0, 1),
+    dateLib
   };
 
   const result = getPreviousMonth(firstDisplayedMonth, props);

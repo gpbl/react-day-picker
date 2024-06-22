@@ -24,6 +24,7 @@ export function getNextFocus(
   focused: CalendarDay,
   options: Pick<
     PropsContextValue,
+    | "dateLib"
     | "disabled"
     | "hidden"
     | "modifiers"
@@ -48,15 +49,21 @@ export function getNextFocus(
   );
 
   const isDisabled = Boolean(
-    options.disabled && dateMatchModifiers(possibleFocusDate, options.disabled)
+    options.disabled &&
+      dateMatchModifiers(possibleFocusDate, options.disabled, options.dateLib)
   );
 
   const isHidden = Boolean(
-    options.hidden && dateMatchModifiers(possibleFocusDate, options.hidden)
+    options.hidden &&
+      dateMatchModifiers(possibleFocusDate, options.hidden, options.dateLib)
   );
 
   const targetMonth = possibleFocusDate;
-  const focusDay = new CalendarDay(possibleFocusDate, targetMonth);
+  const focusDay = new CalendarDay(
+    possibleFocusDate,
+    targetMonth,
+    options.dateLib
+  );
   if (!isDisabled && !isHidden) {
     return focusDay;
   }

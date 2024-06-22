@@ -10,7 +10,6 @@ import {
   SelectionState
 } from "../UI";
 import * as components from "../components/custom-components";
-import * as dateUtils from "../dateUtils";
 import {
   formatCaption,
   formatDay,
@@ -32,6 +31,7 @@ import {
   labelWeekNumberHeader,
   labelYearDropdown
 } from "../labels";
+import { dateLib } from "../lib";
 
 /**
  * Selection modes supported by DayPicker.
@@ -53,7 +53,7 @@ export type CustomComponents = {
   [key in keyof typeof components]?: (typeof components)[key];
 };
 
-export type DateUtils = typeof dateUtils;
+export type DateLib = typeof dateLib;
 
 /** Represent a map of formatters used to render localized content. */
 export type Formatters = {

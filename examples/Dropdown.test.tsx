@@ -7,7 +7,14 @@ import { user } from "@/test/user";
 import { Dropdown } from "./Dropdown";
 
 const today = new Date(2015, 6, 1);
-jest.useFakeTimers().setSystemTime(today);
+
+beforeAll(() => {
+  jest.setSystemTime(today);
+});
+
+afterAll(() => {
+  jest.useRealTimers();
+});
 
 beforeEach(() => {
   render(<Dropdown />);
