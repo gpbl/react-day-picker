@@ -1,7 +1,7 @@
 import React from "react";
 
 import { app } from "@/test/elements";
-import { act, render, screen } from "@/test/render";
+import { render, screen } from "@/test/render";
 import { user } from "@/test/user";
 
 import { Weeknumber } from "./Weeknumber";
@@ -24,7 +24,9 @@ describe("when displaying November 2021", () => {
     expect(getWeekButton(45)).toBeInTheDocument();
   });
   describe("when the week button is clicked", () => {
-    beforeEach(async () => act(() => user.click(getWeekButton(45))));
+    beforeEach(async () => {
+      return user.click(getWeekButton(45));
+    });
     test("should update the footer", () => {
       expect(
         screen.getByText("You clicked the week n. 45.")

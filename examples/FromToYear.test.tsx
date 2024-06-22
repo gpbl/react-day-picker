@@ -3,7 +3,7 @@ import React from "react";
 import { differenceInMonths } from "date-fns";
 
 import { nextButton, previousButton } from "@/test/elements";
-import { act, render } from "@/test/render";
+import { render } from "@/test/render";
 import { user } from "@/test/user";
 
 import { FromToYear } from "./FromToYear";
@@ -30,7 +30,7 @@ describe("when navigating to the last month", () => {
   const nOfMonths = differenceInMonths(toMonth, fromMonth);
   beforeEach(async () => {
     for (let i = 0; i < nOfMonths; i++) {
-      await act(() => user.click(nextButton()));
+      await user.click(nextButton());
     }
   });
   test("the previous month button should not be disabled", () => {

@@ -3,7 +3,7 @@ import React from "react";
 import { addDays } from "date-fns";
 
 import { gridcell } from "@/test/elements";
-import { act, render, screen } from "@/test/render";
+import { render, screen } from "@/test/render";
 import { user } from "@/test/user";
 
 import { Range } from "./Range";
@@ -29,7 +29,7 @@ test.each(days)("%s should be selected", (day) => {
 
 describe("when a day in the range is clicked", () => {
   const day = days[2];
-  beforeEach(async () => act(() => user.click(gridcell(day))));
+  beforeEach(async () => user.click(gridcell(day)));
   test.each([days[0], days[1], day])("%s should be selected", (day) => {
     expect(gridcell(day)).toHaveAttribute("aria-selected", "true");
   });
@@ -38,7 +38,7 @@ describe("when a day in the range is clicked", () => {
   });
   describe("when the day is clicked again", () => {
     const day = days[2];
-    beforeEach(async () => act(() => user.click(gridcell(day))));
+    beforeEach(async () => user.click(gridcell(day)));
     test("only one day should be selected", () => {
       expect(getAllSelectedDays()).toHaveLength(1);
     });
@@ -48,7 +48,7 @@ describe("when a day in the range is clicked", () => {
 
     describe("when a day in the range is clicked again", () => {
       const day = days[2];
-      beforeEach(async () => act(() => user.click(gridcell(day))));
+      beforeEach(async () => user.click(gridcell(day)));
       test("no day should be selected", () => {
         expect(getAllSelectedDays()).toHaveLength(0);
       });

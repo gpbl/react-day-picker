@@ -84,7 +84,7 @@ export function activeElement() {
 export async function focusDaysGrid() {
   // TODO: are these `act` calls necessary?
   await act(() => fireEvent.blur(activeElement())); // Make sure nothing is focused
-  await act(() => user.tab()); // By pressing tab 3 times
-  await act(() => user.tab());
-  await act(() => user.tab());
+  await user.tab(); // By pressing tab 3 tim;
+  await user.tab();
+  await user.tab();
 }

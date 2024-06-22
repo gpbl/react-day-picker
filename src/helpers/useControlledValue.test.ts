@@ -13,7 +13,7 @@ describe("when the value is controlled", () => {
   });
   describe("when setting a new value", () => {
     const newValue = "taz";
-    test("should return the controlled value instead", () => {
+    test("should return the controlled value instead", async () => {
       const { result } = renderHook(() =>
         useControlledValue<string>(defaultValue, controlledValue)
       );
@@ -38,7 +38,7 @@ describe("when the value is not controlled", () => {
       const { result } = renderHook(() =>
         useControlledValue<string>(defaultValue, controlledValue)
       );
-      await act(() => result.current[1](newValue));
+      act(() => result.current[1](newValue));
       expect(result.current[0]).toBe(newValue);
     });
   });

@@ -3,7 +3,7 @@ import React from "react";
 import { addDays } from "date-fns";
 
 import { gridcell } from "@/test/elements";
-import { act, render, screen } from "@/test/render";
+import { render, screen } from "@/test/render";
 import { user } from "@/test/user";
 
 import { RangeMinMax } from "./RangeMinMax";
