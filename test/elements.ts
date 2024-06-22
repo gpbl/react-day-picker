@@ -66,6 +66,7 @@ export function rowheader(name?: ByRoleOptions["name"]) {
 export function yearDropdown() {
   return screen.getByRole("combobox", { name: "Year:" });
 }
+
 /** Return the month dropdown. */
 export function monthDropdown() {
   return screen.getByRole("combobox", { name: "Month:" });

@@ -8,13 +8,8 @@ import { FocusRecursive } from "./FocusRecursive";
 
 const today = new Date(2022, 5, 10);
 
-beforeAll(() => {
-  jest.setSystemTime(today);
-});
-
-afterAll(() => {
-  jest.useRealTimers();
-});
+beforeAll(() => jest.setSystemTime(today));
+afterAll(() => jest.useRealTimers());
 
 test("the first selected day should have focus", async () => {
   render(<FocusRecursive />).container;

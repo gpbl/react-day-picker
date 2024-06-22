@@ -5,7 +5,7 @@ sidebar_position: 1
 slug: /
 ---
 
-# Introduction to DayPicker
+# DayPicker
 
 DayPicker is a [React](https://react.dev) component to create date pickers, calendars, and date inputs for web applications.
 
@@ -23,12 +23,12 @@ DayPicker is written in TypeScript and compiled to CommonJS and ESM. It requires
 
 ## Example
 
-```tsx
+```tsx title="./MyDatePicker.jsx"
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/style.css";
 
 function MyDatePicker() {
-  const [selected, setSelected] = useState<Date>();
+  const [selected, setSelected] = useState();
   return <DayPicker mode="single" selected={selected} onSelect={setSelected} />;
 }
 ```

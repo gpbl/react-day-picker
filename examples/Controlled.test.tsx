@@ -6,13 +6,8 @@ import { user } from "@/test/user";
 
 import { Controlled } from "./Controlled";
 
-beforeAll(() => {
-  jest.setSystemTime(new Date(2022, 5, 10));
-});
-
-afterAll(() => {
-  jest.useRealTimers();
-});
+beforeAll(() => jest.setSystemTime(new Date(2022, 5, 10)));
+afterAll(() => jest.useRealTimers());
 
 describe('when the "Today" button is clicked', () => {
   const todayButton = () => screen.getByRole("button", { name: "Go to Today" });

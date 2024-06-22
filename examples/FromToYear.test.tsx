@@ -12,13 +12,8 @@ const fromMonth = new Date(2024, 0);
 const toMonth = new Date(2026, 11);
 const today = new Date(2025, 10, 25);
 
-beforeAll(() => {
-  jest.setSystemTime(today);
-});
-
-afterAll(() => {
-  jest.useRealTimers();
-});
+beforeAll(() => jest.setSystemTime(today));
+afterAll(() => jest.useRealTimers());
 
 beforeEach(() => {
   render(<FromToYear />);

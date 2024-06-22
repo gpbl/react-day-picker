@@ -7,13 +7,8 @@ import { CssModules } from "./CssModules";
 
 const today = new Date(2021, 10, 25);
 
-beforeAll(() => {
-  jest.setSystemTime(today);
-});
-
-afterAll(() => {
-  jest.useRealTimers();
-});
+beforeAll(() => jest.setSystemTime(today));
+afterAll(() => jest.useRealTimers());
 
 beforeEach(() => {
   renderApp(<CssModules />);

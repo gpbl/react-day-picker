@@ -12,13 +12,8 @@ const days = [
 
 const today = new Date(2021, 10, 25);
 
-beforeAll(() => {
-  jest.setSystemTime(today);
-});
-
-afterAll(() => {
-  jest.useRealTimers();
-});
+beforeAll(() => jest.setSystemTime(today));
+afterAll(() => jest.useRealTimers());
 
 test.each(days)("the day %s should be hidden", (day) => {
   render(<ModifiersHidden />);

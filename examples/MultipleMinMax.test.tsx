@@ -10,13 +10,8 @@ import { MultipleMinMax } from "./MultipleMinMax";
 
 const today = new Date(2021, 10, 10);
 
-beforeAll(() => {
-  jest.setSystemTime(today);
-});
-
-afterAll(() => {
-  jest.useRealTimers();
-});
+beforeAll(() => jest.setSystemTime(today));
+afterAll(() => jest.useRealTimers());
 
 const days = [
   today,

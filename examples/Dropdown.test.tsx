@@ -8,13 +8,8 @@ import { Dropdown } from "./Dropdown";
 
 const today = new Date(2015, 6, 1);
 
-beforeAll(() => {
-  jest.setSystemTime(today);
-});
-
-afterAll(() => {
-  jest.useRealTimers();
-});
+beforeAll(() => jest.setSystemTime(today));
+afterAll(() => jest.useRealTimers());
 
 beforeEach(() => {
   render(<Dropdown />);

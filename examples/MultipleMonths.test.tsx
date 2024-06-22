@@ -8,13 +8,8 @@ import { MultipleMonths } from "./MultipleMonths";
 
 const today = new Date(2023, 11, 3);
 
-beforeAll(() => {
-  jest.setSystemTime(today);
-});
-
-afterAll(() => {
-  jest.useRealTimers();
-});
+beforeAll(() => jest.setSystemTime(today));
+afterAll(() => jest.useRealTimers());
 
 beforeEach(() => {
   render(<MultipleMonths />);

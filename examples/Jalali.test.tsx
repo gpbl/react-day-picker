@@ -1,27 +1,16 @@
 import React from "react";
 
-import { render, screen } from "@/test/render";
+import { grid } from "@/test/elements";
+import { render } from "@/test/render";
 
 import { Jalali } from "./Jalali";
 
-const today = new Date(2021, 10, 25);
+const today = new Date(1403, 10, 25);
 
-beforeAll(() => {
-  jest.setSystemTime(today);
-});
+beforeAll(() => jest.setSystemTime(today));
+afterAll(() => jest.useRealTimers());
 
-afterAll(() => {
-  jest.useRealTimers();
-});
-
-beforeEach(() => {
-  render(
-    <div role="application">
-      <Jalali />
-    </div>
-  );
-});
-
-test("should match the snapshot", () => {
-  expect(screen.getByRole("application")).toMatchSnapshot();
+test("should render نوامبر 1403", () => {
+  render(<Jalali />);
+  expect(grid("نوامبر 1403")).toBeInTheDocument();
 });

@@ -7,13 +7,8 @@ import { DefaultMonth } from "./DefaultMonth";
 
 const today = new Date(2022, 5, 10);
 
-beforeAll(() => {
-  jest.setSystemTime(today);
-});
-
-afterAll(() => {
-  jest.useRealTimers();
-});
+beforeAll(() => jest.setSystemTime(today));
+afterAll(() => jest.useRealTimers());
 
 test("should display September 1979", () => {
   render(<DefaultMonth />);

@@ -8,13 +8,8 @@ import { MultipleMonthsPaged } from "./MultipleMonthsPaged";
 
 const today = new Date(2021, 10, 25);
 
-beforeAll(() => {
-  jest.setSystemTime(today);
-});
-
-afterAll(() => {
-  jest.useRealTimers();
-});
+beforeAll(() => jest.setSystemTime(today));
+afterAll(() => jest.useRealTimers());
 
 beforeEach(() => {
   render(<MultipleMonthsPaged />);
