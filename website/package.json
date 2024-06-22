@@ -7,7 +7,6 @@
     "start": "PORT=2001 TYPEDOC_WATCH=false docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "PORT=2000 docusaurus serve",
     "write-translations": "docusaurus write-translations",
