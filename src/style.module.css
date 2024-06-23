@@ -1,6 +1,6 @@
 /* Variables declaration */
 /* prettier-ignore */
-:root {
+.calendar {
   --rdp-accent-color: blue; /* The accent color used for selected days and UI elements. */
   --rdp-accent-background-color: #f0f0ff; /* The accent background color used for selected days and UI elements. */
   --rdp-font-family: system-ui; /* The font family used by the calendar. Note that `inherit`does not work here. */
@@ -36,10 +36,10 @@
   --rdp-range_middle-font: normal medium var(--rdp-font-family); /* The font for days in the middle of a range. */
   
   --rdp-range_start-color: white; /* The color of the range text. */
-  --rdp-range_start-background: linear-gradient(90deg, transparent 50%, var(--rdp-range_middle-background-color) 50%); /* Used for the background of the start of the selected range. */
+  --rdp-range_start-background: linear-gradient(var(--rdp-gradient-direction), transparent 50%, var(--rdp-range_middle-background-color) 50%); /* Used for the background of the start of the selected range. */
   --rdp-range_start-date-background-color: var(--rdp-accent-color); /* The background color of the date when at the start of the selected range. */
   
-  --rdp-range_end-background: linear-gradient(90deg, var(--rdp-range_middle-background-color) 50%, transparent 50%); /* Used for the background of the end of the selected range. */
+  --rdp-range_end-background: linear-gradient(var(--rdp-gradient-direction), var(--rdp-range_middle-background-color) 50%, transparent 50%); /* Used for the background of the end of the selected range. */
   --rdp-range_end-color: white;/* The color of the range text. */
   --rdp-range_end-date-background-color: var(--rdp-accent-color); /* The background color of the date when at the end of the selected range. */
   
@@ -54,9 +54,12 @@
   --rdp-weekday-opacity: 0.75; /* The opacity of the weekday. */
   --rdp-weekday-padding: 0.25rem 0.75rem; /* THe padding of the weekday. */
   --rdp-weekday-text-align: center; /* The text alignment of the weekday cells. */
+  --rdp-gradient-direction: 90deg;
 }
 
-/* prettier-ignore: false */
+.calendar[dir="rtl"] {
+  --rdp-gradient-direction: -90deg;
+}
 
 /* Root of the component. */
 .calendar {
