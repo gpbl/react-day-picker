@@ -297,18 +297,20 @@ export default function Playground() {
                   <option value="range">range</option>
                 </select>
               </label>
-              <label>
-                <input
-                  type="checkbox"
-                  name="required"
-                  onChange={(e) => {
-                    setSelected(undefined);
-                    // @ts-expect-error abc
-                    setProps({ ...props, required: e.target.checked });
-                  }}
-                />
-                Required
-              </label>
+              {props.mode && (
+                <label>
+                  <input
+                    type="checkbox"
+                    name="required"
+                    onChange={(e) => {
+                      setSelected(undefined);
+                      // @ts-expect-error abc
+                      setProps({ ...props, required: e.target.checked });
+                    }}
+                  />
+                  Required
+                </label>
+              )}
               {props.mode === "range" || props.mode === "multiple" ? (
                 <label>
                   Min Selection:
