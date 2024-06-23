@@ -12,12 +12,12 @@ DayPicker provides predefined rules for day selection:
 
 The `mode` prop determines the selection mode. The `disabled` prop can be used to prevent the selection of specific days. The `selected` and `onSelect` props offer customization of the selection process.
 
-| Prop Name  | Type                                                                               | Description                                |
-| ---------- | ---------------------------------------------------------------------------------- | ------------------------------------------ |
-| `mode`     | \| `"single"` <br/>\| `"multiple"` <br/>\| `"range"` <br/>\| `"none"`              | Set a selection mode. Default is `"none"`. |
-| `disabled` | [`Matcher`](../api/type-aliases/Matcher.md) \| `Matcher[]`                         | Disabled days that cannot be selected.     |
-| `selected` | `Date` \| `Date[]` \| [`DateRange`](../api/type-aliases/DateRange.md) \| undefined | The selected day(s).                       |
-| `onSelect` | `(selected, triggerDate, modifiers, e) => void`                                    | Event callback when a date is selected.    |
+| Prop Name  | Type                                                                               | Description                             |
+| ---------- | ---------------------------------------------------------------------------------- | --------------------------------------- |
+| `mode`     | `"single"` \| `"multiple"` \| `"range"`                                            | Enter a selection mode.                 |
+| `disabled` | [`Matcher`](../api/type-aliases/Matcher.md) \| `Matcher[]`                         | Disabled days that cannot be selected.  |
+| `selected` | `Date` \| `Date[]` \| [`DateRange`](../api/type-aliases/DateRange.md) \| undefined | The selected day(s).                    |
+| `onSelect` | `(selected, triggerDate, modifiers, e) => void`                                    | Event callback when a date is selected. |
 
 ## Single Mode
 

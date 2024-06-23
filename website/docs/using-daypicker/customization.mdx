@@ -6,15 +6,19 @@ sidebar_position: 3
 
 Use the customization props to customize the appearance of the calendar.
 
-## Layout Props
+### Customization Props Summary
+
+See below for more details on each prop.
 
 | Prop Name         | Type                                                                                     | Description                                                 |
 | ----------------- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
 | `captionLayout`   | \| `"label"`<br/> \| `"dropdown"`<br/> \| `"dropdown-months"`<br/> \| `"dropdown-years"` | Choose the layout of the month caption. Default is `label`. |
-| `showOutsideDays` | `boolean`                                                                                | Display the days falling into the other months.             |
 | `fixedWeeks`      | `boolean`                                                                                | Display 6 weeks per months.                                 |
-| `hideWeekdayRow`  | `boolean`                                                                                | Hide the row displaying the weekday names.                  |
 | `footer`          | `ReactNode`                                                                              | Displays a footer below the calendar.                       |
+| `hideWeekdayRow`  | `boolean`                                                                                | Hide the row displaying the weekday names.                  |
+| `numberOfMonths`  | `number`                                                                                 | The number of displayed months. Default is `1`.             |
+| `showOutsideDays` | `boolean`                                                                                | Display the days falling into the other months.             |
+| `showWeekNumber`  | `boolean`                                                                                | Display the column with the week numbers.                   |
 
 ## Caption Layouts
 
@@ -53,7 +57,7 @@ Without specifing the `from*` and `to*` properties, the dropdown will show the l
 
 :::
 
-### Outside Days
+## Outside Days
 
 By default, DayPicker hides the days falling into the other months. Use `showOutsideDays` to display them.
 
@@ -65,7 +69,7 @@ By default, DayPicker hides the days falling into the other months. Use `showOut
   <Examples.OutsideDays />
 </BrowserWindow>
 
-### Fixed Weeks
+## Fixed Weeks
 
 In a year, months can have between 4 an 6 weeks. Use `fixedWeeks` to always display 6 weeks per month. This will prevent the grid changing its height while navigating the calendar.
 
@@ -123,15 +127,6 @@ To display the column with the week numbers, use the `showWeekNumber` prop. Use 
 <BrowserWindow>
   <Examples.Weeknumber />
 </BrowserWindow>
-
-## Formatters and Labels
-
-Use the [formatters](./localization.mdx#formatters) and the [ARIA labels](./localization.mdx#aria-labels) to customize the format of the dates and the ARIA labels.
-
-| Prop Name    | Type                                              | Description                                    |
-| ------------ | ------------------------------------------------- | ---------------------------------------------- |
-| `formatters` | [`Formatters`](../api/type-aliases/Formatters.md) | Format of the dates displayed in the calendar. |
-| `labels`     | [`Labels`](../api/type-aliases/Labels.md)         | Set the ARIA labels used in the calendar.      |
 
 ## Footer
 
