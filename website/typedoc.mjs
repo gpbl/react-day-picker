@@ -47,7 +47,8 @@ const options = {
   plugin: ["typedoc-plugin-markdown", "typedoc-plugin-frontmatter"],
   frontmatterGlobals: {
     pagination_next: null,
-    pagination_prev: null
+    pagination_prev: null,
+    custom_edit_url: null
   }
 };
 
