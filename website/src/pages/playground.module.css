@@ -1,0 +1,67 @@
+.root {
+  margin: 1rem;
+}
+
+.root h1 {
+  font-size: 2rem;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.form {
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 1rem 0;
+  justify-content: center;
+}
+
+.form input {
+  padding: 0.5em;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 0.25rem;
+}
+
+@media (max-width: 1200px) {
+  .form {
+    overflow-x: auto;
+    justify-content: left;
+  }
+}
+
+.form fieldset {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  padding: 1em;
+  margin: 0;
+  border-radius: 0.25rem;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.form fieldset legend {
+  display: inline-block;
+  padding: 0 0.5em;
+  font-weight: bold;
+}
+
+.form label {
+  display: flex;
+  flex-direction: row;
+  gap: 0.25em;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.form label:has(select),
+.form label:has(input[type="number"]) {
+  justify-content: space-between;
+}
+
+.browserWindow {
+  margin: 2rem 0;
+}

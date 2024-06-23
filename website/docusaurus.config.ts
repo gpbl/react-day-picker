@@ -122,16 +122,16 @@ const config: Config = {
           label: "Documentation"
         },
         {
+          href: "/playground",
+          label: "Playground",
+          position: "left"
+        },
+        {
           type: "docSidebar",
           sidebarId: "api",
           position: "left",
           label: "API Reference"
         },
-        // {
-        //   href: "/playground",
-        //   label: "Playground",
-        //   position: "left"
-        // },
 
         {
           href: "https://github.com/gpbl/react-day-picker/discussions",
@@ -147,7 +147,7 @@ const config: Config = {
     },
     footer: undefined,
     prism: {
-      additionalLanguages: ["bash", "diff"],
+      additionalLanguages: ["bash", "diff", "json", "css"],
       theme: prismThemes.vsLight,
       darkTheme: prismThemes.dracula
     },
