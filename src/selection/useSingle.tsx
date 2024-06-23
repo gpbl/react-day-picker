@@ -30,17 +30,21 @@ function useSingleContextValue<T extends PropsSingle>({
 }: T): SingleContextValue<T> {
   const [date, setDate] = React.useState<Date | undefined>(selected);
   const {
-    dateLib: { isSameDay, Date }
+    dateLib: { isSameDay },
+    today,
+    mode
   } = useProps();
   // Update the selected date if the required flag is set.
   React.useEffect(() => {
-    if (required && date === undefined) setDate(new Date());
-  }, [required, date, Date]);
+    if (required && date === undefined) {
+      setDate(today);
+    }
+  }, [required, date, today]);
 
-  // Update the selected date if the selected changes.
+  // Update the selected date if the `selected` value changes.
   React.useEffect(() => {
-    if (selected) setDate(selected);
-  }, [selected]);
+    mode === "single" && setDate(selected);
+  }, [mode, selected]);
 
   const isSelected = (compareDate: Date) =>
     date ? isSameDay(date, compareDate) : false;
