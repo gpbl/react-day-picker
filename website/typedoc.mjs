@@ -38,12 +38,22 @@ const options = {
   hidePageHeader: true,
   preserveAnchorCasing: false,
 
+  maxTypeConversionDepth: 1,
+  typeDeclarationFormat: "list",
   parametersFormat: "table",
   propertiesFormat: "list",
+  propertyMembersFormat: "list",
   enumMembersFormat: "table",
-  typeDeclarationFormat: "list",
   indexFormat: "table",
-
+  tableColumnSettings: {
+    hideDefaults: false,
+    hideInherited: false,
+    hideModifiers: false,
+    hideOverrides: false,
+    hideSources: true,
+    hideValues: false,
+    leftAlignHeaders: false
+  },
   plugin: ["typedoc-plugin-markdown", "typedoc-plugin-frontmatter"],
   frontmatterGlobals: {
     pagination_next: null,

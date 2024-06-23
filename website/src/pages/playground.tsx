@@ -45,7 +45,8 @@ function toJSX(props: Partial<DayPickerProps>) {
 export default function Playground() {
   const initialProps: DayPickerProps = {
     mode: "single",
-    locale: locales.enUS
+    locale: locales.enUS,
+    numberOfMonths: 1
   };
   const [props, setProps] = React.useState<DayPickerProps>(initialProps);
   const [selected, setSelected] = React.useState<
@@ -143,7 +144,7 @@ export default function Playground() {
                 <input
                   value={accentColor}
                   type="color"
-                  name="numberOfMonths"
+                  name="accentColor"
                   onChange={(e) => setAccentColor(e.target.value)}
                 />
               </label>
@@ -160,6 +161,7 @@ export default function Playground() {
                   min={1}
                   max={12}
                   size={4}
+                  value={props.numberOfMonths}
                   name="numberOfMonths"
                   onChange={(e) =>
                     setProps({
@@ -190,7 +192,7 @@ export default function Playground() {
                 Disable Navigation
               </label>
 
-              {(props.numberOfMonths ?? 1) > 1 && (
+              {props.numberOfMonths && props.numberOfMonths > 1 && (
                 <label>
                   <input
                     type="checkbox"
@@ -205,6 +207,21 @@ export default function Playground() {
                   Reverse Months
                 </label>
               )}
+              {props.numberOfMonths && props.numberOfMonths > 1 && (
+                <label>
+                  <input
+                    type="checkbox"
+                    name="pagedNavigation"
+                    onChange={(e) =>
+                      setProps({
+                        ...props,
+                        pagedNavigation: e.target.checked
+                      })
+                    }
+                  />
+                  Paged Navigation
+                </label>
+              )}
             </div>
           </fieldset>
 
@@ -216,8 +233,8 @@ export default function Playground() {
                 <select
                   name="locale"
                   value={Object.keys(locales).find(
-                    // @ts-expect-error abc
-                    (locale) => locales[locale] === props.locale
+                    (locale) =>
+                      locales[locale as keyof typeof locales] === props.locale
                   )}
                   onChange={(e) =>
                     setProps({
@@ -228,8 +245,7 @@ export default function Playground() {
                 >
                   {Object.keys(locales).map((locale) => (
                     <option key={locale} value={locale}>
-                      {/* @ts-expect-error abc */}
-                      {locales[locale].code}
+                      {locales[locale as keyof typeof locales].code}
                     </option>
                   ))}
                 </select>
@@ -325,7 +341,7 @@ export default function Playground() {
                     setSelected(undefined);
                     setProps({
                       ...props,
-                      // @ts-expect-error abc
+                      // @ts-expect-error now we know it's valid
                       mode
                     });
                   }}
@@ -361,12 +377,12 @@ export default function Playground() {
                     max={12}
                     size={4}
                     name="min"
-                    onChange={(e) =>
+                    onChange={(e) => {
                       setProps({
                         ...props,
                         min: Number(e.target.value)
-                      })
-                    }
+                      });
+                    }}
                   />
                 </label>
               ) : null}
@@ -379,12 +395,12 @@ export default function Playground() {
                     max={12}
                     size={4}
                     name="max"
-                    onChange={(e) =>
+                    onChange={(e) => {
                       setProps({
                         ...props,
                         max: Number(e.target.value)
-                      })
-                    }
+                      });
+                    }}
                   />
                 </label>
               ) : null}
