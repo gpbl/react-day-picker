@@ -1,7 +1,5 @@
 import React from "react";
 
-import { GenericDateConstructor } from "date-fns";
-
 import type { Locale } from "../lib/dateLib";
 
 import type {
