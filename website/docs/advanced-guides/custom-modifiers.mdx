@@ -4,29 +4,39 @@ sidebar_position: 3
 
 # Custom Modifiers
 
-:::info Draft
+In DayPicker, a **custom modifier** is added to a day when the day matches a specific condition, called [`Matcher`](../api/type-aliases/Matcher.md).
 
-This documentation is still a work in progress. If you have any questions, ask to the [discussions](https://github.com/gpbl/react-day-picker/discussions) page on Github.
+Modifiers are set using the `modifiers` prop. When matching a date, modifiers are passed to the `onSelect` event and to other [DayEventHandler](../api/type-aliases/DayEventHandler.md) (`onDayClick` etc.) to inspect the days the user has interacted with.
 
-:::
-
-# Modifiers
-
-In DayPicker, a **modifier** is added to a day when the day matches a specific condition, called [`Matcher`](../api/type-aliases/Matcher.md). For example, selected days have the `selected` modifiers, disabled days the `disabled` modifier, the today's date matches the `today` modifier, etc.
+For example, you can use a custom modifier to mark days as already booked in a booking app.
 
 ```tsx
-<DayPicker selected={new Date()} />
-<DayPicker disabled={new Date()} />
-<DayPicker hidden={new Date()} />
+<DayPicker
+  modifiers={{
+    booked: [
+      new Date(2022, 5, 8),
+      new Date(2022, 5, 9),
+      new Date(2022, 5, 10),
+      { from: new Date(2022, 5, 15), to: new Date(2022, 5, 20) }
+    ]
+  }}
+  onDayClick={(date, modifiers) => {
+    if (modifiers.booked) {
+      alert("This day is already booked.");
+    }
+  }}
+/>
 ```
 
-### Understanding Modifiers
+## Understanding Modifiers
 
 - Use modifiers to change the appearance of the days in the calendar or to inspect the days the user has interacted with (e.g. picking a day)
 - DayPicker comes with some [pre-built modifiers](../api/type-aliases/Modifiers.md), such as `disabled`, `selected`, `hidden`, `today`, `range_start`, etc. designed to cover the most common use cases.
 - It is possible to implement custom modifiers, extending the behavior of DayPicker: see [Custom Modifiers](#custom-modifiers) below for more details.
 
-## The `selected` Modifier
+## Built-in Modifiers
+
+### `selected` Modifier
 
 ```tsx
 <DayPicker selected={new Date()} />
@@ -34,20 +44,20 @@ In DayPicker, a **modifier** is added to a day when the day matches a specific c
 
 When in selection mode, use the `selected` prop to add the `selected` modifier to the selected dates, and style them accordingly. To see how to implement the `selected` modifier, see the [Selecting days guide](../using-daypicker/selection-modes.mdx).
 
-## Disabling Days
+### `disabled` Modifier
 
 Use the `disabled` modifier to disable one or more days. Pass a [`Matcher`](../api/type-aliases/Matcher.md) or an array of `Matchers` to choose the disabled days:
 
 ```tsx
 // Disable Sundays and Saturdays
-<DayPicker disabled={{ dayOfWeek: [0, 6] }} />
+<DayPicker mode="range" disabled={{ dayOfWeek: [0, 6] }} />
 ```
 
 <BrowserWindow>
   <Examples.ModifiersDisabled />
 </BrowserWindow>
 
-## Hidden days
+### `hidden` Modifier
 
 The `hidden` modifier removes the day from the calendar. Set the hidden days using the `hidden` prop.
 
@@ -65,23 +75,20 @@ const hiddenDays = [
   <Examples.ModifiersHidden />
 </BrowserWindow>
 
-## The `today` Modifier
+### `today` Modifier
 
-The `today` modifier is added to the current date:
+The `today` modifier is a special modifier added to the current date. You can also change the current date using the `today` prop.
 
 ```tsx
-function ModifiersToday() {
-  const initialFooter = <p>Try clicking the today’s date.</p>;
-  const [footer, setFooter] = useState(initialFooter);
-
+function Example() {
   const handleDayClick: DayMouseEventHandler = (day, modifiers) => {
     if (modifiers.today) {
-      setFooter(<p>You clicked the today’s date.</p>);
-    } else {
-      setFooter(initialFooter);
+      alert("You clicked the today’s date.");
     }
   };
-  return <DayPicker onDayClick={handleDayClick} footer={footer} />;
+  return (
+    <DayPicker onDayClick={handleDayClick} today={new Date(2019, 12, 22)} />
+  );
 }
 ```
 
@@ -89,63 +96,41 @@ function ModifiersToday() {
   <Examples.ModifiersToday />
 </BrowserWindow>
 
-:::info
+## Styling Modifiers
 
-You can change the current date using the `today` prop.
-
-:::
-
-## Custom Modifiers {#custom-modifiers}
-
-Add new modifiers according to your app’s requirements. For example, a booking app may use a `booked` modifier to mark days as already booked.
-
-Use the `modifiers` prop to pass an object with custom modifiers and their matcher. Change the inline-style of the cell with `modifiersStyles` or with `modifiersClassNames`.
+A day can be styled according to its modifiers – using CSS or inline styles. See [Styling DayPicker](../using-daypicker/styling.mdx) for more details.
 
 ```tsx
 const bookedDays = [
-  new Date(2024, 5, 8),
-  new Date(2024, 5, 9),
-  new Date(2024, 5, 10),
-  { from: new Date(2024, 5, 15), to: new Date(2024, 5, 20) }
+  new Date(2021, 5, 8),
+  new Date(2021, 5, 9),
+  new Date(2021, 5, 11)
 ];
-export function ModifiersCustom() {
-  const handleDayClick: DayMouseEventHandler = (day, { booked }) => {
-    alert(`Day ${day.toLocaleDateString()} is booked? ` + booked);
-  };
-
+export function ModifiersWithClassnames() {
   return (
     <DayPicker
-      defaultMonth={new Date(2024, 5)}
-      modifiers={{ booked: bookedDays }}
-      modifiersClassNames={{ booked: "booked" }}
-      onDayClick={handleDayClick}
+      defaultMonth={bookedDays[0]}
+      modifiers={{
+        booked: bookedDays
+      }}
+      modifiersClassNames={{
+        booked: "my-booked-class"
+      }}
     />
   );
 }
 ```
 
-```css
-.booked {
-  position: relative;
-}
-/* Strikeout */
-.booked::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: currentColor;
-  z-index: 1;
-  transform: rotate(-45deg);
+Add the `my-booked-class` class to your CSS:
+
+```postcss
+.my-booked-class {
+  background-color: tomato;
+  color: white;
+  border-radius: 50%;
 }
 ```
 
 <BrowserWindow>
-  <Examples.ModifiersCustom />
+  <Examples.ModifiersClassnames />
 </BrowserWindow>
-
-## Styling Modifiers
-
-A day can be styled according to its modifiers – using CSS or inline styles. See [Styling DayPicker](../using-daypicker/styling.mdx) for more details.

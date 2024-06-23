@@ -1,6 +1,5 @@
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
-import path from "path";
 import { themes as prismThemes } from "prism-react-renderer";
 import pkg from "react-day-picker/package.json";
 
