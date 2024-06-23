@@ -138,11 +138,11 @@
   opacity: var(--rdp-chevron-disabled-opacity);
 }
 
-.calendar[dir="rtl"] .chevron {
+.calendar[dir="rtl"] .nav .chevron {
   transform: rotate(180deg);
 }
 
-.calendar[dir="rtl"] .chevron {
+.calendar[dir="rtl"] .nav .chevron {
   transform: rotate(180deg);
   transform-origin: 50%;
 }
