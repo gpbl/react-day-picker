@@ -58,7 +58,7 @@ export default function Playground() {
 
   return (
     <Layout>
-      <div className={styles.root}>
+      <div className={styles.playground}>
         <h1>DayPicker v9 Playground</h1>
         <form className={styles.form}>
           <fieldset>
@@ -290,6 +290,7 @@ export default function Playground() {
                       mode
                     });
                   }}
+                  value={props.mode}
                 >
                   <option></option>
                   <option value="single">single</option>
@@ -301,6 +302,7 @@ export default function Playground() {
                 <label>
                   <input
                     type="checkbox"
+                    checked={props.required}
                     name="required"
                     onChange={(e) => {
                       setSelected(undefined);

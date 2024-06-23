@@ -1,8 +1,7 @@
-.root {
-  margin: 1rem;
+.playground {
 }
 
-.root h1 {
+.playground h1 {
   font-size: 2rem;
   margin: 1rem auto;
   text-align: center;
@@ -63,5 +62,5 @@
 }
 
 .browserWindow {
-  margin: 2rem 0;
+  margin: 2rem;
 }
