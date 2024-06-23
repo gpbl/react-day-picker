@@ -8,7 +8,6 @@
 }
 
 .form {
-  font-size: 0.85rem;
   display: flex;
   flex-direction: row;
   gap: 1rem;
@@ -40,27 +39,31 @@
   display: flex;
   flex-direction: column;
   gap: 0.5em;
+  font-size: 0.85rem;
 }
 
 .form fieldset legend {
   display: inline-block;
   padding: 0 0.5em;
+  text-align: center;
   font-weight: bold;
 }
 
 .form label {
   display: flex;
   flex-direction: row;
-  gap: 0.25em;
+  gap: 0.5em;
   align-items: center;
   white-space: nowrap;
 }
 
 .form label:has(select),
-.form label:has(input[type="number"]) {
+.form label:has(input[type="number"]),
+.form label:has(input[type="color"]) {
   justify-content: space-between;
 }
 
-.browserWindow {
+.browserWindow,
+.props {
   margin: 2rem;
 }

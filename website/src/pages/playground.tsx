@@ -2,7 +2,6 @@ import React from "react";
 
 import Layout from "@theme/Layout";
 import * as locales from "date-fns/locale";
-import { Highlight, Prism, themes } from "prism-react-renderer";
 import {
   DateRange,
   DayPicker,
@@ -13,6 +12,7 @@ import {
 import { DayPicker as DayPickerUtc } from "react-day-picker/utc";
 
 import { BrowserWindow } from "../components/BrowserWindow";
+import { HighlightWithTheme } from "../components/HighlightWithTheme";
 
 import styles from "./playground.module.css";
 
@@ -53,11 +53,23 @@ export default function Playground() {
   >();
   const [utc, setUtc] = React.useState(false);
 
+  const [accentColor, setAccentColor] = React.useState<string>();
+  const [backgroundAccentColor, setAccentBackgroundColor] =
+    React.useState<string>();
+
   const Component = utc ? DayPickerUtc : DayPicker;
   const formattedProps = `<DayPicker${toJSX({ ...props, locale: undefined })} />`;
 
   return (
     <Layout>
+      <style>
+        {`
+          .rdp-calendar {
+            ${accentColor ? `--rdp-accent-color: ${accentColor} !important` : ""};
+            ${backgroundAccentColor ? `--rdp-accent-background-color: ${backgroundAccentColor} !important` : ""};
+          }
+        `}
+      </style>
       <div className={styles.playground}>
         <h1>DayPicker v9 Playground</h1>
         <form className={styles.form}>
@@ -125,38 +137,28 @@ export default function Playground() {
                 />
                 Hide weekdays
               </label>
+              <label>
+                Accent Color:
+                <input
+                  value={accentColor}
+                  type="color"
+                  name="numberOfMonths"
+                  onChange={(e) => setAccentColor(e.target.value)}
+                />
+              </label>
             </div>
           </fieldset>
+
           <fieldset>
             <legend>Navigation</legend>
             <div className={styles.fields}>
-              <label>
-                <input
-                  type="checkbox"
-                  name="showWeekDays"
-                  onChange={(e) =>
-                    setProps({ ...props, hideNavigation: e.target.checked })
-                  }
-                />
-                Hide navigation
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  name="showWeekDays"
-                  onChange={(e) =>
-                    setProps({ ...props, disableNavigation: e.target.checked })
-                  }
-                />
-                Disable navigation
-              </label>
               <label>
                 Number of months:
                 <input
                   type="number"
                   min={1}
                   max={12}
-                  size={3}
+                  size={4}
                   name="numberOfMonths"
                   onChange={(e) =>
                     setProps({
@@ -166,6 +168,42 @@ export default function Playground() {
                   }
                 />
               </label>
+              <label>
+                <input
+                  type="checkbox"
+                  name="hideNavigation"
+                  onChange={(e) =>
+                    setProps({ ...props, hideNavigation: e.target.checked })
+                  }
+                />
+                Hide Navigation
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  name="disableNavigation"
+                  onChange={(e) =>
+                    setProps({ ...props, disableNavigation: e.target.checked })
+                  }
+                />
+                Disable Navigation
+              </label>
+
+              {(props.numberOfMonths ?? 1) > 1 && (
+                <label>
+                  <input
+                    type="checkbox"
+                    name="reverseMonths"
+                    onChange={(e) =>
+                      setProps({
+                        ...props,
+                        reverseMonths: e.target.checked
+                      })
+                    }
+                  />
+                  Reverse Months
+                </label>
+              )}
             </div>
           </fieldset>
 
@@ -247,7 +285,17 @@ export default function Playground() {
                     setUtc(e.target.checked);
                   }}
                 />
-                UTC
+                UTC Dates
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  name="ISOWeek"
+                  onChange={(e) =>
+                    setProps({ ...props, ISOWeek: e.target.checked })
+                  }
+                />
+                ISO Week
               </label>
               <label>
                 <input
@@ -260,17 +308,7 @@ export default function Playground() {
                     })
                   }
                 />
-                Right-to-left
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  name="ISOWeek"
-                  onChange={(e) =>
-                    setProps({ ...props, ISOWeek: e.target.checked })
-                  }
-                />
-                ISO Week
+                Right-to-left direction
               </label>
             </div>
           </fieldset>
@@ -320,7 +358,7 @@ export default function Playground() {
                     type="number"
                     min={0}
                     max={12}
-                    size={3}
+                    size={4}
                     name="min"
                     onChange={(e) =>
                       setProps({
@@ -338,7 +376,7 @@ export default function Playground() {
                     type="number"
                     min={0}
                     max={12}
-                    size={3}
+                    size={4}
                     name="max"
                     onChange={(e) =>
                       setProps({
@@ -349,6 +387,17 @@ export default function Playground() {
                   />
                 </label>
               ) : null}
+              {props.mode === "range" && (
+                <label>
+                  Range Color:
+                  <input
+                    value={backgroundAccentColor ?? ""}
+                    type="color"
+                    name="numberOfMonths"
+                    onChange={(e) => setAccentBackgroundColor(e.target.value)}
+                  />
+                </label>
+              )}
             </div>
           </fieldset>
         </form>
@@ -358,51 +407,49 @@ export default function Playground() {
             <Component {...props} onSelect={setSelected} selected={selected} />
           </BrowserWindow>
         </div>
-        <h2>Props</h2>
-        <Highlight
-          theme={themes.shadesOfPurple}
-          code={formattedProps}
-          language="tsx"
-        >
-          {({ className, style, tokens, getTokenProps }) => (
-            <pre style={style} className={className}>
-              {tokens.map((line, i) => {
-                return line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token })} />
-                ));
-              })}
-            </pre>
+        <div className={styles.props}>
+          <h2>Selection</h2>
+          {selected ? (
+            <>
+              <pre>
+                {props.mode === "single" && selected && selected.toString()}
+                {props.mode === "multiple" &&
+                  (selected as Date[] | undefined)?.map((date) => {
+                    return (
+                      <>
+                        {date.toString()}
+                        <br />
+                      </>
+                    );
+                  })}
+                {props.mode === "range" && isDateRange(selected) && (
+                  <>
+                    From: {selected.from && selected.from.toString()}
+                    <br />
+                    To: {"  "}
+                    {selected.to && selected.to.toString()}
+                  </>
+                )}
+              </pre>
+            </>
+          ) : props.mode ? (
+            <p>Pick on a day to start selection.</p>
+          ) : (
+            <p>Pick a selection mode to enable selections.</p>
           )}
-        </Highlight>
-        {props.mode && (
-          <h2>
-            Selection mode: <code>{props.mode}</code>
-          </h2>
-        )}
-        {selected && (
-          <>
-            <pre>
-              {props.mode === "single" && selected && selected.toString()}
-              {props.mode === "multiple" &&
-                (selected as Date[] | undefined)?.map((date) => {
-                  return (
-                    <>
-                      {date.toString()}
-                      <br />
-                    </>
-                  );
+          <h2>Props</h2>
+          <HighlightWithTheme code={formattedProps} language="tsx">
+            {({ className, style, tokens, getTokenProps }) => (
+              <pre style={style} className={className}>
+                {tokens.map((line, i) => {
+                  return line.map((token, key) => (
+                    <span key={key} {...getTokenProps({ token })} />
+                  ));
                 })}
-              {props.mode === "range" && isDateRange(selected) && (
-                <>
-                  From: {selected.from && selected.from.toString()}
-                  <br />
-                  To: {"  "}
-                  {selected.to && selected.to.toString()}
-                </>
-              )}
-            </pre>
-          </>
-        )}
+              </pre>
+            )}
+          </HighlightWithTheme>
+        </div>
       </div>
     </Layout>
   );

@@ -134,6 +134,9 @@ importers:
       '@docusaurus/remark-plugin-npm2yarn':
         specifier: ^3.4.0
         version: 3.4.0
+      '@docusaurus/theme-common':
+        specifier: ^3.4.0
+        version: 3.4.0(@docusaurus/types@3.4.0)(eslint@8.57.0)(react-dom@18.3.1)(react@18.3.1)(typescript@5.5.2)
       '@mdx-js/react':
         specifier: ^3.0.1
         version: 3.0.1(@types/react@18.3.3)(react@18.3.1)
