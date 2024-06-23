@@ -63,3 +63,11 @@ test("updates the month when a date is typed in", async () => {
   await user.type(textbox(), format(testDate, "MM/dd/yyyy"));
   expect(screen.getByText(`December 2022`)).toBeInTheDocument();
 });
+
+test("reset the selected date when the field is emptied", async () => {
+  render(<Input />);
+  const testDate = new Date(2022, 11, 31); // Dec 31, 2022
+  await user.type(textbox(), format(testDate, "MM/dd/yyyy"));
+  await user.clear(textbox());
+  expect(selectedCells()).toHaveLength(0);
+});
