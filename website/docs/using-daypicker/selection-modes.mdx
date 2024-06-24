@@ -48,7 +48,7 @@ import { DayPicker } from "react-day-picker";
 
 export function App() {
   const initiallySelectedDate = new Date();
-  const [selectedDate, setSelectedDate] = useState(initiallySelectedDate);
+  const [selectedDate, setSelectedDate] = useState<Date>(initiallySelectedDate);
   return (
     <DayPicker
       mode="single"
@@ -208,7 +208,7 @@ import { useState } from "react";
 import { DayPicker } from "react-day-picker";
 
 export function App() {
-  const [selected, setSelected] = useState();
+  const [selected, setSelected] = useState<Date | undefined>();
   const handleSelect = (newSelected) => {
     // Update the selected dates
     setSelected(newSelected);
