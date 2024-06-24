@@ -45,8 +45,7 @@ function toJSX(props: Partial<DayPickerProps>) {
 export default function Playground() {
   const initialProps: DayPickerProps = {
     mode: "single",
-    locale: locales.enUS,
-    numberOfMonths: 1
+    locale: locales.enUS
   };
   const [props, setProps] = React.useState<DayPickerProps>(initialProps);
   const [selected, setSelected] = React.useState<
