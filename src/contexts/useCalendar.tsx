@@ -82,9 +82,31 @@ export type CalendarContextValue = {
   isDayDisplayed: (day: CalendarDay) => boolean;
 };
 
-function useCalendarContextValue(): CalendarContextValue {
+/** @private */
+export function CalendarContextProvider({
+  children
+}: {
+  children: ReactElement;
+}) {
   const props = useProps();
-  const { startOfMonth } = props.dateLib;
+  const {
+    dateLib,
+    disableNavigation,
+    endMonth,
+    firstWeekContainsDate,
+    fixedWeeks,
+    formatters,
+    ISOWeek,
+    locale,
+    numberOfMonths,
+    onMonthChange,
+    pagedNavigation,
+    reverseMonths,
+    startMonth,
+    weekStartsOn
+  } = props;
+
+  const { startOfMonth } = dateLib;
 
   const initialDisplayMonth = getInitialMonth(props);
 
@@ -95,79 +117,194 @@ function useCalendarContextValue(): CalendarContextValue {
   );
 
   /** An array of the months displayed in the calendar. */
-  const displayMonths = getDisplayMonths(firstDisplayedMonth, props);
+  const displayMonths = React.useMemo(() => {
+    return getDisplayMonths(firstDisplayedMonth, {
+      numberOfMonths,
+      endMonth,
+      dateLib
+    });
+  }, [dateLib, endMonth, firstDisplayedMonth, numberOfMonths]);
 
   /** The last month displayed in the calendar. */
   const lastMonth = displayMonths[displayMonths.length - 1];
 
   /** An array of the dates displayed in the calendar. */
-  const dates = getDates(displayMonths, props.endMonth, props);
+  const dates = React.useMemo(() => {
+    return getDates(displayMonths, endMonth, {
+      ISOWeek,
+      fixedWeeks,
+      locale,
+      weekStartsOn,
+      dateLib
+    });
+  }, [
+    ISOWeek,
+    dateLib,
+    displayMonths,
+    fixedWeeks,
+    locale,
+    endMonth,
+    weekStartsOn
+  ]);
 
   /** An array of the Months displayed in the calendar. */
-  const months = getMonths(displayMonths, dates, props);
+  const months = React.useMemo(
+    () =>
+      getMonths(displayMonths, dates, {
+        dateLib,
+        fixedWeeks,
+        ISOWeek,
+        locale,
+        weekStartsOn,
+        reverseMonths,
+        firstWeekContainsDate
+      }),
+    [
+      displayMonths,
+      dates,
+      dateLib,
+      fixedWeeks,
+      ISOWeek,
+      locale,
+      weekStartsOn,
+      reverseMonths,
+      firstWeekContainsDate
+    ]
+  );
 
   /** An array of the Weeks displayed in the calendar. */
-  const weeks = getWeeks(months);
+  const weeks = React.useMemo(() => getWeeks(months), [months]);
 
   /** An array of the Days displayed in the calendar. */
-  const days = getDays(months);
+  const days = React.useMemo(() => getDays(months), [months]);
 
-  const previousMonth = getPreviousMonth(firstDisplayedMonth, props);
-  const nextMonth = getNextMonth(firstDisplayedMonth, props);
+  const previousMonth = React.useMemo(
+    () =>
+      getPreviousMonth(firstDisplayedMonth, {
+        startMonth,
+        numberOfMonths,
+        pagedNavigation,
+        disableNavigation,
+        dateLib
+      }),
+    [
+      dateLib,
+      disableNavigation,
+      firstDisplayedMonth,
+      numberOfMonths,
+      pagedNavigation,
+      startMonth
+    ]
+  );
+  const nextMonth = React.useMemo(
+    () =>
+      getNextMonth(firstDisplayedMonth, {
+        startMonth,
+        endMonth,
+        numberOfMonths,
+        pagedNavigation,
+        disableNavigation,
+        dateLib
+      }),
+    [
+      dateLib,
+      disableNavigation,
+      endMonth,
+      firstDisplayedMonth,
+      numberOfMonths,
+      pagedNavigation,
+      startMonth
+    ]
+  );
 
   const isInteractive =
     props.mode !== undefined || props.onDayClick !== undefined;
 
-  const { disableNavigation, onMonthChange, startMonth, endMonth } = props;
-
-  function isDayDisplayed(day: CalendarDay) {
-    return weeks.some((week: CalendarWeek) => {
-      return week.days.some((d) => {
-        return d.isEqualTo(day);
+  const isDayDisplayed = React.useMemo(
+    () => (day: CalendarDay) => {
+      return weeks.some((week: CalendarWeek) => {
+        return week.days.some((d) => {
+          return d.isEqualTo(day);
+        });
       });
-    });
-  }
+    },
+    [weeks]
+  );
 
-  function goToMonth(date: Date) {
-    if (disableNavigation) {
-      return;
-    }
-    let newMonth = startOfMonth(date);
-    // if month is before startMonth, use the first month instead
-    if (startMonth && newMonth < startOfMonth(startMonth)) {
-      newMonth = startOfMonth(startMonth);
-    }
-    // if month is after endMonth, use the last month instead
-    if (endMonth && newMonth > startOfMonth(endMonth)) {
-      newMonth = startOfMonth(endMonth);
-    }
-    setFirstMonth(newMonth);
-    onMonthChange?.(newMonth);
-  }
+  const goToMonth = React.useMemo(
+    () => (date: Date) => {
+      if (disableNavigation) {
+        return;
+      }
+      let newMonth = startOfMonth(date);
+      // if month is before startMonth, use the first month instead
+      if (startMonth && newMonth < startOfMonth(startMonth)) {
+        newMonth = startOfMonth(startMonth);
+      }
+      // if month is after endMonth, use the last month instead
+      if (endMonth && newMonth > startOfMonth(endMonth)) {
+        newMonth = startOfMonth(endMonth);
+      }
+      setFirstMonth(newMonth);
+      onMonthChange?.(newMonth);
+    },
+    [
+      disableNavigation,
+      endMonth,
+      onMonthChange,
+      setFirstMonth,
+      startMonth,
+      startOfMonth
+    ]
+  );
 
-  function goToDay(day: CalendarDay) {
-    if (isDayDisplayed(day)) {
-      return;
-    }
+  const goToDay = React.useMemo(
+    () => (day: CalendarDay) => {
+      if (isDayDisplayed(day)) {
+        return;
+      }
 
-    // TODO:??
-    // if (refDate && isBefore(date, refDate)) {
-    //   console.log('date is before refDate');
-    //   const month = addMonths(date, 1 + dayPicker.numberOfMonths * -1);
-    //   console.log('going to month', month);
-    //   goToMonth(month);
-    // } else {
-    //   console.log('going to month', date);
-    goToMonth(day.date);
-    // }
-  }
+      // TODO:??
+      // if (refDate && isBefore(date, refDate)) {
+      //   console.log('date is before refDate');
+      //   const month = addMonths(date, 1 + dayPicker.numberOfMonths * -1);
+      //   console.log('going to month', month);
+      //   goToMonth(month);
+      // } else {
+      //   console.log('going to month', date);
+      goToMonth(day.date);
+      // }
+    },
+    [goToMonth, isDayDisplayed]
+  );
 
-  function goToNextMonth() {
-    return nextMonth ? goToMonth(nextMonth) : undefined;
-  }
-  function goToPreviousMonth() {
-    return previousMonth ? goToMonth(previousMonth) : undefined;
-  }
+  const goToNextMonth = React.useMemo(
+    () => () => (nextMonth ? goToMonth(nextMonth) : undefined),
+    [goToMonth, nextMonth]
+  );
+  const goToPreviousMonth = React.useMemo(
+    () => () => (previousMonth ? goToMonth(previousMonth) : undefined),
+    [goToMonth, previousMonth]
+  );
+
+  const dropdownOptions = React.useMemo(() => {
+    return {
+      months: getDropdownMonths(firstDisplayedMonth, {
+        formatters,
+        locale,
+        startMonth,
+        endMonth,
+        dateLib
+      }),
+      years: getDropdownYears(firstDisplayedMonth, {
+        formatters,
+        locale,
+        startMonth,
+        endMonth,
+        dateLib
+      })
+    };
+  }, [dateLib, endMonth, firstDisplayedMonth, formatters, locale, startMonth]);
 
   const calendarContextValue: CalendarContextValue = {
     dates,
@@ -186,10 +323,7 @@ function useCalendarContextValue(): CalendarContextValue {
 
     isInteractive,
 
-    dropdownOptions: {
-      months: getDropdownMonths(firstDisplayedMonth, props),
-      years: getDropdownYears(firstDisplayedMonth, props)
-    },
+    dropdownOptions,
     isDayDisplayed,
     goToMonth,
     goToDay,
@@ -197,15 +331,9 @@ function useCalendarContextValue(): CalendarContextValue {
     goToPreviousMonth
   };
 
-  return calendarContextValue;
-}
-
-/** @private */
-export function CalendarContextProvider(props: { children: ReactElement }) {
-  const calendarContextValue = useCalendarContextValue();
   return (
     <CalendarContext.Provider value={calendarContextValue}>
-      {props.children}
+      {children}
     </CalendarContext.Provider>
   );
 }

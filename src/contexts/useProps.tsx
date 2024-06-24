@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 import * as customComponents from "../components/custom-components";
 import { getDataAttributes } from "../helpers/getDataAttributes";
@@ -14,15 +14,15 @@ import type {
   Formatters,
   Labels,
   Mode,
-  DayPickerProps,
-  DateLib
+  DateLib,
+  PropsBase
 } from "../types";
 
 const PropsContext = React.createContext<PropsContextValue | undefined>(
   undefined
 );
 
-export type PropsContextValue = DayPickerProps & {
+export type PropsContextValue = PropsBase & {
   /** The mode of the selection. */
   mode: Mode | undefined;
   /** The class names to add to the UI. */
@@ -48,43 +48,6 @@ export type PropsContextValue = DayPickerProps & {
   endMonth: Date | undefined;
 };
 
-function usePropsContextValue(initialProps: DayPickerProps) {
-  const reactId = React.useId();
-
-  const { startMonth, endMonth } = getStartEndMonths(initialProps);
-
-  const dateLib = {
-    ...defaultDateLib,
-    ...initialProps.dateLib
-  };
-
-  const propsContext: PropsContextValue = {
-    ...initialProps,
-    startMonth,
-    endMonth,
-    classNames: {
-      ...getDefaultClassNames(),
-      ...initialProps.classNames
-    },
-    components: {
-      ...customComponents,
-      ...initialProps.components
-    },
-    dataAttributes: getDataAttributes(initialProps),
-    formatters: getFormatters(initialProps.formatters),
-    id: initialProps.id ?? reactId,
-    labels: {
-      ...defaultLabels,
-      ...initialProps.labels
-    },
-    numberOfMonths: initialProps.numberOfMonths ?? 1,
-    today: initialProps.today ?? new dateLib.Date(),
-    dateLib
-  };
-
-  return propsContext;
-}
-
 /**
  * Provide the shared props to the DayPicker components. Must be used as root of
  * the other providers.
@@ -94,16 +57,114 @@ function usePropsContextValue(initialProps: DayPickerProps) {
 export function PropsContextProvider<
   ModeType extends Mode | undefined = undefined,
   IsRequired extends boolean = false
->({
-  initialProps,
-  children
-}: React.PropsWithChildren<{
-  initialProps: DayPickerProps;
-}>) {
-  const propsContextValue = usePropsContextValue(initialProps);
+>({ children, ...initialProps }: React.PropsWithChildren<PropsBase>) {
+  const reactId = React.useId();
+
+  const dateLib = React.useMemo(
+    () => ({
+      ...defaultDateLib,
+      ...initialProps.dateLib
+    }),
+    [initialProps.dateLib]
+  );
+
+  const { captionLayout, fromYear, toYear, fromMonth, toMonth } = initialProps;
+
+  const { startMonth, endMonth } = useMemo(
+    () =>
+      getStartEndMonths({
+        startMonth: initialProps.startMonth,
+        endMonth: initialProps.endMonth,
+        today: initialProps.today,
+        captionLayout,
+        dateLib,
+        fromYear,
+        toYear,
+        fromMonth,
+        toMonth
+      }),
+    [
+      captionLayout,
+      dateLib,
+      fromMonth,
+      fromYear,
+      initialProps.endMonth,
+      initialProps.startMonth,
+      toMonth,
+      toYear,
+      initialProps.today
+    ]
+  );
+
+  const classNames = React.useMemo(
+    () => ({
+      ...getDefaultClassNames(),
+      ...initialProps.classNames
+    }),
+    [initialProps.classNames]
+  );
+
+  const components = React.useMemo(
+    () => ({
+      ...customComponents,
+      ...initialProps.components
+    }),
+    [initialProps.components]
+  );
+
+  const dataAttributes = React.useMemo(
+    () => getDataAttributes(initialProps),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
+
+  const formatters = React.useMemo(
+    () => getFormatters(initialProps.formatters),
+    [initialProps.formatters]
+  );
+
+  const labels = React.useMemo(
+    () => ({
+      ...defaultLabels,
+      ...initialProps.labels
+    }),
+    [initialProps.labels]
+  );
+
+  const today = React.useMemo(() => {
+    return dateLib.startOfDay(initialProps.today ?? new dateLib.Date());
+  }, [dateLib, initialProps.today]);
+
+  const propsContext: PropsContextValue = {
+    ...initialProps,
+    mode: initialProps.mode ?? undefined,
+    startMonth,
+    endMonth,
+    classNames,
+    components,
+    dataAttributes,
+    formatters,
+    id: initialProps.id ?? reactId,
+    labels,
+    numberOfMonths: initialProps.numberOfMonths ?? 1,
+    today,
+    dateLib
+  };
+
+  // useWhatChanged(
+  //   [...Object.values(propsContext)],
+  //   Object.keys(propsContext).join(","),
+  //   "PROPS CONTEXT"
+  // );
+
+  // useWhatChanged(
+  //   [...Object.values(initialProps)],
+  //   Object.keys(initialProps).join(","),
+  //   "INITIAL PROPS"
+  // );
 
   return (
-    <PropsContext.Provider value={propsContextValue}>
+    <PropsContext.Provider value={propsContext}>
       {children}
     </PropsContext.Provider>
   );

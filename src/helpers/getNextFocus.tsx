@@ -7,12 +7,7 @@ import { getPossibleFocusDate } from "./getPossibleFocusDate";
 
 export type Options = Pick<
   PropsContextValue,
-  | "modifiers"
-  | "locale"
-  | "ISOWeek"
-  | "weekStartsOn"
-  | "startMonth"
-  | "endMonth"
+  "locale" | "ISOWeek" | "weekStartsOn" | "startMonth" | "endMonth"
 >;
 
 export function getNextFocus(
@@ -25,7 +20,6 @@ export function getNextFocus(
     | "dateLib"
     | "disabled"
     | "hidden"
-    | "modifiers"
     | "locale"
     | "ISOWeek"
     | "weekStartsOn"

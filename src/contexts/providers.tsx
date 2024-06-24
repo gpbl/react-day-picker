@@ -1,9 +1,11 @@
 import React from "react";
 import type { PropsWithChildren } from "react";
 
+import { omitKeys } from "../helpers/omit";
 import { MultiProvider, RangeProvider, SingleProvider } from "../selection";
 import type {
   DayPickerProps,
+  PropsBase,
   PropsMulti,
   PropsRange,
   PropsSingle
@@ -12,14 +14,18 @@ import type {
 import { CalendarContextProvider } from "./useCalendar";
 import { FocusContextProvider } from "./useFocus";
 import { ModifiersContextProvider } from "./useModifiers";
-import { PropsContextProvider, useProps } from "./useProps";
+import { PropsContextProvider } from "./useProps";
 
-function SelectionProviders({ children }: PropsWithChildren) {
-  const props = useProps();
+function SelectionProviders(
+  props: PropsWithChildren<PropsSingle | PropsMulti | PropsRange | object>
+) {
+  const { children, ...selectionProps } = props;
   return (
-    <SingleProvider {...(props as PropsSingle)}>
-      <MultiProvider {...(props as PropsMulti)}>
-        <RangeProvider {...(props as PropsRange)}>{children}</RangeProvider>
+    <SingleProvider {...(selectionProps as PropsSingle)}>
+      <MultiProvider {...(selectionProps as PropsMulti)}>
+        <RangeProvider {...(selectionProps as PropsRange)}>
+          {children}
+        </RangeProvider>
       </MultiProvider>
     </SingleProvider>
   );
@@ -32,10 +38,18 @@ function SelectionProviders({ children }: PropsWithChildren) {
  */
 export function ContextProviders(props: PropsWithChildren<DayPickerProps>) {
   const { children, ...initialProps } = props;
+
+  const baseProps = omitKeys(initialProps, [
+    "selected",
+    "min",
+    "max",
+    "onSelect"
+  ]) as PropsBase;
+
   return (
-    <PropsContextProvider initialProps={initialProps}>
+    <PropsContextProvider {...baseProps}>
       <CalendarContextProvider>
-        <SelectionProviders>
+        <SelectionProviders {...initialProps}>
           <ModifiersContextProvider>
             <FocusContextProvider>{children}</FocusContextProvider>
           </ModifiersContextProvider>
