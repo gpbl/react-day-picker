@@ -1,8 +1,6 @@
-import React from "react";
-
 import { CalendarDay } from "../classes";
 import type { PropsContextValue } from "../contexts";
-import type { MoveFocusBy, MoveFocusDir, Mode } from "../types";
+import type { MoveFocusBy, MoveFocusDir } from "../types";
 import { dateMatchModifiers } from "../utils/dateMatchModifiers";
 
 import { getPossibleFocusDate } from "./getPossibleFocusDate";

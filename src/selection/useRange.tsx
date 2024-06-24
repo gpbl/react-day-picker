@@ -32,20 +32,23 @@ function useRangeContextValue<T extends PropsRange>({
   selected,
   onSelect
 }: T): RangeContextValue<T> {
-  const { dateLib, disabled } = useProps();
+  const { dateLib, mode } = useProps();
   const { differenceInCalendarDays } = dateLib;
   const [range, setRange] = React.useState<DateRange | undefined>(selected);
 
   // Update the selected date if the required flag is set.
   React.useEffect(() => {
-    if (required && range === undefined)
+    if (mode !== "multiple") return;
+    if (required && range === undefined) {
       setRange({ from: undefined, to: undefined });
-  }, [required, range]);
+    }
+  }, [required, range, mode]);
 
   // Update the selected date if the selected changes.
   React.useEffect(() => {
-    if (selected) setRange(selected);
-  }, [selected]);
+    if (mode !== "range") return;
+    setRange(selected);
+  }, [mode, selected]);
 
   const isSelected = required
     ? (date: Date) => isDateInRange(date, range as DateRange, dateLib)

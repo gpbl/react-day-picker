@@ -38,14 +38,7 @@ export type { Month as DateFnsMonth } from "date-fns";
 
 /** The default date library to use with the date picker. */
 export const dateLib = {
-  /**
-   * The constructor of the date object.
-   *
-   * You can pass a `DateConstructor` such as `UTCDate` from `@date-fns/utc` to
-   * use UTC dates.
-   *
-   * @see https://daypicker.dev/using-daypicker/localization#utc-dates
-   */
+  /** The constructor of the date object. */
   Date: Date as GenericDateConstructor,
   addDays,
   addMonths,

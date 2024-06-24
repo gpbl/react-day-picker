@@ -1,4 +1,4 @@
-import type { Mode, DayPickerProps } from "../types";
+import type { DayPickerProps } from "../types";
 
 /** Return the `data-` attributes from the props. */
 export function getDataAttributes(

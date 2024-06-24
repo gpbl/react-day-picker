@@ -50,9 +50,9 @@ Define the CSS variables in your app's CSS file, after importing the DayPicker C
 }
 ```
 
-The following table lists the CSS variables used by DayPicker:
+The following table lists the CSS variables used by DayPicker inside the `.rdp-calendar` class:
 
-| Name of the var                           | Description                                                                   |
+| CSS Variable                              | Description                                                                   |
 | ----------------------------------------- | ----------------------------------------------------------------------------- |
 | `--rdp-accent-color`                      | The accent color used for selected days and UI elements.                      |
 | `--rdp-accent-background-color`           | The accent background color used for selected days and UI elements.           |
@@ -114,12 +114,12 @@ You can import `style.module.css` if you want your CSS pre-processor to parse it
 
 ```tsx title="./MyDatePicker.jsx"
 import { DayPicker } from "react-day-picker";
-import styles from "react-day-picker/style.module.css";
+import classNames from "react-day-picker/style.module.css";
 
-console.log(styles); // Output the class names as parsed by CSS modules.
+console.log(classNames); // Output the class names as parsed by CSS modules.
 
 export function MyDatePicker() {
-  return <DayPicker classNames={styles} />;
+  return <DayPicker mode="single" classNames={classNames} />;
 }
 ```
 

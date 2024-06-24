@@ -7,7 +7,8 @@ import {
   DayPicker,
   DayPickerProps,
   Mode,
-  isDateRange
+  isDateRange,
+  isSingle
 } from "react-day-picker";
 import { DayPicker as DayPickerUtc } from "react-day-picker/utc";
 
@@ -72,7 +73,7 @@ export default function Playground() {
         `}
       </style>
       <div className={styles.playground}>
-        <h1>DayPicker v9 Playground</h1>
+        <h1>Playground</h1>
         <form className={styles.form}>
           <fieldset>
             <legend>Customization</legend>
@@ -143,7 +144,7 @@ export default function Playground() {
                 <input
                   value={accentColor}
                   type="color"
-                  name="numberOfMonths"
+                  name="accentColor"
                   onChange={(e) => setAccentColor(e.target.value)}
                 />
               </label>
@@ -160,6 +161,7 @@ export default function Playground() {
                   min={1}
                   max={12}
                   size={4}
+                  value={props.numberOfMonths}
                   name="numberOfMonths"
                   onChange={(e) =>
                     setProps({
@@ -190,7 +192,7 @@ export default function Playground() {
                 Disable Navigation
               </label>
 
-              {(props.numberOfMonths ?? 1) > 1 && (
+              {props.numberOfMonths && props.numberOfMonths > 1 && (
                 <label>
                   <input
                     type="checkbox"
@@ -205,6 +207,21 @@ export default function Playground() {
                   Reverse Months
                 </label>
               )}
+              {props.numberOfMonths && props.numberOfMonths > 1 && (
+                <label>
+                  <input
+                    type="checkbox"
+                    name="pagedNavigation"
+                    onChange={(e) =>
+                      setProps({
+                        ...props,
+                        pagedNavigation: e.target.checked
+                      })
+                    }
+                  />
+                  Paged Navigation
+                </label>
+              )}
             </div>
           </fieldset>
 
@@ -216,8 +233,8 @@ export default function Playground() {
                 <select
                   name="locale"
                   value={Object.keys(locales).find(
-                    // @ts-expect-error abc
-                    (locale) => locales[locale] === props.locale
+                    (locale) =>
+                      locales[locale as keyof typeof locales] === props.locale
                   )}
                   onChange={(e) =>
                     setProps({
@@ -228,8 +245,7 @@ export default function Playground() {
                 >
                   {Object.keys(locales).map((locale) => (
                     <option key={locale} value={locale}>
-                      {/* @ts-expect-error abc */}
-                      {locales[locale].code}
+                      {locales[locale as keyof typeof locales].code}
                     </option>
                   ))}
                 </select>
@@ -321,13 +337,14 @@ export default function Playground() {
                 <select
                   name="mode"
                   onChange={(e) => {
-                    const mode = e.target.value as Mode | undefined;
-                    setSelected(undefined);
-                    setProps({
+                    const mode = e.target.value || undefined;
+                    const newProps = {
                       ...props,
-                      // @ts-expect-error abc
                       mode
-                    });
+                    };
+                    setSelected(undefined);
+                    // @ts-expect-error Not working well with the union type
+                    setProps(newProps);
                   }}
                   value={props.mode}
                 >
@@ -361,12 +378,12 @@ export default function Playground() {
                     max={12}
                     size={4}
                     name="min"
-                    onChange={(e) =>
+                    onChange={(e) => {
                       setProps({
                         ...props,
                         min: Number(e.target.value)
-                      })
-                    }
+                      });
+                    }}
                   />
                 </label>
               ) : null}
@@ -379,12 +396,12 @@ export default function Playground() {
                     max={12}
                     size={4}
                     name="max"
-                    onChange={(e) =>
+                    onChange={(e) => {
                       setProps({
                         ...props,
                         max: Number(e.target.value)
-                      })
-                    }
+                      });
+                    }}
                   />
                 </label>
               ) : null}

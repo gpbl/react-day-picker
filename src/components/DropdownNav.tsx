@@ -25,15 +25,31 @@ export function DropdownNav(props: {
   /** The index where this month is displayed. */
   index: number;
 }) {
-  const { classNames, styles } = useProps();
+  const {
+    classNames,
+    styles,
+    formatters: { formatMonthDropdown, formatYearDropdown }
+  } = useProps();
 
   return (
     <div
       className={classNames[UI.DropdownNav]}
       style={styles?.[UI.DropdownNav]}
     >
-      {props.showMonths && <MonthsDropdown month={props.month} />}
-      {props.showYears && <YearsDropdown month={props.month} />}
+      {props.showMonths ? (
+        <MonthsDropdown month={props.month} />
+      ) : (
+        <span role="status" aria-live="polite">
+          {formatMonthDropdown(props.month.date.getMonth())}
+        </span>
+      )}
+      {props.showYears ? (
+        <YearsDropdown month={props.month} />
+      ) : (
+        <span role="status" aria-live="polite">
+          {formatYearDropdown(props.month.date.getFullYear())}
+        </span>
+      )}
     </div>
   );
 }

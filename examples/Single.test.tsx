@@ -2,7 +2,7 @@ import React from "react";
 
 import { render } from "@testing-library/react";
 
-import { gridcell, app } from "@/test/elements";
+import { gridcell } from "@/test/elements";
 import { user } from "@/test/user";
 
 import { Single } from "./Single";

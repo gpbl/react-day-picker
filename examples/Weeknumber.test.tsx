@@ -1,6 +1,5 @@
 import React from "react";
 
-import { app } from "@/test/elements";
 import { render, screen } from "@/test/render";
 import { user } from "@/test/user";
 

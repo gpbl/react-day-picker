@@ -2,6 +2,7 @@ import React from "react";
 
 import { DayPicker } from "../DayPicker";
 
+// @ts-expect-error THis is just for testing the types.
 const Test = () => {
   return (
     <>

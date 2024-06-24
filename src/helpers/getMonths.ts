@@ -1,6 +1,5 @@
 import { CalendarWeek, CalendarDay, CalendarMonth } from "../classes";
 import type { PropsContextValue } from "../contexts";
-import type { DateLib } from "../types";
 
 /** Return the months to display in the calendar. */
 export function getMonths(

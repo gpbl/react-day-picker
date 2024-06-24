@@ -1,7 +1,5 @@
 import { es } from "date-fns/locale/es";
 
-import { dateLib } from "../lib";
-
 import { formatWeekdayName } from "./formatWeekdayName";
 
 const date = new Date(2022, 10, 21);

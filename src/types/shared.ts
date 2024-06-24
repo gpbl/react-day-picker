@@ -220,7 +220,7 @@ export type WeekNumberMouseEventHandler = (
 
 /** Maps user interface elements, selection states, and flags to a CSS style. */
 export type Styles = {
-  [element in
+  [key in
     | UI
     | SelectionState
     | DayFlag
@@ -229,10 +229,7 @@ export type Styles = {
     | WeekNumberFlag]: CSSProperties | undefined;
 };
 
-/**
- * Maps user interface elements, selection states, and flags to a CSS class
- * name.
- */
+/** Defines the class names for various UI components and states. */
 export type ClassNames = {
   [key in
     | UI
