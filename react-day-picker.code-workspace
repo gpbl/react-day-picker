@@ -18,6 +18,9 @@
     {
       "name": "website",
       "path": "website"
+    },
+    {
+      "path": "test-website"
     }
   ],
   "settings": {
