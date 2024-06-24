@@ -153,6 +153,7 @@
 .dropdown_nav {
   position: relative;
   display: inline-flex;
+  align-items: center;
   gap: var(--rdp-dropdown-gap);
 }
 .dropdown {
