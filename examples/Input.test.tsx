@@ -3,7 +3,7 @@ import React from "react";
 
 import { format } from "date-fns";
 
-import { act, render, screen } from "@/test/render";
+import { render, screen } from "@/test/render";
 import { user } from "@/test/user";
 
 import { Input } from "./Input";
@@ -62,4 +62,12 @@ test("updates the month when a date is typed in", async () => {
   const testDate = new Date(2022, 11, 31); // Dec 31, 2022
   await user.type(textbox(), format(testDate, "MM/dd/yyyy"));
   expect(screen.getByText(`December 2022`)).toBeInTheDocument();
+});
+
+test("reset the selected date when the field is emptied", async () => {
+  render(<Input />);
+  const testDate = new Date(2022, 11, 31); // Dec 31, 2022
+  await user.type(textbox(), format(testDate, "MM/dd/yyyy"));
+  await user.clear(textbox());
+  expect(selectedCells()).toHaveLength(0);
 });

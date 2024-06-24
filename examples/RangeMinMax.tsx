@@ -20,14 +20,17 @@ export function RangeMinMax() {
   }
 
   return (
-    <DayPicker
-      defaultMonth={new Date(2022, 8)}
-      mode="range"
-      min={3}
-      max={6}
-      selected={range}
-      onSelect={setRange}
-      footer={footer}
-    />
+    <div>
+      <p>Select a range between 3 and 9 days.</p>
+      <DayPicker
+        defaultMonth={new Date(2022, 8)}
+        mode="range"
+        min={3}
+        max={9}
+        selected={range}
+        onSelect={setRange}
+        footer={footer}
+      />
+    </div>
   );
 }

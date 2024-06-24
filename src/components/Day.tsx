@@ -1,8 +1,8 @@
 import React from "react";
-import type { HTMLAttributes, ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import type { CalendarDay } from "../classes";
-import type { DayModifiers } from "../types";
+import type { Modifiers } from "../types";
 
 /**
  * Render the gridcell of a day in the calendar and handle the interaction and
@@ -13,11 +13,11 @@ import type { DayModifiers } from "../types";
  * `DayDate` component instead.
  *
  * @group Components
- * @see https://react-day-picker.js.org/advanced-guides/custom-components
+ * @see https://daypicker.dev/advanced-guides/custom-components
  */
 export function Day(props: {
   day: CalendarDay;
-  modifiers: DayModifiers;
+  modifiers: Modifiers;
   children?: ReactNode;
   rootProps: Pick<
     JSX.IntrinsicElements["div"],

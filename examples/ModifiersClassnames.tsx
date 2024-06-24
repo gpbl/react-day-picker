@@ -10,7 +10,9 @@ const bookedDays = [
 
 const style = `
   .my-booked-class {
-    color: tomato;
+    background-color: tomato;
+    color: white;
+    border-radius: 50%;
   }
 `;
 

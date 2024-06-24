@@ -1,32 +1,28 @@
-import React from "react";
-import { createContext, type ReactNode, useContext } from "react";
+import React, { type ReactElement, createContext, useContext } from "react";
 
-import { startOfMonth } from "date-fns/startOfMonth";
-
-import type { CalendarWeek, CalendarMonth, CalendarDay } from "../classes";
-import { DropdownOption } from "../components/Dropdown";
+import type { CalendarWeek, CalendarDay, CalendarMonth } from "../classes";
+import type { DropdownOption } from "../components/Dropdown";
 import { getDates } from "../helpers/getDates";
 import { getDays } from "../helpers/getDays";
 import { getDisplayMonths } from "../helpers/getDisplayMonths";
 import { getDropdownMonths } from "../helpers/getDropdownMonths";
 import { getDropdownYears } from "../helpers/getDropdownYears";
+import { getInitialMonth } from "../helpers/getInitialMonth";
 import { getMonths } from "../helpers/getMonths";
 import { getNextMonth } from "../helpers/getNextMonth";
 import { getPreviousMonth } from "../helpers/getPreviousMonth";
-import { getStartMonth } from "../helpers/getStartMonth";
 import { getWeeks } from "../helpers/getWeeks";
 import { useControlledValue } from "../helpers/useControlledValue";
 
-import { useProps } from "./props";
+import { useProps } from "./useProps";
 
-/**
- * Share the calendar state and navigation methods across the components.
- *
- * Access the calendar context using the {@link useCalendar} hook.
- *
- * @group Contexts
- */
-export interface CalendarContext {
+/** @private */
+const CalendarContext = createContext<CalendarContextValue | undefined>(
+  undefined
+);
+
+export type CalendarContextValue = {
+  today: Date;
   /** All the unique dates displayed to the calendar. */
   dates: Date[];
   /**
@@ -40,16 +36,11 @@ export interface CalendarContext {
   /** The months displayed in the calendar. */
   months: CalendarMonth[];
   /**
-   * The month displayed as first the calendar. When
-   * {@link PropsBase.numberOfMonths} is greater than `1`, it is the first of the
-   * displayed months.
+   * The month displayed as first the calendar. When `numberOfMonths` is greater
+   * than `1`, it is the first of the displayed months.
    */
   firstMonth: Date;
-  /**
-   * The month displayed as last the calendar. When
-   * {@link PropsBase.numberOfMonths} is greater than `1`, it is the last of the
-   * displayed months.
-   */
+  /** The month displayed as last the calendar. */
   lastMonth: Date;
   /** The next month to display. */
   nextMonth: Date | undefined;
@@ -62,10 +53,16 @@ export interface CalendarContext {
     /** The options to use in the years dropdown. */
     years: DropdownOption[] | undefined;
   };
+
+  /** Set the first month displayed in the calendar. */
+  setFirstMonth: (date: Date) => void;
+
   /**
-   * Navigate to the specified month. Will fire the
-   * {@link PropsBase.onMonthChange} callback.
+   * Whether the calendar is interactive, i.e. DayPicker has a selection `mode`
+   * set or the `onDayClick` prop is set.
    */
+  isInteractive: boolean;
+  /** Navigate to the specified month. Will fire the `onMonthChange` callback. */
   goToMonth: (month: Date) => void;
   /** Navigate to the next month. */
   goToNextMonth: () => void;
@@ -83,30 +80,22 @@ export interface CalendarContext {
   goToDay: (day: CalendarDay) => void;
   /** Whether the given date is included in the displayed months. */
   isDayDisplayed: (day: CalendarDay) => boolean;
+};
 
-  /**
-   * Whether the calendar is interactive, i.e. DayPicker has a selection `mode`
-   * set or the `onDayClick` prop is set.
-   */
-  isInteractive: boolean;
-}
-
-const calendarContext = createContext<CalendarContext | undefined>(undefined);
-
-/** @private */
-export function CalendarProvider(providerProps: { children?: ReactNode }) {
+function useCalendarContextValue(): CalendarContextValue {
   const props = useProps();
+  const { startOfMonth } = props.dateLib;
 
-  const startMonth = getStartMonth(props);
+  const initialDisplayMonth = getInitialMonth(props);
 
   // The first month displayed in the calendar
-  const [firstMonth, setFirstMonth] = useControlledValue(
-    startMonth,
+  const [firstDisplayedMonth, setFirstMonth] = useControlledValue(
+    initialDisplayMonth,
     props.month ? startOfMonth(props.month) : undefined
   );
 
   /** An array of the months displayed in the calendar. */
-  const displayMonths = getDisplayMonths(firstMonth, props);
+  const displayMonths = getDisplayMonths(firstDisplayedMonth, props);
 
   /** The last month displayed in the calendar. */
   const lastMonth = displayMonths[displayMonths.length - 1];
@@ -123,8 +112,13 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
   /** An array of the Days displayed in the calendar. */
   const days = getDays(months);
 
-  const nextMonth = getNextMonth(firstMonth, props);
-  const previousMonth = getPreviousMonth(firstMonth, props);
+  const previousMonth = getPreviousMonth(firstDisplayedMonth, props);
+  const nextMonth = getNextMonth(firstDisplayedMonth, props);
+
+  const isInteractive =
+    props.mode !== undefined || props.onDayClick !== undefined;
+
+  const { disableNavigation, onMonthChange, startMonth, endMonth } = props;
 
   function isDayDisplayed(day: CalendarDay) {
     return weeks.some((week: CalendarWeek) => {
@@ -135,20 +129,20 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
   }
 
   function goToMonth(date: Date) {
-    if (props.disableNavigation) {
+    if (disableNavigation) {
       return;
     }
     let newMonth = startOfMonth(date);
     // if month is before startMonth, use the first month instead
-    if (props.startMonth && newMonth < startOfMonth(props.startMonth)) {
-      newMonth = startOfMonth(props.startMonth);
+    if (startMonth && newMonth < startOfMonth(startMonth)) {
+      newMonth = startOfMonth(startMonth);
     }
     // if month is after endMonth, use the last month instead
-    if (props.endMonth && newMonth > startOfMonth(props.endMonth)) {
-      newMonth = startOfMonth(props.endMonth);
+    if (endMonth && newMonth > startOfMonth(endMonth)) {
+      newMonth = startOfMonth(endMonth);
     }
     setFirstMonth(newMonth);
-    props.onMonthChange?.(newMonth);
+    onMonthChange?.(newMonth);
   }
 
   function goToDay(day: CalendarDay) {
@@ -175,53 +169,61 @@ export function CalendarProvider(providerProps: { children?: ReactNode }) {
     return previousMonth ? goToMonth(previousMonth) : undefined;
   }
 
-  const isInteractive =
-    props.mode !== "default" || props.onDayClick !== undefined;
-
-  const calendar: CalendarContext = {
+  const calendarContextValue: CalendarContextValue = {
     dates,
     months,
     weeks,
     days,
 
-    firstMonth,
+    today: props.today,
+
+    firstMonth: firstDisplayedMonth,
     lastMonth,
     previousMonth,
     nextMonth,
 
-    goToMonth,
-    goToNextMonth,
-    goToPreviousMonth,
-    goToDay,
+    setFirstMonth,
 
     isInteractive,
-    isDayDisplayed,
 
     dropdownOptions: {
-      months: getDropdownMonths(props, firstMonth.getFullYear()),
-      years: getDropdownYears(props, lastMonth.getMonth())
-    }
+      months: getDropdownMonths(firstDisplayedMonth, props),
+      years: getDropdownYears(firstDisplayedMonth, props)
+    },
+    isDayDisplayed,
+    goToMonth,
+    goToDay,
+    goToNextMonth,
+    goToPreviousMonth
   };
 
+  return calendarContextValue;
+}
+
+/** @private */
+export function CalendarContextProvider(props: { children: ReactElement }) {
+  const calendarContextValue = useCalendarContextValue();
   return (
-    <calendarContext.Provider value={calendar}>
-      {providerProps.children}
-    </calendarContext.Provider>
+    <CalendarContext.Provider value={calendarContextValue}>
+      {props.children}
+    </CalendarContext.Provider>
   );
 }
 
 /**
- * Return the calendar state and navigation methods to navigate the calendar.
+ * Access to the props passed to `DayPicker`, with some meaningful defaults.
  *
  * Use this hook from the custom components passed via the `components` prop.
  *
  * @group Hooks
- * @see https://react-day-picker.js.org/advanced-guides/custom-components
+ * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function useCalendar(): CalendarContext {
-  const context = useContext(calendarContext);
-  if (!context)
-    throw new Error(`useCalendar must be used within a CalendarProvider.`);
-
-  return context;
+export function useCalendar() {
+  const calendarContext = useContext(CalendarContext);
+  if (!calendarContext) {
+    throw new Error(
+      "useCalendar() must be used within a CalendarContextProvider"
+    );
+  }
+  return calendarContext;
 }

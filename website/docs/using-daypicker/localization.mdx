@@ -75,6 +75,57 @@ Use `ISOWeek` to switch using [ISO Week Dates](https://en.wikipedia.org/wiki/ISO
   <Examples.WeeknumberIso />
 </BrowserWindow>
 
+## UTC Dates
+
+DayPicker uses the local time zone by default. To switch to UTC dates, add [@date-fns/utc](https://www.npmjs.com/package/@date-fns/utc) to your dependencies and import `DayPicker` from `react-day-picker/utc` instead.
+
+:::note Experimental feature
+
+The UTC mode is an experimental feature. [Please report](https://github.com/gpbl/react-day-picker/issues) any issues you may encounter, thanks!
+
+:::
+
+#### 1. Install the `@date-fns/utc` package
+
+```bash npm2yarn
+npm install @date-fns/utc
+```
+
+#### 2. Import `DayPicker` from `react-day-picker/utc`
+
+```diff
+- import { DayPicker } from 'react-day-picker';
++ import { DayPicker } from 'react-day-picker/utc';
+```
+
+#### 3. Use DayPicker as usual
+
+```tsx
+import { UTCDate } from "@date-fns/utc";
+import { DayPicker } from "react-day-picker/utc";
+
+export function Utc() {
+  const [selected, setSelected] = React.useState<Date>(new UTCDate());
+  return (
+    <DayPicker
+      mode="single"
+      required
+      selected={selected}
+      onSelect={(date: Date) => {
+        setSelected(date);
+      }}
+      footer={selected ? `Selected: ${selected.toUTCString()}` : null}
+    />
+  );
+}
+```
+
+Observe how dates are always GMT.
+
+<BrowserWindow>
+  <Examples.Utc />
+</BrowserWindow>
+
 ## Translate DayPicker
 
 These props will assist in translating the labels and formatters utilized in DayPicker.
@@ -184,4 +235,46 @@ export function NumberingSystemExample() {
 
 <BrowserWindow>
   <Examples.NumberingSystem />
+</BrowserWindow>
+
+## Jalali Calendar
+
+DayPicker supports the Jalali calendar thanks to the [date-fns-jalali](https://www.npmjs.com/package/date-fns-jalali) package. To switch to the Jalali calendar, add `date-fns-jalali` to your dependencies and import `DayPicker` from `react-day-picker/jalali` instead.
+
+:::note Experimental feature
+
+The support for the Jalali calendar is an experimental feature. [Please report](https://github.com/gpbl/react-day-picker/issues) any issues you may encounter, thanks!
+
+:::
+
+#### 1. Install the `date-fns-jalali` package
+
+```bash npm2yarn
+npm install date-fns-jalali
+```
+
+#### 2. Import `DayPicker` from `react-day-picker/jalali`
+
+```diff
+- import { DayPicker } from 'react-day-picker';
++ import { DayPicker } from 'react-day-picker/jalali';
+```
+
+#### 3. Use DayPicker as usual
+
+Note that you can set the right-to-left direction and change the locale.
+
+```tsx title="./JalaliCalendar.jsx"
+import React from "react";
+
+import { faIR } from "date-fns/locale";
+import { DayPicker } from "react-day-picker/jalali";
+
+export function Jalali() {
+  return <DayPicker mode="single" locale={faIR} dir="rtl" />;
+}
+```
+
+<BrowserWindow>
+  <Examples.Jalali />
 </BrowserWindow>

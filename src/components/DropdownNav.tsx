@@ -2,7 +2,7 @@ import React from "react";
 
 import { UI } from "../UI";
 import type { CalendarMonth } from "../classes";
-import { useProps } from "../contexts/props";
+import { useProps } from "../contexts";
 
 import { MonthsDropdown } from "./MonthsDropdown";
 import { YearsDropdown } from "./YearsDropdown";
@@ -13,7 +13,7 @@ import { YearsDropdown } from "./YearsDropdown";
  * Use the `components` prop to swap this component with a custom one.
  *
  * @group Components
- * @see https://react-day-picker.js.org/advanced-guides/custom-components
+ * @see https://daypicker.dev/advanced-guides/custom-components
  */
 export function DropdownNav(props: {
   /** The month where the dropdown navigation is displayed. */
@@ -25,15 +25,31 @@ export function DropdownNav(props: {
   /** The index where this month is displayed. */
   index: number;
 }) {
-  const { classNames, styles } = useProps();
+  const {
+    classNames,
+    styles,
+    formatters: { formatMonthDropdown, formatYearDropdown }
+  } = useProps();
 
   return (
     <div
       className={classNames[UI.DropdownNav]}
       style={styles?.[UI.DropdownNav]}
     >
-      {props.showMonths && <MonthsDropdown month={props.month} />}
-      {props.showYears && <YearsDropdown month={props.month} />}
+      {props.showMonths ? (
+        <MonthsDropdown month={props.month} />
+      ) : (
+        <span role="status" aria-live="polite">
+          {formatMonthDropdown(props.month.date.getMonth())}
+        </span>
+      )}
+      {props.showYears ? (
+        <YearsDropdown month={props.month} />
+      ) : (
+        <span role="status" aria-live="polite">
+          {formatYearDropdown(props.month.date.getFullYear())}
+        </span>
+      )}
     </div>
   );
 }

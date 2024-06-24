@@ -1,5 +1,5 @@
 import * as defaultFormatters from "../formatters";
-import type { PropsBase } from "../types";
+import { dateLib } from "../lib";
 
 import { getFormatters } from "./getFormatters";
 
@@ -20,8 +20,10 @@ test("merges custom formatters with default formatters", () => {
 
 test("assigns `formatMonthCaption` to `formatCaption` if `formatCaption` is not defined", () => {
   const result = getFormatters({ formatMonthCaption: () => "customMonth" });
-  expect(result.formatCaption(new Date())).toBe("customMonth");
-  expect(result.formatMonthCaption(new Date())).toBe("customMonth");
+  expect(result.formatCaption(new Date(), {}, dateLib)).toBe("customMonth");
+  expect(result.formatMonthCaption(new Date(), {}, dateLib)).toBe(
+    "customMonth"
+  );
 });
 
 test("does not overwrite `formatCaption` if already defined", () => {
@@ -29,8 +31,10 @@ test("does not overwrite `formatCaption` if already defined", () => {
     formatMonthCaption: () => "customMonth",
     formatCaption: () => "customCaption"
   });
-  expect(result.formatCaption(new Date())).toBe("customCaption");
-  expect(result.formatMonthCaption(new Date())).toBe("customMonth");
+  expect(result.formatCaption(new Date(), {}, dateLib)).toBe("customCaption");
+  expect(result.formatMonthCaption(new Date(), {}, dateLib)).toBe(
+    "customMonth"
+  );
 });
 
 test("assigns `formatYearCaption` to `formatYearDropdown` if `formatYearDropdown` is not defined", () => {

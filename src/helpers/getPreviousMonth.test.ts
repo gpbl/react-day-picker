@@ -1,69 +1,63 @@
-import { addMonths, isSameMonth } from "date-fns";
+import { dateLib } from "../";
 
 import { getPreviousMonth } from "./getPreviousMonth";
 
-const startingMonth = new Date(2020, 4, 31);
+it("should return undefined if navigation is disabled", () => {
+  const firstDisplayedMonth = new Date(2022, 0, 1); // January 2022
+  const props = {
+    disableNavigation: true,
+    pagedNavigation: false,
+    numberOfMonths: 1,
+    startMonth: new Date(2022, 0, 1),
+    dateLib
+  };
 
-describe("when number of months is 1", () => {
-  describe("when the navigation is disabled", () => {
-    const disableNavigation = true;
-    it("the previous month is undefined", () => {
-      const result = getPreviousMonth(startingMonth, {
-        disableNavigation,
-        startMonth: undefined,
-        endMonth: undefined
-      });
-      expect(result).toBe(undefined);
-    });
-  });
-  describe("when in the navigable range", () => {
-    const startMonth = addMonths(startingMonth, -3);
-    it("the previous month is not undefined", () => {
-      const result = getPreviousMonth(startingMonth, {
-        startMonth,
-        endMonth: undefined
-      });
-      const expectedPrevMonth = addMonths(startingMonth, -1);
-      expect(result && isSameMonth(result, expectedPrevMonth)).toBeTruthy();
-    });
-  });
-  describe("when not in the navigable range", () => {
-    const startMonth = startingMonth;
-    it("the previous month is undefined", () => {
-      const result = getPreviousMonth(startingMonth, {
-        startMonth,
-        endMonth: undefined
-      });
-      expect(result).toBe(undefined);
-    });
-  });
+  const result = getPreviousMonth(firstDisplayedMonth, props);
+
+  expect(result).toBeUndefined();
 });
-describe("when displaying 3 months", () => {
-  const numberOfMonths = 3;
-  describe("when the navigation is paged", () => {
-    const pagedNavigation = true;
-    it("the previous month is 3 months back", () => {
-      const result = getPreviousMonth(startingMonth, {
-        numberOfMonths,
-        pagedNavigation,
-        startMonth: undefined,
-        endMonth: undefined
-      });
-      const expectedPrevMonth = addMonths(startingMonth, -numberOfMonths);
-      expect(result && isSameMonth(result, expectedPrevMonth)).toBeTruthy();
-    });
-  });
-  describe("when the navigation is not paged", () => {
-    const pagedNavigation = false;
-    it("the previous month is 1 months back", () => {
-      const result = getPreviousMonth(startingMonth, {
-        numberOfMonths,
-        pagedNavigation,
-        startMonth: undefined,
-        endMonth: undefined
-      });
-      const expectedPrevMonth = addMonths(startingMonth, -1);
-      expect(result && isSameMonth(result, expectedPrevMonth)).toBeTruthy();
-    });
-  });
+
+it("should return the previous month if startMonth is not provided", () => {
+  const firstDisplayedMonth = new Date(2022, 1, 1); // February 2022
+  const props = {
+    disableNavigation: false,
+    pagedNavigation: false,
+    numberOfMonths: 1,
+    startMonth: undefined,
+    dateLib
+  };
+
+  const result = getPreviousMonth(firstDisplayedMonth, props);
+
+  expect(result).toEqual(new Date(2022, 0, 1)); // January 2022
+});
+
+it("should return undefined if the previous month is before the startMonth", () => {
+  const firstDisplayedMonth = new Date(2022, 0, 1); // January 2022
+  const props = {
+    disableNavigation: false,
+    pagedNavigation: false,
+    numberOfMonths: 1,
+    startMonth: new Date(2022, 0, 1),
+    dateLib: dateLib
+  };
+
+  const result = getPreviousMonth(firstDisplayedMonth, props);
+
+  expect(result).toBeUndefined();
+});
+
+it("should return the correct previous month when pagedNavigation is true", () => {
+  const firstDisplayedMonth = new Date(2022, 2, 1); // March 2022
+  const props = {
+    disableNavigation: false,
+    pagedNavigation: true,
+    numberOfMonths: 2,
+    startMonth: new Date(2022, 0, 1),
+    dateLib
+  };
+
+  const result = getPreviousMonth(firstDisplayedMonth, props);
+
+  expect(result).toEqual(new Date(2022, 0, 1)); // January 2022
 });

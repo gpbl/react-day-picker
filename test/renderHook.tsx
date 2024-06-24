@@ -2,15 +2,15 @@ import React from "react";
 
 import { renderHook as testingLibraryRenderHook } from "@testing-library/react";
 
-import { ContextProviders } from "../src/contexts/root";
-import { DayPickerProps, Mode } from "../src/types";
+import type { DayPickerProps } from "../src";
+import { ContextProviders } from "../src/contexts/providers";
 
 /** Render a hook wrapped with the {@link ContextProviders} Provider. */
 export function renderHook<TResult>(
   /** The hook to render. */
   hook: () => TResult,
   /** The props to pass to the {@link ContextProviders}. */
-  props?: DayPickerProps<Mode>,
+  props?: DayPickerProps,
   /** The options to pass to the testing library render function. */
   options?: Omit<Parameters<typeof testingLibraryRenderHook>[1], "wrapper">
 ) {

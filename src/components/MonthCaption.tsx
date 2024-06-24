@@ -2,7 +2,7 @@ import React from "react";
 
 import { UI } from "../UI";
 import type { CalendarMonth } from "../classes";
-import { useProps } from "../contexts/props";
+import { useProps } from "../contexts";
 
 import { DropdownNav } from "./DropdownNav";
 
@@ -12,7 +12,7 @@ import { DropdownNav } from "./DropdownNav";
  * Use the `components` prop to swap this component with a custom one.
  *
  * @group Components
- * @see https://react-day-picker.js.org/advanced-guides/custom-components
+ * @see https://daypicker.dev/advanced-guides/custom-components
  */
 export function MonthCaption(props: {
   /** The month where the grid is displayed. */
@@ -25,6 +25,7 @@ export function MonthCaption(props: {
   const {
     classNames,
     captionLayout,
+    dateLib,
     formatters: { formatCaption },
     labels: { labelCaption },
     locale,
@@ -53,9 +54,11 @@ export function MonthCaption(props: {
           className={classNames[UI.CaptionLabel]}
           role="status"
           aria-live="polite"
-          aria-label={labelCaption(props.month.date, { locale }) ?? undefined}
+          aria-label={
+            labelCaption(props.month.date, { locale }, dateLib) ?? undefined
+          }
         >
-          {formatCaption(props.month.date, { locale })}
+          {formatCaption(props.month.date, { locale }, dateLib)}
         </span>
       )}
     </div>

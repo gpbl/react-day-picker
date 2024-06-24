@@ -1,42 +1,33 @@
-import { addDays } from "date-fns/addDays";
-import { differenceInCalendarDays } from "date-fns/differenceInCalendarDays";
-import { differenceInCalendarMonths } from "date-fns/differenceInCalendarMonths";
-import { endOfISOWeek } from "date-fns/endOfISOWeek";
-import { endOfMonth } from "date-fns/endOfMonth";
-import { endOfWeek } from "date-fns/endOfWeek";
-import { isAfter } from "date-fns/isAfter";
-import { startOfISOWeek } from "date-fns/startOfISOWeek";
-import { startOfWeek } from "date-fns/startOfWeek";
-
-import type { DayPickerProps, Mode } from "../types";
+import { PropsContextValue } from "../contexts";
 
 /** The number of days in a month when having 6 weeks. */
 const NrOfDaysWithFixedWeeks = 42;
 
-/**
- * Return all the dates to display in the calendar.
- *
- * @param firstMonth The first month of the calendar
- * @param lastMonth The last month of the calendar
- * @param maxDate The date to end the calendar at
- * @param options Options for the calendar
- * @param options.ISOWeek Whether or not to use ISOWeek
- * @param options.fixedWeeks Whether or not to use fixed weeks
- * @param options.locale The locale to use
- * @param options.weekStartsOn The day the week starts on
- */
+/** Return all the dates to display in the calendar. */
 export function getDates(
   displayMonths: Date[],
-  maxDate?: Date | undefined,
-  options?: Pick<
-    DayPickerProps<Mode, boolean>,
-    "ISOWeek" | "fixedWeeks" | "locale" | "weekStartsOn"
+  maxDate: Date | undefined,
+  props: Pick<
+    PropsContextValue,
+    "ISOWeek" | "fixedWeeks" | "locale" | "weekStartsOn" | "dateLib"
   >
 ): Date[] {
   const firstMonth = displayMonths[0];
   const lastMonth = displayMonths[displayMonths.length - 1];
 
-  const { ISOWeek, fixedWeeks, locale, weekStartsOn } = options ?? {};
+  const { ISOWeek, fixedWeeks, locale, weekStartsOn } = props ?? {};
+  const {
+    startOfWeek,
+    endOfWeek,
+    startOfISOWeek,
+    endOfISOWeek,
+    addDays,
+    differenceInCalendarDays,
+    differenceInCalendarMonths,
+    isAfter,
+    endOfMonth,
+    Date
+  } = props.dateLib;
 
   const startWeekFirstDate = ISOWeek
     ? startOfISOWeek(firstMonth)

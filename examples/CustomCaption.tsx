@@ -1,7 +1,11 @@
 import React from "react";
 
 import { format } from "date-fns";
-import { MonthCaptionProps, DayPicker, useCalendar } from "react-day-picker";
+import {
+  type MonthCaptionProps,
+  DayPicker,
+  useCalendar
+} from "react-day-picker";
 
 function CustomMonthCaption(props: MonthCaptionProps) {
   const { goToMonth, nextMonth, previousMonth } = useCalendar();

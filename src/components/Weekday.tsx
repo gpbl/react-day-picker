@@ -1,7 +1,7 @@
 import React from "react";
 
 import { UI } from "../UI";
-import { useProps } from "../contexts/props";
+import { useProps } from "../contexts";
 
 /**
  * Render the column header with the weekday name (e.g. "Mo", "Tu", etc.).
@@ -9,7 +9,7 @@ import { useProps } from "../contexts/props";
  * Use the `components` prop to swap this component with a custom one.
  *
  * @group Components
- * @see https://react-day-picker.js.org/advanced-guides/custom-components
+ * @see https://daypicker.dev/advanced-guides/custom-components
  */
 export function Weekday(props: {
   ["aria-colindex"]?: number | undefined;
@@ -18,6 +18,7 @@ export function Weekday(props: {
 }) {
   const {
     classNames,
+    dateLib,
     formatters: { formatWeekdayName },
     labels: { labelWeekday, labelWeekNumberHeader },
     locale,
@@ -30,14 +31,16 @@ export function Weekday(props: {
       aria-colindex={props["aria-colindex"]}
       aria-label={
         props.weekday
-          ? labelWeekday(props.weekday, { locale })
+          ? labelWeekday(props.weekday, { locale }, dateLib)
           : labelWeekNumberHeader({ locale })
       }
       className={classNames[UI.Weekday]}
       style={styles?.[UI.Weekday]}
     >
       {!hideWeekdayRow &&
-        (props.weekday ? formatWeekdayName(props.weekday, { locale }) : "#")}
+        (props.weekday
+          ? formatWeekdayName(props.weekday, { locale }, dateLib)
+          : "#")}
     </span>
   );
 }

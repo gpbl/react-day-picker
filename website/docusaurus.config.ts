@@ -1,6 +1,5 @@
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
-import path from "path";
 import { themes as prismThemes } from "prism-react-renderer";
 import pkg from "react-day-picker/package.json";
 
@@ -9,7 +8,7 @@ const config: Config = {
   tagline:
     "Date picker component for React. Add date pickers, calendars, and date inputs to your web applications.",
   favicon: "img/favicon.ico",
-  url: "https://react-day-picker.js.org",
+  url: "https://daypicker.dev",
   baseUrl: "/",
   organizationName: "gpbl",
   projectName: "react-day-picker",
@@ -72,9 +71,9 @@ const config: Config = {
 
   themeConfig: {
     announcementBar: {
-      id: "9-beta", // Any unique string
+      id: "9-rc.1", // Any unique string
       content:
-        '📆 Preview: try the <a href="/next">beta version of DayPicker v9</a>.',
+        '📆 Try the <a href="/next">Release Candidate of DayPicker v9</a>.',
       backgroundColor: "rebeccapurple",
       textColor: "white"
     },
@@ -122,16 +121,16 @@ const config: Config = {
           label: "Documentation"
         },
         {
+          href: "/playground",
+          label: "Playground",
+          position: "left"
+        },
+        {
           type: "docSidebar",
           sidebarId: "api",
           position: "left",
           label: "API Reference"
         },
-        // {
-        //   href: "/playground",
-        //   label: "Playground",
-        //   position: "left"
-        // },
 
         {
           href: "https://github.com/gpbl/react-day-picker/discussions",
@@ -147,13 +146,13 @@ const config: Config = {
     },
     footer: undefined,
     prism: {
-      additionalLanguages: ["bash", "diff"],
+      additionalLanguages: ["bash", "diff", "json", "css"],
       theme: prismThemes.vsLight,
       darkTheme: prismThemes.dracula
     },
     algolia: {
       appId: "N44150BS2A",
-      apiKey: "42c559dd71da40a168be6f6d81d2bbbc",
+      apiKey: "263c558c76fc0b83a5def5fb818391d7",
       indexName: "react-day-picker-js",
       contextualSearch: true,
       searchPagePath: "search"

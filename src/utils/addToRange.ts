@@ -1,8 +1,5 @@
-import { isAfter } from "date-fns/isAfter";
-import { isBefore } from "date-fns/isBefore";
-import { isSameDay } from "date-fns/isSameDay";
-
-import type { DateRange } from "../types";
+import { dateLib as defaultDateLib } from "../lib";
+import type { DateRange, DateLib } from "../types";
 
 /**
  * Add a day to an existing range.
@@ -14,18 +11,20 @@ import type { DateRange } from "../types";
  */
 export function addToRange(
   date: Date,
-  range?: DateRange
-): DateRange | undefined {
+  range: DateRange | undefined,
+  dateLib: DateLib = defaultDateLib
+): DateRange {
   const { from, to } = range || {};
+  const { isSameDay, isAfter, isBefore } = dateLib;
   if (from && to) {
     if (isSameDay(to, date) && isSameDay(from, date)) {
-      return undefined;
+      return { from: undefined, to: undefined };
     }
     if (isSameDay(to, date)) {
       return { from: to, to: undefined };
     }
     if (isSameDay(from, date)) {
-      return undefined;
+      return { from: undefined, to: undefined };
     }
     if (isAfter(from, date)) {
       return { from: date, to };

@@ -1,13 +1,9 @@
 import React from "react";
 import type { ChangeEventHandler } from "react";
 
-import { setMonth } from "date-fns/setMonth";
-import { startOfMonth } from "date-fns/startOfMonth";
-
 import { UI } from "../UI";
 import type { CalendarMonth } from "../classes";
-import { useCalendar } from "../contexts/calendar";
-import { useProps } from "../contexts/props";
+import { useCalendar, useProps } from "../contexts";
 
 import { Dropdown as DefaultDropdown } from "./Dropdown";
 
@@ -17,7 +13,7 @@ import { Dropdown as DefaultDropdown } from "./Dropdown";
  * Use the `components` prop to swap this component with a custom one.
  *
  * @group Components
- * @see https://react-day-picker.js.org/advanced-guides/custom-components
+ * @see https://daypicker.dev/advanced-guides/custom-components
  */
 export function MonthsDropdown(props: {
   /** The month where the dropdown is displayed. */
@@ -27,10 +23,11 @@ export function MonthsDropdown(props: {
     classNames,
     components,
     disableNavigation,
+    dateLib: { setMonth, startOfMonth },
     labels: { labelMonthDropdown }
   } = useProps();
 
-  const { dropdownOptions: dropdown, goToMonth } = useCalendar();
+  const { dropdownOptions, goToMonth } = useCalendar();
 
   const Dropdown = components?.Dropdown ?? DefaultDropdown;
 
@@ -45,7 +42,7 @@ export function MonthsDropdown(props: {
       aria-label={labelMonthDropdown()}
       disabled={Boolean(disableNavigation)}
       rootClassName={classNames[UI.MonthsDropdown]}
-      options={dropdown.months}
+      options={dropdownOptions.months}
       value={props.month.date.getMonth()}
       onChange={handleChange}
     />

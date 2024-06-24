@@ -27,7 +27,7 @@ exports[`should match the snapshot 1`] = `
             width="24"
           >
             <polygon
-              points="15 17.23 9.43 11.5 15 5.76 13.28 4 6 11.5 13.28 19"
+              points="16 18.112 9.81111111 12 16 5.87733333 14.0888889 4 6 12 14.0888889 20"
             />
           </svg>
         </button>
@@ -45,7 +45,7 @@ exports[`should match the snapshot 1`] = `
             width="24"
           >
             <polygon
-              points="8 18.23 13.57 12.5 8 6.76 9.72 5 17 12.5 9.72 20"
+              points="8 18.612 14.1888889 12.5 8 6.37733333 9.91111111 4.5 18 12.5 9.91111111 20.5"
             />
           </svg>
         </button>
@@ -63,7 +63,7 @@ exports[`should match the snapshot 1`] = `
             class="rdp-caption_label"
             role="status"
           >
-            November 2020
+            June 2020
           </span>
         </div>
         <div
@@ -146,15 +146,16 @@ exports[`should match the snapshot 1`] = `
             >
               <div
                 aria-colindex="1"
+                aria-hidden="true"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day rdp-hidden rdp-outside"
                 role="gridcell"
                 tabindex="-1"
               >
                 <span
                   class="rdp-day_date"
                 >
-                  1
+                  31
                 </span>
               </div>
               <div
@@ -167,7 +168,7 @@ exports[`should match the snapshot 1`] = `
                 <span
                   class="rdp-day_date"
                 >
-                  2
+                  1
                 </span>
               </div>
               <div
@@ -180,7 +181,7 @@ exports[`should match the snapshot 1`] = `
                 <span
                   class="rdp-day_date"
                 >
-                  3
+                  2
                 </span>
               </div>
               <div
@@ -193,7 +194,7 @@ exports[`should match the snapshot 1`] = `
                 <span
                   class="rdp-day_date"
                 >
-                  4
+                  3
                 </span>
               </div>
               <div
@@ -206,7 +207,7 @@ exports[`should match the snapshot 1`] = `
                 <span
                   class="rdp-day_date"
                 >
-                  5
+                  4
                 </span>
               </div>
               <div
@@ -219,7 +220,7 @@ exports[`should match the snapshot 1`] = `
                 <span
                   class="rdp-day_date"
                 >
-                  6
+                  5
                 </span>
               </div>
               <div
@@ -232,7 +233,7 @@ exports[`should match the snapshot 1`] = `
                 <span
                   class="rdp-day_date"
                 >
-                  7
+                  6
                 </span>
               </div>
             </div>
@@ -251,11 +252,24 @@ exports[`should match the snapshot 1`] = `
                 <span
                   class="rdp-day_date"
                 >
-                  8
+                  7
                 </span>
               </div>
               <div
                 aria-colindex="2"
+                aria-label=""
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
+              >
+                <span
+                  class="rdp-day_date"
+                >
+                  8
+                </span>
+              </div>
+              <div
+                aria-colindex="3"
                 aria-label=""
                 class="rdp-day rdp-focusable"
                 role="gridcell"
@@ -268,7 +282,7 @@ exports[`should match the snapshot 1`] = `
                 </span>
               </div>
               <div
-                aria-colindex="3"
+                aria-colindex="4"
                 aria-label=""
                 class="rdp-day rdp-focusable"
                 role="gridcell"
@@ -281,7 +295,7 @@ exports[`should match the snapshot 1`] = `
                 </span>
               </div>
               <div
-                aria-colindex="4"
+                aria-colindex="5"
                 aria-label=""
                 class="rdp-day rdp-focusable"
                 role="gridcell"
@@ -294,7 +308,7 @@ exports[`should match the snapshot 1`] = `
                 </span>
               </div>
               <div
-                aria-colindex="5"
+                aria-colindex="6"
                 aria-label=""
                 class="rdp-day rdp-focusable"
                 role="gridcell"
@@ -307,7 +321,7 @@ exports[`should match the snapshot 1`] = `
                 </span>
               </div>
               <div
-                aria-colindex="6"
+                aria-colindex="7"
                 aria-label=""
                 class="rdp-day rdp-focusable"
                 role="gridcell"
@@ -319,8 +333,14 @@ exports[`should match the snapshot 1`] = `
                   13
                 </span>
               </div>
+            </div>
+            <div
+              aria-rowindex="4"
+              class="rdp-week"
+              role="row"
+            >
               <div
-                aria-colindex="7"
+                aria-colindex="1"
                 aria-label=""
                 class="rdp-day rdp-focusable"
                 role="gridcell"
@@ -332,17 +352,11 @@ exports[`should match the snapshot 1`] = `
                   14
                 </span>
               </div>
-            </div>
-            <div
-              aria-rowindex="4"
-              class="rdp-week"
-              role="row"
-            >
               <div
-                aria-colindex="1"
+                aria-colindex="2"
                 aria-label=""
                 aria-selected="true"
-                class="rdp-day rdp-focusable rdp-range_start rdp-selected"
+                class="rdp-day rdp-range_start rdp-selected rdp-focusable"
                 role="gridcell"
                 tabindex="0"
               >
@@ -353,10 +367,10 @@ exports[`should match the snapshot 1`] = `
                 </span>
               </div>
               <div
-                aria-colindex="2"
+                aria-colindex="3"
                 aria-label=""
                 aria-selected="true"
-                class="rdp-day rdp-focusable rdp-range_middle rdp-selected"
+                class="rdp-day rdp-range_middle rdp-selected rdp-focusable"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -367,10 +381,10 @@ exports[`should match the snapshot 1`] = `
                 </span>
               </div>
               <div
-                aria-colindex="3"
+                aria-colindex="4"
                 aria-label=""
                 aria-selected="true"
-                class="rdp-day rdp-focusable rdp-range_middle rdp-selected"
+                class="rdp-day rdp-range_middle rdp-selected rdp-focusable"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -381,10 +395,10 @@ exports[`should match the snapshot 1`] = `
                 </span>
               </div>
               <div
-                aria-colindex="4"
+                aria-colindex="5"
                 aria-label=""
                 aria-selected="true"
-                class="rdp-day rdp-focusable rdp-range_middle rdp-selected"
+                class="rdp-day rdp-range_middle rdp-selected rdp-focusable"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -395,10 +409,10 @@ exports[`should match the snapshot 1`] = `
                 </span>
               </div>
               <div
-                aria-colindex="5"
+                aria-colindex="6"
                 aria-label=""
                 aria-selected="true"
-                class="rdp-day rdp-focusable rdp-range_end rdp-selected"
+                class="rdp-day rdp-range_end rdp-selected rdp-focusable"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -406,19 +420,6 @@ exports[`should match the snapshot 1`] = `
                   class="rdp-day_date"
                 >
                   19
-                </span>
-              </div>
-              <div
-                aria-colindex="6"
-                aria-label=""
-                class="rdp-day rdp-focusable"
-                role="gridcell"
-                tabindex="-1"
-              >
-                <span
-                  class="rdp-day_date"
-                >
-                  20
                 </span>
               </div>
               <div
@@ -431,7 +432,7 @@ exports[`should match the snapshot 1`] = `
                 <span
                   class="rdp-day_date"
                 >
-                  21
+                  20
                 </span>
               </div>
             </div>
@@ -450,7 +451,7 @@ exports[`should match the snapshot 1`] = `
                 <span
                   class="rdp-day_date"
                 >
-                  22
+                  21
                 </span>
               </div>
               <div
@@ -463,7 +464,7 @@ exports[`should match the snapshot 1`] = `
                 <span
                   class="rdp-day_date"
                 >
-                  23
+                  22
                 </span>
               </div>
               <div
@@ -476,7 +477,7 @@ exports[`should match the snapshot 1`] = `
                 <span
                   class="rdp-day_date"
                 >
-                  24
+                  23
                 </span>
               </div>
               <div
@@ -489,7 +490,7 @@ exports[`should match the snapshot 1`] = `
                 <span
                   class="rdp-day_date"
                 >
-                  25
+                  24
                 </span>
               </div>
               <div
@@ -502,7 +503,7 @@ exports[`should match the snapshot 1`] = `
                 <span
                   class="rdp-day_date"
                 >
-                  26
+                  25
                 </span>
               </div>
               <div
@@ -515,7 +516,7 @@ exports[`should match the snapshot 1`] = `
                 <span
                   class="rdp-day_date"
                 >
-                  27
+                  26
                 </span>
               </div>
               <div
@@ -528,7 +529,7 @@ exports[`should match the snapshot 1`] = `
                 <span
                   class="rdp-day_date"
                 >
-                  28
+                  27
                 </span>
               </div>
             </div>
@@ -547,7 +548,7 @@ exports[`should match the snapshot 1`] = `
                 <span
                   class="rdp-day_date"
                 >
-                  29
+                  28
                 </span>
               </div>
               <div
@@ -560,21 +561,20 @@ exports[`should match the snapshot 1`] = `
                 <span
                   class="rdp-day_date"
                 >
-                  30
+                  29
                 </span>
               </div>
               <div
                 aria-colindex="3"
-                aria-hidden="true"
                 aria-label=""
-                class="rdp-day rdp-hidden rdp-outside"
+                class="rdp-day rdp-focusable"
                 role="gridcell"
                 tabindex="-1"
               >
                 <span
                   class="rdp-day_date"
                 >
-                  1
+                  30
                 </span>
               </div>
               <div
@@ -588,7 +588,7 @@ exports[`should match the snapshot 1`] = `
                 <span
                   class="rdp-day_date"
                 >
-                  2
+                  1
                 </span>
               </div>
               <div
@@ -602,7 +602,7 @@ exports[`should match the snapshot 1`] = `
                 <span
                   class="rdp-day_date"
                 >
-                  3
+                  2
                 </span>
               </div>
               <div
@@ -616,7 +616,7 @@ exports[`should match the snapshot 1`] = `
                 <span
                   class="rdp-day_date"
                 >
-                  4
+                  3
                 </span>
               </div>
               <div
@@ -630,7 +630,7 @@ exports[`should match the snapshot 1`] = `
                 <span
                   class="rdp-day_date"
                 >
-                  5
+                  4
                 </span>
               </div>
             </div>
@@ -642,9 +642,9 @@ exports[`should match the snapshot 1`] = `
       class="rdp-footer"
     >
       <p>
-        November 15th, 2020
+        June 15th, 2020
         –
-        November 19th, 2020
+        June 19th, 2020
       </p>
     </div>
   </div>
@@ -678,7 +678,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
             width="24"
           >
             <polygon
-              points="15 17.23 9.43 11.5 15 5.76 13.28 4 6 11.5 13.28 19"
+              points="16 18.112 9.81111111 12 16 5.87733333 14.0888889 4 6 12 14.0888889 20"
             />
           </svg>
         </button>
@@ -696,7 +696,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
             width="24"
           >
             <polygon
-              points="8 18.23 13.57 12.5 8 6.76 9.72 5 17 12.5 9.72 20"
+              points="8 18.612 14.1888889 12.5 8 6.37733333 9.91111111 4.5 18 12.5 9.91111111 20.5"
             />
           </svg>
         </button>
@@ -714,7 +714,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
             class="rdp-caption_label"
             role="status"
           >
-            November 2020
+            June 2020
           </span>
         </div>
         <div
@@ -797,15 +797,16 @@ exports[`when a day in the range is clicked when the day is clicked again when a
             >
               <div
                 aria-colindex="1"
+                aria-hidden="true"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day rdp-hidden rdp-outside"
                 role="gridcell"
                 tabindex="-1"
               >
                 <span
                   class="rdp-day_date"
                 >
-                  1
+                  31
                 </span>
               </div>
               <div
@@ -818,7 +819,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  2
+                  1
                 </span>
               </div>
               <div
@@ -831,7 +832,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  3
+                  2
                 </span>
               </div>
               <div
@@ -844,7 +845,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  4
+                  3
                 </span>
               </div>
               <div
@@ -857,7 +858,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  5
+                  4
                 </span>
               </div>
               <div
@@ -870,7 +871,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  6
+                  5
                 </span>
               </div>
               <div
@@ -883,7 +884,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  7
+                  6
                 </span>
               </div>
             </div>
@@ -902,7 +903,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  8
+                  7
                 </span>
               </div>
               <div
@@ -915,7 +916,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  9
+                  8
                 </span>
               </div>
               <div
@@ -928,7 +929,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  10
+                  9
                 </span>
               </div>
               <div
@@ -941,7 +942,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  11
+                  10
                 </span>
               </div>
               <div
@@ -954,7 +955,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  12
+                  11
                 </span>
               </div>
               <div
@@ -967,7 +968,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  13
+                  12
                 </span>
               </div>
               <div
@@ -980,7 +981,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  14
+                  13
                 </span>
               </div>
             </div>
@@ -999,7 +1000,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  15
+                  14
                 </span>
               </div>
               <div
@@ -1012,11 +1013,24 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  16
+                  15
                 </span>
               </div>
               <div
                 aria-colindex="3"
+                aria-label=""
+                class="rdp-day rdp-focusable"
+                role="gridcell"
+                tabindex="-1"
+              >
+                <span
+                  class="rdp-day_date"
+                >
+                  16
+                </span>
+              </div>
+              <div
+                aria-colindex="4"
                 aria-label=""
                 class="rdp-day rdp-focusable rdp-focused"
                 role="gridcell"
@@ -1029,7 +1043,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 </span>
               </div>
               <div
-                aria-colindex="4"
+                aria-colindex="5"
                 aria-label=""
                 class="rdp-day rdp-focusable"
                 role="gridcell"
@@ -1042,7 +1056,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 </span>
               </div>
               <div
-                aria-colindex="5"
+                aria-colindex="6"
                 aria-label=""
                 class="rdp-day rdp-focusable"
                 role="gridcell"
@@ -1055,19 +1069,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 </span>
               </div>
               <div
-                aria-colindex="6"
-                aria-label=""
-                class="rdp-day rdp-focusable"
-                role="gridcell"
-                tabindex="-1"
-              >
-                <span
-                  class="rdp-day_date"
-                >
-                  20
-                </span>
-              </div>
-              <div
                 aria-colindex="7"
                 aria-label=""
                 class="rdp-day rdp-focusable"
@@ -1077,7 +1078,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  21
+                  20
                 </span>
               </div>
             </div>
@@ -1096,7 +1097,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  22
+                  21
                 </span>
               </div>
               <div
@@ -1109,7 +1110,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  23
+                  22
                 </span>
               </div>
               <div
@@ -1122,7 +1123,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  24
+                  23
                 </span>
               </div>
               <div
@@ -1135,7 +1136,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  25
+                  24
                 </span>
               </div>
               <div
@@ -1148,7 +1149,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  26
+                  25
                 </span>
               </div>
               <div
@@ -1161,7 +1162,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  27
+                  26
                 </span>
               </div>
               <div
@@ -1174,7 +1175,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  28
+                  27
                 </span>
               </div>
             </div>
@@ -1193,7 +1194,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  29
+                  28
                 </span>
               </div>
               <div
@@ -1206,21 +1207,20 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  30
+                  29
                 </span>
               </div>
               <div
                 aria-colindex="3"
-                aria-hidden="true"
                 aria-label=""
-                class="rdp-day rdp-hidden rdp-outside"
+                class="rdp-day rdp-focusable"
                 role="gridcell"
                 tabindex="-1"
               >
                 <span
                   class="rdp-day_date"
                 >
-                  1
+                  30
                 </span>
               </div>
               <div
@@ -1234,7 +1234,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  2
+                  1
                 </span>
               </div>
               <div
@@ -1248,7 +1248,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  3
+                  2
                 </span>
               </div>
               <div
@@ -1262,7 +1262,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  4
+                  3
                 </span>
               </div>
               <div
@@ -1276,7 +1276,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <span
                   class="rdp-day_date"
                 >
-                  5
+                  4
                 </span>
               </div>
             </div>

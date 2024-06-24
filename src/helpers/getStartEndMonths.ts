@@ -1,11 +1,5 @@
-import { addYears } from "date-fns/addYears";
-import { endOfMonth } from "date-fns/endOfMonth";
-import { endOfYear } from "date-fns/endOfYear";
-import { startOfDay } from "date-fns/startOfDay";
-import { startOfMonth } from "date-fns/startOfMonth";
-import { startOfYear } from "date-fns/startOfYear";
-
-import type { DayPickerProps, Mode } from "../types";
+import { dateLib } from "../lib";
+import type { DayPickerProps } from "../types";
 
 /**
  * Return the `fromMonth` and `toMonth` prop values values parsing the DayPicker
@@ -13,20 +7,32 @@ import type { DayPickerProps, Mode } from "../types";
  */
 export function getStartEndMonths(
   props: Pick<
-    DayPickerProps<Mode, boolean>,
+    DayPickerProps,
     | "startMonth"
     | "endMonth"
     | "today"
     | "captionLayout"
+    | "dateLib"
     // Deprecated:
     | "fromYear"
     | "toYear"
     | "fromMonth"
     | "toMonth"
   >
-): Pick<DayPickerProps<Mode, boolean>, "startMonth" | "endMonth"> {
+): Pick<DayPickerProps, "startMonth" | "endMonth"> {
   let { startMonth, endMonth } = props;
-
+  const {
+    startOfYear,
+    startOfDay,
+    startOfMonth,
+    endOfMonth,
+    addYears,
+    endOfYear,
+    Date
+  } = {
+    ...dateLib,
+    ...props.dateLib
+  };
   // Handle deprecated code
   const { fromYear, toYear, fromMonth, toMonth } = props;
   if (!startMonth && fromMonth) {

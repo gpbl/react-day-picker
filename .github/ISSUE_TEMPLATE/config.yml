@@ -6,6 +6,3 @@ contact_links:
   - name: 💡 Ideas and Feature requests
     url: https://github.com/gpbl/react-day-picker/discussions/categories/ideas
     about: Discuss and propose new features or improvements
-  - name: 👀 Search for answers on Stack Overflow
-    url: https://stackoverflow.com/questions/tagged/react-day-picker?sort=newest
-    about: Search on Stack Overflow for question tagged `react-day-picker`.

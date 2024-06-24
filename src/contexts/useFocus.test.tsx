@@ -1,8 +1,6 @@
-import { gridcell } from "@/test/elements";
 import { renderHook } from "@/test/renderHook";
-import { user } from "@/test/user";
 
-import { useFocus } from "./focus";
+import { useFocus } from "./useFocus";
 
 const month = new Date(2020, 0, 1);
 const today = new Date(2020, 0, 14);
@@ -30,7 +28,7 @@ describe("autoFocusTarget", () => {
         const { result } = renderHook(useFocus, {
           month,
           today,
-          mode: "multiple",
+          mode: "single",
           disabled: [today]
         });
         expect(result.current.autoFocusTarget?.date).toEqual(month);

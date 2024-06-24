@@ -1,4 +1,6 @@
-import { format } from "date-fns/format";
+import { dateLib as defaultDateLib } from "../lib";
+import type { FormatOptions } from "../lib/dateLib";
+import type { DateLib } from "../types";
 
 /**
  * The default formatter for the name of the weekday.
@@ -7,7 +9,8 @@ import { format } from "date-fns/format";
  */
 export function formatWeekdayName(
   weekday: Date,
-  options?: Parameters<typeof format>[2]
+  options?: FormatOptions,
+  dateLib: DateLib = defaultDateLib
 ) {
-  return format(weekday, "cccccc", options);
+  return dateLib.format(weekday, "cccccc", options);
 }

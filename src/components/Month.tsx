@@ -1,8 +1,8 @@
-import React, { useId } from "react";
+import React from "react";
 
 import { UI } from "../UI";
 import type { CalendarMonth } from "../classes/CalendarMonth";
-import { useProps } from "../contexts/props";
+import { useProps } from "../contexts";
 
 import { MonthCaption as DefaultMonthCaption } from "./MonthCaption";
 import { Week as DefaultWeek } from "./Week";
@@ -15,7 +15,7 @@ import { Weekdays as DefaultWeekdays } from "./Weekdays";
  * Use the `components` prop to swap this component with a custom one.
  *
  * @group Components
- * @see https://react-day-picker.js.org/advanced-guides/custom-components
+ * @see https://daypicker.dev/advanced-guides/custom-components
  */
 export function Month(props: {
   /** The month where the grid is displayed. */
@@ -26,7 +26,7 @@ export function Month(props: {
   const { id, mode, hideWeekdayRow, components, classNames, styles } =
     useProps();
 
-  const reactId = useId();
+  const reactId = React.useId();
   const captionId = id ? `${id}-caption-${props.index}` : reactId;
   const gridId = id ? `${id}-grid-${props.index}` : reactId;
 

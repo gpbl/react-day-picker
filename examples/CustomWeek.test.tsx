@@ -1,4 +1,4 @@
-import React, { act } from "react";
+import React from "react";
 
 import { gridcell } from "@/test/elements";
 import { render } from "@/test/render";
@@ -7,7 +7,9 @@ import { user } from "@/test/user";
 import { CustomWeek } from "./CustomWeek";
 
 const today = new Date(2021, 10, 25);
-jest.useFakeTimers().setSystemTime(today);
+
+beforeAll(() => jest.setSystemTime(today));
+afterAll(() => jest.useRealTimers());
 
 beforeEach(() => {
   render(<CustomWeek />);
@@ -15,7 +17,7 @@ beforeEach(() => {
 
 describe("when a day is clicked", () => {
   beforeEach(async () => {
-    await act(() => user.click(gridcell(today)));
+    await user.click(gridcell(today));
   });
   test("the whole week should appear selected", () => {
     const week = [
@@ -33,7 +35,7 @@ describe("when a day is clicked", () => {
   });
   describe("when clicking the day again", () => {
     beforeEach(async () => {
-      await act(() => user.click(gridcell(today)));
+      await user.click(gridcell(today));
     });
     test("the whole week should not be selected", () => {
       const week = [

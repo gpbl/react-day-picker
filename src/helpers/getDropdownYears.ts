@@ -1,39 +1,41 @@
-import { addYears } from "date-fns/addYears";
-import { endOfYear } from "date-fns/endOfYear";
-import { isBefore } from "date-fns/isBefore";
-import { isSameYear } from "date-fns/isSameYear";
-import { startOfMonth } from "date-fns/startOfMonth";
-import { startOfYear } from "date-fns/startOfYear";
-
 import { DropdownOption } from "../components/Dropdown";
-import type { PropsContext } from "../contexts/props";
-import type { Formatters, Mode } from "../types";
+import { PropsContextValue } from "../contexts";
 
 /** Return the years to show in the dropdown. */
 export function getDropdownYears(
-  props: Pick<PropsContext<Mode>, "startMonth" | "endMonth"> & {
-    formatters: Pick<Formatters, "formatYearDropdown">;
-  },
-  month?: number | undefined
+  displayMonth: Date,
+  props: Pick<
+    PropsContextValue,
+    "formatters" | "locale" | "startMonth" | "endMonth" | "dateLib"
+  >
 ): DropdownOption[] | undefined {
-  if (!props.startMonth) return undefined;
-  if (!props.endMonth) return undefined;
-  const firstNavYear = startOfYear(props.startMonth);
-  const lastNavYear = endOfYear(props.endMonth);
+  const { startMonth, endMonth } = props;
+  if (!startMonth) return undefined;
+  if (!endMonth) return undefined;
+  const {
+    startOfMonth,
+    startOfYear,
+    endOfYear,
+    addYears,
+    isBefore,
+    isSameYear,
+    Date
+  } = props.dateLib;
+  const month = displayMonth.getMonth();
+  const firstNavYear = startOfYear(startMonth);
+  const lastNavYear = endOfYear(endMonth);
   const years: number[] = [];
+
   let year = firstNavYear;
   while (isBefore(year, lastNavYear) || isSameYear(year, lastNavYear)) {
     years.push(year.getFullYear());
     year = addYears(year, 1);
   }
+
   return years.map((value) => {
     const disabled =
-      (month &&
-        props.startMonth &&
-        new Date(value, month) < startOfMonth(props.startMonth)) ||
-      (month &&
-        props.endMonth &&
-        new Date(value, month) > startOfMonth(props.endMonth)) ||
+      (startMonth && new Date(value, month) < startOfMonth(startMonth)) ||
+      (month && endMonth && new Date(value, month) > startOfMonth(endMonth)) ||
       false;
     const label = props.formatters.formatYearDropdown(value);
     return {

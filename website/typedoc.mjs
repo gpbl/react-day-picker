@@ -14,14 +14,15 @@ const options = {
   tsconfig: "../tsconfig-docs.json",
   categorizeByGroup: true,
   groupOrder: [
+    "DayPicker",
     "Props",
     "Classes",
     "Components",
-    "Hooks",
-    "Contexts",
-    "Utilities",
     "Formatters",
     "Labels",
+    "Utilities",
+    "Hooks",
+    "Contexts",
     "*"
   ],
   readme: "none",
@@ -37,16 +38,27 @@ const options = {
   hidePageHeader: true,
   preserveAnchorCasing: false,
 
+  maxTypeConversionDepth: 1,
+  typeDeclarationFormat: "list",
   parametersFormat: "table",
   propertiesFormat: "list",
+  propertyMembersFormat: "list",
   enumMembersFormat: "table",
-  typeDeclarationFormat: "table",
   indexFormat: "table",
-
+  tableColumnSettings: {
+    hideDefaults: false,
+    hideInherited: false,
+    hideModifiers: false,
+    hideOverrides: false,
+    hideSources: true,
+    hideValues: false,
+    leftAlignHeaders: false
+  },
   plugin: ["typedoc-plugin-markdown", "typedoc-plugin-frontmatter"],
   frontmatterGlobals: {
     pagination_next: null,
-    pagination_prev: null
+    pagination_prev: null,
+    custom_edit_url: null
   }
 };
 

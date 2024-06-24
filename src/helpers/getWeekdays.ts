@@ -1,26 +1,26 @@
-import type { Locale } from "date-fns";
-import { addDays } from "date-fns/addDays";
-import { startOfISOWeek } from "date-fns/startOfISOWeek";
-import { startOfWeek } from "date-fns/startOfWeek";
+import { dateLib as defaultDateLib } from "../lib";
+import type { Locale } from "../lib/dateLib";
+import type { DateLib } from "../types";
 
 /**
  * Generate a series of 7 days, starting from the week, to use for formatting
  * the weekday names (Monday, Tuesday, etc.).
  */
 export function getWeekdays(
-  locale?: Locale,
+  locale?: Locale | undefined,
   /** The index of the first day of the week (0 - Sunday). */
-  weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6,
+  weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined,
   /** Use ISOWeek instead of locale/ */
-  ISOWeek?: boolean
+  ISOWeek?: boolean | undefined,
+  dateLib: DateLib = defaultDateLib
 ): Date[] {
   const start = ISOWeek
-    ? startOfISOWeek(new Date())
-    : startOfWeek(new Date(), { locale, weekStartsOn });
+    ? dateLib.startOfISOWeek(new dateLib.Date())
+    : dateLib.startOfWeek(new dateLib.Date(), { locale, weekStartsOn });
 
   const days = [];
   for (let i = 0; i < 7; i++) {
-    const day = addDays(start, i);
+    const day = dateLib.addDays(start, i);
     days.push(day);
   }
   return days;

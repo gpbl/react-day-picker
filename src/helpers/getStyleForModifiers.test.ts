@@ -2,7 +2,7 @@ import type { CSSProperties } from "react";
 
 // Update the path as needed
 import { UI } from "../UI";
-import type { DayModifiers, ModifiersStyles, Styles } from "../types";
+import type { Modifiers, ModifiersStyles, Styles } from "../types";
 
 import { getStyleForModifiers } from "./getStyleForModifiers";
 
@@ -11,7 +11,7 @@ const baseDayStyle: CSSProperties = {
   color: "black"
 };
 const styles: Partial<Styles> = { [UI.Day]: baseDayStyle };
-const defaultModifiers: DayModifiers = {
+const defaultModifiers: Modifiers = {
   disabled: false,
   hidden: false,
   outside: false,
@@ -33,7 +33,7 @@ test("returns base style when no modifiers are provided", () => {
 });
 
 test("applies modifier styles to the base style", () => {
-  const dayModifiers: DayModifiers = {
+  const dayModifiers: Modifiers = {
     ...defaultModifiers,
     selected: true,
     disabled: false
@@ -52,7 +52,7 @@ test("applies modifier styles to the base style", () => {
 });
 
 test("ignores modifiers that are not active", () => {
-  const dayModifiers: DayModifiers = {
+  const dayModifiers: Modifiers = {
     ...defaultModifiers,
     selected: false,
     disabled: true
@@ -67,7 +67,7 @@ test("ignores modifiers that are not active", () => {
 });
 
 test("combines multiple active modifier styles", () => {
-  const dayModifiers: DayModifiers = {
+  const dayModifiers: Modifiers = {
     ...defaultModifiers,
     selected: true,
     highlighted: true
@@ -88,7 +88,7 @@ test("combines multiple active modifier styles", () => {
 });
 
 test("applies the most recent modifier style when there are conflicts", () => {
-  const dayModifiers: DayModifiers = {
+  const dayModifiers: Modifiers = {
     ...defaultModifiers,
     selected: true,
     highlighted: true

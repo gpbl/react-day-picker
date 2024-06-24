@@ -3,12 +3,12 @@ import React, { useState } from "react";
 import { addDays, format } from "date-fns";
 import { DateRange, DayPicker } from "react-day-picker";
 
-const pastMonth = new Date(2020, 10, 15);
-
 export function Range() {
+  const defaultMonth = new Date(2020, 5, 15);
+
   const defaultSelected: DateRange = {
-    from: pastMonth,
-    to: addDays(pastMonth, 4)
+    from: defaultMonth,
+    to: addDays(defaultMonth, 4)
   };
   const [range, setRange] = useState<DateRange | undefined>(defaultSelected);
 
@@ -29,7 +29,7 @@ export function Range() {
     <DayPicker
       id="test"
       mode="range"
-      defaultMonth={pastMonth}
+      defaultMonth={defaultMonth}
       selected={range}
       footer={footer}
       onSelect={setRange}

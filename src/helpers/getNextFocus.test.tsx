@@ -1,26 +1,26 @@
-import React from "react";
-
 import { CalendarDay } from "../classes";
-import type { MoveFocusBy, MoveFocusDir } from "../contexts/focus";
-import type { PropsContext } from "../contexts/props";
-import type { Mode } from "../types";
+import type { PropsContextValue } from "../contexts/useProps";
+import { dateLib } from "../lib";
+import type { MoveFocusBy, MoveFocusDir } from "../types";
 
 import { getNextFocus } from "./getNextFocus";
 
 const props: Pick<
-  PropsContext<Mode, boolean>,
-  "disabled" | "hidden" | "startMonth" | "endMonth"
+  PropsContextValue,
+  "disabled" | "hidden" | "startMonth" | "endMonth" | "dateLib"
 > = {
   disabled: [],
   hidden: [],
   startMonth: undefined,
-  endMonth: undefined
+  endMonth: undefined,
+  dateLib
 };
 
 it("should return `undefined` if `attempt` exceeds 365", () => {
   const focusedDay = new CalendarDay(
     new Date(2020, 0, 1),
-    new Date(2020, 0, 1)
+    new Date(2020, 0, 1),
+    dateLib
   );
   const moveBy: MoveFocusBy = "day";
   const moveDir: MoveFocusDir = "after";
@@ -31,7 +31,8 @@ it("should return `undefined` if `attempt` exceeds 365", () => {
 it("should return the focus date if it is not disabled or hidden", () => {
   const focusedDay = new CalendarDay(
     new Date(2020, 0, 1),
-    new Date(2020, 0, 1)
+    new Date(2020, 0, 1),
+    dateLib
   );
   const expectedDate = new Date(2020, 0, 2);
   const result = getNextFocus("day", "after", focusedDay, props);
@@ -41,7 +42,8 @@ it("should return the focus date if it is not disabled or hidden", () => {
 it("should return the next focus date if it is disabled", () => {
   const focusedDay = new CalendarDay(
     new Date(2020, 0, 1),
-    new Date(2020, 0, 1)
+    new Date(2020, 0, 1),
+    dateLib
   );
   const disabledDate = new Date(2020, 0, 2);
   const expectedDate = new Date(2020, 0, 3);
@@ -55,7 +57,8 @@ it("should return the next focus date if it is disabled", () => {
 it("should return the next focus date if it is hidden", () => {
   const focusedDay = new CalendarDay(
     new Date(2020, 0, 1),
-    new Date(2020, 0, 1)
+    new Date(2020, 0, 1),
+    dateLib
   );
   const hiddenDate = new Date(2020, 0, 2);
   const expectedDate = new Date(2020, 0, 3);

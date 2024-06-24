@@ -1,9 +1,7 @@
-import React, { SelectHTMLAttributes } from "react";
-
-import type { Month } from "date-fns";
+import React, { type SelectHTMLAttributes } from "react";
 
 import { UI } from "../UI";
-import { useProps } from "../contexts/props";
+import { useProps } from "../contexts";
 
 import { Chevron as DefaultChevron } from "./Chevron";
 import { Option as DefaultOption } from "./Option";
@@ -12,7 +10,7 @@ import { Select as DefaultSelect } from "./Select";
 /** An option to use in the dropdown. Maps to the `<option>` HTML element. */
 export type DropdownOption = {
   /** The value of the option. */
-  value: Month | number;
+  value: number;
   /** The label of the option. */
   label: string;
   /**
@@ -28,7 +26,7 @@ export type DropdownOption = {
  * Use the `components` prop to swap this component with a custom one.
  *
  * @group Components
- * @see https://react-day-picker.js.org/advanced-guides/custom-components
+ * @see https://daypicker.dev/advanced-guides/custom-components
  */
 export function Dropdown(
   props: {

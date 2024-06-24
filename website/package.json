@@ -7,7 +7,6 @@
     "start": "PORT=2001 TYPEDOC_WATCH=false docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "PORT=2000 docusaurus serve",
     "write-translations": "docusaurus write-translations",
@@ -16,11 +15,14 @@
     "typecheck-watch": "tsc --noEmit --watch"
   },
   "dependencies": {
+    "@date-fns/utc": "^1.2.0",
     "@docusaurus/core": "3.4.0",
     "@docusaurus/preset-classic": "3.4.0",
     "@docusaurus/remark-plugin-npm2yarn": "^3.4.0",
+    "@docusaurus/theme-common": "^3.4.0",
     "@mdx-js/react": "^3.0.1",
     "clsx": "^2.1.1",
+    "date-fns-jalali": "3.6.0-0",
     "prism-react-renderer": "^2.3.1",
     "react": "^18.3.1",
     "react-day-picker": "workspace:^",
@@ -34,10 +36,10 @@
     "@docusaurus/types": "3.4.0",
     "docusaurus-plugin-typedoc": "^1.0.1",
     "identity-obj-proxy": "^3.0.0",
-    "typedoc": "^0.25.13",
+    "typedoc": "^0.26.0",
     "typedoc-plugin-frontmatter": "^1.0.0",
-    "typedoc-plugin-markdown": "^4.0.3",
-    "typescript": "~5.4.5"
+    "typedoc-plugin-markdown": "^4.1.0",
+    "typescript": "~5.5.2"
   },
   "browserslist": {
     "production": [

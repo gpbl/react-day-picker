@@ -1,18 +1,13 @@
-import { addMonths } from "date-fns/addMonths";
+import type { PropsContextValue } from "../contexts";
 
 export function getDisplayMonths(
-  firstMonth: Date,
-  options: {
-    numberOfMonths: number;
-    toDate?: Date;
-    reverseMonths?: boolean;
-  }
+  firstDisplayedMonth: Date,
+  props: Pick<PropsContextValue, "numberOfMonths" | "endMonth" | "dateLib">
 ) {
-  const { numberOfMonths, toDate } = options;
   const months: Date[] = [];
-  for (let i = 0; i < numberOfMonths; i++) {
-    const month = addMonths(firstMonth, i);
-    if (toDate && month > toDate) {
+  for (let i = 0; i < props.numberOfMonths; i++) {
+    const month = props.dateLib.addMonths(firstDisplayedMonth, i);
+    if (props.endMonth && month > props.endMonth) {
       break;
     }
     months.push(month);

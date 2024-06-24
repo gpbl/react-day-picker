@@ -1,10 +1,8 @@
 import React from "react";
 
-import { getUnixTime } from "date-fns/getUnixTime";
-
 import { UI } from "../UI";
 import type { CalendarDay, CalendarWeek } from "../classes";
-import { useProps } from "../contexts/props";
+import { useProps } from "../contexts";
 
 import { DayWrapper } from "./DayWrapper";
 import { WeekNumber as DefaultWeekNumber } from "./WeekNumber";
@@ -15,10 +13,16 @@ import { WeekNumber as DefaultWeekNumber } from "./WeekNumber";
  * Use the `components` prop to swap this component with a custom one.
  *
  * @group Components
- * @see https://react-day-picker.js.org/advanced-guides/custom-components
+ * @see https://daypicker.dev/advanced-guides/custom-components
  */
 export function Week(props: { ["aria-rowindex"]: number; week: CalendarWeek }) {
-  const { styles, classNames, showWeekNumber, components } = useProps();
+  const {
+    styles,
+    classNames,
+    showWeekNumber,
+    components,
+    dateLib: { getUnixTime }
+  } = useProps();
 
   const WeekNumber = components?.WeekNumber ?? DefaultWeekNumber;
 

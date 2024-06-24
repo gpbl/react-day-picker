@@ -1,15 +1,12 @@
-import React from "react";
-
 import { CalendarDay } from "../classes";
-import type { MoveFocusBy, MoveFocusDir } from "../contexts/focus";
-import type { PropsContext } from "../contexts/props";
-import type { Mode } from "../types";
+import type { PropsContextValue } from "../contexts";
+import type { MoveFocusBy, MoveFocusDir } from "../types";
 import { dateMatchModifiers } from "../utils/dateMatchModifiers";
 
 import { getPossibleFocusDate } from "./getPossibleFocusDate";
 
 export type Options = Pick<
-  PropsContext<Mode, boolean>,
+  PropsContextValue,
   | "modifiers"
   | "locale"
   | "ISOWeek"
@@ -24,7 +21,8 @@ export function getNextFocus(
   /** The date that is currently focused. */
   focused: CalendarDay,
   options: Pick<
-    PropsContext<Mode, boolean>,
+    PropsContextValue,
+    | "dateLib"
     | "disabled"
     | "hidden"
     | "modifiers"
@@ -49,15 +47,21 @@ export function getNextFocus(
   );
 
   const isDisabled = Boolean(
-    options.disabled && dateMatchModifiers(possibleFocusDate, options.disabled)
+    options.disabled &&
+      dateMatchModifiers(possibleFocusDate, options.disabled, options.dateLib)
   );
 
   const isHidden = Boolean(
-    options.hidden && dateMatchModifiers(possibleFocusDate, options.hidden)
+    options.hidden &&
+      dateMatchModifiers(possibleFocusDate, options.hidden, options.dateLib)
   );
 
   const targetMonth = possibleFocusDate;
-  const focusDay = new CalendarDay(possibleFocusDate, targetMonth);
+  const focusDay = new CalendarDay(
+    possibleFocusDate,
+    targetMonth,
+    options.dateLib
+  );
   if (!isDisabled && !isHidden) {
     return focusDay;
   }

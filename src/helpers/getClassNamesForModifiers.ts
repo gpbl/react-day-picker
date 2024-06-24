@@ -1,23 +1,20 @@
-import { DayModifier } from "../UI";
-import type {
-  DayModifiers,
-  ModifiersClassNames,
-  ClassNames,
-  InternalModifier
-} from "../types";
+import { DayFlag, SelectionState } from "../UI";
+import type { ModifiersClassNames, ClassNames } from "../types";
 
 export function getClassNamesForModifiers(
-  dayModifiers: DayModifiers,
+  modifiers: Record<string, boolean>,
   modifiersClassNames: ModifiersClassNames,
   classNames: ClassNames
 ) {
-  const modifierClassNames = Object.entries(dayModifiers)
+  const modifierClassNames = Object.entries(modifiers)
     .filter(([, active]) => active === true)
     .reduce((previousValue, [key]) => {
       if (modifiersClassNames[key]) {
         previousValue.push(modifiersClassNames[key as string]);
-      } else if (classNames[DayModifier[key as InternalModifier]]) {
-        previousValue.push(classNames[DayModifier[key as InternalModifier]]);
+      } else if (classNames[DayFlag[key as DayFlag]]) {
+        previousValue.push(classNames[DayFlag[key as DayFlag]]);
+      } else if (classNames[SelectionState[key as SelectionState]]) {
+        previousValue.push(classNames[SelectionState[key as SelectionState]]);
       }
       return previousValue;
     }, [] as string[]);

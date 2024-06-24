@@ -1,4 +1,5 @@
 import { addMonths, isSameMonth } from "date-fns";
+import { dateLib } from "react-day-picker";
 
 import { getNextMonth } from "./getNextMonth";
 
@@ -9,8 +10,10 @@ describe("when number of months is 1", () => {
     const disableNavigation = true;
     it("the next month is undefined", () => {
       const result = getNextMonth(startingMonth, {
+        numberOfMonths: 1,
         disableNavigation,
         endMonth: undefined,
+        dateLib,
         startMonth: undefined
       });
       expect(result).toBe(undefined);
@@ -20,8 +23,10 @@ describe("when number of months is 1", () => {
     const endMonth = addMonths(startingMonth, 3);
     it("the next month is not undefined", () => {
       const result = getNextMonth(startingMonth, {
+        numberOfMonths: 1,
         endMonth,
-        startMonth: undefined
+        startMonth: undefined,
+        dateLib
       });
       const expectedNextMonth = addMonths(startingMonth, 1);
       expect(result && isSameMonth(result, expectedNextMonth)).toBeTruthy();
@@ -31,8 +36,10 @@ describe("when number of months is 1", () => {
     const endMonth = startingMonth;
     it("the next month is undefined", () => {
       const result = getNextMonth(startingMonth, {
+        numberOfMonths: 1,
         endMonth,
-        startMonth: undefined
+        startMonth: undefined,
+        dateLib
       });
       expect(result).toBe(undefined);
     });
@@ -47,7 +54,8 @@ describe("when displaying 3 months", () => {
         numberOfMonths,
         pagedNavigation,
         startMonth: undefined,
-        endMonth: undefined
+        endMonth: undefined,
+        dateLib
       });
       const expectedNextMonth = addMonths(startingMonth, 3);
       expect(result && isSameMonth(result, expectedNextMonth)).toBeTruthy();
@@ -58,7 +66,8 @@ describe("when displaying 3 months", () => {
           numberOfMonths,
           pagedNavigation,
           startMonth: undefined,
-          endMonth: addMonths(startingMonth, 1)
+          endMonth: addMonths(startingMonth, 1),
+          dateLib
         });
         expect(result).toBe(undefined);
       });
@@ -71,7 +80,8 @@ describe("when displaying 3 months", () => {
         numberOfMonths,
         pagedNavigation,
         endMonth: undefined,
-        startMonth: undefined
+        startMonth: undefined,
+        dateLib
       });
       const expectedNextMonth = addMonths(startingMonth, 1);
       expect(result && isSameMonth(result, expectedNextMonth)).toBeTruthy();
@@ -82,7 +92,8 @@ describe("when displaying 3 months", () => {
           numberOfMonths,
           pagedNavigation,
           startMonth: undefined,
-          endMonth: addMonths(startingMonth, 2)
+          endMonth: addMonths(startingMonth, 2),
+          dateLib
         });
         expect(result).toBe(undefined);
       });

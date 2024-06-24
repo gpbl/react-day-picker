@@ -1,5 +1,5 @@
 ---
-name: 🐛 Bug report
+name: 🐛 Bug Report
 about: Create a reproducible bug report or a regression
 assignees: "gpbl"
 ---

@@ -1,8 +1,7 @@
 import React from "react";
 
 import { UI, CalendarFlag } from "../UI";
-import { useCalendar } from "../contexts/calendar";
-import { useProps } from "../contexts/props";
+import { useCalendar, useProps } from "../contexts";
 
 import { Footer as DefaultFooter } from "./Footer";
 import { Month as DefaultMonth } from "./Month";
@@ -15,7 +14,7 @@ import { Nav as DefaultNav } from "./Nav";
  * Use the `components` prop to swap this component with a custom one.
  *
  * @group Components
- * @see https://react-day-picker.js.org/advanced-guides/custom-components
+ * @see https://daypicker.dev/advanced-guides/custom-components
  */
 export function Calendar() {
   const {
@@ -45,13 +44,13 @@ export function Calendar() {
     cssClassNames.push(className);
   }
   if (numberOfMonths > 1) {
-    cssClassNames.push(classNames[CalendarFlag.hasMultipleMonths]);
+    cssClassNames.push(classNames[CalendarFlag.has_multiple_months]);
   }
   if (showWeekNumber) {
-    cssClassNames.push(classNames[CalendarFlag.hasWeekNumbers]);
+    cssClassNames.push(classNames[CalendarFlag.has_week_numbers]);
   }
   if (hideWeekdayRow) {
-    cssClassNames.push(classNames[CalendarFlag.noWeekdays]);
+    cssClassNames.push(classNames[CalendarFlag.no_weekdays]);
   }
 
   const Nav = components?.Nav ?? DefaultNav;
