@@ -1,7 +1,5 @@
 import React from "react";
 
-import MockDate from "mockdate";
-
 import { app, grid, nextButton, previousButton } from "@/test/elements";
 import { renderApp } from "@/test/renderApp";
 import { user } from "@/test/user";

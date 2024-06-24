@@ -1,5 +1,3 @@
-import { dateLib } from "../lib";
-
 import { formatDay } from "./formatDay";
 
 const date = new Date(2022, 10, 21);

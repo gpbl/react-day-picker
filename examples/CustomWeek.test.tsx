@@ -1,4 +1,4 @@
-import React, { act } from "react";
+import React from "react";
 
 import { gridcell } from "@/test/elements";
 import { render } from "@/test/render";

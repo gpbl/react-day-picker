@@ -13,7 +13,7 @@ import {
 
 import { dateLib } from "../";
 import type { PropsContextValue } from "../contexts/useProps";
-import type { MoveFocusBy, MoveFocusDir, Mode } from "../types";
+import type { MoveFocusBy, MoveFocusDir } from "../types";
 
 import { getPossibleFocusDate } from "./getPossibleFocusDate";
 
