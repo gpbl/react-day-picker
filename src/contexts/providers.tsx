@@ -1,9 +1,11 @@
 import React from "react";
 import type { PropsWithChildren } from "react";
 
+import { omitKeys } from "../helpers/omit";
 import { MultiProvider, RangeProvider, SingleProvider } from "../selection";
 import type {
   DayPickerProps,
+  PropsBase,
   PropsMulti,
   PropsRange,
   PropsSingle
@@ -32,13 +34,20 @@ function SelectionProviders({ children }: PropsWithChildren) {
  */
 export function ContextProviders(props: PropsWithChildren<DayPickerProps>) {
   const { children, ...initialProps } = props;
+
+  const baseProps = omitKeys(initialProps, [
+    "selected",
+    "min",
+    "max"
+  ]) as PropsBase;
+
   return (
-    <PropsContextProvider initialProps={initialProps}>
+    <PropsContextProvider {...baseProps}>
       <CalendarContextProvider>
         <SelectionProviders>
-          <ModifiersContextProvider>
-            <FocusContextProvider>{children}</FocusContextProvider>
-          </ModifiersContextProvider>
+          <FocusContextProvider>
+            <ModifiersContextProvider>{children}</ModifiersContextProvider>
+          </FocusContextProvider>
         </SelectionProviders>
       </CalendarContextProvider>
     </PropsContextProvider>
