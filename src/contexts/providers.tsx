@@ -14,14 +14,18 @@ import type {
 import { CalendarContextProvider } from "./useCalendar";
 import { FocusContextProvider } from "./useFocus";
 import { ModifiersContextProvider } from "./useModifiers";
-import { PropsContextProvider, useProps } from "./useProps";
+import { PropsContextProvider } from "./useProps";
 
-function SelectionProviders({ children }: PropsWithChildren) {
-  const props = useProps();
+function SelectionProviders(
+  props: PropsWithChildren<PropsSingle | PropsMulti | PropsRange | object>
+) {
+  const { children, ...selectionProps } = props;
   return (
-    <SingleProvider {...(props as PropsSingle)}>
-      <MultiProvider {...(props as PropsMulti)}>
-        <RangeProvider {...(props as PropsRange)}>{children}</RangeProvider>
+    <SingleProvider {...(selectionProps as PropsSingle)}>
+      <MultiProvider {...(selectionProps as PropsMulti)}>
+        <RangeProvider {...(selectionProps as PropsRange)}>
+          {children}
+        </RangeProvider>
       </MultiProvider>
     </SingleProvider>
   );
@@ -38,16 +42,17 @@ export function ContextProviders(props: PropsWithChildren<DayPickerProps>) {
   const baseProps = omitKeys(initialProps, [
     "selected",
     "min",
-    "max"
+    "max",
+    "onSelect"
   ]) as PropsBase;
 
   return (
     <PropsContextProvider {...baseProps}>
       <CalendarContextProvider>
-        <SelectionProviders>
-          <FocusContextProvider>
-            <ModifiersContextProvider>{children}</ModifiersContextProvider>
-          </FocusContextProvider>
+        <SelectionProviders {...initialProps}>
+          <ModifiersContextProvider>
+            <FocusContextProvider>{children}</FocusContextProvider>
+          </ModifiersContextProvider>
         </SelectionProviders>
       </CalendarContextProvider>
     </PropsContextProvider>

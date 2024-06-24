@@ -1,4 +1,4 @@
-import React, { type ReactElement, createContext, useContext } from "react";
+import React, { createContext, useContext, ReactNode } from "react";
 
 import { DayFlag, SelectionState } from "../UI";
 import { CalendarDay } from "../classes";
@@ -194,7 +194,7 @@ function useModifiersContextValue(): ModifiersContextValue {
 export function ModifiersContextProvider({
   children
 }: {
-  children: ReactElement;
+  children: ReactNode;
 }) {
   const modifiers = useModifiersContextValue();
 
