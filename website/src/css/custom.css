@@ -53,8 +53,6 @@ html[data-theme="dark"] {
   --ifm-color-primary-lighter: #23d1ff;
   --ifm-color-primary-lightest: #49d9ff;
 
-  --ifm-color-content: #fafafa;
-  /* --ifm-menu-color: var(--ifm-color-emphasis-400); */
   --ifm-table-background: rgba(0, 0, 0, 0.1);
   --ifm-table-border-color: var(--ifm-color-emphasis-100);
 
