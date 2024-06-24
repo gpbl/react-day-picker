@@ -38,13 +38,16 @@ function useRangeContextValue<T extends PropsRange>({
 
   // Update the selected date if the required flag is set.
   React.useEffect(() => {
-    if (required && range === undefined)
+    if (mode !== "multiple") return;
+    if (required && range === undefined) {
       setRange({ from: undefined, to: undefined });
-  }, [required, range]);
+    }
+  }, [required, range, mode]);
 
   // Update the selected date if the selected changes.
   React.useEffect(() => {
-    mode === "range" && setRange(selected);
+    if (mode !== "range") return;
+    setRange(selected);
   }, [mode, selected]);
 
   const isSelected = required

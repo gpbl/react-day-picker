@@ -7,7 +7,8 @@ import {
   DayPicker,
   DayPickerProps,
   Mode,
-  isDateRange
+  isDateRange,
+  isSingle
 } from "react-day-picker";
 import { DayPicker as DayPickerUtc } from "react-day-picker/utc";
 
@@ -336,13 +337,14 @@ export default function Playground() {
                 <select
                   name="mode"
                   onChange={(e) => {
-                    const mode = e.target.value as Mode | undefined;
-                    setSelected(undefined);
-                    setProps({
+                    const mode = e.target.value || undefined;
+                    const newProps = {
                       ...props,
-                      // @ts-expect-error now we know it's valid
                       mode
-                    });
+                    };
+                    setSelected(undefined);
+                    // @ts-expect-error Not working well with the union type
+                    setProps(newProps);
                   }}
                   value={props.mode}
                 >

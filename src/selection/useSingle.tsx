@@ -43,11 +43,13 @@ function useSingleContextValue<T extends PropsSingle>({
 
   // Update the selected date if the `selected` value changes.
   React.useEffect(() => {
-    mode === "single" && setDate(selected);
+    if (mode !== "single") return;
+    setDate(selected);
   }, [mode, selected]);
 
-  const isSelected = (compareDate: Date) =>
-    date ? isSameDay(date, compareDate) : false;
+  const isSelected = (compareDate: Date) => {
+    return date ? isSameDay(date, compareDate) : false;
+  };
 
   const setSelected = (
     triggerDate: Date,

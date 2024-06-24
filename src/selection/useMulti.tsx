@@ -31,6 +31,7 @@ function useMultiContextValue<T extends PropsMulti>({
   onSelect
 }: T): MultiContextValue<T> {
   const {
+    mode,
     dateLib: { isSameDay, Date }
   } = useProps();
 
@@ -38,15 +39,17 @@ function useMultiContextValue<T extends PropsMulti>({
 
   // Update the selected date if the required flag is set.
   React.useEffect(() => {
+    if (mode !== "multiple") return;
     if (required && dates === undefined) {
       setDates([new Date()]);
     }
-  }, [required, dates, Date]);
+  }, [required, dates, Date, mode]);
 
   // Update the selected date if the selected value from props changes.
   React.useEffect(() => {
+    if (mode !== "multiple") return;
     setDates(selected);
-  }, [selected]);
+  }, [mode, selected]);
 
   const isSelected = (date: Date) => {
     return dates?.some((d) => isSameDay(d, date)) ?? false;
