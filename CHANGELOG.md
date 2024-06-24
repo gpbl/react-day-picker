@@ -16,24 +16,37 @@ npm install react-day-picker@next
 
 ### What’s New in DayPicker 9
 
-- Requires React 18+ for DayPicker.
-- Adds support for UTC dates.
-- Improves selection mode logic for range dates.
-- Updates HTML output to use `div` grids instead of tables.
-- Simplifies styles and selectors with new CSS variables.
-- Enhances accessibility to comply with WCAG 2.1 AA.
-- Improves typings and props for better compatibility in `strict` mode.
-- Updates the custom components system.
-- Improves rendering performance and reduces memory impact.
-- Adds support for the Jalali Calendar.
-- Removes the `useInput` hook (see documentation for alternatives).
-- Adds `hideWeekdayRow` and `hideNavigation` props.
+This release includes important updates related to accessibility, styles and performance.
 
-### Breaking Changes
+#### At a glance
 
-Upgrading to v9 will require some changes in your code. See the [migration guide](https://daypicker.dev/next/upgrading) for more information.
+- Enhanced accessibility to better comply with [WCAG21](https://www.w3.org/TR/WCAG21/) recommendations.
+- New HTML output using `div` grids instead of tables.
+- Simplified styles and selectors with new CSS variables.
+- Added support for UTC dates.
+- Improved selection logic for range mode.
+- Improved typings and props for better compatibility in `strict` mode.
+- The custom components system has been updated. Now all components can be customized.
+- Improved rendering performance and reduced memory impact.
+- Added support for the Jalali Calendar.
+- Added new `hideWeekdayRow` and `hideNavigation` props.
+- New `dropdown-years` and `dropdown-months` caption layouts.
 
-### Help Testing this Version
+#### Breaking Changes
+
+We tried to keep breaking changes to a minimum, but were inevitable to improve the library. Here are the most important changes:
+
+- Requires React 18+.
+- The updated HTML output could break unit tests.
+- Custom styles will likely not work.
+- Some ARIA labels have been changed.
+- Custom Components may break.
+- Some typings have been renamed or deprecated.
+- Removed the `useInput` hook (see documentation for alternatives).
+
+See the [migration guide](https://daypicker.dev/next/upgrading) for help upgrading your app.
+
+#### Help Testing this Version
 
 Please report any issues or provide feedback on the [GitHub repository](https://github.com/gpbl/react-day-picker/discussions/categories/daypicker-v9).
 
