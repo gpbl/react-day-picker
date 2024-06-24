@@ -72,7 +72,7 @@ export default function Playground() {
         `}
       </style>
       <div className={styles.playground}>
-        <h1>DayPicker v9 Playground</h1>
+        <h1>Playground</h1>
         <form className={styles.form}>
           <fieldset>
             <legend>Customization</legend>
