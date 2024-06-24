@@ -2,7 +2,7 @@ import React from "react";
 
 import { useProps } from "../contexts";
 import { DateRange, Modifiers, PropsRange } from "../types";
-import { addToRange } from "../utils";
+import { addToRange, dateMatchModifiers } from "../utils";
 import { isDateInRange } from "../utils/isDateInRange";
 
 export type RangeContextValue<T> = {
@@ -82,6 +82,18 @@ function useRangeContextValue<T extends PropsRange>({
       ) {
         newRange.from = triggerDate;
         newRange.to = undefined;
+      }
+    }
+
+    if (newRange?.from && newRange.to) {
+      let newDate = newRange.from;
+      while (dateLib.differenceInCalendarDays(newRange.to, newDate) > 0) {
+        newDate = dateLib.addDays(newDate, 1);
+        if (disabled && dateMatchModifiers(newDate, disabled)) {
+          newRange.from = triggerDate;
+          newRange.to = undefined;
+          break;
+        }
       }
     }
 
