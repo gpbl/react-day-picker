@@ -23,6 +23,14 @@ describe("when a day is clicked", () => {
   test("should appear as selected", () => {
     expect(gridcell(day1)).toHaveAttribute("aria-selected", "true");
   });
+  describe("when the same day is clicked again", () => {
+    beforeEach(async () => {
+      await user.click(gridcell(day1));
+    });
+    test("should appear as not selected", () => {
+      expect(gridcell(day1)).not.toHaveAttribute("aria-selected");
+    });
+  });
   describe("when a second day is clicked", () => {
     const day2 = new Date(2021, 10, 2);
     beforeEach(async () => {

@@ -31,30 +31,33 @@ function useMultiContextValue<T extends PropsMulti>({
   onSelect
 }: T): MultiContextValue<T> {
   const {
-    mode,
     dateLib: { isSameDay, Date }
   } = useProps();
+
   const [dates, setDates] = React.useState<Date[] | undefined>(selected);
 
   // Update the selected date if the required flag is set.
   React.useEffect(() => {
-    if (required && dates === undefined) setDates([new Date()]);
+    if (required && dates === undefined) {
+      setDates([new Date()]);
+    }
   }, [required, dates, Date]);
 
   // Update the selected date if the selected value from props changes.
   React.useEffect(() => {
-    mode === "multiple" && setDates(selected);
-  }, [mode, selected]);
+    setDates(selected);
+  }, [selected]);
 
-  const isSelected = (date: Date) =>
-    dates?.some((d) => isSameDay(d, date)) ?? false;
+  const isSelected = (date: Date) => {
+    return dates?.some((d) => isSameDay(d, date)) ?? false;
+  };
 
   const setSelected = (
     triggerDate: Date,
     modifiers: Modifiers,
     e: React.MouseEvent | React.KeyboardEvent
   ) => {
-    let newDates = [...(dates ?? [])];
+    let newDates: Date[] | undefined = [...(dates ?? [])];
     if (isSelected(triggerDate)) {
       if (dates?.length === min) {
         // Min value reached, do nothing
@@ -64,8 +67,7 @@ function useMultiContextValue<T extends PropsMulti>({
         // Required value already selected do nothing
         return;
       }
-      const newDates = dates?.filter((d) => !isSameDay(d, triggerDate));
-      setDates(newDates);
+      newDates = dates?.filter((d) => !isSameDay(d, triggerDate));
     } else {
       if (dates?.length === max) {
         // Max value reached, reset the selection to date
@@ -75,6 +77,7 @@ function useMultiContextValue<T extends PropsMulti>({
         newDates = [...newDates, triggerDate];
       }
     }
+
     onSelect?.(newDates, triggerDate, modifiers, e);
     setDates(newDates);
     return newDates;
