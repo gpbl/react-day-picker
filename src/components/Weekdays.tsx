@@ -27,7 +27,10 @@ export function Weekdays() {
     weekStartsOn
   } = useProps();
 
-  const weekdays = getWeekdays(locale, weekStartsOn, ISOWeek, dateLib);
+  const weekdays = React.useMemo(
+    () => getWeekdays(locale, weekStartsOn, ISOWeek, dateLib),
+    [ISOWeek, dateLib, locale, weekStartsOn]
+  );
   const Weekday = components?.Weekday ?? DefaultWeekday;
 
   return (
