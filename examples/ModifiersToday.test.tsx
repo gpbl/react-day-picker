@@ -2,7 +2,7 @@ import React from "react";
 
 import { addDays } from "date-fns";
 
-import { gridcell, app } from "@/test/elements";
+import { dateButton, app } from "@/test/elements";
 import { renderApp } from "@/test/renderApp";
 import { user } from "@/test/user";
 
@@ -19,7 +19,7 @@ beforeEach(() => {
 
 describe("when rendering a month that contains today", () => {
   test("it should add the default class name for today", () => {
-    expect(gridcell(today)).toHaveClass("rdp-today");
+    expect(dateButton(today)).toHaveClass("rdp-today");
   });
   test('it should have exactly one ".day_today" class', () => {
     const todays = app().querySelectorAll(".rdp-today");
@@ -29,7 +29,7 @@ describe("when rendering a month that contains today", () => {
 
 describe("when the today date is clicked", () => {
   beforeEach(async () => {
-    await user.click(gridcell(today));
+    await user.click(dateButton(today));
   });
   test("should update the footer", () => {
     expect(app()).toHaveTextContent("You clicked the today’s date");
@@ -38,7 +38,7 @@ describe("when the today date is clicked", () => {
 
 describe("when another date is clicked", () => {
   const date = addDays(today, 1);
-  beforeEach(async () => user.click(gridcell(date)));
+  beforeEach(async () => user.click(dateButton(date)));
   test("should update the footer", () => {
     expect(app()).toHaveTextContent("Try clicking the today’s date.");
   });

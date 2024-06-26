@@ -1,6 +1,6 @@
 import React from "react";
 
-import { app, grid, gridcell } from "@/test/elements";
+import { app, grid, dateButton } from "@/test/elements";
 import { act, render, screen } from "@/test/render";
 import { user } from "@/test/user";
 
@@ -18,7 +18,7 @@ beforeEach(() => {
       <Disabled />
     </div>
   );
-  return act(() => gridcell(firstOfMonth).focus());
+  return act(() => dateButton(firstOfMonth).focus());
 });
 
 test("should not display the previous button", () => {

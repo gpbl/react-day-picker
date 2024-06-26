@@ -2,7 +2,7 @@ import React from "react";
 
 import { addDays } from "date-fns";
 
-import { gridcell } from "@/test/elements";
+import { dateButton } from "@/test/elements";
 import { render, screen } from "@/test/render";
 import { user } from "@/test/user";
 
@@ -24,31 +24,31 @@ test("should match the snapshot", () => {
   expect(container).toMatchSnapshot();
 });
 test.each(days)("%s should be selected", (day) => {
-  expect(gridcell(day)).toHaveAttribute("aria-selected", "true");
+  expect(dateButton(day)).toHaveAttribute("aria-selected", "true");
 });
 
 describe("when a day in the range is clicked", () => {
   const day = days[2];
-  beforeEach(async () => user.click(gridcell(day)));
+  beforeEach(async () => user.click(dateButton(day)));
   test.each([days[0], days[1], day])("%s should be selected", (day) => {
-    expect(gridcell(day)).toHaveAttribute("aria-selected", "true");
+    expect(dateButton(day)).toHaveAttribute("aria-selected", "true");
   });
   test.each([days[3], days[4]])("%s should not be selected", (day) => {
-    expect(gridcell(day)).not.toHaveAttribute("aria-selected");
+    expect(dateButton(day)).not.toHaveAttribute("aria-selected");
   });
   describe("when the day is clicked again", () => {
     const day = days[2];
-    beforeEach(async () => user.click(gridcell(day)));
+    beforeEach(async () => user.click(dateButton(day)));
     test("only one day should be selected", () => {
       expect(getAllSelectedDays()).toHaveLength(1);
     });
     test("only a day in the range should be selected", () => {
-      expect(gridcell(day)).toHaveAttribute("aria-selected", "true");
+      expect(dateButton(day)).toHaveAttribute("aria-selected", "true");
     });
 
     describe("when a day in the range is clicked again", () => {
       const day = days[2];
-      beforeEach(async () => user.click(gridcell(day)));
+      beforeEach(async () => user.click(dateButton(day)));
       test("no day should be selected", () => {
         expect(getAllSelectedDays()).toHaveLength(0);
       });

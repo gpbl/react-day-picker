@@ -2,7 +2,7 @@ import React from "react";
 
 import { render } from "@testing-library/react";
 
-import { gridcell } from "@/test/elements";
+import { dateButton } from "@/test/elements";
 import { user } from "@/test/user";
 
 import { Single } from "./Single";
@@ -19,20 +19,20 @@ beforeEach(() => {
 describe("when a day is clicked", () => {
   const day = new Date(2021, 10, 1);
   beforeEach(async () => {
-    await user.click(gridcell(day));
+    await user.click(dateButton(day));
   });
   test("should appear as selected", () => {
-    expect(gridcell(day)).toHaveAttribute("aria-selected", "true");
-    expect(gridcell(day)).toHaveFocus();
-    expect(gridcell(day)).toHaveClass("rdp-selected");
+    expect(dateButton(day)).toHaveAttribute("aria-selected", "true");
+    expect(dateButton(day)).toHaveFocus();
+    expect(dateButton(day)).toHaveClass("rdp-selected");
   });
   describe("when the day is clicked again", () => {
     beforeEach(async () => {
-      await user.click(gridcell(day));
+      await user.click(dateButton(day));
     });
     test("should not appear as selected", () => {
-      expect(gridcell(day)).not.toHaveAttribute("aria-selected");
-      expect(gridcell(day)).not.toHaveClass("rdp-selected");
+      expect(dateButton(day)).not.toHaveAttribute("aria-selected");
+      expect(dateButton(day)).not.toHaveClass("rdp-selected");
     });
   });
 });

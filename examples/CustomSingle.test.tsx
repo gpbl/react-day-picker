@@ -1,6 +1,6 @@
 import React from "react";
 
-import { gridcell } from "@/test/elements";
+import { dateButton, gridcell } from "@/test/elements";
 import { render, screen } from "@/test/render";
 import { user } from "@/test/user";
 
@@ -17,9 +17,9 @@ beforeEach(() => {
 
 describe("when a day is clicked", () => {
   beforeEach(async () => {
-    await user.click(gridcell(today));
+    await user.click(dateButton(today));
   });
-  test("should appear as selected", () => {
+  test("the gridcell should appear as selected", () => {
     expect(gridcell(today)).toHaveAttribute("aria-selected", "true");
   });
   test("should update the footer", () => {
@@ -29,10 +29,10 @@ describe("when a day is clicked", () => {
   });
   describe("when clicking the day again", () => {
     beforeEach(async () => {
-      await user.click(gridcell(today));
+      await user.click(dateButton(today));
     });
     test("should not appear as selected", () => {
-      expect(gridcell(today)).not.toHaveAttribute("aria-selected", "true");
+      expect(dateButton(today)).not.toHaveAttribute("aria-selected", "true");
     });
     test("should update the footer", () => {
       expect(

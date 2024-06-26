@@ -271,46 +271,58 @@ export function Calendar() {
                           return (
                             <Day
                               key={`${format(d, "yyyy-MM-dd")}_${format(day.displayMonth, "yyyy-MM")}`}
-                              data-day={format(d, "yyyy-MM-dd")}
-                              data-month={format(d, "yyyy-MM")}
-                              data-selected={m.selected || undefined}
-                              data-disabled={m.disabled || undefined}
-                              data-hidden={m.hidden || undefined}
-                              data-focused={isFocused || undefined}
                               day={day}
                               modifiers={m}
                               role="gridcell"
                               className={className.join(" ")}
                               style={style}
-                              tabIndex={isFocused || isAutoFocusTarget ? 0 : -1}
                               aria-colindex={showWeekNumber ? i + 2 : i + 1}
-                              aria-label={labelDay(d, m, { locale }, dateLib)}
-                              aria-disabled={m.disabled || undefined}
+                              aria-label={
+                                labelDay(d, m, { locale }, dateLib) || undefined
+                              }
                               aria-hidden={m.hidden || undefined}
                               aria-selected={m.selected || undefined}
-                              onClick={isInteractive ? handleClick : undefined}
-                              onBlur={(e) => {
-                                focus.blur();
-                                onDayBlur?.(d, m, e);
-                              }}
-                              onFocus={handleFocus}
-                              onKeyDown={handleKeyDown}
-                              onKeyPress={(e) => onDayKeyPress?.(d, m, e)}
-                              onKeyUp={(e) => onDayKeyUp?.(d, m, e)}
-                              onMouseEnter={(e) => onDayMouseEnter?.(d, m, e)}
-                              onMouseLeave={(e) => onDayMouseLeave?.(d, m, e)}
-                              onPointerEnter={(e) =>
-                                onDayPointerEnter?.(d, m, e)
-                              }
-                              onPointerLeave={(e) =>
-                                onDayPointerLeave?.(d, m, e)
-                              }
-                              onTouchCancel={(e) => onDayTouchCancel?.(d, m, e)}
-                              onTouchEnd={(e) => onDayTouchEnd?.(d, m, e)}
-                              onTouchMove={(e) => onDayTouchMove?.(d, m, e)}
-                              onTouchStart={(e) => onDayTouchStart?.(d, m, e)}
                             >
-                              <DayDate day={day} modifiers={m}>
+                              <DayDate
+                                day={day}
+                                modifiers={m}
+                                disabled={m.disabled || undefined}
+                                tabIndex={
+                                  isFocused || isAutoFocusTarget ? 0 : -1
+                                }
+                                aria-label={labelDay(d, m, { locale }, dateLib)} // TODO: use labelDayDate
+                                data-day={format(d, "yyyy-MM-dd")}
+                                data-month={format(d, "yyyy-MM")}
+                                data-selected={m.selected || undefined}
+                                data-disabled={m.disabled || undefined}
+                                data-hidden={m.hidden || undefined}
+                                data-focused={isFocused || undefined}
+                                onClick={
+                                  isInteractive ? handleClick : undefined
+                                }
+                                onBlur={(e) => {
+                                  focus.blur();
+                                  onDayBlur?.(d, m, e);
+                                }}
+                                onFocus={handleFocus}
+                                onKeyDown={handleKeyDown}
+                                onKeyPress={(e) => onDayKeyPress?.(d, m, e)}
+                                onKeyUp={(e) => onDayKeyUp?.(d, m, e)}
+                                onMouseEnter={(e) => onDayMouseEnter?.(d, m, e)}
+                                onMouseLeave={(e) => onDayMouseLeave?.(d, m, e)}
+                                onPointerEnter={(e) =>
+                                  onDayPointerEnter?.(d, m, e)
+                                }
+                                onPointerLeave={(e) =>
+                                  onDayPointerLeave?.(d, m, e)
+                                }
+                                onTouchCancel={(e) =>
+                                  onDayTouchCancel?.(d, m, e)
+                                }
+                                onTouchEnd={(e) => onDayTouchEnd?.(d, m, e)}
+                                onTouchMove={(e) => onDayTouchMove?.(d, m, e)}
+                                onTouchStart={(e) => onDayTouchStart?.(d, m, e)}
+                              >
                                 {formatDay(d, { locale }, dateLib)}
                               </DayDate>
                             </Day>

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { activeElement, gridcell } from "@/test/elements";
+import { activeElement, dateButton } from "@/test/elements";
 import { render } from "@/test/render";
 import { user } from "@/test/user";
 
@@ -20,5 +20,5 @@ test("the first selected day should have focus", async () => {
   await user.type(activeElement(), "{arrowdown}");
   await user.type(activeElement(), "{arrowdown}");
   await user.type(activeElement(), "{arrowdown}");
-  expect(gridcell(new Date(2022, 5, 22))).toHaveFocus();
+  expect(dateButton(new Date(2022, 5, 22))).toHaveFocus();
 });

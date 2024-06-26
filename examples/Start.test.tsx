@@ -1,6 +1,6 @@
 import React from "react";
 
-import { nextButton, gridcell, previousButton } from "@/test/elements";
+import { nextButton, dateButton, previousButton } from "@/test/elements";
 import { render } from "@/test/render";
 import { user } from "@/test/user";
 
@@ -31,7 +31,7 @@ const day = new Date(2021, 10, 1);
 
 describe("when a day is clicked", () => {
   test("should appear as selected", async () => {
-    await user.click(gridcell(day));
-    expect(gridcell(day)).toHaveAttribute("aria-selected", "true");
+    await user.click(dateButton(day));
+    expect(dateButton(day)).toHaveAttribute("aria-selected", "true");
   });
 });

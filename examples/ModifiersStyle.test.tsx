@@ -1,6 +1,6 @@
 import React from "react";
 
-import { gridcell } from "@/test/elements";
+import { dateButton } from "@/test/elements";
 import { render } from "@/test/render";
 
 import { ModifiersStyle } from "./ModifiersStyle";
@@ -20,5 +20,5 @@ const style = {
   color: "lightgreen"
 };
 test.each(days)("The day %s should have the proper inline style", (day) => {
-  expect(gridcell(day)).toHaveStyle(style);
+  expect(dateButton(day)).toHaveStyle(style);
 });

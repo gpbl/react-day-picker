@@ -1,6 +1,6 @@
 import React from "react";
 
-import { gridcell } from "@/test/elements";
+import { dateButton } from "@/test/elements";
 import { render } from "@/test/render";
 
 import { ModifiersDisabled } from "./ModifiersDisabled";
@@ -13,5 +13,5 @@ const days = [
 
 test.each(days)("the day %s should be disabled", (day) => {
   render(<ModifiersDisabled />);
-  expect(gridcell(day)).toHaveAttribute("aria-disabled", "true");
+  expect(dateButton(day)).toHaveAttribute("aria-disabled", "true");
 });

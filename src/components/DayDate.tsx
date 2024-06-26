@@ -19,15 +19,19 @@ export function DayDate(
     /** The modifiers for the day. */
     modifiers: Modifiers;
     children: ReactNode;
-  } & JSX.IntrinsicElements["span"]
+  } & JSX.IntrinsicElements["button"]
 ) {
-  const { day, modifiers, ...spanProps } = props;
-  const { classNames, styles } = useProps();
+  const { day, modifiers, ...buttonProps } = props;
+  const {
+    classNames,
+    styles,
+    components: { Button }
+  } = useProps();
   return (
-    <span
+    <Button
       className={classNames[UI.DayDate]}
       style={styles?.[UI.DayDate]}
-      {...spanProps}
+      {...buttonProps}
     />
   );
 }

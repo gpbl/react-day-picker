@@ -45,6 +45,15 @@ export function nav() {
 }
 
 /**
+ * Return the button element with the date
+ *
+ * @param {Date} date - The date to match the button name.
+ */
+export function dateButton(date: Date) {
+  return screen.getByRole("button", { name: String(date.getDate()) });
+}
+
+/**
  * Return the gridcell element from the screen.
  *
  * @param {Date} date - The date to match the gridcell name.
