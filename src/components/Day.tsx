@@ -1,7 +1,9 @@
 import React from "react";
 import type { ReactNode } from "react";
 
+import { UI } from "../UI";
 import type { CalendarDay } from "../classes";
+import { useProps } from "../contexts";
 import type { Modifiers } from "../types";
 
 /**
@@ -15,39 +17,22 @@ import type { Modifiers } from "../types";
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function Day(props: {
-  day: CalendarDay;
-  modifiers: Modifiers;
-  children?: ReactNode;
-  rootProps: Pick<
-    JSX.IntrinsicElements["div"],
-    | "className"
-    | "style"
-    | "tabIndex"
-    | "aria-colindex"
-    | "aria-disabled"
-    | "aria-hidden"
-    | "aria-label"
-    | "aria-selected"
-    | "onClick"
-    | "onBlur"
-    | "onFocus"
-    | "onKeyDown"
-    | "onKeyPress"
-    | "onKeyUp"
-    | "onMouseEnter"
-    | "onMouseLeave"
-    | "onPointerEnter"
-    | "onPointerLeave"
-    | "onTouchCancel"
-    | "onTouchEnd"
-    | "onTouchMove"
-    | "onTouchStart"
-    | "ref"
-    | "role"
-  >;
-}) {
-  return <div {...props.rootProps}>{props.children}</div>;
+export function Day(
+  props: {
+    day: CalendarDay;
+    modifiers: Modifiers;
+    children?: ReactNode;
+  } & JSX.IntrinsicElements["div"]
+) {
+  const { day, modifiers, ...divProps } = props;
+  const { classNames, styles } = useProps();
+  return (
+    <div
+      className={classNames[UI.Day]}
+      style={styles?.[UI.Day]}
+      {...divProps}
+    />
+  );
 }
 
 export type DayProps = Parameters<typeof Day>[0];

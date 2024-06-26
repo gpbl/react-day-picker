@@ -10,7 +10,7 @@ import {
 
 function DayWithShiftKey(props: DayProps) {
   const { selected } = useRange();
-  const onClick = props.rootProps?.onClick;
+  const onClick = props.onClick;
 
   const handleClick: MouseEventHandler<HTMLDivElement> = (e) => {
     if (
@@ -24,7 +24,7 @@ function DayWithShiftKey(props: DayProps) {
     onClick?.(e);
   };
   return (
-    <div {...props.rootProps} onClick={handleClick}>
+    <div {...props} onClick={handleClick}>
       {props.children}
     </div>
   );

@@ -1,6 +1,8 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
+import { UI } from "../UI";
 import type { CalendarDay } from "../classes";
+import { useProps } from "../contexts";
 import type { Modifiers } from "../types";
 
 /**
@@ -11,19 +13,23 @@ import type { Modifiers } from "../types";
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function DayDate(props: {
-  day: CalendarDay;
-  /** The date to display. */
-  formattedDate: string;
-  /** The modifiers for the day. */
-  modifiers: Modifiers;
-  /** The HTML attributes for the root element. */
-  rootProps: {
-    className: string;
-    style?: React.CSSProperties;
-  };
-}) {
-  return <span {...props.rootProps}>{props.formattedDate}</span>;
+export function DayDate(
+  props: {
+    day: CalendarDay;
+    /** The modifiers for the day. */
+    modifiers: Modifiers;
+    children: ReactNode;
+  } & JSX.IntrinsicElements["span"]
+) {
+  const { day, modifiers, ...spanProps } = props;
+  const { classNames, styles } = useProps();
+  return (
+    <span
+      className={classNames[UI.DayDate]}
+      style={styles?.[UI.DayDate]}
+      {...spanProps}
+    />
+  );
 }
 
 export type DayDateProps = Parameters<typeof DayDate>[0];

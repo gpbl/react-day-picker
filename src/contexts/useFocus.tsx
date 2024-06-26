@@ -6,6 +6,8 @@ import React, {
   useState
 } from "react";
 
+import { format } from "date-fns";
+
 import { DayFlag } from "../UI";
 import type { CalendarDay } from "../classes";
 import { getNextFocus } from "../helpers/getNextFocus";
@@ -34,8 +36,10 @@ export type FocusContextValue = {
    * @private
    */
   initiallyFocused: boolean;
+
   /** Focus the given day. */
-  focus: (day: CalendarDay | undefined) => void;
+  setFocused: (day: CalendarDay | undefined) => void;
+
   /**
    * Set the last focused day.
    *
@@ -78,7 +82,7 @@ function useFocusContextValue(): FocusContextValue {
     getModifiers
   } = useModifiers();
 
-  const [focused, focus] = useState<CalendarDay | undefined>();
+  const [focused, setFocused] = useState<CalendarDay | undefined>();
   const [lastFocused, setLastFocused] = useState<CalendarDay | undefined>();
   const [initiallyFocused, setInitiallyFocused] = useState(false);
 
@@ -102,10 +106,26 @@ function useFocusContextValue(): FocusContextValue {
       autoFocusTarget = selection.selected[0];
     } else if (today && isValidFocusTarget(today)) {
       autoFocusTarget = today;
-    } else if (internal.focusable[0]) {
-      autoFocusTarget = internal.focusable[0];
+    } else if (
+      !internal.disabled[0] &&
+      isValidFocusTarget(internal.disabled[0])
+    ) {
+      // autoFocusTarget = internal.focusable[0];
     }
   }
+
+  useEffect(() => {
+    if (!focused) return;
+
+    const dataDay = format(focused.date, "yyyy-MM-dd");
+    const dataMonth = format(focused.displayMonth, "yyyy-MM");
+
+    const dayCell = window.document.querySelector(
+      `[data-day="${dataDay}"][data-month="${dataMonth}"]`
+    ) as HTMLDivElement | null;
+
+    dayCell?.focus();
+  }, [focused]);
 
   // Focus the focus target when autoFocus is passed in
   useEffect(() => {
@@ -114,12 +134,12 @@ function useFocusContextValue(): FocusContextValue {
     if (!initiallyFocused) return;
     // TODO: bug here?
     setInitiallyFocused(true);
-    focus(autoFocusTarget);
+    setFocused(autoFocusTarget);
   }, [autoFocus, autoFocusTarget, focused, initiallyFocused]);
 
   const blur = () => {
     setLastFocused(focused);
-    focus(undefined);
+    setFocused(undefined);
   };
 
   function moveFocus(moveBy: MoveFocusBy, moveDir: MoveFocusDir) {
@@ -128,13 +148,13 @@ function useFocusContextValue(): FocusContextValue {
     if (!nextFocus) return;
 
     goToDay(nextFocus);
-    focus(nextFocus);
+    setFocused(nextFocus);
   }
 
   const contextValue: FocusContextValue = {
     autoFocusTarget,
     initiallyFocused,
-    focus,
+    setFocused,
     focused,
     setLastFocused,
     blur,

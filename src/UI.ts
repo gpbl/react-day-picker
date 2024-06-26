@@ -73,8 +73,6 @@ export enum DayFlag {
   hidden = "hidden",
   /** The day is outside the current month */
   outside = "outside",
-  /** The day is focusable. */
-  focusable = "focusable",
   /** The day is focused. */
   focused = "focused",
   /** The day is today. */

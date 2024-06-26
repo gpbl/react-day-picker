@@ -149,6 +149,9 @@ exports[`should match the snapshot 1`] = `
                 aria-hidden="true"
                 aria-label=""
                 class="rdp-day rdp-hidden rdp-outside"
+                data-day="2020-05-31"
+                data-hidden="true"
+                data-month="2020-05"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -161,7 +164,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="2"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-01"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -174,7 +179,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="3"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-02"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -187,7 +194,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="4"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-03"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -200,7 +209,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="5"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-04"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -213,7 +224,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="6"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-05"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -226,7 +239,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="7"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-06"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -245,7 +260,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="1"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-07"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -258,7 +275,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="2"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-08"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -271,7 +290,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="3"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-09"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -284,7 +305,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="4"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-10"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -297,7 +320,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="5"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-11"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -310,7 +335,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="6"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-12"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -323,7 +350,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="7"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-13"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -342,7 +371,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="1"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-14"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -356,7 +387,10 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="2"
                 aria-label=""
                 aria-selected="true"
-                class="rdp-day rdp-range_start rdp-selected rdp-focusable"
+                class="rdp-day rdp-range_start rdp-selected"
+                data-day="2020-06-15"
+                data-month="2020-06"
+                data-selected="true"
                 role="gridcell"
                 tabindex="0"
               >
@@ -370,7 +404,10 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="3"
                 aria-label=""
                 aria-selected="true"
-                class="rdp-day rdp-range_middle rdp-selected rdp-focusable"
+                class="rdp-day rdp-range_middle rdp-selected"
+                data-day="2020-06-16"
+                data-month="2020-06"
+                data-selected="true"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -384,7 +421,10 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="4"
                 aria-label=""
                 aria-selected="true"
-                class="rdp-day rdp-range_middle rdp-selected rdp-focusable"
+                class="rdp-day rdp-range_middle rdp-selected"
+                data-day="2020-06-17"
+                data-month="2020-06"
+                data-selected="true"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -398,7 +438,10 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="5"
                 aria-label=""
                 aria-selected="true"
-                class="rdp-day rdp-range_middle rdp-selected rdp-focusable"
+                class="rdp-day rdp-range_middle rdp-selected"
+                data-day="2020-06-18"
+                data-month="2020-06"
+                data-selected="true"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -412,7 +455,10 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="6"
                 aria-label=""
                 aria-selected="true"
-                class="rdp-day rdp-range_end rdp-selected rdp-focusable"
+                class="rdp-day rdp-range_end rdp-selected"
+                data-day="2020-06-19"
+                data-month="2020-06"
+                data-selected="true"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -425,7 +471,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="7"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-20"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -444,7 +492,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="1"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-21"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -457,7 +507,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="2"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-22"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -470,7 +522,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="3"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-23"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -483,7 +537,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="4"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-24"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -496,7 +552,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="5"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-25"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -509,7 +567,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="6"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-26"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -522,7 +582,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="7"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-27"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -541,7 +603,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="1"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-28"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -554,7 +618,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="2"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-29"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -567,7 +633,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="3"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-30"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -582,6 +650,9 @@ exports[`should match the snapshot 1`] = `
                 aria-hidden="true"
                 aria-label=""
                 class="rdp-day rdp-hidden rdp-outside"
+                data-day="2020-07-01"
+                data-hidden="true"
+                data-month="2020-07"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -596,6 +667,9 @@ exports[`should match the snapshot 1`] = `
                 aria-hidden="true"
                 aria-label=""
                 class="rdp-day rdp-hidden rdp-outside"
+                data-day="2020-07-02"
+                data-hidden="true"
+                data-month="2020-07"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -610,6 +684,9 @@ exports[`should match the snapshot 1`] = `
                 aria-hidden="true"
                 aria-label=""
                 class="rdp-day rdp-hidden rdp-outside"
+                data-day="2020-07-03"
+                data-hidden="true"
+                data-month="2020-07"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -624,6 +701,9 @@ exports[`should match the snapshot 1`] = `
                 aria-hidden="true"
                 aria-label=""
                 class="rdp-day rdp-hidden rdp-outside"
+                data-day="2020-07-04"
+                data-hidden="true"
+                data-month="2020-07"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -800,6 +880,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-hidden="true"
                 aria-label=""
                 class="rdp-day rdp-hidden rdp-outside"
+                data-day="2020-05-31"
+                data-hidden="true"
+                data-month="2020-05"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -812,7 +895,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="2"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-01"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -825,7 +910,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="3"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-02"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -838,7 +925,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="4"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-03"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -851,7 +940,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="5"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-04"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -864,7 +955,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="6"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-05"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -877,7 +970,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="7"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-06"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -896,7 +991,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="1"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-07"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -909,7 +1006,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="2"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-08"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -922,7 +1021,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="3"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-09"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -935,7 +1036,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="4"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-10"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -948,7 +1051,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="5"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-11"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -961,7 +1066,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="6"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-12"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -974,7 +1081,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="7"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-13"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -993,7 +1102,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="1"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-14"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -1006,7 +1117,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="2"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-15"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -1019,7 +1132,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="3"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-16"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -1032,7 +1147,10 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="4"
                 aria-label=""
-                class="rdp-day rdp-focusable rdp-focused"
+                class="rdp-day rdp-focused"
+                data-day="2020-06-17"
+                data-focused="true"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="0"
               >
@@ -1045,7 +1163,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="5"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-18"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -1058,7 +1178,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="6"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-19"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -1071,7 +1193,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="7"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-20"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -1090,7 +1214,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="1"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-21"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -1103,7 +1229,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="2"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-22"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -1116,7 +1244,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="3"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-23"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -1129,7 +1259,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="4"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-24"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -1142,7 +1274,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="5"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-25"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -1155,7 +1289,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="6"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-26"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -1168,7 +1304,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="7"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-27"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -1187,7 +1325,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="1"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-28"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -1200,7 +1340,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="2"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-29"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -1213,7 +1355,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               <div
                 aria-colindex="3"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2020-06-30"
+                data-month="2020-06"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -1228,6 +1372,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-hidden="true"
                 aria-label=""
                 class="rdp-day rdp-hidden rdp-outside"
+                data-day="2020-07-01"
+                data-hidden="true"
+                data-month="2020-07"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -1242,6 +1389,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-hidden="true"
                 aria-label=""
                 class="rdp-day rdp-hidden rdp-outside"
+                data-day="2020-07-02"
+                data-hidden="true"
+                data-month="2020-07"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -1256,6 +1406,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-hidden="true"
                 aria-label=""
                 class="rdp-day rdp-hidden rdp-outside"
+                data-day="2020-07-03"
+                data-hidden="true"
+                data-month="2020-07"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -1270,6 +1423,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-hidden="true"
                 aria-label=""
                 class="rdp-day rdp-hidden rdp-outside"
+                data-day="2020-07-04"
+                data-hidden="true"
+                data-month="2020-07"
                 role="gridcell"
                 tabindex="-1"
               >

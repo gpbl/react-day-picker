@@ -151,6 +151,9 @@ exports[`should match the snapshot 1`] = `
                 aria-hidden="true"
                 aria-label=""
                 class="rdp-day rdp-hidden rdp-outside"
+                data-day="2021-10-31"
+                data-hidden="true"
+                data-month="2021-10"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -163,7 +166,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="2"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-01"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -176,7 +181,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="3"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-02"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -189,7 +196,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="4"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-03"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -202,7 +211,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="5"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-04"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -215,7 +226,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="6"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-05"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -228,7 +241,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="7"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-06"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -247,7 +262,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="1"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-07"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -260,7 +277,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="2"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-08"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -273,7 +292,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="3"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-09"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -286,7 +307,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="4"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-10"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -299,7 +322,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="5"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-11"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -312,7 +337,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="6"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-12"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -325,7 +352,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="7"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-13"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -344,7 +373,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="1"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-14"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -357,7 +388,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="2"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-15"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -370,7 +403,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="3"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-16"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -383,7 +418,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="4"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-17"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -396,7 +433,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="5"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-18"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -409,7 +448,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="6"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-19"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -422,7 +463,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="7"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-20"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -441,7 +484,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="1"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-21"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -454,7 +499,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="2"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-22"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -467,7 +514,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="3"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-23"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -480,7 +529,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="4"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-24"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -493,7 +544,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="5"
                 aria-label=""
-                class="rdp-day rdp-focusable rdp-today"
+                class="rdp-day rdp-today"
+                data-day="2021-11-25"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="0"
               >
@@ -506,7 +559,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="6"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-26"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -519,7 +574,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="7"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-27"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -538,7 +595,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="1"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-28"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -551,7 +610,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="2"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-29"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -564,7 +625,9 @@ exports[`should match the snapshot 1`] = `
               <div
                 aria-colindex="3"
                 aria-label=""
-                class="rdp-day rdp-focusable"
+                class="rdp-day"
+                data-day="2021-11-30"
+                data-month="2021-11"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -579,6 +642,9 @@ exports[`should match the snapshot 1`] = `
                 aria-hidden="true"
                 aria-label=""
                 class="rdp-day rdp-hidden rdp-outside"
+                data-day="2021-12-01"
+                data-hidden="true"
+                data-month="2021-12"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -593,6 +659,9 @@ exports[`should match the snapshot 1`] = `
                 aria-hidden="true"
                 aria-label=""
                 class="rdp-day rdp-hidden rdp-outside"
+                data-day="2021-12-02"
+                data-hidden="true"
+                data-month="2021-12"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -607,6 +676,9 @@ exports[`should match the snapshot 1`] = `
                 aria-hidden="true"
                 aria-label=""
                 class="rdp-day rdp-hidden rdp-outside"
+                data-day="2021-12-03"
+                data-hidden="true"
+                data-month="2021-12"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -621,6 +693,9 @@ exports[`should match the snapshot 1`] = `
                 aria-hidden="true"
                 aria-label=""
                 class="rdp-day rdp-hidden rdp-outside"
+                data-day="2021-12-04"
+                data-hidden="true"
+                data-month="2021-12"
                 role="gridcell"
                 tabindex="-1"
               >

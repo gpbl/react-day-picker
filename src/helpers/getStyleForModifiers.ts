@@ -1,14 +1,12 @@
 import type { CSSProperties } from "react";
 
-import { UI } from "../UI";
-import type { Modifiers, ModifiersStyles, Styles } from "../types";
+import type { Modifiers, ModifiersStyles } from "../types";
 
 export function getStyleForModifiers(
   dayModifiers: Modifiers,
-  modifiersStyles: Partial<ModifiersStyles>,
-  styles: Partial<Styles>
+  modifiersStyles: Partial<ModifiersStyles> = {}
 ): CSSProperties {
-  let style: CSSProperties = { ...styles[UI.Day] };
+  let style: CSSProperties = {};
   Object.entries(dayModifiers)
     .filter(([, active]) => active === true)
     .forEach(([modifier]) => {

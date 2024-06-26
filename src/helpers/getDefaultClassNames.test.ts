@@ -14,7 +14,6 @@ test("should return the default classnames", () => {
     dropdown_nav: "rdp-dropdown_nav",
     dropdown_root: "rdp-dropdown_root",
     dropdown: "rdp-dropdown",
-    focusable: "rdp-focusable",
     focused: "rdp-focused",
     footer: "rdp-footer",
     has_multiple_months: "rdp-has_multiple_months",

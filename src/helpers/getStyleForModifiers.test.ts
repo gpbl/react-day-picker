@@ -1,8 +1,7 @@
 import type { CSSProperties } from "react";
 
 // Update the path as needed
-import { UI } from "../UI";
-import type { Modifiers, ModifiersStyles, Styles } from "../types";
+import type { Modifiers, ModifiersStyles } from "../types";
 
 import { getStyleForModifiers } from "./getStyleForModifiers";
 
@@ -10,7 +9,6 @@ const baseDayStyle: CSSProperties = {
   backgroundColor: "white",
   color: "black"
 };
-const styles: Partial<Styles> = { [UI.Day]: baseDayStyle };
 const defaultModifiers: Modifiers = {
   disabled: false,
   hidden: false,
@@ -27,7 +25,7 @@ test("returns base style when no modifiers are provided", () => {
   const dayModifiers = defaultModifiers;
   const modifiersStyles: Partial<ModifiersStyles> = {};
 
-  const style = getStyleForModifiers(dayModifiers, modifiersStyles, styles);
+  const style = getStyleForModifiers(dayModifiers, modifiersStyles);
 
   expect(style).toEqual(baseDayStyle);
 });
@@ -46,7 +44,7 @@ test("applies modifier styles to the base style", () => {
     ...modifiersStyles.selected
   };
 
-  const style = getStyleForModifiers(dayModifiers, modifiersStyles, styles);
+  const style = getStyleForModifiers(dayModifiers, modifiersStyles);
 
   expect(style).toEqual(expectedStyle);
 });
@@ -61,7 +59,7 @@ test("ignores modifiers that are not active", () => {
     disabled: { opacity: 0.5 }
   };
 
-  const style = getStyleForModifiers(dayModifiers, modifiersStyles, styles);
+  const style = getStyleForModifiers(dayModifiers, modifiersStyles);
 
   expect(style).toEqual({ ...baseDayStyle, opacity: 0.5 }); // should not have applied the disabled style
 });
@@ -82,7 +80,7 @@ test("combines multiple active modifier styles", () => {
     ...modifiersStyles.highlighted
   };
 
-  const style = getStyleForModifiers(dayModifiers, modifiersStyles, styles);
+  const style = getStyleForModifiers(dayModifiers, modifiersStyles);
 
   expect(style).toEqual(expectedStyle);
 });
@@ -103,7 +101,7 @@ test("applies the most recent modifier style when there are conflicts", () => {
     color: "green" // from 'highlighted', overriding 'selected'
   };
 
-  const style = getStyleForModifiers(dayModifiers, modifiersStyles, styles);
+  const style = getStyleForModifiers(dayModifiers, modifiersStyles);
 
   expect(style).toEqual(expectedStyle);
 });

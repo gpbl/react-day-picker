@@ -3,8 +3,8 @@ import type { ModifiersClassNames, ClassNames } from "../types";
 
 export function getClassNamesForModifiers(
   modifiers: Record<string, boolean>,
-  modifiersClassNames: ModifiersClassNames,
-  classNames: ClassNames
+  classNames: ClassNames,
+  modifiersClassNames: ModifiersClassNames = {}
 ) {
   const modifierClassNames = Object.entries(modifiers)
     .filter(([, active]) => active === true)

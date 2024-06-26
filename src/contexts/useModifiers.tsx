@@ -34,16 +34,8 @@ export type ModifiersContextValue = {
 };
 
 function useModifiersContextValue(): ModifiersContextValue {
-  const {
-    dateLib,
-    disabled,
-    hidden,
-    modifiers,
-    mode,
-    onDayClick,
-    showOutsideDays,
-    today
-  } = useProps();
+  const { dateLib, disabled, hidden, modifiers, mode, showOutsideDays, today } =
+    useProps();
 
   const calendar = useCalendar();
   const single = useSingle();
@@ -56,8 +48,7 @@ function useModifiersContextValue(): ModifiersContextValue {
     [DayFlag.outside]: [],
     [DayFlag.disabled]: [],
     [DayFlag.hidden]: [],
-    [DayFlag.today]: [],
-    [DayFlag.focusable]: []
+    [DayFlag.today]: []
   };
 
   const custom: Record<string, CalendarDay[]> = {};
@@ -82,16 +73,11 @@ function useModifiersContextValue(): ModifiersContextValue {
       Boolean(hidden && dateMatchModifiers(date, hidden, dateLib)) ||
       (!showOutsideDays && isOutside);
 
-    const isElementInteractive = mode || onDayClick !== undefined;
-
-    const isFocusable = isElementInteractive && !isDisabled && !isHidden;
-
     const isToday = isSameDay(date, today);
 
     if (isOutside) internal.outside.push(day);
     if (isDisabled) internal.disabled.push(day);
     if (isHidden) internal.hidden.push(day);
-    if (isFocusable) internal.focusable.push(day);
     if (isToday) internal.today.push(day);
 
     // Add the selection modifiers
@@ -148,7 +134,6 @@ function useModifiersContextValue(): ModifiersContextValue {
     const dayFlags: DayFlags = {
       [DayFlag.focused]: false,
       [DayFlag.disabled]: false,
-      [DayFlag.focusable]: false,
       [DayFlag.hidden]: false,
       [DayFlag.outside]: false,
       [DayFlag.today]: false

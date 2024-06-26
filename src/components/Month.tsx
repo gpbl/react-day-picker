@@ -4,10 +4,6 @@ import { UI } from "../UI";
 import type { CalendarMonth } from "../classes/CalendarMonth";
 import { useProps } from "../contexts";
 
-import { MonthCaption as DefaultMonthCaption } from "./MonthCaption";
-import { Week as DefaultWeek } from "./Week";
-import { Weekdays as DefaultWeekdays } from "./Weekdays";
-
 /**
  * Render the grid with the weekday header row and the weeks for the given
  * month.
@@ -22,47 +18,15 @@ export function Month(props: {
   month: CalendarMonth;
   /** The index where this month is displayed. */
   index: number;
+  children: React.ReactNode;
 }) {
-  const { id, mode, hideWeekdayRow, components, classNames, styles } =
-    useProps();
-
-  const reactId = React.useId();
-  const captionId = id ? `${id}-caption-${props.index}` : reactId;
-  const gridId = id ? `${id}-grid-${props.index}` : reactId;
-
-  const Weekdays = components?.Weekdays ?? DefaultWeekdays;
-  const MonthCaption = components?.MonthCaption ?? DefaultMonthCaption;
-  const Week = components?.Week ?? DefaultWeek;
-
+  const { classNames, styles } = useProps();
   return (
     <div
       className={classNames[UI.MonthWrapper]}
       style={styles?.[UI.MonthWrapper]}
     >
-      <MonthCaption id={captionId} month={props.month} index={props.index} />
-      <div
-        id={gridId}
-        role="grid"
-        aria-multiselectable={mode === "multiple" || mode === "range"}
-        aria-labelledby={captionId}
-        className={classNames[UI.Month]}
-        style={styles?.[UI.Month]}
-      >
-        <Weekdays />
-        <div
-          role="rowgroup"
-          className={classNames[UI.Weeks]}
-          style={styles?.[UI.Weeks]}
-        >
-          {props.month.weeks.map((week, i) => (
-            <Week
-              key={week.weekNumber}
-              week={week}
-              aria-rowindex={i + (hideWeekdayRow ? 1 : 2)}
-            />
-          ))}
-        </div>
-      </div>
+      {props.children}
     </div>
   );
 }

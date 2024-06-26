@@ -33,7 +33,7 @@ export type PropsContextValue = DayPickerProps & {
   /** The data attributes to add to the calendar. */
   dataAttributes: DataAttributes;
   /** The components used in the UI. */
-  components: CustomComponents;
+  components: Required<CustomComponents>;
   /** The formatters used in the UI. */
   formatters: Formatters;
   /** The labels used in the UI. */
