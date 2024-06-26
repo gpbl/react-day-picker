@@ -22,6 +22,16 @@ import { useMulti, useRange, useSingle } from "../selection";
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
 export function Calendar() {
+  const props = useProps();
+  const calendar = useCalendar();
+  const modifiers = useModifiers();
+
+  const single = useSingle();
+  const multi = useMulti();
+  const range = useRange();
+
+  const focus = useFocus();
+
   const {
     className,
     classNames,
@@ -71,18 +81,8 @@ export function Calendar() {
     style,
     styles,
     title
-  } = useProps();
+  } = props;
 
-  const calendar = useCalendar();
-  const modifiers = useModifiers();
-
-  const single = useSingle();
-  const multi = useMulti();
-  const range = useRange();
-
-  const focus = useFocus();
-
-  // Apply classnames according to props
   const cssClassNames = [classNames[UI.Calendar]];
   if (className) {
     cssClassNames.push(className);
@@ -141,7 +141,6 @@ export function Calendar() {
                       >
                         {showWeekNumber && <WeekNumber week={week} />}
                         {week.days.map((day: CalendarDay, i: number) => {
-                          /* DAY COMPONENT */
                           const m = modifiers.getModifiers(day);
                           const { date: d } = day;
 
