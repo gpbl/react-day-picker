@@ -1,6 +1,6 @@
 import React from "react";
 
-import { dateButton } from "@/test/elements";
+import { dateButton, gridcell } from "@/test/elements";
 import { render } from "@/test/render";
 import { user } from "@/test/user";
 
@@ -21,7 +21,7 @@ describe("when a day is clicked", () => {
     await user.click(dateButton(day1));
   });
   test("should appear as selected", () => {
-    expect(dateButton(day1)).toHaveAttribute("aria-selected", "true");
+    expect(gridcell(day1)).toHaveAttribute("aria-selected", "true");
   });
   describe("when the same day is clicked again", () => {
     beforeEach(async () => {

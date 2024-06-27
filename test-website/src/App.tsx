@@ -7,8 +7,8 @@ import "./App.css";
 function App() {
   return (
     <>
-      <DayPicker mode="single" />
-      <Examples.Range />
+      {/* <DayPicker mode="single" /> */}
+      <Examples.CustomMultiple />
     </>
   );
 }

@@ -121,7 +121,7 @@ export function Calendar() {
                 role="grid"
                 aria-multiselectable={mode === "multiple" || mode === "range"}
                 aria-label={
-                  labelGrid(month.date, { locale }, dateLib) ?? undefined
+                  labelGrid(month.date, { locale }, dateLib) || undefined
                 }
                 className={classNames[UI.MonthGrid]}
                 style={styles?.[UI.MonthGrid]}

@@ -1,5 +1,5 @@
 import { ByRoleOptions, act, fireEvent, screen } from "@testing-library/react";
-import { formatDay } from "react-day-picker";
+import { DayFlag, SelectionState, labelDay } from "react-day-picker";
 
 import { user } from "./user";
 
@@ -51,7 +51,22 @@ export function nav() {
  * @param {Date} date - The date to match the button name.
  */
 export function dateButton(date: Date) {
-  return screen.getByRole("button", { name: formatDay(date) });
+  return screen.getByRole("button", {
+    name: new RegExp(
+      labelDay(date, {
+        [DayFlag.disabled]: false,
+        [DayFlag.hidden]: false,
+        [DayFlag.outside]: false,
+        [DayFlag.focused]: false,
+        [DayFlag.today]: false,
+        [SelectionState.range_end]: false,
+        [SelectionState.range_middle]: false,
+        [SelectionState.range_start]: false,
+        [SelectionState.selected]: false
+      }),
+      "s"
+    )
+  });
 }
 
 /**

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { dateButton } from "@/test/elements";
+import { dateButton, gridcell } from "@/test/elements";
 import { renderApp } from "@/test/renderApp";
 import { user } from "@/test/user";
 
@@ -16,14 +16,14 @@ describe("when a day is clicked", () => {
     await user.click(dateButton(day));
   });
   test("should appear as selected", () => {
-    expect(dateButton(day)).toHaveAttribute("aria-selected", "true");
+    expect(gridcell(day)).toHaveAttribute("aria-selected", "true");
   });
   describe("when the day is clicked again", () => {
     beforeEach(async () => {
       await user.click(dateButton(day));
     });
     test("should appear as selected", () => {
-      expect(dateButton(day)).toHaveAttribute("aria-selected", "true");
+      expect(gridcell(day)).toHaveAttribute("aria-selected", "true");
     });
   });
 });

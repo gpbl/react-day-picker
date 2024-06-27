@@ -2,7 +2,7 @@ import React from "react";
 
 import { render } from "@testing-library/react";
 
-import { dateButton } from "@/test/elements";
+import { dateButton, gridcell } from "@/test/elements";
 import { user } from "@/test/user";
 
 import { Single } from "./Single";
@@ -22,9 +22,9 @@ describe("when a day is clicked", () => {
     await user.click(dateButton(day));
   });
   test("should appear as selected", () => {
-    expect(dateButton(day)).toHaveAttribute("aria-selected", "true");
+    expect(gridcell(day)).toHaveAttribute("aria-selected", "true");
     expect(dateButton(day)).toHaveFocus();
-    expect(dateButton(day)).toHaveClass("rdp-selected");
+    expect(gridcell(day)).toHaveClass("rdp-selected");
   });
   describe("when the day is clicked again", () => {
     beforeEach(async () => {
