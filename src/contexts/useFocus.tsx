@@ -72,7 +72,7 @@ export type FocusContextValue = {
 };
 
 function useFocusContextValue(): FocusContextValue {
-  const { goToDay, isDayDisplayed, isInteractive } = useCalendar();
+  const { goToDay, isDayDisplayed } = useCalendar();
 
   const props = useProps();
   const { autoFocus } = props;
@@ -94,25 +94,23 @@ function useFocusContextValue(): FocusContextValue {
     return isDayDisplayed(day) && !getModifiers(day)[DayFlag.disabled];
   };
 
-  if (isInteractive) {
-    if (focused) {
-      autoFocusTarget = focused;
-    } else if (lastFocused) {
-      autoFocusTarget = lastFocused;
-    } else if (
-      selection.selected[0] &&
-      isValidFocusTarget(selection.selected[0])
-    ) {
-      autoFocusTarget = selection.selected[0];
-    } else if (today && isValidFocusTarget(today)) {
-      autoFocusTarget = today;
-    } else if (
-      !internal.disabled[0] &&
-      isValidFocusTarget(internal.disabled[0])
-    ) {
-      // autoFocusTarget = internal.focusable[0];
-    }
-  }
+  // if (isInteractive) {
+  // if (focused) {
+  //   autoFocusTarget = focused;
+  // } else if (lastFocused) {
+  //   autoFocusTarget = lastFocused;
+  // } else if (
+  //   selection.selected[0] &&
+  //   isValidFocusTarget(selection.selected[0])
+  // ) {
+  //   autoFocusTarget = selection.selected[0];
+  // } else if (
+  //   !internal.disabled[0] &&
+  //   isValidFocusTarget(internal.disabled[0])
+  // ) {
+  //   // autoFocusTarget = internal.focusable[0];
+  // }
+  // }
 
   useEffect(() => {
     if (!focused) return;

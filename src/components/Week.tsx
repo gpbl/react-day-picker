@@ -20,14 +20,14 @@ export function Week(props: {
   const { styles, classNames } = useProps();
 
   return (
-    <div
+    <tr
       role="row"
       aria-rowindex={props["aria-rowindex"]}
       className={classNames[UI.Week]}
       style={styles?.[UI.Week]}
     >
       {props.children}
-    </div>
+    </tr>
   );
 }
 

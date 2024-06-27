@@ -33,6 +33,13 @@
   }
 }
 
+.rdp-calendar {
+  /* --rdp-accent-color: var(--ifm-color-primary); */
+  --rdp-accent-background-color: #073845;
+  --rdp-range_end-color: black;
+  --rdp-range_start-color: black;
+}
+
 .card {
   padding: 2em;
 }

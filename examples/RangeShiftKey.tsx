@@ -3,16 +3,17 @@ import React, { MouseEventHandler } from "react";
 import { isSameDay } from "date-fns";
 import {
   DateRange,
+  DayDateProps,
   DayPicker,
   useRange,
   type DayProps
 } from "react-day-picker";
 
-function DayWithShiftKey(props: DayProps) {
+function DayWithShiftKey(props: DayDateProps) {
   const { selected } = useRange();
   const onClick = props.onClick;
 
-  const handleClick: MouseEventHandler<HTMLDivElement> = (e) => {
+  const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     if (
       selected?.from &&
       !selected.to &&
@@ -24,9 +25,9 @@ function DayWithShiftKey(props: DayProps) {
     onClick?.(e);
   };
   return (
-    <div {...props} onClick={handleClick}>
+    <button {...props} onClick={handleClick}>
       {props.children}
-    </div>
+    </button>
   );
 }
 
@@ -49,7 +50,7 @@ export function RangeShiftKey() {
   return (
     <DayPicker
       components={{
-        Day: DayWithShiftKey
+        DayDate: DayWithShiftKey
       }}
       mode="range"
       selected={range}

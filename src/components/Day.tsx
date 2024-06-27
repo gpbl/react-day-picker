@@ -22,16 +22,12 @@ export function Day(
     day: CalendarDay;
     modifiers: Modifiers;
     children?: ReactNode;
-  } & JSX.IntrinsicElements["div"]
+  } & JSX.IntrinsicElements["td"]
 ) {
-  const { day, modifiers, ...divProps } = props;
+  const { day, modifiers, ...tdProps } = props;
   const { classNames, styles } = useProps();
   return (
-    <div
-      className={classNames[UI.Day]}
-      style={styles?.[UI.Day]}
-      {...divProps}
-    />
+    <td className={classNames[UI.Day]} style={styles?.[UI.Day]} {...tdProps} />
   );
 }
 

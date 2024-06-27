@@ -18,7 +18,7 @@ export function Nav() {
   const {
     classNames,
     styles,
-    labels: { labelNext, labelPrevious },
+    labels: { labelNext, labelPrevious, labelNav },
     locale,
     components,
     id,
@@ -44,7 +44,12 @@ export function Nav() {
   const Chevron = components?.Chevron ?? DefaultChevron;
 
   return (
-    <div role="toolbar" className={classNames[UI.Nav]} style={styles?.[UI.Nav]}>
+    <div
+      role="toolbar"
+      className={classNames[UI.Nav]}
+      style={styles?.[UI.Nav]}
+      aria-label={labelNav(calendar)}
+    >
       <Button
         type="button"
         name="previous-month"

@@ -22,7 +22,8 @@ import {
 } from "../formatters";
 import {
   labelDay,
-  labelCaption,
+  labelNav,
+  labelGrid,
   labelMonthDropdown,
   labelNext,
   labelPrevious,
@@ -78,7 +79,9 @@ export type Formatters = {
 /** Map of functions to translate ARIA labels for the relative elements. */
 export type Labels = {
   /** Return the label for the month dropdown. */
-  labelCaption: typeof labelCaption;
+  labelNav: typeof labelNav;
+  /** Return the label for the month dropdown. */
+  labelGrid: typeof labelGrid;
   /** Return the label for the month dropdown. */
   labelMonthDropdown: typeof labelMonthDropdown;
   /** Return the label for the year dropdown. */

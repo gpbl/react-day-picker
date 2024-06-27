@@ -292,11 +292,11 @@
 
 .rdp-range_start {
   background: var(--rdp-range_start-background);
-  color: var(--rdp-range_start-color);
 }
 
 .rdp-range_start .rdp-day_date {
   background-color: var(--rdp-range_start-date-background-color);
+  color: var(--rdp-range_start-color);
 }
 
 .rdp-range_middle {
@@ -316,6 +316,7 @@
 }
 
 .rdp-range_end .rdp-day_date {
+  color: var(--rdp-range_start-color);
   background-color: var(--rdp-range_end-date-background-color);
 }
 
@@ -335,12 +336,11 @@
 }
 
 .rdp-calendar button {
-  // reset button styles
   border: none;
   background: none;
   padding: 0;
   margin: 0;
   cursor: pointer;
   font: inherit;
-  
+  color: inherit;
 }

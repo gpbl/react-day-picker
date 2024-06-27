@@ -26,7 +26,7 @@ export function Weekday(props: {
     styles
   } = useProps();
   return (
-    <span
+    <th
       role="columnheader"
       aria-colindex={props["aria-colindex"]}
       aria-label={
@@ -41,7 +41,7 @@ export function Weekday(props: {
         (props.weekday
           ? formatWeekdayName(props.weekday, { locale }, dateLib)
           : "#")}
-    </span>
+    </th>
   );
 }
 

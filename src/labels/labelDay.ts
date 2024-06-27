@@ -18,5 +18,12 @@ export function labelDay(
   options?: FormatOptions,
   dateLib: DateLib = defaultDateLib
 ) {
-  return "";
+  let label = dateLib.format(date, "PPPP", options);
+  if (modifiers.today) {
+    label = `Today, ${label}`;
+  }
+  if (modifiers.selected) {
+    label = `${label}, selected`;
+  }
+  return label;
 }

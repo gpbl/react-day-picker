@@ -1,5 +1,6 @@
 export * from "./labelDay";
-export * from "./labelCaption";
+export * from "./labelNav";
+export * from "./labelGrid";
 export * from "./labelMonthDropdown";
 export * from "./labelNext";
 export * from "./labelPrevious";

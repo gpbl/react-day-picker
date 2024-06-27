@@ -53,9 +53,6 @@ importers:
       date-fns-jalali:
         specifier: 3.6.0-0
         version: 3.6.0-0
-      date-fns-tz:
-        specifier: ^3.1.3
-        version: 3.1.3(date-fns@3.6.0)
       eslint:
         specifier: ^8.57.0
         version: 8.57.0

@@ -57,11 +57,6 @@ export type CalendarContextValue = {
   /** Set the first month displayed in the calendar. */
   setFirstMonth: (date: Date) => void;
 
-  /**
-   * Whether the calendar is interactive, i.e. DayPicker has a selection `mode`
-   * set or the `onDayClick` prop is set.
-   */
-  isInteractive: boolean;
   /** Navigate to the specified month. Will fire the `onMonthChange` callback. */
   goToMonth: (month: Date) => void;
   /** Navigate to the next month. */
@@ -183,8 +178,6 @@ function useCalendarContextValue(): CalendarContextValue {
     nextMonth,
 
     setFirstMonth,
-
-    isInteractive,
 
     dropdownOptions: {
       months: getDropdownMonths(firstDisplayedMonth, props),

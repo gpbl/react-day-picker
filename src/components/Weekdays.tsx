@@ -31,7 +31,7 @@ export function Weekdays() {
   const Weekday = components?.Weekday ?? DefaultWeekday;
 
   return (
-    <div
+    <tr
       role="row"
       hidden={hideWeekdayRow}
       aria-rowindex={1}
@@ -47,6 +47,6 @@ export function Weekdays() {
           aria-colindex={showWeekNumber ? i + 2 : i + 1}
         />
       ))}
-    </div>
+    </tr>
   );
 }

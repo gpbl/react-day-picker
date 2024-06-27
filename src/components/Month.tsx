@@ -22,10 +22,7 @@ export function Month(props: {
 }) {
   const { classNames, styles } = useProps();
   return (
-    <div
-      className={classNames[UI.MonthWrapper]}
-      style={styles?.[UI.MonthWrapper]}
-    >
+    <div className={classNames[UI.Month]} style={styles?.[UI.Month]}>
       {props.children}
     </div>
   );

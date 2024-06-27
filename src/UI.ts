@@ -37,13 +37,13 @@ export enum UI {
   /** The root element of the footer. */
   Footer = "footer",
   /** The month grid. */
-  Month = "month",
+  MonthGrid = "month_grid",
   /** Contains the dropdown navigation or the caption label. */
   MonthCaption = "month_caption",
   /** The dropdown with the months. */
   MonthsDropdown = "months_dropdown",
-  /** Wrapper of the {@link} grid. */
-  MonthWrapper = "month_wrapper",
+  /** Wrapper of the month grid. */
+  Month = "month",
   /** The container of the displayed months. */
   Months = "months",
   /** The navigation bar with the previous and next buttons */

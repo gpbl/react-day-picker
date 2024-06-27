@@ -1,4 +1,5 @@
 import { ByRoleOptions, act, fireEvent, screen } from "@testing-library/react";
+import { formatDay } from "react-day-picker";
 
 import { user } from "./user";
 
@@ -50,7 +51,7 @@ export function nav() {
  * @param {Date} date - The date to match the button name.
  */
 export function dateButton(date: Date) {
-  return screen.getByRole("button", { name: String(date.getDate()) });
+  return screen.getByRole("button", { name: formatDay(date) });
 }
 
 /**

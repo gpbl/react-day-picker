@@ -55,7 +55,7 @@ export function Calendar() {
     hideNavigation,
     hideWeekdayRow,
     id,
-    labels: { labelDay },
+    labels: { labelDay, labelGrid: labelGrid },
     lang,
     locale,
     mode,
@@ -113,21 +113,23 @@ export function Calendar() {
         {!hideNavigation && <Nav />}
         {calendar.months.map((month, i) => {
           const captionId = `${id}-caption-${i}`;
-          const gridId = `${id}-grid-${i}`;
 
           return (
             <Month key={i} index={i} month={month}>
               <MonthCaption id={captionId} month={month} index={i} />
-              <div
-                id={gridId}
+              <table
                 role="grid"
                 aria-multiselectable={mode === "multiple" || mode === "range"}
-                aria-labelledby={captionId}
-                className={classNames[UI.Month]}
-                style={styles?.[UI.Month]}
+                aria-label={
+                  labelGrid(month.date, { locale }, dateLib) ?? undefined
+                }
+                className={classNames[UI.MonthGrid]}
+                style={styles?.[UI.MonthGrid]}
               >
-                <Weekdays />
-                <div
+                <thead>
+                  <Weekdays />
+                </thead>
+                <tbody
                   role="rowgroup"
                   className={classNames[UI.Weeks]}
                   style={styles?.[UI.Weeks]}
@@ -277,9 +279,6 @@ export function Calendar() {
                               className={className.join(" ")}
                               style={style}
                               aria-colindex={showWeekNumber ? i + 2 : i + 1}
-                              aria-label={
-                                labelDay(d, m, { locale }, dateLib) || undefined
-                              }
                               aria-hidden={m.hidden || undefined}
                               aria-selected={m.selected || undefined}
                             >
@@ -331,8 +330,8 @@ export function Calendar() {
                       </Week>
                     );
                   })}
-                </div>
-              </div>
+                </tbody>
+              </table>
             </Month>
           );
         })}
