@@ -1,7 +1,7 @@
-import { CalendarDay } from "../classes/index";
+import { CalendarDay } from "../classes";
 import type { PropsContextValue } from "../contexts/useProps";
-import { dateLib } from "../lib/index";
-import type { MoveFocusBy, MoveFocusDir } from "../types/index";
+import { dateLib } from "../lib";
+import type { MoveFocusBy, MoveFocusDir } from "../types";
 
 import { getNextFocus } from "./getNextFocus";
 

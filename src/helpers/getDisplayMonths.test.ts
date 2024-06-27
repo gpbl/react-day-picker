@@ -1,4 +1,4 @@
-import { dateLib } from "react-day-picker/index";
+import { dateLib } from "react-day-picker";
 
 import { getDisplayMonths } from "./getDisplayMonths";
 

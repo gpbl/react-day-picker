@@ -1,4 +1,4 @@
-import { dateLib } from "../index";
+import { dateLib } from "..";
 
 import { getPreviousMonth } from "./getPreviousMonth";
 

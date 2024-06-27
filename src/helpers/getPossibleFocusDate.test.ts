@@ -12,8 +12,8 @@ import {
 } from "date-fns";
 
 import type { PropsContextValue } from "../contexts/useProps";
-import { dateLib } from "../index";
-import type { MoveFocusBy, MoveFocusDir } from "../types/index";
+import { dateLib } from "..";
+import type { MoveFocusBy, MoveFocusDir } from "../types";
 
 import { getPossibleFocusDate } from "./getPossibleFocusDate";
 

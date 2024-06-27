@@ -1,4 +1,4 @@
-import { dateLib } from "../lib/index";
+import { dateLib } from "../lib";
 
 import { getDates } from "./getDates";
 

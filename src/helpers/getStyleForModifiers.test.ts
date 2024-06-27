@@ -2,7 +2,7 @@ import type { CSSProperties } from "react";
 
 // Update the path as needed
 import { UI } from "../UI";
-import type { Modifiers, ModifiersStyles, Styles } from "../types/index";
+import type { Modifiers, ModifiersStyles, Styles } from "../types";
 
 import { getStyleForModifiers } from "./getStyleForModifiers";
 

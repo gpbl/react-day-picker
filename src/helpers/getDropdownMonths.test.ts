@@ -1,6 +1,6 @@
 import { type Locale, format } from "date-fns";
 import { enUS as locale } from "date-fns/locale";
-import { dateLib } from "react-day-picker/index";
+import { dateLib } from "react-day-picker";
 
 import { getDropdownMonths } from "./getDropdownMonths";
 import { getFormatters } from "./getFormatters";

@@ -1,5 +1,5 @@
-import * as defaultFormatters from "../formatters/index";
-import { dateLib } from "../lib/index";
+import * as defaultFormatters from "../formatters";
+import { dateLib } from "../lib";
 
 import { getFormatters } from "./getFormatters";
 

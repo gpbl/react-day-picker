@@ -1,6 +1,6 @@
 import { es } from "date-fns/locale/es";
 
-import { dateLib } from "../lib/index";
+import { dateLib } from "../lib";
 
 import { formatCaption } from "./formatCaption";
 

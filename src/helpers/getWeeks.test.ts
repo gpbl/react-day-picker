@@ -1,4 +1,4 @@
-import { CalendarDay, CalendarMonth, CalendarWeek } from "../classes/index";
+import { CalendarDay, CalendarMonth, CalendarWeek } from "../classes";
 
 import { getWeeks } from "./getWeeks";
 
