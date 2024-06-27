@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from "react"
 
 export type DispatchStateAction<T> = React.Dispatch<React.SetStateAction<T>>;
 

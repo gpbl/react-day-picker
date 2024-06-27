@@ -1,8 +1,8 @@
-import { es } from "date-fns/locale/es";
+import { es } from "date-fns/locale/es.js"
 
-import { dateLib } from "../lib";
+import { dateLib } from "../lib/index.js"
 
-import { formatCaption } from "./formatCaption";
+import { formatCaption } from "./formatCaption.js"
 
 const date = new Date(2022, 10, 21);
 

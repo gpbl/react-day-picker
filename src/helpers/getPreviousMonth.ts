@@ -1,4 +1,4 @@
-import type { PropsContextValue } from "../contexts";
+import type { PropsContextValue } from "../contexts/index.js"
 
 /**
  * Return the next previous the user can navigate to, according to the given

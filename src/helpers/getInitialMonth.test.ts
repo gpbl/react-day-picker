@@ -1,7 +1,7 @@
-import { addMonths, isSameMonth } from "date-fns";
-import { dateLib } from "react-day-picker";
+import { addMonths, isSameMonth } from "date-fns"
+import { dateLib } from "react-day-picker/index.js"
 
-import { getInitialMonth } from "./getInitialMonth";
+import { getInitialMonth } from "./getInitialMonth.js"
 
 describe("when no endMonth is given", () => {
   describe("when month is in context", () => {

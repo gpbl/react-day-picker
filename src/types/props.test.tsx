@@ -1,6 +1,6 @@
-import React from "react";
+import React from "react"
 
-import { DayPicker } from "../DayPicker";
+import { DayPicker } from "../DayPicker.js"
 
 // @ts-expect-error THis is just for testing the types.
 const Test = () => {

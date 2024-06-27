@@ -1,4 +1,4 @@
-import type { FormatOptions } from "../lib/dateLib";
+import type { FormatOptions } from "../lib/dateLib.js"
 
 /**
  * Return the default ARIA label for the years dropdown.

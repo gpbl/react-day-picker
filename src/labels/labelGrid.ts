@@ -1,7 +1,7 @@
-import type { FormatOptions } from "date-fns";
+import type { FormatOptions } from "date-fns"
 
-import { dateLib as defaultDateLib } from "../lib";
-import type { DateLib } from "../types";
+import { dateLib as defaultDateLib } from "../lib/index.js"
+import type { DateLib } from "../types/index.js"
 
 /**
  * Return the default ARIA label for the month grid.

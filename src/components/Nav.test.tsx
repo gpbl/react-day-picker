@@ -1,10 +1,10 @@
-import React from "react";
+import React from "react"
 
-import { nextButton, previousButton } from "@/test/elements";
-import { render } from "@/test/render";
-import { user } from "@/test/user";
+import { nextButton, previousButton } from "@/test/elements.js"
+import { render } from "@/test/render.js"
+import { user } from "@/test/user.js"
 
-import { Nav } from "./Nav";
+import { Nav } from "./Nav.js"
 
 describe("when clicking the next button", () => {
   test("should call the onNextClick callback", async () => {

@@ -1,8 +1,8 @@
-import React from "react";
+import React from "react"
 
-import { UI, WeekNumberFlag } from "../UI";
-import type { CalendarWeek } from "../classes";
-import { useProps } from "../contexts";
+import { UI, WeekNumberFlag } from "../UI.js"
+import type { CalendarWeek } from "../classes/index.js"
+import { useProps } from "../contexts/index.js"
 
 /**
  * Render the cell with the number of the week.

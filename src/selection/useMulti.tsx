@@ -1,7 +1,7 @@
-import React from "react";
+import React from "react"
 
-import { useProps } from "../contexts";
-import type { Modifiers, PropsMulti } from "../types";
+import { useProps } from "../contexts/index.js"
+import type { Modifiers, PropsMulti } from "../types/index.js"
 
 export type MultiContextValue<T> = {
   setSelected: (

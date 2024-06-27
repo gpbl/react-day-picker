@@ -1,6 +1,6 @@
-import { dateLib } from "../";
+import { dateLib } from "../index.js"
 
-import { getPreviousMonth } from "./getPreviousMonth";
+import { getPreviousMonth } from "./getPreviousMonth.js"
 
 it("should return undefined if navigation is disabled", () => {
   const firstDisplayedMonth = new Date(2022, 0, 1); // January 2022

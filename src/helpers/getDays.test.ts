@@ -1,6 +1,6 @@
-import { CalendarDay, CalendarWeek, CalendarMonth } from "../classes";
+import { CalendarDay, CalendarWeek, CalendarMonth } from "../classes/index.js"
 
-import { getDays } from "./getDays";
+import { getDays } from "./getDays.js"
 
 const days1 = [
   new CalendarDay(new Date(2023, 1, 12), new Date(2023, 1, 1)),

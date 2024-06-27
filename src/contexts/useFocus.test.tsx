@@ -1,6 +1,6 @@
-import { renderHook } from "@/test/renderHook";
+import { renderHook } from "@/test/renderHook.js"
 
-import { useFocus } from "./useFocus";
+import { useFocus } from "./useFocus.js"
 
 const month = new Date(2020, 0, 1);
 const today = new Date(2020, 0, 14);

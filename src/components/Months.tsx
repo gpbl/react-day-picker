@@ -1,5 +1,5 @@
-import React from "react";
-import type { HTMLProps } from "react";
+import React from "react"
+import type { HTMLProps } from "react"
 
 /**
  * Component wrapping the month grids.

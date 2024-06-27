@@ -1,6 +1,6 @@
-import type { DateLib } from "../";
-import { dateLib as defaultDateLib } from "../lib";
-import type { FormatOptions } from "../lib/dateLib";
+import type { DateLib } from "../index.js"
+import { dateLib as defaultDateLib } from "../lib/index.js"
+import type { FormatOptions } from "../lib/dateLib.js"
 
 /**
  * Return an ARIA label for the month caption. The label is used in an aria-live

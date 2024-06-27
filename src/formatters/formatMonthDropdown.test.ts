@@ -1,6 +1,6 @@
-import { es } from "date-fns/locale/es";
+import { es } from "date-fns/locale/es.js"
 
-import { formatMonthDropdown } from "./formatMonthDropdown";
+import { formatMonthDropdown } from "./formatMonthDropdown.js"
 
 const date = new Date(2022, 10, 21);
 

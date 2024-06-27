@@ -1,5 +1,5 @@
-import React from "react";
-import type { SelectHTMLAttributes } from "react";
+import React from "react"
+import type { SelectHTMLAttributes } from "react"
 
 /**
  * Render the `select` element.

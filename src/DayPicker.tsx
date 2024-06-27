@@ -1,8 +1,8 @@
-import React from "react";
+import React from "react"
 
-import { Calendar } from "./components/Calendar";
-import { ContextProviders } from "./contexts/providers";
-import type { DayPickerProps } from "./types";
+import { Calendar } from "./components/Calendar.js"
+import { ContextProviders } from "./contexts/providers.js"
+import type { DayPickerProps } from "./types/index.js"
 
 /**
  * Render the date picker calendar.

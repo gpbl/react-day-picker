@@ -1,8 +1,8 @@
-import { addDays, subDays } from "date-fns";
+import { addDays, subDays } from "date-fns"
 
-import type { DateRange } from "../types";
+import type { DateRange } from "../types/index.js"
 
-import { addToRange } from "./addToRange";
+import { addToRange } from "./addToRange.js"
 
 describe('when no "from" is the range', () => {
   const range = { from: undefined };

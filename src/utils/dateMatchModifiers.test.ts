@@ -1,6 +1,6 @@
-import { addDays, subDays } from "date-fns";
+import { addDays, subDays } from "date-fns"
 
-import { dateLib } from "../lib";
+import { dateLib } from "../lib/index.js"
 import {
   DateAfter,
   DateBefore,
@@ -9,7 +9,7 @@ import {
   DayOfWeek
 } from "../types";
 
-import { dateMatchModifiers } from "./dateMatchModifiers";
+import { dateMatchModifiers } from "./dateMatchModifiers.js"
 
 const testDay = new Date();
 

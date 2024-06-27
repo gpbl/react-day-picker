@@ -1,6 +1,6 @@
-import React from "react";
+import React from "react"
 
-import type { Locale } from "../lib/dateLib";
+import type { Locale } from "../lib/dateLib.js"
 
 import type {
   ClassNames,

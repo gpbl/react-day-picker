@@ -1,8 +1,8 @@
-import { es } from "date-fns/locale/es";
+import { es } from "date-fns/locale/es.js"
 
-import { dateLib } from "../lib";
+import { dateLib } from "../lib/index.js"
 
-import { getWeekdays } from "./getWeekdays";
+import { getWeekdays } from "./getWeekdays.js"
 
 let result: Date[];
 
