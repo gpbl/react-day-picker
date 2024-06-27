@@ -1,4 +1,4 @@
-import { getDataAttributes } from "./getDataAttributes.js";
+import { getDataAttributes } from "./getDataAttributes";
 
 // Mocking the types that are defined elsewhere.
 // TODO: does it work? Replace the types with the actual types.

@@ -1,7 +1,7 @@
-import * as defaultFormatters from "../formatters/index.js";
-import { dateLib } from "../lib/index.js";
+import * as defaultFormatters from "../formatters/index";
+import { dateLib } from "../lib/index";
 
-import { getFormatters } from "./getFormatters.js";
+import { getFormatters } from "./getFormatters";
 
 const customFormattersMock = {
   formatMonthCaption: jest.fn(),

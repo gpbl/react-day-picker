@@ -1,6 +1,6 @@
-import { dateLib } from "react-day-picker/index.js";
+import { dateLib } from "react-day-picker/index";
 
-import { getDisplayMonths } from "./getDisplayMonths.js";
+import { getDisplayMonths } from "./getDisplayMonths";
 
 describe("getDisplayMonths", () => {
   it("should return the months to display in the calendar", () => {

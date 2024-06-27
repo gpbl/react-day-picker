@@ -1,9 +1,9 @@
 import { type Locale, format } from "date-fns";
 import { enUS as locale } from "date-fns/locale";
-import { dateLib } from "react-day-picker/index.js";
+import { dateLib } from "react-day-picker/index";
 
-import { getDropdownMonths } from "./getDropdownMonths.js";
-import { getFormatters } from "./getFormatters.js";
+import { getDropdownMonths } from "./getDropdownMonths";
+import { getFormatters } from "./getFormatters";
 
 test("return correct dropdown options", () => {
   const displayMonth = new Date(2022, 0, 1); // January 2022

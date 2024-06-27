@@ -1,6 +1,6 @@
-import { dateLib } from "../lib/index.js";
+import { dateLib } from "../lib/index";
 
-import { getDates } from "./getDates.js";
+import { getDates } from "./getDates";
 
 describe("when the first month and the last month are the same", () => {
   describe("when the month has 6 weeks", () => {

@@ -1,10 +1,10 @@
 import type { CSSProperties } from "react";
 
 // Update the path as needed
-import { UI } from "../UI.js";
-import type { Modifiers, ModifiersStyles, Styles } from "../types/index.js";
+import { UI } from "../UI";
+import type { Modifiers, ModifiersStyles, Styles } from "../types/index";
 
-import { getStyleForModifiers } from "./getStyleForModifiers.js";
+import { getStyleForModifiers } from "./getStyleForModifiers";
 
 const baseDayStyle: CSSProperties = {
   backgroundColor: "white",

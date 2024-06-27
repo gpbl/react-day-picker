@@ -1,8 +1,8 @@
-import { CalendarMonth } from "../classes/index.js";
-import type { PropsContextValue } from "../contexts/useProps.js";
-import { dateLib } from "../lib/index.js";
+import { CalendarMonth } from "../classes/index";
+import type { PropsContextValue } from "../contexts/useProps";
+import { dateLib } from "../lib/index";
 
-import { getMonths } from "./getMonths.js";
+import { getMonths } from "./getMonths";
 
 const mockDates = [
   new Date(2023, 4, 27), // May 1, 2023

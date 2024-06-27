@@ -1,6 +1,6 @@
-import { renderHook } from "@/test/renderHook.js";
+import { renderHook } from "@/test/renderHook";
 
-import { useCalendar } from "./useCalendar.js";
+import { useCalendar } from "./useCalendar";
 
 it("should return the next month", () => {
   const { result } = renderHook(useCalendar, {

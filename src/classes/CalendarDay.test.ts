@@ -1,4 +1,4 @@
-import { CalendarDay } from "./CalendarDay.js";
+import { CalendarDay } from "./CalendarDay";
 
 it("should set `displayMonth` to undefined when date and `displayMonth` are in the same month", () => {
   const date = new Date(2020, 0, 1);
