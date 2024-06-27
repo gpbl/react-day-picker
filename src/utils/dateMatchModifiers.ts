@@ -8,7 +8,7 @@ import {
   isDateInterval,
   isDateRange,
   isDayOfWeekType
-} from "./typeguards";
+} from "./typeguards.js";
 
 /** Returns true if `value` is a Date type. */
 function isDateType(value: unknown): value is Date {

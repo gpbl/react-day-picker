@@ -1,4 +1,4 @@
-import { es } from "date-fns/locale/es.js";
+import { es } from "date-fns/locale/es";
 
 import { labelWeekday } from "./labelWeekday.js";
 

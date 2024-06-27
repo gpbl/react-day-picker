@@ -1,4 +1,4 @@
-import { addDays } from "date-fns/addDays.js";
+import { addDays } from "date-fns/addDays";
 
 import { DateRange } from "../types/index.js";
 

@@ -3,7 +3,7 @@ import { Calendar } from "../components/Calendar.js";
 import {
   MonthCaption,
   type MonthCaptionProps
-} from "../components/MonthCaption";
+} from "../components/MonthCaption.js";
 import { Week, type WeekProps } from "../components/Week.js";
 import { useCalendar } from "../contexts/index.js";
 import { useProps, type PropsContextValue } from "../contexts/index.js";

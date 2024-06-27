@@ -1,4 +1,4 @@
-import { enUS as locale } from "date-fns/locale.js";
+import { enUS as locale } from "date-fns/locale";
 import { dateLib } from "react-day-picker/index.js";
 
 import { getDropdownYears } from "./getDropdownYears.js";

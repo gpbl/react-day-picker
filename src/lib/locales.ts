@@ -1,1 +1,1 @@
-export { enUS } from "date-fns/locale/en-US.js";
+export { enUS } from "date-fns/locale/en-US";
