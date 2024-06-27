@@ -5,7 +5,7 @@ import {
   ChevronFlag,
   WeekNumberFlag,
   SelectionState
-} from "../UI";
+} from "../UI.js";
 import type { ClassNames } from "../types/index.js";
 
 /**
