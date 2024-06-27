@@ -1,5 +1,4 @@
 import { dateLib } from "..";
-
 import { getPreviousMonth } from "./getPreviousMonth";
 
 it("should return undefined if navigation is disabled", () => {

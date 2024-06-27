@@ -12,9 +12,9 @@ import {
 } from "date-fns";
 
 import type { PropsContextValue } from "../contexts/useProps";
-import { dateLib } from "..";
 import type { MoveFocusBy, MoveFocusDir } from "../types";
 
+import { dateLib } from "..";
 import { getPossibleFocusDate } from "./getPossibleFocusDate";
 
 const baseDate = new Date(2023, 0, 1); // Jan 1, 2023
@@ -35,15 +35,15 @@ const testCases: {
   moveDir: MoveFocusDir;
   expectedFn: (date: Date | number, amount: number) => Date;
 }[] = [
-    { moveBy: "day", moveDir: "after", expectedFn: addDays },
-    { moveBy: "day", moveDir: "before", expectedFn: addDays },
-    { moveBy: "month", moveDir: "after", expectedFn: addMonths },
-    { moveBy: "month", moveDir: "before", expectedFn: addMonths },
-    { moveBy: "week", moveDir: "after", expectedFn: addWeeks },
-    { moveBy: "week", moveDir: "before", expectedFn: addWeeks },
-    { moveBy: "year", moveDir: "after", expectedFn: addYears },
-    { moveBy: "year", moveDir: "before", expectedFn: addYears }
-  ];
+  { moveBy: "day", moveDir: "after", expectedFn: addDays },
+  { moveBy: "day", moveDir: "before", expectedFn: addDays },
+  { moveBy: "month", moveDir: "after", expectedFn: addMonths },
+  { moveBy: "month", moveDir: "before", expectedFn: addMonths },
+  { moveBy: "week", moveDir: "after", expectedFn: addWeeks },
+  { moveBy: "week", moveDir: "before", expectedFn: addWeeks },
+  { moveBy: "year", moveDir: "after", expectedFn: addYears },
+  { moveBy: "year", moveDir: "before", expectedFn: addYears }
+];
 
 testCases.forEach(({ moveBy, moveDir, expectedFn }) => {
   test(`should move ${moveDir} by ${moveBy}`, () => {
@@ -60,15 +60,15 @@ const weekTestCases: {
     date: number | Date,
     options?:
       | {
-        locale?: Locale | undefined;
-        weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
-      }
+          locale?: Locale | undefined;
+          weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
+        }
       | undefined
   ) => Date;
 }[] = [
-    { moveBy: "endOfWeek", moveDir: "after", expectedFn: endOfWeek },
-    { moveBy: "startOfWeek", moveDir: "after", expectedFn: startOfWeek }
-  ];
+  { moveBy: "endOfWeek", moveDir: "after", expectedFn: endOfWeek },
+  { moveBy: "startOfWeek", moveDir: "after", expectedFn: startOfWeek }
+];
 
 weekTestCases.forEach(({ moveBy, moveDir, expectedFn }) => {
   test(`should move ${moveDir} by ${moveBy}`, () => {
@@ -84,9 +84,9 @@ const ISOWeekTestCases: {
   moveDir: MoveFocusDir;
   expectedFn: (date: Date | number) => Date;
 }[] = [
-    { moveBy: "endOfWeek", moveDir: "after", expectedFn: endOfISOWeek },
-    { moveBy: "startOfWeek", moveDir: "after", expectedFn: startOfISOWeek }
-  ];
+  { moveBy: "endOfWeek", moveDir: "after", expectedFn: endOfISOWeek },
+  { moveBy: "startOfWeek", moveDir: "after", expectedFn: startOfISOWeek }
+];
 
 ISOWeekTestCases.forEach(({ moveBy, moveDir, expectedFn }) => {
   test(`should move ${moveDir} by ${moveBy} when ISOWeek is true`, () => {
