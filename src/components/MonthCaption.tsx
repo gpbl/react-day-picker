@@ -1,10 +1,10 @@
-import React from "react"
+import React from "react";
 
-import { UI } from "../UI.js"
-import type { CalendarMonth } from "../classes/index.js"
-import { useProps } from "../contexts/index.js"
+import { UI } from "../UI.js";
+import type { CalendarMonth } from "../classes/index.js";
+import { useProps } from "../contexts/index.js";
 
-import { DropdownNav } from "./DropdownNav.js"
+import { DropdownNav } from "./DropdownNav.js";
 
 /**
  * Render the caption of a month in the calendar.

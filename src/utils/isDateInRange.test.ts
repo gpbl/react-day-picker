@@ -1,8 +1,8 @@
-import { addDays } from "date-fns/addDays.js"
+import { addDays } from "date-fns/addDays.js";
 
-import { DateRange } from "../types/index.js"
+import { DateRange } from "../types/index.js";
 
-import { isDateInRange } from "./isDateInRange.js"
+import { isDateInRange } from "./isDateInRange.js";
 
 const date = new Date();
 

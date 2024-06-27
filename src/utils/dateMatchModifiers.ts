@@ -1,7 +1,7 @@
-import { dateLib as defaultDateLib } from "../lib/index.js"
-import type { DateLib, Matcher } from "../types/index.js"
+import { dateLib as defaultDateLib } from "../lib/index.js";
+import type { DateLib, Matcher } from "../types/index.js";
 
-import { isDateInRange } from "./isDateInRange.js"
+import { isDateInRange } from "./isDateInRange.js";
 import {
   isDateAfterType,
   isDateBeforeType,

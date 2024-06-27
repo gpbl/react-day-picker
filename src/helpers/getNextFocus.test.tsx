@@ -1,9 +1,9 @@
-import { CalendarDay } from "../classes/index.js"
-import type { PropsContextValue } from "../contexts/useProps.js"
-import { dateLib } from "../lib/index.js"
-import type { MoveFocusBy, MoveFocusDir } from "../types/index.js"
+import { CalendarDay } from "../classes/index.js";
+import type { PropsContextValue } from "../contexts/useProps.js";
+import { dateLib } from "../lib/index.js";
+import type { MoveFocusBy, MoveFocusDir } from "../types/index.js";
 
-import { getNextFocus } from "./getNextFocus.js"
+import { getNextFocus } from "./getNextFocus.js";
 
 const props: Pick<
   PropsContextValue,

@@ -1,12 +1,12 @@
-import React from "react"
+import React from "react";
 
-import { UI, CalendarFlag } from "../UI.js"
-import { useCalendar, useProps } from "../contexts/index.js"
+import { UI, CalendarFlag } from "../UI.js";
+import { useCalendar, useProps } from "../contexts/index.js";
 
-import { Footer as DefaultFooter } from "./Footer.js"
-import { Month as DefaultMonth } from "./Month.js"
-import { Months as DefaultMonths } from "./Months.js"
-import { Nav as DefaultNav } from "./Nav.js"
+import { Footer as DefaultFooter } from "./Footer.js";
+import { Month as DefaultMonth } from "./Month.js";
+import { Months as DefaultMonths } from "./Months.js";
+import { Nav as DefaultNav } from "./Nav.js";
 
 /**
  * Render the DayPicker Calendar with navigation and the month grids.

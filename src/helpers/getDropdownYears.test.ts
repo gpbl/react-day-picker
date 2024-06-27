@@ -1,8 +1,8 @@
-import { enUS as locale } from "date-fns/locale.js"
-import { dateLib } from "react-day-picker/index.js"
+import { enUS as locale } from "date-fns/locale.js";
+import { dateLib } from "react-day-picker/index.js";
 
-import { getDropdownYears } from "./getDropdownYears.js"
-import { getFormatters } from "./getFormatters.js"
+import { getDropdownYears } from "./getDropdownYears.js";
+import { getFormatters } from "./getFormatters.js";
 
 test("return undefined if startMonth or endMonth is not provided", () => {
   const displayMonth = new Date(2022, 0, 1); // January 2022

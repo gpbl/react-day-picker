@@ -1,11 +1,11 @@
-import React from "react"
+import React from "react";
 
-import { UI } from "../UI.js"
-import type { CalendarDay, CalendarWeek } from "../classes/index.js"
-import { useProps } from "../contexts/index.js"
+import { UI } from "../UI.js";
+import type { CalendarDay, CalendarWeek } from "../classes/index.js";
+import { useProps } from "../contexts/index.js";
 
-import { DayWrapper } from "./DayWrapper.js"
-import { WeekNumber as DefaultWeekNumber } from "./WeekNumber.js"
+import { DayWrapper } from "./DayWrapper.js";
+import { WeekNumber as DefaultWeekNumber } from "./WeekNumber.js";
 
 /**
  * Render a row in the calendar, with the days and the week number.

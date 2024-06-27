@@ -1,20 +1,24 @@
-import React, { type ReactElement, createContext, useContext } from "react"
+import React, { type ReactElement, createContext, useContext } from "react";
 
-import type { CalendarWeek, CalendarDay, CalendarMonth } from "../classes/index.js"
-import type { DropdownOption } from "../components/Dropdown.js"
-import { getDates } from "../helpers/getDates.js"
-import { getDays } from "../helpers/getDays.js"
-import { getDisplayMonths } from "../helpers/getDisplayMonths.js"
-import { getDropdownMonths } from "../helpers/getDropdownMonths.js"
-import { getDropdownYears } from "../helpers/getDropdownYears.js"
-import { getInitialMonth } from "../helpers/getInitialMonth.js"
-import { getMonths } from "../helpers/getMonths.js"
-import { getNextMonth } from "../helpers/getNextMonth.js"
-import { getPreviousMonth } from "../helpers/getPreviousMonth.js"
-import { getWeeks } from "../helpers/getWeeks.js"
-import { useControlledValue } from "../helpers/useControlledValue.js"
+import type {
+  CalendarWeek,
+  CalendarDay,
+  CalendarMonth
+} from "../classes/index.js";
+import type { DropdownOption } from "../components/Dropdown.js";
+import { getDates } from "../helpers/getDates.js";
+import { getDays } from "../helpers/getDays.js";
+import { getDisplayMonths } from "../helpers/getDisplayMonths.js";
+import { getDropdownMonths } from "../helpers/getDropdownMonths.js";
+import { getDropdownYears } from "../helpers/getDropdownYears.js";
+import { getInitialMonth } from "../helpers/getInitialMonth.js";
+import { getMonths } from "../helpers/getMonths.js";
+import { getNextMonth } from "../helpers/getNextMonth.js";
+import { getPreviousMonth } from "../helpers/getPreviousMonth.js";
+import { getWeeks } from "../helpers/getWeeks.js";
+import { useControlledValue } from "../helpers/useControlledValue.js";
 
-import { useProps } from "./useProps.js"
+import { useProps } from "./useProps.js";
 
 /** @private */
 const CalendarContext = createContext<CalendarContextValue | undefined>(

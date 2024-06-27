@@ -1,6 +1,6 @@
-import { act, renderHook } from "@testing-library/react"
+import { act, renderHook } from "@testing-library/react";
 
-import { useControlledValue } from "./useControlledValue.js"
+import { useControlledValue } from "./useControlledValue.js";
 
 describe("when the value is controlled", () => {
   const defaultValue: string | undefined = "foo"; // not controlled

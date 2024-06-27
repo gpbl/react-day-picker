@@ -1,5 +1,5 @@
-import { CalendarDay } from "./CalendarDay.js"
-import { CalendarWeek } from "./CalendarWeek.js"
+import { CalendarDay } from "./CalendarDay.js";
+import { CalendarWeek } from "./CalendarWeek.js";
 
 let week: CalendarWeek;
 const days = [

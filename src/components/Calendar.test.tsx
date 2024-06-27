@@ -1,9 +1,9 @@
-import React from "react"
+import React from "react";
 
-import { grid, nav } from "@/test/elements.js"
-import { render } from "@/test/render.js"
+import { grid, nav } from "@/test/elements.js";
+import { render } from "@/test/render.js";
 
-import { Calendar } from "./Calendar.js"
+import { Calendar } from "./Calendar.js";
 
 it("should render the navigation and month grids", () => {
   render(<Calendar />);

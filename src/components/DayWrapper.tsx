@@ -1,15 +1,20 @@
-import React from "react"
+import React from "react";
 
-import { UI, DayFlag } from "../UI.js"
-import { CalendarDay } from "../classes/CalendarDay.js"
-import { useCalendar, useFocus, useModifiers, useProps } from "../contexts/index.js"
-import { debounce } from "../helpers/debounce.js"
-import { getClassNamesForModifiers } from "../helpers/getClassNamesForModifiers.js"
-import { getStyleForModifiers } from "../helpers/getStyleForModifiers.js"
-import { useMulti, useRange, useSingle } from "../selection/index.js"
+import { UI, DayFlag } from "../UI.js";
+import { CalendarDay } from "../classes/CalendarDay.js";
+import {
+  useCalendar,
+  useFocus,
+  useModifiers,
+  useProps
+} from "../contexts/index.js";
+import { debounce } from "../helpers/debounce.js";
+import { getClassNamesForModifiers } from "../helpers/getClassNamesForModifiers.js";
+import { getStyleForModifiers } from "../helpers/getStyleForModifiers.js";
+import { useMulti, useRange, useSingle } from "../selection/index.js";
 
-import { type DayProps, Day as DefaultDay } from "./Day.js"
-import { type DayDateProps, DayDate as DefaultDayDate } from "./DayDate.js"
+import { type DayProps, Day as DefaultDay } from "./Day.js";
+import { type DayDateProps, DayDate as DefaultDayDate } from "./DayDate.js";
 
 /**
  * Provides a `Day` the day state and the html attributes. Developers may use a

@@ -6,7 +6,7 @@ import {
   WeekNumberFlag,
   SelectionState
 } from "../UI";
-import type { ClassNames } from "../types/index.js"
+import type { ClassNames } from "../types/index.js";
 
 /**
  * Get the default class names for the UI elements.

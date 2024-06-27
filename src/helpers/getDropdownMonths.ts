@@ -1,5 +1,5 @@
-import { DropdownOption } from "../components/Dropdown.js"
-import { PropsContextValue } from "../contexts/index.js"
+import { DropdownOption } from "../components/Dropdown.js";
+import { PropsContextValue } from "../contexts/index.js";
 
 /** Return the months to show in the dropdown. */
 export function getDropdownMonths(

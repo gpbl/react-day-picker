@@ -1,3 +1,3 @@
-export * from "./deprecated";
-export * from "./shared";
-export * from "./props";
+export * from "./deprecated.js";
+export * from "./shared.js";
+export * from "./props.js";

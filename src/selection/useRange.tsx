@@ -1,9 +1,9 @@
-import React from "react"
+import React from "react";
 
-import { useProps } from "../contexts/index.js"
-import { DateRange, Modifiers, PropsRange } from "../types/index.js"
-import { addToRange, dateMatchModifiers } from "../utils/index.js"
-import { isDateInRange } from "../utils/isDateInRange.js"
+import { useProps } from "../contexts/index.js";
+import { DateRange, Modifiers, PropsRange } from "../types/index.js";
+import { addToRange, dateMatchModifiers } from "../utils/index.js";
+import { isDateInRange } from "../utils/isDateInRange.js";
 
 export type RangeContextValue<T> = {
   setSelected: (

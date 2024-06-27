@@ -1,10 +1,10 @@
-import React from "react"
+import React from "react";
 
-import { UI } from "../UI.js"
-import { useProps } from "../contexts/index.js"
-import { getWeekdays } from "../helpers/getWeekdays.js"
+import { UI } from "../UI.js";
+import { useProps } from "../contexts/index.js";
+import { getWeekdays } from "../helpers/getWeekdays.js";
 
-import { Weekday as DefaultWeekday } from "./Weekday.js"
+import { Weekday as DefaultWeekday } from "./Weekday.js";
 
 /**
  * Render the row with the weekday names.

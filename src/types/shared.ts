@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import type { MouseEvent, CSSProperties } from "react"
+import type { MouseEvent, CSSProperties } from "react";
 
 import {
   UI,
@@ -9,7 +9,7 @@ import {
   WeekNumberFlag,
   SelectionState
 } from "../UI";
-import * as components from "../components/custom-components.js"
+import * as components from "../components/custom-components.js";
 import {
   formatCaption,
   formatDay,
@@ -31,7 +31,7 @@ import {
   labelWeekNumberHeader,
   labelYearDropdown
 } from "../labels";
-import { dateLib } from "../lib/index.js"
+import { dateLib } from "../lib/index.js";
 
 /**
  * Selection modes supported by DayPicker.
@@ -221,23 +221,23 @@ export type WeekNumberMouseEventHandler = (
 /** Maps user interface elements, selection states, and flags to a CSS style. */
 export type Styles = {
   [key in
-  | UI
-  | SelectionState
-  | DayFlag
-  | CalendarFlag
-  | ChevronFlag
-  | WeekNumberFlag]: CSSProperties | undefined;
+    | UI
+    | SelectionState
+    | DayFlag
+    | CalendarFlag
+    | ChevronFlag
+    | WeekNumberFlag]: CSSProperties | undefined;
 };
 
 /** Defines the class names for various UI components and states. */
 export type ClassNames = {
   [key in
-  | UI
-  | SelectionState
-  | DayFlag
-  | CalendarFlag
-  | ChevronFlag
-  | WeekNumberFlag]: string;
+    | UI
+    | SelectionState
+    | DayFlag
+    | CalendarFlag
+    | ChevronFlag
+    | WeekNumberFlag]: string;
 };
 
 /** The flags that are matching a day in the calendar. */

@@ -1,6 +1,6 @@
-import { CalendarDay } from "./CalendarDay.js"
-import { CalendarMonth } from "./CalendarMonth.js"
-import { CalendarWeek } from "./CalendarWeek.js"
+import { CalendarDay } from "./CalendarDay.js";
+import { CalendarMonth } from "./CalendarMonth.js";
+import { CalendarWeek } from "./CalendarWeek.js";
 
 let month: CalendarMonth;
 let date: Date;

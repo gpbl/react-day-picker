@@ -1,5 +1,5 @@
-import { FormatOptions, dateLib as defaultDateLib } from "../lib/index.js"
-import type { DateLib } from "../types/index.js"
+import { FormatOptions, dateLib as defaultDateLib } from "../lib/index.js";
+import type { DateLib } from "../types/index.js";
 
 /**
  * The default formatter for the caption element.

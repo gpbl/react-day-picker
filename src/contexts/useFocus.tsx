@@ -6,14 +6,14 @@ import React, {
   useState
 } from "react";
 
-import { DayFlag } from "../UI.js"
-import type { CalendarDay } from "../classes/index.js"
-import { getNextFocus } from "../helpers/getNextFocus.js"
-import type { MoveFocusBy, MoveFocusDir, Mode } from "../types/index.js"
+import { DayFlag } from "../UI.js";
+import type { CalendarDay } from "../classes/index.js";
+import { getNextFocus } from "../helpers/getNextFocus.js";
+import type { MoveFocusBy, MoveFocusDir, Mode } from "../types/index.js";
 
-import { useCalendar } from "./useCalendar.js"
-import { useModifiers } from "./useModifiers.js"
-import { useProps } from "./useProps.js"
+import { useCalendar } from "./useCalendar.js";
+import { useModifiers } from "./useModifiers.js";
+import { useProps } from "./useProps.js";
 
 const FocusContext = createContext<FocusContextValue | undefined>(undefined);
 

@@ -1,7 +1,7 @@
-import React from "react"
+import React from "react";
 
-import { ChevronFlag, UI } from "../UI.js"
-import { useProps } from "../contexts/index.js"
+import { ChevronFlag, UI } from "../UI.js";
+import { useProps } from "../contexts/index.js";
 
 /**
  * Render the chevron icon used in the navigation buttons and dropdowns.

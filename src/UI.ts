@@ -1,4 +1,4 @@
-import type { CustomComponents, ClassNames, Styles } from "./types/index.js"
+import type { CustomComponents, ClassNames, Styles } from "./types/index.js";
 
 /**
  * The UI elements composing DayPicker. These elements are mapped to

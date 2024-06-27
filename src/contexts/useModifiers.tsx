@@ -1,21 +1,21 @@
-import React, { type ReactElement, createContext, useContext } from "react"
+import React, { type ReactElement, createContext, useContext } from "react";
 
-import { DayFlag, SelectionState } from "../UI.js"
-import { CalendarDay } from "../classes/index.js"
-import { useMulti } from "../selection/useMulti.js"
-import { useRange } from "../selection/useRange.js"
-import { useSingle } from "../selection/useSingle.js"
+import { DayFlag, SelectionState } from "../UI.js";
+import { CalendarDay } from "../classes/index.js";
+import { useMulti } from "../selection/useMulti.js";
+import { useRange } from "../selection/useRange.js";
+import { useSingle } from "../selection/useSingle.js";
 import type {
   CustomModifiers,
   DayFlags,
   Modifiers,
   SelectionStates
 } from "../types";
-import { isDateInRange } from "../utils/index.js"
-import { dateMatchModifiers } from "../utils/dateMatchModifiers.js"
+import { dateMatchModifiers } from "../utils/dateMatchModifiers.js";
+import { isDateInRange } from "../utils/index.js";
 
-import { useCalendar } from "./useCalendar.js"
-import { useProps } from "./useProps.js"
+import { useCalendar } from "./useCalendar.js";
+import { useProps } from "./useProps.js";
 
 /** @private */
 const ModifiersContext = createContext<ModifiersContextValue | undefined>(

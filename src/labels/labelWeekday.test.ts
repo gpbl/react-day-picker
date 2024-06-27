@@ -1,6 +1,6 @@
-import { es } from "date-fns/locale/es.js"
+import { es } from "date-fns/locale/es.js";
 
-import { labelWeekday } from "./labelWeekday.js"
+import { labelWeekday } from "./labelWeekday.js";
 
 const weekDay = new Date(2022, 10, 21);
 

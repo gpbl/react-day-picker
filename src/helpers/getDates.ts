@@ -1,4 +1,4 @@
-import { PropsContextValue } from "../contexts/index.js"
+import { PropsContextValue } from "../contexts/index.js";
 
 /** The number of days in a month when having 6 weeks. */
 const NrOfDaysWithFixedWeeks = 42;
@@ -32,16 +32,16 @@ export function getDates(
   const startWeekFirstDate = ISOWeek
     ? startOfISOWeek(firstMonth)
     : startOfWeek(firstMonth, {
-      weekStartsOn,
-      locale
-    });
+        weekStartsOn,
+        locale
+      });
 
   const endWeekLastDate = ISOWeek
     ? endOfISOWeek(endOfMonth(lastMonth))
     : endOfWeek(endOfMonth(lastMonth), {
-      weekStartsOn,
-      locale
-    });
+        weekStartsOn,
+        locale
+      });
 
   const nOfDays = differenceInCalendarDays(endWeekLastDate, startWeekFirstDate);
   const nOfMonths = differenceInCalendarMonths(lastMonth, firstMonth) + 1;

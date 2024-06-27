@@ -1,7 +1,7 @@
-import { addMonths, isSameMonth } from "date-fns"
-import { dateLib } from "react-day-picker/index.js"
+import { addMonths, isSameMonth } from "date-fns";
+import { dateLib } from "react-day-picker/index.js";
 
-import { getNextMonth } from "./getNextMonth.js"
+import { getNextMonth } from "./getNextMonth.js";
 
 const startingMonth = new Date(2020, 4, 31);
 

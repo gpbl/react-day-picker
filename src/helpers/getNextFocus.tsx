@@ -1,9 +1,9 @@
-import { CalendarDay } from "../classes/index.js"
-import type { PropsContextValue } from "../contexts/index.js"
-import type { MoveFocusBy, MoveFocusDir } from "../types/index.js"
-import { dateMatchModifiers } from "../utils/dateMatchModifiers.js"
+import { CalendarDay } from "../classes/index.js";
+import type { PropsContextValue } from "../contexts/index.js";
+import type { MoveFocusBy, MoveFocusDir } from "../types/index.js";
+import { dateMatchModifiers } from "../utils/dateMatchModifiers.js";
 
-import { getPossibleFocusDate } from "./getPossibleFocusDate.js"
+import { getPossibleFocusDate } from "./getPossibleFocusDate.js";
 
 export type Options = Pick<
   PropsContextValue,

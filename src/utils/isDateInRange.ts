@@ -1,5 +1,5 @@
-import { dateLib as defaultDateLib } from "../lib/index.js"
-import type { DateRange, DateLib } from "../types/index.js"
+import { dateLib as defaultDateLib } from "../lib/index.js";
+import type { DateRange, DateLib } from "../types/index.js";
 
 /**
  * Determines whether a given date is inside a specified date range.

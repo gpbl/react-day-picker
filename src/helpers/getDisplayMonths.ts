@@ -1,4 +1,4 @@
-import type { PropsContextValue } from "../contexts/index.js"
+import type { PropsContextValue } from "../contexts/index.js";
 
 export function getDisplayMonths(
   firstDisplayedMonth: Date,

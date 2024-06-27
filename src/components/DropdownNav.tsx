@@ -1,11 +1,11 @@
-import React from "react"
+import React from "react";
 
-import { UI } from "../UI.js"
-import type { CalendarMonth } from "../classes/index.js"
-import { useProps } from "../contexts/index.js"
+import { UI } from "../UI.js";
+import type { CalendarMonth } from "../classes/index.js";
+import { useProps } from "../contexts/index.js";
 
-import { MonthsDropdown } from "./MonthsDropdown.js"
-import { YearsDropdown } from "./YearsDropdown.js"
+import { MonthsDropdown } from "./MonthsDropdown.js";
+import { YearsDropdown } from "./YearsDropdown.js";
 
 /**
  * Render the dropdowns to navigate between months.

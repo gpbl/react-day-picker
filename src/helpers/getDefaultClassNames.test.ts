@@ -1,4 +1,4 @@
-import { getDefaultClassNames } from "./getDefaultClassNames.js"
+import { getDefaultClassNames } from "./getDefaultClassNames.js";
 
 test("should return the default classnames", () => {
   expect(getDefaultClassNames()).toStrictEqual({

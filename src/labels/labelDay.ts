@@ -1,7 +1,7 @@
-import type { DateLib } from "../index.js"
-import { dateLib as defaultDateLib } from "../lib/index.js"
-import type { FormatOptions } from "../lib/dateLib.js"
-import type { Modifiers } from "../types/index.js"
+import type { DateLib } from "../index.js";
+import type { FormatOptions } from "../lib/dateLib.js";
+import { dateLib as defaultDateLib } from "../lib/index.js";
+import type { Modifiers } from "../types/index.js";
 
 /**
  * Return an ARIA label for the day button. By default, it returns an empty

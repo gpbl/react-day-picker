@@ -1,5 +1,5 @@
-import { DayFlag, SelectionState } from "../UI.js"
-import type { ModifiersClassNames, ClassNames } from "../types/index.js"
+import { DayFlag, SelectionState } from "../UI.js";
+import type { ModifiersClassNames, ClassNames } from "../types/index.js";
 
 export function getClassNamesForModifiers(
   modifiers: Record<string, boolean>,

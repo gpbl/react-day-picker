@@ -1,4 +1,4 @@
-import { getStartEndMonths } from "./getStartEndMonths.js"
+import { getStartEndMonths } from "./getStartEndMonths.js";
 
 describe('when "startMonth" is not passed in', () => {
   test('"startMonth" should be undefined', () => {

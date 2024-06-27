@@ -1,4 +1,4 @@
-import { formatDay } from "./formatDay.js"
+import { formatDay } from "./formatDay.js";
 
 const date = new Date(2022, 10, 21);
 

@@ -1,12 +1,12 @@
-import React from "react"
+import React from "react";
 
-import { UI } from "../UI.js"
-import type { CalendarMonth } from "../classes/CalendarMonth.js"
-import { useProps } from "../contexts/index.js"
+import { UI } from "../UI.js";
+import type { CalendarMonth } from "../classes/CalendarMonth.js";
+import { useProps } from "../contexts/index.js";
 
-import { MonthCaption as DefaultMonthCaption } from "./MonthCaption.js"
-import { Week as DefaultWeek } from "./Week.js"
-import { Weekdays as DefaultWeekdays } from "./Weekdays.js"
+import { MonthCaption as DefaultMonthCaption } from "./MonthCaption.js";
+import { Week as DefaultWeek } from "./Week.js";
+import { Weekdays as DefaultWeekdays } from "./Weekdays.js";
 
 /**
  * Render the grid with the weekday header row and the weeks for the given

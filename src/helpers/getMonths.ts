@@ -1,5 +1,5 @@
-import { CalendarWeek, CalendarDay, CalendarMonth } from "../classes/index.js"
-import type { PropsContextValue } from "../contexts/index.js"
+import { CalendarWeek, CalendarDay, CalendarMonth } from "../classes/index.js";
+import type { PropsContextValue } from "../contexts/index.js";
 
 /** Return the months to display in the calendar. */
 export function getMonths(
@@ -34,16 +34,16 @@ export function getMonths(
       const firstDateOfFirstWeek = props.ISOWeek
         ? startOfISOWeek(month)
         : startOfWeek(month, {
-          locale: props.locale,
-          weekStartsOn: props.weekStartsOn
-        });
+            locale: props.locale,
+            weekStartsOn: props.weekStartsOn
+          });
 
       const lastDateOfLastWeek = props.ISOWeek
         ? endOfISOWeek(endOfMonth(month))
         : endOfWeek(endOfMonth(month), {
-          locale: props.locale,
-          weekStartsOn: props.weekStartsOn
-        });
+            locale: props.locale,
+            weekStartsOn: props.weekStartsOn
+          });
 
       /** The dates to display in the month. */
       const monthDates = dates.filter((date) => {
@@ -64,10 +64,10 @@ export function getMonths(
           const weekNumber = props.ISOWeek
             ? getISOWeek(date)
             : getWeek(date, {
-              locale: props.locale,
-              weekStartsOn: props.weekStartsOn,
-              firstWeekContainsDate: props.firstWeekContainsDate
-            });
+                locale: props.locale,
+                weekStartsOn: props.weekStartsOn,
+                firstWeekContainsDate: props.firstWeekContainsDate
+              });
           const week = weeks.find((week) => week.weekNumber === weekNumber);
 
           const day = new CalendarDay(date, month, props.dateLib);
