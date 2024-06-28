@@ -1,5 +1,5 @@
-import type { DateFnsMonth } from "../lib/dateLib";
-import { enUS } from "../lib/locales";
+import type { DateFnsMonth } from "../lib/dateLib.js";
+import { enUS } from "../lib/locales.js";
 
 /**
  * The default formatter for the month dropdown value.

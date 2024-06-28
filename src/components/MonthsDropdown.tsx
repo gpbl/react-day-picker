@@ -1,11 +1,11 @@
 import React from "react";
 import type { ChangeEventHandler } from "react";
 
-import { UI } from "../UI";
-import type { CalendarMonth } from "../classes";
-import { useCalendar, useProps } from "../contexts";
+import { UI } from "../UI.js";
+import type { CalendarMonth } from "../classes/index.js";
+import { useCalendar, useProps } from "../contexts/index.js";
 
-import { Dropdown as DefaultDropdown } from "./Dropdown";
+import { Dropdown as DefaultDropdown } from "./Dropdown.js";
 
 /**
  * Render the dropdown to change the month.

@@ -9,7 +9,7 @@ import {
   WeekNumberFlag,
   SelectionState
 } from "../UI";
-import * as components from "../components/custom-components";
+import * as components from "../components/custom-components.js";
 import {
   formatCaption,
   formatDay,
@@ -31,7 +31,7 @@ import {
   labelWeekNumberHeader,
   labelYearDropdown
 } from "../labels";
-import { dateLib } from "../lib";
+import { dateLib } from "../lib/index.js";
 
 /**
  * Selection modes supported by DayPicker.

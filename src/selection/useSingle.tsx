@@ -1,7 +1,7 @@
 import React from "react";
 
-import { useProps } from "../contexts";
-import { Modifiers, PropsSingle } from "../types";
+import { useProps } from "../contexts/index.js";
+import { Modifiers, PropsSingle } from "../types/index.js";
 
 export type SingleContextValue<T> = {
   setSelected: (

@@ -1,5 +1,5 @@
-import { CalendarWeek, CalendarDay, CalendarMonth } from "../classes";
-import type { PropsContextValue } from "../contexts";
+import { CalendarWeek, CalendarDay, CalendarMonth } from "../classes/index.js";
+import type { PropsContextValue } from "../contexts/index.js";
 
 /** Return the months to display in the calendar. */
 export function getMonths(
