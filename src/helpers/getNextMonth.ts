@@ -1,4 +1,4 @@
-import { PropsContextValue } from "../contexts/index.js";
+import { UseProps } from "../contexts/index.js";
 
 /**
  * Return the next month the user can navigate to according to the given
@@ -12,7 +12,7 @@ import { PropsContextValue } from "../contexts/index.js";
 export function getNextMonth(
   firstDisplayedMonth: Date,
   props: Pick<
-    PropsContextValue,
+    UseProps,
     | "startMonth"
     | "endMonth"
     | "numberOfMonths"

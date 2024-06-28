@@ -1,5 +1,5 @@
 import { CalendarWeek, CalendarDay, CalendarMonth } from "../classes/index.js";
-import type { PropsContextValue } from "../contexts/index.js";
+import type { UseProps } from "../contexts/index.js";
 
 /** Return the months to display in the calendar. */
 export function getMonths(
@@ -9,7 +9,7 @@ export function getMonths(
   dates: Date[],
   /** Options from the props context. */
   props: Pick<
-    PropsContextValue,
+    UseProps,
     | "dateLib"
     | "fixedWeeks"
     | "ISOWeek"

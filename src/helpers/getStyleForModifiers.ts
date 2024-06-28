@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 
-import type { Modifiers, ModifiersStyles } from "../types";
+import type { Modifiers, ModifiersStyles } from "../types/index.js";
 
 export function getStyleForModifiers(
   dayModifiers: Modifiers,

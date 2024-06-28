@@ -3,7 +3,7 @@ import type { ChangeEventHandler } from "react";
 
 import { UI } from "../UI.js";
 import type { CalendarMonth } from "../classes/CalendarMonth.js";
-import { useCalendar, useProps } from "../contexts/index.js";
+import type { UIProps } from "../types/index.js";
 
 import { Dropdown as DefaultDropdown } from "./Dropdown.js";
 
@@ -15,19 +15,21 @@ import { Dropdown as DefaultDropdown } from "./Dropdown.js";
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function YearsDropdown(props: {
-  /** The month where the dropdown is displayed. */
-  month: CalendarMonth;
-}) {
+export function YearsDropdown(
+  props: {
+    /** The month where the dropdown is displayed. */
+    month: CalendarMonth;
+  } & UIProps
+) {
   const {
     classNames,
     components,
     dateLib: { startOfMonth, setYear },
     disableNavigation,
     labels: { labelYearDropdown }
-  } = useProps();
+  } = props.props;
 
-  const { dropdownOptions, goToMonth } = useCalendar();
+  const { dropdownOptions, goToMonth } = props.calendar;
 
   const handleChange: ChangeEventHandler<HTMLSelectElement> = (e) => {
     const month = setYear(

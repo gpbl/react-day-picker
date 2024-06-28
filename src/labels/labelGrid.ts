@@ -1,6 +1,6 @@
-import { dateLib as defaultDateLib } from "../lib";
-import type { FormatOptions } from "../lib/dateLib";
-import { DateLib } from "../types";
+import type { FormatOptions } from "../lib/dateLib.js";
+import { dateLib as defaultDateLib } from "../lib/index.js";
+import { DateLib } from "../types/index.js";
 
 /**
  * Return an ARIA label for the month grid, that will be announced when entering

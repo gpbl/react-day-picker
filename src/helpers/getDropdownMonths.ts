@@ -1,11 +1,11 @@
 import { DropdownOption } from "../components/Dropdown.js";
-import { PropsContextValue } from "../contexts/index.js";
+import { UseProps } from "../contexts/index.js";
 
 /** Return the months to show in the dropdown. */
 export function getDropdownMonths(
   displayMonth: Date,
   props: Pick<
-    PropsContextValue,
+    UseProps,
     "formatters" | "locale" | "startMonth" | "endMonth" | "dateLib"
   >
 ): DropdownOption[] | undefined {

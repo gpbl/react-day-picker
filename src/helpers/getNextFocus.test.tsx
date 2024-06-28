@@ -1,12 +1,12 @@
 import { CalendarDay } from "../classes";
-import type { PropsContextValue } from "../contexts/useProps";
+import type { UseProps } from "../contexts/useProps";
 import { dateLib } from "../lib";
 import type { MoveFocusBy, MoveFocusDir } from "../types";
 
 import { getNextFocus } from "./getNextFocus";
 
 const props: Pick<
-  PropsContextValue,
+  UseProps,
   "disabled" | "hidden" | "startMonth" | "endMonth" | "dateLib"
 > = {
   disabled: [],

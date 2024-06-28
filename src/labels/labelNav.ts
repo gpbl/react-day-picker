@@ -1,4 +1,4 @@
-import type { CalendarContextValue } from "../contexts";
+import type { UseCalendar } from "../contexts/index.js";
 
 /**
  * Return an ARIA label for the navigation toolbar, that will be announced when
@@ -8,7 +8,7 @@ import type { CalendarContextValue } from "../contexts";
  */
 export function labelNav(
   calendar: Pick<
-    CalendarContextValue,
+    UseCalendar,
     "firstMonth" | "lastMonth" | "nextMonth" | "previousMonth"
   >
 ): string {

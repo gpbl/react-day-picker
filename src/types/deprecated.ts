@@ -6,7 +6,7 @@ import {
 } from "../components/MonthCaption.js";
 import { Week, type WeekProps } from "../components/Week.js";
 import { useCalendar } from "../contexts/index.js";
-import { useProps, type PropsContextValue } from "../contexts/index.js";
+import { useProps, type UseProps } from "../contexts/index.js";
 import {
   labelDay,
   labelNext,
@@ -233,4 +233,4 @@ export type DayTouchEventHandler = DayEventHandler<React.TouchEvent>;
  * @deprecated The type has been renamed. Use `PropsContext` instead.
  * @protected
  */
-export type DayPickerContext = PropsContextValue;
+export type DayPickerContext = UseProps;

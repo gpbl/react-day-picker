@@ -1,12 +1,12 @@
 import { CalendarDay } from "../classes/index.js";
-import type { PropsContextValue } from "../contexts/index.js";
+import type { UseProps } from "../contexts/index.js";
 import type { MoveFocusBy, MoveFocusDir } from "../types/index.js";
 import { dateMatchModifiers } from "../utils/dateMatchModifiers.js";
 
 import { getPossibleFocusDate } from "./getPossibleFocusDate.js";
 
 export type Options = Pick<
-  PropsContextValue,
+  UseProps,
   | "modifiers"
   | "locale"
   | "ISOWeek"
@@ -21,7 +21,7 @@ export function getNextFocus(
   /** The date that is currently focused. */
   focused: CalendarDay,
   options: Pick<
-    PropsContextValue,
+    UseProps,
     | "dateLib"
     | "disabled"
     | "hidden"

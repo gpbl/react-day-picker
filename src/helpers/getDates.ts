@@ -1,4 +1,4 @@
-import { PropsContextValue } from "../contexts/index.js";
+import { UseProps } from "../contexts/index.js";
 
 /** The number of days in a month when having 6 weeks. */
 const NrOfDaysWithFixedWeeks = 42;
@@ -8,7 +8,7 @@ export function getDates(
   displayMonths: Date[],
   maxDate: Date | undefined,
   props: Pick<
-    PropsContextValue,
+    UseProps,
     "ISOWeek" | "fixedWeeks" | "locale" | "weekStartsOn" | "dateLib"
   >
 ): Date[] {

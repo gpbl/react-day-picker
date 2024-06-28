@@ -1,5 +1,7 @@
 import React, { type HTMLProps } from "react";
 
+import type { UIProps } from "../types/index.js";
+
 /**
  * Component wrapping the footer.
  *
@@ -9,7 +11,8 @@ import React, { type HTMLProps } from "react";
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
 export function Footer(
-  props: Pick<HTMLProps<HTMLElement>, "children" | "className" | "style">
+  props: Pick<HTMLProps<HTMLElement>, "children" | "className" | "style"> &
+    UIProps
 ) {
   return <div {...props}>{props.children}</div>;
 }

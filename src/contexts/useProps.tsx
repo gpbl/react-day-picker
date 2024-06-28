@@ -18,11 +18,7 @@ import type {
   DateLib
 } from "../types/index.js";
 
-const PropsContext = React.createContext<PropsContextValue | undefined>(
-  undefined
-);
-
-export type PropsContextValue = DayPickerProps & {
+export type UseProps = DayPickerProps & {
   /** The mode of the selection. */
   mode: Mode | undefined;
   /** The class names to add to the UI. */
@@ -48,7 +44,7 @@ export type PropsContextValue = DayPickerProps & {
   endMonth: Date | undefined;
 };
 
-function usePropsContextValue(initialProps: DayPickerProps) {
+export function useProps(initialProps: DayPickerProps) {
   const reactId = React.useId();
 
   const { startMonth, endMonth } = getStartEndMonths(initialProps);
@@ -58,7 +54,7 @@ function usePropsContextValue(initialProps: DayPickerProps) {
     ...initialProps.dateLib
   };
 
-  const propsContext: PropsContextValue = {
+  const extendedProps: UseProps = {
     ...initialProps,
     startMonth,
     endMonth,
@@ -82,47 +78,5 @@ function usePropsContextValue(initialProps: DayPickerProps) {
     dateLib
   };
 
-  return propsContext;
-}
-
-/**
- * Provide the shared props to the DayPicker components. Must be used as root of
- * the other providers.
- *
- * @private
- */
-export function PropsContextProvider<
-  ModeType extends Mode | undefined = undefined,
-  IsRequired extends boolean = false
->({
-  initialProps,
-  children
-}: React.PropsWithChildren<{
-  initialProps: DayPickerProps;
-}>) {
-  const propsContextValue = usePropsContextValue(initialProps);
-
-  return (
-    <PropsContext.Provider value={propsContextValue}>
-      {children}
-    </PropsContext.Provider>
-  );
-}
-
-/**
- * Access to the props passed to `DayPicker`, with some meaningful defaults.
- *
- * Use this hook from the custom components passed via the `components` prop.
- *
- * @group Hooks
- * @see https://daypicker.dev/advanced-guides/custom-components
- */
-export function useProps() {
-  const propsContext = React.useContext(PropsContext);
-  if (!propsContext) {
-    throw new Error(
-      "usePropsContext() must be used within a PropsContextProvider"
-    );
-  }
-  return propsContext;
+  return extendedProps;
 }

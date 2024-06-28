@@ -14,15 +14,10 @@ import type {
 import { dateMatchModifiers } from "../utils/dateMatchModifiers.js";
 import { isDateInRange } from "../utils/index.js";
 
-import { useCalendar } from "./useCalendar.js";
-import { useProps } from "./useProps.js";
+import type { UseCalendar } from "./useCalendar.js";
+import type { UseProps } from "./useProps.js";
 
-/** @private */
-const ModifiersContext = createContext<ModifiersContextValue | undefined>(
-  undefined
-);
-
-export type ModifiersContextValue = {
+export type UseModifiers = {
   /** List the days with custom modifiers passed via the `modifiers` prop. */
   customModifiers: Record<string, CalendarDay[]>;
   /** List the days with the internal modifiers. */
@@ -33,11 +28,13 @@ export type ModifiersContextValue = {
   getModifiers: (day: CalendarDay) => Modifiers;
 };
 
-function useModifiersContextValue(): ModifiersContextValue {
+export function useModifiers(
+  props: UseProps,
+  calendar: UseCalendar
+): UseModifiers {
   const { dateLib, disabled, hidden, modifiers, mode, showOutsideDays, today } =
-    useProps();
+    props;
 
-  const calendar = useCalendar();
   const single = useSingle();
   const multi = useMulti();
   const range = useRange();
@@ -173,34 +170,4 @@ function useModifiersContextValue(): ModifiersContextValue {
     selectionStates: selection,
     getModifiers
   };
-}
-
-/** @private */
-export function ModifiersContextProvider({
-  children
-}: {
-  children: ReactElement;
-}) {
-  const modifiers = useModifiersContextValue();
-
-  return (
-    <ModifiersContext.Provider value={modifiers}>
-      {children}
-    </ModifiersContext.Provider>
-  );
-}
-
-/**
- * Access to the modifiers for the days in the calendar.
- *
- * @group Hooks
- */
-export function useModifiers() {
-  const modifiersContext = useContext(ModifiersContext);
-  if (!modifiersContext) {
-    throw new Error(
-      "useModifiersContext() must be used within a ModifiersContextProvider"
-    );
-  }
-  return modifiersContext;
 }

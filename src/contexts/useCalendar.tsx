@@ -18,14 +18,9 @@ import { getPreviousMonth } from "../helpers/getPreviousMonth.js";
 import { getWeeks } from "../helpers/getWeeks.js";
 import { useControlledValue } from "../helpers/useControlledValue.js";
 
-import { useProps } from "./useProps.js";
+import type { UseProps } from "./useProps.js";
 
-/** @private */
-const CalendarContext = createContext<CalendarContextValue | undefined>(
-  undefined
-);
-
-export type CalendarContextValue = {
+export interface UseCalendar {
   today: Date;
   /** All the unique dates displayed to the calendar. */
   dates: Date[];
@@ -79,10 +74,13 @@ export type CalendarContextValue = {
   goToDay: (day: CalendarDay) => void;
   /** Whether the given date is included in the displayed months. */
   isDayDisplayed: (day: CalendarDay) => boolean;
-};
+}
 
-function useCalendarContextValue(): CalendarContextValue {
-  const props = useProps();
+/**
+ * @group Hooks
+ * @see https://daypicker.dev/advanced-guides/custom-components
+ */
+export function useCalendar(props: UseProps) {
   const { startOfMonth } = props.dateLib;
 
   const initialDisplayMonth = getInitialMonth(props);
@@ -113,9 +111,6 @@ function useCalendarContextValue(): CalendarContextValue {
 
   const previousMonth = getPreviousMonth(firstDisplayedMonth, props);
   const nextMonth = getNextMonth(firstDisplayedMonth, props);
-
-  const isInteractive =
-    props.mode !== undefined || props.onDayClick !== undefined;
 
   const { disableNavigation, onMonthChange, startMonth, endMonth } = props;
 
@@ -168,7 +163,7 @@ function useCalendarContextValue(): CalendarContextValue {
     return previousMonth ? goToMonth(previousMonth) : undefined;
   }
 
-  const calendarContextValue: CalendarContextValue = {
+  const calendar: UseCalendar = {
     dates,
     months,
     weeks,
@@ -187,6 +182,7 @@ function useCalendarContextValue(): CalendarContextValue {
       months: getDropdownMonths(firstDisplayedMonth, props),
       years: getDropdownYears(firstDisplayedMonth, props)
     },
+
     isDayDisplayed,
     goToMonth,
     goToDay,
@@ -194,33 +190,5 @@ function useCalendarContextValue(): CalendarContextValue {
     goToPreviousMonth
   };
 
-  return calendarContextValue;
-}
-
-/** @private */
-export function CalendarContextProvider(props: { children: ReactElement }) {
-  const calendarContextValue = useCalendarContextValue();
-  return (
-    <CalendarContext.Provider value={calendarContextValue}>
-      {props.children}
-    </CalendarContext.Provider>
-  );
-}
-
-/**
- * Access to the props passed to `DayPicker`, with some meaningful defaults.
- *
- * Use this hook from the custom components passed via the `components` prop.
- *
- * @group Hooks
- * @see https://daypicker.dev/advanced-guides/custom-components
- */
-export function useCalendar() {
-  const calendarContext = useContext(CalendarContext);
-  if (!calendarContext) {
-    throw new Error(
-      "useCalendar() must be used within a CalendarContextProvider"
-    );
-  }
-  return calendarContext;
+  return calendar;
 }

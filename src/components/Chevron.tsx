@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ChevronFlag, UI } from "../UI.js";
-import { useProps } from "../contexts/index.js";
+import type { UIProps } from "../types/index.js";
 
 /**
  * Render the chevron icon used in the navigation buttons and dropdowns.
@@ -11,19 +11,22 @@ import { useProps } from "../contexts/index.js";
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function Chevron(props: {
-  size?: number;
-  orientation?: "up" | "down" | "left" | "right";
-}) {
-  const { size = 24, orientation = "left" } = props;
-  const { classNames, disableNavigation } = useProps();
+export function Chevron(
+  props: {
+    className: string;
+    classNameDisabled: string;
+    size?: number;
+    orientation?: "up" | "down" | "left" | "right";
+  } & UIProps
+) {
+  const {
+    size = 24,
+    orientation = "left",
+    className,
+    classNameDisabled
+  } = props;
 
-  const svgClassName = [
-    classNames[UI.Chevron],
-    disableNavigation ? classNames[ChevronFlag.disabled] : ""
-  ]
-    .join(" ")
-    .trim();
+  const svgClassName = [className, classNameDisabled].join(" ").trim();
   return (
     <svg
       className={svgClassName}

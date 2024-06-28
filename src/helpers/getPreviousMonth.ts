@@ -1,4 +1,4 @@
-import type { PropsContextValue } from "../contexts/index.js";
+import type { UseProps } from "../contexts/index.js";
 
 /**
  * Return the next previous the user can navigate to, according to the given
@@ -13,7 +13,7 @@ import type { PropsContextValue } from "../contexts/index.js";
 export function getPreviousMonth(
   firstDisplayedMonth: Date,
   props: Pick<
-    PropsContextValue,
+    UseProps,
     | "startMonth"
     | "numberOfMonths"
     | "pagedNavigation"

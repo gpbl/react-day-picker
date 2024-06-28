@@ -2,7 +2,7 @@ import React from "react";
 
 import { UI } from "../UI.js";
 import type { CalendarMonth } from "../classes/index.js";
-import { useProps } from "../contexts/index.js";
+import type { UIProps } from "../types/index.js";
 
 import { MonthsDropdown } from "./MonthsDropdown.js";
 import { YearsDropdown } from "./YearsDropdown.js";
@@ -15,21 +15,23 @@ import { YearsDropdown } from "./YearsDropdown.js";
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function DropdownNav(props: {
-  /** The month where the dropdown navigation is displayed. */
-  month: CalendarMonth;
-  /** Whether the user can change the month. */
-  showMonths?: boolean;
-  /** Whether the user can change the year. */
-  showYears?: boolean;
-  /** The index where this month is displayed. */
-  index: number;
-}) {
+export function DropdownNav(
+  props: {
+    /** The month where the dropdown navigation is displayed. */
+    month: CalendarMonth;
+    /** Whether the user can change the month. */
+    showMonths?: boolean;
+    /** Whether the user can change the year. */
+    showYears?: boolean;
+    /** The index where this month is displayed. */
+    index: number;
+  } & UIProps
+) {
   const {
     classNames,
     styles,
     formatters: { formatMonthDropdown, formatYearDropdown }
-  } = useProps();
+  } = props.props;
 
   return (
     <div

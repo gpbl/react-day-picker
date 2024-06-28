@@ -2,7 +2,7 @@ import React from "react";
 
 import { UI } from "../UI.js";
 import type { CalendarMonth } from "../classes/index.js";
-import { useProps } from "../contexts/index.js";
+import type { UIProps } from "../types/index.js";
 
 import { DropdownNav } from "./DropdownNav.js";
 
@@ -14,14 +14,16 @@ import { DropdownNav } from "./DropdownNav.js";
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function MonthCaption(props: {
-  /** The month where the grid is displayed. */
-  month: CalendarMonth;
-  /** Used for the aria-label. */
-  id: string;
-  /** The index where this month is displayed. */
-  index: number;
-}) {
+export function MonthCaption(
+  props: {
+    /** The month where the grid is displayed. */
+    month: CalendarMonth;
+    /** Used for the aria-label. */
+    id: string;
+    /** The index where this month is displayed. */
+    index: number;
+  } & UIProps
+) {
   const {
     classNames,
     captionLayout,
@@ -29,7 +31,7 @@ export function MonthCaption(props: {
     formatters: { formatCaption },
     locale,
     styles
-  } = useProps();
+  } = props.props;
 
   return (
     <div
@@ -39,6 +41,10 @@ export function MonthCaption(props: {
     >
       {captionLayout?.startsWith("dropdown") ? (
         <DropdownNav
+          props={props.props}
+          calendar={props.calendar}
+          className={classNames[UI.DropdownNav]}
+          style={styles?.[UI.DropdownNav]}
           month={props.month}
           index={props.index}
           showMonths={

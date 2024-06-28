@@ -1,9 +1,8 @@
 import React, { ReactNode } from "react";
 
-import { UI } from "../UI";
-import type { CalendarDay } from "../classes";
-import { useProps } from "../contexts";
-import type { Modifiers } from "../types";
+import { UI } from "../UI.js";
+import type { CalendarDay } from "../classes/index.js";
+import type { Modifiers, UIProps } from "../types/index.js";
 
 /**
  * Render the date as string inside the day grid cell.
@@ -19,14 +18,15 @@ export function DayDate(
     /** The modifiers for the day. */
     modifiers: Modifiers;
     children: ReactNode;
-  } & JSX.IntrinsicElements["button"]
+  } & JSX.IntrinsicElements["button"] &
+    UIProps
 ) {
   const { day, modifiers, ...buttonProps } = props;
   const {
     classNames,
     styles,
     components: { Button }
-  } = useProps();
+  } = props.props;
   return (
     <Button
       className={classNames[UI.DayDate]}

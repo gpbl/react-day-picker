@@ -5,13 +5,19 @@ import React, {
 } from "react";
 
 import { format } from "date-fns/format";
+import { DayPickerProps } from "react-day-picker";
 
-import { UI, CalendarFlag, DayFlag } from "../UI";
-import type { CalendarDay } from "../classes";
-import { useCalendar, useFocus, useModifiers, useProps } from "../contexts";
-import { getClassNamesForModifiers } from "../helpers/getClassNamesForModifiers";
-import { getStyleForModifiers } from "../helpers/getStyleForModifiers";
-import { useMulti, useRange, useSingle } from "../selection";
+import { UI, CalendarFlag, DayFlag } from "../UI.js";
+import type { CalendarDay } from "../classes/index.js";
+import {
+  useCalendar,
+  useFocus,
+  useModifiers,
+  useProps
+} from "../contexts/index.js";
+import { getClassNamesForModifiers } from "../helpers/getClassNamesForModifiers.js";
+import { getStyleForModifiers } from "../helpers/getStyleForModifiers.js";
+import { useMulti, useRange, useSingle } from "../selection/index.js";
 
 /**
  * Render the DayPicker Calendar with navigation and the month grids.
@@ -21,10 +27,10 @@ import { useMulti, useRange, useSingle } from "../selection";
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function Calendar() {
-  const props = useProps();
-  const calendar = useCalendar();
-  const modifiers = useModifiers();
+export function Calendar(initialProps: DayPickerProps) {
+  const props = useProps(initialProps);
+  const calendar = useCalendar(props);
+  const modifiers = useModifiers(props, calendar);
 
   const single = useSingle();
   const multi = useMulti();
@@ -83,24 +89,30 @@ export function Calendar() {
     title
   } = props;
 
-  const cssClassNames = [classNames[UI.Calendar]];
+  const clx = [classNames[UI.Calendar]];
   if (className) {
-    cssClassNames.push(className);
+    clx.push(className);
   }
   if (numberOfMonths > 1) {
-    cssClassNames.push(classNames[CalendarFlag.has_multiple_months]);
+    clx.push(classNames[CalendarFlag.has_multiple_months]);
   }
   if (showWeekNumber) {
-    cssClassNames.push(classNames[CalendarFlag.has_week_numbers]);
+    clx.push(classNames[CalendarFlag.has_week_numbers]);
   }
   if (hideWeekdayRow) {
-    cssClassNames.push(classNames[CalendarFlag.no_weekdays]);
+    clx.push(classNames[CalendarFlag.no_weekdays]);
   }
 
   const isInteractive = mode !== undefined || onDayClick !== undefined;
+
+  const sharedProps = {
+    calendar,
+    context: props
+  };
+
   return (
     <div
-      className={cssClassNames.join(" ")}
+      className={clx.join(" ")}
       style={{ ...styles?.[UI.Calendar], ...style }}
       dir={dir}
       id={id}
@@ -109,14 +121,43 @@ export function Calendar() {
       title={title}
       {...dataAttributes}
     >
-      <Months className={classNames[UI.Months]} style={styles?.[UI.Months]}>
-        {!hideNavigation && <Nav />}
+      <Months
+        className={classNames[UI.Months]}
+        style={styles?.[UI.Months]}
+        calendar={calendar}
+        props={props}
+      >
+        {!hideNavigation && (
+          // TODO: expand navigation component
+          <Nav
+            className={classNames[UI.Nav]}
+            style={styles?.[UI.Nav]}
+            calendar={calendar}
+            props={props}
+          />
+        )}
         {calendar.months.map((month, i) => {
           const captionId = `${id}-caption-${i}`;
 
           return (
-            <Month key={i} index={i} month={month}>
-              <MonthCaption id={captionId} month={month} index={i} />
+            <Month
+              className={classNames[UI.Month]}
+              style={styles?.[UI.Month]}
+              key={i}
+              index={i}
+              month={month}
+              calendar={calendar}
+              props={props}
+            >
+              <MonthCaption
+                className={classNames[UI.MonthCaption]}
+                style={styles?.[UI.MonthCaption]}
+                id={captionId}
+                month={month}
+                index={i}
+                calendar={calendar}
+                props={props}
+              />
               <table
                 role="grid"
                 aria-multiselectable={mode === "multiple" || mode === "range"}
@@ -127,7 +168,12 @@ export function Calendar() {
                 style={styles?.[UI.MonthGrid]}
               >
                 <thead>
-                  <Weekdays />
+                  <Weekdays
+                    className={classNames[UI.Weekdays]}
+                    style={styles?.[UI.Weekdays]}
+                    calendar={calendar}
+                    props={props}
+                  />
                 </thead>
                 <tbody
                   role="rowgroup"
@@ -137,11 +183,23 @@ export function Calendar() {
                   {month.weeks.map((week, i) => {
                     return (
                       <Week
+                        className={classNames[UI.Week]}
+                        style={styles?.[UI.Week]}
                         key={week.weekNumber}
                         week={week}
                         aria-rowindex={i + (hideWeekdayRow ? 1 : 2)}
+                        calendar={calendar}
+                        props={props}
                       >
-                        {showWeekNumber && <WeekNumber week={week} />}
+                        {showWeekNumber && (
+                          <WeekNumber
+                            className={classNames[UI.WeekNumber]}
+                            style={styles?.[UI.WeekNumber]}
+                            week={week}
+                            calendar={calendar}
+                            props={props}
+                          />
+                        )}
                         {week.days.map((day: CalendarDay, i: number) => {
                           const m = modifiers.getModifiers(day);
                           const { date: d } = day;
@@ -269,7 +327,6 @@ export function Calendar() {
                             ...(isFocused ? [classNames[DayFlag.focused]] : [])
                           ];
 
-                          // filter all the modifiers that are true and return their keys values
                           return (
                             <Day
                               key={`${format(d, "yyyy-MM-dd")}_${format(day.displayMonth, "yyyy-MM")}`}
@@ -281,8 +338,12 @@ export function Calendar() {
                               aria-colindex={showWeekNumber ? i + 2 : i + 1}
                               aria-hidden={m.hidden || undefined}
                               aria-selected={m.selected || undefined}
+                              calendar={calendar}
+                              props={props}
                             >
                               <DayDate
+                                className={classNames[UI.DayDate]}
+                                style={styles?.[UI.DayDate]}
                                 day={day}
                                 modifiers={m}
                                 disabled={m.disabled || undefined}
@@ -321,6 +382,8 @@ export function Calendar() {
                                 onTouchEnd={(e) => onDayTouchEnd?.(d, m, e)}
                                 onTouchMove={(e) => onDayTouchMove?.(d, m, e)}
                                 onTouchStart={(e) => onDayTouchStart?.(d, m, e)}
+                                calendar={calendar}
+                                props={props}
                               >
                                 {formatDay(d, { locale }, dateLib)}
                               </DayDate>
@@ -337,7 +400,12 @@ export function Calendar() {
         })}
       </Months>
       {footer && (
-        <Footer className={classNames[UI.Footer]} style={styles?.[UI.Footer]}>
+        <Footer
+          className={classNames[UI.Footer]}
+          style={styles?.[UI.Footer]}
+          calendar={calendar}
+          props={props}
+        >
           {footer}
         </Footer>
       )}

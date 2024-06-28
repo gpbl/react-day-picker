@@ -1,7 +1,7 @@
 import React from "react";
 
-import { UI } from "../UI.js";
-import { useCalendar, useProps } from "../contexts/index.js";
+import { ChevronFlag, UI } from "../UI.js";
+import type { UIProps } from "../types/shared.js";
 
 import { Button as DefaultButton } from "./Button.js";
 import { Chevron as DefaultChevron } from "./Chevron.js";
@@ -14,7 +14,7 @@ import { Chevron as DefaultChevron } from "./Chevron.js";
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function Nav() {
+export function Nav(props: UIProps) {
   const {
     classNames,
     styles,
@@ -24,9 +24,9 @@ export function Nav() {
     id,
     onNextClick,
     onPrevClick
-  } = useProps();
+  } = props.props;
 
-  const calendar = useCalendar();
+  const calendar = props.calendar;
 
   const handlePreviousClick = () => {
     if (!calendar.previousMonth) return;
@@ -60,7 +60,14 @@ export function Nav() {
         aria-controls={id}
         onClick={handlePreviousClick}
       >
-        <Chevron />
+        <Chevron
+          style={styles?.[UI.Chevron]}
+          className={classNames[UI.Chevron]}
+          classNameDisabled={classNames[ChevronFlag.disabled]}
+          props={props.props}
+          calendar={props.calendar}
+          orientation="left"
+        />
       </Button>
       <Button
         type="button"
@@ -72,7 +79,14 @@ export function Nav() {
         aria-controls={id}
         onClick={handleNextClick}
       >
-        <Chevron orientation="right" />
+        <Chevron
+          orientation="right"
+          style={styles?.[UI.Chevron]}
+          className={classNames[UI.Chevron]}
+          classNameDisabled={classNames[ChevronFlag.disabled]}
+          props={props.props}
+          calendar={props.calendar}
+        />
       </Button>
     </div>
   );

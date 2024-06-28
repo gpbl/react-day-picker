@@ -1,5 +1,5 @@
 import { CalendarMonth } from "../classes";
-import type { PropsContextValue } from "../contexts/useProps";
+import type { UseProps } from "../contexts/useProps";
 import { dateLib } from "../lib";
 
 import { getMonths } from "./getMonths";
@@ -15,7 +15,7 @@ const mockDates = [
 ];
 
 const mockProps: Pick<
-  PropsContextValue,
+  UseProps,
   | "fixedWeeks"
   | "ISOWeek"
   | "locale"

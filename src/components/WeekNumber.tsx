@@ -2,7 +2,7 @@ import React from "react";
 
 import { UI, WeekNumberFlag } from "../UI.js";
 import type { CalendarWeek } from "../classes/index.js";
-import { useProps } from "../contexts/index.js";
+import type { UIProps } from "../types/index.js";
 
 /**
  * Render the cell with the number of the week.
@@ -12,7 +12,7 @@ import { useProps } from "../contexts/index.js";
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function WeekNumber(props: { week: CalendarWeek }) {
+export function WeekNumber(props: { week: CalendarWeek } & UIProps) {
   const {
     classNames,
     formatters: { formatWeekNumber },
@@ -20,7 +20,7 @@ export function WeekNumber(props: { week: CalendarWeek }) {
     locale,
     styles,
     onWeekNumberClick
-  } = useProps();
+  } = props.props;
 
   const isInteractive = Boolean(onWeekNumberClick);
 

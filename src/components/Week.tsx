@@ -1,8 +1,8 @@
 import React from "react";
 
-import { UI } from "../UI";
-import type { CalendarWeek } from "../classes";
-import { useProps } from "../contexts";
+import { UI } from "../UI.js";
+import type { CalendarWeek } from "../classes/index.js";
+import type { UIProps } from "../types/shared.js";
 
 /**
  * Render a row in the calendar, with the days and the week number.
@@ -12,12 +12,14 @@ import { useProps } from "../contexts";
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function Week(props: {
-  ["aria-rowindex"]: number;
-  week: CalendarWeek;
-  children: React.ReactNode;
-}) {
-  const { styles, classNames } = useProps();
+export function Week(
+  props: {
+    ["aria-rowindex"]: number;
+    week: CalendarWeek;
+    children: React.ReactNode;
+  } & UIProps
+) {
+  const { styles, classNames } = props.props;
 
   return (
     <tr

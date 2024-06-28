@@ -1,7 +1,7 @@
 import React from "react";
 
 import { UI } from "../UI.js";
-import { useProps } from "../contexts/index.js";
+import type { UIProps } from "../types/index.js";
 
 /**
  * Render the column header with the weekday name (e.g. "Mo", "Tu", etc.).
@@ -11,11 +11,13 @@ import { useProps } from "../contexts/index.js";
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function Weekday(props: {
-  ["aria-colindex"]?: number | undefined;
-  ["aria-label"]?: string | undefined;
-  weekday?: Date;
-}) {
+export function Weekday(
+  props: {
+    ["aria-colindex"]?: number | undefined;
+    ["aria-label"]?: string | undefined;
+    weekday?: Date;
+  } & UIProps
+) {
   const {
     classNames,
     dateLib,
@@ -24,7 +26,7 @@ export function Weekday(props: {
     locale,
     hideWeekdayRow,
     styles
-  } = useProps();
+  } = props.props;
   return (
     <th
       role="columnheader"

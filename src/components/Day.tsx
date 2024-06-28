@@ -1,10 +1,10 @@
 import React from "react";
 import type { ReactNode } from "react";
 
-import { UI } from "../UI";
-import type { CalendarDay } from "../classes";
-import { useProps } from "../contexts";
-import type { Modifiers } from "../types";
+import { UI } from "../UI.js";
+import type { CalendarDay } from "../classes/index.js";
+import { useProps } from "../contexts/index.js";
+import type { Modifiers, UIProps } from "../types/index.js";
 
 /**
  * Render the gridcell of a day in the calendar and handle the interaction and
@@ -22,13 +22,11 @@ export function Day(
     day: CalendarDay;
     modifiers: Modifiers;
     children?: ReactNode;
-  } & JSX.IntrinsicElements["td"]
+  } & UIProps &
+    JSX.IntrinsicElements["td"]
 ) {
-  const { day, modifiers, ...tdProps } = props;
-  const { classNames, styles } = useProps();
-  return (
-    <td className={classNames[UI.Day]} style={styles?.[UI.Day]} {...tdProps} />
-  );
+  const { day, modifiers, props: context, calendar, ...tdProps } = props;
+  return <td {...tdProps} />;
 }
 
 export type DayProps = Parameters<typeof Day>[0];

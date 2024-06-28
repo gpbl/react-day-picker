@@ -1,16 +1,16 @@
-import React from "react";
-import type { HTMLProps } from "react";
+import React, { type HTMLProps } from "react";
+
+import type { UIProps } from "../types/index.js";
 
 /**
  * Component wrapping the month grids.
- *
- * Use the `components` prop to swap this component with a custom one.
  *
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
 export function Months(
-  props: Pick<HTMLProps<HTMLElement>, "children" | "className" | "style">
+  props: Pick<HTMLProps<HTMLElement>, "children" | "className" | "style"> &
+    UIProps
 ) {
   return <div {...props}>{props.children}</div>;
 }

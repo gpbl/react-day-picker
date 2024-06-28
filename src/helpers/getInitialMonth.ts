@@ -1,9 +1,9 @@
-import type { PropsContextValue } from "../contexts/index.js";
+import type { UseProps } from "../contexts/index.js";
 
 /** Return the start month based on the props passed to DayPicker. */
 export function getInitialMonth(
   props: Pick<
-    PropsContextValue,
+    UseProps,
     | "fromYear"
     | "toYear"
     | "startMonth"

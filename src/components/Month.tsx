@@ -1,8 +1,7 @@
 import React from "react";
 
-import { UI } from "../UI";
-import type { CalendarMonth } from "../classes/CalendarMonth";
-import { useProps } from "../contexts";
+import type { CalendarMonth } from "../classes/CalendarMonth.js";
+import type { UIProps } from "../types/index.js";
 
 /**
  * Render the grid with the weekday header row and the weeks for the given
@@ -13,16 +12,17 @@ import { useProps } from "../contexts";
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function Month(props: {
-  /** The month where the grid is displayed. */
-  month: CalendarMonth;
-  /** The index where this month is displayed. */
-  index: number;
-  children: React.ReactNode;
-}) {
-  const { classNames, styles } = useProps();
+export function Month(
+  props: {
+    /** The month where the grid is displayed. */
+    month: CalendarMonth;
+    /** The index where this month is displayed. */
+    index: number;
+    children: React.ReactNode;
+  } & UIProps
+) {
   return (
-    <div className={classNames[UI.Month]} style={styles?.[UI.Month]}>
+    <div className={props.className} style={props.style}>
       {props.children}
     </div>
   );

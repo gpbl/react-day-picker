@@ -1,4 +1,4 @@
-import type { PropsContextValue } from "../contexts/index.js";
+import type { UseProps } from "../contexts/index.js";
 import type { MoveFocusBy, MoveFocusDir } from "../types/index.js";
 
 /** Return the next date that should be focused. */
@@ -7,7 +7,7 @@ export function getPossibleFocusDate(
   moveDir: MoveFocusDir,
   focusedDate: Date,
   options: Pick<
-    PropsContextValue,
+    UseProps,
     | "locale"
     | "ISOWeek"
     | "weekStartsOn"

@@ -1,8 +1,8 @@
-import type { PropsContextValue } from "../contexts/index.js";
+import type { UseProps } from "../contexts/index.js";
 
 export function getDisplayMonths(
   firstDisplayedMonth: Date,
-  props: Pick<PropsContextValue, "numberOfMonths" | "endMonth" | "dateLib">
+  props: Pick<UseProps, "numberOfMonths" | "endMonth" | "dateLib">
 ) {
   const months: Date[] = [];
   for (let i = 0; i < props.numberOfMonths; i++) {

@@ -1,7 +1,7 @@
 import React, { type SelectHTMLAttributes } from "react";
 
 import { UI } from "../UI.js";
-import { useProps } from "../contexts/index.js";
+import type { UIProps } from "../types/index.js";
 
 import { Chevron as DefaultChevron } from "./Chevron.js";
 import { Option as DefaultOption } from "./Option.js";
@@ -32,10 +32,11 @@ export function Dropdown(
   props: {
     options?: DropdownOption[] | undefined;
     rootClassName?: string;
-  } & Omit<SelectHTMLAttributes<HTMLSelectElement>, "children">
+  } & Omit<SelectHTMLAttributes<HTMLSelectElement>, "children"> &
+    UIProps
 ) {
   const { options, rootClassName, className, ...selectProps } = props;
-  const { classNames, components } = useProps();
+  const { classNames, components } = props.props;
 
   const cssClassRoot = [classNames[UI.DropdownRoot], rootClassName].join(" ");
   const cssClassSelect = [classNames[UI.Dropdown], className].join(" ");
