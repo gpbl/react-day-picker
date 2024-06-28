@@ -1,5 +1,5 @@
-import { dateLib as defaultDateLib } from "../lib";
-import type { DateLib } from "../types";
+import { dateLib as defaultDateLib } from "../lib/index.js";
+import type { DateLib } from "../types/index.js";
 
 /**
  * Represent the day displayed in the calendar.

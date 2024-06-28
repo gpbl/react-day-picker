@@ -30,6 +30,7 @@ const config = {
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "import/no-unresolved": "off",
+    "import/namespace": "off",
     "prettier/prettier": "warn",
     "no-console": "warn",
     "@typescript-eslint/no-unused-vars": "off",

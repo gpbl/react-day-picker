@@ -1,4 +1,4 @@
-import { PropsContextValue } from "../contexts";
+import { PropsContextValue } from "../contexts/index.js";
 
 /**
  * Return the next month the user can navigate to according to the given

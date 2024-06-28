@@ -1,10 +1,10 @@
 import React from "react";
 
-import { UI } from "../UI";
-import { useCalendar, useProps } from "../contexts";
+import { UI } from "../UI.js";
+import { useCalendar, useProps } from "../contexts/index.js";
 
-import { Button as DefaultButton } from "./Button";
-import { Chevron as DefaultChevron } from "./Chevron";
+import { Button as DefaultButton } from "./Button.js";
+import { Chevron as DefaultChevron } from "./Chevron.js";
 
 /**
  * Render the navigation buttons to change the month.
