@@ -1,6 +1,6 @@
-import { dateLib as defaultDateLib } from "../lib";
-import type { FormatOptions } from "../lib/dateLib";
-import type { DateLib } from "../types";
+import type { FormatOptions } from "../lib/dateLib.js";
+import { dateLib as defaultDateLib } from "../lib/index.js";
+import type { DateLib } from "../types/index.js";
 
 /**
  * Return he default ARIA label for the Weekday element.

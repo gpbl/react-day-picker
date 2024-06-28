@@ -1,6 +1,6 @@
-import { dateLib as defaultDateLib } from "../lib";
-import type { FormatOptions } from "../lib/dateLib";
-import type { DateLib } from "../types";
+import type { FormatOptions } from "../lib/dateLib.js";
+import { dateLib as defaultDateLib } from "../lib/index.js";
+import type { DateLib } from "../types/index.js";
 
 /**
  * The default formatter for the name of the weekday.

@@ -8,7 +8,7 @@ import type {
   PropsMulti,
   PropsRange,
   PropsSingle
-} from "../types";
+} from "../types/index.js";
 
 /**
  * Returns true if `matcher` is of type `DateInterval`.

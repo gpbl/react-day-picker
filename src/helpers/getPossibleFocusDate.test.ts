@@ -11,10 +11,10 @@ import {
   endOfWeek
 } from "date-fns";
 
-import { dateLib } from "../";
 import type { PropsContextValue } from "../contexts/useProps";
 import type { MoveFocusBy, MoveFocusDir } from "../types";
 
+import { dateLib } from "..";
 import { getPossibleFocusDate } from "./getPossibleFocusDate";
 
 const baseDate = new Date(2023, 0, 1); // Jan 1, 2023

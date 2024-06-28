@@ -1,9 +1,9 @@
 import React from "react";
 
-import { useProps } from "../contexts";
-import { DateRange, Modifiers, PropsRange } from "../types";
-import { addToRange, dateMatchModifiers } from "../utils";
-import { isDateInRange } from "../utils/isDateInRange";
+import { useProps } from "../contexts/index.js";
+import { DateRange, Modifiers, PropsRange } from "../types/index.js";
+import { addToRange, dateMatchModifiers } from "../utils/index.js";
+import { isDateInRange } from "../utils/isDateInRange.js";
 
 export type RangeContextValue<T> = {
   setSelected: (
@@ -32,7 +32,7 @@ function useRangeContextValue<T extends PropsRange>({
   selected,
   onSelect
 }: T): RangeContextValue<T> {
-  const { dateLib, mode } = useProps();
+  const { dateLib, mode, disabled } = useProps();
   const { differenceInCalendarDays } = dateLib;
   const [range, setRange] = React.useState<DateRange | undefined>(selected);
 

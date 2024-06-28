@@ -1,6 +1,6 @@
-import { dateLib as defaultDateLib } from "../lib";
-import type { Locale } from "../lib/dateLib";
-import type { DateLib } from "../types";
+import type { Locale } from "../lib/dateLib.js";
+import { dateLib as defaultDateLib } from "../lib/index.js";
+import type { DateLib } from "../types/index.js";
 
 /**
  * Generate a series of 7 days, starting from the week, to use for formatting

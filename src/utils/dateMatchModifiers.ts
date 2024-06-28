@@ -1,14 +1,14 @@
-import { dateLib as defaultDateLib } from "../lib";
-import type { DateLib, Matcher } from "../types";
+import { dateLib as defaultDateLib } from "../lib/index.js";
+import type { DateLib, Matcher } from "../types/index.js";
 
-import { isDateInRange } from "./isDateInRange";
+import { isDateInRange } from "./isDateInRange.js";
 import {
   isDateAfterType,
   isDateBeforeType,
   isDateInterval,
   isDateRange,
   isDayOfWeekType
-} from "./typeguards";
+} from "./typeguards.js";
 
 /** Returns true if `value` is a Date type. */
 function isDateType(value: unknown): value is Date {
