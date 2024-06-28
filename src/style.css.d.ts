@@ -17,7 +17,7 @@ declare const styles: {
   readonly "rdp-hidden": string;
   readonly "rdp-month": string;
   readonly "rdp-month_caption": string;
-  readonly "rdp-month_wrapper": string;
+  readonly "rdp-month_grid": string;
   readonly "rdp-months": string;
   readonly "rdp-months_dropdown": string;
   readonly "rdp-nav": string;
@@ -37,4 +37,3 @@ declare const styles: {
   readonly "rdp-years_dropdown": string;
 };
 export = styles;
-

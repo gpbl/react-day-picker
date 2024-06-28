@@ -783,7 +783,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
         </button>
       </div>
       <div
-        class="rdp-month_wrapper"
+        class="rdp-month_grid"
       >
         <div
           class="rdp-month_caption"

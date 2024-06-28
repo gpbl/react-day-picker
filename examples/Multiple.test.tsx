@@ -28,7 +28,7 @@ describe("when a day is clicked", () => {
       await user.click(dateButton(day1));
     });
     test("should appear as not selected", () => {
-      expect(dateButton(day1)).not.toHaveAttribute("aria-selected");
+      expect(gridcell(day1)).not.toHaveAttribute("aria-selected");
     });
   });
   describe("when a second day is clicked", () => {
@@ -37,10 +37,10 @@ describe("when a day is clicked", () => {
       await user.click(dateButton(day2));
     });
     test("the first day should appear as selected", () => {
-      expect(dateButton(day1)).toHaveAttribute("aria-selected", "true");
+      expect(gridcell(day1)).toHaveAttribute("aria-selected", "true");
     });
     test("the second day should appear as selected", () => {
-      expect(dateButton(day2)).toHaveAttribute("aria-selected", "true");
+      expect(gridcell(day2)).toHaveAttribute("aria-selected", "true");
     });
   });
 });

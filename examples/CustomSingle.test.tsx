@@ -32,7 +32,7 @@ describe("when a day is clicked", () => {
       await user.click(dateButton(today));
     });
     test("should not appear as selected", () => {
-      expect(dateButton(today)).not.toHaveAttribute("aria-selected", "true");
+      expect(gridcell(today)).not.toHaveAttribute("aria-selected", "true");
     });
     test("should update the footer", () => {
       expect(

@@ -31,8 +31,7 @@ describe("when a day is clicked", () => {
       await user.click(dateButton(day));
     });
     test("should not appear as selected", () => {
-      expect(dateButton(day)).not.toHaveAttribute("aria-selected");
-      expect(dateButton(day)).not.toHaveClass("rdp-selected");
+      expect(gridcell(day)).not.toHaveAttribute("aria-selected");
     });
   });
 });

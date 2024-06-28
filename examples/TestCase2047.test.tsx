@@ -1,6 +1,6 @@
 import React from "react";
 
-import { dateButton } from "@/test/elements";
+import { dateButton, gridcell } from "@/test/elements";
 import { render } from "@/test/render";
 import { user } from "@/test/user";
 
@@ -11,7 +11,7 @@ beforeEach(async () => {
 });
 
 test("disabled date is not selected", () => {
-  expect(dateButton(new Date(2024, 5, 10))).not.toHaveAttribute("aria-selected");
+  expect(gridcell(new Date(2024, 5, 10))).not.toHaveAttribute("aria-selected");
 });
 
 describe("when the calendar is focused", () => {
@@ -19,6 +19,6 @@ describe("when the calendar is focused", () => {
     await user.click(dateButton(new Date(2024, 5, 10)));
   });
   test("the disabled day should not have focused modifier", () => {
-    expect(dateButton(new Date(2024, 5, 10))).not.toHaveClass("rdp-focused");
+    expect(gridcell(new Date(2024, 5, 10))).not.toHaveClass("rdp-focused");
   });
 });
