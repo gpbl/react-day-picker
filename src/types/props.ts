@@ -18,7 +18,7 @@ import type {
   DateRange,
   Mode,
   DateLib
-} from "./shared";
+} from "./shared.js";
 
 /**
  * The props for the `<DayPicker />` component.
