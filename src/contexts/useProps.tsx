@@ -16,7 +16,7 @@ import type {
   Mode,
   DayPickerProps,
   DateLib
-} from "../types";
+} from "../types/index.js";
 
 const PropsContext = React.createContext<PropsContextValue | undefined>(
   undefined

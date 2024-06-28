@@ -11,7 +11,7 @@ import type {
   PropsMulti,
   PropsRange,
   PropsSingle
-} from "../types";
+} from "../types/index.js";
 
 import { CalendarContextProvider } from "./useCalendar.js";
 import { FocusContextProvider } from "./useFocus.js";

@@ -1,4 +1,3 @@
-/* eslint-disable import/export */
 import {
   DayPicker as DayPickerV8,
   type DayPickerProps

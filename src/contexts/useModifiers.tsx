@@ -10,7 +10,7 @@ import type {
   DayFlags,
   Modifiers,
   SelectionStates
-} from "../types";
+} from "../types/index.js";
 import { dateMatchModifiers } from "../utils/dateMatchModifiers.js";
 import { isDateInRange } from "../utils/index.js";
 

@@ -8,7 +8,7 @@ import {
   ChevronFlag,
   WeekNumberFlag,
   SelectionState
-} from "../UI";
+} from "../UI.js";
 import * as components from "../components/custom-components.js";
 import {
   formatCaption,
@@ -19,7 +19,7 @@ import {
   formatWeekNumber,
   formatYearCaption,
   formatYearDropdown
-} from "../formatters";
+} from "../formatters/index.js";
 import {
   labelDay,
   labelNav,
@@ -31,7 +31,7 @@ import {
   labelWeekNumber,
   labelWeekNumberHeader,
   labelYearDropdown
-} from "../labels";
+} from "../labels/index.js";
 import { dateLib } from "../lib/index.js";
 
 /**
