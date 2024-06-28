@@ -1,8 +1,8 @@
 import React from "react";
 import type { ReactNode } from "react";
 
-import type { CalendarDay } from "../classes";
-import type { Modifiers } from "../types";
+import type { CalendarDay } from "../classes/index.js";
+import type { Modifiers } from "../types/index.js";
 
 /**
  * Render the gridcell of a day in the calendar and handle the interaction and

@@ -1,5 +1,5 @@
-import { dateLib } from "../lib";
-import type { DayPickerProps } from "../types";
+import { dateLib } from "../lib/index.js";
+import type { DayPickerProps } from "../types/index.js";
 
 /**
  * Return the `fromMonth` and `toMonth` prop values values parsing the DayPicker

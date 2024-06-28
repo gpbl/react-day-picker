@@ -1,16 +1,16 @@
-export * from "./DayPicker";
-export * from "./types";
+export * from "./DayPicker.js";
+export * from "./types/index.js";
 
-export * from "./classes";
-export * from "./components/custom-components";
+export * from "./classes/index.js";
+export * from "./components/custom-components.js";
 
-export * from "./contexts";
-export * from "./selection";
+export * from "./contexts/index.js";
+export * from "./selection/index.js";
 
-export * from "./lib";
+export * from "./lib/index.js";
 
-export * from "./formatters";
-export * from "./helpers";
-export * from "./labels";
-export * from "./utils";
-export * from "./UI";
+export * from "./formatters/index.js";
+export * from "./helpers/index.js";
+export * from "./labels/index.js";
+export * from "./utils/index.js";
+export * from "./UI.js";

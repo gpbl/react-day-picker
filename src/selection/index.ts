@@ -1,3 +1,3 @@
-export * from "./useSingle";
-export * from "./useMulti";
-export * from "./useRange";
+export * from "./useSingle.js";
+export * from "./useMulti.js";
+export * from "./useRange.js";
