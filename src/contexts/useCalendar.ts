@@ -1,24 +1,20 @@
-import React, { type ReactElement, createContext, useContext } from "react";
-
 import type {
   CalendarWeek,
   CalendarDay,
   CalendarMonth
 } from "../classes/index.js";
-import type { DropdownOption } from "../components/Dropdown.js";
+import { getCalendarStartEndMonths } from "../helpers/getCalendarStartEndMonths.js";
 import { getDates } from "../helpers/getDates.js";
 import { getDays } from "../helpers/getDays.js";
 import { getDisplayMonths } from "../helpers/getDisplayMonths.js";
-import { getDropdownMonths } from "../helpers/getDropdownMonths.js";
-import { getDropdownYears } from "../helpers/getDropdownYears.js";
 import { getInitialMonth } from "../helpers/getInitialMonth.js";
 import { getMonths } from "../helpers/getMonths.js";
 import { getNextMonth } from "../helpers/getNextMonth.js";
 import { getPreviousMonth } from "../helpers/getPreviousMonth.js";
 import { getWeeks } from "../helpers/getWeeks.js";
 import { useControlledValue } from "../helpers/useControlledValue.js";
-
-import type { UseProps } from "./useProps.js";
+import type { DayPickerProps } from "../types/props.js";
+import type { DateLib } from "../types/shared.js";
 
 export interface UseCalendar {
   today: Date;
@@ -45,13 +41,11 @@ export interface UseCalendar {
   nextMonth: Date | undefined;
   /** The previous month to display. */
   previousMonth: Date | undefined;
-  /** The options to use in the years or months dropdowns. */
-  dropdownOptions: {
-    /** The options to use in the months dropdown. */
-    months: DropdownOption[] | undefined;
-    /** The options to use in the years dropdown. */
-    years: DropdownOption[] | undefined;
-  };
+
+  /** The month where the navigation starts. */
+  calendarStartMonth: Date | undefined;
+  /** The month where the navigation ends. */
+  calendarEndMonth: Date | undefined;
 
   /** Set the first month displayed in the calendar. */
   setFirstMonth: (date: Date) => void;
@@ -80,28 +74,56 @@ export interface UseCalendar {
  * @group Hooks
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function useCalendar(props: UseProps) {
-  const { startOfMonth } = props.dateLib;
+export function useCalendar(
+  props: Pick<
+    DayPickerProps,
+    | "fromYear"
+    | "toYear"
+    | "startMonth"
+    | "endMonth"
+    | "month"
+    | "defaultMonth"
+    | "today"
+    | "numberOfMonths"
+    | "disableNavigation"
+    | "onMonthChange"
+    | "ISOWeek"
+  >,
+  dateLib: DateLib
+) {
+  const today = dateLib.startOfDay(props.today ?? new dateLib.Date());
 
-  const initialDisplayMonth = getInitialMonth(props);
+  const { calendarStartMonth, calendarEndMonth } = getCalendarStartEndMonths(
+    props,
+    dateLib
+  );
+
+  const { startOfMonth } = dateLib;
+
+  const initialDisplayMonth = getInitialMonth(props, dateLib);
 
   // The first month displayed in the calendar
-  const [firstDisplayedMonth, setFirstMonth] = useControlledValue(
+  const [firstMonth, setFirstMonth] = useControlledValue(
     initialDisplayMonth,
     props.month ? startOfMonth(props.month) : undefined
   );
 
   /** An array of the months displayed in the calendar. */
-  const displayMonths = getDisplayMonths(firstDisplayedMonth, props);
+  const displayMonths = getDisplayMonths(
+    firstMonth,
+    calendarEndMonth,
+    props,
+    dateLib
+  );
 
   /** The last month displayed in the calendar. */
   const lastMonth = displayMonths[displayMonths.length - 1];
 
   /** An array of the dates displayed in the calendar. */
-  const dates = getDates(displayMonths, props.endMonth, props);
+  const dates = getDates(displayMonths, props.endMonth, props, dateLib);
 
   /** An array of the Months displayed in the calendar. */
-  const months = getMonths(displayMonths, dates, props);
+  const months = getMonths(displayMonths, dates, props, dateLib);
 
   /** An array of the Weeks displayed in the calendar. */
   const weeks = getWeeks(months);
@@ -109,10 +131,15 @@ export function useCalendar(props: UseProps) {
   /** An array of the Days displayed in the calendar. */
   const days = getDays(months);
 
-  const previousMonth = getPreviousMonth(firstDisplayedMonth, props);
-  const nextMonth = getNextMonth(firstDisplayedMonth, props);
+  const previousMonth = getPreviousMonth(
+    firstMonth,
+    calendarStartMonth,
+    props,
+    dateLib
+  );
+  const nextMonth = getNextMonth(firstMonth, calendarEndMonth, props, dateLib);
 
-  const { disableNavigation, onMonthChange, startMonth, endMonth } = props;
+  const { disableNavigation, onMonthChange } = props;
 
   function isDayDisplayed(day: CalendarDay) {
     return weeks.some((week: CalendarWeek) => {
@@ -127,13 +154,13 @@ export function useCalendar(props: UseProps) {
       return;
     }
     let newMonth = startOfMonth(date);
-    // if month is before startMonth, use the first month instead
-    if (startMonth && newMonth < startOfMonth(startMonth)) {
-      newMonth = startOfMonth(startMonth);
+    // if month is before start, use the first month instead
+    if (calendarStartMonth && newMonth < startOfMonth(calendarStartMonth)) {
+      newMonth = startOfMonth(calendarStartMonth);
     }
     // if month is after endMonth, use the last month instead
-    if (endMonth && newMonth > startOfMonth(endMonth)) {
-      newMonth = startOfMonth(endMonth);
+    if (calendarEndMonth && newMonth > startOfMonth(calendarEndMonth)) {
+      newMonth = startOfMonth(calendarEndMonth);
     }
     setFirstMonth(newMonth);
     onMonthChange?.(newMonth);
@@ -143,17 +170,7 @@ export function useCalendar(props: UseProps) {
     if (isDayDisplayed(day)) {
       return;
     }
-
-    // TODO:??
-    // if (refDate && isBefore(date, refDate)) {
-    //   console.log('date is before refDate');
-    //   const month = addMonths(date, 1 + dayPicker.numberOfMonths * -1);
-    //   console.log('going to month', month);
-    //   goToMonth(month);
-    // } else {
-    //   console.log('going to month', date);
     goToMonth(day.date);
-    // }
   }
 
   function goToNextMonth() {
@@ -168,20 +185,17 @@ export function useCalendar(props: UseProps) {
     months,
     weeks,
     days,
+    today,
 
-    today: props.today,
+    calendarStartMonth,
+    calendarEndMonth,
 
-    firstMonth: firstDisplayedMonth,
+    firstMonth: firstMonth,
     lastMonth,
     previousMonth,
     nextMonth,
 
     setFirstMonth,
-
-    dropdownOptions: {
-      months: getDropdownMonths(firstDisplayedMonth, props),
-      years: getDropdownYears(firstDisplayedMonth, props)
-    },
 
     isDayDisplayed,
     goToMonth,

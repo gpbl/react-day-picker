@@ -3,7 +3,7 @@
 exports[`should match the snapshot 1`] = `
 <div>
   <div
-    class="rdp-calendar"
+    class="rdp-calendar rdp-is_interactive"
     id="test"
   >
     <div
@@ -22,7 +22,7 @@ exports[`should match the snapshot 1`] = `
           type="button"
         >
           <svg
-            class="rdp-chevron"
+            class="rdp-chevron rdp-chevron_disabled"
             height="24"
             viewBox="0 0 24 24"
             width="24"
@@ -40,7 +40,7 @@ exports[`should match the snapshot 1`] = `
           type="button"
         >
           <svg
-            class="rdp-chevron"
+            class="rdp-chevron rdp-chevron_disabled"
             height="24"
             viewBox="0 0 24 24"
             width="24"
@@ -387,7 +387,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 aria-colindex="2"
                 aria-selected="true"
-                class="rdp-day rdp-range_start rdp-selected"
+                class="rdp-day rdp-selected"
                 role="gridcell"
               >
                 <button
@@ -404,7 +404,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 aria-colindex="3"
                 aria-selected="true"
-                class="rdp-day rdp-range_middle rdp-selected"
+                class="rdp-day rdp-selected"
                 role="gridcell"
               >
                 <button
@@ -421,7 +421,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 aria-colindex="4"
                 aria-selected="true"
-                class="rdp-day rdp-range_middle rdp-selected"
+                class="rdp-day rdp-selected"
                 role="gridcell"
               >
                 <button
@@ -438,7 +438,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 aria-colindex="5"
                 aria-selected="true"
-                class="rdp-day rdp-range_middle rdp-selected"
+                class="rdp-day rdp-selected"
                 role="gridcell"
               >
                 <button
@@ -455,7 +455,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 aria-colindex="6"
                 aria-selected="true"
-                class="rdp-day rdp-range_end rdp-selected"
+                class="rdp-day rdp-selected"
                 role="gridcell"
               >
                 <button
@@ -720,7 +720,9 @@ exports[`should match the snapshot 1`] = `
       </div>
     </div>
     <div
+      calendar="[object Object]"
       class="rdp-footer"
+      props="[object Object]"
     >
       <p>
         June 15th, 2020

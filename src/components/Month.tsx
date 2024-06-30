@@ -15,9 +15,9 @@ import type { UIProps } from "../types/index.js";
 export function Month(
   props: {
     /** The month where the grid is displayed. */
-    month: CalendarMonth;
+    calendarMonth: CalendarMonth;
     /** The index where this month is displayed. */
-    index: number;
+    displayIndex: number;
     children: React.ReactNode;
   } & UIProps
 ) {

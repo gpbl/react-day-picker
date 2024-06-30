@@ -1,12 +1,19 @@
 import React from "react";
 
-import { useProps } from "../contexts/index.js";
-import { DateRange, Modifiers, PropsRange } from "../types/index.js";
+import {
+  DateLib,
+  DateRange,
+  DayPickerProps,
+  Mode,
+  Modifiers,
+  PropsRange,
+  PropsRangeRequired
+} from "../types/index.js";
 import { addToRange, dateMatchModifiers } from "../utils/index.js";
 import { isDateInRange } from "../utils/isDateInRange.js";
 
-export type RangeContextValue<T> = {
-  setSelected: (
+export type UseRange<T> = {
+  handleSelect: (
     triggerDate: Date,
     modifiers: Modifiers,
     e: React.MouseEvent | React.KeyboardEvent
@@ -20,25 +27,20 @@ export type RangeContextValue<T> = {
       selected: DateRange | undefined;
     });
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const RangeContext = React.createContext<RangeContextValue<any> | undefined>(
-  undefined
-);
+export function useRange<T extends DayPickerProps>(
+  props: T extends { mode: "range" } ? PropsRange | PropsRangeRequired : object,
+  dateLib: DateLib
+): UseRange<T> {
+  const { mode, disabled, selected, required, onSelect } = props as PropsRange;
 
-function useRangeContextValue<T extends PropsRange>({
-  required,
-  min,
-  max,
-  selected,
-  onSelect
-}: T): RangeContextValue<T> {
-  const { dateLib, mode, disabled } = useProps();
   const { differenceInCalendarDays } = dateLib;
-  const [range, setRange] = React.useState<DateRange | undefined>(selected);
+  const [range, setRange] = React.useState<DateRange | undefined>(
+    mode === "range" ? selected : undefined
+  );
 
   // Update the selected date if the required flag is set.
   React.useEffect(() => {
-    if (mode !== "multiple") return;
+    if (mode !== "range") return;
     if (required && range === undefined) {
       setRange({ from: undefined, to: undefined });
     }
@@ -46,7 +48,6 @@ function useRangeContextValue<T extends PropsRange>({
 
   // Update the selected date if the selected changes.
   React.useEffect(() => {
-    if (mode !== "range") return;
     setRange(selected);
   }, [mode, selected]);
 
@@ -62,6 +63,7 @@ function useRangeContextValue<T extends PropsRange>({
     const newRange = triggerDate
       ? addToRange(triggerDate, range, dateLib)
       : undefined;
+    const { min, max } = props as PropsRange;
 
     if (min) {
       if (
@@ -105,33 +107,7 @@ function useRangeContextValue<T extends PropsRange>({
 
   return {
     selected: range,
-    setSelected,
+    handleSelect: setSelected,
     isSelected
-  } as RangeContextValue<T>;
-}
-
-/** @private */
-export function RangeProvider(props: React.PropsWithChildren<PropsRange>) {
-  const value = useRangeContextValue(props);
-  return (
-    <RangeContext.Provider value={value}>
-      {props.children}
-    </RangeContext.Provider>
-  );
-}
-
-/**
- * Access to the range context to get the selected range or update it.
- *
- * Use this hook from the custom components passed via the `components` prop.
- *
- * @group Hooks
- * @see https://daypicker.dev/advanced-guides/custom-components
- */
-export function useRange<T extends { required: boolean }>() {
-  const context = React.useContext(RangeContext);
-  if (!context) {
-    throw new Error("useRange() must be used within a RangeContextProvider.");
-  }
-  return context as RangeContextValue<T>;
+  } as UseRange<T>;
 }

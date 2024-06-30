@@ -6,7 +6,6 @@ import {
 } from "../components/MonthCaption.js";
 import { Week, type WeekProps } from "../components/Week.js";
 import { useCalendar } from "../contexts/index.js";
-import { useProps, type UseProps } from "../contexts/index.js";
 import {
   labelDay,
   labelNext,
@@ -135,13 +134,6 @@ export type SelectRangeEventHandler = PropsRange["onSelect"];
 export type DayPickerProviderProps = any;
 
 /**
- * @deprecated This type has been renamed to `useProps`.
- * @protected
- * @group Hooks
- */
-export const useDayPicker = useProps;
-
-/**
  * @deprecated This type has been renamed to `useCalendar`.
  * @protected
  * @group Hooks
@@ -233,4 +225,4 @@ export type DayTouchEventHandler = DayEventHandler<React.TouchEvent>;
  * @deprecated The type has been renamed. Use `PropsContext` instead.
  * @protected
  */
-export type DayPickerContext = UseProps;
+// export type DayPickerContext = UseProps;

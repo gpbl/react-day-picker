@@ -428,6 +428,7 @@ export interface PropsRange {
   mode: "range";
   required?: false | undefined;
   selected?: DateRange | undefined;
+  disabled?: Matcher | Matcher[] | undefined;
   onSelect?: (
     selected: DateRange | undefined,
     triggerDate: Date,

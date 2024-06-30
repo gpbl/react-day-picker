@@ -1,4 +1,4 @@
-import React from "react";
+import React, { HTMLAttributes } from "react";
 
 import { UI } from "../UI.js";
 import type { CalendarWeek } from "../classes/index.js";
@@ -14,23 +14,11 @@ import type { UIProps } from "../types/shared.js";
  */
 export function Week(
   props: {
-    ["aria-rowindex"]: number;
     week: CalendarWeek;
     children: React.ReactNode;
-  } & UIProps
+  } & HTMLAttributes<HTMLTableRowElement>
 ) {
-  const { styles, classNames } = props.props;
-
-  return (
-    <tr
-      role="row"
-      aria-rowindex={props["aria-rowindex"]}
-      className={classNames[UI.Week]}
-      style={styles?.[UI.Week]}
-    >
-      {props.children}
-    </tr>
-  );
+  return <tr {...props}>{props.children}</tr>;
 }
 
 export type WeekProps = Parameters<typeof Week>[0];

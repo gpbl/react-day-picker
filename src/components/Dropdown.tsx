@@ -1,11 +1,7 @@
 import React, { type SelectHTMLAttributes } from "react";
 
-import { UI } from "../UI.js";
-import type { UIProps } from "../types/index.js";
-
-import { Chevron as DefaultChevron } from "./Chevron.js";
-import { Option as DefaultOption } from "./Option.js";
-import { Select as DefaultSelect } from "./Select.js";
+import { ChevronFlag, UI } from "../UI.js";
+import type { ClassNames, CustomComponents } from "../types/index.js";
 
 /** An option to use in the dropdown. Maps to the `<option>` HTML element. */
 export type DropdownOption = {
@@ -30,36 +26,45 @@ export type DropdownOption = {
  */
 export function Dropdown(
   props: {
+    components: Pick<
+      Required<CustomComponents>,
+      "Select" | "Option" | "Chevron"
+    >;
+    classNames: Pick<
+      ClassNames,
+      | UI.DropdownRoot
+      | UI.Dropdown
+      | UI.CaptionLabel
+      | UI.Chevron
+      | ChevronFlag.disabled
+    >;
     options?: DropdownOption[] | undefined;
-    rootClassName?: string;
-  } & Omit<SelectHTMLAttributes<HTMLSelectElement>, "children"> &
-    UIProps
+  } & Omit<SelectHTMLAttributes<HTMLSelectElement>, "children">
 ) {
-  const { options, rootClassName, className, ...selectProps } = props;
-  const { classNames, components } = props.props;
+  const { options, className, components, classNames, ...selectProps } = props;
 
-  const cssClassRoot = [classNames[UI.DropdownRoot], rootClassName].join(" ");
+  const cssClassRoot = [classNames[UI.DropdownRoot]].join(" ");
   const cssClassSelect = [classNames[UI.Dropdown], className].join(" ");
-
-  const Select = components?.Select ?? DefaultSelect;
-  const Option = components?.Option ?? DefaultOption;
-  const Chevron = components?.Chevron ?? DefaultChevron;
 
   const selectedOption = options?.find(
     ({ value }) => value === selectProps.value
   );
   return (
     <span className={cssClassRoot}>
-      <Select className={cssClassSelect} {...selectProps}>
+      <components.Select className={cssClassSelect} {...selectProps}>
         {options?.map(({ value, label, disabled }) => (
-          <Option key={value} value={value} disabled={disabled}>
+          <components.Option key={value} value={value} disabled={disabled}>
             {label}
-          </Option>
+          </components.Option>
         ))}
-      </Select>
+      </components.Select>
       <span className={classNames[UI.CaptionLabel]} aria-hidden>
         {selectedOption?.label}
-        <Chevron orientation="down" size={18} />
+        <components.Chevron
+          orientation="down"
+          size={18}
+          classNames={classNames}
+        />
       </span>
     </span>
   );

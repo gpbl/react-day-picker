@@ -1,4 +1,4 @@
-import { UseProps } from "../contexts/index.js";
+import { DateLib, DayPickerProps } from "../index.js";
 
 /** The number of days in a month when having 6 weeks. */
 const NrOfDaysWithFixedWeeks = 42;
@@ -8,9 +8,10 @@ export function getDates(
   displayMonths: Date[],
   maxDate: Date | undefined,
   props: Pick<
-    UseProps,
-    "ISOWeek" | "fixedWeeks" | "locale" | "weekStartsOn" | "dateLib"
-  >
+    DayPickerProps,
+    "ISOWeek" | "fixedWeeks" | "locale" | "weekStartsOn"
+  >,
+  dateLib: DateLib
 ): Date[] {
   const firstMonth = displayMonths[0];
   const lastMonth = displayMonths[displayMonths.length - 1];
@@ -27,7 +28,7 @@ export function getDates(
     isAfter,
     endOfMonth,
     Date
-  } = props.dateLib;
+  } = dateLib;
 
   const startWeekFirstDate = ISOWeek
     ? startOfISOWeek(firstMonth)

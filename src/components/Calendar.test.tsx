@@ -4,6 +4,7 @@ import { grid, nav } from "@/test/elements";
 import { render } from "@/test/render";
 
 import { Calendar } from "./Calendar";
+import { MonthsProps } from "./Months";
 
 it("should render the navigation and month grids", () => {
   render(<Calendar />);
@@ -31,9 +32,8 @@ it("should use custom components", () => {
   const { container } = render(<Calendar />, {
     footer: "foo",
     components: {
-      Nav: () => <div>Custom Navigation</div>,
       Month: () => <div>Custom Month</div>,
-      Months: (props) => (
+      Months: (props: MonthsProps) => (
         <div {...props}>
           Custom Months<div>{props.children}</div>
         </div>

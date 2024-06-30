@@ -1,8 +1,8 @@
 import React from "react";
 
-import { DayPicker, type DayDateProps } from "react-day-picker";
+import { DayPicker, type DayButtonProps } from "react-day-picker";
 
-function HighlightDay(props: DayDateProps) {
+function HighlightDay(props: DayButtonProps) {
   return (
     <span {...props} style={{ whiteSpace: "nowrap" }}>
       {props.day.date.getDate() === 19 ? `🎉` : props.children}

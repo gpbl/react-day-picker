@@ -17,6 +17,8 @@ const dayModifiers: Modifiers = {
   selected: false,
   today: false
 };
-test("should return an empty day label", () => {
-  expect(labelDay(day, dayModifiers, { locale: es })).toEqual("");
+test("should return the localized label", () => {
+  expect(labelDay(day, dayModifiers, { locale: es })).toEqual(
+    "lunes, 21 de noviembre de 2022"
+  );
 });

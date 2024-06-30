@@ -1,15 +1,15 @@
 import React, { HTMLProps } from "react";
 
 /**
- * Render the toolbar with the navigation button.
+ * Render the label in the month caption.
  *
  * Use the `components` prop to swap this component with a custom one.
  *
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function Nav(props: HTMLProps<HTMLDivElement>) {
-  return <div {...props} />;
+export function Weeks(props: HTMLProps<HTMLTableSectionElement>) {
+  return <tbody {...props} />;
 }
 
-export type NavProps = Parameters<typeof Nav>[0];
+export type WeeksProps = Parameters<typeof Weeks>[0];

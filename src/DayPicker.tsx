@@ -1,7 +1,6 @@
 import React from "react";
 
 import { Calendar } from "./components/Calendar.js";
-import { ContextProviders } from "./contexts/providers.js";
 import type { DayPickerProps } from "./types/index.js";
 
 /**
@@ -11,9 +10,5 @@ import type { DayPickerProps } from "./types/index.js";
  * @see http://daypicker.dev
  */
 export function DayPicker(props: DayPickerProps) {
-  return (
-    <ContextProviders {...props}>
-      <Calendar />
-    </ContextProviders>
-  );
+  return <Calendar {...props} />;
 }

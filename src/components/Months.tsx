@@ -8,11 +8,12 @@ import type { UIProps } from "../types/index.js";
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function Months(
-  props: Pick<HTMLProps<HTMLElement>, "children" | "className" | "style"> &
-    UIProps
-) {
-  return <div {...props}>{props.children}</div>;
+export function Months(props: HTMLProps<HTMLDivElement>) {
+  return (
+    <div className={props.className} style={props.style}>
+      {props.children}
+    </div>
+  );
 }
 
 export type MonthsProps = Parameters<typeof Months>[0];

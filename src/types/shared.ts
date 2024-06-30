@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import type { MouseEvent, CSSProperties } from "react";
 
-import { UseProps, UseCalendar } from "react-day-picker";
-
 import {
   UI,
   DayFlag,
@@ -12,6 +10,7 @@ import {
   SelectionState
 } from "../UI.js";
 import * as components from "../components/custom-components.js";
+import type { UseCalendar } from "../contexts/index.js";
 import {
   formatCaption,
   formatDay,
@@ -295,10 +294,9 @@ export type MoveFocusBy =
   | "month"
   | "year";
 
-/** The props that are shared between the components. */
+/** The props that are shared between UI components. */
 export interface UIProps {
   className: string;
   style: CSSProperties | undefined;
-  props: UseProps;
   calendar: UseCalendar;
 }

@@ -1,10 +1,15 @@
 import React from "react";
 
-import { useProps } from "../contexts/index.js";
-import type { Modifiers, PropsMulti } from "../types/index.js";
+import type {
+  DateLib,
+  DayPickerProps,
+  Modifiers,
+  PropsMulti,
+  PropsMultiRequired
+} from "../types/index.js";
 
-export type MultiContextValue<T> = {
-  setSelected: (
+export type UseMulti<T> = {
+  handleSelect: (
     triggerDate: Date,
     modifiers: Modifiers,
     e: React.MouseEvent | React.KeyboardEvent
@@ -18,42 +23,34 @@ export type MultiContextValue<T> = {
       selected: Date[] | undefined;
     });
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const MultiContext = React.createContext<MultiContextValue<any> | undefined>(
-  undefined
-);
-
-function useMultiContextValue<T extends PropsMulti>({
-  required = false,
-  min = undefined,
-  max = undefined,
-  selected,
-  onSelect
-}: T): MultiContextValue<T> {
-  const {
-    mode,
-    dateLib: { isSameDay, Date }
-  } = useProps();
-
+export function useMulti<T extends DayPickerProps>(
+  props: T extends { mode: "multiple" }
+    ? PropsMulti | PropsMultiRequired
+    : object,
+  dateLib: DateLib
+): UseMulti<T> {
+  const { selected, required, onSelect } = props as PropsMulti;
   const [dates, setDates] = React.useState<Date[] | undefined>(selected);
+
+  const { isSameDay, Date } = dateLib;
 
   // Update the selected date if the required flag is set.
   React.useEffect(() => {
-    if (mode !== "multiple") return;
     if (required && dates === undefined) {
       setDates([new Date()]);
     }
-  }, [required, dates, Date, mode]);
+  }, [required, dates, Date]);
 
   // Update the selected date if the selected value from props changes.
   React.useEffect(() => {
-    if (mode !== "multiple") return;
     setDates(selected);
-  }, [mode, selected]);
+  }, [selected]);
 
   const isSelected = (date: Date) => {
     return dates?.some((d) => isSameDay(d, date)) ?? false;
   };
+
+  const { min, max } = props as PropsMulti;
 
   const setSelected = (
     triggerDate: Date,
@@ -80,7 +77,6 @@ function useMultiContextValue<T extends PropsMulti>({
         newDates = [...newDates, triggerDate];
       }
     }
-
     onSelect?.(newDates, triggerDate, modifiers, e);
     setDates(newDates);
     return newDates;
@@ -88,33 +84,7 @@ function useMultiContextValue<T extends PropsMulti>({
 
   return {
     selected: dates,
-    setSelected,
+    handleSelect: setSelected,
     isSelected
-  } as MultiContextValue<T>;
-}
-
-/** @private */
-export function MultiProvider(props: React.PropsWithChildren<PropsMulti>) {
-  const value = useMultiContextValue(props);
-  return (
-    <MultiContext.Provider value={value}>
-      {props.children}
-    </MultiContext.Provider>
-  );
-}
-
-/**
- * Access to the multi context to get the selected dates or update them.
- *
- * Use this hook from the custom components passed via the `components` prop.
- *
- * @group Hooks
- * @see https://daypicker.dev/advanced-guides/custom-components
- */
-export function useMulti<T extends { required: boolean }>() {
-  const context = React.useContext(MultiContext);
-  if (!context) {
-    throw new Error("useMulti() must be used within a MultiContextProvider.");
-  }
-  return context as MultiContextValue<T>;
+  } as UseMulti<T>;
 }

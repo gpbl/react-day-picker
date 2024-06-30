@@ -3,15 +3,20 @@ import React, { MouseEventHandler } from "react";
 import { isSameDay } from "date-fns";
 import {
   DateRange,
-  DayDateProps,
+  DayButtonProps,
   DayPicker,
-  useRange,
-  type DayProps
+  useSelection
 } from "react-day-picker";
 
-function DayWithShiftKey(props: DayDateProps) {
-  const { selected } = useRange();
-  const onClick = props.onClick;
+function DayWithShiftKey(props: DayButtonProps) {
+  const { selected } = useSelection({
+    mode: "range",
+    required: true,
+    selected: {
+      from: props.day.date,
+      to: undefined
+    }
+  });
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     if (
@@ -22,7 +27,7 @@ function DayWithShiftKey(props: DayDateProps) {
     ) {
       return;
     }
-    onClick?.(e);
+    props.onClick?.(e);
   };
   return (
     <button {...props} onClick={handleClick}>

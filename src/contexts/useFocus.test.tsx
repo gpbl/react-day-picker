@@ -1,4 +1,4 @@
-import { renderHook } from "@/test/renderHook";
+import { renderHook } from "@testing-library/react";
 
 import { useFocus } from "./useFocus";
 
@@ -8,7 +8,7 @@ const today = new Date(2020, 0, 14);
 describe("autoFocusTarget", () => {
   describe("when not in interactive", () => {
     test("the auto focus target is undefined", () => {
-      const { result } = renderHook(useFocus, { month, today });
+      const { result } = renderHook(() => useFocus({ month, today }));
       expect(result.current.autoFocusTarget).toBeUndefined();
     });
   });

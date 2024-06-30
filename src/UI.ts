@@ -101,7 +101,9 @@ export enum CalendarFlag {
   /** Assigned when the weekdays are hidden. */
   no_weekdays = "no_weekdays",
   /** Assigned when the calendar has multiple months. */
-  has_multiple_months = "has_multiple_months"
+  has_multiple_months = "has_multiple_months",
+  /** Whether the calendar is interactive. */
+  is_interactive = "is_interactive"
 }
 
 /** Flags that can be applied to the {@link UI.Chevron} element. */

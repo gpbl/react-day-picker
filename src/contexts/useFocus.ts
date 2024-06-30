@@ -1,25 +1,21 @@
-import React, {
-  ReactNode,
-  createContext,
-  useContext,
-  useEffect,
-  useState
-} from "react";
+import React, { useEffect, useState } from "react";
 
 import { format } from "date-fns";
 
 import { DayFlag } from "../UI.js";
 import type { CalendarDay } from "../classes/index.js";
 import { getNextFocus } from "../helpers/getNextFocus.js";
-import type { MoveFocusBy, MoveFocusDir, Mode } from "../types/index.js";
+import type {
+  MoveFocusBy,
+  MoveFocusDir,
+  DateLib,
+  DayPickerProps
+} from "../types/index.js";
 
-import { useCalendar } from "./useCalendar.js";
-import { useModifiers } from "./useModifiers.js";
-import { useProps } from "./useProps.js";
+import { UseCalendar } from "./useCalendar.js";
+import { UseModifiers } from "./useModifiers.js";
 
-const FocusContext = createContext<FocusContextValue | undefined>(undefined);
-
-export type FocusContextValue = {
+export type UseFocus = {
   /** The date that is currently focused. */
   focused: CalendarDay | undefined;
   /**
@@ -71,16 +67,29 @@ export type FocusContextValue = {
   focusEndOfWeek: () => void;
 };
 
-function useFocusContextValue(): FocusContextValue {
-  const { goToDay, isDayDisplayed } = useCalendar();
+export function useFocus(
+  props: Pick<
+    DayPickerProps,
+    | "autoFocus"
+    | "disabled"
+    | "hidden"
+    | "modifiers"
+    | "locale"
+    | "ISOWeek"
+    | "weekStartsOn"
+  >,
+  calendar: UseCalendar,
+  modifiers: UseModifiers,
+  dateLib: DateLib
+): UseFocus {
+  const { goToDay, isDayDisplayed } = calendar;
 
-  const props = useProps();
   const { autoFocus } = props;
   const {
     dayFlags: internal,
     selectionStates: selection,
     getModifiers
-  } = useModifiers();
+  } = modifiers;
 
   const [focused, setFocused] = useState<CalendarDay | undefined>();
   const [lastFocused, setLastFocused] = useState<CalendarDay | undefined>();
@@ -142,14 +151,22 @@ function useFocusContextValue(): FocusContextValue {
 
   function moveFocus(moveBy: MoveFocusBy, moveDir: MoveFocusDir) {
     if (!focused) return;
-    const nextFocus = getNextFocus(moveBy, moveDir, focused, props);
+    const nextFocus = getNextFocus(
+      moveBy,
+      moveDir,
+      focused,
+      calendar.calendarStartMonth,
+      calendar.calendarEndMonth,
+      props,
+      dateLib
+    );
     if (!nextFocus) return;
 
     goToDay(nextFocus);
     setFocused(nextFocus);
   }
 
-  const contextValue: FocusContextValue = {
+  const contextValue: UseFocus = {
     autoFocusTarget,
     initiallyFocused,
     setFocused,
@@ -169,36 +186,4 @@ function useFocusContextValue(): FocusContextValue {
   };
 
   return contextValue;
-}
-
-/** @private */
-export function FocusContextProvider<
-  ModeType extends Mode | undefined = undefined,
-  IsRequired extends boolean = false
->({ children }: { children: ReactNode }) {
-  const focusContextValue = useFocusContextValue();
-
-  return (
-    <FocusContext.Provider value={focusContextValue}>
-      {children}
-    </FocusContext.Provider>
-  );
-}
-
-/**
- * Share the focused day and the methods to move the focus.
- *
- * Use this hook from the custom components passed via the `components` prop.
- *
- * @group Hooks
- * @see https://daypicker.dev/advanced-guides/custom-components
- */
-export function useFocus() {
-  const propsContext = useContext(FocusContext);
-  if (!propsContext) {
-    throw new Error(
-      "useFocusContext() must be used within a FocusContextProvider"
-    );
-  }
-  return propsContext;
 }

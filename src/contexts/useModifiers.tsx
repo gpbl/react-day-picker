@@ -2,20 +2,17 @@ import React, { type ReactElement, createContext, useContext } from "react";
 
 import { DayFlag, SelectionState } from "../UI.js";
 import { CalendarDay } from "../classes/index.js";
-import { useMulti } from "../selection/useMulti.js";
-import { useRange } from "../selection/useRange.js";
-import { useSingle } from "../selection/useSingle.js";
 import type {
   CustomModifiers,
+  DateLib,
   DayFlags,
+  DayPickerProps,
   Modifiers,
   SelectionStates
 } from "../types/index.js";
 import { dateMatchModifiers } from "../utils/dateMatchModifiers.js";
-import { isDateInRange } from "../utils/index.js";
 
 import type { UseCalendar } from "./useCalendar.js";
-import type { UseProps } from "./useProps.js";
 
 export type UseModifiers = {
   /** List the days with custom modifiers passed via the `modifiers` prop. */
@@ -29,17 +26,20 @@ export type UseModifiers = {
 };
 
 export function useModifiers(
-  props: UseProps,
-  calendar: UseCalendar
+  props: Pick<
+    DayPickerProps,
+    "disabled" | "hidden" | "modifiers" | "showOutsideDays" | "today"
+  >,
+  calendar: UseCalendar,
+  dateLib: DateLib
 ): UseModifiers {
-  const { dateLib, disabled, hidden, modifiers, mode, showOutsideDays, today } =
-    props;
+  // const single = useSingle();
+  // const multi = useMulti();
+  // const range = useRange();
 
-  const single = useSingle();
-  const multi = useMulti();
-  const range = useRange();
+  const { disabled, hidden, modifiers, showOutsideDays, today } = props;
 
-  const { isSameDay, isSameMonth } = dateLib;
+  const { isSameDay, isSameMonth, Date } = dateLib;
   const internal: Record<DayFlag, CalendarDay[]> = {
     [DayFlag.focused]: [],
     [DayFlag.outside]: [],
@@ -70,7 +70,7 @@ export function useModifiers(
       Boolean(hidden && dateMatchModifiers(date, hidden, dateLib)) ||
       (!showOutsideDays && isOutside);
 
-    const isToday = isSameDay(date, today);
+    const isToday = isSameDay(date, today ?? new Date());
 
     if (isOutside) internal.outside.push(day);
     if (isDisabled) internal.disabled.push(day);
@@ -78,36 +78,36 @@ export function useModifiers(
     if (isToday) internal.today.push(day);
 
     // Add the selection modifiers
-    if (mode === "single" && !isDisabled) {
-      if (single.isSelected(day.date)) {
-        selection[SelectionState.selected].push(day);
-      }
-    }
-    if (mode === "multiple" && !isDisabled) {
-      if (multi.isSelected(day.date)) {
-        selection[SelectionState.selected].push(day);
-      }
-    }
+    // if (mode === "single" && !isDisabled) {
+    //   if (single.isSelected(day.date)) {
+    //     selection[SelectionState.selected].push(day);
+    //   }
+    // }
+    // if (mode === "multiple" && !isDisabled) {
+    //   if (multi.isSelected(day.date)) {
+    //     selection[SelectionState.selected].push(day);
+    //   }
+    // }
 
-    if (mode === "range" && !isDisabled) {
-      if (range.isSelected(day.date)) {
-        selection[SelectionState.selected].push(day);
-        if (range.selected?.from && isSameDay(day.date, range.selected.from)) {
-          if (range.selected?.to)
-            selection[SelectionState.range_start].push(day);
-        } else if (
-          range.selected?.to &&
-          isSameDay(day.date, range.selected.to)
-        ) {
-          selection[SelectionState.range_end].push(day);
-        } else if (
-          range.selected &&
-          isDateInRange(day.date, range.selected, dateLib)
-        ) {
-          selection[SelectionState.range_middle].push(day);
-        }
-      }
-    }
+    // if (mode === "range" && !isDisabled) {
+    //   if (range.isSelected(day.date)) {
+    //     selection[SelectionState.selected].push(day);
+    //     if (range.selected?.from && isSameDay(day.date, range.selected.from)) {
+    //       if (range.selected?.to)
+    //         selection[SelectionState.range_start].push(day);
+    //     } else if (
+    //       range.selected?.to &&
+    //       isSameDay(day.date, range.selected.to)
+    //     ) {
+    //       selection[SelectionState.range_end].push(day);
+    //     } else if (
+    //       range.selected &&
+    //       isDateInRange(day.date, range.selected, dateLib)
+    //     ) {
+    //       selection[SelectionState.range_middle].push(day);
+    //     }
+    //   }
+    // }
 
     // Add custom modifiers
     if (modifiers) {

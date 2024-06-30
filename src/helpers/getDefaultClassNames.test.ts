@@ -19,6 +19,7 @@ test("should return the default classnames", () => {
     has_multiple_months: "rdp-has_multiple_months",
     has_week_numbers: "rdp-has_week_numbers",
     hidden: "rdp-hidden",
+    is_interactive: "rdp-is_interactive",
     month_caption: "rdp-month_caption",
     month_grid: "rdp-month_grid",
     month: "rdp-month",

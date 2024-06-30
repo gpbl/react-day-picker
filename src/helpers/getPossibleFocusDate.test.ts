@@ -11,24 +11,20 @@ import {
   endOfWeek
 } from "date-fns";
 
-import type { UseProps } from "../contexts/useProps";
-import type { MoveFocusBy, MoveFocusDir } from "../types";
+import type { DayPickerProps, MoveFocusBy, MoveFocusDir } from "../types";
 
 import { dateLib } from "..";
 import { getPossibleFocusDate } from "./getPossibleFocusDate";
 
-const baseDate = new Date(2023, 0, 1); // Jan 1, 2023
-const options: Pick<
-  UseProps,
-  "locale" | "ISOWeek" | "weekStartsOn" | "startMonth" | "endMonth" | "dateLib"
-> = {
+const focusedDate = new Date(2023, 0, 1); // Jan 1, 2023
+const options: Pick<DayPickerProps, "locale" | "ISOWeek" | "weekStartsOn"> = {
   locale: undefined,
   ISOWeek: false,
-  weekStartsOn: 0, // Sunday
-  startMonth: new Date(2022, 0, 1), // Jan 1, 2022
-  endMonth: new Date(2024, 0, 1), // Jan 1, 2024
-  dateLib
+  weekStartsOn: 0 // Sunday
 };
+
+const calendarStartMonth = new Date(2022, 0, 1); // Jan 1, 2022
+const calendarEndMonth = new Date(2024, 0, 1); // Jan 1, 2024
 
 const testCases: {
   moveBy: MoveFocusBy;
@@ -47,8 +43,16 @@ const testCases: {
 
 testCases.forEach(({ moveBy, moveDir, expectedFn }) => {
   test(`should move ${moveDir} by ${moveBy}`, () => {
-    const expectedDate = expectedFn(baseDate, moveDir === "after" ? 1 : -1);
-    const result = getPossibleFocusDate(moveBy, moveDir, baseDate, options);
+    const expectedDate = expectedFn(focusedDate, moveDir === "after" ? 1 : -1);
+    const result = getPossibleFocusDate(
+      moveBy,
+      moveDir,
+      focusedDate,
+      calendarStartMonth,
+      calendarEndMonth,
+      options,
+      dateLib
+    );
     expect(result).toEqual(expectedDate);
   });
 });
@@ -72,8 +76,16 @@ const weekTestCases: {
 
 weekTestCases.forEach(({ moveBy, moveDir, expectedFn }) => {
   test(`should move ${moveDir} by ${moveBy}`, () => {
-    const expectedDate = expectedFn(baseDate);
-    const result = getPossibleFocusDate(moveBy, moveDir, baseDate, options);
+    const expectedDate = expectedFn(focusedDate);
+    const result = getPossibleFocusDate(
+      moveBy,
+      moveDir,
+      focusedDate,
+      calendarStartMonth,
+      calendarEndMonth,
+      options,
+      dateLib
+    );
 
     expect(result).toEqual(expectedDate);
   });
@@ -90,11 +102,16 @@ const ISOWeekTestCases: {
 
 ISOWeekTestCases.forEach(({ moveBy, moveDir, expectedFn }) => {
   test(`should move ${moveDir} by ${moveBy} when ISOWeek is true`, () => {
-    const expectedDate = expectedFn(baseDate);
-    const result = getPossibleFocusDate(moveBy, moveDir, baseDate, {
-      ...options,
-      ISOWeek: true
-    });
+    const expectedDate = expectedFn(focusedDate);
+    const result = getPossibleFocusDate(
+      moveBy,
+      moveDir,
+      focusedDate,
+      calendarStartMonth,
+      calendarEndMonth,
+      { ...options, ISOWeek: true },
+      dateLib
+    );
     expect(result).toEqual(expectedDate);
   });
 });
@@ -104,9 +121,12 @@ test("should not move before startMonth", () => {
     "day",
     "before",
     new Date(2022, 0, 2),
-    options
+    calendarStartMonth,
+    calendarEndMonth,
+    options,
+    dateLib
   );
-  expect(result).toEqual(options.startMonth);
+  expect(result).toEqual(calendarStartMonth);
 });
 
 test("should not move after endMonth", () => {
@@ -114,7 +134,10 @@ test("should not move after endMonth", () => {
     "day",
     "after",
     new Date(2023, 11, 31),
-    options
+    calendarStartMonth,
+    calendarEndMonth,
+    options,
+    dateLib
   );
-  expect(result).toEqual(options.endMonth);
+  expect(result).toEqual(calendarEndMonth);
 });

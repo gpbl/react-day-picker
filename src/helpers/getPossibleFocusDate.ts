@@ -1,22 +1,21 @@
-import type { UseProps } from "../contexts/index.js";
-import type { MoveFocusBy, MoveFocusDir } from "../types/index.js";
+import type {
+  DateLib,
+  DayPickerProps,
+  MoveFocusBy,
+  MoveFocusDir
+} from "../types/index.js";
 
 /** Return the next date that should be focused. */
 export function getPossibleFocusDate(
   moveBy: MoveFocusBy,
   moveDir: MoveFocusDir,
   focusedDate: Date,
-  options: Pick<
-    UseProps,
-    | "locale"
-    | "ISOWeek"
-    | "weekStartsOn"
-    | "startMonth"
-    | "endMonth"
-    | "dateLib"
-  >
+  calendarStartMonth: Date | undefined,
+  calendarEndMonth: Date | undefined,
+  props: Pick<DayPickerProps, "locale" | "ISOWeek" | "weekStartsOn">,
+  dateLib: DateLib
 ): Date {
-  const { weekStartsOn, startMonth, endMonth, locale, ISOWeek } = options;
+  const { weekStartsOn, locale, ISOWeek } = props;
   const {
     addDays,
     addMonths,
@@ -28,7 +27,7 @@ export function getPossibleFocusDate(
     endOfWeek,
     max,
     min
-  } = options.dateLib;
+  } = dateLib;
   const moveFns = {
     day: addDays,
     week: addWeeks,
@@ -46,10 +45,10 @@ export function getPossibleFocusDate(
     focusedDate,
     moveDir === "after" ? 1 : -1
   );
-  if (moveDir === "before" && startMonth) {
-    nextFocusedDate = max([startMonth, nextFocusedDate]);
-  } else if (moveDir === "after" && endMonth) {
-    nextFocusedDate = min([endMonth, nextFocusedDate]);
+  if (moveDir === "before" && calendarStartMonth) {
+    nextFocusedDate = max([calendarStartMonth, nextFocusedDate]);
+  } else if (moveDir === "after" && calendarEndMonth) {
+    nextFocusedDate = min([calendarEndMonth, nextFocusedDate]);
   }
   return nextFocusedDate;
 }

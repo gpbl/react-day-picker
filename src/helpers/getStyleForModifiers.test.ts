@@ -5,10 +5,6 @@ import type { Modifiers, ModifiersStyles } from "../types";
 
 import { getStyleForModifiers } from "./getStyleForModifiers";
 
-const baseDayStyle: CSSProperties = {
-  backgroundColor: "white",
-  color: "black"
-};
 const defaultModifiers: Modifiers = {
   disabled: false,
   hidden: false,
@@ -21,14 +17,6 @@ const defaultModifiers: Modifiers = {
   focused: false,
   today: false
 };
-test("returns base style when no modifiers are provided", () => {
-  const dayModifiers = defaultModifiers;
-  const modifiersStyles: Partial<ModifiersStyles> = {};
-
-  const style = getStyleForModifiers(dayModifiers, modifiersStyles);
-
-  expect(style).toEqual(baseDayStyle);
-});
 
 test("applies modifier styles to the base style", () => {
   const dayModifiers: Modifiers = {
@@ -40,7 +28,6 @@ test("applies modifier styles to the base style", () => {
     selected: { backgroundColor: "blue", color: "white" }
   };
   const expectedStyle: CSSProperties = {
-    ...baseDayStyle,
     ...modifiersStyles.selected
   };
 
@@ -61,7 +48,7 @@ test("ignores modifiers that are not active", () => {
 
   const style = getStyleForModifiers(dayModifiers, modifiersStyles);
 
-  expect(style).toEqual({ ...baseDayStyle, opacity: 0.5 }); // should not have applied the disabled style
+  expect(style).toEqual({ opacity: 0.5 }); // should not have applied the disabled style
 });
 
 test("combines multiple active modifier styles", () => {
@@ -75,7 +62,6 @@ test("combines multiple active modifier styles", () => {
     highlighted: { borderColor: "yellow" }
   };
   const expectedStyle: CSSProperties = {
-    ...baseDayStyle,
     ...modifiersStyles.selected,
     ...modifiersStyles.highlighted
   };
@@ -96,7 +82,6 @@ test("applies the most recent modifier style when there are conflicts", () => {
     highlighted: { backgroundColor: "yellow", color: "green" }
   };
   const expectedStyle: CSSProperties = {
-    ...baseDayStyle,
     backgroundColor: "yellow", // from 'highlighted'
     color: "green" // from 'highlighted', overriding 'selected'
   };
