@@ -39,7 +39,7 @@ export function Dropdown(
       | ChevronFlag.disabled
     >;
     options?: DropdownOption[] | undefined;
-  } & Omit<SelectHTMLAttributes<HTMLSelectElement>, "children">
+  } & Omit<JSX.IntrinsicElements["select"], "children">
 ) {
   const { options, className, components, classNames, ...selectProps } = props;
 

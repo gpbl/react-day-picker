@@ -8,7 +8,7 @@ import React, { HTMLProps } from "react";
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function CaptionLabel(props: HTMLProps<HTMLSpanElement>) {
+export function CaptionLabel(props: JSX.IntrinsicElements["span"]) {
   return <span {...props} />;
 }
 

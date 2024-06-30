@@ -1,5 +1,5 @@
 import React from "react";
-import type { ReactNode } from "react";
+import type { HTMLAttributes, ReactNode } from "react";
 
 import type { CalendarDay } from "../classes/index.js";
 import type { Modifiers } from "../types/index.js";
@@ -19,7 +19,6 @@ export function Day(
   props: {
     day: CalendarDay;
     modifiers: Modifiers;
-    children?: ReactNode;
   } & JSX.IntrinsicElements["td"]
 ) {
   const { day, modifiers, ...tdProps } = props;

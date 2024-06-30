@@ -9,7 +9,7 @@ import type { SelectHTMLAttributes } from "react";
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function Select(props: SelectHTMLAttributes<HTMLSelectElement>) {
+export function Select(props: JSX.IntrinsicElements["select"]) {
   return <select {...props} />;
 }
 

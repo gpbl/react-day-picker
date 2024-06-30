@@ -14,7 +14,7 @@ export function WeekNumber(
   props: {
     /** The week to render */
     week: CalendarWeek;
-  } & HTMLAttributes<HTMLDivElement>
+  } & JSX.IntrinsicElements["div"]
 ) {
   const { week, ...divProps } = props;
   return <div {...divProps} />;

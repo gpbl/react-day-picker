@@ -8,7 +8,7 @@ import React, { HTMLProps } from "react";
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function Nav(props: HTMLProps<HTMLDivElement>) {
+export function Nav(props: JSX.IntrinsicElements["div"]) {
   return <div {...props} />;
 }
 

@@ -293,10 +293,3 @@ export type MoveFocusBy =
   | "endOfWeek"
   | "month"
   | "year";
-
-/** The props that are shared between UI components. */
-export interface UIProps {
-  className: string;
-  style: CSSProperties | undefined;
-  calendar: UseCalendar;
-}

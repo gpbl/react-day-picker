@@ -9,7 +9,7 @@ import type { OptionHTMLAttributes } from "react";
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function Option(props: OptionHTMLAttributes<HTMLOptionElement>) {
+export function Option(props: JSX.IntrinsicElements["option"]) {
   return <option {...props} />;
 }
 

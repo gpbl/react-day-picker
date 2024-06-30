@@ -14,14 +14,16 @@ import type { ClassNames } from "../types/index.js";
 export function Chevron(props: {
   classNames: Pick<ClassNames, UI.Chevron | ChevronFlag.disabled>;
   size?: number;
+  disabled?: boolean;
   orientation?: "up" | "down" | "left" | "right";
 }) {
   const { size = 24, orientation = "left", classNames } = props;
 
   const svgClassName = [
     classNames[UI.Chevron],
-    classNames[ChevronFlag.disabled]
+    props.disabled ? classNames[ChevronFlag.disabled] : ""
   ]
+    .filter(Boolean)
     .join(" ")
     .trim();
   return (

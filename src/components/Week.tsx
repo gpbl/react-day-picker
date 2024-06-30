@@ -1,8 +1,6 @@
 import React, { HTMLAttributes } from "react";
 
-import { UI } from "../UI.js";
 import type { CalendarWeek } from "../classes/index.js";
-import type { UIProps } from "../types/shared.js";
 
 /**
  * Render a row in the calendar, with the days and the week number.
@@ -15,10 +13,10 @@ import type { UIProps } from "../types/shared.js";
 export function Week(
   props: {
     week: CalendarWeek;
-    children: React.ReactNode;
-  } & HTMLAttributes<HTMLTableRowElement>
+  } & JSX.IntrinsicElements["tr"]
 ) {
-  return <tr {...props}>{props.children}</tr>;
+  const { week, ...trProps } = props;
+  return <tr {...trProps} />;
 }
 
 export type WeekProps = Parameters<typeof Week>[0];

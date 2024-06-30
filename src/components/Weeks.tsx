@@ -8,7 +8,7 @@ import React, { HTMLProps } from "react";
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function Weeks(props: HTMLProps<HTMLTableSectionElement>) {
+export function Weeks(props: JSX.IntrinsicElements["tbody"]) {
   return <tbody {...props} />;
 }
 

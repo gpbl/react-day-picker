@@ -4,7 +4,7 @@ export * from "./Controlled";
 export * from "./CssModules";
 export * from "./CssVariables";
 export * from "./CustomCaption";
-export * from "./CustomDayDate";
+export * from "./CustomDayButton";
 export * from "./CustomMultiple";
 export * from "./CustomSingle";
 export * from "./CustomWeek";

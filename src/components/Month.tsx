@@ -1,7 +1,6 @@
-import React from "react";
+import React, { HTMLAttributes } from "react";
 
 import type { CalendarMonth } from "../classes/CalendarMonth.js";
-import type { UIProps } from "../types/index.js";
 
 /**
  * Render the grid with the weekday header row and the weeks for the given
@@ -18,14 +17,10 @@ export function Month(
     calendarMonth: CalendarMonth;
     /** The index where this month is displayed. */
     displayIndex: number;
-    children: React.ReactNode;
-  } & UIProps
+  } & JSX.IntrinsicElements["div"]
 ) {
-  return (
-    <div className={props.className} style={props.style}>
-      {props.children}
-    </div>
-  );
+  const { calendarMonth, displayIndex, ...divProps } = props;
+  return <div {...divProps}>{props.children}</div>;
 }
 
 export type MonthProps = Parameters<typeof Month>[0];

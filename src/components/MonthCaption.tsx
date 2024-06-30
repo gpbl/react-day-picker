@@ -14,14 +14,12 @@ export function MonthCaption(
   props: {
     /** The month where the grid is displayed. */
     calendarMonth: CalendarMonth;
-    /** Used for the aria-label. */
-    id: string;
     /** The index where this month is displayed. */
-    index: number;
-    children: React.ReactNode;
-  } & HTMLProps<HTMLDivElement>
+    displayIndex: number;
+  } & JSX.IntrinsicElements["div"]
 ) {
-  return <div {...props} />;
+  const { calendarMonth, displayIndex, ...divProps } = props;
+  return <div {...divProps} />;
 }
 
 export type MonthCaptionProps = Parameters<typeof MonthCaption>[0];

@@ -10,6 +10,6 @@ function HighlightDay(props: DayButtonProps) {
   );
 }
 
-export function CustomDayDate() {
-  return <DayPicker mode="single" components={{ DayDate: HighlightDay }} />;
+export function CustomDayButton() {
+  return <DayPicker mode="single" components={{ DayButton: HighlightDay }} />;
 }

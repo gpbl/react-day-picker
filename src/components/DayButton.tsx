@@ -1,9 +1,7 @@
-import React, { ReactNode } from "react";
+import React, { type HTMLAttributes } from "react";
 
 import type { CalendarDay } from "../classes/index.js";
 import type { Modifiers } from "../types/index.js";
-
-import { Button } from "./Button.js";
 
 /**
  * Render the date as string inside the day grid cell.
@@ -15,14 +13,14 @@ import { Button } from "./Button.js";
  */
 export function DayButton(
   props: {
+    /** The day to render. */
     day: CalendarDay;
     /** The modifiers for the day. */
     modifiers: Modifiers;
-    children: ReactNode;
   } & JSX.IntrinsicElements["button"]
 ) {
   const { day, modifiers, ...buttonProps } = props;
-  return <Button {...buttonProps} />;
+  return <button {...buttonProps} />;
 }
 
 export type DayButtonProps = Parameters<typeof DayButton>[0];

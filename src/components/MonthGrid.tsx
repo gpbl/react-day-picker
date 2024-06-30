@@ -8,7 +8,7 @@ import React, { HTMLAttributes } from "react";
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function MonthGrid(props: HTMLAttributes<HTMLTableElement>) {
+export function MonthGrid(props: JSX.IntrinsicElements["table"]) {
   return <table {...props} />;
 }
 

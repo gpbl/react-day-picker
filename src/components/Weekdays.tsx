@@ -1,11 +1,5 @@
 import React, { HTMLProps } from "react";
 
-import { UI } from "../UI.js";
-import { getWeekdays } from "../helpers/getWeekdays.js";
-import type { UIProps } from "../types/index.js";
-
-import { Weekday as DefaultWeekday } from "./Weekday.js";
-
 /**
  * Render the row with the weekday names.
  *
@@ -14,7 +8,7 @@ import { Weekday as DefaultWeekday } from "./Weekday.js";
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function Weekdays(props: HTMLProps<HTMLTableRowElement>) {
+export function Weekdays(props: JSX.IntrinsicElements["tr"]) {
   return <tr {...props} />;
 }
 

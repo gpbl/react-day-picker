@@ -8,7 +8,7 @@ import React, { HTMLProps } from "react";
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function Weekday(props: HTMLProps<HTMLTableCellElement>) {
+export function Weekday(props: JSX.IntrinsicElements["th"]) {
   return <th {...props} />;
 }
 

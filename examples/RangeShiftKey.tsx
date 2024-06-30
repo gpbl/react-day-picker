@@ -55,7 +55,7 @@ export function RangeShiftKey() {
   return (
     <DayPicker
       components={{
-        DayDate: DayWithShiftKey
+        DayButton: DayWithShiftKey
       }}
       mode="range"
       selected={range}

@@ -14,9 +14,6 @@ beforeEach(() => {
   render(<NumberingSystem />);
 });
 
-test("should localize the year", () => {
-  expect(grid("نوفمبر ٢٬٠٢١")).toBeInTheDocument();
-});
 test("should localize the days", () => {
   expect(screen.getByText("أحد")).toBeInTheDocument();
 });

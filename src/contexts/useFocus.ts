@@ -68,6 +68,10 @@ export type UseFocus = {
 };
 
 export function useFocus(
+  calendarStartMonth: Date | undefined,
+  calendarEndMonth: Date | undefined,
+  goToDay: (day: CalendarDay) => void,
+  isDayDisplayed: (day: CalendarDay) => boolean,
   props: Pick<
     DayPickerProps,
     | "autoFocus"
@@ -78,18 +82,11 @@ export function useFocus(
     | "ISOWeek"
     | "weekStartsOn"
   >,
-  calendar: UseCalendar,
   modifiers: UseModifiers,
   dateLib: DateLib
 ): UseFocus {
-  const { goToDay, isDayDisplayed } = calendar;
-
   const { autoFocus } = props;
-  const {
-    dayFlags: internal,
-    selectionStates: selection,
-    getModifiers
-  } = modifiers;
+  const { dayFlags: internal, getModifiers } = modifiers;
 
   const [focused, setFocused] = useState<CalendarDay | undefined>();
   const [lastFocused, setLastFocused] = useState<CalendarDay | undefined>();
@@ -155,8 +152,8 @@ export function useFocus(
       moveBy,
       moveDir,
       focused,
-      calendar.calendarStartMonth,
-      calendar.calendarEndMonth,
+      calendarStartMonth,
+      calendarEndMonth,
       props,
       dateLib
     );

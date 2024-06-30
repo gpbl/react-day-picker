@@ -53,7 +53,15 @@ export function Calendar<T extends DayPickerProps>(props: T) {
 
   const modifiers = useModifiers(props, calendar, dateLib);
   const selection = useSelection(props, dateLib);
-  const focus = useFocus(props, calendar, modifiers, dateLib);
+  const focus = useFocus(
+    calendar.calendarEndMonth,
+    calendar.calendarStartMonth,
+    calendar.goToDay,
+    calendar.isDayDisplayed,
+    props,
+    modifiers,
+    dateLib
+  );
 
   const weekdays = getWeekdays(
     props.locale,
@@ -169,7 +177,11 @@ export function Calendar<T extends DayPickerProps>(props: T) {
               aria-controls={id}
               onClick={handlePreviousClick}
             >
-              <components.Chevron classNames={classNames} orientation="left" />
+              <components.Chevron
+                disabled={calendar.previousMonth ? undefined : true}
+                classNames={classNames}
+                orientation="left"
+              />
             </components.Button>
             <components.Button
               type="button"
@@ -180,7 +192,11 @@ export function Calendar<T extends DayPickerProps>(props: T) {
               aria-controls={id}
               onClick={handleNextClick}
             >
-              <components.Chevron orientation="right" classNames={classNames} />
+              <components.Chevron
+                disabled={calendar.previousMonth ? undefined : true}
+                orientation="right"
+                classNames={classNames}
+              />
             </components.Button>
           </components.Nav>
         )}
@@ -231,14 +247,13 @@ export function Calendar<T extends DayPickerProps>(props: T) {
               key={displayIndex}
               displayIndex={displayIndex}
               calendarMonth={calendarMonth}
-              calendar={calendar}
             >
               <components.MonthCaption
                 className={classNames[UI.MonthCaption]}
                 style={styles?.[UI.MonthCaption]}
                 id={captionId}
                 calendarMonth={calendarMonth}
-                index={displayIndex}
+                displayIndex={displayIndex}
               >
                 {captionLayout?.startsWith("dropdown") ? (
                   <div
@@ -379,11 +394,10 @@ export function Calendar<T extends DayPickerProps>(props: T) {
                           const { date: d } = day;
 
                           const handleClick: MouseEventHandler = (e) => {
-                            if (m.disabled) {
-                              e.preventDefault();
-                              e.stopPropagation();
-                              return;
-                            }
+                            e.preventDefault();
+                            e.stopPropagation();
+                            if (m.disabled) return;
+
                             selection?.handleSelect(day.date, m, e);
 
                             if (isInteractive && !m.disabled && !m.hidden) {
@@ -554,7 +568,6 @@ export function Calendar<T extends DayPickerProps>(props: T) {
       </components.Months>
       {props.footer && (
         <components.Footer
-          calendar={calendar}
           className={classNames[UI.Footer]}
           style={styles?.[UI.Footer]}
         >
