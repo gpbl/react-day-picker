@@ -225,7 +225,7 @@ importers:
         version: 3.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       docusaurus-plugin-typedoc:
         specifier: ^1.0.1
-        version: 1.0.1(typedoc-plugin-markdown@4.1.0(typedoc@0.26.2(typescript@5.5.2)))
+        version: 1.0.1(typedoc-plugin-markdown@4.1.1(typedoc@0.26.2(typescript@5.5.2)))
       identity-obj-proxy:
         specifier: ^3.0.0
         version: 3.0.0
@@ -234,10 +234,10 @@ importers:
         version: 0.26.2(typescript@5.5.2)
       typedoc-plugin-frontmatter:
         specifier: ^1.0.0
-        version: 1.0.0(typedoc-plugin-markdown@4.1.0(typedoc@0.26.2(typescript@5.5.2)))
+        version: 1.0.0(typedoc-plugin-markdown@4.1.1(typedoc@0.26.2(typescript@5.5.2)))
       typedoc-plugin-markdown:
-        specifier: ^4.1.0
-        version: 4.1.0(typedoc@0.26.2(typescript@5.5.2))
+        specifier: ^4.1.1
+        version: 4.1.1(typedoc@0.26.2(typescript@5.5.2))
       typescript:
         specifier: ~5.5.2
         version: 5.5.2
@@ -6241,8 +6241,8 @@ packages:
     peerDependencies:
       typedoc-plugin-markdown: '>=4.0.0'
 
-  typedoc-plugin-markdown@4.1.0:
-    resolution: {integrity: sha512-sUiEJVaa6+MOFShRy14j1OP/VXC5OLyHNecJ2nKeGuBy2M3YiMatSLoIiddFAqVptSuILJTZiJzCBIY6yzAVyg==}
+  typedoc-plugin-markdown@4.1.1:
+    resolution: {integrity: sha512-ZQv8FXn1TBZAvhWMgOL8hE472rwv1dzSr/KIIUGPmdNXybeS6jmK7d1OwKhorLuGbPDQGl6U97BwfkFTcydAkw==}
     engines: {node: '>= 18'}
     peerDependencies:
       typedoc: 0.26.x
@@ -10501,9 +10501,9 @@ snapshots:
     dependencies:
       esutils: 2.0.3
 
-  docusaurus-plugin-typedoc@1.0.1(typedoc-plugin-markdown@4.1.0(typedoc@0.26.2(typescript@5.5.2))):
+  docusaurus-plugin-typedoc@1.0.1(typedoc-plugin-markdown@4.1.1(typedoc@0.26.2(typescript@5.5.2))):
     dependencies:
-      typedoc-plugin-markdown: 4.1.0(typedoc@0.26.2(typescript@5.5.2))
+      typedoc-plugin-markdown: 4.1.1(typedoc@0.26.2(typescript@5.5.2))
 
   dom-accessibility-api@0.5.16: {}
 
@@ -14588,12 +14588,12 @@ snapshots:
     dependencies:
       is-typedarray: 1.0.0
 
-  typedoc-plugin-frontmatter@1.0.0(typedoc-plugin-markdown@4.1.0(typedoc@0.26.2(typescript@5.5.2))):
+  typedoc-plugin-frontmatter@1.0.0(typedoc-plugin-markdown@4.1.1(typedoc@0.26.2(typescript@5.5.2))):
     dependencies:
-      typedoc-plugin-markdown: 4.1.0(typedoc@0.26.2(typescript@5.5.2))
+      typedoc-plugin-markdown: 4.1.1(typedoc@0.26.2(typescript@5.5.2))
       yaml: 2.4.5
 
-  typedoc-plugin-markdown@4.1.0(typedoc@0.26.2(typescript@5.5.2)):
+  typedoc-plugin-markdown@4.1.1(typedoc@0.26.2(typescript@5.5.2)):
     dependencies:
       typedoc: 0.26.2(typescript@5.5.2)
 
