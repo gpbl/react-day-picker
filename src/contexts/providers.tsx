@@ -1,18 +1,22 @@
 import React from "react";
 import type { PropsWithChildren } from "react";
 
-import { MultiProvider, RangeProvider, SingleProvider } from "../selection";
+import {
+  MultiProvider,
+  RangeProvider,
+  SingleProvider
+} from "../selection/index.js";
 import type {
   DayPickerProps,
   PropsMulti,
   PropsRange,
   PropsSingle
-} from "../types";
+} from "../types/index.js";
 
-import { CalendarContextProvider } from "./useCalendar";
-import { FocusContextProvider } from "./useFocus";
-import { ModifiersContextProvider } from "./useModifiers";
-import { PropsContextProvider, useProps } from "./useProps";
+import { CalendarContextProvider } from "./useCalendar.js";
+import { FocusContextProvider } from "./useFocus.js";
+import { ModifiersContextProvider } from "./useModifiers.js";
+import { PropsContextProvider, useProps } from "./useProps.js";
 
 function SelectionProviders({ children }: PropsWithChildren) {
   const props = useProps();

@@ -1,11 +1,11 @@
 import React, { type SelectHTMLAttributes } from "react";
 
-import { UI } from "../UI";
-import { useProps } from "../contexts";
+import { UI } from "../UI.js";
+import { useProps } from "../contexts/index.js";
 
-import { Chevron as DefaultChevron } from "./Chevron";
-import { Option as DefaultOption } from "./Option";
-import { Select as DefaultSelect } from "./Select";
+import { Chevron as DefaultChevron } from "./Chevron.js";
+import { Option as DefaultOption } from "./Option.js";
+import { Select as DefaultSelect } from "./Select.js";
 
 /** An option to use in the dropdown. Maps to the `<option>` HTML element. */
 export type DropdownOption = {

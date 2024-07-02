@@ -1,12 +1,12 @@
 import React from "react";
 
-import * as customComponents from "../components/custom-components";
-import { getDataAttributes } from "../helpers/getDataAttributes";
-import { getDefaultClassNames } from "../helpers/getDefaultClassNames";
-import { getFormatters } from "../helpers/getFormatters";
-import { getStartEndMonths } from "../helpers/getStartEndMonths";
-import * as defaultLabels from "../labels";
-import { dateLib as defaultDateLib } from "../lib";
+import * as customComponents from "../components/custom-components.js";
+import { getDataAttributes } from "../helpers/getDataAttributes.js";
+import { getDefaultClassNames } from "../helpers/getDefaultClassNames.js";
+import { getFormatters } from "../helpers/getFormatters.js";
+import { getStartEndMonths } from "../helpers/getStartEndMonths.js";
+import * as defaultLabels from "../labels/index.js";
+import { dateLib as defaultDateLib } from "../lib/index.js";
 import type {
   ClassNames,
   CustomComponents,
@@ -16,7 +16,7 @@ import type {
   Mode,
   DayPickerProps,
   DateLib
-} from "../types";
+} from "../types/index.js";
 
 const PropsContext = React.createContext<PropsContextValue | undefined>(
   undefined

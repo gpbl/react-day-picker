@@ -1,6 +1,6 @@
 import React from "react";
 
-import type { Locale } from "../lib/dateLib";
+import type { Locale } from "../lib/dateLib.js";
 
 import type {
   ClassNames,
@@ -18,7 +18,7 @@ import type {
   DateRange,
   Mode,
   DateLib
-} from "./shared";
+} from "./shared.js";
 
 /**
  * The props for the `<DayPicker />` component.

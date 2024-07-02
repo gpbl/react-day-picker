@@ -1,4 +1,4 @@
-import { PropsContextValue } from "../contexts";
+import { PropsContextValue } from "../contexts/index.js";
 
 /** The number of days in a month when having 6 weeks. */
 const NrOfDaysWithFixedWeeks = 42;
