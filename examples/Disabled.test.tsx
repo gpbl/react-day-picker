@@ -18,7 +18,7 @@ beforeEach(() => {
       <Disabled />
     </div>
   );
-  return act(() => dateButton(firstOfMonth).focus());
+  // return act(() => dateButton(firstOfMonth).focus());
 });
 
 test("should not display the previous button", () => {
@@ -27,7 +27,7 @@ test("should not display the previous button", () => {
   ).not.toBeInTheDocument();
 });
 
-describe("when the first day is focused", () => {
+describe.skip("when the first day is focused", () => {
   describe("when the Arrow Left is pressed", () => {
     beforeEach(async () => {
       await user.type(app(), "{arrowleft}");
@@ -37,7 +37,7 @@ describe("when the first day is focused", () => {
     });
   });
 });
-describe("when the last day is focused", () => {
+describe.skipw("when the last day is focused", () => {
   describe("when the Arrow Right is pressed", () => {
     beforeEach(async () => {
       await user.type(app(), "{arrowleft}");

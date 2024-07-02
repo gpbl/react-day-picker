@@ -14,10 +14,10 @@ export function WeekNumber(
   props: {
     /** The week to render */
     week: CalendarWeek;
-  } & JSX.IntrinsicElements["div"]
+  } & JSX.IntrinsicElements["td"]
 ) {
-  const { week, ...divProps } = props;
-  return <div {...divProps} />;
+  const { week, ...tdProps } = props;
+  return <td {...tdProps} />;
 }
 
 export type WeekNumberProps = Parameters<typeof WeekNumber>[0];

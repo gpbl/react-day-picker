@@ -1,6 +1,6 @@
 import React from "react";
 
-import { dateButton } from "@/test/elements";
+import { dateButton, gridcell } from "@/test/elements";
 import { render } from "@/test/render";
 
 import { ModifiersClassnames } from "./ModifiersClassnames";
@@ -21,5 +21,5 @@ beforeEach(() => {
 });
 
 test.each(days)("the day %s should have the `my-booked-class` class", (day) => {
-  expect(dateButton(day)).toHaveClass("my-booked-class");
+  expect(gridcell(day)).toHaveClass("my-booked-class");
 });

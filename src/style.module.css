@@ -11,10 +11,10 @@
   
   --rdp-chevron-disabled-opacity: 0.5; /* The opacity of the chevron when its container is disabled. */
   
-  --rdp-day_date-border-radius: 100%; /* The border radius of the day cells. */
-  --rdp-day_date-border: 2px solid transparent; /* The border of the day cells. */
-  --rdp-day_date-height: var(--rdp-day-width); /* The height of the day cells. */
-  --rdp-day_date-width: var(--rdp-day-height); /* The width of the day cells. */
+  --rdp-day_button-border-radius: 100%; /* The border radius of the day cells. */
+  --rdp-day_button-border: 2px solid transparent; /* The border of the day cells. */
+  --rdp-day_button-height: var(--rdp-day-width); /* The height of the day cells. */
+  --rdp-day_button-width: var(--rdp-day-height); /* The width of the day cells. */
   
   --rdp-selected-border: 2px solid var(--rdp-accent-color); /* The border of the selected days. */
   --rdp-selected-font: bold large var(--rdp-font-family); /* The font of the selected days. */
@@ -54,6 +54,7 @@
   --rdp-weekday-opacity: 0.75; /* The opacity of the weekday. */
   --rdp-weekday-padding: 0.25rem 0.75rem; /* THe padding of the weekday. */
   --rdp-weekday-text-align: center; /* The text alignment of the weekday cells. */
+
   --rdp-gradient-direction: 90deg;
 }
 
@@ -82,15 +83,15 @@
   font: var(--rdp-day-font);
 }
 
-.day_date {
+.day_button {
   justify-content: center;
   align-items: center;
   display: flex;
 
-  width: var(--rdp-day_date-width);
-  height: var(--rdp-day_date-height);
-  border: var(--rdp-day_date-border);
-  border-radius: var(--rdp-day_date-border-radius);
+  width: var(--rdp-day_button-width);
+  height: var(--rdp-day_button-height);
+  border: var(--rdp-day_button-border);
+  border-radius: var(--rdp-day_button-border-radius);
 }
 
 .caption_label {
@@ -271,7 +272,7 @@
   font: var(--rdp-selected-font);
 }
 
-.selected .day_date {
+.selected .day_button {
   border: var(--rdp-selected-border);
 }
 
@@ -291,11 +292,11 @@
 
 .range_start {
   background: var(--rdp-range_start-background);
-  color: var(--rdp-range_start-color);
 }
 
-.range_start .day_date {
+.range_start .day_button {
   background-color: var(--rdp-range_start-date-background-color);
+  color: var(--rdp-range_start-color);
 }
 
 .range_middle {
@@ -303,7 +304,7 @@
   font: var(--rdp-range_middle-font);
 }
 
-.range_middle .day_date {
+.range_middle .day_button {
   border-color: transparent;
   border: unset;
   border-radius: unset;
@@ -314,7 +315,8 @@
   color: var(--rdp-range_end-color);
 }
 
-.range_end .day_date {
+.range_end .day_button {
+  color: var(--rdp-range_start-color);
   background-color: var(--rdp-range_end-date-background-color);
 }
 
@@ -331,4 +333,14 @@
 .years_dropdown {
   /* These classes are not used by the default style, but are available to use */
   /* Keep anyway for the CSS type definition. */
+}
+
+.calendar button {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
 }

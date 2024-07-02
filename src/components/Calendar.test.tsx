@@ -14,12 +14,14 @@ it("should render the navigation and month grids", () => {
 });
 
 it("should apply classnames and style according to props", () => {
-  const { container } = render(<Calendar />, {
-    className: "custom-class",
-    numberOfMonths: 2,
-    showWeekNumber: true,
-    style: { color: "red" }
-  });
+  const { container } = render(
+    <Calendar
+      className="custom-class"
+      numberOfMonths={2}
+      showWeekNumber
+      style={{ color: "red" }}
+    />
+  );
 
   expect(container.firstChild).toHaveClass("rdp-calendar");
   expect(container.firstChild).toHaveClass("rdp-has_multiple_months");
@@ -29,18 +31,21 @@ it("should apply classnames and style according to props", () => {
 });
 
 it("should use custom components", () => {
-  const { container } = render(<Calendar />, {
-    footer: "foo",
-    components: {
-      Month: () => <div>Custom Month</div>,
-      Months: (props: MonthsProps) => (
-        <div {...props}>
-          Custom Months<div>{props.children}</div>
-        </div>
-      ),
-      Footer: () => <div>Custom Footer</div>
-    }
-  });
+  const { container } = render(
+    <Calendar
+      components={{
+        Nav: () => <div>Custom Navigation</div>,
+        Month: () => <div>Custom Month</div>,
+        Months: (props: MonthsProps) => (
+          <div {...props}>
+            Custom Months<div>{props.children}</div>
+          </div>
+        ),
+        Footer: () => <div>Custom Footer</div>
+      }}
+      footer={<div>Footer</div>}
+    />
+  );
 
   expect(container).toHaveTextContent("Custom Navigation");
   expect(container).toHaveTextContent("Custom Months");

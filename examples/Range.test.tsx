@@ -8,14 +8,14 @@ import { user } from "@/test/user";
 
 import { Range } from "./Range";
 
-const pastMonth = new Date(2020, 10, 15);
+const defaultMonth = new Date(2020, 5, 15);
 let container: HTMLElement;
 const days = [
-  pastMonth,
-  addDays(pastMonth, 1),
-  addDays(pastMonth, 2),
-  addDays(pastMonth, 3),
-  addDays(pastMonth, 4)
+  defaultMonth,
+  addDays(defaultMonth, 1),
+  addDays(defaultMonth, 2),
+  addDays(defaultMonth, 3),
+  addDays(defaultMonth, 4)
 ];
 
 beforeEach(() => (container = render(<Range />).container));

@@ -9,7 +9,7 @@ export function formatWeekNumber(weekNumber: number | 0) {
   if (weekNumber === 0) {
     return `#`;
   }
-  if (weekNumber < 100) {
+  if (weekNumber < 10) {
     return `0${weekNumber.toLocaleString()}`;
   }
   return `${weekNumber.toLocaleString()}`;

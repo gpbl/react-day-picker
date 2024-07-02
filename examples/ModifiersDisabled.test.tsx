@@ -13,5 +13,5 @@ const days = [
 
 test.each(days)("the day %s should be disabled", (day) => {
   render(<ModifiersDisabled />);
-  expect(dateButton(day)).toHaveAttribute("aria-disabled", "true");
+  expect(dateButton(day)).toBeDisabled();
 });

@@ -24,8 +24,8 @@ export enum UI {
    * {@link SelectionFlag}.
    */
   Day = "day",
-  /** The element containing the formatted day's date, inside the grid cell. */
-  DayDate = "day_date",
+  /** The button containing the formatted day's date, inside the grid cell. */
+  DayButton = "day_button",
   /** The caption label of the month (when not showing the dropdown navigation). */
   CaptionLabel = "caption_label",
   /** The container of the dropdown navigation (when enabled). */

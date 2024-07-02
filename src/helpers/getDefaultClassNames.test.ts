@@ -9,7 +9,7 @@ test("should return the default classnames", () => {
     chevron: "rdp-chevron",
     chevron_disabled: "rdp-chevron_disabled",
     day: "rdp-day",
-    day_date: "rdp-day_date",
+    day_button: "rdp-day_button",
     disabled: "rdp-disabled",
     dropdown_nav: "rdp-dropdown_nav",
     dropdown_root: "rdp-dropdown_root",

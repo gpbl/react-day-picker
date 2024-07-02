@@ -509,51 +509,64 @@ export function Calendar<T extends DayPickerProps>(props: T) {
                               }
                               aria-hidden={m.hidden || undefined}
                               aria-selected={m.selected || undefined}
+                              data-day={dateLib.format(d, "yyyy-MM-dd")}
+                              data-month={dateLib.format(d, "yyyy-MM")}
+                              data-selected={m.selected || undefined}
+                              data-disabled={m.disabled || undefined}
+                              data-hidden={m.hidden || undefined}
+                              data-focused={isFocused || undefined}
                             >
-                              <components.DayButton
-                                className={classNames[UI.DayDate]}
-                                style={styles?.[UI.DayDate]}
-                                day={day}
-                                modifiers={m}
-                                disabled={m.disabled || undefined}
-                                tabIndex={
-                                  isFocused || isAutoFocusTarget ? 0 : -1
-                                }
-                                aria-label={labelDay(d, m, { locale }, dateLib)} // TODO: use labelDayDate
-                                data-day={dateLib.format(d, "yyyy-MM-dd")}
-                                data-month={dateLib.format(d, "yyyy-MM")}
-                                data-selected={m.selected || undefined}
-                                data-disabled={m.disabled || undefined}
-                                data-hidden={m.hidden || undefined}
-                                data-focused={isFocused || undefined}
-                                onClick={
-                                  isInteractive ? handleClick : undefined
-                                }
-                                onBlur={(e) => {
-                                  focus.blur();
-                                  onDayBlur?.(d, m, e);
-                                }}
-                                onFocus={handleFocus}
-                                onKeyDown={handleKeyDown}
-                                onKeyPress={(e) => onDayKeyPress?.(d, m, e)}
-                                onKeyUp={(e) => onDayKeyUp?.(d, m, e)}
-                                onMouseEnter={(e) => onDayMouseEnter?.(d, m, e)}
-                                onMouseLeave={(e) => onDayMouseLeave?.(d, m, e)}
-                                onPointerEnter={(e) =>
-                                  onDayPointerEnter?.(d, m, e)
-                                }
-                                onPointerLeave={(e) =>
-                                  onDayPointerLeave?.(d, m, e)
-                                }
-                                onTouchCancel={(e) =>
-                                  onDayTouchCancel?.(d, m, e)
-                                }
-                                onTouchEnd={(e) => onDayTouchEnd?.(d, m, e)}
-                                onTouchMove={(e) => onDayTouchMove?.(d, m, e)}
-                                onTouchStart={(e) => onDayTouchStart?.(d, m, e)}
-                              >
-                                {formatDay(d, { locale }, dateLib)}
-                              </components.DayButton>
+                              {isInteractive ? (
+                                <components.DayButton
+                                  className={classNames[UI.DayButton]}
+                                  style={styles?.[UI.DayButton]}
+                                  day={day}
+                                  modifiers={m}
+                                  disabled={m.disabled || undefined}
+                                  tabIndex={
+                                    isFocused || isAutoFocusTarget ? 0 : -1
+                                  }
+                                  aria-label={labelDay(
+                                    d,
+                                    m,
+                                    { locale },
+                                    dateLib
+                                  )} // TODO: use labelDayDate
+                                  onClick={isInteractive && handleClick}
+                                  onBlur={(e) => {
+                                    focus.blur();
+                                    onDayBlur?.(d, m, e);
+                                  }}
+                                  onFocus={handleFocus}
+                                  onKeyDown={handleKeyDown}
+                                  onKeyPress={(e) => onDayKeyPress?.(d, m, e)}
+                                  onKeyUp={(e) => onDayKeyUp?.(d, m, e)}
+                                  onMouseEnter={(e) =>
+                                    onDayMouseEnter?.(d, m, e)
+                                  }
+                                  onMouseLeave={(e) =>
+                                    onDayMouseLeave?.(d, m, e)
+                                  }
+                                  onPointerEnter={(e) =>
+                                    onDayPointerEnter?.(d, m, e)
+                                  }
+                                  onPointerLeave={(e) =>
+                                    onDayPointerLeave?.(d, m, e)
+                                  }
+                                  onTouchCancel={(e) =>
+                                    onDayTouchCancel?.(d, m, e)
+                                  }
+                                  onTouchEnd={(e) => onDayTouchEnd?.(d, m, e)}
+                                  onTouchMove={(e) => onDayTouchMove?.(d, m, e)}
+                                  onTouchStart={(e) =>
+                                    onDayTouchStart?.(d, m, e)
+                                  }
+                                >
+                                  {formatDay(d, { locale }, dateLib)}
+                                </components.DayButton>
+                              ) : (
+                                <div>{formatDay(d, { locale }, dateLib)}</div>
+                              )}
                             </components.Day>
                           );
                         })}

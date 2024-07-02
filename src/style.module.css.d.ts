@@ -6,7 +6,7 @@ declare const styles: {
   readonly chevron: string;
   readonly chevron_disabled: string;
   readonly day: string;
-  readonly day_date: string;
+  readonly day_button: string;
   readonly disabled: string;
   readonly dropdown: string;
   readonly dropdown_nav: string;

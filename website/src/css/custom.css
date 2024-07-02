@@ -412,15 +412,3 @@ html {
 div[class^="docRoot"] {
   max-width: 100%;
 }
-
-/* button {
-  border-radius: revert;
-  border: revert;
-  padding: revert;
-  font-size: revert;
-  font-weight: revert;
-  font-family: revert;
-  background-color: revert;
-  cursor: revert;
-  transition: revert;
-} */
