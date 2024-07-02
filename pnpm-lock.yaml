@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      date-fns:
+        specifier: ^3.6.0
+        version: 3.6.0
     devDependencies:
       '@date-fns/utc':
         specifier: ^1.2.0
@@ -47,9 +51,6 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^7.12.0
         version: 7.14.1(eslint@8.57.0)(typescript@5.5.3)
-      date-fns:
-        specifier: ^3.6.0
-        version: 3.6.0
       date-fns-jalali:
         specifier: 3.6.0-1
         version: 3.6.0-1
