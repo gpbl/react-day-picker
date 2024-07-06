@@ -82,7 +82,7 @@ export interface UseCalendar {
 
 /**
  * @group Hooks
- * @see https://daypicker.dev/advanced-guides/custom-components
+ * @see https://daypicker.dev/next/advanced-guides/custom-components
  */
 export function useCalendar(
   props: Pick<

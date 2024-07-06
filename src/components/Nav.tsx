@@ -6,7 +6,7 @@ import React, { HTMLProps } from "react";
  * Use the `components` prop to swap this component with a custom one.
  *
  * @group Components
- * @see https://daypicker.dev/advanced-guides/custom-components
+ * @see https://daypicker.dev/next/advanced-guides/custom-components
  */
 export function Nav(props: JSX.IntrinsicElements["div"]) {
   return <div {...props} />;

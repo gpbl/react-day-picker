@@ -6,7 +6,6 @@ export * from "./DayButton.js";
 export * from "./Dropdown.js";
 export * from "./Footer.js";
 export * from "./Month.js";
-export * from "./DayContent.js";
 export * from "./MonthCaption.js";
 export * from "./MonthGrid.js";
 export * from "./Months.js";

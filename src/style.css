@@ -64,7 +64,6 @@
 
 /* Root of the component. */
 .rdp-root {
-  display: inline-block;
   position: relative;
   box-sizing: border-box;
 }
@@ -210,7 +209,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--rdp-months-gap);
-  justify-content: center;
   max-width: fit-content;
 }
 

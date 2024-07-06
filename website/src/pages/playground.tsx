@@ -427,35 +427,37 @@ export default function Playground() {
         </div>
         <div className={styles.props}>
           <h2>Selection</h2>
-          {selected ? (
-            <>
-              <pre>
-                {props.mode === "single" && selected && selected.toString()}
-                {props.mode === "multiple" &&
-                  (selected as Date[] | undefined)?.map((date) => {
-                    return (
-                      <>
-                        {date.toString()}
-                        <br />
-                      </>
-                    );
-                  })}
-                {props.mode === "range" && isDateRange(selected) && (
-                  <>
-                    From: {selected.from && selected.from.toString()}
-                    <br />
-                    To: {"  "}
-                    {selected.to && selected.to.toString()}
-                  </>
-                )}
-              </pre>
-            </>
-          ) : props.mode ? (
-            <p>Pick on a day to start selection.</p>
-          ) : (
-            <p>Pick a selection mode to enable selections.</p>
-          )}
-          <h2>Props</h2>
+          <p role="status" aria-live="polite">
+            {selected ? (
+              <div>
+                <pre>
+                  {props.mode === "single" && selected && selected.toString()}
+                  {props.mode === "multiple" &&
+                    (selected as Date[] | undefined)?.map((date) => {
+                      return (
+                        <>
+                          {date.toString()}
+                          <br />
+                        </>
+                      );
+                    })}
+                  {props.mode === "range" && isDateRange(selected) && (
+                    <>
+                      From: {selected.from && selected.from.toString()}
+                      <br />
+                      To: {"  "}
+                      {selected.to && selected.to.toString()}
+                    </>
+                  )}
+                </pre>
+              </div>
+            ) : props.mode ? (
+              "Pick on a day to start selection."
+            ) : (
+              "Choose a selection mode to enable selections."
+            )}
+          </p>
+          <h2>Code</h2>
           <HighlightWithTheme code={formattedProps} language="tsx">
             {({ className, style, tokens, getTokenProps }) => (
               <pre style={style} className={className}>

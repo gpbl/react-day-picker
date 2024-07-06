@@ -4,7 +4,7 @@ import React, { type HTMLProps } from "react";
  * Component wrapping the month grids.
  *
  * @group Components
- * @see https://daypicker.dev/advanced-guides/custom-components
+ * @see https://daypicker.dev/next/advanced-guides/custom-components
  */
 export function Months(props: JSX.IntrinsicElements["div"]) {
   return <div {...props} />;

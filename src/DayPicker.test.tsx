@@ -63,7 +63,7 @@ it("should use custom components", () => {
         ),
         Footer: () => <div>Custom Footer</div>
       }}
-      footer={<div>Footer</div>}
+      footer="Footer"
     />
   );
 

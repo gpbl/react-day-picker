@@ -48,22 +48,12 @@ export function InputTime() {
         mode="single"
         selected={selected}
         onSelect={handleDaySelect}
-        footer={
-          <>
-            <p>
-              Pick a time:{" "}
-              <input
-                type="time"
-                value={timeValue}
-                onChange={handleTimeChange}
-              />
-            </p>
-            <p>
-              Selected date: {selected ? selected.toLocaleString() : "none"}
-            </p>
-          </>
-        }
+        footer={`Selected date: ${selected ? selected.toLocaleString() : "none"}`}
       />
+      <p>
+        Pick a time:{" "}
+        <input type="time" value={timeValue} onChange={handleTimeChange} />
+      </p>
     </>
   );
 }

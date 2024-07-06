@@ -203,8 +203,15 @@ export interface PropsBase {
   ISOWeek?: boolean;
   /** Change the components used for rendering the calendar elements. */
   components?: CustomComponents;
-  /** Content to add to the grid as footer element. */
-  footer?: React.ReactNode;
+  /**
+   * Add a footer to the calendar, acting as live region.
+   *
+   * Use this prop to communicate the calendar's status to screen readers.
+   * Prefer strings over complex UI elements.
+   *
+   * @see https://daypicker.dev/next/using-daypicker/accessibility
+   */
+  footer?: React.ReactNode | string;
   /**
    * When a selection mode is set, DayPicker will focus the first selected day
    * (if set) or the today's date (if not disabled).

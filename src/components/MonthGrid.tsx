@@ -6,7 +6,7 @@ import React from "react";
  * Use the `components` prop to swap this component with a custom one.
  *
  * @group Components
- * @see https://daypicker.dev/advanced-guides/custom-components
+ * @see https://daypicker.dev/next/advanced-guides/custom-components
  */
 export function MonthGrid(props: JSX.IntrinsicElements["table"]) {
   return <table {...props} />;

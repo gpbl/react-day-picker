@@ -64,7 +64,6 @@
 
 /* Root of the component. */
 .root {
-  display: inline-block;
   position: relative;
   box-sizing: border-box;
 }
@@ -92,6 +91,10 @@
   height: var(--rdp-day_button-height);
   border: var(--rdp-day_button-border);
   border-radius: var(--rdp-day_button-border-radius);
+}
+
+.day_button:disabled {
+  cursor: revert;
 }
 
 .caption_label {
@@ -207,6 +210,7 @@
   flex-wrap: wrap;
   gap: var(--rdp-months-gap);
   justify-content: center;
+  max-width: fit-content;
 }
 
 .nav {
@@ -231,7 +235,7 @@
 
 .weekday {
   opacity: var(--rdp-weekday-opacity);
-  padding-block: var(--rdp-weekday-padding);
+  padding: var(--rdp-weekday-padding);
   font: var(--rdp-weekday-font);
   text-align: var(--rdp-weekday-text-align);
   text-transform: var(--rdp-weekday-text-transform);
@@ -282,7 +286,6 @@
 
 .disabled {
   opacity: var(--rdp-disabled-opacity);
-  cursor: revert;
 }
 
 .hidden {
