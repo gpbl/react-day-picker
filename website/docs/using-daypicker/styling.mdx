@@ -40,17 +40,17 @@ If you are not using a bundler, you can copy the CSS file to your project. See [
 
 The default styles use CSS variables that can be overridden to customize the appearance of the calendar.
 
-Define the CSS variables in your app's CSS file, after importing the DayPicker CSS file, under the `.rdp-calendar` class.
+Define the CSS variables in your app's CSS file, after importing the DayPicker CSS file, under the `.rdp-root` class.
 
 ```css title="./app/global.css"
-.rdp-calendar {
+.rdp-root {
   --rdp-accent-color: indigo; /* Change the accent color to indigo. */
   --rdp-accent-background-color: #f0f0f0; /* Change the accent background color. */
   /* Add more CSS variables here. */
 }
 ```
 
-The following table lists the CSS variables used by DayPicker inside the `.rdp-calendar` class:
+The following table lists the CSS variables used by DayPicker inside the `.rdp-root` class:
 
 | CSS Variable                              | Description                                                                   |
 | ----------------------------------------- | ----------------------------------------------------------------------------- |
@@ -100,10 +100,10 @@ The following table lists the CSS variables used by DayPicker inside the `.rdp-c
 To toggle between dark and light appearance, override the accent color with the color to use in the dark mode.
 
 ```css
-.rdp-calendar {
+.rdp-root {
   --rdp-accent-color: blue; /* Use blue as the accent color. */
 }
-[data-theme="dark"] .rdp-calendar {
+[data-theme="dark"] .rdp-root {
   --rdp-accent-color: yellow; /* Use yellow as the accent color in dark mode. */
 }
 ```

@@ -2,7 +2,7 @@ import React from "react";
 
 import { addDays } from "date-fns";
 
-import { dateButton, app } from "@/test/elements";
+import { dateButton, app, gridcell } from "@/test/elements";
 import { renderApp } from "@/test/renderApp";
 import { user } from "@/test/user";
 
@@ -19,7 +19,7 @@ beforeEach(() => {
 
 describe("when rendering a month that contains today", () => {
   test("it should add the default class name for today", () => {
-    expect(dateButton(today)).toHaveClass("rdp-today");
+    expect(gridcell(today)).toHaveClass("rdp-today");
   });
   test('it should have exactly one ".day_today" class', () => {
     const todays = app().querySelectorAll(".rdp-today");

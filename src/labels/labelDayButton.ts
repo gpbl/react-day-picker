@@ -1,21 +1,17 @@
 import type { DateLib } from "../index.js";
-import type { FormatOptions } from "../lib/dateLib.js";
+import type { LabelOptions } from "../lib/dateLib.js";
 import { dateLib as defaultDateLib } from "../lib/index.js";
 import type { Modifiers } from "../types/index.js";
 
 /**
- * Return an ARIA label for the day button. By default, it returns an empty
- * label since the screen readers will announce the date from the grid cell.
- *
- * Use this function to provide a custom label for the day gridcell, e.g. for
- * announcing that is selected or booked.
+ * Return an ARIA label for the day button.
  *
  * @group Labels
  */
-export function labelDay(
+export function labelDayButton(
   date: Date,
   modifiers: Modifiers,
-  options?: FormatOptions,
+  options?: LabelOptions,
   dateLib: DateLib = defaultDateLib
 ) {
   let label = dateLib.format(date, "PPPP", options);
@@ -27,3 +23,6 @@ export function labelDay(
   }
   return label;
 }
+
+/** @deprecated Use `labelDayButton` instead. */
+export const labelDay = labelDayButton;

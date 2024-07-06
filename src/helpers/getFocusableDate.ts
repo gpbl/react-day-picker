@@ -6,12 +6,12 @@ import type {
 } from "../types/index.js";
 
 /** Return the next date that should be focused. */
-export function getPossibleFocusDate(
+export function getFocusableDate(
   moveBy: MoveFocusBy,
   moveDir: MoveFocusDir,
-  focusedDate: Date,
-  calendarStartMonth: Date | undefined,
-  calendarEndMonth: Date | undefined,
+  refDate: Date,
+  navStart: Date | undefined,
+  navEnd: Date | undefined,
   props: Pick<DayPickerProps, "locale" | "ISOWeek" | "weekStartsOn">,
   dateLib: DateLib
 ): Date {
@@ -41,14 +41,11 @@ export function getPossibleFocusDate(
       ISOWeek ? endOfISOWeek(date) : endOfWeek(date, { locale, weekStartsOn })
   };
 
-  let nextFocusedDate = moveFns[moveBy](
-    focusedDate,
-    moveDir === "after" ? 1 : -1
-  );
-  if (moveDir === "before" && calendarStartMonth) {
-    nextFocusedDate = max([calendarStartMonth, nextFocusedDate]);
-  } else if (moveDir === "after" && calendarEndMonth) {
-    nextFocusedDate = min([calendarEndMonth, nextFocusedDate]);
+  let focusableDate = moveFns[moveBy](refDate, moveDir === "after" ? 1 : -1);
+  if (moveDir === "before" && navStart) {
+    focusableDate = max([navStart, focusableDate]);
+  } else if (moveDir === "after" && navEnd) {
+    focusableDate = min([navEnd, focusableDate]);
   }
-  return nextFocusedDate;
+  return focusableDate;
 }

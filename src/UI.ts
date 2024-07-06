@@ -13,10 +13,10 @@ export enum UI {
   /** The next button the navigation */
   ButtonNext = "button_next",
   /**
-   * The calendar element: the root component displaying the months and the
-   * navigation bar. Extended by {@link CalendarFlag}.
+   * The root component displaying the months and the navigation bar. Extended
+   * by {@link RootFlag}.
    */
-  Calendar = "calendar",
+  Root = "root",
   /** The Chevron SVG element used by navigation buttons and dropdowns. */
   Chevron = "chevron",
   /**
@@ -56,11 +56,10 @@ export enum UI {
   Weekday = "weekday",
   /** The row grouping the weekdays in the column headers. */
   Weekdays = "weekdays",
-  /**
-   * The row header containing the week number. Extended by
-   * {@link WeekNumberFlag}.
-   */
+  /** The row header containing the week number. */
   WeekNumber = "week_number",
+  /** The row header containing the week number. */
+  WeekNumberHeader = "week_number_header",
   /** The dropdown with the years. */
   YearsDropdown = "years_dropdown"
 }
@@ -94,8 +93,8 @@ export enum SelectionState {
   selected = "selected"
 }
 
-/** Flags that can be applied to the {@link UI.Calendar} element. */
-export enum CalendarFlag {
+/** Flags that can be applied to the {@link UI.Root} element. */
+export enum RootFlag {
   /** Assigned when the week numbers are show. */
   has_week_numbers = "has_week_numbers",
   /** Assigned when the weekdays are hidden. */
@@ -110,13 +109,4 @@ export enum CalendarFlag {
 export enum ChevronFlag {
   /** Assigned when the week numbers are show. */
   disabled = "chevron_disabled"
-}
-
-/** Flags that can be applied to the {@link UI.WeekNumber} element. */
-export enum WeekNumberFlag {
-  /**
-   * Assigned when the week number is interactive, i.e. has an
-   * `onWeekNumberClick` event attached to it.
-   */
-  week_number_interactive = "week_number_interactive"
 }

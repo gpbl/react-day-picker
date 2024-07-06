@@ -3,7 +3,8 @@
 exports[`should match the snapshot 1`] = `
 <div>
   <div
-    class="rdp-calendar rdp-is_interactive"
+    class="rdp-root rdp-is_interactive"
+    data-mode="range"
     id="test"
   >
     <div
@@ -149,7 +150,6 @@ exports[`should match the snapshot 1`] = `
                 class="rdp-day rdp-hidden rdp-outside"
                 data-day="2020-05-31"
                 data-hidden="true"
-                data-month="2020-05"
                 role="gridcell"
               >
                 <button
@@ -164,13 +164,12 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="2"
                 class="rdp-day"
                 data-day="2020-06-01"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
                   aria-label="Monday, June 1st, 2020"
                   class="rdp-day_button"
-                  tabindex="-1"
+                  tabindex="0"
                 >
                   1
                 </button>
@@ -179,7 +178,6 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="3"
                 class="rdp-day"
                 data-day="2020-06-02"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -194,7 +192,6 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="4"
                 class="rdp-day"
                 data-day="2020-06-03"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -209,7 +206,6 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="5"
                 class="rdp-day"
                 data-day="2020-06-04"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -224,7 +220,6 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="6"
                 class="rdp-day"
                 data-day="2020-06-05"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -239,7 +234,6 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="7"
                 class="rdp-day"
                 data-day="2020-06-06"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -260,7 +254,6 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="1"
                 class="rdp-day"
                 data-day="2020-06-07"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -275,7 +268,6 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="2"
                 class="rdp-day"
                 data-day="2020-06-08"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -290,7 +282,6 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="3"
                 class="rdp-day"
                 data-day="2020-06-09"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -305,7 +296,6 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="4"
                 class="rdp-day"
                 data-day="2020-06-10"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -320,7 +310,6 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="5"
                 class="rdp-day"
                 data-day="2020-06-11"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -335,7 +324,6 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="6"
                 class="rdp-day"
                 data-day="2020-06-12"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -350,7 +338,6 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="7"
                 class="rdp-day"
                 data-day="2020-06-13"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -371,7 +358,6 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="1"
                 class="rdp-day"
                 data-day="2020-06-14"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -385,9 +371,8 @@ exports[`should match the snapshot 1`] = `
               <td
                 aria-colindex="2"
                 aria-selected="true"
-                class="rdp-day rdp-selected"
+                class="rdp-day rdp-range_start rdp-selected"
                 data-day="2020-06-15"
-                data-month="2020-06"
                 data-selected="true"
                 role="gridcell"
               >
@@ -402,9 +387,8 @@ exports[`should match the snapshot 1`] = `
               <td
                 aria-colindex="3"
                 aria-selected="true"
-                class="rdp-day rdp-selected"
+                class="rdp-day rdp-range_middle rdp-selected"
                 data-day="2020-06-16"
-                data-month="2020-06"
                 data-selected="true"
                 role="gridcell"
               >
@@ -419,9 +403,8 @@ exports[`should match the snapshot 1`] = `
               <td
                 aria-colindex="4"
                 aria-selected="true"
-                class="rdp-day rdp-selected"
+                class="rdp-day rdp-range_middle rdp-selected"
                 data-day="2020-06-17"
-                data-month="2020-06"
                 data-selected="true"
                 role="gridcell"
               >
@@ -436,9 +419,8 @@ exports[`should match the snapshot 1`] = `
               <td
                 aria-colindex="5"
                 aria-selected="true"
-                class="rdp-day rdp-selected"
+                class="rdp-day rdp-range_middle rdp-selected"
                 data-day="2020-06-18"
-                data-month="2020-06"
                 data-selected="true"
                 role="gridcell"
               >
@@ -453,9 +435,8 @@ exports[`should match the snapshot 1`] = `
               <td
                 aria-colindex="6"
                 aria-selected="true"
-                class="rdp-day rdp-selected"
+                class="rdp-day rdp-range_end rdp-selected"
                 data-day="2020-06-19"
-                data-month="2020-06"
                 data-selected="true"
                 role="gridcell"
               >
@@ -471,7 +452,6 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="7"
                 class="rdp-day"
                 data-day="2020-06-20"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -492,7 +472,6 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="1"
                 class="rdp-day"
                 data-day="2020-06-21"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -507,7 +486,6 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="2"
                 class="rdp-day"
                 data-day="2020-06-22"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -522,7 +500,6 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="3"
                 class="rdp-day"
                 data-day="2020-06-23"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -537,7 +514,6 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="4"
                 class="rdp-day"
                 data-day="2020-06-24"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -552,7 +528,6 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="5"
                 class="rdp-day"
                 data-day="2020-06-25"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -567,7 +542,6 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="6"
                 class="rdp-day"
                 data-day="2020-06-26"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -582,7 +556,6 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="7"
                 class="rdp-day"
                 data-day="2020-06-27"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -603,7 +576,6 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="1"
                 class="rdp-day"
                 data-day="2020-06-28"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -618,7 +590,6 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="2"
                 class="rdp-day"
                 data-day="2020-06-29"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -633,7 +604,6 @@ exports[`should match the snapshot 1`] = `
                 aria-colindex="3"
                 class="rdp-day"
                 data-day="2020-06-30"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -650,7 +620,6 @@ exports[`should match the snapshot 1`] = `
                 class="rdp-day rdp-hidden rdp-outside"
                 data-day="2020-07-01"
                 data-hidden="true"
-                data-month="2020-07"
                 role="gridcell"
               >
                 <button
@@ -667,7 +636,6 @@ exports[`should match the snapshot 1`] = `
                 class="rdp-day rdp-hidden rdp-outside"
                 data-day="2020-07-02"
                 data-hidden="true"
-                data-month="2020-07"
                 role="gridcell"
               >
                 <button
@@ -684,7 +652,6 @@ exports[`should match the snapshot 1`] = `
                 class="rdp-day rdp-hidden rdp-outside"
                 data-day="2020-07-03"
                 data-hidden="true"
-                data-month="2020-07"
                 role="gridcell"
               >
                 <button
@@ -701,7 +668,6 @@ exports[`should match the snapshot 1`] = `
                 class="rdp-day rdp-hidden rdp-outside"
                 data-day="2020-07-04"
                 data-hidden="true"
-                data-month="2020-07"
                 role="gridcell"
               >
                 <button
@@ -733,7 +699,8 @@ exports[`should match the snapshot 1`] = `
 exports[`when a day in the range is clicked when the day is clicked again when a day in the range is clicked again should match the snapshot 1`] = `
 <div>
   <div
-    class="rdp-calendar rdp-is_interactive"
+    class="rdp-root rdp-is_interactive"
+    data-mode="range"
     id="test"
   >
     <div
@@ -879,7 +846,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 class="rdp-day rdp-hidden rdp-outside"
                 data-day="2020-05-31"
                 data-hidden="true"
-                data-month="2020-05"
                 role="gridcell"
               >
                 <button
@@ -894,13 +860,12 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="2"
                 class="rdp-day"
                 data-day="2020-06-01"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
                   aria-label="Monday, June 1st, 2020"
                   class="rdp-day_button"
-                  tabindex="-1"
+                  tabindex="0"
                 >
                   1
                 </button>
@@ -909,7 +874,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="3"
                 class="rdp-day"
                 data-day="2020-06-02"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -924,7 +888,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="4"
                 class="rdp-day"
                 data-day="2020-06-03"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -939,7 +902,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="5"
                 class="rdp-day"
                 data-day="2020-06-04"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -954,7 +916,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="6"
                 class="rdp-day"
                 data-day="2020-06-05"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -969,7 +930,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="7"
                 class="rdp-day"
                 data-day="2020-06-06"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -990,7 +950,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="1"
                 class="rdp-day"
                 data-day="2020-06-07"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -1005,7 +964,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="2"
                 class="rdp-day"
                 data-day="2020-06-08"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -1020,7 +978,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="3"
                 class="rdp-day"
                 data-day="2020-06-09"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -1035,7 +992,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="4"
                 class="rdp-day"
                 data-day="2020-06-10"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -1050,7 +1006,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="5"
                 class="rdp-day"
                 data-day="2020-06-11"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -1065,7 +1020,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="6"
                 class="rdp-day"
                 data-day="2020-06-12"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -1080,7 +1034,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="7"
                 class="rdp-day"
                 data-day="2020-06-13"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -1101,7 +1054,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="1"
                 class="rdp-day"
                 data-day="2020-06-14"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -1116,7 +1068,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="2"
                 class="rdp-day"
                 data-day="2020-06-15"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -1131,7 +1082,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="3"
                 class="rdp-day"
                 data-day="2020-06-16"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -1147,13 +1097,12 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 class="rdp-day rdp-focused"
                 data-day="2020-06-17"
                 data-focused="true"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
                   aria-label="Wednesday, June 17th, 2020"
                   class="rdp-day_button"
-                  tabindex="0"
+                  tabindex="-1"
                 >
                   17
                 </button>
@@ -1162,7 +1111,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="5"
                 class="rdp-day"
                 data-day="2020-06-18"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -1177,7 +1125,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="6"
                 class="rdp-day"
                 data-day="2020-06-19"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -1192,7 +1139,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="7"
                 class="rdp-day"
                 data-day="2020-06-20"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -1213,7 +1159,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="1"
                 class="rdp-day"
                 data-day="2020-06-21"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -1228,7 +1173,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="2"
                 class="rdp-day"
                 data-day="2020-06-22"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -1243,7 +1187,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="3"
                 class="rdp-day"
                 data-day="2020-06-23"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -1258,7 +1201,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="4"
                 class="rdp-day"
                 data-day="2020-06-24"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -1273,7 +1215,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="5"
                 class="rdp-day"
                 data-day="2020-06-25"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -1288,7 +1229,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="6"
                 class="rdp-day"
                 data-day="2020-06-26"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -1303,7 +1243,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="7"
                 class="rdp-day"
                 data-day="2020-06-27"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -1324,7 +1263,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="1"
                 class="rdp-day"
                 data-day="2020-06-28"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -1339,7 +1277,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="2"
                 class="rdp-day"
                 data-day="2020-06-29"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -1354,7 +1291,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 aria-colindex="3"
                 class="rdp-day"
                 data-day="2020-06-30"
-                data-month="2020-06"
                 role="gridcell"
               >
                 <button
@@ -1371,7 +1307,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 class="rdp-day rdp-hidden rdp-outside"
                 data-day="2020-07-01"
                 data-hidden="true"
-                data-month="2020-07"
                 role="gridcell"
               >
                 <button
@@ -1388,7 +1323,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 class="rdp-day rdp-hidden rdp-outside"
                 data-day="2020-07-02"
                 data-hidden="true"
-                data-month="2020-07"
                 role="gridcell"
               >
                 <button
@@ -1405,7 +1339,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 class="rdp-day rdp-hidden rdp-outside"
                 data-day="2020-07-03"
                 data-hidden="true"
-                data-month="2020-07"
                 role="gridcell"
               >
                 <button
@@ -1422,7 +1355,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 class="rdp-day rdp-hidden rdp-outside"
                 data-day="2020-07-04"
                 data-hidden="true"
-                data-month="2020-07"
                 role="gridcell"
               >
                 <button

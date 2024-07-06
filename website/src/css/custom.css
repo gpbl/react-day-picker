@@ -64,11 +64,11 @@ html[data-theme="dark"] {
   --ifm-toc-border-color: transparent !important;
 }
 
-.rdp-calendar {
+.rdp-root {
   --rdp-accent-color: var(--ifm-color-primary);
 }
 
-html[data-theme="dark"] .rdp-calendar {
+html[data-theme="dark"] .rdp-root {
   --rdp-accent-color: var(--ifm-color-primary);
   --rdp-accent-background-color: #073845;
   --rdp-range_end-color: black;

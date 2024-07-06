@@ -1,6 +1,6 @@
 /* Variables declaration */
 /* prettier-ignore */
-.rdp-calendar {
+.rdp-root {
   --rdp-accent-color: blue; /* The accent color used for selected days and UI elements. */
   --rdp-accent-background-color: #f0f0ff; /* The accent background color used for selected days and UI elements. */
   --rdp-font-family: system-ui; /* The font family used by the calendar. Note that `inherit`does not work here. */
@@ -58,18 +58,18 @@
   --rdp-gradient-direction: 90deg;
 }
 
-.rdp-calendar[dir="rtl"] {
+.rdp-root[dir="rtl"] {
   --rdp-gradient-direction: -90deg;
 }
 
 /* Root of the component. */
-.rdp-calendar {
+.rdp-root {
   display: inline-block;
   position: relative;
   box-sizing: border-box;
 }
 
-.rdp-calendar * {
+.rdp-root * {
   box-sizing: border-box;
 }
 
@@ -92,6 +92,10 @@
   height: var(--rdp-day_button-height);
   border: var(--rdp-day_button-border);
   border-radius: var(--rdp-day_button-border-radius);
+}
+
+.rdp-day_button:disabled {
+  cursor: revert;
 }
 
 .rdp-caption_label {
@@ -142,11 +146,11 @@
   opacity: var(--rdp-chevron-disabled-opacity);
 }
 
-.rdp-calendar[dir="rtl"] .rdp-nav .rdp-chevron {
+.rdp-root[dir="rtl"] .rdp-nav .rdp-chevron {
   transform: rotate(180deg);
 }
 
-.rdp-calendar[dir="rtl"] .rdp-nav .rdp-chevron {
+.rdp-root[dir="rtl"] .rdp-nav .rdp-chevron {
   transform: rotate(180deg);
   transform-origin: 50%;
 }
@@ -231,7 +235,7 @@
 
 .rdp-weekday {
   opacity: var(--rdp-weekday-opacity);
-  padding-block: var(--rdp-weekday-padding);
+  padding: var(--rdp-weekday-padding);
   font: var(--rdp-weekday-font);
   text-align: var(--rdp-weekday-text-align);
   text-transform: var(--rdp-weekday-text-transform);
@@ -282,7 +286,6 @@
 
 .rdp-disabled {
   opacity: var(--rdp-disabled-opacity);
-  cursor: revert;
 }
 
 .rdp-hidden {
@@ -335,7 +338,7 @@
   /* Keep anyway for the CSS type definition. */
 }
 
-.rdp-calendar button {
+.rdp-root button {
   border: none;
   background: none;
   padding: 0;

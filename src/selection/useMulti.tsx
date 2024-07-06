@@ -29,22 +29,26 @@ export function useMulti<T extends DayPickerProps>(
     : object,
   dateLib: DateLib
 ): UseMulti<T> {
-  const { selected, required, onSelect } = props as PropsMulti;
-  const [dates, setDates] = React.useState<Date[] | undefined>(selected);
+  const { selected, required, onSelect, mode } = props as PropsMulti;
+  const [dates, setDates] = React.useState<Date[] | undefined>(
+    mode !== "multiple" ? undefined : selected
+  );
 
   const { isSameDay, Date } = dateLib;
 
   // Update the selected date if the required flag is set.
   React.useEffect(() => {
+    if (mode !== "multiple") return;
     if (required && dates === undefined) {
       setDates([new Date()]);
     }
-  }, [required, dates, Date]);
+  }, [required, dates, Date, mode]);
 
   // Update the selected date if the selected value from props changes.
   React.useEffect(() => {
+    if (mode !== "multiple") return;
     setDates(selected);
-  }, [selected]);
+  }, [mode, selected]);
 
   const isSelected = (date: Date) => {
     return dates?.some((d) => isSameDay(d, date)) ?? false;

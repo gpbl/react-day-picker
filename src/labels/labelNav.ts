@@ -1,4 +1,4 @@
-import type { UseCalendar } from "../contexts/index.js";
+import type { UseCalendar } from "../contexts/useCalendar.js";
 
 /**
  * Return an ARIA label for the navigation toolbar, that will be announced when

@@ -1,5 +1,4 @@
 import React from "react";
-import type { HTMLAttributes, ReactNode } from "react";
 
 import type { CalendarDay } from "../classes/index.js";
 import type { Modifiers } from "../types/index.js";
@@ -15,7 +14,8 @@ import type { Modifiers } from "../types/index.js";
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function Day(
+
+export const Day = React.memo(function Day(
   props: {
     day: CalendarDay;
     modifiers: Modifiers;
@@ -23,6 +23,6 @@ export function Day(
 ) {
   const { day, modifiers, ...tdProps } = props;
   return <td {...tdProps} />;
-}
+});
 
 export type DayProps = Parameters<typeof Day>[0];

@@ -1,4 +1,4 @@
-import type { FormatOptions } from "../lib/dateLib.js";
+import type { LabelOptions } from "../lib/dateLib.js";
 import { dateLib as defaultDateLib } from "../lib/index.js";
 import { DateLib } from "../types/index.js";
 
@@ -10,7 +10,7 @@ import { DateLib } from "../types/index.js";
  */
 export function labelGrid(
   date: Date,
-  options?: FormatOptions,
+  options?: LabelOptions,
   dateLib: DateLib = defaultDateLib
 ) {
   return dateLib.format(date, "LLLL y", options);

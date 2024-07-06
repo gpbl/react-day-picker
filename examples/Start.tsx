@@ -7,7 +7,12 @@ export function Start() {
 
   return (
     <div role="application" aria-label="Date Picker">
-      <DayPicker mode="single" selected={selected} onSelect={setSelected} />
+      <DayPicker
+        mode="single"
+        selected={selected}
+        onSelect={setSelected}
+        disabled={new Date()}
+      />
     </div>
   );
 }

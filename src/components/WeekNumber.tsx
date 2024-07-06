@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from "react";
+import React from "react";
 
 import type { CalendarWeek } from "../classes/index.js";
 

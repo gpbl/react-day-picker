@@ -3,12 +3,12 @@ import type {
   CalendarDay,
   CalendarMonth
 } from "../classes/index.js";
-import { getCalendarStartEndMonths } from "../helpers/getCalendarStartEndMonths.js";
 import { getDates } from "../helpers/getDates.js";
 import { getDays } from "../helpers/getDays.js";
 import { getDisplayMonths } from "../helpers/getDisplayMonths.js";
 import { getInitialMonth } from "../helpers/getInitialMonth.js";
 import { getMonths } from "../helpers/getMonths.js";
+import { getNavMonths } from "../helpers/getNavMonth.js";
 import { getNextMonth } from "../helpers/getNextMonth.js";
 import { getPreviousMonth } from "../helpers/getPreviousMonth.js";
 import { getWeeks } from "../helpers/getWeeks.js";
@@ -35,17 +35,27 @@ export interface UseCalendar {
    * than `1`, it is the first of the displayed months.
    */
   firstMonth: Date;
-  /** The month displayed as last the calendar. */
+  /**
+   * The month displayed as last the calendar. When `numberOfMonths` is greater
+   * than `1`, it is the last of the displayed months.
+   */
   lastMonth: Date;
+
   /** The next month to display. */
   nextMonth: Date | undefined;
   /** The previous month to display. */
   previousMonth: Date | undefined;
 
-  /** The month where the navigation starts. */
-  calendarStartMonth: Date | undefined;
-  /** The month where the navigation ends. */
-  calendarEndMonth: Date | undefined;
+  /**
+   * The month where the navigation starts. `undefined` if the calendar can be
+   * navigated indefinitely to the past.
+   */
+  navigationStartMonth: Date | undefined;
+  /**
+   * The month where the navigation ends. `undefined` if the calendar can be
+   * navigated indefinitely to the past.
+   */
+  navigationEndMonth: Date | undefined;
 
   /** Set the first month displayed in the calendar. */
   setFirstMonth: (date: Date) => void;
@@ -93,7 +103,7 @@ export function useCalendar(
 ) {
   const today = dateLib.startOfDay(props.today ?? new dateLib.Date());
 
-  const { calendarStartMonth, calendarEndMonth } = getCalendarStartEndMonths(
+  const [navigationStartMonth, navigationEndMonth] = getNavMonths(
     props,
     dateLib
   );
@@ -111,7 +121,7 @@ export function useCalendar(
   /** An array of the months displayed in the calendar. */
   const displayMonths = getDisplayMonths(
     firstMonth,
-    calendarEndMonth,
+    navigationEndMonth,
     props,
     dateLib
   );
@@ -133,11 +143,16 @@ export function useCalendar(
 
   const previousMonth = getPreviousMonth(
     firstMonth,
-    calendarStartMonth,
+    navigationStartMonth,
     props,
     dateLib
   );
-  const nextMonth = getNextMonth(firstMonth, calendarEndMonth, props, dateLib);
+  const nextMonth = getNextMonth(
+    firstMonth,
+    navigationEndMonth,
+    props,
+    dateLib
+  );
 
   const { disableNavigation, onMonthChange } = props;
 
@@ -155,12 +170,12 @@ export function useCalendar(
     }
     let newMonth = startOfMonth(date);
     // if month is before start, use the first month instead
-    if (calendarStartMonth && newMonth < startOfMonth(calendarStartMonth)) {
-      newMonth = startOfMonth(calendarStartMonth);
+    if (navigationStartMonth && newMonth < startOfMonth(navigationStartMonth)) {
+      newMonth = startOfMonth(navigationStartMonth);
     }
     // if month is after endMonth, use the last month instead
-    if (calendarEndMonth && newMonth > startOfMonth(calendarEndMonth)) {
-      newMonth = startOfMonth(calendarEndMonth);
+    if (navigationEndMonth && newMonth > startOfMonth(navigationEndMonth)) {
+      newMonth = startOfMonth(navigationEndMonth);
     }
     setFirstMonth(newMonth);
     onMonthChange?.(newMonth);
@@ -187,8 +202,8 @@ export function useCalendar(
     days,
     today,
 
-    calendarStartMonth,
-    calendarEndMonth,
+    navigationStartMonth: navigationStartMonth,
+    navigationEndMonth: navigationEndMonth,
 
     firstMonth: firstMonth,
     lastMonth,

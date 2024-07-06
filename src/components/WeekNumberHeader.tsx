@@ -1,7 +1,7 @@
-import React, { HTMLProps } from "react";
+import React from "react";
 
 /**
- * Render the column header with the weekday name (e.g. "Mo", "Tu", etc.).
+ * Render the column header for the week numbers.
  *
  * Use the `components` prop to swap this component with a custom one.
  *
@@ -9,10 +9,10 @@ import React, { HTMLProps } from "react";
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
 
-export const Weekday = React.memo(function Weekday(
+export const WeekNumberHeader = React.memo(function WeekNumberHeader(
   props: JSX.IntrinsicElements["th"]
 ) {
   return <th {...props} />;
 });
 
-export type WeekdayProps = Parameters<typeof Weekday>[0];
+export type WeekNumberHeaderProps = Parameters<typeof WeekNumberHeader>[0];

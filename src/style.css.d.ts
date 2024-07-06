@@ -1,7 +1,7 @@
 declare const styles: {
   readonly "rdp-button_next": string;
   readonly "rdp-button_previous": string;
-  readonly "rdp-calendar": string;
+  readonly "rdp-root": string;
   readonly "rdp-caption_label": string;
   readonly "rdp-chevron": string;
   readonly "rdp-chevron_disabled": string;

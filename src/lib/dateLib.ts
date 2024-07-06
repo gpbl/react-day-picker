@@ -1,4 +1,8 @@
 import { GenericDateConstructor } from "date-fns";
+import type {
+  FormatOptions as DateFnsFormatOptions,
+  Locale as DateFnsLocale
+} from "date-fns";
 import { addDays } from "date-fns/addDays";
 import { addMonths } from "date-fns/addMonths";
 import { addWeeks } from "date-fns/addWeeks";
@@ -29,11 +33,15 @@ import { startOfMonth } from "date-fns/startOfMonth";
 import { startOfWeek } from "date-fns/startOfWeek";
 import { startOfYear } from "date-fns/startOfYear";
 
-/** @private */
-export type { Locale } from "date-fns";
-/** @private */
-export type { FormatOptions } from "date-fns";
-/** @private */
+/** The options for the {@link Formatters}. */
+export type FormatOptions = DateFnsFormatOptions;
+
+/** The options for the {@link Labels}. */
+export type LabelOptions = DateFnsFormatOptions;
+
+/** The locale used within DayPicker. */
+export type Locale = DateFnsLocale;
+
 export type { Month as DateFnsMonth } from "date-fns";
 
 /** The default date library to use with the date picker. */

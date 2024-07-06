@@ -2,7 +2,7 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .logo {
@@ -33,7 +33,7 @@
   }
 }
 
-.rdp-calendar {
+.rdp-root {
   /* --rdp-accent-color: var(--ifm-color-primary); */
   --rdp-accent-background-color: #073845;
   --rdp-range_end-color: black;

@@ -65,8 +65,8 @@ export default function Playground() {
     <Layout>
       <style>
         {`
-          .rdp-calendar,
-          [data-theme="dark"] .rdp-calendar {
+          .rdp-root,
+          [data-theme="dark"] .rdp-root {
             ${accentColor ? `--rdp-accent-color: ${accentColor} !important` : ""};
             ${backgroundAccentColor ? `--rdp-accent-background-color: ${backgroundAccentColor} !important` : ""};
           }

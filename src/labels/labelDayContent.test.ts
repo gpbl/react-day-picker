@@ -2,7 +2,7 @@ import { es } from "date-fns/locale/es";
 
 import type { Modifiers } from "../types";
 
-import { labelDay } from "./labelDay";
+import { labelDayContent } from "./labelDayContent";
 
 const day = new Date(2022, 10, 21);
 const dayModifiers: Modifiers = {
@@ -18,7 +18,7 @@ const dayModifiers: Modifiers = {
   today: false
 };
 test("should return the localized label", () => {
-  expect(labelDay(day, dayModifiers, { locale: es })).toEqual(
+  expect(labelDayContent(day, dayModifiers, { locale: es })).toEqual(
     "lunes, 21 de noviembre de 2022"
   );
 });

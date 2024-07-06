@@ -29,22 +29,26 @@ export function useSingle<T extends DayPickerProps>(
     : object,
   dateLib: DateLib
 ): UseSingle<T> {
-  const { selected, required, onSelect } = props as PropsSingle;
+  const { selected, required, onSelect, mode } = props as PropsSingle;
 
-  const [date, setDate] = React.useState<Date | undefined>(selected);
+  const [date, setDate] = React.useState<Date | undefined>(
+    mode !== "single" ? undefined : selected
+  );
 
   const { isSameDay, Date, startOfDay } = dateLib;
   // Update the selected date if the required flag is set.
   React.useEffect(() => {
+    if (mode !== "single") return;
     if (required && date === undefined) {
       setDate(startOfDay(new Date()));
     }
-  }, [required, date, Date, startOfDay]);
+  }, [required, date, Date, startOfDay, mode]);
 
   // Update the selected date if the `selected` value changes.
   React.useEffect(() => {
+    if (mode !== "single") return;
     setDate(selected);
-  }, [selected]);
+  }, [mode, selected]);
 
   const isSelected = (compareDate: Date) => {
     return date ? isSameDay(date, compareDate) : false;
@@ -55,6 +59,7 @@ export function useSingle<T extends DayPickerProps>(
     modifiers: Modifiers,
     e: React.MouseEvent | React.KeyboardEvent
   ) => {
+    if (mode !== "single") return;
     let newDate: Date | undefined = triggerDate;
     if (!required && date && date && isSameDay(triggerDate, date)) {
       // If the date is the same, clear the selection.

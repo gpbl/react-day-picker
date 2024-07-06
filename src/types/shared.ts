@@ -1,16 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import type { MouseEvent, CSSProperties } from "react";
 
-import {
-  UI,
-  DayFlag,
-  CalendarFlag,
-  ChevronFlag,
-  WeekNumberFlag,
-  SelectionState
-} from "../UI.js";
+import { UI, DayFlag, RootFlag, ChevronFlag, SelectionState } from "../UI.js";
 import * as components from "../components/custom-components.js";
-import type { UseCalendar } from "../contexts/index.js";
 import {
   formatCaption,
   formatDay,
@@ -22,7 +14,7 @@ import {
   formatYearDropdown
 } from "../formatters/index.js";
 import {
-  labelDay,
+  labelDayButton,
   labelNav,
   labelGrid,
   labelMonthDropdown,
@@ -92,7 +84,7 @@ export type Labels = {
   /** Return the label for the previous month button. */
   labelPrevious: typeof labelPrevious;
   /** Return the label for the day cell. */
-  labelDay: typeof labelDay;
+  labelDay: typeof labelDayButton;
   /** Return the label for the weekday. */
   labelWeekday: typeof labelWeekday;
   /** Return the label for the week number. */
@@ -212,36 +204,16 @@ export type DayEventHandler<EventType> = (
 /** The event handler when a month is changed in the calendar. */
 export type MonthChangeEventHandler = (month: Date) => void;
 
-/** The event handler when the week number is clicked. */
-export type WeekNumberMouseEventHandler = (
-  /** The week number that has been clicked. */
-  weekNumber: number,
-  /** The dates in the clicked week. */
-  dates: Date[],
-  /** The mouse event that triggered this event. */
-  e: MouseEvent
-) => void;
-
 /** Maps user interface elements, selection states, and flags to a CSS style. */
 export type Styles = {
-  [key in
-    | UI
-    | SelectionState
-    | DayFlag
-    | CalendarFlag
-    | ChevronFlag
-    | WeekNumberFlag]: CSSProperties | undefined;
+  [key in UI | SelectionState | DayFlag | RootFlag | ChevronFlag]:
+    | CSSProperties
+    | undefined;
 };
 
 /** Defines the class names for various UI components and states. */
 export type ClassNames = {
-  [key in
-    | UI
-    | SelectionState
-    | DayFlag
-    | CalendarFlag
-    | ChevronFlag
-    | WeekNumberFlag]: string;
+  [key in UI | SelectionState | DayFlag | RootFlag | ChevronFlag]: string;
 };
 
 /** The flags that are matching a day in the calendar. */

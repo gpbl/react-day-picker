@@ -4,7 +4,6 @@ export * from "./types/index.js";
 export * from "./classes/index.js";
 export * from "./components/custom-components.js";
 
-export * from "./contexts/index.js";
 export * from "./selection/index.js";
 
 export * from "./lib/index.js";
@@ -14,3 +13,5 @@ export * from "./helpers/index.js";
 export * from "./labels/index.js";
 export * from "./utils/index.js";
 export * from "./UI.js";
+
+export * from "./useDayPicker.js";

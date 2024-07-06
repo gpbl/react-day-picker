@@ -14,7 +14,7 @@ import {
 import type { DayPickerProps, MoveFocusBy, MoveFocusDir } from "../types";
 
 import { dateLib } from "..";
-import { getPossibleFocusDate } from "./getPossibleFocusDate";
+import { getFocusableDate } from "./getFocusableDate";
 
 const focusedDate = new Date(2023, 0, 1); // Jan 1, 2023
 const options: Pick<DayPickerProps, "locale" | "ISOWeek" | "weekStartsOn"> = {
@@ -44,7 +44,7 @@ const testCases: {
 testCases.forEach(({ moveBy, moveDir, expectedFn }) => {
   test(`should move ${moveDir} by ${moveBy}`, () => {
     const expectedDate = expectedFn(focusedDate, moveDir === "after" ? 1 : -1);
-    const result = getPossibleFocusDate(
+    const result = getFocusableDate(
       moveBy,
       moveDir,
       focusedDate,
@@ -77,7 +77,7 @@ const weekTestCases: {
 weekTestCases.forEach(({ moveBy, moveDir, expectedFn }) => {
   test(`should move ${moveDir} by ${moveBy}`, () => {
     const expectedDate = expectedFn(focusedDate);
-    const result = getPossibleFocusDate(
+    const result = getFocusableDate(
       moveBy,
       moveDir,
       focusedDate,
@@ -103,7 +103,7 @@ const ISOWeekTestCases: {
 ISOWeekTestCases.forEach(({ moveBy, moveDir, expectedFn }) => {
   test(`should move ${moveDir} by ${moveBy} when ISOWeek is true`, () => {
     const expectedDate = expectedFn(focusedDate);
-    const result = getPossibleFocusDate(
+    const result = getFocusableDate(
       moveBy,
       moveDir,
       focusedDate,
@@ -117,7 +117,7 @@ ISOWeekTestCases.forEach(({ moveBy, moveDir, expectedFn }) => {
 });
 
 test("should not move before startMonth", () => {
-  const result = getPossibleFocusDate(
+  const result = getFocusableDate(
     "day",
     "before",
     new Date(2022, 0, 2),
@@ -130,7 +130,7 @@ test("should not move before startMonth", () => {
 });
 
 test("should not move after endMonth", () => {
-  const result = getPossibleFocusDate(
+  const result = getFocusableDate(
     "day",
     "after",
     new Date(2023, 11, 31),

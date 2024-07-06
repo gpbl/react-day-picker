@@ -1,5 +1,8 @@
 import React from "react";
 
+import { setDate } from "date-fns";
+
+import { gridcell } from "@/test/elements";
 import { render, screen } from "@/test/render";
 
 import { OutsideDays } from "./OutsideDays";
@@ -15,7 +18,6 @@ beforeEach(() => {
 
 describe("when displaying a month with outside days", () => {
   test("should display the outside day", () => {
-    // TODO: verify this test actually works
-    expect(screen.getByRole("gridcell", { name: "31" })).toBeInTheDocument();
+    expect(gridcell(setDate(today, 31))).toBeInTheDocument();
   });
 });

@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Calendar } from "../components/Calendar.js";
 import {
   MonthCaption,
   type MonthCaptionProps
 } from "../components/MonthCaption.js";
 import { Week, type WeekProps } from "../components/Week.js";
-import { useCalendar } from "../contexts/index.js";
+import { useCalendar } from "../contexts/useCalendar.js";
 import {
-  labelDay,
+  labelDayButton,
   labelNext,
   labelWeekday,
   labelWeekNumber
 } from "../labels/index.js";
+import { useDayPicker } from "../useDayPicker.js";
 
 import type { PropsMulti, PropsRange, PropsSingle } from "./props.js";
 import type { Mode, DayEventHandler } from "./shared.js";
@@ -27,14 +27,6 @@ export type RootProvider = any;
  * @protected
  */
 export type RootProviderProps = any;
-
-/**
- * @deprecated This type has been renamed. Use `Calendar` instead.
- * @protected
- * @group Components
- * @see https://daypicker.dev/advanced-guides/custom-components
- */
-export const Root = Calendar;
 
 /**
  * @deprecated This component has been renamed. Use `MonthCaption` instead.
@@ -134,11 +126,11 @@ export type SelectRangeEventHandler = PropsRange["onSelect"];
 export type DayPickerProviderProps = any;
 
 /**
- * @deprecated This type has been renamed to `useCalendar`.
+ * @deprecated This type has been removed to `useDayPicker`.
  * @protected
  * @group Hooks
  */
-export const useNavigation = useCalendar;
+export const useNavigation = useDayPicker;
 
 /**
  * @deprecated This hook has been removed. Use a custom `Day` component instead.
@@ -158,7 +150,7 @@ export type ContextProvidersProps = any;
  * @deprecated Use `typeof labelDay` instead.
  * @protected
  */
-export type DayLabel = typeof labelDay;
+export type DayLabel = typeof labelDayButton;
 
 /**
  * @deprecated Use `typeof labelNext` or `typeof labelPrevious` instead.
@@ -220,9 +212,3 @@ export type DayPointerEventHandler = DayEventHandler<React.PointerEvent>;
  * @protected
  */
 export type DayTouchEventHandler = DayEventHandler<React.TouchEvent>;
-
-/**
- * @deprecated The type has been renamed. Use `PropsContext` instead.
- * @protected
- */
-// export type DayPickerContext = UseProps;

@@ -4,7 +4,7 @@ test("should return the default classnames", () => {
   expect(getDefaultClassNames()).toStrictEqual({
     button_next: "rdp-button_next",
     button_previous: "rdp-button_previous",
-    calendar: "rdp-calendar",
+    root: "rdp-root",
     caption_label: "rdp-caption_label",
     chevron: "rdp-chevron",
     chevron_disabled: "rdp-chevron_disabled",
@@ -35,7 +35,7 @@ test("should return the default classnames", () => {
     selected: "rdp-selected",
     today: "rdp-today",
     week_number: "rdp-week_number",
-    week_number_interactive: "rdp-week_number_interactive",
+    week_number_header: "rdp-week_number_header",
     week: "rdp-week",
     weekday: "rdp-weekday",
     weekdays: "rdp-weekdays",

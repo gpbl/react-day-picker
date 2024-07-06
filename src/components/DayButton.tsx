@@ -4,7 +4,10 @@ import type { CalendarDay } from "../classes/index.js";
 import type { Modifiers } from "../types/index.js";
 
 /**
- * Render the date as string inside the day grid cell.
+ * Render the button for a day in the calendar.
+ *
+ * When not interactive, DayPicker will render a `DayContent` component instead
+ * of a `DayButton` component.
  *
  * Use the `components` prop to swap this component with a custom one.
  *
@@ -24,14 +27,3 @@ export function DayButton(
 }
 
 export type DayButtonProps = Parameters<typeof DayButton>[0];
-
-/**
- * @deprecated The component has been renamed. Use `DayDate` instead.
- * @protected
- */
-export const DayContent = DayButton;
-/**
- * @deprecated The type has been renamed. Use `DayDateProps` instead.
- * @protected
- */
-export type DayContentProps = DayButtonProps;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { format } from "date-fns";
+import { format, isSameDay } from "date-fns";
 
 import { DayFlag } from "../UI.js";
 import type { CalendarDay } from "../classes/index.js";
@@ -18,29 +18,15 @@ import { UseModifiers } from "./useModifiers.js";
 export type UseFocus = {
   /** The date that is currently focused. */
   focused: CalendarDay | undefined;
-  /**
-   * The date that is target of the focus when tabbing into the month grid. The
-   * focus target is the selected date first, then the today date, then the
-   * first focusable date.
-   *
-   * @private
-   */
-  autoFocusTarget: CalendarDay | undefined;
-  /**
-   * True if the focus is set by the autoFocus prop.
-   *
-   * @private
-   */
-  initiallyFocused: boolean;
+  /** The date that is target of the focus when tabbing into the month grid. */
+  // focusTarget: CalendarDay | undefined;
+
+  isFocusTarget: (day: CalendarDay) => boolean;
 
   /** Focus the given day. */
   setFocused: (day: CalendarDay | undefined) => void;
 
-  /**
-   * Set the last focused day.
-   *
-   * @private
-   */
+  /** Set the last focused day. */
   setLastFocused: (day: CalendarDay | undefined) => void;
 
   /** Blur the focused day. */
@@ -68,106 +54,94 @@ export type UseFocus = {
 };
 
 export function useFocus(
-  calendarStartMonth: Date | undefined,
-  calendarEndMonth: Date | undefined,
-  goToDay: (day: CalendarDay) => void,
-  isDayDisplayed: (day: CalendarDay) => boolean,
   props: Pick<
     DayPickerProps,
     | "autoFocus"
     | "disabled"
     | "hidden"
     | "modifiers"
+    | "numberOfMonths"
     | "locale"
     | "ISOWeek"
     | "weekStartsOn"
   >,
+  calendar: UseCalendar,
   modifiers: UseModifiers,
   dateLib: DateLib
 ): UseFocus {
-  const { autoFocus } = props;
   const { dayFlags: internal, getModifiers } = modifiers;
 
-  const [focused, setFocused] = useState<CalendarDay | undefined>();
+  const [focusedDay, setFocused] = useState<CalendarDay | undefined>();
   const [lastFocused, setLastFocused] = useState<CalendarDay | undefined>();
-  const [initiallyFocused, setInitiallyFocused] = useState(false);
 
   const today = internal.today[0];
 
-  let autoFocusTarget: CalendarDay | undefined;
-
-  const isValidFocusTarget = (day: CalendarDay) => {
-    return isDayDisplayed(day) && !getModifiers(day)[DayFlag.disabled];
-  };
-
-  // if (isInteractive) {
-  // if (focused) {
-  //   autoFocusTarget = focused;
-  // } else if (lastFocused) {
-  //   autoFocusTarget = lastFocused;
-  // } else if (
-  //   selection.selected[0] &&
-  //   isValidFocusTarget(selection.selected[0])
-  // ) {
-  //   autoFocusTarget = selection.selected[0];
-  // } else if (
-  //   !internal.disabled[0] &&
-  //   isValidFocusTarget(internal.disabled[0])
-  // ) {
-  //   // autoFocusTarget = internal.focusable[0];
-  // }
-  // }
-
   useEffect(() => {
-    if (!focused) return;
-
-    const dataDay = format(focused.date, "yyyy-MM-dd");
-    const dataMonth = format(focused.displayMonth, "yyyy-MM");
-
-    const dayCell = window.document.querySelector(
-      `[data-day="${dataDay}"][data-month="${dataMonth}"]`
-    ) as HTMLDivElement | null;
-
-    dayCell?.focus();
-  }, [focused]);
-
-  // Focus the focus target when autoFocus is passed in
-  useEffect(() => {
-    if (!autoFocus) return;
-    if (!autoFocusTarget) return;
-    if (!initiallyFocused) return;
-    // TODO: bug here?
-    setInitiallyFocused(true);
-    setFocused(autoFocusTarget);
-  }, [autoFocus, autoFocusTarget, focused, initiallyFocused]);
+    if (focusedDay) {
+      getDayCell(focusedDay, (props.numberOfMonths ?? 1) > 1)?.focus();
+    }
+  }, [focusedDay, props.numberOfMonths]);
 
   const blur = () => {
-    setLastFocused(focused);
+    setLastFocused(focusedDay);
     setFocused(undefined);
   };
 
-  function moveFocus(moveBy: MoveFocusBy, moveDir: MoveFocusDir) {
-    if (!focused) return;
+  let focusTarget: CalendarDay | undefined;
+
+  calendar.days.map((day) => {
+    const m = getModifiers(day);
+    if (m[DayFlag.disabled]) return;
+    if (m[DayFlag.hidden]) return;
+    if (m[DayFlag.outside]) return;
+
+    if (m[DayFlag.focused]) {
+      focusTarget = day;
+      return;
+    }
+    if (lastFocused?.isEqualTo(day)) {
+      focusTarget = day;
+      return;
+    }
+
+    if (m[DayFlag.today]) {
+      focusTarget = day;
+      return;
+    }
+
+    if (!focusTarget && dateLib.isSameDay(day.date, calendar.months[0].date)) {
+      focusTarget = day;
+      return;
+    }
+  });
+
+  const moveFocus = (moveBy: MoveFocusBy, moveDir: MoveFocusDir) => {
+    if (!focusedDay) return;
     const nextFocus = getNextFocus(
       moveBy,
       moveDir,
-      focused,
-      calendarStartMonth,
-      calendarEndMonth,
+      focusedDay,
+      calendar.navigationStartMonth,
+      calendar.navigationEndMonth,
       props,
       dateLib
     );
     if (!nextFocus) return;
 
-    goToDay(nextFocus);
+    calendar.goToDay(nextFocus);
     setFocused(nextFocus);
-  }
+  };
 
-  const contextValue: UseFocus = {
-    autoFocusTarget,
-    initiallyFocused,
+  const isFocusTarget = (day: CalendarDay) => {
+    return Boolean(focusTarget?.isEqualTo(day));
+  };
+
+  const useFocus: UseFocus = {
+    // focusTarget,
+    // initiallyFocused,
+    isFocusTarget,
     setFocused,
-    focused,
+    focused: focusedDay,
     setLastFocused,
     blur,
     focusDayAfter: () => moveFocus("day", "after"),
@@ -182,5 +156,22 @@ export function useFocus(
     focusEndOfWeek: () => moveFocus("endOfWeek", "after")
   };
 
-  return contextValue;
+  return useFocus;
+}
+
+/**
+ * Get the day cell element for the given day from the data-day and data-month
+ * attribute.
+ */
+function getDayCell(focused: CalendarDay, multipleMonths: boolean) {
+  const dataDay = format(focused.date, "yyyy-MM-dd");
+  const dataMonth = format(focused.displayMonth, "yyyy-MM");
+  let selector = `[data-day="${dataDay}"]`;
+  if (multipleMonths) {
+    selector += `[data-month="${dataMonth}"]`;
+  }
+  const dayCell = window.document.querySelector(
+    `${selector} button`
+  ) as HTMLButtonElement | null;
+  return dayCell;
 }

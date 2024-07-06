@@ -4,7 +4,10 @@ import type { DayPickerProps } from "../types/index.js";
 export function getDataAttributes(
   props: DayPickerProps
 ): Record<string, unknown> {
-  const dataAttributes: Record<string, unknown> = {};
+  const dataAttributes: Record<string, unknown> = {
+    "data-mode": props.mode ?? undefined,
+    "data-required": "required" in props ? props.required : undefined
+  };
   Object.entries(props).forEach(([key, val]) => {
     if (key.startsWith("data-")) {
       dataAttributes[key] = val;

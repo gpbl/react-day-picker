@@ -1,5 +1,10 @@
 import { ByRoleOptions, act, fireEvent, screen } from "@testing-library/react";
-import { DayFlag, SelectionState, labelDay } from "react-day-picker";
+import {
+  DayFlag,
+  SelectionState,
+  labelDayButton,
+  labelDayContent
+} from "react-day-picker";
 
 import { user } from "./user";
 
@@ -53,7 +58,7 @@ export function nav() {
 export function dateButton(date: Date) {
   return screen.getByRole("button", {
     name: new RegExp(
-      labelDay(date, {
+      labelDayButton(date, {
         [DayFlag.disabled]: false,
         [DayFlag.hidden]: false,
         [DayFlag.outside]: false,
@@ -75,7 +80,19 @@ export function dateButton(date: Date) {
  * @param {Date} date - The date to match the gridcell name.
  */
 export function gridcell(date: Date) {
-  return screen.getByRole("gridcell", { name: String(date.getDate()) });
+  return screen.getByRole("gridcell", {
+    name: labelDayContent(date, {
+      [DayFlag.disabled]: false,
+      [DayFlag.hidden]: false,
+      [DayFlag.outside]: false,
+      [DayFlag.focused]: false,
+      [DayFlag.today]: false,
+      [SelectionState.range_end]: false,
+      [SelectionState.range_middle]: false,
+      [SelectionState.range_start]: false,
+      [SelectionState.selected]: false
+    })
+  });
 }
 
 /**

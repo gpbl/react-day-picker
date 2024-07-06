@@ -5,18 +5,11 @@ import {
   DateRange,
   DayButtonProps,
   DayPicker,
-  useSelection
+  useDayPicker
 } from "react-day-picker";
 
 function DayWithShiftKey(props: DayButtonProps) {
-  const { selected } = useSelection({
-    mode: "range",
-    required: true,
-    selected: {
-      from: props.day.date,
-      to: undefined
-    }
-  });
+  const { selected } = useDayPicker({ mode: "range" });
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     if (

@@ -1,15 +1,15 @@
 import React from "react";
 
 /**
- * Render the grid of days in a month.
+ * Render the root element.
  *
  * Use the `components` prop to swap this component with a custom one.
  *
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function MonthGrid(props: JSX.IntrinsicElements["table"]) {
-  return <table {...props} />;
+export function Root(props: JSX.IntrinsicElements["div"]) {
+  return <div {...props} />;
 }
 
-export type MonthGridProps = Parameters<typeof MonthGrid>[0];
+export type RootProps = Parameters<typeof Root>[0];

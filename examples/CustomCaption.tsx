@@ -4,12 +4,12 @@ import { format } from "date-fns";
 import {
   type MonthCaptionProps,
   DayPicker,
-  useCalendar,
+  useDayPicker,
   dateLib
 } from "react-day-picker";
 
 function CustomMonthCaption(props: MonthCaptionProps) {
-  const { goToMonth, nextMonth, previousMonth } = useCalendar({}, dateLib);
+  const { goToMonth, nextMonth, previousMonth } = useDayPicker();
   return (
     <h2>
       {format(props.calendarMonth.date, "MMM yyy")}
