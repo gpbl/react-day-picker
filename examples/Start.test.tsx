@@ -37,6 +37,6 @@ const day = new Date(2021, 10, 1);
 describe("when a day is clicked", () => {
   test("should appear as selected", async () => {
     await user.click(dateButton(day));
-    expect(gridcell(day)).toHaveAttribute("aria-selected", "true");
+    expect(gridcell(day, true)).toHaveAttribute("aria-selected", "true");
   });
 });

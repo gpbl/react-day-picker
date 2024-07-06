@@ -6,10 +6,7 @@ import { user } from "@/test/user";
 
 import { CustomSingle } from "./CustomSingle";
 
-const today = new Date(2021, 10, 25);
-
-beforeAll(() => jest.setSystemTime(today));
-afterAll(() => jest.useRealTimers());
+const today = new Date();
 
 beforeEach(() => {
   render(<CustomSingle />);
@@ -20,11 +17,11 @@ describe("when a day is clicked", () => {
     await user.click(dateButton(today));
   });
   test("the gridcell should appear as selected", () => {
-    expect(gridcell(today)).toHaveAttribute("aria-selected", "true");
+    expect(gridcell(today, true)).toHaveAttribute("aria-selected", "true");
   });
   test("should update the footer", () => {
     expect(
-      screen.getByText("You selected Thu Nov 25 2021")
+      screen.getByText("You selected " + today.toDateString())
     ).toBeInTheDocument();
   });
   describe("when clicking the day again", () => {
@@ -32,7 +29,10 @@ describe("when a day is clicked", () => {
       await user.click(dateButton(today));
     });
     test("should not appear as selected", () => {
-      expect(gridcell(today)).not.toHaveAttribute("aria-selected", "true");
+      expect(gridcell(today, true)).not.toHaveAttribute(
+        "aria-selected",
+        "true"
+      );
     });
     test("should update the footer", () => {
       expect(

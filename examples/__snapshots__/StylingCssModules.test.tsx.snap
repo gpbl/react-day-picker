@@ -74,12 +74,10 @@ exports[`should match the snapshot 1`] = `
         >
           <thead>
             <tr
-              aria-rowindex="1"
               class="rdp-weekdays"
               role="row"
             >
               <th
-                aria-colindex="1"
                 aria-label="Sunday"
                 class="rdp-weekday"
                 role="columnheader"
@@ -87,7 +85,6 @@ exports[`should match the snapshot 1`] = `
                 Su
               </th>
               <th
-                aria-colindex="2"
                 aria-label="Monday"
                 class="rdp-weekday"
                 role="columnheader"
@@ -95,7 +92,6 @@ exports[`should match the snapshot 1`] = `
                 Mo
               </th>
               <th
-                aria-colindex="3"
                 aria-label="Tuesday"
                 class="rdp-weekday"
                 role="columnheader"
@@ -103,7 +99,6 @@ exports[`should match the snapshot 1`] = `
                 Tu
               </th>
               <th
-                aria-colindex="4"
                 aria-label="Wednesday"
                 class="rdp-weekday"
                 role="columnheader"
@@ -111,7 +106,6 @@ exports[`should match the snapshot 1`] = `
                 We
               </th>
               <th
-                aria-colindex="5"
                 aria-label="Thursday"
                 class="rdp-weekday"
                 role="columnheader"
@@ -119,7 +113,6 @@ exports[`should match the snapshot 1`] = `
                 Th
               </th>
               <th
-                aria-colindex="6"
                 aria-label="Friday"
                 class="rdp-weekday"
                 role="columnheader"
@@ -127,7 +120,6 @@ exports[`should match the snapshot 1`] = `
                 Fr
               </th>
               <th
-                aria-colindex="7"
                 aria-label="Saturday"
                 class="rdp-weekday"
                 role="columnheader"
@@ -141,12 +133,10 @@ exports[`should match the snapshot 1`] = `
             role="rowgroup"
           >
             <tr
-              aria-rowindex="2"
               class="rdp-week"
               role="row"
             >
               <td
-                aria-colindex="1"
                 aria-hidden="true"
                 class="rdp-day rdp-hidden rdp-outside"
                 data-day="2021-10-31"
@@ -162,7 +152,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="2"
                 class="rdp-day"
                 data-day="2021-11-01"
                 role="gridcell"
@@ -176,7 +165,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="3"
                 class="rdp-day"
                 data-day="2021-11-02"
                 role="gridcell"
@@ -190,7 +178,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="4"
                 class="rdp-day"
                 data-day="2021-11-03"
                 role="gridcell"
@@ -204,7 +191,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="5"
                 class="rdp-day"
                 data-day="2021-11-04"
                 role="gridcell"
@@ -218,7 +204,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="6"
                 class="rdp-day"
                 data-day="2021-11-05"
                 role="gridcell"
@@ -232,7 +217,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="7"
                 class="rdp-day"
                 data-day="2021-11-06"
                 role="gridcell"
@@ -247,12 +231,10 @@ exports[`should match the snapshot 1`] = `
               </td>
             </tr>
             <tr
-              aria-rowindex="3"
               class="rdp-week"
               role="row"
             >
               <td
-                aria-colindex="1"
                 class="rdp-day"
                 data-day="2021-11-07"
                 role="gridcell"
@@ -266,7 +248,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="2"
                 class="rdp-day"
                 data-day="2021-11-08"
                 role="gridcell"
@@ -280,7 +261,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="3"
                 class="rdp-day"
                 data-day="2021-11-09"
                 role="gridcell"
@@ -294,7 +274,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="4"
                 class="rdp-day"
                 data-day="2021-11-10"
                 role="gridcell"
@@ -308,7 +287,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="5"
                 class="rdp-day"
                 data-day="2021-11-11"
                 role="gridcell"
@@ -322,7 +300,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="6"
                 class="rdp-day"
                 data-day="2021-11-12"
                 role="gridcell"
@@ -336,7 +313,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="7"
                 class="rdp-day"
                 data-day="2021-11-13"
                 role="gridcell"
@@ -351,12 +327,10 @@ exports[`should match the snapshot 1`] = `
               </td>
             </tr>
             <tr
-              aria-rowindex="4"
               class="rdp-week"
               role="row"
             >
               <td
-                aria-colindex="1"
                 class="rdp-day"
                 data-day="2021-11-14"
                 role="gridcell"
@@ -370,7 +344,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="2"
                 class="rdp-day"
                 data-day="2021-11-15"
                 role="gridcell"
@@ -384,7 +357,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="3"
                 class="rdp-day"
                 data-day="2021-11-16"
                 role="gridcell"
@@ -398,7 +370,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="4"
                 class="rdp-day"
                 data-day="2021-11-17"
                 role="gridcell"
@@ -412,7 +383,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="5"
                 class="rdp-day"
                 data-day="2021-11-18"
                 role="gridcell"
@@ -426,7 +396,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="6"
                 class="rdp-day"
                 data-day="2021-11-19"
                 role="gridcell"
@@ -440,7 +409,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="7"
                 class="rdp-day"
                 data-day="2021-11-20"
                 role="gridcell"
@@ -455,12 +423,10 @@ exports[`should match the snapshot 1`] = `
               </td>
             </tr>
             <tr
-              aria-rowindex="5"
               class="rdp-week"
               role="row"
             >
               <td
-                aria-colindex="1"
                 class="rdp-day"
                 data-day="2021-11-21"
                 role="gridcell"
@@ -474,7 +440,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="2"
                 class="rdp-day"
                 data-day="2021-11-22"
                 role="gridcell"
@@ -488,7 +453,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="3"
                 class="rdp-day"
                 data-day="2021-11-23"
                 role="gridcell"
@@ -502,7 +466,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="4"
                 class="rdp-day"
                 data-day="2021-11-24"
                 role="gridcell"
@@ -516,7 +479,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="5"
                 class="rdp-day rdp-today"
                 data-day="2021-11-25"
                 role="gridcell"
@@ -530,7 +492,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="6"
                 class="rdp-day"
                 data-day="2021-11-26"
                 role="gridcell"
@@ -544,7 +505,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="7"
                 class="rdp-day"
                 data-day="2021-11-27"
                 role="gridcell"
@@ -559,12 +519,10 @@ exports[`should match the snapshot 1`] = `
               </td>
             </tr>
             <tr
-              aria-rowindex="6"
               class="rdp-week"
               role="row"
             >
               <td
-                aria-colindex="1"
                 class="rdp-day"
                 data-day="2021-11-28"
                 role="gridcell"
@@ -578,7 +536,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="2"
                 class="rdp-day"
                 data-day="2021-11-29"
                 role="gridcell"
@@ -592,7 +549,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="3"
                 class="rdp-day"
                 data-day="2021-11-30"
                 role="gridcell"
@@ -606,7 +562,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="4"
                 aria-hidden="true"
                 class="rdp-day rdp-hidden rdp-outside"
                 data-day="2021-12-01"
@@ -622,7 +577,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="5"
                 aria-hidden="true"
                 class="rdp-day rdp-hidden rdp-outside"
                 data-day="2021-12-02"
@@ -638,7 +592,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="6"
                 aria-hidden="true"
                 class="rdp-day rdp-hidden rdp-outside"
                 data-day="2021-12-03"
@@ -654,7 +607,6 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-colindex="7"
                 aria-hidden="true"
                 class="rdp-day rdp-hidden rdp-outside"
                 data-day="2021-12-04"

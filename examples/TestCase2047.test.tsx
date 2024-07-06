@@ -11,7 +11,9 @@ beforeEach(async () => {
 });
 
 test("disabled date is not selected", () => {
-  expect(gridcell(new Date(2024, 5, 10))).not.toHaveAttribute("aria-selected");
+  expect(gridcell(new Date(2024, 5, 10), true)).not.toHaveAttribute(
+    "aria-selected"
+  );
 });
 
 describe("when the calendar is focused", () => {
@@ -19,6 +21,8 @@ describe("when the calendar is focused", () => {
     await user.click(dateButton(new Date(2024, 5, 10)));
   });
   test("the disabled day should not have focused modifier", () => {
-    expect(gridcell(new Date(2024, 5, 10))).not.toHaveClass("rdp-focused");
+    expect(gridcell(new Date(2024, 5, 10), true)).not.toHaveClass(
+      "rdp-focused"
+    );
   });
 });

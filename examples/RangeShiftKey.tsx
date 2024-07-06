@@ -34,16 +34,14 @@ export function RangeShiftKey() {
     from: undefined
   });
 
-  let footer = <p>Please pick a day.</p>;
+  let footer = "Please pick a day.";
 
   if (range?.from && !range?.to) {
-    footer = <p>Press Shift to choose more days.</p>;
+    footer = "Press Shift to choose more days.";
   } else if (range?.to) {
-    footer = (
-      <p>
-        {range?.from?.toLocaleDateString()}—{range.to.toLocaleDateString()}.
-      </p>
-    );
+    const formattedFrom = range.from?.toDateString();
+    const formattedTo = range.to.toDateString();
+    footer = `You selected the days between ${formattedFrom} and ${formattedTo}`;
   }
   return (
     <DayPicker

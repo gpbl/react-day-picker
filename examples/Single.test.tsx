@@ -22,16 +22,16 @@ describe("when a day is clicked", () => {
     await user.click(dateButton(day));
   });
   test("should appear as selected", () => {
-    expect(gridcell(day)).toHaveAttribute("aria-selected", "true");
+    expect(gridcell(day, true)).toHaveAttribute("aria-selected", "true");
     expect(dateButton(day)).toHaveFocus();
-    expect(gridcell(day)).toHaveClass("rdp-selected");
+    expect(gridcell(day, true)).toHaveClass("rdp-selected");
   });
   describe("when the day is clicked again", () => {
     beforeEach(async () => {
       await user.click(dateButton(day));
     });
     test("should not appear as selected", () => {
-      expect(gridcell(day)).not.toHaveAttribute("aria-selected");
+      expect(gridcell(day, true)).not.toHaveAttribute("aria-selected");
     });
   });
 });

@@ -23,16 +23,6 @@ export function CustomWeek() {
           to: endOfWeek(day)
         });
       }}
-      onWeekNumberClick={(weekNumber, dates) => {
-        if (selectedWeek?.from && isSameWeek(dates[0], selectedWeek.from)) {
-          setSelectedWeek(undefined); // clear the selection if the week is already selected
-          return;
-        }
-        setSelectedWeek({
-          from: startOfWeek(dates[0]),
-          to: endOfWeek(dates[dates.length - 1])
-        });
-      }}
       footer={
         selectedWeek && (
           <p>

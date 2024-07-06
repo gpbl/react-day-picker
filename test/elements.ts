@@ -3,7 +3,7 @@ import {
   DayFlag,
   SelectionState,
   labelDayButton,
-  labelDayContent
+  labelGridcell
 } from "react-day-picker";
 
 import { user } from "./user";
@@ -78,20 +78,16 @@ export function dateButton(date: Date) {
  * Return the gridcell element from the screen.
  *
  * @param {Date} date - The date to match the gridcell name.
+ * @param {boolean} interactive - If the gridcell is interactive (e.g. in
+ *   selection mode).
  */
-export function gridcell(date: Date) {
+export function gridcell(date: Date, interactive?: boolean) {
+  if (interactive)
+    return screen.getByRole("gridcell", {
+      name: date.getDate().toString()
+    });
   return screen.getByRole("gridcell", {
-    name: labelDayContent(date, {
-      [DayFlag.disabled]: false,
-      [DayFlag.hidden]: false,
-      [DayFlag.outside]: false,
-      [DayFlag.focused]: false,
-      [DayFlag.today]: false,
-      [SelectionState.range_end]: false,
-      [SelectionState.range_middle]: false,
-      [SelectionState.range_start]: false,
-      [SelectionState.selected]: false
-    })
+    name: labelGridcell(date)
   });
 }
 
@@ -118,15 +114,5 @@ export function monthDropdown() {
 export function activeElement() {
   if (!document.activeElement)
     throw new Error("Could not find any focused element");
-
   return document.activeElement;
-}
-
-/** Focuses the days grid. */
-export async function focusDaysGrid() {
-  // TODO: are these `act` calls necessary?
-  await act(() => fireEvent.blur(activeElement())); // Make sure nothing is focused
-  await user.tab(); // By pressing tab 3 tim;
-  await user.tab();
-  await user.tab();
 }

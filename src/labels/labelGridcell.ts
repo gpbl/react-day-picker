@@ -8,14 +8,14 @@ import type { Modifiers } from "../types/index.js";
  *
  * @group Labels
  */
-export function labelDayContent(
+export function labelGridcell(
   date: Date,
-  modifiers: Modifiers,
+  modifiers?: Modifiers,
   options?: LabelOptions,
   dateLib: DateLib = defaultDateLib
 ) {
   let label = dateLib.format(date, "PPPP", options);
-  if (modifiers.today) {
+  if (modifiers?.today) {
     label = `Today, ${label}`;
   }
   return label;

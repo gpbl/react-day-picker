@@ -19,7 +19,7 @@ beforeEach(() => {
 
 describe("when rendering a month that contains today", () => {
   test("it should add the default class name for today", () => {
-    expect(gridcell(today)).toHaveClass("rdp-today");
+    expect(gridcell(today, true)).toHaveClass("rdp-today");
   });
   test('it should have exactly one ".day_today" class', () => {
     const todays = app().querySelectorAll(".rdp-today");

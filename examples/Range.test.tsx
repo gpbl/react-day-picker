@@ -9,6 +9,7 @@ import { user } from "@/test/user";
 import { Range } from "./Range";
 
 const defaultMonth = new Date(2020, 5, 15);
+
 let container: HTMLElement;
 const days = [
   defaultMonth,
@@ -24,17 +25,17 @@ test("should match the snapshot", () => {
   expect(container).toMatchSnapshot();
 });
 test.each(days)("%s should be selected", (day) => {
-  expect(gridcell(day)).toHaveAttribute("aria-selected", "true");
+  expect(gridcell(day, true)).toHaveAttribute("aria-selected", "true");
 });
 
 describe("when a day in the range is clicked", () => {
   const day = days[2];
   beforeEach(async () => user.click(dateButton(day)));
   test.each([days[0], days[1], day])("%s should be selected", (day) => {
-    expect(gridcell(day)).toHaveAttribute("aria-selected", "true");
+    expect(gridcell(day, true)).toHaveAttribute("aria-selected", "true");
   });
   test.each([days[3], days[4]])("%s should not be selected", (day) => {
-    expect(gridcell(day)).not.toHaveAttribute("aria-selected");
+    expect(gridcell(day, true)).not.toHaveAttribute("aria-selected");
   });
   describe("when the day is clicked again", () => {
     const day = days[2];
@@ -43,7 +44,7 @@ describe("when a day in the range is clicked", () => {
       expect(getAllSelected()).toHaveLength(1);
     });
     test("only a day in the range should be selected", () => {
-      expect(gridcell(day)).toHaveAttribute("aria-selected", "true");
+      expect(gridcell(day, true)).toHaveAttribute("aria-selected", "true");
     });
 
     describe("when a day in the range is clicked again", () => {

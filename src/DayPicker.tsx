@@ -91,7 +91,7 @@ export function DayPicker(props: DayPickerProps) {
 
   const {
     labelDayButton,
-    labelDayContent,
+    labelGridcell: labelDayContent,
     labelGrid,
     labelMonthDropdown,
     labelNav,
@@ -525,6 +525,16 @@ export function DayPicker(props: DayPickerProps) {
                                   style={style}
                                   aria-hidden={m.hidden || undefined}
                                   aria-selected={m.selected || undefined}
+                                  aria-label={
+                                    !isInteractive
+                                      ? labelDayContent(
+                                          day.date,
+                                          m,
+                                          labelOptions,
+                                          dateLib
+                                        )
+                                      : undefined
+                                  }
                                   data-day={dateLib.format(
                                     day.date,
                                     "yyyy-MM-dd"
@@ -567,20 +577,7 @@ export function DayPicker(props: DayPickerProps) {
                                       )}
                                     </components.DayButton>
                                   ) : (
-                                    <components.DayContent
-                                      aria-label={labelDayContent(
-                                        day.date,
-                                        m,
-                                        labelOptions,
-                                        dateLib
-                                      )}
-                                    >
-                                      {formatDay(
-                                        day.date,
-                                        formatOptions,
-                                        dateLib
-                                      )}
-                                    </components.DayContent>
+                                    formatDay(day.date, formatOptions, dateLib)
                                   )}
                                 </components.Day>
                               );
@@ -599,6 +596,8 @@ export function DayPicker(props: DayPickerProps) {
           <components.Footer
             className={classNames[UI.Footer]}
             style={styles?.[UI.Footer]}
+            role="status"
+            aria-live="polite"
           >
             {props.footer}
           </components.Footer>

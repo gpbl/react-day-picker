@@ -2,7 +2,7 @@ import React from "react";
 
 import { setDate } from "date-fns";
 
-import { gridcell } from "@/test/elements";
+import { dateButton, gridcell } from "@/test/elements";
 import { render, screen } from "@/test/render";
 
 import { OutsideDays } from "./OutsideDays";
@@ -18,6 +18,6 @@ beforeEach(() => {
 
 describe("when displaying a month with outside days", () => {
   test("should display the outside day", () => {
-    expect(gridcell(setDate(today, 31))).toBeInTheDocument();
+    expect(gridcell(new Date(2021, 9, 31))).toBeInTheDocument();
   });
 });

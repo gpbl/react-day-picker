@@ -1,4 +1,4 @@
-export * from "./labelDayContent.js";
+export * from "./labelGridcell.js";
 export * from "./labelDayButton.js";
 export * from "./labelNav.js";
 export * from "./labelGrid.js";

@@ -21,7 +21,7 @@ describe("when a day is clicked", () => {
     await user.click(dateButton(day1));
   });
   test("should appear as selected", () => {
-    expect(gridcell(day1)).toHaveAttribute("aria-selected", "true");
+    expect(gridcell(day1, true)).toHaveAttribute("aria-selected", "true");
   });
   test("should update the footer", () => {
     expect(screen.getByText("You selected 1 days.")).toBeInTheDocument();
@@ -32,10 +32,10 @@ describe("when a day is clicked", () => {
       await user.click(dateButton(day2));
     });
     test("the first day should appear as selected", () => {
-      expect(gridcell(day1)).toHaveAttribute("aria-selected", "true");
+      expect(gridcell(day1, true)).toHaveAttribute("aria-selected", "true");
     });
     test("the second day should appear as selected", () => {
-      expect(gridcell(day2)).toHaveAttribute("aria-selected", "true");
+      expect(gridcell(day2, true)).toHaveAttribute("aria-selected", "true");
     });
     test("should update the footer", () => {
       expect(screen.getByText("You selected 2 days.")).toBeInTheDocument();
