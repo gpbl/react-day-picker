@@ -1,3 +1,18 @@
+---
+sidebar_position: 6
+---
+
+# Date and Time Picker
+
+DayPicker does not provide a built-in time picker. However, you can implement a time picker by combining DayPicker with a time input field any custom time picker component, as in the following example.
+
+<BrowserWindow>
+  <Examples.InputTime />
+</BrowserWindow>
+
+### Code
+
+```tsx
 import React, { ChangeEventHandler, useState } from "react";
 
 import { setHours, setMinutes } from "date-fns";
@@ -54,3 +69,4 @@ export function InputTime() {
     </div>
   );
 }
+```
