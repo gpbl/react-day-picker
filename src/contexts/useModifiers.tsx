@@ -1,5 +1,3 @@
-import React, { type ReactElement, createContext, useContext } from "react";
-
 import { DayFlag, SelectionState } from "../UI.js";
 import { CalendarDay } from "../classes/index.js";
 import type {
@@ -76,38 +74,6 @@ export function useModifiers(
     if (isDisabled) internal.disabled.push(day);
     if (isHidden) internal.hidden.push(day);
     if (isToday) internal.today.push(day);
-
-    // Add the selection modifiers
-    // if (mode === "single" && !isDisabled) {
-    //   if (single.isSelected(day.date)) {
-    //     selection[SelectionState.selected].push(day);
-    //   }
-    // }
-    // if (mode === "multiple" && !isDisabled) {
-    //   if (multi.isSelected(day.date)) {
-    //     selection[SelectionState.selected].push(day);
-    //   }
-    // }
-
-    // if (mode === "range" && !isDisabled) {
-    //   if (range.isSelected(day.date)) {
-    //     selection[SelectionState.selected].push(day);
-    //     if (range.selected?.from && isSameDay(day.date, range.selected.from)) {
-    //       if (range.selected?.to)
-    //         selection[SelectionState.range_start].push(day);
-    //     } else if (
-    //       range.selected?.to &&
-    //       isSameDay(day.date, range.selected.to)
-    //     ) {
-    //       selection[SelectionState.range_end].push(day);
-    //     } else if (
-    //       range.selected &&
-    //       isDateInRange(day.date, range.selected, dateLib)
-    //     ) {
-    //       selection[SelectionState.range_middle].push(day);
-    //     }
-    //   }
-    // }
 
     // Add custom modifiers
     if (modifiers) {

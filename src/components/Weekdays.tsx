@@ -1,4 +1,4 @@
-import React, { HTMLProps } from "react";
+import React from "react";
 
 /**
  * Render the row with the weekday names.

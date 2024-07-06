@@ -1,4 +1,4 @@
-import React, { type HTMLAttributes } from "react";
+import React from "react";
 
 import type { CalendarDay } from "../classes/index.js";
 import type { Modifiers } from "../types/index.js";

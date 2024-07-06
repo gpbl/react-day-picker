@@ -1,4 +1,4 @@
-import React, { HTMLProps } from "react";
+import React from "react";
 
 /**
  * Render the column header with the weekday name (e.g. "Mo", "Tu", etc.).

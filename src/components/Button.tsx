@@ -1,4 +1,4 @@
-import React, { type ButtonHTMLAttributes } from "react";
+import React from "react";
 
 /**
  * Render the button elements in the calendar.

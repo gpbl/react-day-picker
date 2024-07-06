@@ -1,4 +1,4 @@
-import React, { HTMLProps } from "react";
+import React from "react";
 
 import type { CalendarMonth } from "../classes/index.js";
 

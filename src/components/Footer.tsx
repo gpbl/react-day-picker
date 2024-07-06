@@ -1,4 +1,4 @@
-import React, { type HTMLProps } from "react";
+import React from "react";
 
 /**
  * Component wrapping the footer.

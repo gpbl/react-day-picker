@@ -1,4 +1,4 @@
-import React, { type SelectHTMLAttributes } from "react";
+import React from "react";
 
 import { ChevronFlag, UI } from "../UI.js";
 import type { ClassNames, CustomComponents } from "../types/index.js";

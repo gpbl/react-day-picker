@@ -1,4 +1,3 @@
-import { dateLib } from "../lib/index.js";
 import type { DateLib, DayPickerProps } from "../types/index.js";
 
 /** Return the start and end months for the calendar navigation. */

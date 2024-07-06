@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import type { MouseEvent, CSSProperties } from "react";
+import type { CSSProperties } from "react";
 
 import { UI, DayFlag, RootFlag, ChevronFlag, SelectionState } from "../UI.js";
 import * as components from "../components/custom-components.js";

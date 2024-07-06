@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import { format, isSameDay } from "date-fns";
+import { format } from "date-fns";
 
 import { DayFlag } from "../UI.js";
 import type { CalendarDay } from "../classes/index.js";
@@ -69,12 +69,10 @@ export function useFocus(
   modifiers: UseModifiers,
   dateLib: DateLib
 ): UseFocus {
-  const { dayFlags: internal, getModifiers } = modifiers;
+  const { getModifiers } = modifiers;
 
   const [focusedDay, setFocused] = useState<CalendarDay | undefined>();
   const [lastFocused, setLastFocused] = useState<CalendarDay | undefined>();
-
-  const today = internal.today[0];
 
   useEffect(() => {
     if (focusedDay) {

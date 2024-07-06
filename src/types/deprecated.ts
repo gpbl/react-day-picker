@@ -4,7 +4,6 @@ import {
   type MonthCaptionProps
 } from "../components/MonthCaption.js";
 import { Week, type WeekProps } from "../components/Week.js";
-import { useCalendar } from "../contexts/useCalendar.js";
 import {
   labelDayButton,
   labelNext,
