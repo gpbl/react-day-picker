@@ -1,6 +1,5 @@
 import React from "react";
 
-import { grid } from "@/test/elements";
 import { render, screen } from "@/test/render";
 
 import { NumberingSystem } from "./NumberingSystem";

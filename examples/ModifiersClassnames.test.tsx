@@ -1,6 +1,6 @@
 import React from "react";
 
-import { dateButton, gridcell } from "@/test/elements";
+import { gridcell } from "@/test/elements";
 import { render } from "@/test/render";
 
 import { ModifiersClassnames } from "./ModifiersClassnames";

@@ -640,11 +640,7 @@ exports[`should match the snapshot 1`] = `
       class="rdp-footer"
       role="status"
     >
-      <p>
-        June 15th, 2020
-        –
-        June 19th, 2020
-      </p>
+      June 15th, 2020–June 19th, 2020
     </div>
   </div>
 </div>
@@ -1281,9 +1277,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
       class="rdp-footer"
       role="status"
     >
-      <p>
-        Please pick the first day.
-      </p>
+      Please pick the first day.
     </div>
   </div>
 </div>

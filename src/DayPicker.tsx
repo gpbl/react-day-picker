@@ -21,12 +21,12 @@ import { getWeekdays } from "./helpers/getWeekdays.js";
 import * as defaultLabels from "./labels/index.js";
 import { FormatOptions, LabelOptions } from "./lib/dateLib.js";
 import { UseRange } from "./selection/useRange.js";
-import { useSelection } from "./useSelection.js";
 import type { DayPickerProps, Modifiers } from "./types/index.js";
 import { useCalendar } from "./useCalendar.js";
 import { dayPickerContext } from "./useDayPicker.js";
 import { useFocus } from "./useFocus.js";
 import { useModifiers } from "./useModifiers.js";
+import { useSelection } from "./useSelection.js";
 
 /**
  * Render the date picker calendar.

@@ -1,9 +1,7 @@
 import React from "react";
 
-import { setDate } from "date-fns";
-
-import { dateButton, gridcell } from "@/test/elements";
-import { render, screen } from "@/test/render";
+import { gridcell } from "@/test/elements";
+import { render } from "@/test/render";
 
 import { OutsideDays } from "./OutsideDays";
 

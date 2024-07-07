@@ -40,6 +40,6 @@ describe("when another date is clicked", () => {
   const date = addDays(today, 1);
   beforeEach(async () => user.click(dateButton(date)));
   test("should update the footer", () => {
-    expect(app()).toHaveTextContent("Try clicking the today’s date.");
+    expect(app()).toHaveTextContent("This is not the today’s date.");
   });
 });

@@ -60,5 +60,5 @@ const Test = () => {
 };
 
 it("should type-check", () => {
-  expect(true).toBeTruthy();
+  expect(Test).toBeTruthy();
 });
