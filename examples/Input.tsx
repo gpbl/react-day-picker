@@ -68,11 +68,7 @@ export function Input() {
           mode="single"
           selected={selectedDate}
           onSelect={handleDayPickerSelect}
-          footer={
-            <p aria-live="assertive" aria-atomic="true">
-              Selected: {selectedDate?.toDateString()}
-            </p>
-          }
+          footer={`Selected: ${selectedDate?.toDateString()}`}
         />
       </div>
     </div>

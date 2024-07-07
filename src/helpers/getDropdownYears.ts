@@ -1,17 +1,16 @@
 import { DropdownOption } from "../components/Dropdown.js";
-import { PropsContextValue } from "../contexts/index.js";
+import type { DateLib, Formatters } from "../types/index.js";
 
 /** Return the years to show in the dropdown. */
 export function getDropdownYears(
   displayMonth: Date,
-  props: Pick<
-    PropsContextValue,
-    "formatters" | "locale" | "startMonth" | "endMonth" | "dateLib"
-  >
+  calendarStart: Date | undefined,
+  calendarEnd: Date | undefined,
+  formatters: Pick<Formatters, "formatYearDropdown">,
+  dateLib: DateLib
 ): DropdownOption[] | undefined {
-  const { startMonth, endMonth } = props;
-  if (!startMonth) return undefined;
-  if (!endMonth) return undefined;
+  if (!calendarStart) return undefined;
+  if (!calendarEnd) return undefined;
   const {
     startOfMonth,
     startOfYear,
@@ -20,10 +19,10 @@ export function getDropdownYears(
     isBefore,
     isSameYear,
     Date
-  } = props.dateLib;
+  } = dateLib;
   const month = displayMonth.getMonth();
-  const firstNavYear = startOfYear(startMonth);
-  const lastNavYear = endOfYear(endMonth);
+  const firstNavYear = startOfYear(calendarStart);
+  const lastNavYear = endOfYear(calendarEnd);
   const years: number[] = [];
 
   let year = firstNavYear;
@@ -34,10 +33,12 @@ export function getDropdownYears(
 
   return years.map((value) => {
     const disabled =
-      (startMonth && new Date(value, month) < startOfMonth(startMonth)) ||
-      (month && endMonth && new Date(value, month) > startOfMonth(endMonth)) ||
+      (calendarStart && new Date(value, month) < startOfMonth(calendarStart)) ||
+      (month &&
+        calendarEnd &&
+        new Date(value, month) > startOfMonth(calendarEnd)) ||
       false;
-    const label = props.formatters.formatYearDropdown(value);
+    const label = formatters.formatYearDropdown(value);
     return {
       value,
       label,

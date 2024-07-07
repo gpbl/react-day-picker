@@ -1,5 +1,6 @@
+import { DayPickerProps } from "react-day-picker";
+
 import { CalendarMonth } from "../classes";
-import type { PropsContextValue } from "../contexts/useProps";
 import { dateLib } from "../lib";
 
 import { getMonths } from "./getMonths";
@@ -15,28 +16,26 @@ const mockDates = [
 ];
 
 const mockProps: Pick<
-  PropsContextValue,
+  DayPickerProps,
   | "fixedWeeks"
   | "ISOWeek"
   | "locale"
   | "weekStartsOn"
   | "reverseMonths"
   | "firstWeekContainsDate"
-  | "dateLib"
 > = {
   fixedWeeks: false,
   ISOWeek: false,
   locale: undefined,
   weekStartsOn: 0, // Sunday
   reverseMonths: false,
-  firstWeekContainsDate: 1,
-  dateLib
+  firstWeekContainsDate: 1
 };
 
 it("should return the correct months without ISO weeks and reverse months", () => {
   const displayMonths = [new Date(2023, 5, 1)]; // June 2023
 
-  const result = getMonths(displayMonths, mockDates, mockProps);
+  const result = getMonths(displayMonths, mockDates, mockProps, dateLib);
 
   expect(result).toHaveLength(1);
   expect(result[0]).toBeInstanceOf(CalendarMonth);
@@ -48,7 +47,7 @@ it("should handle ISO weeks", () => {
 
   const isoProps = { ...mockProps, ISOWeek: true };
 
-  const result = getMonths(displayMonths, mockDates, isoProps);
+  const result = getMonths(displayMonths, mockDates, isoProps, dateLib);
 
   expect(result).toHaveLength(1);
   expect(result[0]).toBeInstanceOf(CalendarMonth);
@@ -63,7 +62,7 @@ it("should handle reverse months", () => {
 
   const reverseProps = { ...mockProps, reverseMonths: true };
 
-  const result = getMonths(displayMonths, mockDates, reverseProps);
+  const result = getMonths(displayMonths, mockDates, reverseProps, dateLib);
 
   expect(result).toHaveLength(2);
   expect(result[0].date).toEqual(new Date(2023, 5, 1)); // June 2023
@@ -75,7 +74,7 @@ it("should handle fixed weeks", () => {
 
   const fixedWeeksProps = { ...mockProps, fixedWeeks: true };
 
-  const result = getMonths(displayMonths, mockDates, fixedWeeksProps);
+  const result = getMonths(displayMonths, mockDates, fixedWeeksProps, dateLib);
 
   expect(result).toHaveLength(1);
   expect(result[0]).toBeInstanceOf(CalendarMonth);
@@ -85,7 +84,7 @@ it("should handle fixed weeks", () => {
 it("should handle months with no dates", () => {
   const displayMonths = [new Date(2023, 5, 1)]; // June 2023
 
-  const result = getMonths(displayMonths, [], mockProps);
+  const result = getMonths(displayMonths, [], mockProps, dateLib);
 
   expect(result).toHaveLength(1);
   expect(result[0]).toBeInstanceOf(CalendarMonth);

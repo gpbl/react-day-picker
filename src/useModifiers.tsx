@@ -1,28 +1,18 @@
-import React, { type ReactElement, createContext, useContext } from "react";
-
-import { DayFlag, SelectionState } from "../UI.js";
-import { CalendarDay } from "../classes/index.js";
-import { useMulti } from "../selection/useMulti.js";
-import { useRange } from "../selection/useRange.js";
-import { useSingle } from "../selection/useSingle.js";
+import { DayFlag, SelectionState } from "./UI.js";
+import { CalendarDay } from "./classes/index.js";
 import type {
   CustomModifiers,
+  DateLib,
   DayFlags,
+  DayPickerProps,
   Modifiers,
   SelectionStates
-} from "../types/index.js";
-import { dateMatchModifiers } from "../utils/dateMatchModifiers.js";
-import { isDateInRange } from "../utils/index.js";
+} from "./types/index.js";
+import type { UseCalendar } from "./useCalendar.js";
+import { dateMatchModifiers } from "./utils/dateMatchModifiers.js";
 
-import { useCalendar } from "./useCalendar.js";
-import { useProps } from "./useProps.js";
-
-/** @private */
-const ModifiersContext = createContext<ModifiersContextValue | undefined>(
-  undefined
-);
-
-export type ModifiersContextValue = {
+/** The hook to get the modifiers state for a single day */
+export type UseModifiers = {
   /** List the days with custom modifiers passed via the `modifiers` prop. */
   customModifiers: Record<string, CalendarDay[]>;
   /** List the days with the internal modifiers. */
@@ -33,31 +23,28 @@ export type ModifiersContextValue = {
   getModifiers: (day: CalendarDay) => Modifiers;
 };
 
-function useModifiersContextValue(): ModifiersContextValue {
-  const {
-    dateLib,
-    disabled,
-    hidden,
-    modifiers,
-    mode,
-    onDayClick,
-    showOutsideDays,
-    today
-  } = useProps();
+/** @private */
+export function useModifiers(
+  props: Pick<
+    DayPickerProps,
+    "disabled" | "hidden" | "modifiers" | "showOutsideDays" | "today"
+  >,
+  calendar: UseCalendar,
+  dateLib: DateLib
+): UseModifiers {
+  // const single = useSingle();
+  // const multi = useMulti();
+  // const range = useRange();
 
-  const calendar = useCalendar();
-  const single = useSingle();
-  const multi = useMulti();
-  const range = useRange();
+  const { disabled, hidden, modifiers, showOutsideDays, today } = props;
 
-  const { isSameDay, isSameMonth } = dateLib;
+  const { isSameDay, isSameMonth, Date } = dateLib;
   const internal: Record<DayFlag, CalendarDay[]> = {
     [DayFlag.focused]: [],
     [DayFlag.outside]: [],
     [DayFlag.disabled]: [],
     [DayFlag.hidden]: [],
-    [DayFlag.today]: [],
-    [DayFlag.focusable]: []
+    [DayFlag.today]: []
   };
 
   const custom: Record<string, CalendarDay[]> = {};
@@ -82,49 +69,12 @@ function useModifiersContextValue(): ModifiersContextValue {
       Boolean(hidden && dateMatchModifiers(date, hidden, dateLib)) ||
       (!showOutsideDays && isOutside);
 
-    const isElementInteractive = mode || onDayClick !== undefined;
-
-    const isFocusable = isElementInteractive && !isDisabled && !isHidden;
-
-    const isToday = isSameDay(date, today);
+    const isToday = isSameDay(date, today ?? new Date());
 
     if (isOutside) internal.outside.push(day);
     if (isDisabled) internal.disabled.push(day);
     if (isHidden) internal.hidden.push(day);
-    if (isFocusable) internal.focusable.push(day);
     if (isToday) internal.today.push(day);
-
-    // Add the selection modifiers
-    if (mode === "single" && !isDisabled) {
-      if (single.isSelected(day.date)) {
-        selection[SelectionState.selected].push(day);
-      }
-    }
-    if (mode === "multiple" && !isDisabled) {
-      if (multi.isSelected(day.date)) {
-        selection[SelectionState.selected].push(day);
-      }
-    }
-
-    if (mode === "range" && !isDisabled) {
-      if (range.isSelected(day.date)) {
-        selection[SelectionState.selected].push(day);
-        if (range.selected?.from && isSameDay(day.date, range.selected.from)) {
-          if (range.selected?.to)
-            selection[SelectionState.range_start].push(day);
-        } else if (
-          range.selected?.to &&
-          isSameDay(day.date, range.selected.to)
-        ) {
-          selection[SelectionState.range_end].push(day);
-        } else if (
-          range.selected &&
-          isDateInRange(day.date, range.selected, dateLib)
-        ) {
-          selection[SelectionState.range_middle].push(day);
-        }
-      }
-    }
 
     // Add custom modifiers
     if (modifiers) {
@@ -148,7 +98,6 @@ function useModifiersContextValue(): ModifiersContextValue {
     const dayFlags: DayFlags = {
       [DayFlag.focused]: false,
       [DayFlag.disabled]: false,
-      [DayFlag.focusable]: false,
       [DayFlag.hidden]: false,
       [DayFlag.outside]: false,
       [DayFlag.today]: false
@@ -188,34 +137,4 @@ function useModifiersContextValue(): ModifiersContextValue {
     selectionStates: selection,
     getModifiers
   };
-}
-
-/** @private */
-export function ModifiersContextProvider({
-  children
-}: {
-  children: ReactElement;
-}) {
-  const modifiers = useModifiersContextValue();
-
-  return (
-    <ModifiersContext.Provider value={modifiers}>
-      {children}
-    </ModifiersContext.Provider>
-  );
-}
-
-/**
- * Access to the modifiers for the days in the calendar.
- *
- * @group Hooks
- */
-export function useModifiers() {
-  const modifiersContext = useContext(ModifiersContext);
-  if (!modifiersContext) {
-    throw new Error(
-      "useModifiersContext() must be used within a ModifiersContextProvider"
-    );
-  }
-  return modifiersContext;
 }

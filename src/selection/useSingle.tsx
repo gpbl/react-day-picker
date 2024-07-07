@@ -1,10 +1,15 @@
 import React from "react";
 
-import { useProps } from "../contexts/index.js";
-import { Modifiers, PropsSingle } from "../types/index.js";
+import type {
+  DateLib,
+  DayPickerProps,
+  Modifiers,
+  PropsSingle,
+  PropsSingleRequired
+} from "../types/index.js";
 
-export type SingleContextValue<T> = {
-  setSelected: (
+export type UseSingle<T> = {
+  handleSelect: (
     triggerDate: Date,
     modifiers: Modifiers,
     e: React.MouseEvent | React.KeyboardEvent
@@ -18,28 +23,26 @@ export type SingleContextValue<T> = {
       selected: Date | undefined;
     });
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const SingleContext = React.createContext<SingleContextValue<any> | undefined>(
-  undefined
-);
+export function useSingle<T extends DayPickerProps>(
+  props: T extends { mode: "single" }
+    ? PropsSingle | PropsSingleRequired
+    : object,
+  dateLib: DateLib
+): UseSingle<T> {
+  const { selected, required, onSelect, mode } = props as PropsSingle;
 
-function useSingleContextValue<T extends PropsSingle>({
-  required = false,
-  selected,
-  onSelect
-}: T): SingleContextValue<T> {
-  const [date, setDate] = React.useState<Date | undefined>(selected);
-  const {
-    dateLib: { isSameDay },
-    today,
-    mode
-  } = useProps();
+  const [date, setDate] = React.useState<Date | undefined>(
+    mode !== "single" ? undefined : selected
+  );
+
+  const { isSameDay, Date, startOfDay } = dateLib;
   // Update the selected date if the required flag is set.
   React.useEffect(() => {
+    if (mode !== "single") return;
     if (required && date === undefined) {
-      setDate(today);
+      setDate(startOfDay(new Date()));
     }
-  }, [required, date, today]);
+  }, [required, date, Date, startOfDay, mode]);
 
   // Update the selected date if the `selected` value changes.
   React.useEffect(() => {
@@ -56,41 +59,24 @@ function useSingleContextValue<T extends PropsSingle>({
     modifiers: Modifiers,
     e: React.MouseEvent | React.KeyboardEvent
   ) => {
+    if (mode !== "single") return;
     let newDate: Date | undefined = triggerDate;
     if (!required && date && date && isSameDay(triggerDate, date)) {
       // If the date is the same, clear the selection.
       newDate = undefined;
     }
     setDate(newDate);
-    onSelect?.(newDate, triggerDate, modifiers, e);
+    if (required) {
+      onSelect?.(newDate as Date, triggerDate, modifiers, e);
+    } else {
+      onSelect?.(newDate, triggerDate, modifiers, e);
+    }
     return newDate;
   };
 
-  return { selected: date, setSelected, isSelected } as SingleContextValue<T>;
-}
-
-/** @private */
-export function SingleProvider(props: React.PropsWithChildren<PropsSingle>) {
-  const value = useSingleContextValue(props);
-  return (
-    <SingleContext.Provider value={value}>
-      {props.children}
-    </SingleContext.Provider>
-  );
-}
-
-/**
- * Access to the single context to get the selected date or update it.
- *
- * Use this hook from the custom components passed via the `components` prop.
- *
- * @group Hooks
- * @see https://daypicker.dev/advanced-guides/custom-components
- */
-export function useSingle() {
-  const context = React.useContext(SingleContext);
-  if (!context) {
-    throw new Error("useSingle() must be used within a SingleContextProvider");
-  }
-  return context;
+  return {
+    selected: date,
+    handleSelect: setSelected,
+    isSelected
+  } as UseSingle<T>;
 }

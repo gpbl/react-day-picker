@@ -3,13 +3,15 @@
 exports[`should match the snapshot 1`] = `
 <div>
   <div
-    class="rdp-calendar"
+    class="rdp-root rdp-is_interactive"
+    data-mode="range"
     id="test"
   >
     <div
       class="rdp-months"
     >
       <div
+        aria-label=""
         class="rdp-nav"
         role="toolbar"
       >
@@ -17,7 +19,6 @@ exports[`should match the snapshot 1`] = `
           aria-controls="test"
           aria-label="Previous Month"
           class="rdp-button_previous"
-          name="previous-month"
           type="button"
         >
           <svg
@@ -35,7 +36,6 @@ exports[`should match the snapshot 1`] = `
           aria-controls="test"
           aria-label="Next Month"
           class="rdp-button_next"
-          name="next-month"
           type="button"
         >
           <svg
@@ -51,14 +51,13 @@ exports[`should match the snapshot 1`] = `
         </button>
       </div>
       <div
-        class="rdp-month_wrapper"
+        class="rdp-month"
       >
         <div
           class="rdp-month_caption"
           id="test-caption-0"
         >
           <span
-            aria-label=""
             aria-live="polite"
             class="rdp-caption_label"
             role="status"
@@ -66,586 +65,582 @@ exports[`should match the snapshot 1`] = `
             June 2020
           </span>
         </div>
-        <div
-          aria-labelledby="test-caption-0"
+        <table
+          aria-label="June 2020"
           aria-multiselectable="true"
-          class="rdp-month"
-          id="test-grid-0"
+          class="rdp-month_grid"
           role="grid"
         >
-          <div
-            aria-rowindex="1"
-            class="rdp-weekdays"
-            role="row"
-          >
-            <span
-              aria-colindex="1"
-              aria-label="Sunday"
-              class="rdp-weekday"
-              role="columnheader"
+          <thead>
+            <tr
+              class="rdp-weekdays"
+              role="row"
             >
-              Su
-            </span>
-            <span
-              aria-colindex="2"
-              aria-label="Monday"
-              class="rdp-weekday"
-              role="columnheader"
-            >
-              Mo
-            </span>
-            <span
-              aria-colindex="3"
-              aria-label="Tuesday"
-              class="rdp-weekday"
-              role="columnheader"
-            >
-              Tu
-            </span>
-            <span
-              aria-colindex="4"
-              aria-label="Wednesday"
-              class="rdp-weekday"
-              role="columnheader"
-            >
-              We
-            </span>
-            <span
-              aria-colindex="5"
-              aria-label="Thursday"
-              class="rdp-weekday"
-              role="columnheader"
-            >
-              Th
-            </span>
-            <span
-              aria-colindex="6"
-              aria-label="Friday"
-              class="rdp-weekday"
-              role="columnheader"
-            >
-              Fr
-            </span>
-            <span
-              aria-colindex="7"
-              aria-label="Saturday"
-              class="rdp-weekday"
-              role="columnheader"
-            >
-              Sa
-            </span>
-          </div>
-          <div
+              <th
+                aria-label="Sunday"
+                class="rdp-weekday"
+                role="columnheader"
+              >
+                Su
+              </th>
+              <th
+                aria-label="Monday"
+                class="rdp-weekday"
+                role="columnheader"
+              >
+                Mo
+              </th>
+              <th
+                aria-label="Tuesday"
+                class="rdp-weekday"
+                role="columnheader"
+              >
+                Tu
+              </th>
+              <th
+                aria-label="Wednesday"
+                class="rdp-weekday"
+                role="columnheader"
+              >
+                We
+              </th>
+              <th
+                aria-label="Thursday"
+                class="rdp-weekday"
+                role="columnheader"
+              >
+                Th
+              </th>
+              <th
+                aria-label="Friday"
+                class="rdp-weekday"
+                role="columnheader"
+              >
+                Fr
+              </th>
+              <th
+                aria-label="Saturday"
+                class="rdp-weekday"
+                role="columnheader"
+              >
+                Sa
+              </th>
+            </tr>
+          </thead>
+          <tbody
             class="rdp-weeks"
             role="rowgroup"
           >
-            <div
-              aria-rowindex="2"
+            <tr
               class="rdp-week"
               role="row"
             >
-              <div
-                aria-colindex="1"
+              <td
                 aria-hidden="true"
-                aria-label=""
                 class="rdp-day rdp-hidden rdp-outside"
+                data-day="2020-05-31"
+                data-hidden="true"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Sunday, May 31st, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   31
-                </span>
-              </div>
-              <div
-                aria-colindex="2"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-01"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Monday, June 1st, 2020"
+                  class="rdp-day_button"
+                  tabindex="0"
                 >
                   1
-                </span>
-              </div>
-              <div
-                aria-colindex="3"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-02"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Tuesday, June 2nd, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   2
-                </span>
-              </div>
-              <div
-                aria-colindex="4"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-03"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Wednesday, June 3rd, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   3
-                </span>
-              </div>
-              <div
-                aria-colindex="5"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-04"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Thursday, June 4th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   4
-                </span>
-              </div>
-              <div
-                aria-colindex="6"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-05"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Friday, June 5th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   5
-                </span>
-              </div>
-              <div
-                aria-colindex="7"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-06"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Saturday, June 6th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   6
-                </span>
-              </div>
-            </div>
-            <div
-              aria-rowindex="3"
+                </button>
+              </td>
+            </tr>
+            <tr
               class="rdp-week"
               role="row"
             >
-              <div
-                aria-colindex="1"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+              <td
+                class="rdp-day"
+                data-day="2020-06-07"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Sunday, June 7th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   7
-                </span>
-              </div>
-              <div
-                aria-colindex="2"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-08"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Monday, June 8th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   8
-                </span>
-              </div>
-              <div
-                aria-colindex="3"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-09"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Tuesday, June 9th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   9
-                </span>
-              </div>
-              <div
-                aria-colindex="4"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-10"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Wednesday, June 10th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   10
-                </span>
-              </div>
-              <div
-                aria-colindex="5"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-11"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Thursday, June 11th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   11
-                </span>
-              </div>
-              <div
-                aria-colindex="6"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-12"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Friday, June 12th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   12
-                </span>
-              </div>
-              <div
-                aria-colindex="7"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-13"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Saturday, June 13th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   13
-                </span>
-              </div>
-            </div>
-            <div
-              aria-rowindex="4"
+                </button>
+              </td>
+            </tr>
+            <tr
               class="rdp-week"
               role="row"
             >
-              <div
-                aria-colindex="1"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+              <td
+                class="rdp-day"
+                data-day="2020-06-14"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Sunday, June 14th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   14
-                </span>
-              </div>
-              <div
-                aria-colindex="2"
-                aria-label=""
+                </button>
+              </td>
+              <td
                 aria-selected="true"
-                class="rdp-day rdp-range_start rdp-selected rdp-focusable"
+                class="rdp-day rdp-range_start rdp-selected"
+                data-day="2020-06-15"
+                data-selected="true"
                 role="gridcell"
-                tabindex="0"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Monday, June 15th, 2020, selected"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   15
-                </span>
-              </div>
-              <div
-                aria-colindex="3"
-                aria-label=""
+                </button>
+              </td>
+              <td
                 aria-selected="true"
-                class="rdp-day rdp-range_middle rdp-selected rdp-focusable"
+                class="rdp-day rdp-range_middle rdp-selected"
+                data-day="2020-06-16"
+                data-selected="true"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Tuesday, June 16th, 2020, selected"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   16
-                </span>
-              </div>
-              <div
-                aria-colindex="4"
-                aria-label=""
+                </button>
+              </td>
+              <td
                 aria-selected="true"
-                class="rdp-day rdp-range_middle rdp-selected rdp-focusable"
+                class="rdp-day rdp-range_middle rdp-selected"
+                data-day="2020-06-17"
+                data-selected="true"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Wednesday, June 17th, 2020, selected"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   17
-                </span>
-              </div>
-              <div
-                aria-colindex="5"
-                aria-label=""
+                </button>
+              </td>
+              <td
                 aria-selected="true"
-                class="rdp-day rdp-range_middle rdp-selected rdp-focusable"
+                class="rdp-day rdp-range_middle rdp-selected"
+                data-day="2020-06-18"
+                data-selected="true"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Thursday, June 18th, 2020, selected"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   18
-                </span>
-              </div>
-              <div
-                aria-colindex="6"
-                aria-label=""
+                </button>
+              </td>
+              <td
                 aria-selected="true"
-                class="rdp-day rdp-range_end rdp-selected rdp-focusable"
+                class="rdp-day rdp-range_end rdp-selected"
+                data-day="2020-06-19"
+                data-selected="true"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Friday, June 19th, 2020, selected"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   19
-                </span>
-              </div>
-              <div
-                aria-colindex="7"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-20"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Saturday, June 20th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   20
-                </span>
-              </div>
-            </div>
-            <div
-              aria-rowindex="5"
+                </button>
+              </td>
+            </tr>
+            <tr
               class="rdp-week"
               role="row"
             >
-              <div
-                aria-colindex="1"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+              <td
+                class="rdp-day"
+                data-day="2020-06-21"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Sunday, June 21st, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   21
-                </span>
-              </div>
-              <div
-                aria-colindex="2"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-22"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Monday, June 22nd, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   22
-                </span>
-              </div>
-              <div
-                aria-colindex="3"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-23"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Tuesday, June 23rd, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   23
-                </span>
-              </div>
-              <div
-                aria-colindex="4"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-24"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Wednesday, June 24th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   24
-                </span>
-              </div>
-              <div
-                aria-colindex="5"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-25"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Thursday, June 25th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   25
-                </span>
-              </div>
-              <div
-                aria-colindex="6"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-26"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Friday, June 26th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   26
-                </span>
-              </div>
-              <div
-                aria-colindex="7"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-27"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Saturday, June 27th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   27
-                </span>
-              </div>
-            </div>
-            <div
-              aria-rowindex="6"
+                </button>
+              </td>
+            </tr>
+            <tr
               class="rdp-week"
               role="row"
             >
-              <div
-                aria-colindex="1"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+              <td
+                class="rdp-day"
+                data-day="2020-06-28"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Sunday, June 28th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   28
-                </span>
-              </div>
-              <div
-                aria-colindex="2"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-29"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Monday, June 29th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   29
-                </span>
-              </div>
-              <div
-                aria-colindex="3"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-30"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Tuesday, June 30th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   30
-                </span>
-              </div>
-              <div
-                aria-colindex="4"
+                </button>
+              </td>
+              <td
                 aria-hidden="true"
-                aria-label=""
                 class="rdp-day rdp-hidden rdp-outside"
+                data-day="2020-07-01"
+                data-hidden="true"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Wednesday, July 1st, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   1
-                </span>
-              </div>
-              <div
-                aria-colindex="5"
+                </button>
+              </td>
+              <td
                 aria-hidden="true"
-                aria-label=""
                 class="rdp-day rdp-hidden rdp-outside"
+                data-day="2020-07-02"
+                data-hidden="true"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Thursday, July 2nd, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   2
-                </span>
-              </div>
-              <div
-                aria-colindex="6"
+                </button>
+              </td>
+              <td
                 aria-hidden="true"
-                aria-label=""
                 class="rdp-day rdp-hidden rdp-outside"
+                data-day="2020-07-03"
+                data-hidden="true"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Friday, July 3rd, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   3
-                </span>
-              </div>
-              <div
-                aria-colindex="7"
+                </button>
+              </td>
+              <td
                 aria-hidden="true"
-                aria-label=""
                 class="rdp-day rdp-hidden rdp-outside"
+                data-day="2020-07-04"
+                data-hidden="true"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Saturday, July 4th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   4
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
     <div
+      aria-live="polite"
       class="rdp-footer"
+      role="status"
     >
-      <p>
-        June 15th, 2020
-        –
-        June 19th, 2020
-      </p>
+      June 15th, 2020–June 19th, 2020
     </div>
   </div>
 </div>
@@ -654,13 +649,15 @@ exports[`should match the snapshot 1`] = `
 exports[`when a day in the range is clicked when the day is clicked again when a day in the range is clicked again should match the snapshot 1`] = `
 <div>
   <div
-    class="rdp-calendar"
+    class="rdp-root rdp-is_interactive"
+    data-mode="range"
     id="test"
   >
     <div
       class="rdp-months"
     >
       <div
+        aria-label=""
         class="rdp-nav"
         role="toolbar"
       >
@@ -668,7 +665,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
           aria-controls="test"
           aria-label="Previous Month"
           class="rdp-button_previous"
-          name="previous-month"
           type="button"
         >
           <svg
@@ -686,7 +682,6 @@ exports[`when a day in the range is clicked when the day is clicked again when a
           aria-controls="test"
           aria-label="Next Month"
           class="rdp-button_next"
-          name="next-month"
           type="button"
         >
           <svg
@@ -702,14 +697,13 @@ exports[`when a day in the range is clicked when the day is clicked again when a
         </button>
       </div>
       <div
-        class="rdp-month_wrapper"
+        class="rdp-month"
       >
         <div
           class="rdp-month_caption"
           id="test-caption-0"
         >
           <span
-            aria-label=""
             aria-live="polite"
             class="rdp-caption_label"
             role="status"
@@ -717,579 +711,573 @@ exports[`when a day in the range is clicked when the day is clicked again when a
             June 2020
           </span>
         </div>
-        <div
-          aria-labelledby="test-caption-0"
+        <table
+          aria-label="June 2020"
           aria-multiselectable="true"
-          class="rdp-month"
-          id="test-grid-0"
+          class="rdp-month_grid"
           role="grid"
         >
-          <div
-            aria-rowindex="1"
-            class="rdp-weekdays"
-            role="row"
-          >
-            <span
-              aria-colindex="1"
-              aria-label="Sunday"
-              class="rdp-weekday"
-              role="columnheader"
+          <thead>
+            <tr
+              class="rdp-weekdays"
+              role="row"
             >
-              Su
-            </span>
-            <span
-              aria-colindex="2"
-              aria-label="Monday"
-              class="rdp-weekday"
-              role="columnheader"
-            >
-              Mo
-            </span>
-            <span
-              aria-colindex="3"
-              aria-label="Tuesday"
-              class="rdp-weekday"
-              role="columnheader"
-            >
-              Tu
-            </span>
-            <span
-              aria-colindex="4"
-              aria-label="Wednesday"
-              class="rdp-weekday"
-              role="columnheader"
-            >
-              We
-            </span>
-            <span
-              aria-colindex="5"
-              aria-label="Thursday"
-              class="rdp-weekday"
-              role="columnheader"
-            >
-              Th
-            </span>
-            <span
-              aria-colindex="6"
-              aria-label="Friday"
-              class="rdp-weekday"
-              role="columnheader"
-            >
-              Fr
-            </span>
-            <span
-              aria-colindex="7"
-              aria-label="Saturday"
-              class="rdp-weekday"
-              role="columnheader"
-            >
-              Sa
-            </span>
-          </div>
-          <div
+              <th
+                aria-label="Sunday"
+                class="rdp-weekday"
+                role="columnheader"
+              >
+                Su
+              </th>
+              <th
+                aria-label="Monday"
+                class="rdp-weekday"
+                role="columnheader"
+              >
+                Mo
+              </th>
+              <th
+                aria-label="Tuesday"
+                class="rdp-weekday"
+                role="columnheader"
+              >
+                Tu
+              </th>
+              <th
+                aria-label="Wednesday"
+                class="rdp-weekday"
+                role="columnheader"
+              >
+                We
+              </th>
+              <th
+                aria-label="Thursday"
+                class="rdp-weekday"
+                role="columnheader"
+              >
+                Th
+              </th>
+              <th
+                aria-label="Friday"
+                class="rdp-weekday"
+                role="columnheader"
+              >
+                Fr
+              </th>
+              <th
+                aria-label="Saturday"
+                class="rdp-weekday"
+                role="columnheader"
+              >
+                Sa
+              </th>
+            </tr>
+          </thead>
+          <tbody
             class="rdp-weeks"
             role="rowgroup"
           >
-            <div
-              aria-rowindex="2"
+            <tr
               class="rdp-week"
               role="row"
             >
-              <div
-                aria-colindex="1"
+              <td
                 aria-hidden="true"
-                aria-label=""
                 class="rdp-day rdp-hidden rdp-outside"
+                data-day="2020-05-31"
+                data-hidden="true"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Sunday, May 31st, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   31
-                </span>
-              </div>
-              <div
-                aria-colindex="2"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-01"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Monday, June 1st, 2020"
+                  class="rdp-day_button"
+                  tabindex="0"
                 >
                   1
-                </span>
-              </div>
-              <div
-                aria-colindex="3"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-02"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Tuesday, June 2nd, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   2
-                </span>
-              </div>
-              <div
-                aria-colindex="4"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-03"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Wednesday, June 3rd, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   3
-                </span>
-              </div>
-              <div
-                aria-colindex="5"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-04"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Thursday, June 4th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   4
-                </span>
-              </div>
-              <div
-                aria-colindex="6"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-05"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Friday, June 5th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   5
-                </span>
-              </div>
-              <div
-                aria-colindex="7"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-06"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Saturday, June 6th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   6
-                </span>
-              </div>
-            </div>
-            <div
-              aria-rowindex="3"
+                </button>
+              </td>
+            </tr>
+            <tr
               class="rdp-week"
               role="row"
             >
-              <div
-                aria-colindex="1"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+              <td
+                class="rdp-day"
+                data-day="2020-06-07"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Sunday, June 7th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   7
-                </span>
-              </div>
-              <div
-                aria-colindex="2"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-08"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Monday, June 8th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   8
-                </span>
-              </div>
-              <div
-                aria-colindex="3"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-09"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Tuesday, June 9th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   9
-                </span>
-              </div>
-              <div
-                aria-colindex="4"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-10"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Wednesday, June 10th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   10
-                </span>
-              </div>
-              <div
-                aria-colindex="5"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-11"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Thursday, June 11th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   11
-                </span>
-              </div>
-              <div
-                aria-colindex="6"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-12"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Friday, June 12th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   12
-                </span>
-              </div>
-              <div
-                aria-colindex="7"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-13"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Saturday, June 13th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   13
-                </span>
-              </div>
-            </div>
-            <div
-              aria-rowindex="4"
+                </button>
+              </td>
+            </tr>
+            <tr
               class="rdp-week"
               role="row"
             >
-              <div
-                aria-colindex="1"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+              <td
+                class="rdp-day"
+                data-day="2020-06-14"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Sunday, June 14th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   14
-                </span>
-              </div>
-              <div
-                aria-colindex="2"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-15"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Monday, June 15th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   15
-                </span>
-              </div>
-              <div
-                aria-colindex="3"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-16"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Tuesday, June 16th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   16
-                </span>
-              </div>
-              <div
-                aria-colindex="4"
-                aria-label=""
-                class="rdp-day rdp-focusable rdp-focused"
+                </button>
+              </td>
+              <td
+                class="rdp-day rdp-focused"
+                data-day="2020-06-17"
+                data-focused="true"
                 role="gridcell"
-                tabindex="0"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Wednesday, June 17th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   17
-                </span>
-              </div>
-              <div
-                aria-colindex="5"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-18"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Thursday, June 18th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   18
-                </span>
-              </div>
-              <div
-                aria-colindex="6"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-19"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Friday, June 19th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   19
-                </span>
-              </div>
-              <div
-                aria-colindex="7"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-20"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Saturday, June 20th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   20
-                </span>
-              </div>
-            </div>
-            <div
-              aria-rowindex="5"
+                </button>
+              </td>
+            </tr>
+            <tr
               class="rdp-week"
               role="row"
             >
-              <div
-                aria-colindex="1"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+              <td
+                class="rdp-day"
+                data-day="2020-06-21"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Sunday, June 21st, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   21
-                </span>
-              </div>
-              <div
-                aria-colindex="2"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-22"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Monday, June 22nd, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   22
-                </span>
-              </div>
-              <div
-                aria-colindex="3"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-23"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Tuesday, June 23rd, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   23
-                </span>
-              </div>
-              <div
-                aria-colindex="4"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-24"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Wednesday, June 24th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   24
-                </span>
-              </div>
-              <div
-                aria-colindex="5"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-25"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Thursday, June 25th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   25
-                </span>
-              </div>
-              <div
-                aria-colindex="6"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-26"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Friday, June 26th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   26
-                </span>
-              </div>
-              <div
-                aria-colindex="7"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-27"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Saturday, June 27th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   27
-                </span>
-              </div>
-            </div>
-            <div
-              aria-rowindex="6"
+                </button>
+              </td>
+            </tr>
+            <tr
               class="rdp-week"
               role="row"
             >
-              <div
-                aria-colindex="1"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+              <td
+                class="rdp-day"
+                data-day="2020-06-28"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Sunday, June 28th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   28
-                </span>
-              </div>
-              <div
-                aria-colindex="2"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-29"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Monday, June 29th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   29
-                </span>
-              </div>
-              <div
-                aria-colindex="3"
-                aria-label=""
-                class="rdp-day rdp-focusable"
+                </button>
+              </td>
+              <td
+                class="rdp-day"
+                data-day="2020-06-30"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Tuesday, June 30th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   30
-                </span>
-              </div>
-              <div
-                aria-colindex="4"
+                </button>
+              </td>
+              <td
                 aria-hidden="true"
-                aria-label=""
                 class="rdp-day rdp-hidden rdp-outside"
+                data-day="2020-07-01"
+                data-hidden="true"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Wednesday, July 1st, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   1
-                </span>
-              </div>
-              <div
-                aria-colindex="5"
+                </button>
+              </td>
+              <td
                 aria-hidden="true"
-                aria-label=""
                 class="rdp-day rdp-hidden rdp-outside"
+                data-day="2020-07-02"
+                data-hidden="true"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Thursday, July 2nd, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   2
-                </span>
-              </div>
-              <div
-                aria-colindex="6"
+                </button>
+              </td>
+              <td
                 aria-hidden="true"
-                aria-label=""
                 class="rdp-day rdp-hidden rdp-outside"
+                data-day="2020-07-03"
+                data-hidden="true"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Friday, July 3rd, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   3
-                </span>
-              </div>
-              <div
-                aria-colindex="7"
+                </button>
+              </td>
+              <td
                 aria-hidden="true"
-                aria-label=""
                 class="rdp-day rdp-hidden rdp-outside"
+                data-day="2020-07-04"
+                data-hidden="true"
                 role="gridcell"
-                tabindex="-1"
               >
-                <span
-                  class="rdp-day_date"
+                <button
+                  aria-label="Saturday, July 4th, 2020"
+                  class="rdp-day_button"
+                  tabindex="-1"
                 >
                   4
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
     <div
+      aria-live="polite"
       class="rdp-footer"
+      role="status"
     >
-      <p>
-        Please pick the first day.
-      </p>
+      Please pick the first day.
     </div>
   </div>
 </div>

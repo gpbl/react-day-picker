@@ -1,8 +1,8 @@
 import React from "react";
 
-import { FormatOptions, format } from "date-fns";
+import { format } from "date-fns";
 import { arSA } from "date-fns/locale";
-import { DayPicker } from "react-day-picker";
+import { DayPicker, FormatOptions } from "react-day-picker";
 
 const NU_LOCALE = "ar-u-nu-arab";
 

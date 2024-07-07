@@ -13,6 +13,7 @@ const options = {
   entryPoints: ["../src/index.ts"],
   tsconfig: "../tsconfig-docs.json",
   categorizeByGroup: true,
+  excludeExternals: true,
   groupOrder: [
     "DayPicker",
     "Props",

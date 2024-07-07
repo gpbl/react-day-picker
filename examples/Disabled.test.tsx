@@ -1,13 +1,12 @@
 import React from "react";
 
-import { app, grid, gridcell } from "@/test/elements";
-import { act, render, screen } from "@/test/render";
+import { app, grid } from "@/test/elements";
+import { render, screen } from "@/test/render";
 import { user } from "@/test/user";
 
 import { Disabled } from "./Disabled";
 
 const today = new Date(2022, 5, 10);
-const firstOfMonth = new Date(2022, 5, 1);
 
 beforeAll(() => jest.setSystemTime(today));
 afterAll(() => jest.useRealTimers());
@@ -18,7 +17,7 @@ beforeEach(() => {
       <Disabled />
     </div>
   );
-  return act(() => gridcell(firstOfMonth).focus());
+  // return act(() => dateButton(firstOfMonth).focus());
 });
 
 test("should not display the previous button", () => {

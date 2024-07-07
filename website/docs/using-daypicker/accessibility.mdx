@@ -11,7 +11,7 @@ Depending on your design, you may need to add new accessibility features. For in
 ## Accessibility Tips
 
 - Regularly test your date picker with a screen reader to ensure it's accessible to all users.
-- Use an `aria-live` region in your user interface to audibly announce when a date is selected.
+- Use an `aria-live` region in your user interface to audibly announce when a date is selected. For this purpose, you can use the `footer` prop.
 - Specify the ARIA role of the date picker with the `role` prop to provide context to assistive technologies.
 - Customize the ARIA labels with the [`labels`](../api/interfaces/PropsBase.md#labels) prop to improve the clarity of instructions and feedback provided to the user.
 - Ensure that the date picker is fully navigable using only the keyboard. This includes selection, navigation between months, and closing the date picker.
@@ -22,7 +22,7 @@ Depending on your design, you may need to add new accessibility features. For in
 
 ### Example
 
-An accessible date picker with a live region that announces the selected date.
+An accessible date picker with a live region that announces the selected date using the `footer` prop.
 
 ```tsx title="./AccessibleDatePicker.tsx"
 import React, { useState } from "react";

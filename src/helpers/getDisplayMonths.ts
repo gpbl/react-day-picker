@@ -1,13 +1,16 @@
-import type { PropsContextValue } from "../contexts/index.js";
+import type { DateLib, DayPickerProps } from "../types/index.js";
 
 export function getDisplayMonths(
   firstDisplayedMonth: Date,
-  props: Pick<PropsContextValue, "numberOfMonths" | "endMonth" | "dateLib">
+  calendarEndMonth: Date | undefined,
+  props: Pick<DayPickerProps, "numberOfMonths">,
+  dateLib: DateLib
 ) {
+  const { numberOfMonths = 1 } = props;
   const months: Date[] = [];
-  for (let i = 0; i < props.numberOfMonths; i++) {
-    const month = props.dateLib.addMonths(firstDisplayedMonth, i);
-    if (props.endMonth && month > props.endMonth) {
+  for (let i = 0; i < numberOfMonths; i++) {
+    const month = dateLib.addMonths(firstDisplayedMonth, i);
+    if (calendarEndMonth && month > calendarEndMonth) {
       break;
     }
     months.push(month);

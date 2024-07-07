@@ -8,8 +8,7 @@ Binding a DayPicker with an input field requires to handle of user interactions,
 
 :::info Native Date Pickers
 
-Browsers implement [native date pickers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date) that provides a simple, built-in method for users to select a date.
-However, the appearance and format of the date picker can vary between different browsers and may not offer the level of customization you require.
+Browsers offer [native date pickers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date) for easy date selection. However, their look and functionality differ across browsers and might not meet your customization needs. Use DayPicker for a tailored date picker that aligns with your app's design and accessibility standards.
 
 :::
 
@@ -186,7 +185,8 @@ export function Dialog() {
         value={inputValue}
         placeholder={"MM/dd/yyyy"}
         onChange={handleInputChange}
-      /> <button
+      />{" "}
+      <button
         style={{ fontSize: "inherit" }}
         onClick={toggleDialog}
         aria-controls="dialog"

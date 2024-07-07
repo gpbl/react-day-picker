@@ -1,17 +1,26 @@
 import React from "react";
 
-import { useProps } from "../contexts/index.js";
-import { DateRange, Modifiers, PropsRange } from "../types/index.js";
+import {
+  DateLib,
+  DateRange,
+  DayPickerProps,
+  Modifiers,
+  PropsRange,
+  PropsRangeRequired
+} from "../types/index.js";
 import { addToRange, dateMatchModifiers } from "../utils/index.js";
 import { isDateInRange } from "../utils/isDateInRange.js";
 
-export type RangeContextValue<T> = {
-  setSelected: (
+export type UseRange<T> = {
+  handleSelect: (
     triggerDate: Date,
     modifiers: Modifiers,
     e: React.MouseEvent | React.KeyboardEvent
   ) => DateRange | undefined;
   isSelected: (date: Date) => boolean;
+  isRangeStart: (date: Date) => boolean;
+  isRangeEnd: (date: Date) => boolean;
+  isRangeMiddle: (date: Date) => boolean;
 } & (T extends { required: true }
   ? {
       selected: DateRange;
@@ -20,25 +29,20 @@ export type RangeContextValue<T> = {
       selected: DateRange | undefined;
     });
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const RangeContext = React.createContext<RangeContextValue<any> | undefined>(
-  undefined
-);
+export function useRange<T extends DayPickerProps>(
+  props: T extends { mode: "range" } ? PropsRange | PropsRangeRequired : object,
+  dateLib: DateLib
+): UseRange<T> {
+  const { mode, disabled, selected, required, onSelect } = props as PropsRange;
 
-function useRangeContextValue<T extends PropsRange>({
-  required,
-  min,
-  max,
-  selected,
-  onSelect
-}: T): RangeContextValue<T> {
-  const { dateLib, mode, disabled } = useProps();
   const { differenceInCalendarDays } = dateLib;
-  const [range, setRange] = React.useState<DateRange | undefined>(selected);
+  const [range, setRange] = React.useState<DateRange | undefined>(
+    mode === "range" ? selected : undefined
+  );
 
   // Update the selected date if the required flag is set.
   React.useEffect(() => {
-    if (mode !== "multiple") return;
+    if (mode !== "range") return;
     if (required && range === undefined) {
       setRange({ from: undefined, to: undefined });
     }
@@ -47,8 +51,9 @@ function useRangeContextValue<T extends PropsRange>({
   // Update the selected date if the selected changes.
   React.useEffect(() => {
     if (mode !== "range") return;
+    if (range === selected) return;
     setRange(selected);
-  }, [mode, selected]);
+  }, [mode, range, selected]);
 
   const isSelected = required
     ? (date: Date) => isDateInRange(date, range as DateRange, dateLib)
@@ -59,9 +64,11 @@ function useRangeContextValue<T extends PropsRange>({
     modifiers: Modifiers,
     e: React.MouseEvent | React.KeyboardEvent
   ) => {
+    if (mode !== "range") return;
     const newRange = triggerDate
       ? addToRange(triggerDate, range, dateLib)
       : undefined;
+    const { min, max } = props as PropsRange;
 
     if (min) {
       if (
@@ -103,35 +110,24 @@ function useRangeContextValue<T extends PropsRange>({
     return newRange;
   };
 
+  const isRangeStart = (date: Date) => {
+    return range && range.from && dateLib.isSameDay(date, range.from);
+  };
+
+  const isRangeEnd = (date: Date) => {
+    return range && range.to && dateLib.isSameDay(date, range.to);
+  };
+
+  const isRangeMiddle = (date: Date) => {
+    return isSelected(date) && !isRangeStart(date) && !isRangeEnd(date);
+  };
+
   return {
     selected: range,
-    setSelected,
-    isSelected
-  } as RangeContextValue<T>;
-}
-
-/** @private */
-export function RangeProvider(props: React.PropsWithChildren<PropsRange>) {
-  const value = useRangeContextValue(props);
-  return (
-    <RangeContext.Provider value={value}>
-      {props.children}
-    </RangeContext.Provider>
-  );
-}
-
-/**
- * Access to the range context to get the selected range or update it.
- *
- * Use this hook from the custom components passed via the `components` prop.
- *
- * @group Hooks
- * @see https://daypicker.dev/advanced-guides/custom-components
- */
-export function useRange<T extends { required: boolean }>() {
-  const context = React.useContext(RangeContext);
-  if (!context) {
-    throw new Error("useRange() must be used within a RangeContextProvider.");
-  }
-  return context as RangeContextValue<T>;
+    handleSelect: setSelected,
+    isSelected,
+    isRangeStart,
+    isRangeEnd,
+    isRangeMiddle
+  } as UseRange<T>;
 }
