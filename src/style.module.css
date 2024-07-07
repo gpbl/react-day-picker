@@ -209,7 +209,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--rdp-months-gap);
-  justify-content: center;
   max-width: fit-content;
 }
 
