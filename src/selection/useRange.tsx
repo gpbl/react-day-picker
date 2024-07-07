@@ -111,7 +111,9 @@ export function useRange<T extends DayPickerProps>(
   };
 
   const isRangeStart = (date: Date) => {
-    return range && range.from && dateLib.isSameDay(date, range.from);
+    return (
+      range && range.from && range.to && dateLib.isSameDay(date, range.from)
+    );
   };
 
   const isRangeEnd = (date: Date) => {
@@ -119,7 +121,14 @@ export function useRange<T extends DayPickerProps>(
   };
 
   const isRangeMiddle = (date: Date) => {
-    return isSelected(date) && !isRangeStart(date) && !isRangeEnd(date);
+    return (
+      range &&
+      range.from &&
+      range.to &&
+      isSelected(date) &&
+      !isRangeStart(date) &&
+      !isRangeEnd(date)
+    );
   };
 
   return {
