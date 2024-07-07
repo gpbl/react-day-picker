@@ -49,7 +49,7 @@ import { DayPicker } from "react-day-picker";
 
 export function App() {
   const initiallySelectedDate = new Date();
-  const [selectedDate, setSelectedDate] = useState<Date>(initiallySelectedDate);
+  const [selectedDate, setSelectedDate] = useState(initiallySelectedDate);
   return (
     <DayPicker
       mode="single"
