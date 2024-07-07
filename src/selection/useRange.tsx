@@ -96,7 +96,7 @@ export function useRange<T extends DayPickerProps>(
       let newDate = newRange.from;
       while (dateLib.differenceInCalendarDays(newRange.to, newDate) > 0) {
         newDate = dateLib.addDays(newDate, 1);
-        if (disabled && dateMatchModifiers(newDate, disabled)) {
+        if (disabled && dateMatchModifiers(newDate, disabled, dateLib)) {
           newRange.from = triggerDate;
           newRange.to = undefined;
           break;

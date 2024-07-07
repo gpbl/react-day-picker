@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 
-import { format } from "date-fns";
-
 import { DayFlag } from "./UI.js";
 import type { CalendarDay } from "./classes/index.js";
 import { getNextFocus } from "./helpers/getNextFocus.js";
@@ -76,9 +74,9 @@ export function useFocus(
 
   useEffect(() => {
     if (focusedDay) {
-      getDayCell(focusedDay, (props.numberOfMonths ?? 1) > 1)?.focus();
+      getDayCell(focusedDay, (props.numberOfMonths ?? 1) > 1, dateLib)?.focus();
     }
-  }, [focusedDay, props.numberOfMonths]);
+  }, [dateLib, focusedDay, props.numberOfMonths]);
 
   const blur = () => {
     setLastFocused(focusedDay);
@@ -163,9 +161,13 @@ export function useFocus(
  *
  * @private
  */
-function getDayCell(focused: CalendarDay, multipleMonths: boolean) {
-  const dataDay = format(focused.date, "yyyy-MM-dd");
-  const dataMonth = format(focused.displayMonth, "yyyy-MM");
+function getDayCell(
+  focused: CalendarDay,
+  multipleMonths: boolean,
+  dateLib: DateLib
+) {
+  const dataDay = dateLib.format(focused.date, "yyyy-MM-dd");
+  const dataMonth = dateLib.format(focused.displayMonth, "yyyy-MM");
   let selector = `[data-day="${dataDay}"]`;
   if (multipleMonths) {
     selector += `[data-month="${dataMonth}"]`;
