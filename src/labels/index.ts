@@ -1,3 +1,4 @@
+export * from "./labelGrid.js";
 export * from "./labelGridcell.js";
 export * from "./labelDayButton.js";
 export * from "./labelNav.js";

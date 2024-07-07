@@ -1,12 +1,10 @@
-import { ByRoleOptions, act, fireEvent, screen } from "@testing-library/react";
+import { ByRoleOptions, screen } from "@testing-library/react";
 import {
   DayFlag,
   SelectionState,
   labelDayButton,
   labelGridcell
 } from "react-day-picker";
-
-import { user } from "./user";
 
 /** Return the application element from the screen. */
 export function app() {

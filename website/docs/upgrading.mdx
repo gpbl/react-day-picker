@@ -81,9 +81,8 @@ In case you are using DayPicker hooks in your custom components, you need to upd
 
 | Hook              | Upgrade Note                                                                                                            |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| ~`useDayPicker`~  | Renamed to [`useProps`](./api/functions/useProps.md).                                                                   |
-| ~`useNavigation`~ | Renamed to [`useCalendar`](./api/functions/useCalendar.md).                                                             |
-| ~`useDayPicker`~  | Removed in favor of the `Day` custom component. See [custom components guide](./advanced-guides/custom-components.mdx). |
+| ~`useNavigation`~ | Included into [`useDayPicker`](./api/functions/useDayPicker.md).                                                        |
+| ~`useDayRender`~  | Removed in favor of the `Day` custom component. See [custom components guide](./advanced-guides/custom-components.mdx). |
 
 ### 7. TypeScript: check for deprecated types
 
@@ -111,8 +110,7 @@ See also the source of [types-deprecated.ts](https://github.com/gpbl/react-day-p
 | ~`SelectMultipleEventHandler`~ | This type will be removed. Use [`PropsMulti["onSelect]`](./api/interfaces/PropsMulti.md) instead.                           |
 | ~`SelectRangeEventHandler`~    | This type will be removed. Use [`PropsRange["onSelect]`](./api/interfaces/PropsRange.md) instead.                           |
 | ~`DayPickerProviderProps`~     | This type is not used anymore.                                                                                              |
-| ~`useDayPicker`~               | This type has been renamed to [`useProps`](./api/functions/useProps.md).                                                    |
-| ~`useNavigation`~              | This type has been renamed to [`useCalendar`](./api/functions/useCalendar.md).                                              |
+| ~`useNavigation`~              | This type has been included in [`useDayPicker`](./api/functions/useDayPicker.md).                                           |
 | ~`useDayRender`~               | This hook has been removed. To customize the rendering of a day, use the `htmlAttributes` prop in a custom `Day` component. |
 | ~`ContextProvidersProps`~      | This type is not used anymore.                                                                                              |
 | ~`DayLabel`~                   | Use `typeof labelDay` instead.                                                                                              |

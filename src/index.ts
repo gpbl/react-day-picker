@@ -4,8 +4,6 @@ export * from "./types/index.js";
 export * from "./classes/index.js";
 export * from "./components/custom-components.js";
 
-export * from "./selection/index.js";
-
 export * from "./lib/index.js";
 
 export * from "./formatters/index.js";

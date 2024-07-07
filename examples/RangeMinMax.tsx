@@ -6,16 +6,12 @@ import { DateRange, DayPicker } from "react-day-picker";
 export function RangeMinMax() {
   const [range, setRange] = useState<DateRange | undefined>();
 
-  let footer = <p>Please pick the first day.</p>;
+  let footer = `Please pick the first day.`;
   if (range?.from) {
     if (!range.to) {
-      footer = <p>{format(range.from, "PPP")}</p>;
+      footer = format(range.from, "PPP");
     } else if (range.to) {
-      footer = (
-        <p>
-          {format(range.from, "PPP")}–{format(range.to, "PPP")}
-        </p>
-      );
+      footer = `${format(range.from, "PPP")}–${format(range.to, "PPP")}`;
     }
   }
 

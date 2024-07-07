@@ -8,9 +8,6 @@ import type {
 
 import { UI, RootFlag, DayFlag, SelectionState } from "./UI.js";
 import type { CalendarDay } from "./classes/CalendarDay.js";
-import { useCalendar } from "./contexts/useCalendar.js";
-import { useFocus } from "./contexts/useFocus.js";
-import { useModifiers } from "./contexts/useModifiers.js";
 import { getClassNamesForModifiers } from "./helpers/getClassNamesForModifiers.js";
 import { getComponents } from "./helpers/getComponents.js";
 import { getDataAttributes } from "./helpers/getDataAttributes.js";
@@ -24,9 +21,12 @@ import { getWeekdays } from "./helpers/getWeekdays.js";
 import * as defaultLabels from "./labels/index.js";
 import { FormatOptions, LabelOptions } from "./lib/dateLib.js";
 import { UseRange } from "./selection/useRange.js";
-import { useSelection } from "./selection/useSelection.js";
+import { useSelection } from "./useSelection.js";
 import type { DayPickerProps, Modifiers } from "./types/index.js";
+import { useCalendar } from "./useCalendar.js";
 import { dayPickerContext } from "./useDayPicker.js";
+import { useFocus } from "./useFocus.js";
+import { useModifiers } from "./useModifiers.js";
 
 /**
  * Render the date picker calendar.
@@ -91,7 +91,7 @@ export function DayPicker(props: DayPickerProps) {
 
   const {
     labelDayButton,
-    labelGridcell: labelDayContent,
+    labelGridcell,
     labelGrid,
     labelMonthDropdown,
     labelNav,
@@ -247,7 +247,7 @@ export function DayPicker(props: DayPickerProps) {
               role="toolbar"
               className={classNames[UI.Nav]}
               style={styles?.[UI.Nav]}
-              aria-label={labelNav(calendar)}
+              aria-label={labelNav()}
             >
               <components.Button
                 type="button"
@@ -341,7 +341,7 @@ export function DayPicker(props: DayPickerProps) {
                   displayIndex={displayIndex}
                 >
                   {captionLayout?.startsWith("dropdown") ? (
-                    <div
+                    <components.DropdownNav
                       className={classNames[UI.DropdownNav]}
                       style={styles?.[UI.DropdownNav]}
                     >
@@ -379,7 +379,7 @@ export function DayPicker(props: DayPickerProps) {
                           {formatYearDropdown(calendarMonth.date.getFullYear())}
                         </span>
                       )}
-                    </div>
+                    </components.DropdownNav>
                   ) : (
                     <components.CaptionLabel
                       className={classNames[UI.CaptionLabel]}
@@ -404,40 +404,38 @@ export function DayPicker(props: DayPickerProps) {
                   className={classNames[UI.MonthGrid]}
                   style={styles?.[UI.MonthGrid]}
                 >
-                  <thead>
-                    <components.Weekdays
-                      className={classNames[UI.Weekdays]}
-                      hidden={props.hideWeekdayRow}
-                      role="row"
-                      style={styles?.[UI.Weekdays]}
-                    >
-                      {showWeekNumber && (
-                        <components.WeekNumberHeader
-                          aria-label={labelWeekNumberHeader(labelOptions)}
-                          className={classNames[UI.WeekNumberHeader]}
-                          role="columnheader"
-                          style={styles?.[UI.WeekNumberHeader]}
-                        >
-                          {!props.hideWeekdayRow && formatWeekNumberHeader()}
-                        </components.WeekNumberHeader>
-                      )}
-                      {weekdays.map((weekday, i) => (
-                        <components.Weekday
-                          aria-label={labelWeekday(
-                            weekday,
-                            labelOptions,
-                            dateLib
-                          )}
-                          className={classNames[UI.Weekday]}
-                          key={i}
-                          role="columnheader"
-                          style={styles?.[UI.Weekday]}
-                        >
-                          {formatWeekdayName(weekday, formatOptions, dateLib)}
-                        </components.Weekday>
-                      ))}
-                    </components.Weekdays>
-                  </thead>
+                  <components.Weekdays
+                    className={classNames[UI.Weekdays]}
+                    hidden={props.hideWeekdayRow}
+                    role="row"
+                    style={styles?.[UI.Weekdays]}
+                  >
+                    {showWeekNumber && (
+                      <components.WeekNumberHeader
+                        aria-label={labelWeekNumberHeader(labelOptions)}
+                        className={classNames[UI.WeekNumberHeader]}
+                        role="columnheader"
+                        style={styles?.[UI.WeekNumberHeader]}
+                      >
+                        {!props.hideWeekdayRow && formatWeekNumberHeader()}
+                      </components.WeekNumberHeader>
+                    )}
+                    {weekdays.map((weekday, i) => (
+                      <components.Weekday
+                        aria-label={labelWeekday(
+                          weekday,
+                          labelOptions,
+                          dateLib
+                        )}
+                        className={classNames[UI.Weekday]}
+                        key={i}
+                        role="columnheader"
+                        style={styles?.[UI.Weekday]}
+                      >
+                        {formatWeekdayName(weekday, formatOptions, dateLib)}
+                      </components.Weekday>
+                    ))}
+                  </components.Weekdays>
                   <components.Weeks
                     className={classNames[UI.Weeks]}
                     role="rowgroup"
@@ -527,7 +525,7 @@ export function DayPicker(props: DayPickerProps) {
                                   aria-selected={m.selected || undefined}
                                   aria-label={
                                     !isInteractive
-                                      ? labelDayContent(
+                                      ? labelGridcell(
                                           day.date,
                                           m,
                                           labelOptions,

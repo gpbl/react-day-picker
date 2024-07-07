@@ -4,7 +4,7 @@ import { dateLib as defaultDateLib } from "../lib/index.js";
 import type { Modifiers } from "../types/index.js";
 
 /**
- * Return an ARIA label for the day button.
+ * The label for the day gridcell when the calendar is not interactive.
  *
  * @group Labels
  */

@@ -3,10 +3,11 @@ import React from "react";
 import { DayPicker, type DayButtonProps } from "react-day-picker";
 
 function HighlightDay(props: DayButtonProps) {
+  const { day, modifiers, ...buttonProps } = props;
   return (
-    <span {...props} style={{ whiteSpace: "nowrap" }}>
+    <button {...buttonProps} style={{ whiteSpace: "nowrap" }}>
       {props.day.date.getDate() === 19 ? `🎉` : props.children}
-    </span>
+    </button>
   );
 }
 

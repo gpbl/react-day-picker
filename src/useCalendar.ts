@@ -2,20 +2,25 @@ import type {
   CalendarWeek,
   CalendarDay,
   CalendarMonth
-} from "../classes/index.js";
-import { getDates } from "../helpers/getDates.js";
-import { getDays } from "../helpers/getDays.js";
-import { getDisplayMonths } from "../helpers/getDisplayMonths.js";
-import { getInitialMonth } from "../helpers/getInitialMonth.js";
-import { getMonths } from "../helpers/getMonths.js";
-import { getNavMonths } from "../helpers/getNavMonth.js";
-import { getNextMonth } from "../helpers/getNextMonth.js";
-import { getPreviousMonth } from "../helpers/getPreviousMonth.js";
-import { getWeeks } from "../helpers/getWeeks.js";
-import { useControlledValue } from "../helpers/useControlledValue.js";
-import type { DayPickerProps } from "../types/props.js";
-import type { DateLib } from "../types/shared.js";
+} from "./classes/index.js";
+import { getDates } from "./helpers/getDates.js";
+import { getDays } from "./helpers/getDays.js";
+import { getDisplayMonths } from "./helpers/getDisplayMonths.js";
+import { getInitialMonth } from "./helpers/getInitialMonth.js";
+import { getMonths } from "./helpers/getMonths.js";
+import { getNavMonths } from "./helpers/getNavMonth.js";
+import { getNextMonth } from "./helpers/getNextMonth.js";
+import { getPreviousMonth } from "./helpers/getPreviousMonth.js";
+import { getWeeks } from "./helpers/getWeeks.js";
+import { useControlledValue } from "./helpers/useControlledValue.js";
+import type { DayPickerProps } from "./types/props.js";
+import type { DateLib } from "./types/shared.js";
 
+/**
+ * The hook to get and handle the calendar state.
+ *
+ * @see https://daypicker.dev/next/advanced-guides/custom-components
+ */
 export interface UseCalendar {
   today: Date;
   /** All the unique dates displayed to the calendar. */
@@ -80,10 +85,7 @@ export interface UseCalendar {
   isDayDisplayed: (day: CalendarDay) => boolean;
 }
 
-/**
- * @group Hooks
- * @see https://daypicker.dev/next/advanced-guides/custom-components
- */
+/** @private */
 export function useCalendar(
   props: Pick<
     DayPickerProps,

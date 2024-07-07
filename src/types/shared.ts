@@ -17,6 +17,7 @@ import {
   labelDayButton,
   labelNav,
   labelGrid,
+  labelGridcell,
   labelMonthDropdown,
   labelNext,
   labelPrevious,
@@ -71,23 +72,27 @@ export type Formatters = {
 
 /** Map of functions to translate ARIA labels for the relative elements. */
 export type Labels = {
-  /** Return the label for the month dropdown. */
+  /** The label for the navigation toolbar. */
   labelNav: typeof labelNav;
-  /** Return the label for the month dropdown. */
+  /** The label for the month grid. */
   labelGrid: typeof labelGrid;
-  /** Return the label for the month dropdown. */
+  /** The label for the gridcell, when the calendar is not interactive. */
+  labelGridcell: typeof labelGridcell;
+  /** The label for the month dropdown. */
   labelMonthDropdown: typeof labelMonthDropdown;
-  /** Return the label for the year dropdown. */
+  /** The label for the year dropdown. */
   labelYearDropdown: typeof labelYearDropdown;
-  /** Return the label for the next month button. */
+  /** The label for the "next month" button. */
   labelNext: typeof labelNext;
-  /** Return the label for the previous month button. */
+  /** The label for the "previous month" button. */
   labelPrevious: typeof labelPrevious;
-  /** Return the label for the day cell. */
+  /** The label for the day button.. */
+  labelDayButton: typeof labelDayButton;
+  /** @deprecated Use {@link labelDayButton} instead. */
   labelDay: typeof labelDayButton;
-  /** Return the label for the weekday. */
+  /** The label for the weekday. */
   labelWeekday: typeof labelWeekday;
-  /** Return the label for the week number. */
+  /** The label for the week number. */
   labelWeekNumber: typeof labelWeekNumber;
   /**
    * Return the label for the column of the week number.

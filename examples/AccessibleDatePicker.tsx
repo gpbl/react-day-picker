@@ -11,7 +11,7 @@ export function AccessibleDatePicker() {
       onSelect={setMeetingDate}
       selected={meetingDate}
       labels={{
-        labelDay: (date, modifiers) => {
+        labelDayButton: (date, modifiers) => {
           return modifiers.selected
             ? `Selected Meeting Date: ${format(date, "PPP")}`
             : "";

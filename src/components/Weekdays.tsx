@@ -9,7 +9,11 @@ import React from "react";
  * @see https://daypicker.dev/next/advanced-guides/custom-components
  */
 export function Weekdays(props: JSX.IntrinsicElements["tr"]) {
-  return <tr {...props} />;
+  return (
+    <thead>
+      <tr {...props} />
+    </thead>
+  );
 }
 
 export type WeekdaysProps = Parameters<typeof Weekdays>[0];

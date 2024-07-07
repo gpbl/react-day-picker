@@ -2,19 +2,23 @@ import { useEffect, useState } from "react";
 
 import { format } from "date-fns";
 
-import { DayFlag } from "../UI.js";
-import type { CalendarDay } from "../classes/index.js";
-import { getNextFocus } from "../helpers/getNextFocus.js";
+import { DayFlag } from "./UI.js";
+import type { CalendarDay } from "./classes/index.js";
+import { getNextFocus } from "./helpers/getNextFocus.js";
 import type {
   MoveFocusBy,
   MoveFocusDir,
   DateLib,
   DayPickerProps
-} from "../types/index.js";
-
+} from "./types/index.js";
 import { UseCalendar } from "./useCalendar.js";
 import { UseModifiers } from "./useModifiers.js";
 
+/**
+ * The hook to get and handle the focus state.
+ *
+ * @see https://daypicker.dev/next/advanced-guides/custom-components
+ */
 export type UseFocus = {
   /** The date that is currently focused. */
   focused: CalendarDay | undefined;
@@ -53,6 +57,7 @@ export type UseFocus = {
   focusEndOfWeek: () => void;
 };
 
+/** @private */
 export function useFocus(
   props: Pick<
     DayPickerProps,
@@ -160,6 +165,8 @@ export function useFocus(
 /**
  * Get the day cell element for the given day from the data-day and data-month
  * attribute.
+ *
+ * @private
  */
 function getDayCell(focused: CalendarDay, multipleMonths: boolean) {
   const dataDay = format(focused.date, "yyyy-MM-dd");

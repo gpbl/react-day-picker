@@ -1,14 +1,17 @@
 import { createContext, useContext } from "react";
 
-import type { UseCalendar } from "./contexts/useCalendar.js";
-import type { UseModifiers } from "./contexts/useModifiers.js";
-import type { useSelection } from "./selection/useSelection.js";
-import { DayPickerProps } from "./types/props.js";
+import type { DayPickerProps } from "./types/props.js";
+import type { UseCalendar } from "./useCalendar.js";
+import type { UseModifiers } from "./useModifiers.js";
+import type { UseSelection } from "./useSelection.js";
 
-// Define the shape of the context data
+/**
+ * Represents the context provided by `<DayPicker />` to use within custom
+ * components.
+ */
 export type DayPickerContext<T extends DayPickerProps> = UseCalendar &
   UseModifiers &
-  ReturnType<typeof useSelection<T>>;
+  UseSelection<T>;
 
 // Create a context with a default value
 export const dayPickerContext = createContext<
@@ -18,7 +21,7 @@ export const dayPickerContext = createContext<
 /**
  * Return API to work with `<DayPicker />` inside custom components.
  *
- * @see https://daypicker.dev/next/advanced-guides/custom-components
+ * @group Hooks
  */
 export function useDayPicker<T extends DayPickerProps>(
   props?: T

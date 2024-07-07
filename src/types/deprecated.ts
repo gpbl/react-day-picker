@@ -146,7 +146,7 @@ export type useDayRender = any;
 export type ContextProvidersProps = any;
 
 /**
- * @deprecated Use `typeof labelDay` instead.
+ * @deprecated Use `typeof labelDayButton` instead.
  * @protected
  */
 export type DayLabel = typeof labelDayButton;

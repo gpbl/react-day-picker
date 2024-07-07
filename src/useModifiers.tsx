@@ -1,5 +1,5 @@
-import { DayFlag, SelectionState } from "../UI.js";
-import { CalendarDay } from "../classes/index.js";
+import { DayFlag, SelectionState } from "./UI.js";
+import { CalendarDay } from "./classes/index.js";
 import type {
   CustomModifiers,
   DateLib,
@@ -7,11 +7,11 @@ import type {
   DayPickerProps,
   Modifiers,
   SelectionStates
-} from "../types/index.js";
-import { dateMatchModifiers } from "../utils/dateMatchModifiers.js";
-
+} from "./types/index.js";
 import type { UseCalendar } from "./useCalendar.js";
+import { dateMatchModifiers } from "./utils/dateMatchModifiers.js";
 
+/** The hook to get the modifiers state for a single day */
 export type UseModifiers = {
   /** List the days with custom modifiers passed via the `modifiers` prop. */
   customModifiers: Record<string, CalendarDay[]>;
@@ -23,6 +23,7 @@ export type UseModifiers = {
   getModifiers: (day: CalendarDay) => Modifiers;
 };
 
+/** @private */
 export function useModifiers(
   props: Pick<
     DayPickerProps,

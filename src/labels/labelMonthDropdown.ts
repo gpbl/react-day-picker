@@ -1,7 +1,7 @@
 import type { LabelOptions } from "../lib/dateLib.js";
 
 /**
- * Return the default ARIA label for the WeekNumber element.
+ * Return the default ARIA label for the months dropdown element.
  *
  * @group Labels
  */

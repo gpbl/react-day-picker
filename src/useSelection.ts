@@ -1,4 +1,7 @@
-import { dateLib as defaultDateLib } from "../lib/dateLib.js";
+import { dateLib as defaultDateLib } from "./lib/dateLib.js";
+import { type UseMulti, useMulti } from "./selection/useMulti.js";
+import { type UseRange, useRange } from "./selection/useRange.js";
+import { type UseSingle, useSingle } from "./selection/useSingle.js";
 import type {
   DateLib,
   DayPickerProps,
@@ -9,26 +12,14 @@ import type {
   PropsRangeRequired,
   PropsSingle,
   PropsSingleRequired
-} from "../types/index.js";
+} from "./types/index.js";
 
-import { type UseMulti, useMulti } from "./useMulti.js";
-import { type UseRange, useRange } from "./useRange.js";
-import { type UseSingle, useSingle } from "./useSingle.js";
+export type { UseMulti, UseRange, UseSingle };
 
 export function useSelection<T extends DayPickerProps>(
   props: T,
   dateLib?: DateLib
-): T extends { mode: Mode }
-  ? {
-      single: UseSingle<T>;
-      multiple: UseMulti<T>;
-      range: UseRange<T>;
-    }[T["mode"]]
-  : {
-      handleSelect: () => undefined;
-      isSelected: () => false;
-      selected: undefined;
-    } {
+): UseSelection<T> {
   const lib = { ...defaultDateLib, ...dateLib };
   const single = useSingle<T>(props as PropsSingle | PropsSingleRequired, lib);
   const multi = useMulti<T>(props as PropsMulti | PropsMultiRequired, lib);
@@ -53,3 +44,15 @@ export function useSelection<T extends DayPickerProps>(
       };
   }
 }
+
+export type UseSelection<T> = T extends { mode: Mode }
+  ? {
+      single: UseSingle<T>;
+      multiple: UseMulti<T>;
+      range: UseRange<T>;
+    }[T["mode"]]
+  : {
+      handleSelect: () => undefined;
+      isSelected: () => false;
+      selected: undefined;
+    };

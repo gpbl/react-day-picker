@@ -4,6 +4,7 @@ export * from "./CaptionLabel.js";
 export * from "./Day.js";
 export * from "./DayButton.js";
 export * from "./Dropdown.js";
+export * from "./DropdownNav.js";
 export * from "./Footer.js";
 export * from "./Month.js";
 export * from "./MonthCaption.js";
