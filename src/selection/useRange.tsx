@@ -55,9 +55,8 @@ export function useRange<T extends DayPickerProps>(
     setRange(selected);
   }, [mode, range, selected]);
 
-  const isSelected = required
-    ? (date: Date) => isDateInRange(date, range as DateRange, dateLib)
-    : (date: Date) => range && isDateInRange(date, range, dateLib);
+  const isSelected = (date: Date) =>
+    range && isDateInRange(date, range, dateLib);
 
   const setSelected = (
     triggerDate: Date,
@@ -96,7 +95,7 @@ export function useRange<T extends DayPickerProps>(
       let newDate = newRange.from;
       while (dateLib.differenceInCalendarDays(newRange.to, newDate) > 0) {
         newDate = dateLib.addDays(newDate, 1);
-        if (disabled && dateMatchModifiers(newDate, disabled)) {
+        if (disabled && dateMatchModifiers(newDate, disabled, dateLib)) {
           newRange.from = triggerDate;
           newRange.to = undefined;
           break;
@@ -111,7 +110,9 @@ export function useRange<T extends DayPickerProps>(
   };
 
   const isRangeStart = (date: Date) => {
-    return range && range.from && dateLib.isSameDay(date, range.from);
+    return (
+      range && range.from && range.to && dateLib.isSameDay(date, range.from)
+    );
   };
 
   const isRangeEnd = (date: Date) => {
@@ -119,7 +120,14 @@ export function useRange<T extends DayPickerProps>(
   };
 
   const isRangeMiddle = (date: Date) => {
-    return isSelected(date) && !isRangeStart(date) && !isRangeEnd(date);
+    return (
+      range &&
+      range.from &&
+      range.to &&
+      isSelected(date) &&
+      !isRangeStart(date) &&
+      !isRangeEnd(date)
+    );
   };
 
   return {

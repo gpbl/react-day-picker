@@ -15,7 +15,6 @@ import { endOfWeek } from "date-fns/endOfWeek";
 import { endOfYear } from "date-fns/endOfYear";
 import { format } from "date-fns/format";
 import { getISOWeek } from "date-fns/getISOWeek";
-import { getUnixTime } from "date-fns/getUnixTime";
 import { getWeek } from "date-fns/getWeek";
 import { isAfter } from "date-fns/isAfter";
 import { isBefore } from "date-fns/isBefore";
@@ -65,7 +64,6 @@ export const dateLib = {
   endOfYear,
   format,
   getISOWeek,
-  getUnixTime,
   getWeek,
   isAfter,
   isBefore,
