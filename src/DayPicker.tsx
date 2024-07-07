@@ -53,15 +53,11 @@ export function DayPicker(props: DayPickerProps) {
   const selection = useSelection(props, dateLib);
   const focus = useFocus(props, calendar, modifiers, dateLib);
 
-  const weekdays = React.useMemo(
-    () => getWeekdays(props.locale, props.weekStartsOn, props.ISOWeek, dateLib),
-    [dateLib, props.ISOWeek, props.locale, props.weekStartsOn]
-  );
-
   const {
     captionLayout,
     dir,
     locale,
+    ISOWeek,
     mode,
     modifiersClassNames,
     modifiersStyles,
@@ -103,8 +99,9 @@ export function DayPicker(props: DayPickerProps) {
     labelYearDropdown
   } = labels;
 
-  const isInteractive = mode !== undefined || onDayClick !== undefined;
+  const weekdays = getWeekdays(locale, weekStartsOn, ISOWeek, dateLib);
 
+  const isInteractive = mode !== undefined || onDayClick !== undefined;
 
   const handlePreviousClick = () => {
     if (!calendar.previousMonth) return;
@@ -196,10 +193,6 @@ export function DayPicker(props: DayPickerProps) {
     };
   };
 
-  const contextValue = React.useMemo(() => {
-    return { ...calendar, ...selection, ...modifiers };
-  }, [calendar, modifiers, selection]);
-
   const formatOptions: FormatOptions = {
     locale,
     weekStartsOn,
@@ -208,16 +201,12 @@ export function DayPicker(props: DayPickerProps) {
     useAdditionalDayOfYearTokens
   };
 
-  const labelOptions: LabelOptions = {
-    locale,
-    weekStartsOn,
-    firstWeekContainsDate,
-    useAdditionalWeekYearTokens,
-    useAdditionalDayOfYearTokens
-  };
+  const labelOptions: LabelOptions = formatOptions;
 
   return (
-    <dayPickerContext.Provider value={contextValue}>
+    <dayPickerContext.Provider
+      value={{ ...calendar, ...selection, ...modifiers }}
+    >
       <div
         className={classNames[UI.Root]}
         style={{ ...styles?.[UI.Root], ...props.style }}
