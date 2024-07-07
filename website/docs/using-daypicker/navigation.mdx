@@ -45,7 +45,7 @@ export function Controlled() {
   const today = new Date();
   const nextMonth = addMonths(today, 1);
 
-  const [month, setMonth] = useState<Date>(nextMonth);
+  const [month, setMonth] = useState(nextMonth);
 
   return (
     <>
