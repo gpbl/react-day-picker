@@ -7,7 +7,6 @@ test("should return the default classnames", () => {
     root: "rdp-root",
     caption_label: "rdp-caption_label",
     chevron: "rdp-chevron",
-    chevron_disabled: "rdp-chevron_disabled",
     day: "rdp-day",
     day_button: "rdp-day_button",
     disabled: "rdp-disabled",

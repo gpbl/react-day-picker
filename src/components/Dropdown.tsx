@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ChevronFlag, UI } from "../UI.js";
+import { UI } from "../UI.js";
 import type { ClassNames, CustomComponents } from "../types/index.js";
 
 /** An option to use in the dropdown. Maps to the `<option>` HTML element. */
@@ -32,11 +32,7 @@ export function Dropdown(
     >;
     classNames: Pick<
       ClassNames,
-      | UI.DropdownRoot
-      | UI.Dropdown
-      | UI.CaptionLabel
-      | UI.Chevron
-      | ChevronFlag.disabled
+      UI.DropdownRoot | UI.Dropdown | UI.CaptionLabel | UI.Chevron
     >;
     options?: DropdownOption[] | undefined;
   } & Omit<JSX.IntrinsicElements["select"], "children">
@@ -63,7 +59,7 @@ export function Dropdown(
         <components.Chevron
           orientation="down"
           size={18}
-          classNames={classNames}
+          className={classNames[UI.Chevron]}
         />
       </span>
     </span>

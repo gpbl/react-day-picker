@@ -43,8 +43,6 @@ it("should apply classnames and style according to props", () => {
   );
 
   expect(dayPicker()).toHaveClass("rdp-root");
-  expect(dayPicker()).toHaveClass("rdp-has_multiple_months");
-  expect(dayPicker()).toHaveClass("rdp-has_week_numbers");
   expect(dayPicker()).toHaveClass("custom-class");
   expect(dayPicker()).toHaveStyle({ color: "red" });
 });

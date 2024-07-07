@@ -9,8 +9,6 @@
   --rdp-day-height: 2.75rem; /* The height of the day cells. */
   --rdp-day-width: 2.75rem; /* The width of the day cells. */
   
-  --rdp-chevron-disabled-opacity: 0.5; /* The opacity of the chevron when its container is disabled. */
-  
   --rdp-day_button-border-radius: 100%; /* The border radius of the day cells. */
   --rdp-day_button-border: 2px solid transparent; /* The border of the day cells. */
   --rdp-day_button-height: var(--rdp-day-width); /* The height of the day cells. */
@@ -52,7 +50,7 @@
   
   --rdp-weekday-font: 500 smaller var(--rdp-font-family); /* The font of the weekday. */
   --rdp-weekday-opacity: 0.75; /* The opacity of the weekday. */
-  --rdp-weekday-padding: 0.25rem 0.75rem; /* THe padding of the weekday. */
+  --rdp-weekday-padding: 0.5rem 0.75rem; /* THe padding of the weekday. */
   --rdp-weekday-text-align: center; /* The text alignment of the weekday cells. */
 
   --rdp-gradient-direction: 90deg;
@@ -141,10 +139,6 @@
   fill: var(--rdp-accent-color);
 }
 
-.chevron_disabled {
-  opacity: var(--rdp-chevron-disabled-opacity);
-}
-
 .root[dir="rtl"] .nav .chevron {
   transform: rotate(180deg);
 }
@@ -228,7 +222,7 @@
   grid-template-columns: repeat(7, 1fr);
 }
 
-.has_week_numbers .week {
+.root[data-week-numbers="true"] .week {
   grid-template-columns: repeat(8, 1fr);
 }
 
@@ -245,7 +239,7 @@
   grid-template-columns: repeat(7, 1fr);
 }
 
-.has_week_numbers .weekdays {
+.root[data-week-numbers="true"] .weekdays {
   grid-template-columns: repeat(8, 1fr);
 }
 

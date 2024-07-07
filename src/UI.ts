@@ -92,21 +92,3 @@ export enum SelectionState {
   /** The day is selected. */
   selected = "selected"
 }
-
-/** Flags that can be applied to the {@link UI.Root} element. */
-export enum RootFlag {
-  /** Assigned when the week numbers are show. */
-  has_week_numbers = "has_week_numbers",
-  /** Assigned when the weekdays are hidden. */
-  no_weekdays = "no_weekdays",
-  /** Assigned when the calendar has multiple months. */
-  has_multiple_months = "has_multiple_months",
-  /** Whether the calendar is interactive. */
-  is_interactive = "is_interactive"
-}
-
-/** Flags that can be applied to the {@link UI.Chevron} element. */
-export enum ChevronFlag {
-  /** Assigned when the week numbers are show. */
-  disabled = "chevron_disabled"
-}

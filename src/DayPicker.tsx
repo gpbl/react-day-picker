@@ -6,7 +6,7 @@ import type {
   KeyboardEvent
 } from "react";
 
-import { UI, RootFlag, DayFlag, SelectionState } from "./UI.js";
+import { UI, DayFlag, SelectionState } from "./UI.js";
 import type { CalendarDay } from "./classes/CalendarDay.js";
 import { getClassNamesForModifiers } from "./helpers/getClassNamesForModifiers.js";
 import { getComponents } from "./helpers/getComponents.js";
@@ -105,16 +105,6 @@ export function DayPicker(props: DayPickerProps) {
 
   const isInteractive = mode !== undefined || onDayClick !== undefined;
 
-  const classList = [
-    props.className,
-    classNames[UI.Root],
-    numberOfMonths > 1 && classNames[RootFlag.has_multiple_months],
-    showWeekNumber && classNames[RootFlag.has_week_numbers],
-    props.hideWeekdayRow && classNames[RootFlag.no_weekdays],
-    isInteractive && classNames[RootFlag.is_interactive]
-  ]
-    .filter(Boolean)
-    .join(" ");
 
   const handlePreviousClick = () => {
     if (!calendar.previousMonth) return;
@@ -229,13 +219,16 @@ export function DayPicker(props: DayPickerProps) {
   return (
     <dayPickerContext.Provider value={contextValue}>
       <div
-        className={classList}
+        className={classNames[UI.Root]}
         style={{ ...styles?.[UI.Root], ...props.style }}
         dir={props.dir}
         id={props.id}
         lang={props.lang}
         nonce={props.nonce}
         title={props.title}
+        data-interactive={isInteractive || undefined}
+        data-multiple-months={numberOfMonths > 1 || undefined}
+        data-week-numbers={showWeekNumber || undefined}
         {...getDataAttributes(props)}
       >
         <components.Months
@@ -262,7 +255,7 @@ export function DayPicker(props: DayPickerProps) {
               >
                 <components.Chevron
                   disabled={calendar.previousMonth ? undefined : true}
-                  classNames={classNames}
+                  className={classNames[UI.Chevron]}
                   orientation="left"
                 />
               </components.Button>
@@ -278,7 +271,7 @@ export function DayPicker(props: DayPickerProps) {
                 <components.Chevron
                   disabled={calendar.previousMonth ? undefined : true}
                   orientation="right"
-                  classNames={classNames}
+                  className={classNames[UI.Chevron]}
                 />
               </components.Button>
             </components.Nav>

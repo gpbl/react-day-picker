@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import type { CSSProperties } from "react";
 
-import { UI, DayFlag, RootFlag, ChevronFlag, SelectionState } from "../UI.js";
+import { UI, DayFlag, SelectionState } from "../UI.js";
 import * as components from "../components/custom-components.js";
 import {
   formatCaption,
@@ -211,14 +211,12 @@ export type MonthChangeEventHandler = (month: Date) => void;
 
 /** Maps user interface elements, selection states, and flags to a CSS style. */
 export type Styles = {
-  [key in UI | SelectionState | DayFlag | RootFlag | ChevronFlag]:
-    | CSSProperties
-    | undefined;
+  [key in UI | SelectionState | DayFlag]: CSSProperties | undefined;
 };
 
 /** Defines the class names for various UI components and states. */
 export type ClassNames = {
-  [key in UI | SelectionState | DayFlag | RootFlag | ChevronFlag]: string;
+  [key in UI | SelectionState | DayFlag]: string;
 };
 
 /** The flags that are matching a day in the calendar. */

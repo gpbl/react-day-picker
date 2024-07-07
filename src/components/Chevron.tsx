@@ -1,8 +1,5 @@
 import React from "react";
 
-import { ChevronFlag, UI } from "../UI.js";
-import type { ClassNames } from "../types/index.js";
-
 /**
  * Render the chevron icon used in the navigation buttons and dropdowns.
  *
@@ -12,27 +9,22 @@ import type { ClassNames } from "../types/index.js";
  * @see https://daypicker.dev/next/advanced-guides/custom-components
  */
 export function Chevron(props: {
-  classNames: Pick<ClassNames, UI.Chevron | ChevronFlag.disabled>;
+  className?: string;
+  /**
+   * The size of the chevron.
+   *
+   * @defaultValue 24
+   */
   size?: number;
+  /** Set to `true` to disable the chevron. */
   disabled?: boolean;
+  /** The orientation of the chevron. */
   orientation?: "up" | "down" | "left" | "right";
 }) {
-  const { size = 24, orientation = "left", classNames } = props;
+  const { size = 24, orientation = "left", className } = props;
 
-  const svgClassName = [
-    classNames[UI.Chevron],
-    props.disabled ? classNames[ChevronFlag.disabled] : ""
-  ]
-    .filter(Boolean)
-    .join(" ")
-    .trim();
   return (
-    <svg
-      className={svgClassName}
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-    >
+    <svg className={className} width={size} height={size} viewBox="0 0 24 24">
       {orientation === "up" && (
         <polygon points="6.77 17 12.5 11.43 18.24 17 20 15.28 12.5 8 5 15.28" />
       )}

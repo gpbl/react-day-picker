@@ -1,4 +1,4 @@
-import { UI, DayFlag, RootFlag, ChevronFlag, SelectionState } from "../UI.js";
+import { UI, DayFlag, SelectionState } from "../UI.js";
 import type { ClassNames } from "../types/index.js";
 
 /**
@@ -12,16 +12,6 @@ export function getDefaultClassNames(): Required<ClassNames> {
   for (const key in UI) {
     classNames[UI[key as keyof typeof UI]] =
       `rdp-${UI[key as keyof typeof UI]}`;
-  }
-
-  for (const key in RootFlag) {
-    classNames[RootFlag[key as keyof typeof RootFlag]] =
-      `rdp-${RootFlag[key as keyof typeof RootFlag]}`;
-  }
-
-  for (const key in ChevronFlag) {
-    classNames[ChevronFlag[key as keyof typeof ChevronFlag]] =
-      `rdp-${ChevronFlag[key as keyof typeof ChevronFlag]}`;
   }
 
   for (const key in DayFlag) {
