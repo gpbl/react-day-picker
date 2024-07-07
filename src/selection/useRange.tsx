@@ -55,9 +55,8 @@ export function useRange<T extends DayPickerProps>(
     setRange(selected);
   }, [mode, range, selected]);
 
-  const isSelected = required
-    ? (date: Date) => isDateInRange(date, range as DateRange, dateLib)
-    : (date: Date) => range && isDateInRange(date, range, dateLib);
+  const isSelected = (date: Date) =>
+    range && isDateInRange(date, range, dateLib);
 
   const setSelected = (
     triggerDate: Date,
