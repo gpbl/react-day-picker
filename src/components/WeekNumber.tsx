@@ -12,7 +12,7 @@ import type { CalendarWeek } from "../classes/index.js";
  */
 export function WeekNumber(
   props: {
-    /** The week to render */
+    /** The week to render. */
     week: CalendarWeek;
   } & JSX.IntrinsicElements["td"]
 ) {

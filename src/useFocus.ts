@@ -14,11 +14,6 @@ import type {
 import { UseCalendar } from "./useCalendar.js";
 import { UseModifiers } from "./useModifiers.js";
 
-/**
- * The hook to get and handle the focus state.
- *
- * @see https://daypicker.dev/next/advanced-guides/custom-components
- */
 export type UseFocus = {
   /** The date that is currently focused. */
   focused: CalendarDay | undefined;

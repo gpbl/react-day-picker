@@ -44,7 +44,12 @@ export type Locale = DateFnsLocale;
 
 export type { Month as DateFnsMonth } from "date-fns";
 
-/** The default date library to use with the date picker. */
+/**
+ * The default date library to use with the date picker.
+ *
+ * @private
+ * @internal
+ */
 export const dateLib = {
   /** The constructor of the date object. */
   Date: Date as GenericDateConstructor,

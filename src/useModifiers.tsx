@@ -11,7 +11,6 @@ import type {
 import type { UseCalendar } from "./useCalendar.js";
 import { dateMatchModifiers } from "./utils/dateMatchModifiers.js";
 
-/** The hook to get the modifiers state for a single day */
 export type UseModifiers = {
   /** List the days with custom modifiers passed via the `modifiers` prop. */
   customModifiers: Record<string, CalendarDay[]>;

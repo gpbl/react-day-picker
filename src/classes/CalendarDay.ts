@@ -53,7 +53,7 @@ export class CalendarDay {
   /** The date represented by this day. */
   readonly date: Date;
 
-  /** A unique identifier for the day */
+  /** A unique identifier for the day. */
   readonly uid: string;
 
   /**

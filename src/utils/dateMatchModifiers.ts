@@ -21,7 +21,8 @@ function isArrayOfDates(value: unknown): value is Date[] {
 }
 
 /**
- * Returns whether a day matches against at least one of the given Matchers.
+ * Returns whether a day matches against at least one of the given
+ * {@link Matcher}`.
  *
  * ```tsx
  * const day = new Date(2022, 5, 19);

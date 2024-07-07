@@ -66,7 +66,7 @@ export type Formatters = {
   formatDay: typeof formatDay;
   /** Format the week number. */
   formatWeekNumber: typeof formatWeekNumber;
-  /** Format the week day name in the header */
+  /** Format the week day name in the header. */
   formatWeekdayName: typeof formatWeekdayName;
 };
 

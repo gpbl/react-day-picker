@@ -10,7 +10,7 @@ import type { CustomComponents, ClassNames, Styles } from "./types/index.js";
 export enum UI {
   /** The previous button in the navigation. */
   ButtonPrevious = "button_previous",
-  /** The next button the navigation */
+  /** The next button the navigation. */
   ButtonNext = "button_next",
   /**
    * The root component displaying the months and the navigation bar. Extended
@@ -46,7 +46,7 @@ export enum UI {
   Month = "month",
   /** The container of the displayed months. */
   Months = "months",
-  /** The navigation bar with the previous and next buttons */
+  /** The navigation bar with the previous and next buttons. */
   Nav = "nav",
   /** The row containing the week. */
   Week = "week",
@@ -66,11 +66,11 @@ export enum UI {
 
 /** The flags for the {@link UI.Day}. */
 export enum DayFlag {
-  /** The day is disabled */
+  /** The day is disabled. */
   disabled = "disabled",
-  /** The day is hidden */
+  /** The day is hidden. */
   hidden = "hidden",
-  /** The day is outside the current month */
+  /** The day is outside the current month. */
   outside = "outside",
   /** The day is focused. */
   focused = "focused",
