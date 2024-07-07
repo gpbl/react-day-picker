@@ -1,14 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import type { MouseEvent, CSSProperties } from "react";
+import type { CSSProperties } from "react";
 
-import {
-  UI,
-  DayFlag,
-  CalendarFlag,
-  ChevronFlag,
-  WeekNumberFlag,
-  SelectionState
-} from "../UI";
+import { UI, DayFlag, SelectionState } from "../UI.js";
 import * as components from "../components/custom-components.js";
 import {
   formatCaption,
@@ -19,10 +12,12 @@ import {
   formatWeekNumber,
   formatYearCaption,
   formatYearDropdown
-} from "../formatters";
+} from "../formatters/index.js";
 import {
-  labelDay,
-  labelCaption,
+  labelDayButton,
+  labelNav,
+  labelGrid,
+  labelGridcell,
   labelMonthDropdown,
   labelNext,
   labelPrevious,
@@ -30,7 +25,7 @@ import {
   labelWeekNumber,
   labelWeekNumberHeader,
   labelYearDropdown
-} from "../labels";
+} from "../labels/index.js";
 import { dateLib } from "../lib/index.js";
 
 /**
@@ -71,27 +66,33 @@ export type Formatters = {
   formatDay: typeof formatDay;
   /** Format the week number. */
   formatWeekNumber: typeof formatWeekNumber;
-  /** Format the week day name in the header */
+  /** Format the week day name in the header. */
   formatWeekdayName: typeof formatWeekdayName;
 };
 
 /** Map of functions to translate ARIA labels for the relative elements. */
 export type Labels = {
-  /** Return the label for the month dropdown. */
-  labelCaption: typeof labelCaption;
-  /** Return the label for the month dropdown. */
+  /** The label for the navigation toolbar. */
+  labelNav: typeof labelNav;
+  /** The label for the month grid. */
+  labelGrid: typeof labelGrid;
+  /** The label for the gridcell, when the calendar is not interactive. */
+  labelGridcell: typeof labelGridcell;
+  /** The label for the month dropdown. */
   labelMonthDropdown: typeof labelMonthDropdown;
-  /** Return the label for the year dropdown. */
+  /** The label for the year dropdown. */
   labelYearDropdown: typeof labelYearDropdown;
-  /** Return the label for the next month button. */
+  /** The label for the "next month" button. */
   labelNext: typeof labelNext;
-  /** Return the label for the previous month button. */
+  /** The label for the "previous month" button. */
   labelPrevious: typeof labelPrevious;
-  /** Return the label for the day cell. */
-  labelDay: typeof labelDay;
-  /** Return the label for the weekday. */
+  /** The label for the day button.. */
+  labelDayButton: typeof labelDayButton;
+  /** @deprecated Use {@link labelDayButton} instead. */
+  labelDay: typeof labelDayButton;
+  /** The label for the weekday. */
   labelWeekday: typeof labelWeekday;
-  /** Return the label for the week number. */
+  /** The label for the week number. */
   labelWeekNumber: typeof labelWeekNumber;
   /**
    * Return the label for the column of the week number.
@@ -208,36 +209,14 @@ export type DayEventHandler<EventType> = (
 /** The event handler when a month is changed in the calendar. */
 export type MonthChangeEventHandler = (month: Date) => void;
 
-/** The event handler when the week number is clicked. */
-export type WeekNumberMouseEventHandler = (
-  /** The week number that has been clicked. */
-  weekNumber: number,
-  /** The dates in the clicked week. */
-  dates: Date[],
-  /** The mouse event that triggered this event. */
-  e: MouseEvent
-) => void;
-
 /** Maps user interface elements, selection states, and flags to a CSS style. */
 export type Styles = {
-  [key in
-    | UI
-    | SelectionState
-    | DayFlag
-    | CalendarFlag
-    | ChevronFlag
-    | WeekNumberFlag]: CSSProperties | undefined;
+  [key in UI | SelectionState | DayFlag]: CSSProperties | undefined;
 };
 
 /** Defines the class names for various UI components and states. */
 export type ClassNames = {
-  [key in
-    | UI
-    | SelectionState
-    | DayFlag
-    | CalendarFlag
-    | ChevronFlag
-    | WeekNumberFlag]: string;
+  [key in UI | SelectionState | DayFlag]: string;
 };
 
 /** The flags that are matching a day in the calendar. */

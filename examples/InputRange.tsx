@@ -56,27 +56,27 @@ export function InputRange() {
   };
 
   return (
-    <DayPicker
-      mode="range"
-      selected={selectedRange}
-      onSelect={handleRangeSelect}
-      footer={
-        <form className="ma2">
-          <input
-            size={10}
-            placeholder="From Date"
-            value={fromValue}
-            onChange={handleFromChange}
-          />
-          {" – "}
-          <input
-            size={10}
-            placeholder="To Date"
-            value={toValue}
-            onChange={handleToChange}
-          />
-        </form>
-      }
-    />
+    <div>
+      <DayPicker
+        mode="range"
+        selected={selectedRange}
+        onSelect={handleRangeSelect}
+      />
+      <form className="ma2">
+        <input
+          size={10}
+          placeholder="From Date"
+          value={fromValue}
+          onChange={handleFromChange}
+        />
+        {" – "}
+        <input
+          size={10}
+          placeholder="To Date"
+          value={toValue}
+          onChange={handleToChange}
+        />
+      </form>
+    </div>
   );
 }

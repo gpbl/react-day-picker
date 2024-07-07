@@ -1,8 +1,6 @@
 import React from "react";
 
-import { UI, WeekNumberFlag } from "../UI.js";
 import type { CalendarWeek } from "../classes/index.js";
-import { useProps } from "../contexts/index.js";
 
 /**
  * Render the cell with the number of the week.
@@ -12,40 +10,14 @@ import { useProps } from "../contexts/index.js";
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function WeekNumber(props: { week: CalendarWeek }) {
-  const {
-    classNames,
-    formatters: { formatWeekNumber },
-    labels: { labelWeekNumber },
-    locale,
-    styles,
-    onWeekNumberClick
-  } = useProps();
-
-  const isInteractive = Boolean(onWeekNumberClick);
-
-  return (
-    <div
-      role="rowheader"
-      aria-colindex={1}
-      aria-label={labelWeekNumber(props.week.weekNumber, { locale })}
-      className={[
-        classNames[UI.WeekNumber],
-        isInteractive ? classNames[WeekNumberFlag.week_number_interactive] : ""
-      ].join(" ")}
-      style={styles?.[UI.WeekNumber]}
-      tabIndex={isInteractive ? 0 : undefined}
-      onClick={(e) =>
-        onWeekNumberClick?.(
-          props.week.weekNumber,
-          props.week.days.map((day) => day.date),
-          e
-        )
-      }
-    >
-      {formatWeekNumber(props.week.weekNumber)}
-    </div>
-  );
+export function WeekNumber(
+  props: {
+    /** The week to render. */
+    week: CalendarWeek;
+  } & JSX.IntrinsicElements["td"]
+) {
+  const { week, ...tdProps } = props;
+  return <td {...tdProps} />;
 }
 
 export type WeekNumberProps = Parameters<typeof WeekNumber>[0];

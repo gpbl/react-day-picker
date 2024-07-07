@@ -115,11 +115,9 @@ export function Dialog() {
           selected={selectedDate}
           onSelect={handleDayPickerSelect}
           footer={
-            <p aria-live="assertive" aria-atomic="true">
-              {selectedDate !== undefined && (
-                <>Selected: {selectedDate.toDateString()}</>
-              )}
-            </p>
+            selectedDate !== undefined && (
+              <>Selected: {selectedDate.toDateString()}</>
+            )
           }
         />
       </dialog>

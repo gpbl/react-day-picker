@@ -8,7 +8,7 @@ import type {
   PropsMulti,
   PropsRange,
   PropsSingle
-} from "../types";
+} from "../types/index.js";
 
 /**
  * Returns true if `matcher` is of type `DateInterval`.
@@ -49,15 +49,6 @@ export function isDateAfterType(value: unknown): value is DateAfter {
  */
 export function isDateBeforeType(value: unknown): value is DateBefore {
   return Boolean(value && typeof value === "object" && "before" in value);
-}
-
-/**
- * Returns true if `value` is a `DayOfWeek` type.
- *
- * @group Utilities
- */
-export function isDayOfWeekType(value: unknown): value is DayOfWeek {
-  return Boolean(value && typeof value === "object" && "dayOfWeek" in value);
 }
 
 /**
@@ -103,6 +94,15 @@ export function isRange(
   props: DayPickerProps
 ): props is DayPickerProps & PropsRange {
   return props.mode === "range";
+}
+
+/**
+ * Returns true if `value` is a `DayOfWeek` type.
+ *
+ * @group Utilities
+ */
+export function isDayOfWeekType(value: unknown): value is DayOfWeek {
+  return Boolean(value && typeof value === "object" && "dayOfWeek" in value);
 }
 
 /**

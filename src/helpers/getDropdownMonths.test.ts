@@ -13,13 +13,14 @@ test("return correct dropdown options", () => {
     formatMonthDropdown: (month: number, locale?: Locale) =>
       format(new Date(2022, month), "MMMM", { locale })
   });
-  const result = getDropdownMonths(displayMonth, {
-    formatters,
-    locale,
+  const result = getDropdownMonths(
+    displayMonth,
     startMonth,
     endMonth,
+    formatters,
+    locale,
     dateLib
-  });
+  );
 
   expect(result).toEqual([
     { value: 0, label: "January", disabled: false },

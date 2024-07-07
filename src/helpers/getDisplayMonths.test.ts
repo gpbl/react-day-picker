@@ -6,11 +6,7 @@ describe("getDisplayMonths", () => {
   it("should return the months to display in the calendar", () => {
     const firstMonth = new Date(2020, 0);
     const expectedResult = [new Date(2020, 0)];
-    const result = getDisplayMonths(firstMonth, {
-      numberOfMonths: 1,
-      endMonth: undefined,
-      dateLib
-    });
+    const result = getDisplayMonths(firstMonth, undefined, {}, dateLib);
     expect(result).toEqual(expectedResult);
   });
 
@@ -21,22 +17,28 @@ describe("getDisplayMonths", () => {
       new Date(2020, 1),
       new Date(2020, 2)
     ];
-    const result = getDisplayMonths(firstMonth, {
-      numberOfMonths: 3,
-      endMonth: undefined,
+    const result = getDisplayMonths(
+      firstMonth,
+      undefined,
+      {
+        numberOfMonths: 3
+      },
       dateLib
-    });
+    );
     expect(result).toEqual(expectedResult);
   });
 
   it("should return the months to display in the calendar when passing a max date", () => {
     const firstMonth = new Date(2020, 0);
     const expectedResult = [new Date(2020, 0), new Date(2020, 1)];
-    const result = getDisplayMonths(firstMonth, {
-      numberOfMonths: 3,
-      endMonth: new Date(2020, 1, 10),
+    const result = getDisplayMonths(
+      firstMonth,
+      new Date(2020, 1, 10),
+      {
+        numberOfMonths: 3
+      },
       dateLib
-    });
+    );
     expect(result).toEqual(expectedResult);
   });
 });

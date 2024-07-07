@@ -1,4 +1,4 @@
-import React, { type ButtonHTMLAttributes } from "react";
+import React from "react";
 
 /**
  * Render the button elements in the calendar.
@@ -8,7 +8,7 @@ import React, { type ButtonHTMLAttributes } from "react";
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function Button(props: ButtonHTMLAttributes<HTMLButtonElement>) {
+export function Button(props: JSX.IntrinsicElements["button"]) {
   return <button {...props} />;
 }
 

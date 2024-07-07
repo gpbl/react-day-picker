@@ -1,17 +1,23 @@
-import type { FormatOptions } from "date-fns";
-
+import type { LabelOptions } from "../lib/dateLib.js";
 import { dateLib as defaultDateLib } from "../lib/index.js";
-import type { DateLib } from "../types/index.js";
+import { DateLib } from "../types/index.js";
 
 /**
- * Return the default ARIA label for the month grid.
+ * Return an ARIA label for the month grid, that will be announced when entering
+ * the grid.
  *
  * @group Labels
  */
 export function labelGrid(
-  month: Date,
-  options?: FormatOptions,
+  date: Date,
+  options?: LabelOptions,
   dateLib: DateLib = defaultDateLib
 ) {
-  return dateLib.format(month, "LLLL y", options);
+  return dateLib.format(date, "LLLL y", options);
 }
+
+/**
+ * @deprecated Use {@link labelGrid} instead.
+ * @protected
+ */
+export const labelCaption = labelGrid;

@@ -1,23 +1,24 @@
 import { DropdownOption } from "../components/Dropdown.js";
-import { PropsContextValue } from "../contexts/index.js";
+import type { Locale } from "../lib/dateLib.js";
+import type { DateLib, Formatters } from "../types/index.js";
 
 /** Return the months to show in the dropdown. */
 export function getDropdownMonths(
   displayMonth: Date,
-  props: Pick<
-    PropsContextValue,
-    "formatters" | "locale" | "startMonth" | "endMonth" | "dateLib"
-  >
+  calendarStartMonth: Date | undefined,
+  calendarEndMonth: Date | undefined,
+  formatters: Pick<Formatters, "formatMonthDropdown">,
+  locale: Locale | undefined,
+  dateLib: DateLib
 ): DropdownOption[] | undefined {
-  const { startMonth, endMonth } = props;
-  if (!startMonth) return undefined;
-  if (!endMonth) return undefined;
+  if (!calendarStartMonth) return undefined;
+  if (!calendarEndMonth) return undefined;
 
-  const { addMonths, startOfMonth, isBefore, Date } = props.dateLib;
+  const { addMonths, startOfMonth, isBefore, Date } = dateLib;
   const year = displayMonth.getFullYear();
 
-  const navStartMonth = startOfMonth(startMonth);
-  const navEndMonth = startOfMonth(endMonth);
+  const navStartMonth = startOfMonth(calendarStartMonth);
+  const navEndMonth = startOfMonth(calendarEndMonth);
 
   const months: number[] = [];
   let month = navStartMonth;
@@ -29,10 +30,12 @@ export function getDropdownMonths(
     return a - b;
   });
   const options = sortedMonths.map((value) => {
-    const label = props.formatters.formatMonthDropdown(value, props.locale);
+    const label = formatters.formatMonthDropdown(value, locale);
     const disabled =
-      (startMonth && new Date(year, value) < startOfMonth(startMonth)) ||
-      (endMonth && new Date(year, value) > startOfMonth(endMonth)) ||
+      (calendarStartMonth &&
+        new Date(year, value) < startOfMonth(calendarStartMonth)) ||
+      (calendarEndMonth &&
+        new Date(year, value) > startOfMonth(calendarEndMonth)) ||
       false;
     return { value, label, disabled };
   });
