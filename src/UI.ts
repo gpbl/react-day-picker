@@ -12,10 +12,7 @@ export enum UI {
   ButtonPrevious = "button_previous",
   /** The next button the navigation. */
   ButtonNext = "button_next",
-  /**
-   * The root component displaying the months and the navigation bar. Extended
-   * by {@link RootFlag}.
-   */
+  /** The root component displaying the months and the navigation bar. */
   Root = "root",
   /** The Chevron SVG element used by navigation buttons and dropdowns. */
   Chevron = "chevron",

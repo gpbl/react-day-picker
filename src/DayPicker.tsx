@@ -208,7 +208,9 @@ export function DayPicker(props: DayPickerProps) {
       value={{ ...calendar, ...selection, ...modifiers }}
     >
       <div
-        className={classNames[UI.Root]}
+        className={[classNames[UI.Root], props.className]
+          .filter(Boolean)
+          .join(" ")}
         style={{ ...styles?.[UI.Root], ...props.style }}
         dir={props.dir}
         id={props.id}
