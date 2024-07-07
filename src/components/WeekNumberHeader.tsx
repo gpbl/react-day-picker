@@ -8,11 +8,8 @@ import React from "react";
  * @group Components
  * @see https://daypicker.dev/next/advanced-guides/custom-components
  */
-
-export const WeekNumberHeader = React.memo(function WeekNumberHeader(
-  props: JSX.IntrinsicElements["th"]
-) {
+export function WeekNumberHeader(props: JSX.IntrinsicElements["th"]) {
   return <th {...props} />;
-});
+}
 
 export type WeekNumberHeaderProps = Parameters<typeof WeekNumberHeader>[0];

@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 
 import type { CalendarWeek } from "../classes/index.js";
 
@@ -10,14 +10,13 @@ import type { CalendarWeek } from "../classes/index.js";
  * @group Components
  * @see https://daypicker.dev/next/advanced-guides/custom-components
  */
-
-export const Week = memo(function Week(
+export function Week(
   props: {
     week: CalendarWeek;
   } & JSX.IntrinsicElements["tr"]
 ) {
   const { week, ...trProps } = props;
   return <tr {...trProps} />;
-});
+}
 
 export type WeekProps = Parameters<typeof Week>[0];

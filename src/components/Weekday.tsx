@@ -8,11 +8,8 @@ import React from "react";
  * @group Components
  * @see https://daypicker.dev/next/advanced-guides/custom-components
  */
-
-export const Weekday = React.memo(function Weekday(
-  props: JSX.IntrinsicElements["th"]
-) {
+export function Weekday(props: JSX.IntrinsicElements["th"]) {
   return <th {...props} />;
-});
+}
 
 export type WeekdayProps = Parameters<typeof Weekday>[0];
