@@ -26,7 +26,11 @@ export class CalendarDay {
       (this.outside ? `-` + format(displayMonth, "yyyyMMdd") : "");
   }
 
-  /** The utility functions to manipulate dates. */
+  /**
+   * The utility functions to manipulate dates.
+   *
+   * @private
+   */
   readonly dateLib: DateLib;
 
   /**
