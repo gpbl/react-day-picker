@@ -1,6 +1,5 @@
 import React from "react";
 
-import { grid } from "@/test/elements";
 import { render, screen } from "@/test/render";
 
 import { NumberingSystem } from "./NumberingSystem";
@@ -14,9 +13,6 @@ beforeEach(() => {
   render(<NumberingSystem />);
 });
 
-test("should localize the year", () => {
-  expect(grid("نوفمبر ٢٬٠٢١")).toBeInTheDocument();
-});
 test("should localize the days", () => {
   expect(screen.getByText("أحد")).toBeInTheDocument();
 });

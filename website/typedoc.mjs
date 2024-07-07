@@ -27,7 +27,10 @@ const options = {
   ],
   readme: "none",
 
+  suppressCommentWarningsInDeclarationFiles: true,
+
   excludePrivate: true,
+  excludeExternals: true,
   excludeProtected: true,
   sort: ["alphabetical"],
 
@@ -38,7 +41,6 @@ const options = {
   hidePageHeader: true,
   preserveAnchorCasing: false,
 
-  maxTypeConversionDepth: 1,
   typeDeclarationFormat: "list",
   parametersFormat: "table",
   propertiesFormat: "list",

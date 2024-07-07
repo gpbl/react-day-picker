@@ -19,66 +19,38 @@ Use the `components` prop to swap the components used to render DayPicker.
 
 See the [Components API Reference](../api#components) for a list of components you can customize.
 
-## Example: Custom DayDate component
+## Example: Custom DayButton component
 
-For example, if you need to customize the component displaying the date, replace the [`DayDate`](../api/functions//DayDate.md) component:
+For example, if you need to customize the component displaying the date, replace the [`DayButton`](../api/functions/DayButton.md) component:
 
 ```tsx title="./MyDatePicker.tsx"
-import { DayPicker, type DayDateProps } from "react-day-picker";
+import { DayPicker, type DayButtonProps } from "react-day-picker";
 
-/** When the date is 19, will display an emoji. */
-function HighlightDay(props: DayDateProps) {
+function HighlightDay(props: DayButtonProps) {
+  const { day, modifiers, ...buttonProps } = props;
   return (
-    <span {...props.rootProps} style={{ whiteSpace: "nowrap" }}>
-      {props.day.date.getDate() === 19 ? `🎉` : props.formattedDate}
-    </span>
+    <button {...buttonProps} style={{ whiteSpace: "nowrap" }}>
+      {props.day.date.getDate() === 19 ? `🎉` : props.children}
+    </button>
   );
 }
 
-export function MyDatePicker() {
-  return <DayPicker mode="single" components={{ DayDate: HighlightDay }} />;
+export function CustomDayButton() {
+  return <DayPicker mode="single" components={{ DayButton: HighlightDay }} />;
 }
 ```
 
 <BrowserWindow>
-  <Examples.CustomDayDate />
+  <Examples.CustomDayButton />
 </BrowserWindow>
 
-### Extending the Default Components
+## DayPicker Hook
 
-You can also import the default components to add custom behavior. Just make sure you pass the default component to the root.
+When creating custom components, you will find useful the `useDayPicker` hook, providing access to the internal state and methods of the DayPicker component.
 
-For example, to add a custom class to the `Day` component:
-
-```tsx title="./CustomDay.tsx"
-import { DayPicker, Day, type DayProps } from "react-day-picker";
-
-function CustomDay(props: DayProps) {
-  return (
-    <Day {...props}>
-      <div className="custom-day">{props.children}</div>
-    </Day>
-  );
-}
-
-export function MyDatePicker() {
-  return <DayPicker components={{ Day: CustomDay }} />;
-}
-```
-
-## DayPicker Hooks
-
-When creating custom components, you will find useful the [DayPicker hooks](../api/index.md#hooks). These utilities provide access to the internal state and methods of the DayPicker component.
-
-| Function                                         | Description                                                               |
-| :----------------------------------------------- | :------------------------------------------------------------------------ |
-| [useCalendar](../api/functions/useCalendar.md)   | Access to the props passed to `DayPicker`, with some meaningful defaults. |
-| [useFocus](../api/functions/useFocus.md)         | Share the focused day and the methods to move the focus.                  |
-| [useModifiers](../api/functions/useModifiers.md) | -                                                                         |
-| [useMulti](../api/functions/useMulti.md)         | Access to the multi context to get the selected dates or update them.     |
-| [useProps](../api/functions/useProps.md)         | Access to the props passed to `DayPicker`, with some meaningful defaults. |
-| [useRange](../api/functions/useRange.md)         | Access to the range context to get the selected range or update it.       |
-| [useSingle](../api/functions/useSingle.md)       | Access to the single context to get the selected date or update it.       |
+| Function                                           | Description                     |
+| :------------------------------------------------- | :------------------------------ |
+| [`useDayPicker`](../api/functions/useDayPicker.md) | Access to the DayPicker context |
 
 ### Example: Range with Shift Key
 
@@ -112,25 +84,26 @@ function DayWithShiftKey(props: DayProps) {
 }
 
 export function RangeShiftKey() {
-  const [range, setRange] = React.useState<DateRange>();
+  const [range, setRange] = React.useState<DateRange | undefined>({
+    from: undefined
+  });
 
-  let footer = <p>Please pick a day.</p>;
+  let footer = "Please pick a day.";
 
   if (range?.from && !range?.to) {
-    footer = <p>Press Shift to choose more days.</p>;
+    footer = "Press Shift to choose more days.";
   } else if (range?.to) {
-    footer = (
-      <p>
-        {range.from.toLocaleDateString()}—{range.to.toLocaleDateString()}.
-      </p>
-    );
+    const formattedFrom = range.from?.toDateString();
+    const formattedTo = range.to.toDateString();
+    footer = `You selected the days between ${formattedFrom} and ${formattedTo}`;
   }
   return (
     <DayPicker
       components={{
-        Day: DayWithShiftKey
+        DayButton: DayWithShiftKey
       }}
       mode="range"
+      selected={range}
       onSelect={setRange}
       footer={footer}
     />

@@ -1,37 +1,26 @@
 import { CalendarDay } from "../classes/index.js";
-import type { PropsContextValue } from "../contexts/index.js";
-import type { MoveFocusBy, MoveFocusDir } from "../types/index.js";
+import type {
+  DateLib,
+  DayPickerProps,
+  MoveFocusBy,
+  MoveFocusDir
+} from "../types/index.js";
 import { dateMatchModifiers } from "../utils/dateMatchModifiers.js";
 
-import { getPossibleFocusDate } from "./getPossibleFocusDate.js";
-
-export type Options = Pick<
-  PropsContextValue,
-  | "modifiers"
-  | "locale"
-  | "ISOWeek"
-  | "weekStartsOn"
-  | "startMonth"
-  | "endMonth"
->;
+import { getFocusableDate } from "./getFocusableDate.js";
 
 export function getNextFocus(
   moveBy: MoveFocusBy,
   moveDir: MoveFocusDir,
   /** The date that is currently focused. */
-  focused: CalendarDay,
+  refDay: CalendarDay,
+  calendarStartMonth: Date | undefined,
+  calendarEndMonth: Date | undefined,
   options: Pick<
-    PropsContextValue,
-    | "dateLib"
-    | "disabled"
-    | "hidden"
-    | "modifiers"
-    | "locale"
-    | "ISOWeek"
-    | "weekStartsOn"
-    | "startMonth"
-    | "endMonth"
+    DayPickerProps,
+    "disabled" | "hidden" | "modifiers" | "locale" | "ISOWeek" | "weekStartsOn"
   >,
+  dateLib: DateLib,
   attempt: number = 0
 ): CalendarDay | undefined {
   if (attempt > 365) {
@@ -39,33 +28,40 @@ export function getNextFocus(
     return undefined;
   }
 
-  const possibleFocusDate = getPossibleFocusDate(
+  const focusableDate = getFocusableDate(
     moveBy,
     moveDir,
-    focused.date,
-    options
+    refDay.date, // should be refDay? or refDay.date?
+    calendarStartMonth,
+    calendarEndMonth,
+    options,
+    dateLib
   );
 
   const isDisabled = Boolean(
     options.disabled &&
-      dateMatchModifiers(possibleFocusDate, options.disabled, options.dateLib)
+      dateMatchModifiers(focusableDate, options.disabled, dateLib)
   );
 
   const isHidden = Boolean(
-    options.hidden &&
-      dateMatchModifiers(possibleFocusDate, options.hidden, options.dateLib)
+    options.hidden && dateMatchModifiers(focusableDate, options.hidden, dateLib)
   );
 
-  const targetMonth = possibleFocusDate;
-  const focusDay = new CalendarDay(
-    possibleFocusDate,
-    targetMonth,
-    options.dateLib
-  );
+  const targetMonth = focusableDate;
+  const focusDay = new CalendarDay(focusableDate, targetMonth, dateLib);
   if (!isDisabled && !isHidden) {
     return focusDay;
   }
 
   // Recursively attempt to find the next focusable date
-  return getNextFocus(moveBy, moveDir, focusDay, options, attempt + 1);
+  return getNextFocus(
+    moveBy,
+    moveDir,
+    focusDay,
+    calendarStartMonth,
+    calendarEndMonth,
+    options,
+    dateLib,
+    attempt + 1
+  );
 }

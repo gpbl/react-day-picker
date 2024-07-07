@@ -1,5 +1,4 @@
 import React from "react";
-import type { ReactNode } from "react";
 
 import type { CalendarDay } from "../classes/index.js";
 import type { Modifiers } from "../types/index.js";
@@ -15,39 +14,14 @@ import type { Modifiers } from "../types/index.js";
  * @group Components
  * @see https://daypicker.dev/advanced-guides/custom-components
  */
-export function Day(props: {
-  day: CalendarDay;
-  modifiers: Modifiers;
-  children?: ReactNode;
-  rootProps: Pick<
-    JSX.IntrinsicElements["div"],
-    | "className"
-    | "style"
-    | "tabIndex"
-    | "aria-colindex"
-    | "aria-disabled"
-    | "aria-hidden"
-    | "aria-label"
-    | "aria-selected"
-    | "onClick"
-    | "onBlur"
-    | "onFocus"
-    | "onKeyDown"
-    | "onKeyPress"
-    | "onKeyUp"
-    | "onMouseEnter"
-    | "onMouseLeave"
-    | "onPointerEnter"
-    | "onPointerLeave"
-    | "onTouchCancel"
-    | "onTouchEnd"
-    | "onTouchMove"
-    | "onTouchStart"
-    | "ref"
-    | "role"
-  >;
-}) {
-  return <div {...props.rootProps}>{props.children}</div>;
+export function Day(
+  props: {
+    day: CalendarDay;
+    modifiers: Modifiers;
+  } & JSX.IntrinsicElements["td"]
+) {
+  const { day, modifiers, ...tdProps } = props;
+  return <td {...tdProps} />;
 }
 
 export type DayProps = Parameters<typeof Day>[0];

@@ -3,16 +3,15 @@ import React, { MouseEventHandler } from "react";
 import { isSameDay } from "date-fns";
 import {
   DateRange,
+  DayButtonProps,
   DayPicker,
-  useRange,
-  type DayProps
+  useDayPicker
 } from "react-day-picker";
 
-function DayWithShiftKey(props: DayProps) {
-  const { selected } = useRange();
-  const onClick = props.rootProps?.onClick;
+function DayWithShiftKey(props: DayButtonProps) {
+  const { selected } = useDayPicker({ mode: "range" });
 
-  const handleClick: MouseEventHandler<HTMLDivElement> = (e) => {
+  const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     if (
       selected?.from &&
       !selected.to &&
@@ -21,12 +20,12 @@ function DayWithShiftKey(props: DayProps) {
     ) {
       return;
     }
-    onClick?.(e);
+    props.onClick?.(e);
   };
   return (
-    <div {...props.rootProps} onClick={handleClick}>
+    <button {...props} onClick={handleClick}>
       {props.children}
-    </div>
+    </button>
   );
 }
 
@@ -35,21 +34,19 @@ export function RangeShiftKey() {
     from: undefined
   });
 
-  let footer = <p>Please pick a day.</p>;
+  let footer = "Please pick a day.";
 
   if (range?.from && !range?.to) {
-    footer = <p>Press Shift to choose more days.</p>;
+    footer = "Press Shift to choose more days.";
   } else if (range?.to) {
-    footer = (
-      <p>
-        {range?.from?.toLocaleDateString()}—{range.to.toLocaleDateString()}.
-      </p>
-    );
+    const formattedFrom = range.from?.toDateString();
+    const formattedTo = range.to.toDateString();
+    footer = `You selected the days between ${formattedFrom} and ${formattedTo}`;
   }
   return (
     <DayPicker
       components={{
-        Day: DayWithShiftKey
+        DayButton: DayWithShiftKey
       }}
       mode="range"
       selected={range}

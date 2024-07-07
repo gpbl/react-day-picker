@@ -13,7 +13,6 @@ import type {
   Formatters,
   MonthChangeEventHandler,
   DayEventHandler,
-  WeekNumberMouseEventHandler,
   Modifiers,
   DateRange,
   Mode,
@@ -204,8 +203,15 @@ export interface PropsBase {
   ISOWeek?: boolean;
   /** Change the components used for rendering the calendar elements. */
   components?: CustomComponents;
-  /** Content to add to the grid as footer element. */
-  footer?: React.ReactNode;
+  /**
+   * Add a footer to the calendar, acting as live region.
+   *
+   * Use this prop to communicate the calendar's status to screen readers.
+   * Prefer strings over complex UI elements.
+   *
+   * @see https://daypicker.dev/next/using-daypicker/accessibility
+   */
+  footer?: React.ReactNode | string;
   /**
    * When a selection mode is set, DayPicker will focus the first selected day
    * (if set) or the today's date (if not disabled).
@@ -286,43 +292,29 @@ export interface PropsBase {
    */
   useAdditionalDayOfYearTokens?: boolean | undefined;
 
-  /* EVENT HANDLERS */
   /** Event fired when the user navigates between months. */
   onMonthChange?: MonthChangeEventHandler;
+
+  /** Event handler when the next month button is clicked. */
+  onNextClick?: MonthChangeEventHandler;
+  /** Event handler when the previous month button is clicked. */
+  onPrevClick?: MonthChangeEventHandler;
+  /**
+   * Event handler when a week number is clicked
+   *
+   * @deprecated Use a custom `WeekNumber` component instead.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onWeekNumberClick?: any;
+
   /** Event handler when a day is clicked. */
   onDayClick?: DayEventHandler<React.MouseEvent>;
   /** Event handler when a day is focused. */
   onDayFocus?: DayEventHandler<React.FocusEvent>;
   /** Event handler when a day is blurred. */
   onDayBlur?: DayEventHandler<React.FocusEvent>;
-  /** Event handler when the mouse enters a day. */
-  onDayMouseEnter?: DayEventHandler<React.MouseEvent>;
-  /** Event handler when the mouse leaves a day. */
-  onDayMouseLeave?: DayEventHandler<React.MouseEvent>;
   /** Event handler when a key is pressed on a day. */
   onDayKeyDown?: DayEventHandler<React.KeyboardEvent>;
-  /** Event handler when a key is released on a day. */
-  onDayKeyUp?: DayEventHandler<React.KeyboardEvent>;
-  /** Event handler when a key is pressed and released on a day. */
-  onDayKeyPress?: DayEventHandler<React.KeyboardEvent>;
-  /** Event handler when a pointer enters a day. */
-  onDayPointerEnter?: DayEventHandler<React.PointerEvent>;
-  /** Event handler when a pointer leaves a day. */
-  onDayPointerLeave?: DayEventHandler<React.PointerEvent>;
-  /** Event handler when a touch is cancelled on a day. */
-  onDayTouchCancel?: DayEventHandler<React.TouchEvent>;
-  /** Event handler when a touch ends on a day. */
-  onDayTouchEnd?: DayEventHandler<React.TouchEvent>;
-  /** Event handler when a touch moves on a day. */
-  onDayTouchMove?: DayEventHandler<React.TouchEvent>;
-  /** Event handler when a touch starts on a day. */
-  onDayTouchStart?: DayEventHandler<React.TouchEvent>;
-  /** Event handler when the next month button is clicked. */
-  onNextClick?: MonthChangeEventHandler;
-  /** Event handler when the previous month button is clicked. */
-  onPrevClick?: MonthChangeEventHandler;
-  /** Event handler when a week number is clicked */
-  onWeekNumberClick?: WeekNumberMouseEventHandler;
 
   /**
    * Replace the default date library with a custom one.
@@ -332,6 +324,47 @@ export interface PropsBase {
    * @experimental
    */
   dateLib?: Partial<DateLib> | undefined;
+
+  /**
+   * @private
+   * @deprecated Use a custom `DayButton` component instead.
+   */
+  onDayKeyUp?: DayEventHandler<React.KeyboardEvent>;
+  /**
+   * @private
+   * @deprecated Use a custom `DayButton` component instead.
+   */
+  onDayKeyPress?: DayEventHandler<React.KeyboardEvent>;
+  /**
+   * @private
+   * @deprecated Use a custom `DayButton` component instead.
+   */
+  onDayPointerEnter?: DayEventHandler<React.PointerEvent>;
+  /**
+   * @private
+   * @deprecated Use a custom `DayButton` component instead.
+   */
+  onDayPointerLeave?: DayEventHandler<React.PointerEvent>;
+  /**
+   * @private
+   * @deprecated Use a custom `DayButton` component instead.
+   */
+  onDayTouchCancel?: DayEventHandler<React.TouchEvent>;
+  /**
+   * @private
+   * @deprecated Use a custom `DayButton` component instead.
+   */
+  onDayTouchEnd?: DayEventHandler<React.TouchEvent>;
+  /**
+   * @private
+   * @deprecated Use a custom `DayButton` component instead.
+   */
+  onDayTouchMove?: DayEventHandler<React.TouchEvent>;
+  /**
+   * @private
+   * @deprecated Use a custom `DayButton` component instead.
+   */
+  onDayTouchStart?: DayEventHandler<React.TouchEvent>;
 }
 /**
  * The props when the single selection is required.
@@ -428,6 +461,7 @@ export interface PropsRange {
   mode: "range";
   required?: false | undefined;
   selected?: DateRange | undefined;
+  disabled?: Matcher | Matcher[] | undefined;
   onSelect?: (
     selected: DateRange | undefined,
     triggerDate: Date,

@@ -1,5 +1,6 @@
 import React, { ChangeEventHandler, useState } from "react";
 
+import { setHours, setMinutes } from "date-fns";
 import { DayPicker } from "react-day-picker";
 
 export function InputTime() {
@@ -13,13 +14,7 @@ export function InputTime() {
       return;
     }
     const [hours, minutes] = time.split(":").map((str) => parseInt(str, 10));
-    const newSelectedDate = new Date(
-      selected.getFullYear(),
-      selected.getMonth(),
-      selected.getDate(),
-      hours,
-      minutes
-    );
+    const newSelectedDate = setHours(setMinutes(selected, minutes), hours);
     setSelected(newSelectedDate);
     setTimeValue(time);
   };
@@ -43,27 +38,19 @@ export function InputTime() {
   };
 
   return (
-    <>
+    <div>
+      <form style={{ marginBlockEnd: "1em" }}>
+        <label>
+          Set the time:{" "}
+          <input type="time" value={timeValue} onChange={handleTimeChange} />
+        </label>
+      </form>
       <DayPicker
         mode="single"
         selected={selected}
         onSelect={handleDaySelect}
-        footer={
-          <>
-            <p>
-              Pick a time:{" "}
-              <input
-                type="time"
-                value={timeValue}
-                onChange={handleTimeChange}
-              />
-            </p>
-            <p>
-              Selected date: {selected ? selected.toLocaleString() : "none"}
-            </p>
-          </>
-        }
+        footer={`Selected date: ${selected ? selected.toLocaleString() : "none"}`}
       />
-    </>
+    </div>
   );
 }

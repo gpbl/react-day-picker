@@ -10,11 +10,9 @@ export function Footer() {
       selected={selected}
       onSelect={setSelected}
       footer={
-        selected ? (
-          <p>You picked {selected.toLocaleDateString()}.</p>
-        ) : (
-          <p>Please pick a date.</p>
-        )
+        selected
+          ? `You picked ${selected.toLocaleDateString()}.`
+          : "Please pick a date."
       }
     />
   );

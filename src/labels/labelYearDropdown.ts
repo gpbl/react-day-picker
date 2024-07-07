@@ -1,4 +1,4 @@
-import type { FormatOptions } from "../lib/dateLib.js";
+import type { LabelOptions } from "../lib/dateLib.js";
 
 /**
  * Return the default ARIA label for the years dropdown.
@@ -6,6 +6,6 @@ import type { FormatOptions } from "../lib/dateLib.js";
  * @group Labels
  */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function labelYearDropdown(options?: FormatOptions) {
+export function labelYearDropdown(options?: LabelOptions) {
   return "Year: ";
 }

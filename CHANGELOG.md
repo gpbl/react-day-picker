@@ -21,7 +21,6 @@ This release includes important updates related to accessibility, styles and per
 #### At a glance
 
 - Enhanced accessibility to better comply with [WCAG21](https://www.w3.org/TR/WCAG21/) recommendations.
-- New HTML output using `div` grids instead of tables.
 - Simplified styles and selectors with new CSS variables.
 - Added support for UTC dates.
 - Improved selection logic for range mode.

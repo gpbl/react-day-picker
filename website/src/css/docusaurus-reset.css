@@ -138,8 +138,8 @@
   background-color: revert;
 }
 
-.docusaurus-reset table th,
-.docusaurus-reset table td {
+/* .docusaurus-reset table.rdp-month_grid th, */
+.docusaurus-reset table.rdp-month_grid td {
   border: revert;
   padding: revert;
 }
@@ -147,7 +147,6 @@
 .docusaurus-reset table th {
   background-color: revert;
   color: revert;
-  font-weight: revert;
 }
 
 .docusaurus-reset table td {

@@ -132,7 +132,7 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1
       react-day-picker:
-        specifier: workspace:9.0.0-rc.2
+        specifier: workspace:*
         version: link:..
       react-dom:
         specifier: ^18.3.1
@@ -205,7 +205,7 @@ importers:
         specifier: workspace:^
         version: link:..
       react-day-picker-v8:
-        specifier: npm:react-day-picker@8
+        specifier: npm:react-day-picker@8.10.1
         version: react-day-picker@8.10.1(date-fns@3.6.0)(react@18.3.1)
       react-dom:
         specifier: ^18.3.1
@@ -224,8 +224,8 @@ importers:
         specifier: 3.4.0
         version: 3.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       docusaurus-plugin-typedoc:
-        specifier: ^1.0.1
-        version: 1.0.1(typedoc-plugin-markdown@4.1.0(typedoc@0.26.3(typescript@5.5.3)))
+        specifier: ^1.0.2
+        version: 1.0.2(typedoc-plugin-markdown@4.1.2(typedoc@0.26.3(typescript@5.5.3)))
       identity-obj-proxy:
         specifier: ^3.0.0
         version: 3.0.0
@@ -234,10 +234,10 @@ importers:
         version: 0.26.3(typescript@5.5.3)
       typedoc-plugin-frontmatter:
         specifier: ^1.0.0
-        version: 1.0.0(typedoc-plugin-markdown@4.1.0(typedoc@0.26.3(typescript@5.5.3)))
+        version: 1.0.0(typedoc-plugin-markdown@4.1.2(typedoc@0.26.3(typescript@5.5.3)))
       typedoc-plugin-markdown:
-        specifier: ^4.1.0
-        version: 4.1.0(typedoc@0.26.3(typescript@5.5.3))
+        specifier: ^4.1.2
+        version: 4.1.2(typedoc@0.26.3(typescript@5.5.3))
       typescript:
         specifier: ~5.5.3
         version: 5.5.3
@@ -3013,8 +3013,8 @@ packages:
     resolution: {integrity: sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==}
     engines: {node: '>=6.0.0'}
 
-  docusaurus-plugin-typedoc@1.0.1:
-    resolution: {integrity: sha512-q3e/XHmnMNdP361/0SMBbCQyr7oUwbSs5QMhu1BkEUvM45oKG7i1qxcKKabOefFDVDW9cmbBISWxB8XZGJAVFg==}
+  docusaurus-plugin-typedoc@1.0.2:
+    resolution: {integrity: sha512-V7ZOjsFVByfVuhIIFSVJCWKBQzIHLxl3W+sLVDUqMo/fwPZrHFFD0WropfPdZ7MR7AA697+0BeUWMEpLyO/QPw==}
     peerDependencies:
       typedoc-plugin-markdown: '>=4.0.0'
 
@@ -6241,8 +6241,8 @@ packages:
     peerDependencies:
       typedoc-plugin-markdown: '>=4.0.0'
 
-  typedoc-plugin-markdown@4.1.0:
-    resolution: {integrity: sha512-sUiEJVaa6+MOFShRy14j1OP/VXC5OLyHNecJ2nKeGuBy2M3YiMatSLoIiddFAqVptSuILJTZiJzCBIY6yzAVyg==}
+  typedoc-plugin-markdown@4.1.2:
+    resolution: {integrity: sha512-jZt8jmQLbmg9jmFQyfJrjLf6ljRwJ5fKMeqmFr0oPXmeX5ZRYYtCe6y/058vDESE/R+TwEvNua6SuG43UBbszw==}
     engines: {node: '>= 18'}
     peerDependencies:
       typedoc: 0.26.x
@@ -10427,9 +10427,9 @@ snapshots:
     dependencies:
       esutils: 2.0.3
 
-  docusaurus-plugin-typedoc@1.0.1(typedoc-plugin-markdown@4.1.0(typedoc@0.26.3(typescript@5.5.3))):
+  docusaurus-plugin-typedoc@1.0.2(typedoc-plugin-markdown@4.1.2(typedoc@0.26.3(typescript@5.5.3))):
     dependencies:
-      typedoc-plugin-markdown: 4.1.0(typedoc@0.26.3(typescript@5.5.3))
+      typedoc-plugin-markdown: 4.1.2(typedoc@0.26.3(typescript@5.5.3))
 
   dom-accessibility-api@0.5.16: {}
 
@@ -14510,12 +14510,12 @@ snapshots:
     dependencies:
       is-typedarray: 1.0.0
 
-  typedoc-plugin-frontmatter@1.0.0(typedoc-plugin-markdown@4.1.0(typedoc@0.26.3(typescript@5.5.3))):
+  typedoc-plugin-frontmatter@1.0.0(typedoc-plugin-markdown@4.1.2(typedoc@0.26.3(typescript@5.5.3))):
     dependencies:
-      typedoc-plugin-markdown: 4.1.0(typedoc@0.26.3(typescript@5.5.3))
+      typedoc-plugin-markdown: 4.1.2(typedoc@0.26.3(typescript@5.5.3))
       yaml: 2.4.5
 
-  typedoc-plugin-markdown@4.1.0(typedoc@0.26.3(typescript@5.5.3)):
+  typedoc-plugin-markdown@4.1.2(typedoc@0.26.3(typescript@5.5.3)):
     dependencies:
       typedoc: 0.26.3(typescript@5.5.3)
 

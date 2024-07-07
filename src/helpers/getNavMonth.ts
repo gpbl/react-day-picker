@@ -1,26 +1,23 @@
-import { dateLib } from "../lib/index.js";
-import type { DayPickerProps } from "../types/index.js";
+import type { DateLib, DayPickerProps } from "../types/index.js";
 
-/**
- * Return the `fromMonth` and `toMonth` prop values values parsing the DayPicker
- * props.
- */
-export function getStartEndMonths(
+/** Return the start and end months for the calendar navigation. */
+export function getNavMonths(
   props: Pick<
     DayPickerProps,
     | "startMonth"
     | "endMonth"
     | "today"
     | "captionLayout"
-    | "dateLib"
     // Deprecated:
     | "fromYear"
     | "toYear"
     | "fromMonth"
     | "toMonth"
-  >
-): Pick<DayPickerProps, "startMonth" | "endMonth"> {
+  >,
+  dateLib: DateLib
+): [navStartMonth: Date | undefined, navEndMonth: Date | undefined] {
   let { startMonth, endMonth } = props;
+
   const {
     startOfYear,
     startOfDay,
@@ -29,10 +26,8 @@ export function getStartEndMonths(
     addYears,
     endOfYear,
     Date
-  } = {
-    ...dateLib,
-    ...props.dateLib
-  };
+  } = dateLib;
+
   // Handle deprecated code
   const { fromYear, toYear, fromMonth, toMonth } = props;
   if (!startMonth && fromMonth) {
@@ -63,8 +58,8 @@ export function getStartEndMonths(
   } else if (!endMonth && hasDropdowns) {
     endMonth = endOfYear(props.today ?? new Date());
   }
-  return {
-    startMonth: startMonth ? startOfDay(startMonth) : startMonth,
-    endMonth: endMonth ? startOfDay(endMonth) : endMonth
-  };
+  return [
+    startMonth ? startOfDay(startMonth) : startMonth,
+    endMonth ? startOfDay(endMonth) : endMonth
+  ];
 }
