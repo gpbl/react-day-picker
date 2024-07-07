@@ -217,7 +217,7 @@ import { useState } from "react";
 import { DayPicker } from "react-day-picker";
 
 export function App() {
-  const [selected, setSelected] = useState<Date | undefined>();
+  const [selected, setSelected] = useState<Date[] | undefined>();
   const handleSelect = (newSelected) => {
     // Update the selected dates
     setSelected(newSelected);
