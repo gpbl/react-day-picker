@@ -7,8 +7,7 @@ assignees: "gpbl"
 ## Description
 
 Please provide a detailed description of the issue. Include any relevant context or steps to reproduce the problem.
-
-Fork this CodeSandbox: https://codesandbox.io/p/sandbox/react-day-picker-v8-eg8mw and add to it the code to reproduce the issue.
+ssue.
 
 ## Expected Behavior
 
@@ -41,3 +40,7 @@ If applicable, add screenshots or GIFs to help explain your problem.
 - Version [e.g. 22]:
 - Operating System [e.g. iOS, Windows]:
 - Other relevant information:
+
+## Checklist
+
+- [ ] I included a [CodeSandbox](https://codesandbox.io/p/sandbox/react-day-picker-v8-eg8mw) link that helps maintainer to replicate the bug
