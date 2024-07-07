@@ -13,7 +13,6 @@ const options = {
   entryPoints: ["../src/index.ts"],
   tsconfig: "../tsconfig-docs.json",
   categorizeByGroup: true,
-  excludeExternals: true,
   groupOrder: [
     "DayPicker",
     "Props",
@@ -28,7 +27,10 @@ const options = {
   ],
   readme: "none",
 
+  suppressCommentWarningsInDeclarationFiles: true,
+
   excludePrivate: true,
+  excludeExternals: true,
   excludeProtected: true,
   sort: ["alphabetical"],
 
@@ -39,7 +41,6 @@ const options = {
   hidePageHeader: true,
   preserveAnchorCasing: false,
 
-  maxTypeConversionDepth: 1,
   typeDeclarationFormat: "list",
   parametersFormat: "table",
   propertiesFormat: "list",
