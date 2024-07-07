@@ -4,8 +4,7 @@ import { format } from "date-fns";
 import {
   type MonthCaptionProps,
   DayPicker,
-  useDayPicker,
-  dateLib
+  useDayPicker
 } from "react-day-picker";
 
 function CustomMonthCaption(props: MonthCaptionProps) {
