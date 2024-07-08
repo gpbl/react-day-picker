@@ -118,7 +118,7 @@
   "devDependencies": {
     "@date-fns/utc": "^1.2.0",
     "@jest/types": "^29.6.3",
-    "@testing-library/dom": "^10.1.0",
+    "@testing-library/dom": "^10.3.1",
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^16.0.0",
     "@testing-library/user-event": "^14.5.2",
