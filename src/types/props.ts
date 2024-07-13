@@ -1,6 +1,5 @@
 import React from "react";
 
-import { CalendarDay } from "../classes/CalendarDay.js";
 import type { Locale } from "../lib/dateLib.js";
 
 import type {
