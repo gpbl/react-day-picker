@@ -6,7 +6,7 @@ sidebar_position: 5
 
 Learn how to set the locale, adjust the week start day, and apply ISO Week Dates to enhance the user experience across different regions and languages.
 
-## Configure the Locale
+## Locale props
 
 | Prop Name               | Type                                          | Description                                                        |
 | ----------------------- | --------------------------------------------- | ------------------------------------------------------------------ |
@@ -14,6 +14,14 @@ Learn how to set the locale, adjust the week start day, and apply ISO Week Dates
 | `weekStartsOn`          | `1` \| `2` \| `3` \| `4` \| `5` \| `6` \| `7` | Display the days falling into the other months.                    |
 | `firstWeekContainsDate` | `1` \| `4`                                    | Configure the first date in the first week of the year.            |
 | `ISOWeek`               | `boolean`                                     | Use [ISO Week Dates](https://en.wikipedia.org/wiki/ISO_week_date). |
+
+### Install date-fns
+
+DayPicker uses the [date-fns](https://date-fns.org) library to localize the calendar. To set a different locale, you need to install `date-fns`:
+
+```bash npm2yarn
+npm install date-fns
+```
 
 ### Set a Different Locale
 
@@ -31,7 +39,7 @@ import { es } from "date-fns/locale";
   <Examples.Spanish />
 </BrowserWindow>
 
-### First Date of the Week
+## First Date of the Week
 
 Utilize the `weekStartsOn` prop to specify the starting day of the week.
 
@@ -43,7 +51,7 @@ Utilize the `weekStartsOn` prop to specify the starting day of the week.
   <Examples.SpanishWeekStartsOn />
 </BrowserWindow>
 
-### First Week Contains Date
+## First Week Contains Date
 
 The `firstWeekContainsDate` prop can be used to change the first day of the week for the year's initial week, which is used in the calculation of week numbers.
 
@@ -61,7 +69,7 @@ The `firstWeekContainsDate` prop can be used to change the first day of the week
   <Examples.WeeknumberCustom />
 </BrowserWindow>
 
-### ISO Week Dates
+## ISO Week Dates
 
 Use `ISOWeek` to switch using [ISO Week Dates](https://en.wikipedia.org/wiki/ISO_week_date) instead of the locale setting.
 

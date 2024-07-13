@@ -14,12 +14,12 @@ DayPicker is a [React](https://react.dev) component to create date pickers, cale
 - ♿ Complies with WCAG 2.1 AA requirements for accessibility.
 - ⚙️ Customizable internal components for complex use cases.
 
-DayPicker is written in TypeScript and compiled to CommonJS and ESM. It requires [date-fns](https://date-fns.org) as a peer dependency.
+DayPicker is written in TypeScript and compiled to CommonJS and ESM.
 
 ## Installation
 
 ```bash
-npm install react-day-picker date-fns
+npm install react-day-picker
 ```
 
 <a href="https://www.npmjs.com/package/react-day-picker"><img src="https://img.shields.io/npm/v/react-day-picker" alt="npm version"/></a>

@@ -115,6 +115,9 @@
     "website/docs",
     "tsconfig.json"
   ],
+  "dependencies": {
+    "date-fns": "^3.6.0"
+  },
   "devDependencies": {
     "@date-fns/utc": "^1.2.0",
     "@jest/types": "^29.6.3",
@@ -129,7 +132,6 @@
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^7.15.0",
     "@typescript-eslint/parser": "^7.16.0",
-    "date-fns": "^3.6.0",
     "date-fns-jalali": "3.6.0-1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
@@ -156,7 +158,6 @@
     "typescript-css-modules": "^1.0.4"
   },
   "peerDependencies": {
-    "date-fns": "^2.28.0 || ^3.0.0",
     "react": "^18 || ^19"
   },
   "funding": {
