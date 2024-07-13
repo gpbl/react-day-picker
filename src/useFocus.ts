@@ -1,16 +1,18 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-import { DayFlag } from "./UI.js";
 import type { CalendarDay } from "./classes/index.js";
+import { calculateFocusTarget } from "./helpers/calculateFocusTarget.js";
 import { getNextFocus } from "./helpers/getNextFocus.js";
 import type {
   MoveFocusBy,
   MoveFocusDir,
   DateLib,
-  DayPickerProps
+  DayPickerProps,
+  Mode
 } from "./types/index.js";
 import { UseCalendar } from "./useCalendar.js";
 import { UseModifiers } from "./useModifiers.js";
+import { UseSelection } from "./useSelection.js";
 
 export type UseFocus = {
   /** The date that is currently focused. */
@@ -65,51 +67,27 @@ export function useFocus(
   >,
   calendar: UseCalendar,
   modifiers: UseModifiers,
+  selection: UseSelection<{ mode: Mode }>,
   dateLib: DateLib
 ): UseFocus {
   const { getModifiers } = modifiers;
-
-  const [focusedDay, setFocused] = useState<CalendarDay | undefined>();
+  const { autoFocus } = props;
   const [lastFocused, setLastFocused] = useState<CalendarDay | undefined>();
 
-  useEffect(() => {
-    if (focusedDay) {
-      getDayCell(focusedDay, (props.numberOfMonths ?? 1) > 1, dateLib)?.focus();
-    }
-  }, [dateLib, focusedDay, props.numberOfMonths]);
+  const focusTarget = calculateFocusTarget(
+    calendar,
+    getModifiers,
+    selection.isSelected,
+    lastFocused
+  );
+  const [focusedDay, setFocused] = useState<CalendarDay | undefined>(
+    autoFocus ? focusTarget : undefined
+  );
 
   const blur = () => {
     setLastFocused(focusedDay);
     setFocused(undefined);
   };
-
-  let focusTarget: CalendarDay | undefined;
-
-  calendar.days.map((day) => {
-    const m = getModifiers(day);
-    if (m[DayFlag.disabled]) return;
-    if (m[DayFlag.hidden]) return;
-    if (m[DayFlag.outside]) return;
-
-    if (m[DayFlag.focused]) {
-      focusTarget = day;
-      return;
-    }
-    if (lastFocused?.isEqualTo(day)) {
-      focusTarget = day;
-      return;
-    }
-
-    if (m[DayFlag.today]) {
-      focusTarget = day;
-      return;
-    }
-
-    if (!focusTarget && dateLib.isSameDay(day.date, calendar.months[0].date)) {
-      focusTarget = day;
-      return;
-    }
-  });
 
   const moveFocus = (moveBy: MoveFocusBy, moveDir: MoveFocusDir) => {
     if (!focusedDay) return;
@@ -133,8 +111,6 @@ export function useFocus(
   };
 
   const useFocus: UseFocus = {
-    // focusTarget,
-    // initiallyFocused,
     isFocusTarget,
     setFocused,
     focused: focusedDay,
@@ -153,27 +129,4 @@ export function useFocus(
   };
 
   return useFocus;
-}
-
-/**
- * Get the day cell element for the given day from the data-day and data-month
- * attribute.
- *
- * @private
- */
-function getDayCell(
-  focused: CalendarDay,
-  multipleMonths: boolean,
-  dateLib: DateLib
-) {
-  const dataDay = dateLib.format(focused.date, "yyyy-MM-dd");
-  const dataMonth = dateLib.format(focused.displayMonth, "yyyy-MM");
-  let selector = `[data-day="${dataDay}"]`;
-  if (multipleMonths) {
-    selector += `[data-month="${dataMonth}"]`;
-  }
-  const dayCell = window.document.querySelector(
-    `${selector} button`
-  ) as HTMLButtonElement | null;
-  return dayCell;
 }

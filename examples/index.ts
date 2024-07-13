@@ -15,6 +15,7 @@ export * from "./DisableNavigation";
 export * from "./Dropdown";
 export * from "./DropdownMultipleMonths";
 export * from "./Fixedweeks";
+export * from "./AutoFocus";
 export * from "./FocusRecursive";
 export * from "./Footer";
 export * from "./Formatters";
