@@ -523,7 +523,8 @@ export function DayPicker(props: DayPickerProps) {
                             if (!dayModifiers.hidden && focused)
                               dayModifiers[DayFlag.focused] = true;
 
-                            const selected = isSelected(date);
+                            const selected =
+                              isSelected(date) || dayModifiers.selected;
 
                             dayModifiers[SelectionState.selected] =
                               !dayModifiers.disabled && selected;
