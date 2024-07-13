@@ -1,0 +1,105 @@
+---
+sidebar_position: 6
+---
+
+# Accessibility
+
+DayPicker is designed to adhere to the [ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/) for date pickers. This includes features such as keyboard navigation, focus management, and labeling.
+
+Depending on your design, you may need to add new accessibility features. For instance, when working with [Input Fields](../guides/input-fields), there could be some restrictions depending on the level of accessibility you aim to achieve. Stay updated with the best practices by following the [ARIA Patterns](https://www.w3.org/WAI/ARIA/apg/patterns/).
+
+## Accessibility Tips
+
+- Regularly test your date picker with a screen reader to ensure it's accessible to all users.
+- Use an `aria-live` region in your user interface to audibly announce when a date is selected. For this purpose, you can use the `footer` prop.
+- Specify the ARIA role of the date picker with the `role` prop to provide context to assistive technologies.
+- Customize the ARIA labels with the [`labels`](../api/interfaces/PropsBase.md#labels) prop to improve the clarity of instructions and feedback provided to the user.
+- Ensure that the date picker is fully navigable using only the keyboard. This includes selection, navigation between months, and closing the date picker.
+- Use clear visual indicators for focus states to assist users who rely on keyboard navigation.
+- Provide alternative text for any icons used in the date picker.
+- Ensure sufficient color contrast between text and background colors to assist users with visual impairments.
+- Consider providing instructions for how to use the date picker for **first-time users** or those unfamiliar with the interface.
+
+### Announcing the Selected Date {#footer}
+
+An accessible date picker with a live region that announces the selected date using the `footer` prop.
+
+```tsx title="./AccessibleDatePicker.tsx"
+import React, { useState } from "react";
+
+import { format } from "date-fns";
+import { DayPicker } from "react-day-picker";
+
+export function AccessibleDatePicker() {
+  const [meetingDate, setMeetingDate] = useState<Date | undefined>(undefined);
+  return (
+    <div role="group" aria-labelledby="meeting-date">
+      <h2 id="meeting-date">Meeting Date</h2>
+      <DayPicker
+        mode="single"
+        onSelect={setMeetingDate}
+        selected={meetingDate}
+        labels={{
+          labelCaption: () => "Select a date for the meeting",
+          labelDay: (date, modifiers) => {
+            return modifiers.selected
+              ? `Selected Meeting Date: ${format(date, "PPP")}`
+              : "";
+          }
+        }}
+        footer={
+          <p aria-live="polite">
+            {meetingDate
+              ? `Meeting date is set to ${format(meetingDate, "PPPP")}`
+              : "Please pick a date for the meeting."}
+          </p>
+        }
+      />
+    </div>
+  );
+}
+```
+
+<BrowserWindow>
+  <Examples.AccessibleDatePicker />
+</BrowserWindow>
+
+## Autofocusing the Calendar {#autofocus}
+
+DayPicker manages focus automatically when the user interacts with the calendar. However, for better accessibility you may need to autofocus the calendar when it opens. To do this, you can use the `autofocus` prop:
+
+```tsx
+<DayPicker mode="single" autoFocus />
+```
+
+<BrowserWindow>
+  <Examples.AutoFocus />
+</BrowserWindow>
+
+## Keyboard Navigation
+
+DayPicker supports keyboard navigation to make it easier for users to navigate the calendar. The following keys are supported:
+
+| Keys                         | Function                            |
+| ---------------------------- | ----------------------------------- |
+| <kbd>Arrow Top</kbd>         | Move focus to the previous week     |
+| <kbd>Arrow Right</kbd>       | Move focus to the next day          |
+| <kbd>Arrow Bottom</kbd>      | Move focus to the next week         |
+| <kbd>Arrow Left</kbd>        | Move focus to the previous day      |
+| <kbd>Page Up</kbd>           | Move focus to the previous month    |
+| <kbd>Page Down</kbd>         | Move focus to the next month        |
+| <kbd>Shift + Page Up</kbd>   | Move focus to the previous year     |
+| <kbd>Shift + Page Down</kbd> | Move focus to the next year         |
+| <kbd>Home</kbd>              | Move focus to the start of the week |
+| <kbd>End</kbd>               | Move focus to the end of the week   |
+| <kbd>Enter/Space</kbd>       | Select the focused day              |
+
+## Reporting Issues With Accessibility
+
+Accessibility is an evolving field. If you find any issues with DayPicker, please [open an issue](https://github.com/gpbl/react-day-picker/issues/new/choose). Your feedback helps improve our library's accessibility.
+
+Check out the [current accessibility issues](https://github.com/gpbl/react-day-picker/issues?q=is%3Aopen+label%3Aaccessibility+sort%3Aupdated-desc).
+
+```
+
+```

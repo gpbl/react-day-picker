@@ -21,7 +21,7 @@ export function TailwindCSS() {
         classNames={{
           today: `border-amber-500`,
           selected: `bg-amber-500 border-amber-500 text-white`,
-          calendar: `${defaultClassNames.calendar} bg-white shadow-lg p-5`,
+          root: `${defaultClassNames.root} bg-white shadow-lg p-5`,
           chevron: `${defaultClassNames.chevron} fill-amber-500`
         }}
       />

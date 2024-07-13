@@ -29,7 +29,6 @@ test("updates the calendar when a date is typed in", async () => {
   render(<Input />);
   const testDate = new Date(2022, 11, 31); // Dec 31, 2022
   await user.type(textbox(), format(testDate, "MM/dd/yyyy"));
-
   expect(
     screen.getByText(`Selected: ${testDate.toDateString()}`)
   ).toBeInTheDocument();

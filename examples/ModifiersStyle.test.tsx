@@ -20,5 +20,5 @@ const style = {
   color: "lightgreen"
 };
 test.each(days)("The day %s should have the proper inline style", (day) => {
-  expect(gridcell(day)).toHaveStyle(style);
+  expect(gridcell(day, true)).toHaveStyle(style);
 });

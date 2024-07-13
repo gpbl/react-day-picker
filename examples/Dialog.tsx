@@ -23,22 +23,16 @@ export function Dialog() {
   // Function to toggle the dialog visibility
   const toggleDialog = () => setIsDialogOpen(!isDialogOpen);
 
-  // Hook to handle the body scroll behavior and focus trapping.
+  // Hook to handle the body scroll behavior and focus trapping. You may want to
+  // use your own trapping library as the body.style overflow will break the
+  // scroll position.
   useEffect(() => {
-    const handleBodyScroll = (isOpen: boolean) => {
-      document.body.style.overflow = isOpen ? "hidden" : "";
-    };
     if (!dialogRef.current) return;
     if (isDialogOpen) {
-      handleBodyScroll(true);
       dialogRef.current.showModal();
     } else {
-      handleBodyScroll(false);
       dialogRef.current.close();
     }
-    return () => {
-      handleBodyScroll(false);
-    };
   }, [isDialogOpen]);
 
   /**
@@ -108,20 +102,21 @@ export function Dialog() {
         aria-labelledby={headerId}
         onClose={() => setIsDialogOpen(false)}
       >
-        <DayPicker
-          month={month}
-          onMonthChange={setMonth}
-          mode="single"
-          selected={selectedDate}
-          onSelect={handleDayPickerSelect}
-          footer={
-            <p aria-live="assertive" aria-atomic="true">
-              {selectedDate !== undefined && (
+        {isDialogOpen && (
+          <DayPicker
+            defaultMonth={selectedDate || month}
+            onMonthChange={setMonth}
+            autoFocus
+            mode="single"
+            selected={selectedDate}
+            onSelect={handleDayPickerSelect}
+            footer={
+              selectedDate !== undefined && (
                 <>Selected: {selectedDate.toDateString()}</>
-              )}
-            </p>
-          }
-        />
+              )
+            }
+          />
+        )}
       </dialog>
     </div>
   );

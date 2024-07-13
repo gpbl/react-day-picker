@@ -10,13 +10,10 @@ import type { CustomComponents, ClassNames, Styles } from "./types/index.js";
 export enum UI {
   /** The previous button in the navigation. */
   ButtonPrevious = "button_previous",
-  /** The next button the navigation */
+  /** The next button the navigation. */
   ButtonNext = "button_next",
-  /**
-   * The calendar element: the root component displaying the months and the
-   * navigation bar. Extended by {@link CalendarFlag}.
-   */
-  Calendar = "calendar",
+  /** The root component displaying the months and the navigation bar. */
+  Root = "root",
   /** The Chevron SVG element used by navigation buttons and dropdowns. */
   Chevron = "chevron",
   /**
@@ -24,8 +21,8 @@ export enum UI {
    * {@link SelectionFlag}.
    */
   Day = "day",
-  /** The element containing the formatted day's date, inside the grid cell. */
-  DayDate = "day_date",
+  /** The button containing the formatted day's date, inside the grid cell. */
+  DayButton = "day_button",
   /** The caption label of the month (when not showing the dropdown navigation). */
   CaptionLabel = "caption_label",
   /** The container of the dropdown navigation (when enabled). */
@@ -37,16 +34,16 @@ export enum UI {
   /** The root element of the footer. */
   Footer = "footer",
   /** The month grid. */
-  Month = "month",
+  MonthGrid = "month_grid",
   /** Contains the dropdown navigation or the caption label. */
   MonthCaption = "month_caption",
   /** The dropdown with the months. */
   MonthsDropdown = "months_dropdown",
-  /** Wrapper of the {@link} grid. */
-  MonthWrapper = "month_wrapper",
+  /** Wrapper of the month grid. */
+  Month = "month",
   /** The container of the displayed months. */
   Months = "months",
-  /** The navigation bar with the previous and next buttons */
+  /** The navigation bar with the previous and next buttons. */
   Nav = "nav",
   /** The row containing the week. */
   Week = "week",
@@ -56,25 +53,22 @@ export enum UI {
   Weekday = "weekday",
   /** The row grouping the weekdays in the column headers. */
   Weekdays = "weekdays",
-  /**
-   * The row header containing the week number. Extended by
-   * {@link WeekNumberFlag}.
-   */
+  /** The row header containing the week number. */
   WeekNumber = "week_number",
+  /** The row header containing the week number. */
+  WeekNumberHeader = "week_number_header",
   /** The dropdown with the years. */
   YearsDropdown = "years_dropdown"
 }
 
 /** The flags for the {@link UI.Day}. */
 export enum DayFlag {
-  /** The day is disabled */
+  /** The day is disabled. */
   disabled = "disabled",
-  /** The day is hidden */
+  /** The day is hidden. */
   hidden = "hidden",
-  /** The day is outside the current month */
+  /** The day is outside the current month. */
   outside = "outside",
-  /** The day is focusable. */
-  focusable = "focusable",
   /** The day is focused. */
   focused = "focused",
   /** The day is today. */
@@ -94,29 +88,4 @@ export enum SelectionState {
   range_start = "range_start",
   /** The day is selected. */
   selected = "selected"
-}
-
-/** Flags that can be applied to the {@link UI.Calendar} element. */
-export enum CalendarFlag {
-  /** Assigned when the week numbers are show. */
-  has_week_numbers = "has_week_numbers",
-  /** Assigned when the weekdays are hidden. */
-  no_weekdays = "no_weekdays",
-  /** Assigned when the calendar has multiple months. */
-  has_multiple_months = "has_multiple_months"
-}
-
-/** Flags that can be applied to the {@link UI.Chevron} element. */
-export enum ChevronFlag {
-  /** Assigned when the week numbers are show. */
-  disabled = "chevron_disabled"
-}
-
-/** Flags that can be applied to the {@link UI.WeekNumber} element. */
-export enum WeekNumberFlag {
-  /**
-   * Assigned when the week number is interactive, i.e. has an
-   * `onWeekNumberClick` event attached to it.
-   */
-  week_number_interactive = "week_number_interactive"
 }

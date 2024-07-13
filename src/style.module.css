@@ -1,6 +1,6 @@
 /* Variables declaration */
 /* prettier-ignore */
-.calendar {
+.root {
   --rdp-accent-color: blue; /* The accent color used for selected days and UI elements. */
   --rdp-accent-background-color: #f0f0ff; /* The accent background color used for selected days and UI elements. */
   --rdp-font-family: system-ui; /* The font family used by the calendar. Note that `inherit`does not work here. */
@@ -9,12 +9,10 @@
   --rdp-day-height: 2.75rem; /* The height of the day cells. */
   --rdp-day-width: 2.75rem; /* The width of the day cells. */
   
-  --rdp-chevron-disabled-opacity: 0.5; /* The opacity of the chevron when its container is disabled. */
-  
-  --rdp-day_date-border-radius: 100%; /* The border radius of the day cells. */
-  --rdp-day_date-border: 2px solid transparent; /* The border of the day cells. */
-  --rdp-day_date-height: var(--rdp-day-width); /* The height of the day cells. */
-  --rdp-day_date-width: var(--rdp-day-height); /* The width of the day cells. */
+  --rdp-day_button-border-radius: 100%; /* The border radius of the day cells. */
+  --rdp-day_button-border: 2px solid transparent; /* The border of the day cells. */
+  --rdp-day_button-height: var(--rdp-day-width); /* The height of the day cells. */
+  --rdp-day_button-width: var(--rdp-day-height); /* The width of the day cells. */
   
   --rdp-selected-border: 2px solid var(--rdp-accent-color); /* The border of the selected days. */
   --rdp-selected-font: bold large var(--rdp-font-family); /* The font of the selected days. */
@@ -34,6 +32,8 @@
   
   --rdp-range_middle-background-color: var(--rdp-accent-background-color); /* The color of the background for days in the middle of a range. */
   --rdp-range_middle-font: normal medium var(--rdp-font-family); /* The font for days in the middle of a range. */
+  --rdp-range_middle-foreground-color: white; /* The font for days in the middle of a range. */
+  --rdp-range_middle-color: inherit;/* The color of the range text. */
   
   --rdp-range_start-color: white; /* The color of the range text. */
   --rdp-range_start-background: linear-gradient(var(--rdp-gradient-direction), transparent 50%, var(--rdp-range_middle-background-color) 50%); /* Used for the background of the start of the selected range. */
@@ -52,24 +52,35 @@
   
   --rdp-weekday-font: 500 smaller var(--rdp-font-family); /* The font of the weekday. */
   --rdp-weekday-opacity: 0.75; /* The opacity of the weekday. */
-  --rdp-weekday-padding: 0.25rem 0.75rem; /* THe padding of the weekday. */
+  --rdp-weekday-padding: 0.5rem 0.75rem; /* THe padding of the weekday. */
   --rdp-weekday-text-align: center; /* The text alignment of the weekday cells. */
+
   --rdp-gradient-direction: 90deg;
 }
 
-.calendar[dir="rtl"] {
+.root[dir="rtl"] {
   --rdp-gradient-direction: -90deg;
 }
 
 /* Root of the component. */
-.calendar {
-  display: inline-block;
-  position: relative;
+.root {
+  position: relative; /* Required to position the navigation toolbar. */
   box-sizing: border-box;
 }
 
-.calendar * {
+.root * {
   box-sizing: border-box;
+}
+
+/* Reset buttons */
+.root button {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
 }
 
 .day {
@@ -82,15 +93,19 @@
   font: var(--rdp-day-font);
 }
 
-.day_date {
+.day_button {
   justify-content: center;
   align-items: center;
   display: flex;
 
-  width: var(--rdp-day_date-width);
-  height: var(--rdp-day_date-height);
-  border: var(--rdp-day_date-border);
-  border-radius: var(--rdp-day_date-border-radius);
+  width: var(--rdp-day_button-width);
+  height: var(--rdp-day_button-height);
+  border: var(--rdp-day_button-border);
+  border-radius: var(--rdp-day_button-border-radius);
+}
+
+.day_button:disabled {
+  cursor: revert;
 }
 
 .caption_label {
@@ -137,15 +152,11 @@
   fill: var(--rdp-accent-color);
 }
 
-.chevron_disabled {
-  opacity: var(--rdp-chevron-disabled-opacity);
-}
-
-.calendar[dir="rtl"] .nav .chevron {
+.root[dir="rtl"] .nav .chevron {
   transform: rotate(180deg);
 }
 
-.calendar[dir="rtl"] .nav .chevron {
+.root[dir="rtl"] .nav .chevron {
   transform: rotate(180deg);
   transform-origin: 50%;
 }
@@ -205,7 +216,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--rdp-months-gap);
-  justify-content: center;
+  max-width: fit-content;
 }
 
 .nav {
@@ -224,13 +235,13 @@
   grid-template-columns: repeat(7, 1fr);
 }
 
-.has_week_numbers .week {
+.root[data-week-numbers="true"] .week {
   grid-template-columns: repeat(8, 1fr);
 }
 
 .weekday {
   opacity: var(--rdp-weekday-opacity);
-  padding-block: var(--rdp-weekday-padding);
+  padding: var(--rdp-weekday-padding);
   font: var(--rdp-weekday-font);
   text-align: var(--rdp-weekday-text-align);
   text-transform: var(--rdp-weekday-text-transform);
@@ -241,7 +252,7 @@
   grid-template-columns: repeat(7, 1fr);
 }
 
-.has_week_numbers .weekdays {
+.root[data-week-numbers="true"] .weekdays {
   grid-template-columns: repeat(8, 1fr);
 }
 
@@ -271,7 +282,7 @@
   font: var(--rdp-selected-font);
 }
 
-.selected .day_date {
+.selected .day_button {
   border: var(--rdp-selected-border);
 }
 
@@ -281,7 +292,6 @@
 
 .disabled {
   opacity: var(--rdp-disabled-opacity);
-  cursor: revert;
 }
 
 .hidden {
@@ -291,11 +301,11 @@
 
 .range_start {
   background: var(--rdp-range_start-background);
-  color: var(--rdp-range_start-color);
 }
 
-.range_start .day_date {
+.range_start .day_button {
   background-color: var(--rdp-range_start-date-background-color);
+  color: var(--rdp-range_start-color);
 }
 
 .range_middle {
@@ -303,10 +313,11 @@
   font: var(--rdp-range_middle-font);
 }
 
-.range_middle .day_date {
+.range_middle .day_button {
   border-color: transparent;
   border: unset;
   border-radius: unset;
+  color: var(--rdp-range_middle-color);
 }
 
 .range_end {
@@ -314,7 +325,8 @@
   color: var(--rdp-range_end-color);
 }
 
-.range_end .day_date {
+.range_end .day_button {
+  color: var(--rdp-range_start-color);
   background-color: var(--rdp-range_end-date-background-color);
 }
 
@@ -322,13 +334,7 @@
   cursor: pointer;
 }
 
-.footer,
-.months_dropdown,
-.month_wrapper,
-.month,
-.weeks,
-.no_weekdays,
-.years_dropdown {
-  /* These classes are not used by the default style, but are available to use */
-  /* Keep anyway for the CSS type definition. */
+.day_button:focus-visible {
+  /* outline: 2px solid var(--rdp-accent-color); */
+  /* You may want to add focus-outlines here. */
 }

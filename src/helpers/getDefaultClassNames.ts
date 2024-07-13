@@ -1,11 +1,4 @@
-import {
-  UI,
-  DayFlag,
-  CalendarFlag,
-  ChevronFlag,
-  WeekNumberFlag,
-  SelectionState
-} from "../UI.js";
+import { UI, DayFlag, SelectionState } from "../UI.js";
 import type { ClassNames } from "../types/index.js";
 
 /**
@@ -19,21 +12,6 @@ export function getDefaultClassNames(): Required<ClassNames> {
   for (const key in UI) {
     classNames[UI[key as keyof typeof UI]] =
       `rdp-${UI[key as keyof typeof UI]}`;
-  }
-
-  for (const key in CalendarFlag) {
-    classNames[CalendarFlag[key as keyof typeof CalendarFlag]] =
-      `rdp-${CalendarFlag[key as keyof typeof CalendarFlag]}`;
-  }
-
-  for (const key in ChevronFlag) {
-    classNames[ChevronFlag[key as keyof typeof ChevronFlag]] =
-      `rdp-${ChevronFlag[key as keyof typeof ChevronFlag]}`;
-  }
-
-  for (const key in WeekNumberFlag) {
-    classNames[WeekNumberFlag[key as keyof typeof WeekNumberFlag]] =
-      `rdp-${WeekNumberFlag[key as keyof typeof WeekNumberFlag]}`;
   }
 
   for (const key in DayFlag) {

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { gridcell } from "@/test/elements";
+import { dateButton, gridcell } from "@/test/elements";
 import { render } from "@/test/render";
 import { user } from "@/test/user";
 
@@ -18,29 +18,29 @@ beforeEach(() => {
 describe("when a day is clicked", () => {
   const day1 = new Date(2021, 10, 1);
   beforeEach(async () => {
-    await user.click(gridcell(day1));
+    await user.click(dateButton(day1));
   });
   test("should appear as selected", () => {
-    expect(gridcell(day1)).toHaveAttribute("aria-selected", "true");
+    expect(gridcell(day1, true)).toHaveAttribute("aria-selected", "true");
   });
   describe("when the same day is clicked again", () => {
     beforeEach(async () => {
-      await user.click(gridcell(day1));
+      await user.click(dateButton(day1));
     });
     test("should appear as not selected", () => {
-      expect(gridcell(day1)).not.toHaveAttribute("aria-selected");
+      expect(gridcell(day1, true)).not.toHaveAttribute("aria-selected");
     });
   });
   describe("when a second day is clicked", () => {
     const day2 = new Date(2021, 10, 2);
     beforeEach(async () => {
-      await user.click(gridcell(day2));
+      await user.click(dateButton(day2));
     });
     test("the first day should appear as selected", () => {
-      expect(gridcell(day1)).toHaveAttribute("aria-selected", "true");
+      expect(gridcell(day1, true)).toHaveAttribute("aria-selected", "true");
     });
     test("the second day should appear as selected", () => {
-      expect(gridcell(day2)).toHaveAttribute("aria-selected", "true");
+      expect(gridcell(day2, true)).toHaveAttribute("aria-selected", "true");
     });
   });
 });

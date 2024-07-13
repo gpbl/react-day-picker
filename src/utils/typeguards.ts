@@ -52,15 +52,6 @@ export function isDateBeforeType(value: unknown): value is DateBefore {
 }
 
 /**
- * Returns true if `value` is a `DayOfWeek` type.
- *
- * @group Utilities
- */
-export function isDayOfWeekType(value: unknown): value is DayOfWeek {
-  return Boolean(value && typeof value === "object" && "dayOfWeek" in value);
-}
-
-/**
  * Returns true if the props are for a single selection mode.
  *
  * @group Utilities
@@ -103,6 +94,15 @@ export function isRange(
   props: DayPickerProps
 ): props is DayPickerProps & PropsRange {
   return props.mode === "range";
+}
+
+/**
+ * Returns true if `value` is a `DayOfWeek` type.
+ *
+ * @group Utilities
+ */
+export function isDayOfWeekType(value: unknown): value is DayOfWeek {
+  return Boolean(value && typeof value === "object" && "dayOfWeek" in value);
 }
 
 /**

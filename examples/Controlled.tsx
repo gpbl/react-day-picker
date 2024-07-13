@@ -8,9 +8,11 @@ export function Controlled() {
   const nextMonth = addMonths(new Date(), 1);
   const [month, setMonth] = React.useState<Date>(nextMonth);
 
-  const footer = (
+  return (
     <div>
+      <DayPicker month={month} onMonthChange={setMonth} />
       <button
+        style={{ all: "unset", cursor: "pointer", color: "blue" }}
         disabled={isSameMonth(today, month)}
         onClick={() => setMonth(today)}
       >
@@ -18,6 +20,4 @@ export function Controlled() {
       </button>
     </div>
   );
-
-  return <DayPicker month={month} onMonthChange={setMonth} footer={footer} />;
 }
