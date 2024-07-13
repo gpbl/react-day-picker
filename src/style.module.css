@@ -32,6 +32,8 @@
   
   --rdp-range_middle-background-color: var(--rdp-accent-background-color); /* The color of the background for days in the middle of a range. */
   --rdp-range_middle-font: normal medium var(--rdp-font-family); /* The font for days in the middle of a range. */
+  --rdp-range_middle-foreground-color: white; /* The font for days in the middle of a range. */
+  --rdp-range_middle-color: inherit;/* The color of the range text. */
   
   --rdp-range_start-color: white; /* The color of the range text. */
   --rdp-range_start-background: linear-gradient(var(--rdp-gradient-direction), transparent 50%, var(--rdp-range_middle-background-color) 50%); /* Used for the background of the start of the selected range. */
@@ -315,6 +317,7 @@
   border-color: transparent;
   border: unset;
   border-radius: unset;
+  color: var(--rdp-range_middle-color);
 }
 
 .range_end {
@@ -332,5 +335,6 @@
 }
 
 .day_button:focus-visible {
+  /* outline: 2px solid var(--rdp-accent-color); */
   /* You may want to add focus-outlines here. */
 }

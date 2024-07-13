@@ -55,8 +55,9 @@ export default function Playground() {
   const [utc, setUtc] = React.useState(false);
 
   const [accentColor, setAccentColor] = React.useState<string>();
-  const [backgroundAccentColor, setAccentBackgroundColor] =
+  const [backgroundAccentColor, setBackgroundAccountColor] =
     React.useState<string>();
+  const [rangeMiddleColor, setrangeMiddleColor] = React.useState<string>();
 
   const Component = utc ? DayPickerUtc : DayPicker;
   const formattedProps = `<DayPicker${toJSX({ ...props, locale: undefined })} />`;
@@ -69,6 +70,7 @@ export default function Playground() {
           [data-theme="dark"] .rdp-root {
             ${accentColor ? `--rdp-accent-color: ${accentColor} !important` : ""};
             ${backgroundAccentColor ? `--rdp-accent-background-color: ${backgroundAccentColor} !important` : ""};
+            ${rangeMiddleColor ? `--rdp-range_middle-color: ${rangeMiddleColor} !important` : ""};
           }
         `}
       </style>
@@ -406,15 +408,26 @@ export default function Playground() {
                 </label>
               ) : null}
               {props.mode === "range" && (
-                <label>
-                  Range Color:
-                  <input
-                    value={backgroundAccentColor ?? ""}
-                    type="color"
-                    name="numberOfMonths"
-                    onChange={(e) => setAccentBackgroundColor(e.target.value)}
-                  />
-                </label>
+                <>
+                  <label>
+                    Range Background:
+                    <input
+                      value={backgroundAccentColor ?? ""}
+                      type="color"
+                      onChange={(e) =>
+                        setBackgroundAccountColor(e.target.value)
+                      }
+                    />
+                  </label>
+                  <label>
+                    Range Foreground:
+                    <input
+                      value={rangeMiddleColor ?? ""}
+                      type="color"
+                      onChange={(e) => setrangeMiddleColor(e.target.value)}
+                    />
+                  </label>
+                </>
               )}
             </div>
           </fieldset>
