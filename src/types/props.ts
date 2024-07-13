@@ -218,8 +218,11 @@ export interface PropsBase {
    *
    * Use this prop when you need to focus DayPicker after a user actions, for
    * improved accessibility.
+   *
+   * @see https://daypicker.dev/next/using-daypicker/accessibility#autofocus
    */
   autoFocus?: boolean;
+
   /** Apply the `disabled` modifier to the matching days. */
   disabled?: Matcher | Matcher[] | undefined;
   /**

@@ -159,7 +159,7 @@ exports[`should match the snapshot 1`] = `
                 <button
                   aria-label="Monday, June 1st, 2020"
                   class="rdp-day_button"
-                  tabindex="0"
+                  tabindex="-1"
                 >
                   1
                 </button>
@@ -353,7 +353,7 @@ exports[`should match the snapshot 1`] = `
                 <button
                   aria-label="Monday, June 15th, 2020, selected"
                   class="rdp-day_button"
-                  tabindex="-1"
+                  tabindex="0"
                 >
                   15
                 </button>

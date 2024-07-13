@@ -64,6 +64,18 @@ export function AccessibleDatePicker() {
   <Examples.AccessibleDatePicker />
 </BrowserWindow>
 
+## Autofocusing the Calendar {#autofocus}
+
+DayPicker manages focus automatically when the user interacts with the calendar. However, for better accessibility you may need to autofocus the calendar when it opens. To do this, you can use the `autofocus` prop:
+
+```tsx
+<DayPicker mode="single" autoFocus />
+```
+
+<BrowserWindow>
+  <Examples.AutoFocus />
+</BrowserWindow>
+
 ## Keyboard Navigation
 
 DayPicker supports keyboard navigation to make it easier for users to navigate the calendar. The following keys are supported:
@@ -87,3 +99,7 @@ DayPicker supports keyboard navigation to make it easier for users to navigate t
 Accessibility is an evolving field. If you find any issues with DayPicker, please [open an issue](https://github.com/gpbl/react-day-picker/issues/new/choose). Your feedback helps improve our library's accessibility.
 
 Check out the [current accessibility issues](https://github.com/gpbl/react-day-picker/issues?q=is%3Aopen+label%3Aaccessibility+sort%3Aupdated-desc).
+
+```
+
+```
