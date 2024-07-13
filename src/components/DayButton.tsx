@@ -16,14 +16,21 @@ import type { Modifiers } from "../types/index.js";
  */
 export function DayButton(
   props: {
+    /** Whether the day is focused. */
+    focused: boolean;
     /** The day to render. */
     day: CalendarDay;
     /** The modifiers for the day. */
     modifiers: Modifiers;
   } & JSX.IntrinsicElements["button"]
 ) {
-  const { day, modifiers, ...buttonProps } = props;
-  return <button {...buttonProps} />;
+  const { day, modifiers, focused, ...buttonProps } = props;
+
+  const ref = React.useRef<HTMLButtonElement>(null);
+  React.useEffect(() => {
+    if (focused) ref.current?.focus();
+  }, [focused]);
+  return <button ref={ref} {...buttonProps} />;
 }
 
 export type DayButtonProps = Parameters<typeof DayButton>[0];

@@ -51,8 +51,7 @@ export function DayPicker(props: DayPickerProps) {
 
   const modifiers = useModifiers(props, calendar, dateLib);
   const selection = useSelection(props, dateLib);
-  const focus = useFocus(props, calendar, modifiers, dateLib);
-
+  const focus = useFocus(props, calendar, modifiers, selection, dateLib);
   const {
     captionLayout,
     dir,
@@ -537,6 +536,7 @@ export function DayPicker(props: DayPickerProps) {
                                       style={styles?.[UI.DayButton]}
                                       day={day}
                                       modifiers={m}
+                                      focused={isFocused}
                                       disabled={m.disabled || undefined}
                                       tabIndex={
                                         focus.isFocusTarget(day) ? 0 : -1
