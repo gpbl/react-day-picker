@@ -206,7 +206,7 @@ export function DayPicker(props: DayPickerProps) {
     <dayPickerContext.Provider
       value={{ ...calendar, ...selection, ...modifiers }}
     >
-      <div
+      <components.Root
         className={[classNames[UI.Root], props.className]
           .filter(Boolean)
           .join(" ")}
@@ -584,7 +584,7 @@ export function DayPicker(props: DayPickerProps) {
             {props.footer}
           </components.Footer>
         )}
-      </div>
+      </components.Root>
     </dayPickerContext.Provider>
   );
 }
