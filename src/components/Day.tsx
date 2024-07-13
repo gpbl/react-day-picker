@@ -12,7 +12,7 @@ import type { Modifiers } from "../types/index.js";
  * `DayDate` component instead.
  *
  * @group Components
- * @see https://daypicker.dev/next/advanced-guides/custom-components
+ * @see https://daypicker.dev/next/guides/custom-components
  */
 export function Day(
   props: {

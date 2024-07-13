@@ -19,7 +19,7 @@ import type { DateLib } from "./types/shared.js";
 /**
  * The hook to get and handle the calendar state.
  *
- * @see https://daypicker.dev/next/advanced-guides/custom-components
+ * @see https://daypicker.dev/next/guides/custom-components
  */
 export interface UseCalendar {
   today: Date;

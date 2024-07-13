@@ -68,7 +68,7 @@ You may need to update your test selectors — for example:
 
 The `formatters` prop now requires functions returning a `string` instead of a `ReactNode`.
 
-If you were [using the formatters](./using-daypicker/localization.mdx#formatters), you may need to update your code or use a `DayDate` component to render a `ReactElement` again: see [custom components guide](./advanced-guides//custom-components.mdx).
+If you were [using the formatters](./docs/localization.mdx#formatters), you may need to update your code or use a `DayDate` component to render a `ReactElement` again: see [custom components guide](./guides//custom-components.mdx).
 
 ```diff
 - const MyComponent = () => <DayPicker formatters={{ caption: () => <strong>My caption</strong> }} />;
@@ -79,10 +79,10 @@ If you were [using the formatters](./using-daypicker/localization.mdx#formatters
 
 In case you are using DayPicker hooks in your custom components, you need to update your code:
 
-| Hook              | Upgrade Note                                                                                                            |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| ~`useNavigation`~ | Included into [`useDayPicker`](./api/functions/useDayPicker.md).                                                        |
-| ~`useDayRender`~  | Removed in favor of the `Day` custom component. See [custom components guide](./advanced-guides/custom-components.mdx). |
+| Hook              | Upgrade Note                                                                                                   |
+| ----------------- | -------------------------------------------------------------------------------------------------------------- |
+| ~`useNavigation`~ | Included into [`useDayPicker`](./api/functions/useDayPicker.md).                                               |
+| ~`useDayRender`~  | Removed in favor of the `Day` custom component. See [custom components guide](./guides/custom-components.mdx). |
 
 ### 7. TypeScript: check for deprecated types
 

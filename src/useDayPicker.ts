@@ -28,7 +28,7 @@ export const dayPickerContext = createContext<
  * Return API to work with `<DayPicker />` inside custom components.
  *
  * @group Hooks
- * @see https://daypicker.dev/next/advanced-guides/custom-components
+ * @see https://daypicker.dev/next/guides/custom-components
  */
 export function useDayPicker<T extends DayPickerProps>(props?: T) {
   const context = useContext(dayPickerContext);

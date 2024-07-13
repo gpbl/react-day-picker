@@ -35,7 +35,7 @@ import { dateLib } from "../lib/index.js";
  * - `multiple`: allow selecting multiple days.
  * - `range`: use DayPicker to select a range of days.
  *
- * @see https://daypicker.dev/next/using-daypicker/selection-modes
+ * @see https://daypicker.dev/next/docs/selection-modes
  */
 export type Mode = "single" | "multiple" | "range";
 
