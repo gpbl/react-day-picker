@@ -18,7 +18,7 @@ See below for more details on each prop.
 | `hideWeekdayRow`  | `boolean`                                                                                | Hide the row displaying the weekday names.                                                                                                  |
 | `numberOfMonths`  | `number`                                                                                 | The number of displayed months. Default is `1`.                                                                                             |
 | `showOutsideDays` | `boolean`                                                                                | Display the days falling into the other months.                                                                                             |
-| `showWeekNumber`  | `boolean`                                                                                | Display the column with the week numbers.                                                                                                   |
+| `showWeekNumber`  | `boolean`                                                                                | Display the column with the [week numbers](#showweeknumber).                                                                                |
 
 ## Caption Layouts
 
@@ -81,7 +81,7 @@ In a year, months can have between 4 an 6 weeks. Use `fixedWeeks` to always disp
   <Examples.FixedWeeks />
 </BrowserWindow>
 
-## Multiple Months Props
+## Multiple Months {#multiplemonths}
 
 To display multiple months in the calendar, use the `numberOfMonths` prop.
 
@@ -111,22 +111,40 @@ With `pagedNavigation`, the navigation jumps by the specified number of months a
   <Examples.MultipleMonthsPaged />
 </BrowserWindow>
 
-## Week Numbers Props
+## Week Numbers {#showweeknumber}
 
-To display the column with the week numbers, use the `showWeekNumber` prop. Use the `onWeekNumberClick` to handle the click event.
+To display the column with the week numbers, use the `showWeekNumber` prop.
 
-| Prop Name           | Type                          | Description                                    |
-| ------------------- | ----------------------------- | ---------------------------------------------- |
-| `showWeekNumber`    | `boolean`                     | Display the week numbers.                      |
-| `onWeekNumberClick` | `WeekNumberClickEventHandler` | Event handler when the week number is clicked. |
+| Prop Name        | Type      | Description               |
+| ---------------- | --------- | ------------------------- |
+| `showWeekNumber` | `boolean` | Display the week numbers. |
 
 ```tsx
-<DayPicker showWeekNumber onWeekNumberClick={setWeekNumber} />
+<DayPicker showWeekNumber />
 ```
 
 <BrowserWindow>
   <Examples.Weeknumber />
 </BrowserWindow>
+
+### Handling Week Numbers Click
+
+To handle the click on the week numbers, you can set a `WeekNumber` [custom component](../advanced-guides/custom-components):
+
+```tsx
+<DayPicker
+  showWeekNumber
+  components={{
+    weekNumber: ({ weekNumber }) => (
+      <button onClick={() => alert(`Week ${weekNumber}`)}>{weekNumber}</button>
+    )
+  }}
+/>
+```
+
+### Selecting the Whole Week
+
+When in [selection mode](./selection-modes.mdx), create a [Custom Selection](../advanced-guides//custom-selections.mdx) that selects the whole week when a day is clicked.
 
 ## Footer as Live Region
 
