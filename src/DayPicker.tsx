@@ -62,6 +62,27 @@ export function DayPicker(props: DayPickerProps) {
   const modifiers = useModifiers(props, calendar, dateLib);
   const selection = useSelection(props, dateLib);
   const focus = useFocus(props, calendar, modifiers, selection, dateLib);
+
+  const { previousMonth, nextMonth, goToPreviousMonth, goToNextMonth } =
+    calendar;
+  const { isSelected, handleSelect } = selection;
+  const {
+    isFocusTarget,
+    focused: focusedDay,
+    setFocused,
+    blur,
+    focusDayBefore,
+    focusDayAfter,
+    focusWeekBefore,
+    focusWeekAfter,
+    focusMonthBefore,
+    focusMonthAfter,
+    focusYearBefore,
+    focusYearAfter,
+    focusStartOfWeek,
+    focusEndOfWeek
+  } = focus;
+
   const {
     captionLayout,
     dir,
@@ -116,48 +137,48 @@ export function DayPicker(props: DayPickerProps) {
   const isInteractive = mode !== undefined || onDayClick !== undefined;
 
   const handlePreviousClick = useCallback(() => {
-    if (!calendar.previousMonth) return;
-    calendar.goToPreviousMonth();
-    onPrevClick?.(calendar.previousMonth);
-  }, [calendar, onPrevClick]);
+    if (!previousMonth) return;
+    goToPreviousMonth();
+    onPrevClick?.(previousMonth);
+  }, [goToPreviousMonth, onPrevClick, previousMonth]);
 
   const handleNextClick = useCallback(() => {
-    if (!calendar.nextMonth) return;
-    calendar.goToNextMonth();
-    onNextClick?.(calendar.nextMonth);
-  }, [calendar, onNextClick]);
+    if (!nextMonth) return;
+    goToNextMonth();
+    onNextClick?.(nextMonth);
+  }, [goToNextMonth, nextMonth, onNextClick]);
 
   const handleDayClick = useCallback(
     (day: CalendarDay, m: Modifiers) => {
       return (e: MouseEvent) => {
         e.preventDefault();
         e.stopPropagation();
-        selection?.handleSelect(day.date, m, e);
-        focus.setFocused(day);
+        handleSelect(day.date, m, e);
+        setFocused(day);
         onDayClick?.(day.date, m, e);
       };
     },
-    [focus, onDayClick, selection]
+    [handleSelect, onDayClick, setFocused]
   );
 
   const handleDayFocus = useCallback(
     (day: CalendarDay, m: Modifiers) => {
       return (e: FocusEvent) => {
-        focus.setFocused(day);
+        setFocused(day);
         onDayFocus?.(day.date, m, e);
       };
     },
-    [focus, onDayFocus]
+    [onDayFocus, setFocused]
   );
 
   const handleDayBlur = useCallback(
     (day: CalendarDay, m: Modifiers) => {
       return (e: FocusEvent) => {
-        focus.blur();
+        blur();
         onDayBlur?.(day.date, m, e);
       };
     },
-    [focus, onDayBlur]
+    [blur, onDayBlur]
   );
 
   const handleDayKeyDown = useCallback(
@@ -167,22 +188,22 @@ export function DayPicker(props: DayPickerProps) {
           case "ArrowLeft":
             e.preventDefault();
             e.stopPropagation();
-            dir === "rtl" ? focus.focusDayAfter() : focus.focusDayBefore();
+            dir === "rtl" ? focusDayAfter() : focusDayBefore();
             break;
           case "ArrowRight":
             e.preventDefault();
             e.stopPropagation();
-            dir === "rtl" ? focus.focusDayBefore() : focus.focusDayAfter();
+            dir === "rtl" ? focusDayBefore() : focusDayAfter();
             break;
           case "ArrowDown":
             e.preventDefault();
             e.stopPropagation();
-            focus.focusWeekAfter();
+            focusWeekAfter();
             break;
           case "ArrowUp":
             e.preventDefault();
             e.stopPropagation();
-            focus.focusWeekBefore();
+            focusWeekBefore();
             break;
           case " ":
           case "Enter":
@@ -193,28 +214,42 @@ export function DayPicker(props: DayPickerProps) {
           case "PageUp":
             e.preventDefault();
             e.stopPropagation();
-            e.shiftKey ? focus.focusYearBefore() : focus.focusMonthBefore();
+            e.shiftKey ? focusYearBefore() : focusMonthBefore();
             break;
           case "PageDown":
             e.preventDefault();
             e.stopPropagation();
-            e.shiftKey ? focus.focusYearAfter() : focus.focusMonthAfter();
+            e.shiftKey ? focusYearAfter() : focusMonthAfter();
             break;
           case "Home":
             e.preventDefault();
             e.stopPropagation();
-            focus.focusStartOfWeek();
+            focusStartOfWeek();
             break;
           case "End":
             e.preventDefault();
             e.stopPropagation();
-            focus.focusEndOfWeek();
+            focusEndOfWeek();
             break;
         }
         onDayKeyDown?.(day.date, modifiers, e);
       };
     },
-    [dir, focus, onDayKeyDown, selection]
+    [
+      dir,
+      focusDayAfter,
+      focusDayBefore,
+      focusEndOfWeek,
+      focusMonthAfter,
+      focusMonthBefore,
+      focusStartOfWeek,
+      focusWeekAfter,
+      focusWeekBefore,
+      focusYearAfter,
+      focusYearBefore,
+      onDayKeyDown,
+      selection
+    ]
   );
 
   const formatOptions: FormatOptions = {
@@ -482,49 +517,51 @@ export function DayPicker(props: DayPickerProps) {
                           )}
                           {week.days.map((day: CalendarDay) => {
                             const { date } = day;
-                            const m = modifiers.getModifiers(day);
-                            const focused = focus.focused?.isEqualTo(day);
+                            const dayModifiers = modifiers.getModifiers(day);
+                            const focused = focusedDay?.isEqualTo(day);
 
-                            if (!m.hidden && focused) {
-                              m[DayFlag.focused] = true;
-                            }
+                            if (!dayModifiers.hidden && focused)
+                              dayModifiers[DayFlag.focused] = true;
 
-                            const selected = selection?.isSelected(date);
+                            const selected = isSelected(date);
 
-                            if (!m.disabled) {
-                              if (selected && !m.disabled) {
-                                m[SelectionState.selected] = true;
-                              }
-                              if (mode === "range") {
-                                const range = selection as UseRange<false>;
-                                if (range.isRangeStart(date)) {
-                                  m[SelectionState.range_start] = true;
-                                }
-                                if (range.isRangeMiddle(date)) {
-                                  m[SelectionState.range_middle] = true;
-                                }
-                                if (range.isRangeEnd(date)) {
-                                  m[SelectionState.range_end] = true;
-                                }
-                              }
+                            dayModifiers[SelectionState.selected] =
+                              !dayModifiers.disabled && selected;
+
+                            if (!dayModifiers.disabled && mode === "range") {
+                              const range = selection as UseRange<false>;
+                              dayModifiers[SelectionState.range_start] =
+                                range.isRangeStart(date);
+                              dayModifiers[SelectionState.range_end] =
+                                range.isRangeEnd(date);
+                              dayModifiers[SelectionState.range_middle] =
+                                range.isRangeMiddle(date);
                             }
 
                             const style = {
-                              ...getStyleForModifiers(m, modifiersStyles),
+                              ...getStyleForModifiers(
+                                dayModifiers,
+                                modifiersStyles
+                              ),
                               ...styles?.[UI.Day]
                             };
 
                             const className = [
                               classNames[UI.Day],
                               ...getClassNamesForModifiers(
-                                m,
+                                dayModifiers,
                                 classNames,
                                 modifiersClassNames
                               )
                             ];
 
                             const ariaLabel = !isInteractive
-                              ? labelGridcell(date, m, labelOptions, dateLib)
+                              ? labelGridcell(
+                                  date,
+                                  dayModifiers,
+                                  labelOptions,
+                                  dateLib
+                                )
                               : undefined;
 
                             const dataAttributes = {
@@ -537,12 +574,14 @@ export function DayPicker(props: DayPickerProps) {
                               <components.Day
                                 key={`${dateLib.format(date, "yyyy-MM-dd")}_${dateLib.format(day.displayMonth, "yyyy-MM")}`}
                                 day={day}
-                                modifiers={m}
+                                modifiers={dayModifiers}
                                 role="gridcell"
                                 className={className.join(" ")}
                                 style={style}
-                                aria-hidden={m.hidden || undefined}
-                                aria-selected={m.selected || undefined}
+                                aria-hidden={dayModifiers.hidden || undefined}
+                                aria-selected={
+                                  dayModifiers.selected || undefined
+                                }
                                 aria-label={ariaLabel}
                                 {...dataAttributes}
                               >
@@ -551,19 +590,24 @@ export function DayPicker(props: DayPickerProps) {
                                     className={classNames[UI.DayButton]}
                                     style={styles?.[UI.DayButton]}
                                     day={day}
-                                    modifiers={m}
-                                    disabled={m.disabled || undefined}
-                                    tabIndex={focus.isFocusTarget(day) ? 0 : -1}
+                                    modifiers={dayModifiers}
+                                    disabled={
+                                      dayModifiers.disabled || undefined
+                                    }
+                                    tabIndex={isFocusTarget(day) ? 0 : -1}
                                     aria-label={labelDayButton(
                                       date,
-                                      m,
+                                      dayModifiers,
                                       labelOptions,
                                       dateLib
                                     )}
-                                    onClick={handleDayClick(day, m)}
-                                    onBlur={handleDayBlur(day, m)}
-                                    onFocus={handleDayFocus(day, m)}
-                                    onKeyDown={handleDayKeyDown(day, m)}
+                                    onClick={handleDayClick(day, dayModifiers)}
+                                    onBlur={handleDayBlur(day, dayModifiers)}
+                                    onFocus={handleDayFocus(day, dayModifiers)}
+                                    onKeyDown={handleDayKeyDown(
+                                      day,
+                                      dayModifiers
+                                    )}
                                   >
                                     {formatDay(date, formatOptions, dateLib)}
                                   </components.DayButton>
