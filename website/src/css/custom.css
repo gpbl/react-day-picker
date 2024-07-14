@@ -393,10 +393,6 @@ div.theme-admonition {
   border: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0 !important;
