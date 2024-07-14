@@ -71,9 +71,6 @@ jobs:
       - run: pnpm test
 
   build:
-    strategy:
-      matrix:
-        react-version: [16.8, "latest", "next"]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -85,7 +82,6 @@ jobs:
           node-version: 18.16
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm install react@${{ matrix.react-version }} react-dom@${{ matrix.react-version }}
       - run: pnpm build
       - uses: actions/upload-artifact@v4
         with:
