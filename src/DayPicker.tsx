@@ -35,9 +35,6 @@ import { useSelection } from "./useSelection.js";
  * @see http://daypicker.dev
  */
 export function DayPicker(props: DayPickerProps) {
-  const reactId = React.useId();
-  const id = props.id ?? reactId;
-
   const {
     captionLayout,
     dir,
@@ -319,7 +316,6 @@ export function DayPicker(props: DayPickerProps) {
                 tabIndex={calendar.previousMonth ? undefined : -1}
                 disabled={calendar.previousMonth ? undefined : true}
                 aria-label={labelPrevious(previousMonth, labelOptions)}
-                aria-controls={id}
                 onClick={handlePreviousClick}
               >
                 <components.Chevron
@@ -334,7 +330,6 @@ export function DayPicker(props: DayPickerProps) {
                 tabIndex={nextMonth ? undefined : -1}
                 disabled={nextMonth ? undefined : true}
                 aria-label={labelNext(nextMonth, labelOptions)}
-                aria-controls={id}
                 onClick={handleNextClick}
               >
                 <components.Chevron
@@ -346,8 +341,6 @@ export function DayPicker(props: DayPickerProps) {
             </components.Nav>
           )}
           {months.map((calendarMonth, displayIndex) => {
-            const captionId = `${id}-caption-${displayIndex}`;
-
             const handleMonthChange: ChangeEventHandler<HTMLSelectElement> = (
               e
             ) => {
@@ -398,7 +391,6 @@ export function DayPicker(props: DayPickerProps) {
                 <components.MonthCaption
                   className={classNames[UI.MonthCaption]}
                   style={styles?.[UI.MonthCaption]}
-                  id={captionId}
                   calendarMonth={calendarMonth}
                   displayIndex={displayIndex}
                 >
