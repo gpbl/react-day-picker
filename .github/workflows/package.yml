@@ -67,8 +67,8 @@ jobs:
           node-version: 18.16
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm test
       - run: pnpm install react@${{ matrix.react-version }} react-dom@${{ matrix.react-version }}
+      - run: pnpm test
 
   build:
     runs-on: ubuntu-latest
