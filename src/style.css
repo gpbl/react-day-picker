@@ -180,28 +180,16 @@
   margin: 0;
   padding: 0;
   cursor: inherit;
-  opacity: 0;
+  color: transparent;
   border: none;
   background-color: transparent;
   line-height: inherit;
-  /* font: 1rem; */
-}
-
-.rdp-dropdown[disabled] {
 }
 
 .rdp-dropdown_root {
   position: relative;
   display: inline-flex;
   align-items: center;
-}
-
-.rdp-dropdown_root::after {
-  position: absolute;
-  inset-block-start: 50%;
-  inset-inline-end: 5px;
-  transform: translateY(-50%);
-  pointer-events: none;
 }
 
 .rdp-month_caption {
@@ -332,9 +320,4 @@
 
 .rdp-focusable {
   cursor: pointer;
-}
-
-.rdp-day_button:focus-visible {
-  /* outline: 2px solid var(--rdp-accent-color); */
-  /* You may want to add focus-outlines here. */
 }
