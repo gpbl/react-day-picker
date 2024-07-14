@@ -24,37 +24,35 @@ Depending on your design, you may need to add new accessibility features. For in
 An accessible date picker with a live region that announces the selected date using the `footer` prop.
 
 ```tsx title="./AccessibleDatePicker.tsx"
-import React, { useState } from "react";
-
 import { format } from "date-fns";
 import { DayPicker } from "react-day-picker";
 
 export function AccessibleDatePicker() {
-  const [meetingDate, setMeetingDate] = useState<Date | undefined>(undefined);
+  const [meetingDate, setMeetingDate] = React.useState<Date | undefined>(
+    undefined
+  );
+
+  const footer = meetingDate
+    ? `Meeting date is set to ${format(meetingDate, "PPPP")}`
+    : "Please pick a date for the meeting.";
+
+  const labels = {
+    labelCaption: () => "Select a date for the meeting",
+    labelDay: (date, modifiers) => {
+      return modifiers.selected
+        ? `Selected Meeting Date: ${format(date, "PPP")}`
+        : "";
+    }
+  };
+
   return (
-    <div role="group" aria-labelledby="meeting-date">
-      <h2 id="meeting-date">Meeting Date</h2>
-      <DayPicker
-        mode="single"
-        onSelect={setMeetingDate}
-        selected={meetingDate}
-        labels={{
-          labelCaption: () => "Select a date for the meeting",
-          labelDay: (date, modifiers) => {
-            return modifiers.selected
-              ? `Selected Meeting Date: ${format(date, "PPP")}`
-              : "";
-          }
-        }}
-        footer={
-          <p aria-live="polite">
-            {meetingDate
-              ? `Meeting date is set to ${format(meetingDate, "PPPP")}`
-              : "Please pick a date for the meeting."}
-          </p>
-        }
-      />
-    </div>
+    <DayPicker
+      mode="single"
+      onSelect={setMeetingDate}
+      selected={meetingDate}
+      labels={labels}
+      footer={footer}
+    />
   );
 }
 ```

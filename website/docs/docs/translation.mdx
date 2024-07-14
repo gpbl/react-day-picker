@@ -26,27 +26,39 @@ Get help and give suggestions to translate DayPicker into your language. See [Tr
 
 The `labels` prop allows for customization of the [ARIA labels](./accessibility.mdx).
 
-For example, to translate the labels to Italian:
+### Example: Italian labels
 
 ```tsx
-<DayPicker
-  labels={{
-    labelDayButton: (date, { today, selected }) => {
-      let label = format(date, "PPPP");
-      if (today) label = `Oggi, ${label}`;
-      if (selected) label = `${label}, selezionato`;
-      return label;
-    },
-    labelWeekNumber: (weekNumber) => `Settimana ${weekNumber}`,
-    labelNext: () => "Prossimo mese",
-    labelPrevious: () => "Mese precedente",
-    labelMonthDropdown: () => "Seleziona il mese",
-    labelYearDropdown: () => "Seleziona l'anno"
-  }}
-/>
+import { format } from "date-fns";
+import { it } from "date-fns/locale";
+
+function ItalianLabels() {
+  return (
+    <DayPicker
+      locale={it}
+      labels={{
+        labelDayButton: (date, { today, selected }) => {
+          let label = format(date, "PPPP");
+          if (today) label = `Oggi, ${label}`;
+          if (selected) label = `${label}, selezionato`;
+          return label;
+        },
+        labelWeekNumber: (weekNumber) => `Settimana ${weekNumber}`,
+        labelNext: () => "Prossimo mese",
+        labelPrevious: () => "Mese precedente",
+        labelMonthDropdown: () => "Seleziona il mese",
+        labelYearDropdown: () => "Seleziona l'anno"
+      }}
+    />
+  );
+}
 ```
 
-### Labels to translate
+<BrowserWindow>
+  <Examples.ItalianLabels />
+</BrowserWindow>
+
+### Labels to Translate
 
 The following labels are required to be translated, as they default to English:
 
