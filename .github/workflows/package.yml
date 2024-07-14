@@ -23,7 +23,6 @@ jobs:
   #   steps:
   #     - run: |
   #         echo "publish=${{ github.event.inputs.publish || false }}"
-
   typecheck:
     runs-on: ubuntu-latest
     steps:
@@ -53,6 +52,9 @@ jobs:
       - run: pnpm lint --max-warnings=0
 
   test:
+    strategy:
+      matrix:
+        react-version: [16, 17]
     needs: [lint, typecheck]
     runs-on: ubuntu-latest
     steps:
@@ -66,6 +68,7 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm test
+      - run: pnpm install react@${{ matrix.react-version }} react-dom@${{ matrix.react-version }}
 
   build:
     runs-on: ubuntu-latest
