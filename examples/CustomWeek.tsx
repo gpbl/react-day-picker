@@ -26,7 +26,7 @@ export function CustomWeek() {
       footer={
         selectedWeek &&
         `Week from ${selectedWeek?.from?.toLocaleDateString()} to
-            {selectedWeek?.to?.toLocaleDateString()}`
+            ${selectedWeek?.to?.toLocaleDateString()}`
       }
     />
   );
