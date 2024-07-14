@@ -89,6 +89,13 @@ html[data-theme="dark"] .browserWindow {
   border-bottom-right-radius: inherit;
   padding: 2rem 2rem;
   display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .browserWindowBody {
+    justify-content: flex-start;
+  }
 }
 
 .overflow {

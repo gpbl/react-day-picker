@@ -296,7 +296,6 @@ div[class^="docRoot"],
   font-size: 0.875rem;
 }
 .navbar__title {
-  font-size: large;
   text-transform: uppercase;
 }
 
@@ -407,4 +406,8 @@ div.theme-admonition {
 .navbar__inner,
 div[class^="docRoot"] {
   max-width: 100%;
+}
+
+.navbar__logo {
+  height: 1.75rem;
 }
