@@ -36,7 +36,6 @@ This release includes important updates related to accessibility, styles and per
 
 We tried to keep breaking changes to a minimum, but were inevitable to improve the library. Here are the most important changes:
 
-- Requires React 18+.
 - The updated HTML output could break your unit tests.
 - Custom styles will likely not work.
 - Some ARIA labels have been changed.
