@@ -17,6 +17,23 @@ const dayModifiers: Modifiers = {
   selected: false,
   today: false
 };
+
+describe("when the day is selected", () => {
+  test("return the label", () => {
+    expect(labelDayButton(day, { ...dayModifiers, selected: true })).toEqual(
+      "Monday, November 21st, 2022, selected"
+    );
+  });
+});
+
+describe("when the day is today", () => {
+  test("return the label", () => {
+    expect(labelDayButton(day, { ...dayModifiers, today: true })).toEqual(
+      "Today, Monday, November 21st, 2022"
+    );
+  });
+});
+
 test("should return the localized label", () => {
   expect(labelDayButton(day, dayModifiers, { locale: es })).toEqual(
     "lunes, 21 de noviembre de 2022"

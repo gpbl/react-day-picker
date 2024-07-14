@@ -3,7 +3,9 @@ import {
   DayFlag,
   SelectionState,
   labelDayButton,
-  labelGridcell
+  labelGridcell,
+  labelMonthDropdown,
+  labelYearDropdown
 } from "react-day-picker";
 
 /** Return the application element from the screen. */
@@ -14,14 +16,14 @@ export function app() {
 /** Return the previous button element from the screen. */
 export function previousButton() {
   return screen.getByRole("button", {
-    name: "Previous Month"
+    name: "Go to the Previous Month"
   });
 }
 
 /** Return the next button element from the screen. */
 export function nextButton() {
   return screen.getByRole("button", {
-    name: "Next Month"
+    name: "Go to the Next Month"
   });
 }
 
@@ -45,7 +47,7 @@ export function grid(name?: ByRoleOptions["name"]) {
 
 /** Return the parent element of the next button from the screen. */
 export function nav() {
-  return nextButton().parentElement;
+  return screen.getByRole("navigation");
 }
 
 /**
@@ -100,12 +102,12 @@ export function rowheader(name?: ByRoleOptions["name"]) {
 
 /** Return the year dropdown element from the screen. */
 export function yearDropdown() {
-  return screen.getByRole("combobox", { name: "Year:" });
+  return screen.getByRole("combobox", { name: labelYearDropdown() });
 }
 
 /** Return the month dropdown. */
 export function monthDropdown() {
-  return screen.getByRole("combobox", { name: "Month:" });
+  return screen.getByRole("combobox", { name: labelMonthDropdown() });
 }
 
 /** Return the currently focused element. */

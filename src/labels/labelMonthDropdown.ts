@@ -7,5 +7,5 @@ import type { LabelOptions } from "../lib/dateLib.js";
  * @see http://daypicker.dev/next/docs/translation#aria-labels
  */
 export function labelMonthDropdown(options?: LabelOptions) {
-  return "Month: ";
+  return "Choose the Month";
 }

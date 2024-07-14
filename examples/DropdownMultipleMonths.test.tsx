@@ -1,5 +1,7 @@
 import React from "react";
 
+import { labelMonthDropdown } from "react-day-picker";
+
 import { grid } from "@/test/elements";
 import { screen, render } from "@/test/render";
 import { user } from "@/test/user";
@@ -19,7 +21,7 @@ describe("when choosing a month from the first dropdown", () => {
   const monthName = "January";
   beforeEach(async () => {
     const firstDropDown = screen.getAllByRole("combobox", {
-      name: "Month:"
+      name: labelMonthDropdown()
     })[0];
     await user.selectOptions(firstDropDown, monthName);
   });
@@ -32,7 +34,7 @@ describe("when choosing a month from the third dropdown", () => {
   const newMonthName = "October";
   beforeEach(async () => {
     const thirdDropDown = screen.getAllByRole("combobox", {
-      name: "Month:"
+      name: labelMonthDropdown()
     })[2];
     await user.selectOptions(thirdDropDown, newMonthName);
   });

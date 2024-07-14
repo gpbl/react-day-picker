@@ -7,5 +7,5 @@ import type { LabelOptions } from "../lib/dateLib.js";
  * @see http://daypicker.dev/next/docs/translation#aria-labels
  */
 export function labelYearDropdown(options?: LabelOptions) {
-  return "Year: ";
+  return "Choose the Year";
 }

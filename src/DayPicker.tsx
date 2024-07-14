@@ -282,7 +282,10 @@ export function DayPicker(props: DayPickerProps) {
 
   const dataAttributes = useMemo(() => getDataAttributes(props), [props]);
 
-  const contextValue = { ...calendar, ...selection, ...modifiers };
+  const contextValue = useMemo(
+    () => ({ ...calendar, ...selection, ...modifiers }),
+    [calendar, modifiers, selection]
+  );
 
   return (
     <dayPickerContext.Provider value={contextValue}>
@@ -305,7 +308,7 @@ export function DayPicker(props: DayPickerProps) {
         >
           {!props.hideNavigation && (
             <components.Nav
-              role="toolbar"
+              role="navigation"
               className={classNames[UI.Nav]}
               style={styles?.[UI.Nav]}
               aria-label={labelNav()}

@@ -11,5 +11,5 @@ export function labelNext(
   month: Date | undefined,
   options?: LabelOptions
 ) {
-  return "Next Month";
+  return "Go to the Next Month";
 }

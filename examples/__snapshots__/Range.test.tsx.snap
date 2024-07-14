@@ -14,11 +14,11 @@ exports[`should match the snapshot 1`] = `
       <nav
         aria-label=""
         class="rdp-nav"
-        role="toolbar"
+        role="navigation"
       >
         <button
           aria-controls="test"
-          aria-label="Previous Month"
+          aria-label="Go to the Previous Month"
           class="rdp-button_previous"
           type="button"
         >
@@ -35,7 +35,7 @@ exports[`should match the snapshot 1`] = `
         </button>
         <button
           aria-controls="test"
-          aria-label="Next Month"
+          aria-label="Go to the Next Month"
           class="rdp-button_next"
           type="button"
         >
@@ -656,11 +656,11 @@ exports[`when a day in the range is clicked when the day is clicked again when a
       <nav
         aria-label=""
         class="rdp-nav"
-        role="toolbar"
+        role="navigation"
       >
         <button
           aria-controls="test"
-          aria-label="Previous Month"
+          aria-label="Go to the Previous Month"
           class="rdp-button_previous"
           type="button"
         >
@@ -677,7 +677,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
         </button>
         <button
           aria-controls="test"
-          aria-label="Next Month"
+          aria-label="Go to the Next Month"
           class="rdp-button_next"
           type="button"
         >
