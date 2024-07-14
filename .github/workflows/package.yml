@@ -54,7 +54,7 @@ jobs:
   test:
     strategy:
       matrix:
-        react-version: [16, 17]
+        react-version: [16.8, "latest"]
     needs: [lint, typecheck]
     runs-on: ubuntu-latest
     steps:
