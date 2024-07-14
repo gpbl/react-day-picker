@@ -9,6 +9,7 @@ import type { DateLib } from "../types/index.js";
 export function formatCaption(
   month: Date,
   options?: FormatOptions,
+  /** @ignore */
   dateLib: DateLib = defaultDateLib
 ) {
   return dateLib.format(month, "LLLL y", options);

@@ -308,21 +308,21 @@ export interface PropsBase {
    * Labels creators to override the defaults. Use this prop to customize the
    * aria-label attributes in DayPicker.
    *
-   * @see https://daypicker.dev/next/docs/localization#aria-labels
+   * @see https://daypicker.dev/next/docs/translation#aria-labels
    */
   labels?: Partial<Labels>;
   /**
    * Formatters used to format dates to strings. Use this prop to override the
    * default functions.
    *
-   * @see https://daypicker.dev/next/docs/localization#custom-formatters
+   * @see https://daypicker.dev/next/docs/translation#custom-formatters
    */
   formatters?: Partial<Formatters>;
   /**
    * The text direction of the calendar. Use `ltr` for left-to-right (default)
    * or `rtl` for right-to-left.
    *
-   * @see https://daypicker.dev/next/docs/localization#rtl-text-direction
+   * @see https://daypicker.dev/next/docs/translation#rtl-text-direction
    */
   dir?: HTMLDivElement["dir"];
   /**

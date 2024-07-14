@@ -7,10 +7,12 @@ import { DateLib } from "../types/index.js";
  * the grid.
  *
  * @group Labels
+ * @see http://daypicker.dev/next/docs/translation#aria-labels
  */
 export function labelGrid(
   date: Date,
   options?: LabelOptions,
+  /** @ignore */
   dateLib: DateLib = defaultDateLib
 ) {
   return dateLib.format(date, "LLLL y", options);

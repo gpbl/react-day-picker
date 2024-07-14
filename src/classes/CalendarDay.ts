@@ -12,6 +12,7 @@ export class CalendarDay {
   constructor(
     date: Date,
     displayMonth: Date,
+    /** @ignore */
     dateLib: DateLib = defaultDateLib
   ) {
     this.date = date;

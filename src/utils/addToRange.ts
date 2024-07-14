@@ -12,6 +12,7 @@ import type { DateRange, DateLib } from "../types/index.js";
 export function addToRange(
   date: Date,
   range: DateRange | undefined,
+  /** @ignore */
   dateLib: DateLib = defaultDateLib
 ): DateRange {
   const { from, to } = range || {};

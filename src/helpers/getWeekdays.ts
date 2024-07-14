@@ -12,6 +12,7 @@ export function getWeekdays(
   weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined,
   /** Use ISOWeek instead of locale/ */
   ISOWeek?: boolean | undefined,
+  /** @ignore */
   dateLib: DateLib = defaultDateLib
 ): Date[] {
   const start = ISOWeek

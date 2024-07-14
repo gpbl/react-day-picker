@@ -1,0 +1,128 @@
+---
+sidebar_position: 6
+---
+
+# Translating DayPicker
+
+When [localizing](./localization.mdx) DayPicker, you need to translate labels into your language.
+
+DayPicker supports full customization of the ARIA labels and date formatters, and you will need to translate them via the `labels` props.
+
+:::info Get help with Translations
+
+Get help and give suggestions to translate DayPicker into your language. See [Translations forum](https://github.com/gpbl/react-day-picker/discussions/categories/translation-and-localization) on GitHub.
+
+:::
+
+## Translation Props
+
+| Prop Name    | Type                                              | Description                                |
+| ------------ | ------------------------------------------------- | ------------------------------------------ |
+| `labels`     | [`Labels`](../api/type-aliases/Labels.md)         | Map the ARIA labels used within DayPicker. |
+| `formatters` | [`Formatters`](../api/type-aliases/Formatters.md) | Map the function used as date formatters.  |
+| `dir`        | `rtl` \| `ltr`                                    | Set the text direction.                    |
+
+## ARIA Labels
+
+DayPicker utilizes ARIA labels to enhance screen reader accessibility. The `labels` prop allows for customization of these ARIA labels. See also the [Accessibility guide](./accessibility.mdx).
+
+```tsx
+<DayPicker
+  labels={{
+    labelNext: () => "Prossimo mese"
+    labelPrevious: () => "Mese precedente"
+  }}
+/>
+```
+
+| Function                                                             | Description                                                                    |
+| -------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| [`labelDay`](../api/functions/labelDay.md)                           | The label for the day button.                                                  |
+| [`labelDayButton`](../api/functions/labelDayButton.md)               | The label for the day button.                                                  |
+| [`labelGrid`](../api/functions/labelGrid.md)                         | The label for the month grid, that will be announced when entering the grid.   |
+| [`labelGridcell`](../api/functions/labelGridcell.md)                 | The label for the day gridcell when the calendar is not interactive.           |
+| [`labelMonthDropdown`](../api/functions/labelMonthDropdown.md)       | The label for the months dropdown.                                             |
+| [`labelNav`](../api/functions/labelNav.md)                           | The label for the navigation toolbar, that will be announced when entering it. |
+| [`labelNext`](../api/functions/labelNext.md)                         | The label for next month button.                                               |
+| [`labelPrevious`](../api/functions/labelPrevious.md)                 | The label for next month button.                                               |
+| [`labelWeekNumber`](../api/functions/labelWeekNumber.md)             | The label for the week number element.                                         |
+| [`labelWeekNumberHeader`](../api/functions/labelWeekNumberHeader.md) | The label for the week number header element.                                  |
+| [`labelWeekday`](../api/functions/labelWeekday.md)                   | The label for the Weekday element.                                             |
+| [`labelYearDropdown`](../api/functions/labelYearDropdown.md)         | The label for the years dropdown.                                              |
+
+## RTL Text Direction
+
+To set the right-to-left text direction, toggle the `dir` prop to `rtl`.
+
+```tsx caption="render:Rtl"
+import { arSA } from "date-fns/locale";
+
+<DayPicker locale={arSA} dir="rtl" />;
+```
+
+<BrowserWindow>
+  <Examples.Rtl />
+</BrowserWindow>
+
+## Custom Formatters
+
+The `formatters` prop can be used to further format dates, week numbers, day names, and more.
+
+```tsx
+<DayPicker
+  formatters={{
+    formatCaption: (date, options) => format(date, "LLLL yyyy", options)
+  }}
+/>
+```
+
+| Function                                                               | Description                                          |
+| ---------------------------------------------------------------------- | ---------------------------------------------------- |
+| [`formatCaption`](../api/functions/formatCaption.md)                   | The default formatter for the caption element.       |
+| [`formatDay`](../api/functions/formatDay.md)                           | The default formatter for the day grid cell element. |
+| [`formatMonthDropdown`](../api/functions/formatMonthDropdown.md)       | The default formatter for the month dropdown value.  |
+| [`formatWeekNumber`](../api/functions/formatWeekNumber.md)             | The default formatter for the week numbers.          |
+| [`formatWeekNumberHeader`](../api/functions/formatWeekNumberHeader.md) | The default formatter for the week numbers header.   |
+| [`formatWeekdayName`](../api/functions/formatWeekdayName.md)           | The default formatter for the name of the weekday.   |
+| [`formatYearDropdown`](../api/functions/formatYearDropdown.md)         | The default formatter for the Year caption.          |
+
+## Numbering System
+
+Use the proper `formatters` to change the [numbering system](https://en.wikipedia.org/wiki/Numeral_system) used in the calendar.
+
+For example, to switch to hindu-arabic use the native [`Date.toLocaleString`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString):
+
+```tsx caption="render:NumberingSystem"
+import { format } from "date-fns/format";
+import { arSA } from "date-fns/locale";
+import { DayPicker, Formatters } from "react-day-picker";
+
+const NU_LOCALE = "ar-u-nu-arab";
+
+const formatDay = (day) => day.getDate().toLocaleString(NU_LOCALE);
+const formatWeekNumber = (weekNumber) => weekNumber.toLocaleString(NU_LOCALE);
+const formatMonthCaption = (date, options) => {
+  const y = date.getFullYear().toLocaleString(NU_LOCALE);
+  const m = format(date, "LLLL", options);
+  return `${m} ${y}`;
+};
+
+export function NumberingSystemExample() {
+  return (
+    <DayPicker
+      locale={arSA}
+      dir="rtl"
+      showWeekNumber
+      formatters={{
+        formatDay,
+        formatMonthCaption,
+        formatWeekNumber
+      }}
+    />
+  );
+}
+```
+
+<BrowserWindow>
+  <Examples.NumberingSystem />
+</BrowserWindow>

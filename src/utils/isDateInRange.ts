@@ -9,6 +9,7 @@ import type { DateRange, DateLib } from "../types/index.js";
 export function isDateInRange(
   date: Date,
   range: DateRange,
+  /** @ignore */
   dateLib: DateLib = defaultDateLib
 ): boolean {
   let { from, to } = range;

@@ -3,13 +3,15 @@ import { dateLib as defaultDateLib } from "../lib/index.js";
 import type { DateLib } from "../types/index.js";
 
 /**
- * Return he default ARIA label for the Weekday element.
+ * Return he default ARIA label for the Weekday colum header.
  *
  * @group Labels
+ * @see http://daypicker.dev/next/docs/translation#aria-labels
  */
 export function labelWeekday(
   date: Date,
   options?: LabelOptions,
+  /** @ignore */
   dateLib: DateLib = defaultDateLib
 ): string {
   return dateLib.format(date, "cccc", options);

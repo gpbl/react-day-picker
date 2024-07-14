@@ -10,6 +10,7 @@ import type { DateLib } from "../types/index.js";
 export function formatWeekdayName(
   weekday: Date,
   options?: FormatOptions,
+  /** @ignore */
   dateLib: DateLib = defaultDateLib
 ) {
   return dateLib.format(weekday, "cccccc", options);
