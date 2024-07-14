@@ -30,13 +30,14 @@ This release includes important updates related to accessibility, styles and per
 - Added support for the Jalali Calendar.
 - Added new `hideWeekdayRow` and `hideNavigation` props.
 - New `dropdown-years` and `dropdown-months` caption layouts.
+- Removed `date-fns` from peer dependencies.
 
 #### Breaking Changes
 
 We tried to keep breaking changes to a minimum, but were inevitable to improve the library. Here are the most important changes:
 
 - Requires React 18+.
-- The updated HTML output could break unit tests.
+- The updated HTML output could break your unit tests.
 - Custom styles will likely not work.
 - Some ARIA labels have been changed.
 - Custom Components may break.
