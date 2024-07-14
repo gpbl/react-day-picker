@@ -1,7 +1,9 @@
 /**
- * The default formatter for the Year caption.
+ * The default formatter for the Year dropdown option. As default, it returns
+ * the year.
  *
  * @group Formatters
+ * @see https://daypicker.dev/next/docs/translation#custom-formatters
  */
 export function formatYearDropdown(year: number): string {
   return year.toString();
