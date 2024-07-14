@@ -33,11 +33,12 @@
   }
 }
 
-.rdp-root {
-  /* --rdp-accent-color: var(--ifm-color-primary); */
-  --rdp-accent-background-color: #073845;
-  --rdp-range_end-color: black;
-  --rdp-range_start-color: black;
+@media (prefers-color-scheme: dark) {
+  .rdp-root {
+    --rdp-accent-background-color: #073845;
+    /* --rdp-range_end-color: black; */
+    /* --rdp-range_start-color: black; */
+  }
 }
 
 .card {
