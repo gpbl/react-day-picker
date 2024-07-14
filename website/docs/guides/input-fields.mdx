@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Input Fields
 
-Binding a DayPicker with an input field requires to handle of user interactions, synchronize the selected date between the calendar and the input field, while maintaining accessibility and usability.
+Binding a DayPicker with an input field requires to handle of user interactions, synchronize the selected date between the calendar and the field, while maintaining a good level of usability.
 
 :::info Native Date Pickers
 
@@ -84,11 +84,7 @@ export function Input() {
         mode="single"
         selected={selectedDate}
         onSelect={handleDayPickerSelect}
-        footer={
-          <p aria-live="assertive" aria-atomic="true">
-            Selected: {selectedDate?.toDateString()}
-          </p>
-        }
+        footer={`Selected: ${selectedDate?.toDateString()`}
       />
     </div>
   );
@@ -217,11 +213,8 @@ export function Dialog() {
           selected={selectedDate}
           onSelect={handleDayPickerSelect}
           footer={
-            <p aria-live="assertive" aria-atomic="true">
-              {selectedDate !== undefined && (
-                <>Selected: {selectedDate.toDateString()}</>
-              )}
-            </p>
+            selectedDate !== undefined &&
+            `Selected: ${selectedDate.toDateString()}`
           }
         />
       </dialog>
