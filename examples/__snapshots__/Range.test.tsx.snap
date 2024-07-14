@@ -11,7 +11,7 @@ exports[`should match the snapshot 1`] = `
     <div
       class="rdp-months"
     >
-      <div
+      <nav
         aria-label=""
         class="rdp-nav"
         role="toolbar"
@@ -50,7 +50,7 @@ exports[`should match the snapshot 1`] = `
             />
           </svg>
         </button>
-      </div>
+      </nav>
       <div
         class="rdp-month"
       >
@@ -653,7 +653,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
     <div
       class="rdp-months"
     >
-      <div
+      <nav
         aria-label=""
         class="rdp-nav"
         role="toolbar"
@@ -692,7 +692,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
             />
           </svg>
         </button>
-      </div>
+      </nav>
       <div
         class="rdp-month"
       >

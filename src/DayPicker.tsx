@@ -38,6 +38,29 @@ export function DayPicker(props: DayPickerProps) {
   const reactId = React.useId();
   const id = props.id ?? reactId;
 
+  const {
+    captionLayout,
+    dir,
+    locale,
+    ISOWeek,
+    mode,
+    modifiersClassNames,
+    modifiersStyles,
+    numberOfMonths = 1,
+    onDayBlur,
+    onDayClick,
+    onDayFocus,
+    onDayKeyDown,
+    onPrevClick,
+    onNextClick,
+    showWeekNumber,
+    styles,
+    weekStartsOn,
+    firstWeekContainsDate,
+    useAdditionalWeekYearTokens,
+    useAdditionalDayOfYearTokens
+  } = props;
+
   const { components, formatters, labels, dateLib, classNames } = useMemo(
     () => ({
       dateLib: getDateLib(props.dateLib),
@@ -55,17 +78,34 @@ export function DayPicker(props: DayPickerProps) {
     ]
   );
 
-  const numberOfMonths = props.numberOfMonths ?? 1;
+  const {
+    formatCaption,
+    formatDay,
+    formatMonthDropdown,
+    formatWeekNumber,
+    formatWeekNumberHeader,
+    formatWeekdayName,
+    formatYearDropdown
+  } = formatters;
 
   const calendar = useCalendar(props, dateLib);
+  const {
+    months,
+    navigationStartMonth,
+    navigationEndMonth,
+    previousMonth,
+    nextMonth,
+    goToPreviousMonth,
+    goToNextMonth,
+    goToMonth
+  } = calendar;
 
   const modifiers = useModifiers(props, calendar, dateLib);
-  const selection = useSelection(props, dateLib);
-  const focus = useFocus(props, calendar, modifiers, selection, dateLib);
 
-  const { previousMonth, nextMonth, goToPreviousMonth, goToNextMonth } =
-    calendar;
+  const selection = useSelection(props, dateLib);
   const { isSelected, handleSelect } = selection;
+
+  const focus = useFocus(props, calendar, modifiers, selection, dateLib);
   const {
     isFocusTarget,
     focused: focusedDay,
@@ -82,38 +122,6 @@ export function DayPicker(props: DayPickerProps) {
     focusStartOfWeek,
     focusEndOfWeek
   } = focus;
-
-  const {
-    captionLayout,
-    dir,
-    locale,
-    ISOWeek,
-    mode,
-    modifiersClassNames,
-    modifiersStyles,
-    onDayBlur,
-    onDayClick,
-    onDayFocus,
-    onDayKeyDown,
-    onPrevClick,
-    onNextClick,
-    showWeekNumber,
-    styles,
-    weekStartsOn,
-    firstWeekContainsDate,
-    useAdditionalWeekYearTokens,
-    useAdditionalDayOfYearTokens
-  } = props;
-
-  const {
-    formatCaption,
-    formatDay,
-    formatMonthDropdown,
-    formatWeekNumber,
-    formatWeekNumberHeader,
-    formatWeekdayName,
-    formatYearDropdown
-  } = formatters;
 
   const {
     labelDayButton,
@@ -273,10 +281,11 @@ export function DayPicker(props: DayPickerProps) {
   );
 
   const dataAttributes = useMemo(() => getDataAttributes(props), [props]);
+
+  const contextValue = { ...calendar, ...selection, ...modifiers };
+
   return (
-    <dayPickerContext.Provider
-      value={{ ...calendar, ...selection, ...modifiers }}
-    >
+    <dayPickerContext.Provider value={contextValue}>
       <components.Root
         className={className}
         style={style}
@@ -306,14 +315,12 @@ export function DayPicker(props: DayPickerProps) {
                 className={classNames[UI.ButtonPrevious]}
                 tabIndex={calendar.previousMonth ? undefined : -1}
                 disabled={calendar.previousMonth ? undefined : true}
-                aria-label={labelPrevious(calendar.previousMonth, {
-                  locale
-                })}
+                aria-label={labelPrevious(previousMonth, labelOptions)}
                 aria-controls={id}
                 onClick={handlePreviousClick}
               >
                 <components.Chevron
-                  disabled={calendar.previousMonth ? undefined : true}
+                  disabled={previousMonth ? undefined : true}
                   className={classNames[UI.Chevron]}
                   orientation="left"
                 />
@@ -321,21 +328,21 @@ export function DayPicker(props: DayPickerProps) {
               <components.Button
                 type="button"
                 className={classNames[UI.ButtonNext]}
-                tabIndex={calendar.nextMonth ? undefined : -1}
-                disabled={calendar.nextMonth ? undefined : true}
-                aria-label={labelNext(calendar.nextMonth, labelOptions)}
+                tabIndex={nextMonth ? undefined : -1}
+                disabled={nextMonth ? undefined : true}
+                aria-label={labelNext(nextMonth, labelOptions)}
                 aria-controls={id}
                 onClick={handleNextClick}
               >
                 <components.Chevron
-                  disabled={calendar.previousMonth ? undefined : true}
+                  disabled={previousMonth ? undefined : true}
                   orientation="right"
                   className={classNames[UI.Chevron]}
                 />
               </components.Button>
             </components.Nav>
           )}
-          {calendar.months.map((calendarMonth, displayIndex) => {
+          {months.map((calendarMonth, displayIndex) => {
             const captionId = `${id}-caption-${displayIndex}`;
 
             const handleMonthChange: ChangeEventHandler<HTMLSelectElement> = (
@@ -348,7 +355,7 @@ export function DayPicker(props: DayPickerProps) {
                 dateLib.startOfMonth(calendarMonth.date),
                 selectedMonth
               );
-              calendar.goToMonth(month);
+              goToMonth(month);
             };
 
             const handleYearChange: ChangeEventHandler<HTMLSelectElement> = (
@@ -358,21 +365,21 @@ export function DayPicker(props: DayPickerProps) {
                 dateLib.startOfMonth(calendarMonth.date),
                 Number(e.target.value)
               );
-              calendar.goToMonth(month);
+              goToMonth(month);
             };
 
             const dropdownMonths = getDropdownMonths(
               calendarMonth.date,
-              calendar.navigationStartMonth,
-              calendar.navigationEndMonth,
+              navigationStartMonth,
+              navigationEndMonth,
               formatters,
               locale,
               dateLib
             );
             const dropdownYears = getDropdownYears(
-              calendar.months[0].date,
-              calendar.navigationStartMonth,
-              calendar.navigationEndMonth,
+              months[0].date,
+              navigationStartMonth,
+              navigationEndMonth,
               formatters,
               dateLib
             );
