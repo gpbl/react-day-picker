@@ -24,7 +24,7 @@ export function getPreviousMonth(
   }
   const { pagedNavigation, numberOfMonths } = options;
   const { startOfMonth, addMonths, differenceInCalendarMonths } = dateLib;
-  const offset = pagedNavigation ? numberOfMonths ?? 1 : 1;
+  const offset = pagedNavigation ? (numberOfMonths ?? 1) : 1;
   const month = startOfMonth(firstDisplayedMonth);
   if (!calendarStartMonth) {
     return addMonths(month, -offset);

@@ -34,11 +34,11 @@
     "@docusaurus/module-type-aliases": "3.4.0",
     "@docusaurus/tsconfig": "3.4.0",
     "@docusaurus/types": "3.4.0",
-    "docusaurus-plugin-typedoc": "^1.0.2",
+    "docusaurus-plugin-typedoc": "^1.0.3",
     "identity-obj-proxy": "^3.0.0",
     "typedoc": "^0.26.3",
     "typedoc-plugin-frontmatter": "^1.0.0",
-    "typedoc-plugin-markdown": "^4.1.2",
+    "typedoc-plugin-markdown": "^4.2.1",
     "typescript": "~5.5.3"
   },
   "browserslist": {
