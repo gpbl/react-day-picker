@@ -2,9 +2,7 @@
 
 See the [Releases page](https://github.com/gpbl/react-day-picker/releases) on Github for the complete list of changes, diffs and contributors, or the [list of versions](https://www.npmjs.com/package/react-day-picker?activeTab=versions) published on npm.
 
-## v9 - in development 🚧
-
-_First beta release date: 2024-05-28_
+## v9 - Release Candidate 🚧
 
 DayPicker v9 is in development as the next major release. See updated docs at http://daypicker.dev/next.
 
@@ -16,34 +14,36 @@ npm install react-day-picker@next
 
 ### What’s New in DayPicker 9
 
-This release includes important updates related to accessibility, styles and performance.
+This release includes important updates related to accessibility, styles, internationalization and performance.
+
+Visit https://daypicker.dev/playground to try it.
 
 #### At a glance
 
-- Enhanced accessibility to better comply with [WCAG21](https://www.w3.org/TR/WCAG21/) recommendations.
-- Simplified styles and selectors with new CSS variables.
-- Added support for UTC dates.
+- Added support for [UTC dates](https://daypicker.dev/next/docs/localization#utc-dates) and [Jalali Calendar](https://daypicker.dev/next/docs/localization#jalali-calendar).
+- [Enhanced accessibility](https://daypicker.dev/next/docs/accessibility) to better comply with [WCAG21](https://www.w3.org/TR/WCAG21/) recommendations.
+- [Simplified styles](https://daypicker.dev/next/docs/styling) with new CSS variables.
 - Improved selection logic for range mode.
 - Improved typings and props for better compatibility in `strict` mode.
-- The custom components system has been updated. Now all components can be customized.
 - Improved rendering performance and reduced memory impact.
-- Added support for the Jalali Calendar.
 - Added new `hideWeekdayRow` and `hideNavigation` props.
 - New `dropdown-years` and `dropdown-months` caption layouts.
-- Removed `date-fns` from peer dependencies.
+- Removed `date-fns` from peer dependencies (now is a proper dependency)
+- Updated for more complete [custom components](https://daypicker.dev/next/guides/custom-components) support.
 
 #### Breaking Changes
 
-We tried to keep breaking changes to a minimum, but were inevitable to improve the library. Here are the most important changes:
+With v9 we tried to keep breaking changes to a minimum, but were inevitable to improve the library. Here are the most important changes:
 
-- The updated HTML output could break your unit tests.
-- Custom styles will likely not work.
-- Some ARIA labels have been changed.
-- Custom Components may break.
+- The updated HTML output and ARIA labels could break some of your unit tests.
+- Some custom CSS styles may not work as some CSS classes have been renamed.
+- Custom Components have new API and may break.
 - Some typings have been renamed or deprecated.
-- Removed the `useInput` hook (see documentation for alternatives).
+- The `useInput` hook has been removed. See [Input fields](https://daypicker.dev/next/guides/input-fields) guide for more details.
 
-See the [migration guide](https://daypicker.dev/next/upgrading) for help upgrading your app.
+#### Migration Guide
+
+We prepared a [migration guide](https://daypicker.dev/next/upgrading) for help upgrading your app to v9.
 
 #### Help Testing this Version
 
