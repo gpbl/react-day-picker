@@ -1,7 +1,6 @@
 .DS_Store
 
 node_modules
-coverage
-build
 dist
 /website/docs/api
+/test-website
