@@ -179,8 +179,8 @@ importers:
         specifier: 3.4.0
         version: 3.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       docusaurus-plugin-typedoc:
-        specifier: ^1.0.2
-        version: 1.0.2(typedoc-plugin-markdown@4.1.2(typedoc@0.26.3(typescript@5.5.3)))
+        specifier: ^1.0.3
+        version: 1.0.3(typedoc-plugin-markdown@4.1.2(typedoc@0.26.3(typescript@5.5.3)))
       identity-obj-proxy:
         specifier: ^3.0.0
         version: 3.0.0
@@ -2778,8 +2778,8 @@ packages:
     resolution: {integrity: sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==}
     engines: {node: '>=6.0.0'}
 
-  docusaurus-plugin-typedoc@1.0.2:
-    resolution: {integrity: sha512-V7ZOjsFVByfVuhIIFSVJCWKBQzIHLxl3W+sLVDUqMo/fwPZrHFFD0WropfPdZ7MR7AA697+0BeUWMEpLyO/QPw==}
+  docusaurus-plugin-typedoc@1.0.3:
+    resolution: {integrity: sha512-/SUZJgqZPRBevOK2/n9CN+mkYih+y5rZ+bbEry1LNNwiZlSABAJX/cfCosCCY8s7KmNdJ6jOxmaeLpUWCSDEbg==}
     peerDependencies:
       typedoc-plugin-markdown: '>=4.0.0'
 
@@ -10134,7 +10134,7 @@ snapshots:
     dependencies:
       esutils: 2.0.3
 
-  docusaurus-plugin-typedoc@1.0.2(typedoc-plugin-markdown@4.1.2(typedoc@0.26.3(typescript@5.5.3))):
+  docusaurus-plugin-typedoc@1.0.3(typedoc-plugin-markdown@4.1.2(typedoc@0.26.3(typescript@5.5.3))):
     dependencies:
       typedoc-plugin-markdown: 4.1.2(typedoc@0.26.3(typescript@5.5.3))
 
