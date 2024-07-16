@@ -21,7 +21,12 @@ import { getWeekdays } from "./helpers/getWeekdays.js";
 import * as defaultLabels from "./labels/index.js";
 import { FormatOptions, LabelOptions } from "./lib/dateLib.js";
 import { UseRange } from "./selection/useRange.js";
-import type { DayPickerProps, Modifiers } from "./types/index.js";
+import type {
+  DayPickerProps,
+  Modifiers,
+  MoveFocusBy,
+  MoveFocusDir
+} from "./types/index.js";
 import { useCalendar } from "./useCalendar.js";
 import { dayPickerContext } from "./useDayPicker.js";
 import { useFocus } from "./useFocus.js";
@@ -37,12 +42,8 @@ import { useSelection } from "./useSelection.js";
 export function DayPicker(props: DayPickerProps) {
   const {
     captionLayout,
-    dir,
     locale,
-    ISOWeek,
     mode,
-    modifiersClassNames,
-    modifiersStyles,
     numberOfMonths = 1,
     onDayBlur,
     onDayClick,
@@ -51,12 +52,18 @@ export function DayPicker(props: DayPickerProps) {
     onPrevClick,
     onNextClick,
     showWeekNumber,
-    styles,
-    weekStartsOn,
-    firstWeekContainsDate,
-    useAdditionalWeekYearTokens,
-    useAdditionalDayOfYearTokens
+    styles
   } = props;
+
+  const formatOptions: FormatOptions = {
+    locale,
+    weekStartsOn: props.weekStartsOn,
+    firstWeekContainsDate: props.firstWeekContainsDate,
+    useAdditionalWeekYearTokens: props.useAdditionalWeekYearTokens,
+    useAdditionalDayOfYearTokens: props.useAdditionalDayOfYearTokens
+  };
+
+  const labelOptions: LabelOptions = formatOptions;
 
   const { components, formatters, labels, dateLib, classNames } = useMemo(
     () => ({
@@ -107,17 +114,8 @@ export function DayPicker(props: DayPickerProps) {
     isFocusTarget,
     focused: focusedDay,
     setFocused,
-    blur,
-    focusDayBefore,
-    focusDayAfter,
-    focusWeekBefore,
-    focusWeekAfter,
-    focusMonthBefore,
-    focusMonthAfter,
-    focusYearBefore,
-    focusYearAfter,
-    focusStartOfWeek,
-    focusEndOfWeek
+    moveFocus,
+    blur
   } = focus;
 
   const {
@@ -135,8 +133,8 @@ export function DayPicker(props: DayPickerProps) {
   } = labels;
 
   const weekdays = useMemo(
-    () => getWeekdays(locale, weekStartsOn, ISOWeek, dateLib),
-    [ISOWeek, dateLib, locale, weekStartsOn]
+    () => getWeekdays(locale, props.weekStartsOn, props.ISOWeek, dateLib),
+    [dateLib, locale, props.ISOWeek, props.weekStartsOn]
   );
 
   const isInteractive = mode !== undefined || onDayClick !== undefined;
@@ -154,118 +152,54 @@ export function DayPicker(props: DayPickerProps) {
   }, [goToNextMonth, nextMonth, onNextClick]);
 
   const handleDayClick = useCallback(
-    (day: CalendarDay, m: Modifiers) => {
-      return (e: MouseEvent) => {
-        e.preventDefault();
-        e.stopPropagation();
-        handleSelect(day.date, m, e);
-        setFocused(day);
-        onDayClick?.(day.date, m, e);
-      };
+    (day: CalendarDay, m: Modifiers) => (e: MouseEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      handleSelect(day.date, m, e);
+      setFocused(day);
+      onDayClick?.(day.date, m, e);
     },
     [handleSelect, onDayClick, setFocused]
   );
 
   const handleDayFocus = useCallback(
-    (day: CalendarDay, m: Modifiers) => {
-      return (e: FocusEvent) => {
-        setFocused(day);
-        onDayFocus?.(day.date, m, e);
-      };
+    (day: CalendarDay, m: Modifiers) => (e: FocusEvent) => {
+      setFocused(day);
+      onDayFocus?.(day.date, m, e);
     },
     [onDayFocus, setFocused]
   );
 
   const handleDayBlur = useCallback(
-    (day: CalendarDay, m: Modifiers) => {
-      return (e: FocusEvent) => {
-        blur();
-        onDayBlur?.(day.date, m, e);
-      };
+    (day: CalendarDay, m: Modifiers) => (e: FocusEvent) => {
+      blur();
+      onDayBlur?.(day.date, m, e);
     },
     [blur, onDayBlur]
   );
 
   const handleDayKeyDown = useCallback(
-    (day: CalendarDay, modifiers: Modifiers) => {
-      return (e: KeyboardEvent) => {
-        switch (e.key) {
-          case "ArrowLeft":
-            e.preventDefault();
-            e.stopPropagation();
-            dir === "rtl" ? focusDayAfter() : focusDayBefore();
-            break;
-          case "ArrowRight":
-            e.preventDefault();
-            e.stopPropagation();
-            dir === "rtl" ? focusDayBefore() : focusDayAfter();
-            break;
-          case "ArrowDown":
-            e.preventDefault();
-            e.stopPropagation();
-            focusWeekAfter();
-            break;
-          case "ArrowUp":
-            e.preventDefault();
-            e.stopPropagation();
-            focusWeekBefore();
-            break;
-          case " ":
-          case "Enter":
-            e.preventDefault();
-            e.stopPropagation();
-            selection?.handleSelect(day.date, modifiers, e);
-            break;
-          case "PageUp":
-            e.preventDefault();
-            e.stopPropagation();
-            e.shiftKey ? focusYearBefore() : focusMonthBefore();
-            break;
-          case "PageDown":
-            e.preventDefault();
-            e.stopPropagation();
-            e.shiftKey ? focusYearAfter() : focusMonthAfter();
-            break;
-          case "Home":
-            e.preventDefault();
-            e.stopPropagation();
-            focusStartOfWeek();
-            break;
-          case "End":
-            e.preventDefault();
-            e.stopPropagation();
-            focusEndOfWeek();
-            break;
-        }
-        onDayKeyDown?.(day.date, modifiers, e);
+    (day: CalendarDay, modifiers: Modifiers) => (e: KeyboardEvent) => {
+      const keyMap: Record<string, [MoveFocusBy, MoveFocusDir]> = {
+        ArrowLeft: ["day", props.dir === "rtl" ? "after" : "before"],
+        ArrowRight: ["day", props.dir === "rtl" ? "before" : "after"],
+        ArrowDown: ["week", "after"],
+        ArrowUp: ["week", "before"],
+        PageUp: [e.shiftKey ? "year" : "month", "before"],
+        PageDown: [e.shiftKey ? "year" : "month", "after"],
+        Home: ["startOfWeek", "before"],
+        End: ["endOfWeek", "after"]
       };
+      if (keyMap[e.key]) {
+        e.preventDefault();
+        e.stopPropagation();
+        const [moveBy, moveDir] = keyMap[e.key];
+        moveFocus(moveBy, moveDir);
+      }
+      onDayKeyDown?.(day.date, modifiers, e);
     },
-    [
-      dir,
-      focusDayAfter,
-      focusDayBefore,
-      focusEndOfWeek,
-      focusMonthAfter,
-      focusMonthBefore,
-      focusStartOfWeek,
-      focusWeekAfter,
-      focusWeekBefore,
-      focusYearAfter,
-      focusYearBefore,
-      onDayKeyDown,
-      selection
-    ]
+    [moveFocus, onDayKeyDown, props.dir]
   );
-
-  const formatOptions: FormatOptions = {
-    locale,
-    weekStartsOn,
-    firstWeekContainsDate,
-    useAdditionalWeekYearTokens,
-    useAdditionalDayOfYearTokens
-  };
-
-  const labelOptions: LabelOptions = formatOptions;
 
   const { className, style } = useMemo(
     () => ({
@@ -544,7 +478,7 @@ export function DayPicker(props: DayPickerProps) {
                             const style = {
                               ...getStyleForModifiers(
                                 dayModifiers,
-                                modifiersStyles
+                                props.modifiersStyles
                               ),
                               ...styles?.[UI.Day]
                             };
@@ -554,7 +488,7 @@ export function DayPicker(props: DayPickerProps) {
                               ...getClassNamesForModifiers(
                                 dayModifiers,
                                 classNames,
-                                modifiersClassNames
+                                props.modifiersClassNames
                               )
                             ];
 

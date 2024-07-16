@@ -17,9 +17,8 @@ import { UseSelection } from "./useSelection.js";
 export type UseFocus = {
   /** The date that is currently focused. */
   focused: CalendarDay | undefined;
-  /** The date that is target of the focus when tabbing into the month grid. */
-  // focusTarget: CalendarDay | undefined;
 
+  /** Check if the given day is the focus target when entering the calendar. */
   isFocusTarget: (day: CalendarDay) => boolean;
 
   /** Focus the given day. */
@@ -30,26 +29,8 @@ export type UseFocus = {
 
   /** Blur the focused day. */
   blur: () => void;
-  /** Focus the day after the focused day. */
-  focusDayAfter: () => void;
-  /** Focus the day before the focused day. */
-  focusDayBefore: () => void;
-  /** Focus the day in the week before the focused day. */
-  focusWeekBefore: () => void;
-  /** Focus the day in the week after the focused day. */
-  focusWeekAfter: () => void;
-  /* Focus the day in the month before the focused day. */
-  focusMonthBefore: () => void;
-  /* Focus the day in the month after the focused day. */
-  focusMonthAfter: () => void;
-  /* Focus the day in the year before the focused day. */
-  focusYearBefore: () => void;
-  /* Focus the day in the year after the focused day. */
-  focusYearAfter: () => void;
-  /* Focus the day at the start of the week of the focused day. */
-  focusStartOfWeek: () => void;
-  /* Focus the day at the end of the week of focused day. */
-  focusEndOfWeek: () => void;
+
+  moveFocus: (moveBy: MoveFocusBy, moveDir: MoveFocusDir) => void;
 };
 
 /** @private */
@@ -116,16 +97,7 @@ export function useFocus(
     focused: focusedDay,
     setLastFocused,
     blur,
-    focusDayAfter: () => moveFocus("day", "after"),
-    focusDayBefore: () => moveFocus("day", "before"),
-    focusWeekAfter: () => moveFocus("week", "after"),
-    focusWeekBefore: () => moveFocus("week", "before"),
-    focusMonthBefore: () => moveFocus("month", "before"),
-    focusMonthAfter: () => moveFocus("month", "after"),
-    focusYearBefore: () => moveFocus("year", "before"),
-    focusYearAfter: () => moveFocus("year", "after"),
-    focusStartOfWeek: () => moveFocus("startOfWeek", "before"),
-    focusEndOfWeek: () => moveFocus("endOfWeek", "after")
+    moveFocus
   };
 
   return useFocus;

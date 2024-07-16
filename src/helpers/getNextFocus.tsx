@@ -16,7 +16,7 @@ export function getNextFocus(
   refDay: CalendarDay,
   calendarStartMonth: Date | undefined,
   calendarEndMonth: Date | undefined,
-  options: Pick<
+  props: Pick<
     DayPickerProps,
     "disabled" | "hidden" | "modifiers" | "locale" | "ISOWeek" | "weekStartsOn"
   >,
@@ -34,21 +34,21 @@ export function getNextFocus(
     refDay.date, // should be refDay? or refDay.date?
     calendarStartMonth,
     calendarEndMonth,
-    options,
+    props,
     dateLib
   );
 
   const isDisabled = Boolean(
-    options.disabled &&
-      dateMatchModifiers(focusableDate, options.disabled, dateLib)
+    props.disabled && dateMatchModifiers(focusableDate, props.disabled, dateLib)
   );
 
   const isHidden = Boolean(
-    options.hidden && dateMatchModifiers(focusableDate, options.hidden, dateLib)
+    props.hidden && dateMatchModifiers(focusableDate, props.hidden, dateLib)
   );
 
   const targetMonth = focusableDate;
   const focusDay = new CalendarDay(focusableDate, targetMonth, dateLib);
+
   if (!isDisabled && !isHidden) {
     return focusDay;
   }
@@ -60,7 +60,7 @@ export function getNextFocus(
     focusDay,
     calendarStartMonth,
     calendarEndMonth,
-    options,
+    props,
     dateLib,
     attempt + 1
   );
