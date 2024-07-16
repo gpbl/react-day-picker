@@ -1,8 +1,7 @@
 /**
- * The default formatter for the week numbers. As default, it returns the week
- * number with a leading zero if the week number is less than 10.
+ * Format the week number.
  *
- * @param weekNumber - The week number to format.
+ * @defaultValue `weekNumber.toLocaleString()` with a leading zero for single-digit numbers
  * @group Formatters
  * @see https://daypicker.dev/next/docs/translation#custom-formatters
  */

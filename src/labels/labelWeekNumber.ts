@@ -1,8 +1,9 @@
 import type { LabelOptions } from "../lib/dateLib.js";
 
 /**
- * Return the default ARIA label for the week number element.
+ * The ARIA label for the week number cell (the first cell in the row).
  *
+ * @defaultValue `Week ${weekNumber}`
  * @group Labels
  * @see http://daypicker.dev/next/docs/translation#aria-labels
  */

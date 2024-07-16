@@ -3,11 +3,12 @@ import { dateLib as defaultDateLib } from "../lib/index.js";
 import type { Modifiers } from "../types/index.js";
 
 /**
- * Return an ARIA label for the day button.
+ * The ARIA label for the day button.
  *
  * Use the `modifiers` argument to add additional context to the label, e.g.
  * when a day is selected or is today.
  *
+ * @defaultValue The formatted date.
  * @group Labels
  * @see http://daypicker.dev/next/docs/translation#aria-labels
  */

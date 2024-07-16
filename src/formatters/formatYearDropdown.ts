@@ -1,7 +1,7 @@
 /**
- * The default formatter for the Year dropdown option. As default, it returns
- * the year.
+ * Format the years for the dropdown option label.
  *
+ * @defaultValue `year.toString()`
  * @group Formatters
  * @see https://daypicker.dev/next/docs/translation#custom-formatters
  */

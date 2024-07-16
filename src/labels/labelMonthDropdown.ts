@@ -1,8 +1,9 @@
 import type { LabelOptions } from "../lib/dateLib.js";
 
 /**
- * Return the default ARIA label for the months dropdown element.
+ * The ARIA label for the months dropdown.
  *
+ * @defaultValue `"Choose the Month"`
  * @group Labels
  * @see http://daypicker.dev/next/docs/translation#aria-labels
  */

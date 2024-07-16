@@ -1,7 +1,7 @@
 /**
- * The default formatter for the week numbers header. As default, it returns an
- * empty string.
+ * Format the week number header.
  *
+ * @defaultValue `""`
  * @group Formatters
  * @see https://daypicker.dev/next/docs/translation#custom-formatters
  */

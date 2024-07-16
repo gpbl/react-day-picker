@@ -1,7 +1,7 @@
 /**
- * Return an ARIA label for the navigation toolbar, that will be announced when
- * entering it (optional).
+ * The ARIA label for the navigation toolbar.
  *
+ * @defaultValue `""`
  * @group Labels
  * @see http://daypicker.dev/next/docs/translation#aria-labels
  */

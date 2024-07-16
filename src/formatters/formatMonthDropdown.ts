@@ -2,9 +2,9 @@ import type { DateFnsMonth } from "../lib/dateLib.js";
 import { enUS } from "../lib/locales.js";
 
 /**
- * The default formatter for the month dropdown option. As default, it returns
- * the month name.
+ * Format the month number for the dropdown option label.
  *
+ * @defaultValue `monthNumber.toString()`
  * @group Formatters
  * @see https://daypicker.dev/next/docs/translation#custom-formatters
  */

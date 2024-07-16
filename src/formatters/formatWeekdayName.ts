@@ -3,9 +3,9 @@ import { dateLib as defaultDateLib } from "../lib/index.js";
 import type { DateLib } from "../types/index.js";
 
 /**
- * The default formatter for the name of the weekday. As default, it returns the
- * short name of the weekday (e.g. "Mo").
+ * Format the weekday name to be displayed in the weekdays header.
  *
+ * @defaultValue `cccccc` (e.g. "Mo" for Monday)
  * @group Formatters
  * @see https://daypicker.dev/next/docs/translation#custom-formatters
  */

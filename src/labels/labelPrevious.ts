@@ -1,8 +1,9 @@
 import type { LabelOptions } from "../lib/dateLib.js";
 
 /**
- * Return the default ARIA label for next month button.
+ * The ARIA label for previous month button.
  *
+ * @defaultValue `"Go to the Previous Month"`
  * @group Labels
  * @see http://daypicker.dev/next/docs/translation#aria-labels
  */

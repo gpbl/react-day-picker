@@ -3,8 +3,9 @@ import { dateLib as defaultDateLib } from "../lib/index.js";
 import type { DateLib } from "../types/index.js";
 
 /**
- * Return he default ARIA label for the Weekday colum header.
+ * The ARIA label for the Weekday column header.
  *
+ * @defaultValue `"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"`
  * @group Labels
  * @see http://daypicker.dev/next/docs/translation#aria-labels
  */

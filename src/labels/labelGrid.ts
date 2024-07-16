@@ -6,6 +6,7 @@ import { DateLib } from "../types/index.js";
  * Return an ARIA label for the month grid, that will be announced when entering
  * the grid.
  *
+ * @defaultValue `LLLL y` (e.g. "November 2022")
  * @group Labels
  * @see http://daypicker.dev/next/docs/translation#aria-labels
  */

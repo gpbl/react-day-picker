@@ -1,8 +1,9 @@
 import type { LabelOptions } from "../lib/dateLib.js";
 
 /**
- * Return the default ARIA label for the years dropdown.
+ * The ARIA label for the years dropdown.
  *
+ * @defaultValue `"Choose the Year"`
  * @group Labels
  * @see http://daypicker.dev/next/docs/translation#aria-labels
  */

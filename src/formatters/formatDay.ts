@@ -3,9 +3,9 @@ import { dateLib as defaultDateLib } from "../lib/index.js";
 import type { DateLib } from "../types/index.js";
 
 /**
- * The default formatter for the day grid cell element. As default, it returns
- * the date of the day.
+ * Format the day date shown in the day cell.
  *
+ * @defaultValue `d` (e.g. "1")
  * @group Formatters
  * @see https://daypicker.dev/next/docs/translation#custom-formatters
  */
