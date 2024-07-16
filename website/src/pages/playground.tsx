@@ -26,6 +26,7 @@ function toJSX(props: Partial<DayPickerProps>) {
     Object.keys(props)
       // @ts-expect-error abc
       .filter((key) => props[key] !== undefined && props[key] !== false)
+      .sort((a, b) => a.localeCompare(b))
       .map((key) => {
         // @ts-expect-error abc
         const value = props[key] as string | number | boolean;
@@ -37,9 +38,9 @@ function toJSX(props: Partial<DayPickerProps>) {
               : value
                 ? ""
                 : `x={${JSON.stringify(value)}}`;
-        return ` ${key}${valueAsString}`;
+        return `\n  ${key}${valueAsString}`;
       })
-      .join("\n")
+      .join("")
   );
 }
 
@@ -60,7 +61,12 @@ export default function Playground() {
   const [rangeMiddleColor, setrangeMiddleColor] = React.useState<string>();
 
   const Component = utc ? DayPickerUtc : DayPicker;
-  const formattedProps = `<DayPicker${toJSX({ ...props, locale: undefined })} />`;
+  let formattedProps = `<DayPicker${toJSX({ ...props, locale: undefined })} \n/>`;
+
+  if (utc) {
+    formattedProps =
+      `import { DayPicker } from "react-day-picker/utc";\n\n` + formattedProps;
+  }
 
   return (
     <Layout>
@@ -471,17 +477,7 @@ export default function Playground() {
             )}
           </p>
           <h2>Code</h2>
-          <HighlightWithTheme code={formattedProps} language="tsx">
-            {({ className, style, tokens, getTokenProps }) => (
-              <pre style={style} className={className}>
-                {tokens.map((line, i) => {
-                  return line.map((token, key) => (
-                    <span key={key} {...getTokenProps({ token })} />
-                  ));
-                })}
-              </pre>
-            )}
-          </HighlightWithTheme>
+          <HighlightWithTheme code={formattedProps} language="tsx" />
         </div>
       </div>
     </Layout>
