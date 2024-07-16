@@ -35,7 +35,7 @@ export function getNextMonth(
     firstDisplayedMonth
   );
 
-  if (monthsDiff < numberOfMonths ?? 1) {
+  if (monthsDiff < numberOfMonths) {
     return undefined;
   }
 
