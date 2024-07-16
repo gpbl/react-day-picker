@@ -11,7 +11,7 @@ export function Start() {
       selected={selected}
       onSelect={setSelected}
       footer={
-        selected ? `Selected: ${selected.toLocaleDateString()}` : "P}ick a day."
+        selected ? `Selected: ${selected.toLocaleDateString()}` : "Pick a day."
       }
     />
   );
