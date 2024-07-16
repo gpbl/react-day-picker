@@ -330,8 +330,8 @@ export function DayPicker(props: DayPickerProps) {
                 >
                   {captionLayout?.startsWith("dropdown") ? (
                     <components.DropdownNav
-                      className={classNames[UI.DropdownNav]}
-                      style={styles?.[UI.DropdownNav]}
+                      className={classNames[UI.Dropdowns]}
+                      style={styles?.[UI.Dropdowns]}
                     >
                       {captionLayout === "dropdown" ||
                       captionLayout === "dropdown-months" ? (

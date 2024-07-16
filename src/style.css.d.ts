@@ -8,7 +8,7 @@ declare const styles: {
   readonly "rdp-day_button": string;
   readonly "rdp-disabled": string;
   readonly "rdp-dropdown": string;
-  readonly "rdp-dropdown_nav": string;
+  readonly "rdp-dropdowns": string;
   readonly "rdp-dropdown_root": string;
   readonly "rdp-focusable": string;
   readonly "rdp-footer": string;

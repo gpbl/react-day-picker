@@ -161,7 +161,7 @@
   transform-origin: 50%;
 }
 
-.rdp-dropdown_nav {
+.rdp-dropdowns {
   position: relative;
   display: inline-flex;
   align-items: center;

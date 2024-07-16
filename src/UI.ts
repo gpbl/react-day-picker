@@ -26,7 +26,7 @@ export enum UI {
   /** The caption label of the month (when not showing the dropdown navigation). */
   CaptionLabel = "caption_label",
   /** The container of the dropdown navigation (when enabled). */
-  DropdownNav = "dropdown_nav",
+  Dropdowns = "dropdowns",
   /** The dropdown element to select for years and months. */
   Dropdown = "dropdown",
   /** The container element of the dropdown. */

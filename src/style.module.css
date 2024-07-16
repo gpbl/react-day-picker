@@ -161,7 +161,7 @@
   transform-origin: 50%;
 }
 
-.dropdown_nav {
+.dropdowns {
   position: relative;
   display: inline-flex;
   align-items: center;

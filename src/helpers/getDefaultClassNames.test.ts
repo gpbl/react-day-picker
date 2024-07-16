@@ -10,7 +10,7 @@ test("should return the default classnames", () => {
     day: "rdp-day",
     day_button: "rdp-day_button",
     disabled: "rdp-disabled",
-    dropdown_nav: "rdp-dropdown_nav",
+    dropdowns: "rdp-dropdowns",
     dropdown_root: "rdp-dropdown_root",
     dropdown: "rdp-dropdown",
     focused: "rdp-focused",
