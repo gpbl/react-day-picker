@@ -85,7 +85,7 @@ export interface PropsBase {
    * @see https://daypicker.dev/next/guides/custom-modifiers
    */
   modifiersStyles?: ModifiersStyles;
-  /** A unique id to replace the React generated id. Used for ARIA labels. */
+  /** A unique id to add to the root element. */
   id?: string;
   /**
    * The initial month to show in the calendar.
