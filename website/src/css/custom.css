@@ -68,6 +68,17 @@ html[data-theme="dark"] {
   --rdp-accent-color: var(--ifm-color-primary);
 }
 
+.rdp-day button {
+  font-size: 1rem !important;
+}
+
+.rdp-weekday {
+  font-size: 0.75rem !important;
+}
+
+.rdp-footer {
+  margin: 1rem 0;
+}
 html[data-theme="dark"] .rdp-root {
   --rdp-accent-color: var(--ifm-color-primary);
   --rdp-accent-background-color: #073845;
