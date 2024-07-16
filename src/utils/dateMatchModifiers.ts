@@ -19,7 +19,7 @@ export function isDatesArray(
 
 /**
  * Returns whether a day matches against at least one of the given
- * {@link Matcher}`.
+ * {@link Matcher}.
  *
  * ```tsx
  * const day = new Date(2022, 5, 19);
