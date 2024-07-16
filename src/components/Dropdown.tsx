@@ -39,14 +39,16 @@ export function Dropdown(
 ) {
   const { options, className, components, classNames, ...selectProps } = props;
 
-  const cssClassRoot = [classNames[UI.DropdownRoot]].join(" ");
   const cssClassSelect = [classNames[UI.Dropdown], className].join(" ");
 
   const selectedOption = options?.find(
     ({ value }) => value === selectProps.value
   );
   return (
-    <span className={cssClassRoot}>
+    <span
+      data-disabled={selectProps.disabled}
+      className={classNames[UI.DropdownRoot]}
+    >
       <components.Select className={cssClassSelect} {...selectProps}>
         {options?.map(({ value, label, disabled }) => (
           <components.Option key={value} value={value} disabled={disabled}>
