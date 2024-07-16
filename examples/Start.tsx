@@ -5,5 +5,14 @@ import { DayPicker } from "react-day-picker";
 export function Start() {
   const [selected, setSelected] = useState<Date>();
 
-  return <DayPicker mode="single" selected={selected} onSelect={setSelected} />;
+  return (
+    <DayPicker
+      mode="single"
+      selected={selected}
+      onSelect={setSelected}
+      footer={
+        selected ? `Selected: ${selected.toLocaleDateString()}` : "P}ick a day."
+      }
+    />
+  );
 }
