@@ -142,7 +142,7 @@ export default function Playground() {
                   type="checkbox"
                   name="hideWeekdayRow"
                   onChange={(e) =>
-                    setProps({ ...props, hideWeekdayRow: e.target.checked })
+                    setProps({ ...props, hideWeekdays: e.target.checked })
                   }
                 />
                 Hide weekdays
