@@ -224,7 +224,7 @@ export interface PropsBase {
    *
    * @since 9.0.0
    */
-  hideWeekdayRow?: boolean;
+  hideWeekdays?: boolean;
   /**
    * Show the outside days (days falling in the next or the previous month).
    *

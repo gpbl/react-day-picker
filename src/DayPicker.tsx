@@ -392,38 +392,39 @@ export function DayPicker(props: DayPickerProps) {
                   className={classNames[UI.MonthGrid]}
                   style={styles?.[UI.MonthGrid]}
                 >
-                  <components.Weekdays
-                    className={classNames[UI.Weekdays]}
-                    hidden={props.hideWeekdayRow}
-                    role="row"
-                    style={styles?.[UI.Weekdays]}
-                  >
-                    {showWeekNumber && (
-                      <components.WeekNumberHeader
-                        aria-label={labelWeekNumberHeader(labelOptions)}
-                        className={classNames[UI.WeekNumberHeader]}
-                        role="columnheader"
-                        style={styles?.[UI.WeekNumberHeader]}
-                      >
-                        {!props.hideWeekdayRow && formatWeekNumberHeader()}
-                      </components.WeekNumberHeader>
-                    )}
-                    {weekdays.map((weekday, i) => (
-                      <components.Weekday
-                        aria-label={labelWeekday(
-                          weekday,
-                          labelOptions,
-                          dateLib
-                        )}
-                        className={classNames[UI.Weekday]}
-                        key={i}
-                        role="columnheader"
-                        style={styles?.[UI.Weekday]}
-                      >
-                        {formatWeekdayName(weekday, formatOptions, dateLib)}
-                      </components.Weekday>
-                    ))}
-                  </components.Weekdays>
+                  {!props.hideWeekdays && (
+                    <components.Weekdays
+                      className={classNames[UI.Weekdays]}
+                      role="row"
+                      style={styles?.[UI.Weekdays]}
+                    >
+                      {showWeekNumber && (
+                        <components.WeekNumberHeader
+                          aria-label={labelWeekNumberHeader(labelOptions)}
+                          className={classNames[UI.WeekNumberHeader]}
+                          role="columnheader"
+                          style={styles?.[UI.WeekNumberHeader]}
+                        >
+                          {formatWeekNumberHeader()}
+                        </components.WeekNumberHeader>
+                      )}
+                      {weekdays.map((weekday, i) => (
+                        <components.Weekday
+                          aria-label={labelWeekday(
+                            weekday,
+                            labelOptions,
+                            dateLib
+                          )}
+                          className={classNames[UI.Weekday]}
+                          key={i}
+                          role="columnheader"
+                          style={styles?.[UI.Weekday]}
+                        >
+                          {formatWeekdayName(weekday, formatOptions, dateLib)}
+                        </components.Weekday>
+                      ))}
+                    </components.Weekdays>
+                  )}
                   <components.Weeks
                     className={classNames[UI.Weeks]}
                     role="rowgroup"
