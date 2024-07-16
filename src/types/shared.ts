@@ -42,10 +42,53 @@ export type Mode = "single" | "multiple" | "range";
 /**
  * The components that can be changed using the `components` prop.
  *
- * @see https://github.com/gpbl/react-day-picker/blob/main/src/components/custom-components.ts
+ * @see https://daypicker.dev/next/guides/custom-components
  */
 export type CustomComponents = {
-  [key in keyof typeof components]?: (typeof components)[key];
+  /** Render any button element in DayPicker. */
+  Button: typeof components.Button;
+  /** Render the chevron icon used in the navigation buttons and dropdowns. */
+  Chevron: typeof components.Chevron;
+  /** Render the caption label of the month grid. */
+  CaptionLabel: typeof components.CaptionLabel;
+  /** Render the day cell in the month grid. */
+  Day: typeof components.Day;
+  /** Render the button containing the day in the day cell. */
+  DayButton: typeof components.DayButton;
+  /** Render the dropdown element to select years and months. */
+  Dropdown: typeof components.Dropdown;
+  /** Render the container of the dropdowns. */
+  DropdownNav: typeof components.DropdownNav;
+  /** Render the footer element announced by screen readers. */
+  Footer: typeof components.Footer;
+  /** Render the container of the MonthGrid. */
+  Month: typeof components.Month;
+  /** Render the caption of the month grid. */
+  MonthCaption: typeof components.MonthCaption;
+  /** Render the grid of days in a month. */
+  MonthGrid: typeof components.MonthGrid;
+  /** Wrapper of the month grids. */
+  Months: typeof components.Months;
+  /** Render the navigation element with the next and previous buttons. */
+  Nav: typeof components.Nav;
+  /** Render the `<option>` HTML element in the dropdown. */
+  Option: typeof components.Option;
+  /** Render the root element of the calendar. */
+  Root: typeof components.Root;
+  /** Render the select element in the dropdowns. */
+  Select: typeof components.Select;
+  /** Render the weeks section in the month grid. */
+  Weeks: typeof components.Weeks;
+  /** Render the week rows. */
+  Week: typeof components.Week;
+  /** Render the weekday name in the header. */
+  Weekday: typeof components.Weekday;
+  /** Render the row containing the week days. */
+  Weekdays: typeof components.Weekdays;
+  /** Render the cell with the number of the week. */
+  WeekNumber: typeof components.WeekNumber;
+  /** Render the header of the week number column. */
+  WeekNumberHeader: typeof components.WeekNumberHeader;
 };
 
 export type DateLib = typeof dateLib;

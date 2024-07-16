@@ -258,7 +258,7 @@ export interface PropsBase {
    *
    * @see https://daypicker.dev/next/guides/custom-components
    */
-  components?: CustomComponents;
+  components?: Partial<CustomComponents>;
   /**
    * Add a footer to the calendar, acting as live region.
    *
