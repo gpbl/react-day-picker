@@ -35,11 +35,12 @@ Visit https://daypicker.dev/playground to try it.
 
 With v9 we tried to keep breaking changes to a minimum, but were inevitable to improve the library. Here are the most important changes:
 
-- The updated HTML output and ARIA labels could break some of your unit tests.
-- Some custom CSS styles may not work as some CSS classes have been renamed.
-- Custom Components have new API and may break.
+- The updated ARIA labels could require new translations or updated unit tests selectors.
+- Custom CSS styles will likely break, due to the new CSS variables and simplified styles.
+- Custom Components have new API and may break too.
 - Some typings have been renamed or deprecated.
 - The `useInput` hook has been removed. See [Input fields](https://daypicker.dev/next/guides/input-fields) guide for more details.
+- `onWeekNumberClick` has been removed.
 
 #### Migration Guide
 
