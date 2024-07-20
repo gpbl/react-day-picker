@@ -91,6 +91,7 @@ export type CustomComponents = {
   WeekNumberHeader: typeof components.WeekNumberHeader;
 };
 
+/** @private */
 export type DateLib = typeof dateLib;
 
 /** Represent a map of formatters used to render localized content. */
@@ -148,8 +149,6 @@ export type Labels = {
 /**
  * A value or a function that matches a specific day.
  *
- * Matchers can be of different types:
- *
  * ```tsx
  * // will always match the day
  * const booleanMatcher: Matcher = true;
@@ -165,6 +164,7 @@ export type Labels = {
  *
  * // will match days after the 2nd of February 2019
  * const afterMatcher: DateAfter = { after: new Date(2019, 1, 2) };
+ *
  * // will match days before the 2nd of February 2019 }
  * const beforeMatcher: DateBefore = { before: new Date(2019, 1, 2) };
  *
@@ -202,89 +202,77 @@ export type Matcher =
   | DateInterval
   | DayOfWeek;
 
-/**
- * A matcher to match a day falling after the specified date, with the date not
- * included.
- */
+/** Match a day falling after the specified date, with the date not included. */
 export type DateAfter = { after: Date };
 
-/**
- * A matcher to match a day falling before the specified date, with the date not
- * included.
- */
+/** Match a day falling before the specified date, with the date not included. */
 export type DateBefore = { before: Date };
 
 /**
- * A matcher to match a day falling before and/or after two dates, where the
- * dates are not included.
+ * An interval of dates. Differently from {@link DateRange}, the range ends here
+ * are not included.
  */
 export type DateInterval = { before: Date; after: Date };
 
 /**
- * A matcher to match a range of dates. The range can be open. Differently from
- * {@link DateInterval}, the dates here are included.
+ * A range of dates. The range can be open. Differently from
+ * {@link DateInterval}, the range ends here are included.
  */
 export type DateRange = { from: Date | undefined; to?: Date | undefined };
 
 /**
- * A matcher to match a date being one of the specified days of the week (`0-6`,
- * where `0` is Sunday).
+ * Match dates being one of the specified days of the week (`0-6`, where `0` is
+ * Sunday).
  */
-export type DayOfWeek = { dayOfWeek: number[] };
-
-/** A record with `data-*` attributes passed to `<DayPicker />`. */
-export type DataAttributes = Record<`data-${string}`, unknown>;
+export type DayOfWeek = { dayOfWeek: number | number[] };
 
 /**
  * The event handler triggered when interacting with a day.
  *
- * @template EventType - The event type that triggered the day event.
+ * @template EventType - The event type that triggered the event (e.g.
+ *   `React.MouseEvent`, `React.KeyboardEvent`, etc.).
+ * @param date - The date that has triggered the event.
+ * @param modifiers - The modifiers belonging to the date.
+ * @param e - The DOM event that triggered the event.
  */
 export type DayEventHandler<EventType> = (
-  /** The date that has triggered the event. */
   date: Date,
-  /** The modifiers belonging to the date. */
   modifiers: Modifiers,
-  /** The DOM event that triggered this event. */
   e: EventType
 ) => void;
 
 /** The event handler when a month is changed in the calendar. */
 export type MonthChangeEventHandler = (month: Date) => void;
 
-/** Maps user interface elements, selection states, and flags to a CSS style. */
-export type Styles = {
-  [key in UI | SelectionState | DayFlag]: CSSProperties | undefined;
-};
-
-/** Defines the class names for various UI components and states. */
+/**
+ * The CSS classnames to use for the {@link UI } elements, the
+ * {@link SelectionState} and the {@link DayFlag}.
+ */
 export type ClassNames = {
   [key in UI | SelectionState | DayFlag]: string;
 };
 
-/** The flags that are matching a day in the calendar. */
-export type DayFlags = Record<DayFlag, boolean>;
-
-/** The selection state that are matching a day in the calendar. */
-export type SelectionStates = Record<SelectionState, boolean>;
+/**
+ * The CSS styles to use for the {@link UI } elements, the {@link SelectionState}
+ * and the {@link DayFlag}.
+ */
+export type Styles = {
+  [key in UI | SelectionState | DayFlag]: CSSProperties | undefined;
+};
 
 /** The modifiers that are matching a day in the calendar. */
-export type Modifiers = DayFlags & SelectionStates & CustomModifiers;
-
-/** The custom modifiers matching a day, passed to the `modifiers` prop. */
-export type CustomModifiers = Record<string, boolean>;
+export type Modifiers = Record<string, boolean>;
 
 /** The style to apply to each day element matching a modifier. */
-export type ModifiersStyles = Record<string, CSSProperties> &
-  Partial<Record<DayFlag, CSSProperties>>;
+export type ModifiersStyles = Record<string, CSSProperties>;
 
 /** The classnames to assign to each day element matching a modifier. */
-export type ModifiersClassNames = Record<string, string> &
-  Partial<Record<DayFlag & SelectionState, string>>;
+export type ModifiersClassNames = Record<string, string>;
 
 /**
  * The props that have been deprecated since version 9.0.0.
  *
+ * @private
  * @since 9.0.0
  * @see https://daypicker.dev/next/upgrading
  */

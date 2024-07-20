@@ -1,43 +1,22 @@
 import { DayFlag, SelectionState } from "./UI.js";
 import { CalendarDay } from "./classes/index.js";
-import type {
-  CustomModifiers,
-  DateLib,
-  DayFlags,
-  DayPickerProps,
-  Modifiers,
-  SelectionStates
-} from "./types/index.js";
-import type { UseCalendar } from "./useCalendar.js";
+import type { DateLib, DayPickerProps, Modifiers } from "./types/index.js";
 import { dateMatchModifiers } from "./utils/dateMatchModifiers.js";
 
-export type UseModifiers = {
-  /** List the days with custom modifiers passed via the `modifiers` prop. */
-  customModifiers: Record<string, CalendarDay[]>;
-  /** List the days with the internal modifiers. */
-  dayFlags: Record<DayFlag, CalendarDay[]>;
-  /** List the days with selection modifiers. */
-  selectionStates: Record<SelectionState, CalendarDay[]>;
-  /** Get the modifiers for a given day. */
-  getModifiers: (day: CalendarDay) => Modifiers;
-};
-
-/** @private */
-export function useModifiers(
-  props: Pick<
-    DayPickerProps,
-    "disabled" | "hidden" | "modifiers" | "showOutsideDays" | "today"
-  >,
-  calendar: UseCalendar,
+/**
+ * Return a function to get the modifiers for a given day.
+ *
+ * @private
+ */
+export function useGetModifiers(
+  days: CalendarDay[],
+  props: DayPickerProps,
   dateLib: DateLib
-): UseModifiers {
-  // const single = useSingle();
-  // const multi = useMulti();
-  // const range = useRange();
-
+) {
   const { disabled, hidden, modifiers, showOutsideDays, today } = props;
 
   const { isSameDay, isSameMonth, Date } = dateLib;
+
   const internal: Record<DayFlag, CalendarDay[]> = {
     [DayFlag.focused]: [],
     [DayFlag.outside]: [],
@@ -55,7 +34,7 @@ export function useModifiers(
     [SelectionState.selected]: []
   };
 
-  for (const day of calendar.days) {
+  for (const day of days) {
     const { date, displayMonth } = day;
 
     const isOutside = Boolean(displayMonth && !isSameMonth(date, displayMonth));
@@ -92,22 +71,22 @@ export function useModifiers(
     }
   }
 
-  const getModifiers = (day: CalendarDay) => {
+  return (day: CalendarDay) => {
     // Initialize all the modifiers to false
-    const dayFlags: DayFlags = {
+    const dayFlags: Record<DayFlag, boolean> = {
       [DayFlag.focused]: false,
       [DayFlag.disabled]: false,
       [DayFlag.hidden]: false,
       [DayFlag.outside]: false,
       [DayFlag.today]: false
     };
-    const selectionStates: SelectionStates = {
+    const selectionStates: Record<SelectionState, boolean> = {
       [SelectionState.range_end]: false,
       [SelectionState.range_middle]: false,
       [SelectionState.range_start]: false,
       [SelectionState.selected]: false
     };
-    const customModifiers: CustomModifiers = {};
+    const customModifiers: Modifiers = {};
 
     // Find the modifiers for the given day
     for (const name in internal) {
@@ -127,13 +106,6 @@ export function useModifiers(
       ...dayFlags,
       // custom modifiers should override all the previous ones
       ...customModifiers
-    };
-  };
-
-  return {
-    dayFlags: internal,
-    customModifiers: custom,
-    selectionStates: selection,
-    getModifiers
+    } as Modifiers;
   };
 }

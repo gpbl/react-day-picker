@@ -2,7 +2,7 @@
 sidebar_position: 7
 ---
 
-# Accessibility
+# Accessible Date Pickers
 
 DayPicker is designed to adhere to the [ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/) for date pickers. This includes features such as keyboard navigation, focus management, and labeling.
 
@@ -17,11 +17,11 @@ Depending on your design, you may need to add new accessibility features. For in
 - Ensure that your date picker is fully navigable using only the keyboard.
 - Use clear indicators for focus states to assist users who rely on keyboard navigation.
 - Ensure sufficient color contrast between text and background colors.
-- Consider providing instructions for how to use the date picker for **first-time users** or those unfamiliar with the interface.
+- Consider providing instructions for how to use the date picker for first-time users or those unfamiliar with the interface.
 
-### Announcing the Selected Date {#footer}
+## Announcing the Selected Date {#footer}
 
-An accessible date picker with a live region that announces the selected date using the `footer` prop.
+Example of an accessible date picker with a live region that announces the selected date using the `footer` prop.
 
 ```tsx title="./AccessibleDatePicker.tsx"
 import { format } from "date-fns";
@@ -73,22 +73,22 @@ DayPicker manages focus automatically when the user interacts with the calendar.
 
 DayPicker supports keyboard navigation to make it easier for users to navigate the calendar. The following keys are supported:
 
-| Keys                         | Function                            |
-| ---------------------------- | ----------------------------------- |
-| <kbd>Arrow Top</kbd>         | Move focus to the previous week     |
-| <kbd>Arrow Right</kbd>       | Move focus to the next day          |
-| <kbd>Arrow Bottom</kbd>      | Move focus to the next week         |
-| <kbd>Arrow Left</kbd>        | Move focus to the previous day      |
-| <kbd>Page Up</kbd>           | Move focus to the previous month    |
-| <kbd>Page Down</kbd>         | Move focus to the next month        |
-| <kbd>Shift + Page Up</kbd>   | Move focus to the previous year     |
-| <kbd>Shift + Page Down</kbd> | Move focus to the next year         |
-| <kbd>Home</kbd>              | Move focus to the start of the week |
-| <kbd>End</kbd>               | Move focus to the end of the week   |
-| <kbd>Enter/Space</kbd>       | Select the focused day              |
+| Keys                         | Function                             |
+| ---------------------------- | ------------------------------------ |
+| <kbd>Arrow Top</kbd>         | Move focus to the previous week.     |
+| <kbd>Arrow Right</kbd>       | Move focus to the next da.y          |
+| <kbd>Arrow Bottom</kbd>      | Move focus to the next week.         |
+| <kbd>Arrow Left</kbd>        | Move focus to the previous day.      |
+| <kbd>Page Up</kbd>           | Move focus to the previous month.    |
+| <kbd>Page Down</kbd>         | Move focus to the next month.        |
+| <kbd>Shift + Page Up</kbd>   | Move focus to the previous year.     |
+| <kbd>Shift + Page Down</kbd> | Move focus to the next year.         |
+| <kbd>Home</kbd>              | Move focus to the start of the week. |
+| <kbd>End</kbd>               | Move focus to the end of the week.   |
+| <kbd>Enter/Space</kbd>       | Select the focused day.              |
 
-## Reporting Issues With Accessibility
+## Getting Help With Accessibility
 
-Accessibility is an evolving field. If you find any issues with DayPicker, please [open an issue](https://github.com/gpbl/react-day-picker/issues/new/choose). Your feedback helps improve our library's accessibility.
+Accessibility is an evolving field. If you find any accessibility issues with DayPicker, please [open an issue](https://github.com/gpbl/react-day-picker/issues/new/choose). Your feedback helps improve our library's accessibility.
 
 Check out the [current accessibility issues](https://github.com/gpbl/react-day-picker/issues?q=is%3Aopen+label%3Aaccessibility+sort%3Aupdated-desc).

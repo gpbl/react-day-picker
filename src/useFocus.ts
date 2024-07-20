@@ -8,11 +8,9 @@ import type {
   MoveFocusDir,
   DateLib,
   DayPickerProps,
-  Mode
+  Modifiers
 } from "./types/index.js";
-import { UseCalendar } from "./useCalendar.js";
-import { UseModifiers } from "./useModifiers.js";
-import { UseSelection } from "./useSelection.js";
+import { Calendar } from "./useCalendar.js";
 
 export type UseFocus = {
   /** The date that is currently focused. */
@@ -24,41 +22,28 @@ export type UseFocus = {
   /** Focus the given day. */
   setFocused: (day: CalendarDay | undefined) => void;
 
-  /** Set the last focused day. */
-  setLastFocused: (day: CalendarDay | undefined) => void;
-
   /** Blur the focused day. */
   blur: () => void;
 
+  /** Move the current focus to the next day according to the given direction. */
   moveFocus: (moveBy: MoveFocusBy, moveDir: MoveFocusDir) => void;
 };
 
 /** @private */
-export function useFocus(
-  props: Pick<
-    DayPickerProps,
-    | "autoFocus"
-    | "disabled"
-    | "hidden"
-    | "modifiers"
-    | "numberOfMonths"
-    | "locale"
-    | "ISOWeek"
-    | "weekStartsOn"
-  >,
-  calendar: UseCalendar,
-  modifiers: UseModifiers,
-  selection: UseSelection<{ mode: Mode }>,
+export function useFocus<T extends DayPickerProps>(
+  props: T,
+  calendar: Calendar,
+  getModifiers: (day: CalendarDay) => Modifiers,
+  isSelected: (date: Date) => boolean,
   dateLib: DateLib
 ): UseFocus {
-  const { getModifiers } = modifiers;
   const { autoFocus } = props;
   const [lastFocused, setLastFocused] = useState<CalendarDay | undefined>();
 
   const focusTarget = calculateFocusTarget(
-    calendar,
+    calendar.days,
     getModifiers,
-    selection.isSelected,
+    isSelected || (() => false),
     lastFocused
   );
   const [focusedDay, setFocused] = useState<CalendarDay | undefined>(
@@ -76,8 +61,8 @@ export function useFocus(
       moveBy,
       moveDir,
       focusedDay,
-      calendar.navigationStartMonth,
-      calendar.navigationEndMonth,
+      calendar.navStart,
+      calendar.navEnd,
       props,
       dateLib
     );
@@ -95,7 +80,6 @@ export function useFocus(
     isFocusTarget,
     setFocused,
     focused: focusedDay,
-    setLastFocused,
     blur,
     moveFocus
   };

@@ -1,21 +1,14 @@
 import type { DateLib, Matcher } from "../types/index.js";
 
-import { isDateInRange } from "./isDateInRange.js";
+import { rangeIncludesDate } from "./rangeIncludesDate.js";
 import {
   isDateAfterType,
   isDateBeforeType,
   isDateInterval,
   isDateRange,
+  isDatesArray,
   isDayOfWeekType
 } from "./typeguards.js";
-
-/** Returns true if `value` is an array of valid dates. */
-export function isDatesArray(
-  value: unknown,
-  dateLib: DateLib
-): value is Date[] {
-  return Array.isArray(value) && value.every(dateLib.isDate);
-}
 
 /**
  * Returns whether a day matches against at least one of the given
@@ -54,9 +47,12 @@ export function dateMatchModifiers(
       return matcher.includes(date);
     }
     if (isDateRange(matcher)) {
-      return isDateInRange(date, matcher, dateLib);
+      return rangeIncludesDate(matcher, date, false, dateLib);
     }
     if (isDayOfWeekType(matcher)) {
+      if (!Array.isArray(matcher.dayOfWeek)) {
+        return matcher.dayOfWeek === date.getDay();
+      }
       return matcher.dayOfWeek.includes(date.getDay());
     }
     if (isDateInterval(matcher)) {

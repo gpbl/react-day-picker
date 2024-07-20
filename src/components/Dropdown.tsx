@@ -19,17 +19,12 @@ export type DropdownOption = {
 /**
  * Render a dropdown component to use in the navigation bar.
  *
- * Use the `components` prop to swap this component with a custom one.
- *
  * @group Components
  * @see https://daypicker.dev/next/guides/custom-components
  */
 export function Dropdown(
   props: {
-    components: Pick<
-      Required<CustomComponents>,
-      "Select" | "Option" | "Chevron"
-    >;
+    components: Pick<CustomComponents, "Select" | "Option" | "Chevron">;
     classNames: Pick<
       ClassNames,
       UI.DropdownRoot | UI.Dropdown | UI.CaptionLabel | UI.Chevron

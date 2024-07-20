@@ -10,7 +10,14 @@ This documentation is still a work in progress. If you have any questions, ask t
 
 :::
 
-If the built-in selection modes are not enough for your app’s requirements, you can control the selection behavior using `onDayClick`.
+If the built-in [selection modes](../docs/selection-modes.mdx) does not satisfy for your app’s requirements, you can control the selection behavior using the [`onDayClick`](../api/interfaces/PropsBase.md#ondayclick) and [`modifiers`](../api/interfaces/PropsBase.md#modifiers) props:
+
+| Prop         | Type                                                        | Description                               |
+| ------------ | ----------------------------------------------------------- | ----------------------------------------- |
+| `onDayClick` | [`DayEventHandler`](../api/type-aliases/DayEventHandler.md) | Callback when a day is clicked.           |
+| `modifiers`  | [`Modifiers`](../api/type-aliases/Modifiers.md)             | An object with the modifiers of the days. |
+
+This prop is a function that receives the clicked day and the modifiers of the day as arguments.
 
 ## Examples
 
@@ -21,10 +28,10 @@ The following example shows how to select the whole week when a day is clicked.
 Note the use of the `startOfWeek` and `endOfWeek` functions from [date-fns](https://date-fns.org) and how the `selectedWeek` state is passed to the `modifiers` prop.
 
 ```tsx
-import { useState } from "react";
+import React, { useState } from "react";
 
-import { endOfWeek, isSameWeek, startOfWeek } from "date-fns";
-import { DateRange, DayPicker } from "react-day-picker";
+import { endOfWeek, startOfWeek } from "date-fns";
+import { DateRange, DayPicker, isDateInRange } from "react-day-picker";
 
 /** Select the whole week when the day is clicked. */
 export function CustomWeek() {
@@ -33,12 +40,19 @@ export function CustomWeek() {
   return (
     <DayPicker
       showWeekNumber
+      showOutsideDays
       modifiers={{
-        selected: selectedWeek
+        selected: selectedWeek,
+        range_start: selectedWeek?.from,
+        range_end: selectedWeek?.to,
+        range_middle: (date: Date) =>
+          selectedWeek
+            ? isDateInRange(date, selectedWeek, { excludeEnds: true })
+            : false
       }}
       onDayClick={(day, modifiers) => {
         if (modifiers.selected) {
-          setSelectedWeek(undefined); // clear the selection if the week is already selected
+          setSelectedWeek(undefined); // clear the selection if the day is already selected
           return;
         }
         setSelectedWeek({
@@ -46,23 +60,10 @@ export function CustomWeek() {
           to: endOfWeek(day)
         });
       }}
-      onWeekNumberClick={(weekNumber, dates) => {
-        if (selectedWeek?.from && isSameWeek(dates[0], selectedWeek.from)) {
-          setSelectedWeek(undefined); // clear the selection if the week is already selected
-          return;
-        }
-        setSelectedWeek({
-          from: startOfWeek(dates[0]),
-          to: endOfWeek(dates[dates.length - 1])
-        });
-      }}
       footer={
-        selectedWeek && (
-          <p>
-            Week from {selectedWeek.from.toLocaleDateString()} to
-            {selectedWeek.to.toLocaleDateString()}
-          </p>
-        )
+        selectedWeek &&
+        `Week from ${selectedWeek?.from?.toLocaleDateString()} to
+            ${selectedWeek?.to?.toLocaleDateString()}`
       }
     />
   );

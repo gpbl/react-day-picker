@@ -4,7 +4,7 @@ import { enUS } from "../lib/locales.js";
 /**
  * Format the month number for the dropdown option label.
  *
- * @defaultValue `monthNumber.toString()`
+ * @defaultValue The localized month name
  * @group Formatters
  * @see https://daypicker.dev/next/docs/translation#custom-formatters
  */
@@ -14,8 +14,5 @@ export function formatMonthDropdown(
   /** The locale to use for formatting. */
   locale = enUS
 ): string {
-  return (
-    locale.localize?.month(monthNumber as DateFnsMonth) ??
-    monthNumber.toString()
-  );
+  return locale.localize?.month(monthNumber as DateFnsMonth);
 }

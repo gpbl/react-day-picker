@@ -1,21 +1,21 @@
 import { dateLib } from "react-day-picker";
 
-import { getDropdownYears } from "./getDropdownYears";
 import { getFormatters } from "./getFormatters";
+import { getYearOptions } from "./getYearOptions";
 
 test("return undefined if startMonth or endMonth is not provided", () => {
   const displayMonth = new Date(2022, 0, 1); // January 2022
   const formatters = getFormatters({
     formatYearDropdown: (year: number) => `${year}`
   });
-  const result1 = getDropdownYears(
+  const result1 = getYearOptions(
     displayMonth,
     undefined,
     new Date(2022, 11, 31),
     formatters,
     dateLib
   );
-  const result2 = getDropdownYears(
+  const result2 = getYearOptions(
     displayMonth,
     new Date(2022, 0, 1),
     undefined,
@@ -35,7 +35,7 @@ test("return correct dropdown options", () => {
     formatYearDropdown: (year: number) => `${year}`
   });
 
-  const result = getDropdownYears(
+  const result = getYearOptions(
     displayMonth,
     startMonth,
     endMonth,

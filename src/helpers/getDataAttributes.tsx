@@ -6,7 +6,10 @@ export function getDataAttributes(
 ): Record<string, unknown> {
   const dataAttributes: Record<string, unknown> = {
     "data-mode": props.mode ?? undefined,
-    "data-required": "required" in props ? props.required : undefined
+    "data-required": "required" in props ? props.required : undefined,
+    "data-multiple-months":
+      (props.numberOfMonths && props.numberOfMonths > 1) || undefined,
+    "data-week-numbers": props.showWeekNumber || undefined
   };
   Object.entries(props).forEach(([key, val]) => {
     if (key.startsWith("data-")) {

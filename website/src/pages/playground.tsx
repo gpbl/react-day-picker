@@ -6,9 +6,7 @@ import {
   DateRange,
   DayPicker,
   DayPickerProps,
-  Mode,
-  isDateRange,
-  isSingle
+  isDateRange
 } from "react-day-picker";
 import { DayPicker as DayPickerUtc } from "react-day-picker/utc";
 
@@ -232,7 +230,106 @@ export default function Playground() {
               )}
             </div>
           </fieldset>
-
+          <fieldset>
+            <legend>Selection</legend>
+            <div className={styles.fields}>
+              <label>
+                Selection mode:
+                <select
+                  name="mode"
+                  onChange={(e) => {
+                    const mode = e.target.value || undefined;
+                    const newProps = {
+                      ...props,
+                      mode
+                    };
+                    setSelected(undefined);
+                    // @ts-expect-error Not working well with the union type
+                    setProps(newProps);
+                  }}
+                  value={props.mode}
+                >
+                  <option></option>
+                  <option value="single">single</option>
+                  <option value="multiple">multiple</option>
+                  <option value="range">range</option>
+                </select>
+              </label>
+              {props.mode && (
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={props.required}
+                    name="required"
+                    onChange={(e) => {
+                      setSelected(undefined);
+                      // @ts-expect-error abc
+                      setProps({ ...props, required: e.target.checked });
+                    }}
+                  />
+                  Required
+                </label>
+              )}
+              {props.mode === "range" || props.mode === "multiple" ? (
+                <label>
+                  Min Selection:
+                  <input
+                    type="number"
+                    min={0}
+                    max={12}
+                    size={4}
+                    name="min"
+                    onChange={(e) => {
+                      setProps({
+                        ...props,
+                        min: Number(e.target.value)
+                      });
+                    }}
+                  />
+                </label>
+              ) : null}
+              {props.mode === "range" || props.mode === "multiple" ? (
+                <label>
+                  Max Selection:
+                  <input
+                    type="number"
+                    min={0}
+                    max={12}
+                    size={4}
+                    name="max"
+                    onChange={(e) => {
+                      setProps({
+                        ...props,
+                        max: Number(e.target.value)
+                      });
+                    }}
+                  />
+                </label>
+              ) : null}
+              {props.mode === "range" && (
+                <>
+                  <label>
+                    Range Background:
+                    <input
+                      value={backgroundAccentColor ?? ""}
+                      type="color"
+                      onChange={(e) =>
+                        setBackgroundAccountColor(e.target.value)
+                      }
+                    />
+                  </label>
+                  <label>
+                    Range Foreground:
+                    <input
+                      value={rangeMiddleColor ?? ""}
+                      type="color"
+                      onChange={(e) => setrangeMiddleColor(e.target.value)}
+                    />
+                  </label>
+                </>
+              )}
+            </div>
+          </fieldset>
           <fieldset>
             <legend>Localization</legend>
             <div className={styles.fields}>
@@ -335,106 +432,6 @@ export default function Playground() {
                 />
                 Right-to-left direction
               </label>
-            </div>
-          </fieldset>
-          <fieldset>
-            <legend>Selection</legend>
-            <div className={styles.fields}>
-              <label>
-                Selection mode:
-                <select
-                  name="mode"
-                  onChange={(e) => {
-                    const mode = e.target.value || undefined;
-                    const newProps = {
-                      ...props,
-                      mode
-                    };
-                    setSelected(undefined);
-                    // @ts-expect-error Not working well with the union type
-                    setProps(newProps);
-                  }}
-                  value={props.mode}
-                >
-                  <option></option>
-                  <option value="single">single</option>
-                  <option value="multiple">multiple</option>
-                  <option value="range">range</option>
-                </select>
-              </label>
-              {props.mode && (
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={props.required}
-                    name="required"
-                    onChange={(e) => {
-                      setSelected(undefined);
-                      // @ts-expect-error abc
-                      setProps({ ...props, required: e.target.checked });
-                    }}
-                  />
-                  Required
-                </label>
-              )}
-              {props.mode === "range" || props.mode === "multiple" ? (
-                <label>
-                  Min Selection:
-                  <input
-                    type="number"
-                    min={0}
-                    max={12}
-                    size={4}
-                    name="min"
-                    onChange={(e) => {
-                      setProps({
-                        ...props,
-                        min: Number(e.target.value)
-                      });
-                    }}
-                  />
-                </label>
-              ) : null}
-              {props.mode === "range" || props.mode === "multiple" ? (
-                <label>
-                  Max Selection:
-                  <input
-                    type="number"
-                    min={0}
-                    max={12}
-                    size={4}
-                    name="max"
-                    onChange={(e) => {
-                      setProps({
-                        ...props,
-                        max: Number(e.target.value)
-                      });
-                    }}
-                  />
-                </label>
-              ) : null}
-              {props.mode === "range" && (
-                <>
-                  <label>
-                    Range Background:
-                    <input
-                      value={backgroundAccentColor ?? ""}
-                      type="color"
-                      onChange={(e) =>
-                        setBackgroundAccountColor(e.target.value)
-                      }
-                    />
-                  </label>
-                  <label>
-                    Range Foreground:
-                    <input
-                      value={rangeMiddleColor ?? ""}
-                      type="color"
-                      onChange={(e) => setrangeMiddleColor(e.target.value)}
-                    />
-                  </label>
-                </>
-              )}
             </div>
           </fieldset>
         </form>

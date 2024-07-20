@@ -3,26 +3,23 @@ import type { Locale } from "../lib/dateLib.js";
 import type { DateLib, Formatters } from "../types/index.js";
 
 /** Return the months to show in the dropdown. */
-export function getDropdownMonths(
+export function getMonthOptions(
   displayMonth: Date,
-  calendarStartMonth: Date | undefined,
-  calendarEndMonth: Date | undefined,
+  navStart: Date | undefined,
+  navEnd: Date | undefined,
   formatters: Pick<Formatters, "formatMonthDropdown">,
   locale: Locale | undefined,
   dateLib: DateLib
 ): DropdownOption[] | undefined {
-  if (!calendarStartMonth) return undefined;
-  if (!calendarEndMonth) return undefined;
+  if (!navStart) return undefined;
+  if (!navEnd) return undefined;
 
   const { addMonths, startOfMonth, isBefore, Date } = dateLib;
   const year = displayMonth.getFullYear();
 
-  const navStartMonth = startOfMonth(calendarStartMonth);
-  const navEndMonth = startOfMonth(calendarEndMonth);
-
   const months: number[] = [];
-  let month = navStartMonth;
-  while (months.length < 12 && isBefore(month, addMonths(navEndMonth, 1))) {
+  let month = navStart;
+  while (months.length < 12 && isBefore(month, addMonths(navEnd, 1))) {
     months.push(month.getMonth());
     month = addMonths(month, 1);
   }
@@ -32,10 +29,8 @@ export function getDropdownMonths(
   const options = sortedMonths.map((value) => {
     const label = formatters.formatMonthDropdown(value, locale);
     const disabled =
-      (calendarStartMonth &&
-        new Date(year, value) < startOfMonth(calendarStartMonth)) ||
-      (calendarEndMonth &&
-        new Date(year, value) > startOfMonth(calendarEndMonth)) ||
+      (navStart && new Date(year, value) < startOfMonth(navStart)) ||
+      (navEnd && new Date(year, value) > startOfMonth(navEnd)) ||
       false;
     return { value, label, disabled };
   });

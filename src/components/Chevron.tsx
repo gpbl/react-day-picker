@@ -3,8 +3,6 @@ import React from "react";
 /**
  * Render the chevron icon used in the navigation buttons and dropdowns.
  *
- * Use the `components` prop to swap this component with a custom one.
- *
  * @group Components
  * @see https://daypicker.dev/next/guides/custom-components
  */

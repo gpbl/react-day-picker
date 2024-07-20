@@ -5,75 +5,61 @@ import type {
   DayPickerProps,
   Modifiers,
   PropsMulti,
-  PropsMultiRequired
+  Selection
 } from "../types/index.js";
 
-export type UseMulti<T> = {
-  handleSelect: (
-    triggerDate: Date,
-    modifiers: Modifiers,
-    e: React.MouseEvent | React.KeyboardEvent
-  ) => Date[] | undefined;
-  isSelected: (date: Date) => boolean;
-} & (T extends { required: true }
-  ? {
-      selected: Date[];
-    }
-  : {
-      selected: Date[] | undefined;
-    });
-
 export function useMulti<T extends DayPickerProps>(
-  props: T extends { mode: "multiple" }
-    ? PropsMulti | PropsMultiRequired
-    : object,
+  props: T,
   dateLib: DateLib
-): UseMulti<T> {
-  const { selected, required, onSelect, mode } = props as PropsMulti;
-  const [dates, setDates] = React.useState<Date[] | undefined>(
-    mode !== "multiple" ? undefined : selected
+): Selection<T> {
+  const {
+    selected: initiallySelected,
+    required,
+    onSelect,
+    mode
+  } = props as PropsMulti;
+  const [selected, setSelected] = React.useState<Date[] | undefined>(
+    initiallySelected
   );
 
   const { isSameDay, Date } = dateLib;
 
   // Update the selected date if the required flag is set.
   React.useEffect(() => {
-    if (mode !== "multiple") return;
-    if (required && dates === undefined) {
-      setDates([new Date()]);
+    if (required && selected === undefined) {
+      setSelected([new Date()]);
     }
-  }, [required, dates, Date, mode]);
+  }, [required, selected, Date, mode]);
 
   // Update the selected date if the selected value from props changes.
   React.useEffect(() => {
-    if (mode !== "multiple") return;
-    setDates(selected);
-  }, [mode, selected]);
+    setSelected(initiallySelected);
+  }, [mode, initiallySelected]);
 
   const isSelected = (date: Date) => {
-    return dates?.some((d) => isSameDay(d, date)) ?? false;
+    return selected?.some((d) => isSameDay(d, date)) ?? false;
   };
 
   const { min, max } = props as PropsMulti;
 
-  const setSelected = (
+  const select = (
     triggerDate: Date,
     modifiers: Modifiers,
     e: React.MouseEvent | React.KeyboardEvent
   ) => {
-    let newDates: Date[] | undefined = [...(dates ?? [])];
+    let newDates: Date[] | undefined = [...(selected ?? [])];
     if (isSelected(triggerDate)) {
-      if (dates?.length === min) {
+      if (selected?.length === min) {
         // Min value reached, do nothing
         return;
       }
-      if (required && dates?.length === 1) {
+      if (required && selected?.length === 1) {
         // Required value already selected do nothing
         return;
       }
-      newDates = dates?.filter((d) => !isSameDay(d, triggerDate));
+      newDates = selected?.filter((d) => !isSameDay(d, triggerDate));
     } else {
-      if (dates?.length === max) {
+      if (selected?.length === max) {
         // Max value reached, reset the selection to date
         newDates = [triggerDate];
       } else {
@@ -82,13 +68,13 @@ export function useMulti<T extends DayPickerProps>(
       }
     }
     onSelect?.(newDates, triggerDate, modifiers, e);
-    setDates(newDates);
+    setSelected(newDates);
     return newDates;
   };
 
   return {
-    selected: dates,
-    handleSelect: setSelected,
+    selected,
+    select,
     isSelected
-  } as UseMulti<T>;
+  } as Selection<T>;
 }
