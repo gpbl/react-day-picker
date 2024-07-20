@@ -35,15 +35,16 @@ const config: Config = {
             require("@docusaurus/remark-plugin-npm2yarn"),
             [require("remark-github"), { repository: "gpbl/react-day-picker" }]
           ],
-          lastVersion: "8.10.1",
+          lastVersion: "current",
           versions: {
             "8.10.1": {
               label: "8.10.1",
-              badge: false
+              badge: true,
+              path: "/v8"
             },
             current: {
               label: `${pkg.version}`,
-              path: "next"
+              path: "/"
             }
           }
         },
