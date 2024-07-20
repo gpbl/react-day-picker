@@ -35,3 +35,10 @@ export function rangeIncludesDate(
   }
   return false;
 }
+
+/**
+ * @private
+ * @deprecated Use {@link rangeIncludesDate} instead.
+ */
+export const isDateInRange = (range: DateRange, date: Date) =>
+  rangeIncludesDate(range, date, false, defaultDateLib);
