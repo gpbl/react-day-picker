@@ -24,10 +24,7 @@ export type DropdownOption = {
  */
 export function Dropdown(
   props: {
-    components: Pick<
-      Required<CustomComponents>,
-      "Select" | "Option" | "Chevron"
-    >;
+    components: Pick<CustomComponents, "Select" | "Option" | "Chevron">;
     classNames: Pick<
       ClassNames,
       UI.DropdownRoot | UI.Dropdown | UI.CaptionLabel | UI.Chevron
