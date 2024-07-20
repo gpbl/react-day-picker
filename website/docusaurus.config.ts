@@ -44,7 +44,8 @@ const config: Config = {
             },
             current: {
               label: `${pkg.version}`,
-              path: "/"
+              path: "/",
+              badge: false
             }
           }
         },
