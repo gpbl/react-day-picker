@@ -19,19 +19,22 @@ import { getFormatters } from "./helpers/getFormatters.js";
 import { getStyleForModifiers } from "./helpers/getStyleForModifiers.js";
 import { getWeekdays } from "./helpers/getWeekdays.js";
 import * as defaultLabels from "./labels/index.js";
-import { FormatOptions, LabelOptions } from "./lib/dateLib.js";
-import { UseRange } from "./selection/useRange.js";
+import type { FormatOptions, LabelOptions } from "./lib/dateLib.js";
 import type {
   DayPickerProps,
   Modifiers,
   MoveFocusBy,
-  MoveFocusDir
+  MoveFocusDir,
+  Selected,
+  SelectHandler
 } from "./types/index.js";
 import { useCalendar } from "./useCalendar.js";
-import { dayPickerContext } from "./useDayPicker.js";
+import { type DayPickerContext, dayPickerContext } from "./useDayPicker.js";
 import { useFocus } from "./useFocus.js";
-import { useModifiers } from "./useModifiers.js";
+import { useGetModifiers } from "./useGetModifiers.js";
 import { useSelection } from "./useSelection.js";
+import { rangeIncludesDate } from "./utils/rangeIncludesDate.js";
+import { isDateRange } from "./utils/typeguards.js";
 
 /**
  * Render the date picker calendar.
@@ -39,32 +42,7 @@ import { useSelection } from "./useSelection.js";
  * @group DayPicker
  * @see http://daypicker.dev
  */
-export function DayPicker(props: DayPickerProps) {
-  const {
-    captionLayout,
-    locale,
-    mode,
-    numberOfMonths = 1,
-    onDayBlur,
-    onDayClick,
-    onDayFocus,
-    onDayKeyDown,
-    onPrevClick,
-    onNextClick,
-    showWeekNumber,
-    styles
-  } = props;
-
-  const formatOptions: FormatOptions = {
-    locale,
-    weekStartsOn: props.weekStartsOn,
-    firstWeekContainsDate: props.firstWeekContainsDate,
-    useAdditionalWeekYearTokens: props.useAdditionalWeekYearTokens,
-    useAdditionalDayOfYearTokens: props.useAdditionalDayOfYearTokens
-  };
-
-  const labelOptions: LabelOptions = formatOptions;
-
+export function DayPicker<T extends DayPickerProps>(props: T) {
   const { components, formatters, labels, dateLib, classNames } = useMemo(
     () => ({
       dateLib: getDateLib(props.dateLib),
@@ -83,6 +61,34 @@ export function DayPicker(props: DayPickerProps) {
   );
 
   const {
+    captionLayout,
+    firstWeekContainsDate,
+    locale,
+    mode,
+    onDayBlur,
+    onDayClick,
+    onDayFocus,
+    onDayKeyDown,
+    onNextClick,
+    onPrevClick,
+    showWeekNumber,
+    styles,
+    useAdditionalDayOfYearTokens,
+    useAdditionalWeekYearTokens,
+    weekStartsOn
+  } = props;
+
+  const formatOptions: FormatOptions = {
+    locale,
+    weekStartsOn,
+    firstWeekContainsDate,
+    useAdditionalWeekYearTokens,
+    useAdditionalDayOfYearTokens
+  };
+
+  const labelOptions: LabelOptions = formatOptions;
+
+  const {
     formatCaption,
     formatDay,
     formatMonthDropdown,
@@ -93,30 +99,32 @@ export function DayPicker(props: DayPickerProps) {
   } = formatters;
 
   const calendar = useCalendar(props, dateLib);
+
   const {
+    days,
     months,
-    navigationStartMonth,
-    navigationEndMonth,
+    navStart,
+    navEnd,
     previousMonth,
     nextMonth,
-    goToPreviousMonth,
-    goToNextMonth,
     goToMonth
   } = calendar;
 
-  const modifiers = useModifiers(props, calendar, dateLib);
+  const getModifiers = useGetModifiers(days, props, dateLib);
 
-  const selection = useSelection(props, dateLib);
-  const { isSelected, handleSelect } = selection;
-
-  const focus = useFocus(props, calendar, modifiers, selection, dateLib);
   const {
-    isFocusTarget,
-    focused: focusedDay,
-    setFocused,
-    moveFocus,
-    blur
-  } = focus;
+    isSelected,
+    select,
+    selected: selectedValue
+  } = useSelection<T>(props, dateLib) ?? {};
+
+  const { blur, focused, isFocusTarget, moveFocus, setFocused } = useFocus<T>(
+    props,
+    calendar,
+    getModifiers,
+    isSelected ?? (() => false),
+    dateLib
+  );
 
   const {
     labelDayButton,
@@ -141,25 +149,25 @@ export function DayPicker(props: DayPickerProps) {
 
   const handlePreviousClick = useCallback(() => {
     if (!previousMonth) return;
-    goToPreviousMonth();
+    goToMonth(previousMonth);
     onPrevClick?.(previousMonth);
-  }, [goToPreviousMonth, onPrevClick, previousMonth]);
+  }, [previousMonth, goToMonth, onPrevClick]);
 
   const handleNextClick = useCallback(() => {
     if (!nextMonth) return;
-    goToNextMonth();
+    goToMonth(nextMonth);
     onNextClick?.(nextMonth);
-  }, [goToNextMonth, nextMonth, onNextClick]);
+  }, [goToMonth, nextMonth, onNextClick]);
 
   const handleDayClick = useCallback(
     (day: CalendarDay, m: Modifiers) => (e: MouseEvent) => {
       e.preventDefault();
       e.stopPropagation();
-      handleSelect(day.date, m, e);
       setFocused(day);
+      select?.(day.date, m, e);
       onDayClick?.(day.date, m, e);
     },
-    [handleSelect, onDayClick, setFocused]
+    [select, onDayClick, setFocused]
   );
 
   const handleDayFocus = useCallback(
@@ -211,12 +219,18 @@ export function DayPicker(props: DayPickerProps) {
     [classNames, props.className, props.style, styles]
   );
 
-  const dataAttributes = useMemo(() => getDataAttributes(props), [props]);
+  const dataAttributes = getDataAttributes(props);
 
-  const contextValue = useMemo(
-    () => ({ ...calendar, ...selection, ...modifiers }),
-    [calendar, modifiers, selection]
-  );
+  const contextValue: DayPickerContext<T> = {
+    selected: selectedValue as Selected<T>,
+    select: select as SelectHandler<T>,
+    isSelected,
+    months,
+    nextMonth,
+    previousMonth,
+    goToMonth,
+    getModifiers
+  };
 
   return (
     <dayPickerContext.Provider value={contextValue}>
@@ -228,9 +242,6 @@ export function DayPicker(props: DayPickerProps) {
         lang={props.lang}
         nonce={props.nonce}
         title={props.title}
-        data-interactive={isInteractive || undefined}
-        data-multiple-months={numberOfMonths > 1 || undefined}
-        data-week-numbers={showWeekNumber || undefined}
         {...dataAttributes}
       >
         <components.Months
@@ -247,8 +258,8 @@ export function DayPicker(props: DayPickerProps) {
               <components.Button
                 type="button"
                 className={classNames[UI.ButtonPrevious]}
-                tabIndex={calendar.previousMonth ? undefined : -1}
-                disabled={calendar.previousMonth ? undefined : true}
+                tabIndex={previousMonth ? undefined : -1}
+                disabled={previousMonth ? undefined : true}
                 aria-label={labelPrevious(previousMonth, labelOptions)}
                 onClick={handlePreviousClick}
               >
@@ -300,16 +311,17 @@ export function DayPicker(props: DayPickerProps) {
 
             const dropdownMonths = getDropdownMonths(
               calendarMonth.date,
-              navigationStartMonth,
-              navigationEndMonth,
+              navStart,
+              navEnd,
               formatters,
               locale,
               dateLib
             );
+
             const dropdownYears = getDropdownYears(
               months[0].date,
-              navigationStartMonth,
-              navigationEndMonth,
+              navStart,
+              navEnd,
               formatters,
               dateLib
             );
@@ -454,49 +466,50 @@ export function DayPicker(props: DayPickerProps) {
                           )}
                           {week.days.map((day: CalendarDay) => {
                             const { date } = day;
-                            const dayModifiers = modifiers.getModifiers(day);
-                            const focused = focusedDay?.isEqualTo(day);
+                            const modifiers = getModifiers(day);
 
-                            if (!dayModifiers.hidden && focused)
-                              dayModifiers[DayFlag.focused] = true;
+                            modifiers[DayFlag.focused] =
+                              !modifiers.hidden &&
+                              Boolean(focused?.isEqualTo(day));
 
-                            const selected =
-                              isSelected(date) || dayModifiers.selected;
+                            modifiers[SelectionState.selected] =
+                              !modifiers.disabled &&
+                              (isSelected?.(date) || modifiers.selected);
 
-                            dayModifiers[SelectionState.selected] =
-                              !dayModifiers.disabled && selected;
-
-                            if (!dayModifiers.disabled && mode === "range") {
-                              const range = selection as UseRange<false>;
-                              dayModifiers[SelectionState.range_start] =
-                                range.isRangeStart(date);
-                              dayModifiers[SelectionState.range_end] =
-                                range.isRangeEnd(date);
-                              dayModifiers[SelectionState.range_middle] =
-                                range.isRangeMiddle(date);
+                            if (isDateRange(selectedValue)) {
+                              // add range modifiers
+                              const { from, to } = selectedValue;
+                              modifiers[SelectionState.range_start] = Boolean(
+                                from && to && dateLib.isSameDay(date, from)
+                              );
+                              modifiers[SelectionState.range_end] = Boolean(
+                                from && to && dateLib.isSameDay(date, to)
+                              );
+                              modifiers[SelectionState.range_middle] =
+                                rangeIncludesDate(
+                                  selectedValue,
+                                  date,
+                                  true,
+                                  dateLib
+                                );
                             }
 
-                            const style = {
-                              ...getStyleForModifiers(
-                                dayModifiers,
-                                props.modifiersStyles
-                              ),
-                              ...styles?.[UI.Day]
-                            };
+                            const style = getStyleForModifiers(
+                              modifiers,
+                              styles,
+                              props.modifiersStyles
+                            );
 
-                            const className = [
-                              classNames[UI.Day],
-                              ...getClassNamesForModifiers(
-                                dayModifiers,
-                                classNames,
-                                props.modifiersClassNames
-                              )
-                            ];
+                            const className = getClassNamesForModifiers(
+                              modifiers,
+                              classNames,
+                              props.modifiersClassNames
+                            );
 
                             const ariaLabel = !isInteractive
                               ? labelGridcell(
                                   date,
-                                  dayModifiers,
+                                  modifiers,
                                   labelOptions,
                                   dateLib
                                 )
@@ -512,14 +525,12 @@ export function DayPicker(props: DayPickerProps) {
                               <components.Day
                                 key={`${dateLib.format(date, "yyyy-MM-dd")}_${dateLib.format(day.displayMonth, "yyyy-MM")}`}
                                 day={day}
-                                modifiers={dayModifiers}
+                                modifiers={modifiers}
                                 role="gridcell"
                                 className={className.join(" ")}
                                 style={style}
-                                aria-hidden={dayModifiers.hidden || undefined}
-                                aria-selected={
-                                  dayModifiers.selected || undefined
-                                }
+                                aria-hidden={modifiers.hidden || undefined}
+                                aria-selected={modifiers.selected || undefined}
                                 aria-label={ariaLabel}
                                 {...dataAttributes}
                               >
@@ -528,24 +539,19 @@ export function DayPicker(props: DayPickerProps) {
                                     className={classNames[UI.DayButton]}
                                     style={styles?.[UI.DayButton]}
                                     day={day}
-                                    modifiers={dayModifiers}
-                                    disabled={
-                                      dayModifiers.disabled || undefined
-                                    }
+                                    modifiers={modifiers}
+                                    disabled={modifiers.disabled || undefined}
                                     tabIndex={isFocusTarget(day) ? 0 : -1}
                                     aria-label={labelDayButton(
                                       date,
-                                      dayModifiers,
+                                      modifiers,
                                       labelOptions,
                                       dateLib
                                     )}
-                                    onClick={handleDayClick(day, dayModifiers)}
-                                    onBlur={handleDayBlur(day, dayModifiers)}
-                                    onFocus={handleDayFocus(day, dayModifiers)}
-                                    onKeyDown={handleDayKeyDown(
-                                      day,
-                                      dayModifiers
-                                    )}
+                                    onClick={handleDayClick(day, modifiers)}
+                                    onBlur={handleDayBlur(day, modifiers)}
+                                    onFocus={handleDayFocus(day, modifiers)}
+                                    onKeyDown={handleDayKeyDown(day, modifiers)}
                                   >
                                     {formatDay(date, formatOptions, dateLib)}
                                   </components.DayButton>

@@ -2,20 +2,20 @@ import { addDays } from "date-fns/addDays";
 
 import { DateRange } from "../types";
 
-import { isDateInRange } from "./isDateInRange";
+import { rangeIncludesDate } from "./rangeIncludesDate";
 
 const date = new Date();
 
 describe('when range is missing the "from" date', () => {
   const range: DateRange = { from: undefined };
-  const result = isDateInRange(date, range);
+  const result = rangeIncludesDate(range, date);
   test("should return false", () => {
     expect(result).toBe(false);
   });
 });
 
 describe('when range is missing the "to" date', () => {
-  const result = isDateInRange(date, { from: date, to: undefined });
+  const result = rangeIncludesDate({ from: date, to: undefined }, date);
   test("should return true", () => {
     expect(result).toBe(true);
   });
@@ -23,7 +23,7 @@ describe('when range is missing the "to" date', () => {
 
 describe("when the range dates are the same as date", () => {
   const range: DateRange = { from: date, to: date };
-  const result = isDateInRange(date, range);
+  const result = rangeIncludesDate(range, date);
   test("should return true", () => {
     expect(result).toBe(true);
   });
@@ -31,7 +31,7 @@ describe("when the range dates are the same as date", () => {
 
 describe("when the range dates are the same but not as date", () => {
   const range: DateRange = { from: date, to: date };
-  const result = isDateInRange(addDays(date, 1), range);
+  const result = rangeIncludesDate(range, addDays(date, 1));
   test("should return false", () => {
     expect(result).toBe(false);
   });
@@ -39,7 +39,7 @@ describe("when the range dates are the same but not as date", () => {
 
 describe("when the range is inverted", () => {
   const range: DateRange = { from: addDays(date, 1), to: date };
-  const result = isDateInRange(date, range);
+  const result = rangeIncludesDate(range, date);
   test("should return true", () => {
     expect(result).toBe(true);
   });

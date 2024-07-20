@@ -5,67 +5,60 @@ import type {
   DayPickerProps,
   Modifiers,
   PropsSingle,
-  PropsSingleRequired
+  SelectHandler,
+  Selected,
+  Selection
 } from "../types/index.js";
 
-export type UseSingle<T> = {
-  handleSelect: (
-    triggerDate: Date,
-    modifiers: Modifiers,
-    e: React.MouseEvent | React.KeyboardEvent
-  ) => void;
+export type UseSingle<T extends DayPickerProps> = {
+  select: SelectHandler<T>;
   isSelected: (date: Date) => boolean;
-} & (T extends { required: true }
-  ? {
-      selected: Date;
-    }
-  : {
-      selected: Date | undefined;
-    });
+  selected: Selected<T>;
+};
 
 export function useSingle<T extends DayPickerProps>(
-  props: T extends { mode: "single" }
-    ? PropsSingle | PropsSingleRequired
-    : object,
+  props: DayPickerProps,
   dateLib: DateLib
-): UseSingle<T> {
-  const { selected, required, onSelect, mode } = props as PropsSingle;
+): Selection<T> {
+  const {
+    selected: initiallySelected,
+    required,
+    onSelect,
+    mode
+  } = props as PropsSingle;
 
-  const [date, setDate] = React.useState<Date | undefined>(
-    mode !== "single" ? undefined : selected
+  const [selected, setSelected] = React.useState<Date | undefined>(
+    initiallySelected
   );
 
   const { isSameDay, Date, startOfDay } = dateLib;
   // Update the selected date if the required flag is set.
   React.useEffect(() => {
-    if (mode !== "single") return;
-    if (required && date === undefined) {
-      setDate(startOfDay(new Date()));
+    if (required && selected === undefined) {
+      setSelected(startOfDay(new Date()));
     }
-  }, [required, date, Date, startOfDay, mode]);
+  }, [required, selected, Date, startOfDay, mode]);
 
   // Update the selected date if the `selected` value changes.
   React.useEffect(() => {
-    if (mode !== "single") return;
-    setDate(selected);
-  }, [mode, selected]);
+    setSelected(initiallySelected);
+  }, [mode, initiallySelected]);
 
   const isSelected = (compareDate: Date) => {
-    return date ? isSameDay(date, compareDate) : false;
+    return selected ? isSameDay(selected, compareDate) : false;
   };
 
-  const setSelected = (
+  const select = (
     triggerDate: Date,
     modifiers: Modifiers,
     e: React.MouseEvent | React.KeyboardEvent
   ) => {
-    if (mode !== "single") return;
     let newDate: Date | undefined = triggerDate;
-    if (!required && date && date && isSameDay(triggerDate, date)) {
+    if (!required && selected && selected && isSameDay(triggerDate, selected)) {
       // If the date is the same, clear the selection.
       newDate = undefined;
     }
-    setDate(newDate);
+    setSelected(newDate);
     if (required) {
       onSelect?.(newDate as Date, triggerDate, modifiers, e);
     } else {
@@ -75,8 +68,8 @@ export function useSingle<T extends DayPickerProps>(
   };
 
   return {
-    selected: date,
-    handleSelect: setSelected,
+    selected,
+    select,
     isSelected
-  } as UseSingle<T>;
+  } as Selection<T>;
 }

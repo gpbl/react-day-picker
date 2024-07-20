@@ -21,10 +21,6 @@ export class CalendarDay {
       displayMonth && !dateLib.isSameMonth(date, displayMonth)
     );
     this.dateLib = dateLib;
-    const { format } = dateLib;
-    this.uid =
-      format(date, "yyyyMMdd") +
-      (this.outside ? `-` + format(displayMonth, "yyyyMMdd") : "");
   }
 
   /**
@@ -53,9 +49,6 @@ export class CalendarDay {
 
   /** The date represented by this day. */
   readonly date: Date;
-
-  /** A unique identifier for the day. */
-  readonly uid: string;
 
   /**
    * Check if the day is the same as the given day: considering if it is in the

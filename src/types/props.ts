@@ -32,7 +32,7 @@ export type DayPickerProps = PropsBase &
     | PropsMultiRequired
     | PropsRange
     | PropsRangeRequired
-    | { mode?: undefined }
+    | { mode?: undefined; required?: undefined }
   );
 
 /**
@@ -391,6 +391,7 @@ export interface PropsBase {
   /**
    * Event handler when a week number is clicked
    *
+   * @private
    * @deprecated Use a custom `WeekNumber` component instead.
    * @see http://daypicker.dev/next/docs/customization#showweeknumber
    */

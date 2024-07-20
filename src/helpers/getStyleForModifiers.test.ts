@@ -31,7 +31,7 @@ test("applies modifier styles to the base style", () => {
     ...modifiersStyles.selected
   };
 
-  const style = getStyleForModifiers(dayModifiers, modifiersStyles);
+  const style = getStyleForModifiers(dayModifiers, {}, modifiersStyles);
 
   expect(style).toEqual(expectedStyle);
 });
@@ -46,7 +46,7 @@ test("ignores modifiers that are not active", () => {
     disabled: { opacity: 0.5 }
   };
 
-  const style = getStyleForModifiers(dayModifiers, modifiersStyles);
+  const style = getStyleForModifiers(dayModifiers, {}, modifiersStyles);
 
   expect(style).toEqual({ opacity: 0.5 }); // should not have applied the disabled style
 });
@@ -66,7 +66,7 @@ test("combines multiple active modifier styles", () => {
     ...modifiersStyles.highlighted
   };
 
-  const style = getStyleForModifiers(dayModifiers, modifiersStyles);
+  const style = getStyleForModifiers(dayModifiers, {}, modifiersStyles);
 
   expect(style).toEqual(expectedStyle);
 });
@@ -86,7 +86,7 @@ test("applies the most recent modifier style when there are conflicts", () => {
     color: "green" // from 'highlighted', overriding 'selected'
   };
 
-  const style = getStyleForModifiers(dayModifiers, modifiersStyles);
+  const style = getStyleForModifiers(dayModifiers, {}, modifiersStyles);
 
   expect(style).toEqual(expectedStyle);
 });
