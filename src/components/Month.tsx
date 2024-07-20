@@ -7,7 +7,7 @@ import type { CalendarMonth } from "../classes/CalendarMonth.js";
  * month.
  *
  * @group Components
- * @see https://daypicker.dev/next/guides/custom-components
+ * @see https://daypicker.dev/guides/custom-components
  */
 export function Month(
   props: {

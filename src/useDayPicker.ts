@@ -34,7 +34,7 @@ export type DayPickerContext<T extends DayPickerProps> = {
  * Return the context to work with `<DayPicker />` inside custom components.
  *
  * @group Hooks
- * @see https://daypicker.dev/next/guides/custom-components
+ * @see https://daypicker.dev/guides/custom-components
  */
 export function useDayPicker<T extends DayPickerProps>(props?: T) {
   const context = useContext(dayPickerContext);

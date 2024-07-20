@@ -7,7 +7,7 @@ import type { DateLib } from "../types/index.js";
  *
  * @defaultValue `cccccc` (e.g. "Mo" for Monday)
  * @group Formatters
- * @see https://daypicker.dev/next/docs/translation#custom-formatters
+ * @see https://daypicker.dev/docs/translation#custom-formatters
  */
 export function formatWeekdayName(
   weekday: Date,

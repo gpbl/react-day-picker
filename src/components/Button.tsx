@@ -4,7 +4,7 @@ import React from "react";
  * Render the button elements in the calendar.
  *
  * @group Components
- * @see https://daypicker.dev/next/guides/custom-components
+ * @see https://daypicker.dev/guides/custom-components
  */
 export function Button(props: JSX.IntrinsicElements["button"]) {
   return <button {...props} />;

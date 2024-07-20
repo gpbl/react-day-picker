@@ -8,7 +8,7 @@ import { DateLib } from "../types/index.js";
  *
  * @defaultValue `LLLL y` (e.g. "November 2022")
  * @group Labels
- * @see http://daypicker.dev/next/docs/translation#aria-labels
+ * @see https://daypicker.dev/docs/translation#aria-labels
  */
 export function labelGrid(
   date: Date,

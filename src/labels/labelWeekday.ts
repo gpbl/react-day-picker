@@ -7,7 +7,7 @@ import type { DateLib } from "../types/index.js";
  *
  * @defaultValue `"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"`
  * @group Labels
- * @see http://daypicker.dev/next/docs/translation#aria-labels
+ * @see https://daypicker.dev/docs/translation#aria-labels
  */
 export function labelWeekday(
   date: Date,

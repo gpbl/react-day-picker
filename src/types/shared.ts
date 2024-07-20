@@ -35,14 +35,14 @@ import { dateLib } from "../lib/index.js";
  * - `multiple`: allow selecting multiple days.
  * - `range`: use DayPicker to select a range of days.
  *
- * @see https://daypicker.dev/next/docs/selection-modes
+ * @see https://daypicker.dev/docs/selection-modes
  */
 export type Mode = "single" | "multiple" | "range";
 
 /**
  * The components that can be changed using the `components` prop.
  *
- * @see https://daypicker.dev/next/guides/custom-components
+ * @see https://daypicker.dev/guides/custom-components
  */
 export type CustomComponents = {
   /** Render any button element in DayPicker. */
@@ -274,7 +274,7 @@ export type ModifiersClassNames = Record<string, string>;
  *
  * @private
  * @since 9.0.0
- * @see https://daypicker.dev/next/upgrading
+ * @see https://daypicker.dev/upgrading
  */
 export type V9DeprecatedProps =
   /** Use `hidden` prop instead. */

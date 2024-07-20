@@ -4,7 +4,7 @@ import React from "react";
  * Component wrapping the footer.
  *
  * @group Components
- * @see https://daypicker.dev/next/guides/custom-components
+ * @see https://daypicker.dev/guides/custom-components
  */
 export function Footer(props: JSX.IntrinsicElements["div"]) {
   return <div {...props} />;

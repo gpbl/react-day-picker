@@ -40,7 +40,7 @@ import { isDateRange } from "./utils/typeguards.js";
  * Render the date picker calendar.
  *
  * @group DayPicker
- * @see http://daypicker.dev
+ * @see https://daypicker.dev
  */
 export function DayPicker<T extends DayPickerProps>(props: T) {
   const { components, formatters, labels, dateLib, classNames } = useMemo(

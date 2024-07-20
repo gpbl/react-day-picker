@@ -20,7 +20,7 @@ export type DropdownOption = {
  * Render a dropdown component to use in the navigation bar.
  *
  * @group Components
- * @see https://daypicker.dev/next/guides/custom-components
+ * @see https://daypicker.dev/guides/custom-components
  */
 export function Dropdown(
   props: {

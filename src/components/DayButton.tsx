@@ -10,7 +10,7 @@ import type { Modifiers } from "../types/index.js";
  * of a `DayButton` component.
  *
  * @group Components
- * @see https://daypicker.dev/next/guides/custom-components
+ * @see https://daypicker.dev/guides/custom-components
  */
 export function DayButton(
   props: {

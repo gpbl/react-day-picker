@@ -19,7 +19,7 @@ import type { DateLib } from "./types/shared.js";
 /**
  * Return the calendar object to work with the calendar in custom components.
  *
- * @see https://daypicker.dev/next/guides/custom-components
+ * @see https://daypicker.dev/guides/custom-components
  */
 export interface Calendar {
   /**

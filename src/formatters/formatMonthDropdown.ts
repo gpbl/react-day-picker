@@ -6,7 +6,7 @@ import { enUS } from "../lib/locales.js";
  *
  * @defaultValue The localized month name
  * @group Formatters
- * @see https://daypicker.dev/next/docs/translation#custom-formatters
+ * @see https://daypicker.dev/docs/translation#custom-formatters
  */
 export function formatMonthDropdown(
   /** The month number to format. */

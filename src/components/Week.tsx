@@ -6,7 +6,7 @@ import type { CalendarWeek } from "../classes/index.js";
  * Render a row in the calendar, with the days and the week number.
  *
  * @group Components
- * @see https://daypicker.dev/next/guides/custom-components
+ * @see https://daypicker.dev/guides/custom-components
  */
 export function Week(
   props: {
