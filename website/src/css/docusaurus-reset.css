@@ -142,11 +142,13 @@
 .docusaurus-reset table.rdp-month_grid td {
   border: revert;
   padding: revert;
+  font-size: 1rem;
 }
 
 .docusaurus-reset table th {
   background-color: revert;
   color: revert;
+  font-size: 0.875rem;
 }
 
 .docusaurus-reset table td {
