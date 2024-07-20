@@ -3,7 +3,7 @@ import type { Locale } from "../lib/dateLib.js";
 import type { DateLib, Formatters } from "../types/index.js";
 
 /** Return the months to show in the dropdown. */
-export function getDropdownMonths(
+export function getMonthOptions(
   displayMonth: Date,
   navStart: Date | undefined,
   navEnd: Date | undefined,

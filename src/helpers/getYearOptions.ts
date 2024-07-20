@@ -2,7 +2,7 @@ import { DropdownOption } from "../components/Dropdown.js";
 import type { DateLib, Formatters } from "../types/index.js";
 
 /** Return the years to show in the dropdown. */
-export function getDropdownYears(
+export function getYearOptions(
   displayMonth: Date,
   calendarStart: Date | undefined,
   calendarEnd: Date | undefined,

@@ -13,8 +13,8 @@ import { getComponents } from "./helpers/getComponents.js";
 import { getDataAttributes } from "./helpers/getDataAttributes.js";
 import { getDateLib } from "./helpers/getDateLib.js";
 import { getDefaultClassNames } from "./helpers/getDefaultClassNames.js";
-import { getDropdownMonths } from "./helpers/getDropdownMonths.js";
-import { getDropdownYears } from "./helpers/getDropdownYears.js";
+import { getMonthOptions } from "./helpers/getMonthOptions.js";
+import { getYearOptions } from "./helpers/getYearOptions.js";
 import { getFormatters } from "./helpers/getFormatters.js";
 import { getStyleForModifiers } from "./helpers/getStyleForModifiers.js";
 import { getWeekdays } from "./helpers/getWeekdays.js";
@@ -309,7 +309,7 @@ export function DayPicker<T extends DayPickerProps>(props: T) {
               goToMonth(month);
             };
 
-            const dropdownMonths = getDropdownMonths(
+            const dropdownMonths = getMonthOptions(
               calendarMonth.date,
               navStart,
               navEnd,
@@ -318,7 +318,7 @@ export function DayPicker<T extends DayPickerProps>(props: T) {
               dateLib
             );
 
-            const dropdownYears = getDropdownYears(
+            const dropdownYears = getYearOptions(
               months[0].date,
               navStart,
               navEnd,
