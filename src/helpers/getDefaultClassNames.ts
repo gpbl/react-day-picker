@@ -6,7 +6,7 @@ import type { ClassNames } from "../types/index.js";
  *
  * @group Utilities
  */
-export function getDefaultClassNames(): Required<ClassNames> {
+export function getDefaultClassNames(): ClassNames {
   const classNames: Partial<Required<ClassNames>> = {};
 
   for (const key in UI) {

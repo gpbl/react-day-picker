@@ -244,12 +244,18 @@ export type DayEventHandler<EventType> = (
 /** The event handler when a month is changed in the calendar. */
 export type MonthChangeEventHandler = (month: Date) => void;
 
-/** Defines the class names for various UI components and states. */
+/**
+ * The CSS classnames to use for the {@link UI } elements, the
+ * {@link SelectionState} and the {@link DayFlag}.
+ */
 export type ClassNames = {
   [key in UI | SelectionState | DayFlag]: string;
 };
 
-/** Maps user interface elements, selection states, and flags to a CSS style. */
+/**
+ * The CSS styles to use for the {@link UI } elements, the {@link SelectionState}
+ * and the {@link DayFlag}.
+ */
 export type Styles = {
   [key in UI | SelectionState | DayFlag]: CSSProperties | undefined;
 };
