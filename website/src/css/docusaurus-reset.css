@@ -151,6 +151,10 @@
   font-size: 0.875rem;
 }
 
+.docusaurus-reset table td.rdp-week_number {
+  font: var(--rdp-week_number-font);
+}
+
 .docusaurus-reset table td {
   color: revert;
 }
