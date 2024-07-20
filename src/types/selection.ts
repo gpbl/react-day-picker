@@ -3,7 +3,7 @@ import type { DateRange, Modifiers } from "./shared.js";
 
 export type Selection<T extends DayPickerProps> = {
   /** The selected date(s). */
-  selected: Selected<T> | undefined;
+  selected: SelectedValue<T> | undefined;
   /** Set a selection. */
   select: SelectHandler<T> | undefined;
   /** Whether the given date is selected. */
@@ -17,7 +17,7 @@ export type SelectedMulti<T extends { required?: boolean }> =
 export type SelectedRange<T extends { required?: boolean }> =
   T["required"] extends true ? DateRange : DateRange | undefined;
 
-export type Selected<T> = T extends { mode: "single"; required?: boolean }
+export type SelectedValue<T> = T extends { mode: "single"; required?: boolean }
   ? SelectedSingle<T>
   : T extends { mode: "multiple"; required?: boolean }
     ? SelectedMulti<T>

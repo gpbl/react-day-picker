@@ -3,7 +3,7 @@ import { createContext, useContext } from "react";
 import { CalendarDay } from "./classes/CalendarDay.js";
 import { CalendarMonth } from "./classes/CalendarMonth.js";
 import type { DayPickerProps } from "./types/props.js";
-import type { Selected, SelectHandler } from "./types/selection.js";
+import type { SelectedValue, SelectHandler } from "./types/selection.js";
 import { Modifiers } from "./types/shared.js";
 
 // Create a context with a default value
@@ -23,7 +23,7 @@ export type DayPickerContext<T extends DayPickerProps> = {
   /** Returns the modifiers for the given day. */
   getModifiers: (day: CalendarDay) => Modifiers;
   /** The selected date(s). */
-  selected: Selected<T> | undefined;
+  selected: SelectedValue<T> | undefined;
   /** Set a selection. */
   select: SelectHandler<T> | undefined;
   /** Whether the given date is selected. */

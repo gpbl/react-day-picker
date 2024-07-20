@@ -6,14 +6,14 @@ import type {
   Modifiers,
   PropsSingle,
   SelectHandler,
-  Selected,
+  SelectedValue,
   Selection
 } from "../types/index.js";
 
 export type UseSingle<T extends DayPickerProps> = {
   select: SelectHandler<T>;
   isSelected: (date: Date) => boolean;
-  selected: Selected<T>;
+  selected: SelectedValue<T>;
 };
 
 export function useSingle<T extends DayPickerProps>(

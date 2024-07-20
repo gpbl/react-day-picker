@@ -13,11 +13,11 @@ import { getComponents } from "./helpers/getComponents.js";
 import { getDataAttributes } from "./helpers/getDataAttributes.js";
 import { getDateLib } from "./helpers/getDateLib.js";
 import { getDefaultClassNames } from "./helpers/getDefaultClassNames.js";
-import { getMonthOptions } from "./helpers/getMonthOptions.js";
-import { getYearOptions } from "./helpers/getYearOptions.js";
 import { getFormatters } from "./helpers/getFormatters.js";
+import { getMonthOptions } from "./helpers/getMonthOptions.js";
 import { getStyleForModifiers } from "./helpers/getStyleForModifiers.js";
 import { getWeekdays } from "./helpers/getWeekdays.js";
+import { getYearOptions } from "./helpers/getYearOptions.js";
 import * as defaultLabels from "./labels/index.js";
 import type { FormatOptions, LabelOptions } from "./lib/dateLib.js";
 import type {
@@ -25,7 +25,7 @@ import type {
   Modifiers,
   MoveFocusBy,
   MoveFocusDir,
-  Selected,
+  SelectedValue,
   SelectHandler
 } from "./types/index.js";
 import { useCalendar } from "./useCalendar.js";
@@ -222,7 +222,7 @@ export function DayPicker<T extends DayPickerProps>(props: T) {
   const dataAttributes = getDataAttributes(props);
 
   const contextValue: DayPickerContext<T> = {
-    selected: selectedValue as Selected<T>,
+    selected: selectedValue as SelectedValue<T>,
     select: select as SelectHandler<T>,
     isSelected,
     months,
