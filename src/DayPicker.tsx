@@ -42,7 +42,7 @@ import { isDateRange } from "./utils/typeguards.js";
  * @group DayPicker
  * @see https://daypicker.dev
  */
-export function DayPicker<T extends DayPickerProps>(props: T) {
+export function DayPicker(props: DayPickerProps) {
   const { components, formatters, labels, dateLib, classNames } = useMemo(
     () => ({
       dateLib: getDateLib(props.dateLib),
@@ -116,9 +116,9 @@ export function DayPicker<T extends DayPickerProps>(props: T) {
     isSelected,
     select,
     selected: selectedValue
-  } = useSelection<T>(props, dateLib) ?? {};
+  } = useSelection(props, dateLib) ?? {};
 
-  const { blur, focused, isFocusTarget, moveFocus, setFocused } = useFocus<T>(
+  const { blur, focused, isFocusTarget, moveFocus, setFocused } = useFocus(
     props,
     calendar,
     getModifiers,
@@ -221,9 +221,9 @@ export function DayPicker<T extends DayPickerProps>(props: T) {
 
   const dataAttributes = getDataAttributes(props);
 
-  const contextValue: DayPickerContext<T> = {
-    selected: selectedValue as SelectedValue<T>,
-    select: select as SelectHandler<T>,
+  const contextValue: DayPickerContext<DayPickerProps> = {
+    selected: selectedValue as SelectedValue<DayPickerProps>,
+    select: select as SelectHandler<DayPickerProps>,
     isSelected,
     months,
     nextMonth,
