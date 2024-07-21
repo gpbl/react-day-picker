@@ -14,11 +14,11 @@ This release includes important updates related to accessibility, styles and loc
 npm install react-day-picker@latest
 ```
 
-### What’s New
+## What’s New
 
 - Moved `date-fns` from peer dependencies to dependencies.
 - Added support for [UTC dates](https://daypicker.dev/docs/localization#utc-dates) and [Jalali Calendar](https://daypicker.dev/docs/localization#jalali-calendar).
-- [Enhanced accessibility](https://daypicker.dev/docs/accessibility) to better comply with [WCAG21](https://www.w3.org/TR/WCAG21/) recommendations.
+- [Enhanced accessibility](https://daypicker.dev/docs/accessibility) to better comply with [WCAG 2.1](https://www.w3.org/TR/WCAG21/) recommendations.
 - [Simplified styles](https://daypicker.dev/docs/styling) and new CSS variables for easier customization.
 - Improved selection logic for [range mode](https://daypicker.dev/docs/selection-modes.mdx).
 - New `dropdown-years` and `dropdown-months` caption layouts.
@@ -26,14 +26,17 @@ npm install react-day-picker@latest
 - Updated for a complete [custom components](https://daypicker.dev/guides/custom-components) support.
 - Improved typings and props for better compatibility in TypeScript `strict` mode.
 
-### Breaking Changes
+## Breaking Changes
+
+While we tried to keep the API as stable as possible, some breaking changes were necessary to improve the library:
 
 - The updated ARIA labels could require new translations or updated unit tests selectors.
 - Custom CSS styles will likely break, due to the updated CSS classes and simplified styles.
 - Custom Components have new API and may break.
 - Some typings have been renamed or deprecated.
 - The `useInput` hook has been removed. See [Input fields](https://daypicker.dev/guides/input-fields) guide for more details.
-- `onWeekNumberClick` has been removed.
+- `onWeekNumberClick` has been removed. Use a custom component to handle week number clicks.
+- The updated build system to ESM and CommonJS could break some custom bundler.
 
 ### Upgrading Guide
 
