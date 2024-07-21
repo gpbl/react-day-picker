@@ -35,12 +35,6 @@ export function useRange<T extends DayPickerProps>(
     }
   }, [required, selected, mode]);
 
-  // Update the selected date if the selected changes.
-  React.useEffect(() => {
-    if (selected === initiallySelected) return;
-    setSelected(initiallySelected);
-  }, [mode, selected, initiallySelected]);
-
   const isSelected = (date: Date) =>
     selected && rangeIncludesDate(selected, date, false, dateLib);
 
