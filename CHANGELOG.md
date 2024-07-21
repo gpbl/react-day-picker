@@ -1,56 +1,48 @@
 # Changelog
 
-See the [Releases page](https://github.com/gpbl/react-day-picker/releases) on Github for the complete list of changes, diffs and contributors, or the [list of versions](https://www.npmjs.com/package/react-day-picker?activeTab=versions) published on npm.
+DayPicker follows [Semantic Versioning](http://semver.org/). See the [Releases page](https://github.com/gpbl/react-day-picker/releases) on Github for the complete list of changes, diffs and contributors, or the [list of versions](https://www.npmjs.com/package/react-day-picker?activeTab=versions) published on npm.
 
-## v9
+## v9.0.0
 
-This release includes important updates related to accessibility, styles, internationalization and performance. See the updated docs at https://daypicker.dev.
+_Release date: 2024-07-20_
 
-### Install the latest version
+This release includes important updates related to accessibility, styles and localization. See the updated docs at https://daypicker.dev and the [Upgrading Guide](https://daypicker.dev/upgrading) for more details.
+
+### Install the Latest Version
 
 ```bash
 npm install react-day-picker@latest
 ```
 
-### What’s New in DayPicker 9
+### What’s New
 
-This release includes important updates related to accessibility, styles, internationalization and performance.
-
-Visit https://daypicker.dev/playground to try it.
-
-#### At a glance
-
+- Moved `date-fns` from peer dependencies to dependencies.
 - Added support for [UTC dates](https://daypicker.dev/docs/localization#utc-dates) and [Jalali Calendar](https://daypicker.dev/docs/localization#jalali-calendar).
 - [Enhanced accessibility](https://daypicker.dev/docs/accessibility) to better comply with [WCAG21](https://www.w3.org/TR/WCAG21/) recommendations.
-- [Simplified styles](https://daypicker.dev/docs/styling) with new CSS variables.
-- Improved selection logic for range mode.
-- Improved typings and props for better compatibility in `strict` mode.
-- Improved rendering performance and reduced memory impact.
-- Added new `hideWeekdayRow` and `hideNavigation` props.
+- [Simplified styles](https://daypicker.dev/docs/styling) and new CSS variables for easier customization.
+- Improved selection logic for [range mode](https://daypicker.dev/docs/selection-modes.mdx).
 - New `dropdown-years` and `dropdown-months` caption layouts.
-- Removed `date-fns` from peer dependencies (now is a proper dependency)
-- Updated for more complete [custom components](https://daypicker.dev/guides/custom-components) support.
+- New `hideWeekdayRow` and `hideNavigation` props.
+- Updated for a complete [custom components](https://daypicker.dev/guides/custom-components) support.
+- Improved typings and props for better compatibility in TypeScript `strict` mode.
 
-#### Breaking Changes
-
-With v9 we tried to keep breaking changes to a minimum, but were inevitable to improve the library. Here are the most important changes:
+### Breaking Changes
 
 - The updated ARIA labels could require new translations or updated unit tests selectors.
-- Custom CSS styles will likely break, due to the new CSS variables and simplified styles.
-- Custom Components have new API and may break too.
+- Custom CSS styles will likely break, due to the updated CSS classes and simplified styles.
+- Custom Components have new API and may break.
 - Some typings have been renamed or deprecated.
 - The `useInput` hook has been removed. See [Input fields](https://daypicker.dev/guides/input-fields) guide for more details.
 - `onWeekNumberClick` has been removed.
 
-#### Migration Guide
+### Upgrading Guide
 
-We prepared a [migration guide](https://daypicker.dev/upgrading) for help upgrading your app to v9.
+We prepared a [Upgrading guide](https://daypicker.dev/upgrading) for help upgrading your app to v9.
+We welcome feedback about the upgrade process, to ensure it's smooth for everyone.
 
-#### Help Testing this Version
+### Get Support and Report Issues
 
 Please report any issues or provide feedback on the [GitHub repository](https://github.com/gpbl/react-day-picker/discussions/categories/daypicker-v9).
-
-We welcome feedback about the upgrade process, to ensure it's smooth for everyone.
 
 ## v8.10.1
 
