@@ -1,5 +1,6 @@
 import React from "react";
 
+import { DeprecatedUI } from "../UI.js";
 import type { Locale } from "../lib/dateLib.js";
 
 import type {
@@ -63,7 +64,7 @@ export interface PropsBase {
    *
    * @see https://daypicker.dev/docs/styling
    */
-  classNames?: Partial<ClassNames>;
+  classNames?: Partial<ClassNames> & Partial<DeprecatedUI<string>>;
   /**
    * Change the class name for the day matching the `modifiers`.
    *
@@ -77,7 +78,7 @@ export interface PropsBase {
    *
    * @see https://daypicker.dev/docs/styling
    */
-  styles?: Partial<Styles>;
+  styles?: Partial<Styles> & Partial<DeprecatedUI<React.CSSProperties>>;
   /**
    * Change the class name for the day matching the {@link modifiers}.
    *
