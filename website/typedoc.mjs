@@ -43,7 +43,7 @@ const options = {
 
   typeDeclarationFormat: "list",
   parametersFormat: "table",
-  expandParameters: true,
+  expandParameters: false,
   propertiesFormat: "list",
   propertyMembersFormat: "list",
   enumMembersFormat: "table",

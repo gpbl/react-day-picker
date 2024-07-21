@@ -31,7 +31,7 @@ By default, the locale is set to English (US). To localize the calendar, pass a 
 
 For example, to localize the calendar in Spanish, import the `es` locale object from date-fns and pass it to the component.
 
-```tsx caption="render:Spanish"
+```tsx
 import { es } from "date-fns/locale";
 
 <DayPicker locale={es} />; // Set the locale to Spanish
@@ -43,7 +43,7 @@ import { es } from "date-fns/locale";
 
 ## First Date of the Week
 
-Utilize the `weekStartsOn` prop to specify the starting day of the week.
+Use the `weekStartsOn` prop to specify the starting day of the week.
 
 ```tsx
 <DayPicker locale={es} weekStartsOn={0} /> // Start the week on Domingo
@@ -60,26 +60,19 @@ The `firstWeekContainsDate` prop can be used to change the first day of the week
 - Acceptable values are `1` for Monday and `4` for Thursday.
 - See also [Week Numbering](https://en.wikipedia.org/wiki/Week#Numbering) and the [getWeek function](https://date-fns.org/docs/getWeek).
 
-```tsx caption="render:WeeknumberCustom"
+```tsx
 <DayPicker
   showWeekNumber
   firstWeekContainsDate={1} // First week must contain Monday
 />
 ```
 
-<BrowserWindow>
-  <Examples.WeeknumberCustom />
-</BrowserWindow>
-
 ## ISO Week Dates
 
 Use `ISOWeek` to switch using [ISO Week Dates](https://en.wikipedia.org/wiki/ISO_week_date) instead of the locale setting.
 
-```tsx caption="render:WeeknumberIso"
-<DayPicker
-  showWeekNumber
-  ISOWeek // Switch to ISO week
-/>
+```tsx
+<DayPicker ISOWeek />
 ```
 
 <BrowserWindow>

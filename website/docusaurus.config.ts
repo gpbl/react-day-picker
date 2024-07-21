@@ -73,9 +73,9 @@ const config: Config = {
 
   themeConfig: {
     announcementBar: {
-      id: "9-rc.1", // Any unique string
+      id: "v9.0.0", // Any unique string
       content:
-        '📆 Try the <a href="/next">Release Candidate of DayPicker v9</a>.',
+        "🎉 Introducing DayPicker v9.0.0. See the <a href='/changelog'>full changelog</a>.",
       backgroundColor: "rebeccapurple",
       textColor: "white"
     },

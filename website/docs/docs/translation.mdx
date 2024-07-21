@@ -88,7 +88,7 @@ The following labels are optional and should work out of the box in most languag
 
 To set the right-to-left text direction, toggle the `dir` prop to `rtl`.
 
-```tsx caption="render:Rtl"
+```tsx
 import { arSA } from "date-fns/locale";
 
 <DayPicker locale={arSA} dir="rtl" />;
@@ -101,12 +101,6 @@ import { arSA } from "date-fns/locale";
 ## Custom Formatters
 
 The `formatters` prop can be used to further format dates, week numbers, day names, and more.
-
-:::note Advanced Feature
-
-The `formatters` prop is an advanced feature that you usually don't need to use.
-
-:::
 
 ```tsx
 import { format } from "date-fns";
@@ -130,11 +124,11 @@ import { format } from "date-fns";
 
 ### Numbering System
 
-Use the proper `formatters` to change the [numbering system](https://en.wikipedia.org/wiki/Numeral_system) used in the calendar.
+Use the `formatters` to change the [numbering system](https://en.wikipedia.org/wiki/Numeral_system) used in the calendar.
 
-For example, to switch to hindu-arabic use the native [`Date.toLocaleString`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString):
+For example, to switch to hindu-arabic, you use the native [`Date.toLocaleString`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString):
 
-```tsx caption="render:NumberingSystem"
+```tsx
 import { format } from "date-fns/format";
 import { arSA } from "date-fns/locale";
 import { DayPicker, Formatters } from "react-day-picker";
@@ -154,7 +148,6 @@ export function NumberingSystemExample() {
     <DayPicker
       locale={arSA}
       dir="rtl"
-      showWeekNumber
       formatters={{
         formatDay,
         formatMonthCaption,

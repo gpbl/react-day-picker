@@ -149,47 +149,46 @@ export type Labels = {
 /**
  * A value or a function that matches a specific day.
  *
- * ```tsx
- * // will always match the day
- * const booleanMatcher: Matcher = true;
+ * @example
+ *   // will always match the day
+ *   const booleanMatcher: Matcher = true;
  *
- * // will match the today's date
- * const dateMatcher: Matcher = new Date();
+ *   // will match the today's date
+ *   const dateMatcher: Matcher = new Date();
  *
- * // will match the days in the array
- * const arrayMatcher: Matcher = [
- *   new Date(2019, 1, 2),
- *   new Date(2019, 1, 4)
- * ];
+ *   // will match the days in the array
+ *   const arrayMatcher: Matcher = [
+ *     new Date(2019, 1, 2),
+ *     new Date(2019, 1, 4)
+ *   ];
  *
- * // will match days after the 2nd of February 2019
- * const afterMatcher: DateAfter = { after: new Date(2019, 1, 2) };
+ *   // will match days after the 2nd of February 2019
+ *   const afterMatcher: DateAfter = { after: new Date(2019, 1, 2) };
  *
- * // will match days before the 2nd of February 2019 }
- * const beforeMatcher: DateBefore = { before: new Date(2019, 1, 2) };
+ *   // will match days before the 2nd of February 2019 }
+ *   const beforeMatcher: DateBefore = { before: new Date(2019, 1, 2) };
  *
- * // will match Sundays
- * const dayOfWeekMatcher: DayOfWeek = {
- *   dayOfWeek: 0
- * };
+ *   // will match Sundays
+ *   const dayOfWeekMatcher: DayOfWeek = {
+ *     dayOfWeek: 0
+ *   };
  *
- * // will match the included days, except the two dates
- * const intervalMatcher: DateInterval = {
- *   after: new Date(2019, 1, 2),
- *   before: new Date(2019, 1, 5)
- * };
+ *   // will match the included days, except the two dates
+ *   const intervalMatcher: DateInterval = {
+ *     after: new Date(2019, 1, 2),
+ *     before: new Date(2019, 1, 5)
+ *   };
  *
- * // will match the included days, including the two dates
- * const rangeMatcher: DateRange = {
- *   from: new Date(2019, 1, 2),
- *   to: new Date(2019, 1, 5)
- * };
+ *   // will match the included days, including the two dates
+ *   const rangeMatcher: DateRange = {
+ *     from: new Date(2019, 1, 2),
+ *     to: new Date(2019, 1, 5)
+ *   };
  *
- * // will match when the function return true
- * const functionMatcher: Matcher = (day: Date) => {
- *   return day.getMonth() === 2; // match when month is March
- * };
- * ```
+ *   // will match when the function return true
+ *   const functionMatcher: Matcher = (day: Date) => {
+ *     return day.getMonth() === 2; // match when month is March
+ *   };
  */
 export type Matcher =
   | boolean
@@ -202,32 +201,64 @@ export type Matcher =
   | DateInterval
   | DayOfWeek;
 
-/** Match a day falling after the specified date, with the date not included. */
+/**
+ * Match a day falling after the specified date, with the date not included.
+ *
+ * @example
+ *   // Match days after the 2nd of February 2019
+ *   const matcher: DateAfter = { after: new Date(2019, 1, 2) };
+ */
 export type DateAfter = { after: Date };
 
-/** Match a day falling before the specified date, with the date not included. */
+/**
+ * Match a day falling before the specified date, with the date not included.
+ *
+ * @example
+ *   // Match days before the 2nd of February 2019
+ *   const matcher: DateBefore = { before: new Date(2019, 1, 2) };
+ */
 export type DateBefore = { before: Date };
 
 /**
  * An interval of dates. Differently from {@link DateRange}, the range ends here
  * are not included.
+ *
+ * @example
+ *   // Match the days between the 2nd and the 5th of February 2019
+ *   const matcher: DateInterval = {
+ *     after: new Date(2019, 1, 2),
+ *     before: new Date(2019, 1, 5)
+ *   };
  */
 export type DateInterval = { before: Date; after: Date };
 
 /**
  * A range of dates. The range can be open. Differently from
  * {@link DateInterval}, the range ends here are included.
+ *
+ * @example
+ *   // Match the days between the 2nd and the 5th of February 2019
+ *   const matcher: DateRange = {
+ *     from: new Date(2019, 1, 2),
+ *     to: new Date(2019, 1, 5)
+ *   };
  */
 export type DateRange = { from: Date | undefined; to?: Date | undefined };
 
 /**
  * Match dates being one of the specified days of the week (`0-6`, where `0` is
  * Sunday).
+ *
+ * @example
+ *   // Match Sundays
+ *   const matcher: DayOfWeek = { dayOfWeek: 0 };
+ *   // Match weekends
+ *   const matcher: DayOfWeek = { dayOfWeek: [0, 6] };
  */
 export type DayOfWeek = { dayOfWeek: number | number[] };
 
 /**
- * The event handler triggered when interacting with a day.
+ * The event handler triggered when clicking or interacting with a day.
  *
  * @template EventType - The event type that triggered the event (e.g.
  *   `React.MouseEvent`, `React.KeyboardEvent`, etc.).
@@ -241,32 +272,76 @@ export type DayEventHandler<EventType> = (
   e: EventType
 ) => void;
 
-/** The event handler when a month is changed in the calendar. */
+/**
+ * The event handler when a month is changed in the calendar.
+ *
+ * ```tsx
+ * <DayPicker onMonthChange={(month) => console.log(month)} />
+ * ```
+ *
+ * @see https://daypicker.dev/docs/navigation
+ */
 export type MonthChangeEventHandler = (month: Date) => void;
 
 /**
- * The CSS classnames to use for the {@link UI } elements, the
+ * The CSS classnames to use for the {@link UI} elements, the
  * {@link SelectionState} and the {@link DayFlag}.
+ *
+ * @example
+ *   const classNames: ClassNames = {
+ *     [UI.Root]: "root",
+ *     [UI.Outside]: "outside",
+ *     [UI.Nav]: "nav"
+ *     // etc.
+ *   };
  */
 export type ClassNames = {
   [key in UI | SelectionState | DayFlag]: string;
 };
 
 /**
- * The CSS styles to use for the {@link UI } elements, the {@link SelectionState}
+ * The CSS styles to use for the {@link UI} elements, the {@link SelectionState}
  * and the {@link DayFlag}.
  */
 export type Styles = {
   [key in UI | SelectionState | DayFlag]: CSSProperties | undefined;
 };
 
-/** The modifiers that are matching a day in the calendar. */
+/**
+ * The modifiers that are matching a day in the calendar.
+ *
+ * @example
+ *   const modifiers: Modifiers = {
+ *     today: false, // the day is not today
+ *     selected: true, // the day is selected
+ *     weekend: false // the day is not in the weekend
+ *     // etc
+ *   };
+ */
 export type Modifiers = Record<string, boolean>;
 
-/** The style to apply to each day element matching a modifier. */
+/**
+ * The style to apply to each day element matching a modifier.
+ *
+ * @example
+ *   const modifiersStyles: ModifiersStyles = {
+ *     today: { color: "red" },
+ *     selected: { backgroundColor: "blue" },
+ *     weekend: { color: "green" }
+ *   };
+ */
 export type ModifiersStyles = Record<string, CSSProperties>;
 
-/** The classnames to assign to each day element matching a modifier. */
+/**
+ * The classnames to assign to each day element matching a modifier.
+ *
+ * @example
+ *   const modifiersClassNames: ModifiersClassNames = {
+ *     today: "today", // Use the "today" class for the today's day
+ *     selected: "highlight", // Use the "highlight" class for the selected day
+ *     weekend: "weekend" // Use the "weekend" class for the weekend days
+ *   };
+ */
 export type ModifiersClassNames = Record<string, string>;
 
 /**
@@ -290,8 +365,10 @@ export type V9DeprecatedProps =
   /** Use `endMonth` instead. */
   | "toYear";
 
+/** The direction to move the focus relative to the current focused date. */
 export type MoveFocusDir = "after" | "before";
 
+/** The temporal unit to move the focus by. */
 export type MoveFocusBy =
   | "day"
   | "week"
