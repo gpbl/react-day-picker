@@ -544,6 +544,7 @@ export interface PropsMulti {
 export interface PropsRangeRequired {
   mode: "range";
   required: true;
+  disabled?: Matcher | Matcher[] | undefined;
   /** The selected range. */
   selected: DateRange;
   /** Event handler when a range is selected. */
@@ -566,6 +567,7 @@ export interface PropsRangeRequired {
 export interface PropsRange {
   mode: "range";
   required?: false | undefined;
+  disabled?: Matcher | Matcher[] | undefined;
   /** The selected range. */
   selected?: DateRange | undefined;
   /** Event handler when the selection changes. */
