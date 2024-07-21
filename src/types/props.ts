@@ -38,21 +38,20 @@ export type DayPickerProps = PropsBase &
 /**
  * Props used for customization of the calendar, localization, and event
  * handling.
- *
- * @group Props
  */
 export interface PropsBase {
   /**
-   * The selection mode. Use this prop to enable the selection of multiple days
-   * or a range of days.
-   *
-   * - `single`: a single day
-   * - `multiple`: multiple days
-   * - `range`: a range of days
+   * Enable the selection of single day, multiple days or a range of days.
    *
    * @see https://daypicker.dev/docs/selection-modes
    */
   mode?: Mode | undefined;
+  /**
+   * Whether the selection is required.
+   *
+   * @see https://daypicker.dev/docs/selection-modes
+   */
+  required?: boolean | undefined;
 
   /** Class name to add to the root element */
   className?: string;
@@ -460,7 +459,6 @@ export interface PropsBase {
 /**
  * The props when the single selection is required.
  *
- * @group Props
  * @see https://daypicker.dev/docs/selection-modes#single-mode
  */
 export interface PropsSingleRequired {
@@ -477,7 +475,6 @@ export interface PropsSingleRequired {
 /**
  * The props when the single selection is optional.
  *
- * @group Props
  * @see https://daypicker.dev/docs/selection-modes#single-mode
  */
 export interface PropsSingle {
@@ -494,7 +491,6 @@ export interface PropsSingle {
 /**
  * The props when the multiple selection is required.
  *
- * @group Props
  * @see https://daypicker.dev/docs/selection-modes#multiple-mode
  */
 export interface PropsMultiRequired {
@@ -513,7 +509,6 @@ export interface PropsMultiRequired {
 /**
  * The props when the multiple selection is optional.
  *
- * @group Props
  * @see https://daypicker.dev/docs/selection-modes#multiple-mode
  */
 export interface PropsMulti {
@@ -532,7 +527,6 @@ export interface PropsMulti {
 /**
  * The props when the range selection is required.
  *
- * @group Props
  * @see https://daypicker.dev/docs/selection-modes#range-mode
  */
 export interface PropsRangeRequired {
@@ -551,7 +545,6 @@ export interface PropsRangeRequired {
 /**
  * The props when the range selection is optional.
  *
- * @group Props
  * @see https://daypicker.dev/docs/selection-modes#range-mode
  */
 export interface PropsRange {
