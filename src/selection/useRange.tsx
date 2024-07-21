@@ -1,71 +1,50 @@
 import React from "react";
 
-import {
+import type {
   DateLib,
   DateRange,
   DayPickerProps,
   Modifiers,
   PropsRange,
-  PropsRangeRequired
+  Selection
 } from "../types/index.js";
 import { addToRange, dateMatchModifiers } from "../utils/index.js";
-import { isDateInRange } from "../utils/isDateInRange.js";
-
-export type UseRange<T> = {
-  handleSelect: (
-    triggerDate: Date,
-    modifiers: Modifiers,
-    e: React.MouseEvent | React.KeyboardEvent
-  ) => DateRange | undefined;
-  isSelected: (date: Date) => boolean;
-  isRangeStart: (date: Date) => boolean;
-  isRangeEnd: (date: Date) => boolean;
-  isRangeMiddle: (date: Date) => boolean;
-} & (T extends { required: true }
-  ? {
-      selected: DateRange;
-    }
-  : {
-      selected: DateRange | undefined;
-    });
+import { rangeIncludesDate } from "../utils/rangeIncludesDate.js";
 
 export function useRange<T extends DayPickerProps>(
-  props: T extends { mode: "range" } ? PropsRange | PropsRangeRequired : object,
+  props: T,
   dateLib: DateLib
-): UseRange<T> {
-  const { mode, disabled, selected, required, onSelect } = props as PropsRange;
+): Selection<T> {
+  const {
+    mode,
+    disabled,
+    selected: initiallySelected,
+    required,
+    onSelect
+  } = props as PropsRange;
 
   const { differenceInCalendarDays } = dateLib;
-  const [range, setRange] = React.useState<DateRange | undefined>(
-    mode === "range" ? selected : undefined
+  const [selected, setSelected] = React.useState<DateRange | undefined>(
+    initiallySelected
   );
 
   // Update the selected date if the required flag is set.
   React.useEffect(() => {
-    if (mode !== "range") return;
-    if (required && range === undefined) {
-      setRange({ from: undefined, to: undefined });
+    if (required && selected === undefined) {
+      setSelected({ from: undefined, to: undefined });
     }
-  }, [required, range, mode]);
-
-  // Update the selected date if the selected changes.
-  React.useEffect(() => {
-    if (mode !== "range") return;
-    if (range === selected) return;
-    setRange(selected);
-  }, [mode, range, selected]);
+  }, [required, selected, mode]);
 
   const isSelected = (date: Date) =>
-    range && isDateInRange(date, range, dateLib);
+    selected && rangeIncludesDate(selected, date, false, dateLib);
 
-  const setSelected = (
+  const select = (
     triggerDate: Date,
     modifiers: Modifiers,
     e: React.MouseEvent | React.KeyboardEvent
   ) => {
-    if (mode !== "range") return;
     const newRange = triggerDate
-      ? addToRange(triggerDate, range, dateLib)
+      ? addToRange(triggerDate, selected, dateLib)
       : undefined;
     const { min, max } = props as PropsRange;
 
@@ -103,39 +82,15 @@ export function useRange<T extends DayPickerProps>(
       }
     }
 
-    setRange(newRange);
+    setSelected(newRange);
     onSelect?.(newRange, triggerDate, modifiers, e);
 
     return newRange;
   };
 
-  const isRangeStart = (date: Date) => {
-    return (
-      range && range.from && range.to && dateLib.isSameDay(date, range.from)
-    );
-  };
-
-  const isRangeEnd = (date: Date) => {
-    return range && range.to && dateLib.isSameDay(date, range.to);
-  };
-
-  const isRangeMiddle = (date: Date) => {
-    return (
-      range &&
-      range.from &&
-      range.to &&
-      isSelected(date) &&
-      !isRangeStart(date) &&
-      !isRangeEnd(date)
-    );
-  };
-
   return {
-    selected: range,
-    handleSelect: setSelected,
-    isSelected,
-    isRangeStart,
-    isRangeEnd,
-    isRangeMiddle
-  } as UseRange<T>;
+    selected,
+    select,
+    isSelected
+  } as Selection<T>;
 }

@@ -3,10 +3,8 @@ import React from "react";
 /**
  * Render the row with the weekday names.
  *
- * Use the `components` prop to swap this component with a custom one.
- *
  * @group Components
- * @see https://daypicker.dev/next/guides/custom-components
+ * @see https://daypicker.dev/guides/custom-components
  */
 export function Weekdays(props: JSX.IntrinsicElements["tr"]) {
   return (

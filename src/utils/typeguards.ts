@@ -2,16 +2,13 @@ import type {
   DateAfter,
   DateBefore,
   DateInterval,
+  DateLib,
   DateRange,
-  DayOfWeek,
-  DayPickerProps,
-  PropsMulti,
-  PropsRange,
-  PropsSingle
+  DayOfWeek
 } from "../types/index.js";
 
 /**
- * Returns true if `matcher` is of type `DateInterval`.
+ * Returns true if `matcher` is of type {@link DateInterval}.
  *
  * @group Utilities
  */
@@ -25,7 +22,7 @@ export function isDateInterval(matcher: unknown): matcher is DateInterval {
 }
 
 /**
- * Returns true if `value` is a `DateRange` type.
+ * Returns true if `value` is a {@link DateRange} type.
  *
  * @group Utilities
  */
@@ -34,7 +31,7 @@ export function isDateRange(value: unknown): value is DateRange {
 }
 
 /**
- * Returns true if `value` is of type `DateAfter`.
+ * Returns true if `value` is of type {@link DateAfter}.
  *
  * @group Utilities
  */
@@ -43,7 +40,7 @@ export function isDateAfterType(value: unknown): value is DateAfter {
 }
 
 /**
- * Returns true if `value` is of type `DateBefore`.
+ * Returns true if `value` is of type {@link DateBefore}.
  *
  * @group Utilities
  */
@@ -52,52 +49,7 @@ export function isDateBeforeType(value: unknown): value is DateBefore {
 }
 
 /**
- * Returns true if the props are for a single selection mode.
- *
- * @group Utilities
- */
-export function isSingle(
-  props: DayPickerProps
-): props is DayPickerProps & PropsSingle {
-  return props.mode === "single";
-}
-
-/**
- * @deprecated This function has been renamed Use `isSingle` instead.
- * @protected
- */
-export const isDayPickerSingle = isSingle;
-
-/**
- * Returns true if the props are for a multiple selection mode.
- *
- * @group Utilities
- */
-export function isMulti(
-  props: DayPickerProps
-): props is DayPickerProps & PropsMulti {
-  return props.mode === "multiple";
-}
-
-/**
- * @deprecated This function has been renamed Use `isMulti` instead.
- * @protected
- */
-export const isDayPickerMultiple = isMulti;
-
-/**
- * Returns true if the props are for a range selection mode.
- *
- * @group Utilities
- */
-export function isRange(
-  props: DayPickerProps
-): props is DayPickerProps & PropsRange {
-  return props.mode === "range";
-}
-
-/**
- * Returns true if `value` is a `DayOfWeek` type.
+ * Returns true if `value` is a {@link DayOfWeek} type.
  *
  * @group Utilities
  */
@@ -105,8 +57,10 @@ export function isDayOfWeekType(value: unknown): value is DayOfWeek {
   return Boolean(value && typeof value === "object" && "dayOfWeek" in value);
 }
 
-/**
- * @deprecated This function has been renamed Use `isRange` instead.
- * @protected
- */
-export const isDayPickerRange = isRange;
+/** Returns true if `value` is an array of valid dates. */
+export function isDatesArray(
+  value: unknown,
+  dateLib: DateLib
+): value is Date[] {
+  return Array.isArray(value) && value.every(dateLib.isDate);
+}

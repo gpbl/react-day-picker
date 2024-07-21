@@ -19,17 +19,12 @@ export type DropdownOption = {
 /**
  * Render a dropdown component to use in the navigation bar.
  *
- * Use the `components` prop to swap this component with a custom one.
- *
  * @group Components
- * @see https://daypicker.dev/next/guides/custom-components
+ * @see https://daypicker.dev/guides/custom-components
  */
 export function Dropdown(
   props: {
-    components: Pick<
-      Required<CustomComponents>,
-      "Select" | "Option" | "Chevron"
-    >;
+    components: Pick<CustomComponents, "Select" | "Option" | "Chevron">;
     classNames: Pick<
       ClassNames,
       UI.DropdownRoot | UI.Dropdown | UI.CaptionLabel | UI.Chevron
@@ -39,14 +34,16 @@ export function Dropdown(
 ) {
   const { options, className, components, classNames, ...selectProps } = props;
 
-  const cssClassRoot = [classNames[UI.DropdownRoot]].join(" ");
   const cssClassSelect = [classNames[UI.Dropdown], className].join(" ");
 
   const selectedOption = options?.find(
     ({ value }) => value === selectProps.value
   );
   return (
-    <span className={cssClassRoot}>
+    <span
+      data-disabled={selectProps.disabled}
+      className={classNames[UI.DropdownRoot]}
+    >
       <components.Select className={cssClassSelect} {...selectProps}>
         {options?.map(({ value, label, disabled }) => (
           <components.Option key={value} value={value} disabled={disabled}>

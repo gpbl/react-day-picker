@@ -3,7 +3,7 @@
  *
  * @defaultValue `year.toString()`
  * @group Formatters
- * @see https://daypicker.dev/next/docs/translation#custom-formatters
+ * @see https://daypicker.dev/docs/translation#custom-formatters
  */
 export function formatYearDropdown(year: number): string {
   return year.toString();

@@ -31,7 +31,7 @@ export type RootProviderProps = any;
  * @deprecated This component has been renamed. Use `MonthCaption` instead.
  * @protected
  * @group Components
- * @see https://daypicker.dev/next/guides/custom-components
+ * @see https://daypicker.dev/guides/custom-components
  */
 export const Caption = MonthCaption;
 
@@ -45,7 +45,7 @@ export type CaptionProps = MonthCaptionProps;
  * @deprecated This component has been removed.
  * @protected
  * @group Components
- * @see https://daypicker.dev/next/guides/custom-components
+ * @see https://daypicker.dev/guides/custom-components
  */
 export type HeadRow = any;
 
@@ -53,7 +53,7 @@ export type HeadRow = any;
  * @deprecated This component has been renamed. Use `Week` instead.
  * @protected
  * @group Components
- * @see https://daypicker.dev/next/guides/custom-components
+ * @see https://daypicker.dev/guides/custom-components
  */
 export const Row = Week;
 
@@ -135,7 +135,7 @@ export const useNavigation = useDayPicker;
  * @deprecated This hook has been removed. Use a custom `Day` component instead.
  * @protected
  * @group Hooks
- * @see https://daypicker.dev/next/guides/custom-components
+ * @see https://daypicker.dev/guides/custom-components
  */
 export type useDayRender = any;
 

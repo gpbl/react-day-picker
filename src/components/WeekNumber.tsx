@@ -5,10 +5,8 @@ import type { CalendarWeek } from "../classes/index.js";
 /**
  * Render the cell with the number of the week.
  *
- * Use the `components` prop to swap this component with a custom one.
- *
  * @group Components
- * @see https://daypicker.dev/next/guides/custom-components
+ * @see https://daypicker.dev/guides/custom-components
  */
 export function WeekNumber(
   props: {

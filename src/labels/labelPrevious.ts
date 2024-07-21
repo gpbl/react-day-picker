@@ -5,7 +5,7 @@ import type { LabelOptions } from "../lib/dateLib.js";
  *
  * @defaultValue `"Go to the Previous Month"`
  * @group Labels
- * @see http://daypicker.dev/next/docs/translation#aria-labels
+ * @see https://daypicker.dev/docs/translation#aria-labels
  */
 export function labelPrevious(
   /** Undefined where there's no previous month no navigate to. */

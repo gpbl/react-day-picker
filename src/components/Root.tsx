@@ -3,10 +3,8 @@ import React from "react";
 /**
  * Render the root element.
  *
- * Use the `components` prop to swap this component with a custom one.
- *
  * @group Components
- * @see https://daypicker.dev/next/guides/custom-components
+ * @see https://daypicker.dev/guides/custom-components
  */
 export function Root(props: JSX.IntrinsicElements["div"]) {
   return <div {...props} />;

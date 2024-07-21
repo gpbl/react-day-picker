@@ -5,10 +5,8 @@ import type { CalendarMonth } from "../classes/index.js";
 /**
  * Render the caption of a month in the calendar.
  *
- * Use the `components` prop to swap this component with a custom one.
- *
  * @group Components
- * @see https://daypicker.dev/next/guides/custom-components
+ * @see https://daypicker.dev/guides/custom-components
  */
 export function MonthCaption(
   props: {

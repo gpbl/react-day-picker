@@ -7,7 +7,7 @@ import type { DateLib } from "../types/index.js";
  *
  * @defaultValue `d` (e.g. "1")
  * @group Formatters
- * @see https://daypicker.dev/next/docs/translation#custom-formatters
+ * @see https://daypicker.dev/docs/translation#custom-formatters
  */
 export function formatDay(
   date: Date,

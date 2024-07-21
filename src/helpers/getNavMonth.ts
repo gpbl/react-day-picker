@@ -4,18 +4,18 @@ import type { DateLib, DayPickerProps } from "../types/index.js";
 export function getNavMonths(
   props: Pick<
     DayPickerProps,
-    | "startMonth"
-    | "endMonth"
-    | "today"
     | "captionLayout"
+    | "endMonth"
+    | "startMonth"
+    | "today"
     // Deprecated:
-    | "fromYear"
-    | "toYear"
     | "fromMonth"
+    | "fromYear"
     | "toMonth"
+    | "toYear"
   >,
   dateLib: DateLib
-): [navStartMonth: Date | undefined, navEndMonth: Date | undefined] {
+): [start: Date | undefined, end: Date | undefined] {
   let { startMonth, endMonth } = props;
 
   const {

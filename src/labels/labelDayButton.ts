@@ -10,7 +10,7 @@ import type { Modifiers } from "../types/index.js";
  *
  * @defaultValue The formatted date.
  * @group Labels
- * @see http://daypicker.dev/next/docs/translation#aria-labels
+ * @see https://daypicker.dev/docs/translation#aria-labels
  */
 export function labelDayButton(
   date: Date,

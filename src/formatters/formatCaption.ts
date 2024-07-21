@@ -6,7 +6,7 @@ import type { DateLib } from "../types/index.js";
  *
  * @defaultValue `LLLL y` (e.g. "November 2022")
  * @group Formatters
- * @see https://daypicker.dev/next/docs/translation#custom-formatters
+ * @see https://daypicker.dev/docs/translation#custom-formatters
  */
 export function formatCaption(
   month: Date,

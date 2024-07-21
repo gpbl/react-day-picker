@@ -1,6 +1,6 @@
 # DayPicker Website
 
-The DayPicker website hosted at http://daypicker.dev is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+The DayPicker website hosted at https://daypicker.dev is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
 ### Installation
 

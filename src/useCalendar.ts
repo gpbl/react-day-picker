@@ -17,14 +17,11 @@ import type { DayPickerProps } from "./types/props.js";
 import type { DateLib } from "./types/shared.js";
 
 /**
- * The hook to get and handle the calendar state.
+ * Return the calendar object to work with the calendar in custom components.
  *
- * @see https://daypicker.dev/next/guides/custom-components
+ * @see https://daypicker.dev/guides/custom-components
  */
-export interface UseCalendar {
-  today: Date;
-  /** All the unique dates displayed to the calendar. */
-  dates: Date[];
+export interface Calendar {
   /**
    * All the days displayed in the calendar. As opposite from
    * {@link CalendarContext.dates}, it may return duplicated dates when shown
@@ -35,16 +32,6 @@ export interface UseCalendar {
   weeks: CalendarWeek[];
   /** The months displayed in the calendar. */
   months: CalendarMonth[];
-  /**
-   * The month displayed as first the calendar. When `numberOfMonths` is greater
-   * than `1`, it is the first of the displayed months.
-   */
-  firstMonth: Date;
-  /**
-   * The month displayed as last the calendar. When `numberOfMonths` is greater
-   * than `1`, it is the last of the displayed months.
-   */
-  lastMonth: Date;
 
   /** The next month to display. */
   nextMonth: Date | undefined;
@@ -55,22 +42,15 @@ export interface UseCalendar {
    * The month where the navigation starts. `undefined` if the calendar can be
    * navigated indefinitely to the past.
    */
-  navigationStartMonth: Date | undefined;
+  navStart: Date | undefined;
   /**
    * The month where the navigation ends. `undefined` if the calendar can be
    * navigated indefinitely to the past.
    */
-  navigationEndMonth: Date | undefined;
-
-  /** Set the first month displayed in the calendar. */
-  setFirstMonth: (date: Date) => void;
+  navEnd: Date | undefined;
 
   /** Navigate to the specified month. Will fire the `onMonthChange` callback. */
   goToMonth: (month: Date) => void;
-  /** Navigate to the next month. */
-  goToNextMonth: () => void;
-  /** Navigate to the previous month. */
-  goToPreviousMonth: () => void;
   /**
    * Navigate to the specified date. If the second parameter (refDate) is
    * provided and the date is before the refDate, then the month is set to one
@@ -81,34 +61,11 @@ export interface UseCalendar {
    *   month is set to one month before the date.
    */
   goToDay: (day: CalendarDay) => void;
-  /** Whether the given date is included in the displayed months. */
-  isDayDisplayed: (day: CalendarDay) => boolean;
 }
 
 /** @private */
-export function useCalendar(
-  props: Pick<
-    DayPickerProps,
-    | "fromYear"
-    | "toYear"
-    | "startMonth"
-    | "endMonth"
-    | "month"
-    | "defaultMonth"
-    | "today"
-    | "numberOfMonths"
-    | "disableNavigation"
-    | "onMonthChange"
-    | "ISOWeek"
-  >,
-  dateLib: DateLib
-) {
-  const today = dateLib.startOfDay(props.today ?? new dateLib.Date());
-
-  const [navigationStartMonth, navigationEndMonth] = getNavMonths(
-    props,
-    dateLib
-  );
+export function useCalendar(props: DayPickerProps, dateLib: DateLib): Calendar {
+  const [navStart, navEnd] = getNavMonths(props, dateLib);
 
   const { startOfMonth } = dateLib;
 
@@ -120,105 +77,67 @@ export function useCalendar(
     props.month ? startOfMonth(props.month) : undefined
   );
 
-  /** An array of the months displayed in the calendar. */
-  const displayMonths = getDisplayMonths(
-    firstMonth,
-    navigationEndMonth,
-    props,
-    dateLib
-  );
+  /** The months displayed in the calendar. */
+  const displayMonths = getDisplayMonths(firstMonth, navEnd, props, dateLib);
 
-  /** The last month displayed in the calendar. */
-  const lastMonth = displayMonths[displayMonths.length - 1];
-
-  /** An array of the dates displayed in the calendar. */
+  /** The dates displayed in the calendar. */
   const dates = getDates(displayMonths, props.endMonth, props, dateLib);
 
-  /** An array of the Months displayed in the calendar. */
+  /** The Months displayed in the calendar. */
   const months = getMonths(displayMonths, dates, props, dateLib);
 
-  /** An array of the Weeks displayed in the calendar. */
+  /** The Weeks displayed in the calendar. */
   const weeks = getWeeks(months);
 
-  /** An array of the Days displayed in the calendar. */
+  /** The Days displayed in the calendar. */
   const days = getDays(months);
 
-  const previousMonth = getPreviousMonth(
-    firstMonth,
-    navigationStartMonth,
-    props,
-    dateLib
-  );
-  const nextMonth = getNextMonth(
-    firstMonth,
-    navigationEndMonth,
-    props,
-    dateLib
-  );
+  const previousMonth = getPreviousMonth(firstMonth, navStart, props, dateLib);
+  const nextMonth = getNextMonth(firstMonth, navEnd, props, dateLib);
 
   const { disableNavigation, onMonthChange } = props;
 
-  function isDayDisplayed(day: CalendarDay) {
-    return weeks.some((week: CalendarWeek) => {
-      return week.days.some((d) => {
-        return d.isEqualTo(day);
-      });
-    });
-  }
+  const isDayInCalendar = (day: CalendarDay) =>
+    weeks.some((week: CalendarWeek) => week.days.some((d) => d.isEqualTo(day)));
 
-  function goToMonth(date: Date) {
+  const goToMonth = (date: Date) => {
     if (disableNavigation) {
       return;
     }
     let newMonth = startOfMonth(date);
     // if month is before start, use the first month instead
-    if (navigationStartMonth && newMonth < startOfMonth(navigationStartMonth)) {
-      newMonth = startOfMonth(navigationStartMonth);
+    if (navStart && newMonth < startOfMonth(navStart)) {
+      newMonth = startOfMonth(navStart);
     }
     // if month is after endMonth, use the last month instead
-    if (navigationEndMonth && newMonth > startOfMonth(navigationEndMonth)) {
-      newMonth = startOfMonth(navigationEndMonth);
+    if (navEnd && newMonth > startOfMonth(navEnd)) {
+      newMonth = startOfMonth(navEnd);
     }
     setFirstMonth(newMonth);
     onMonthChange?.(newMonth);
-  }
+  };
 
-  function goToDay(day: CalendarDay) {
-    if (isDayDisplayed(day)) {
+  const goToDay = (day: CalendarDay) => {
+    // is this check necessary?
+    if (isDayInCalendar(day)) {
       return;
     }
     goToMonth(day.date);
-  }
+  };
 
-  function goToNextMonth() {
-    return nextMonth ? goToMonth(nextMonth) : undefined;
-  }
-  function goToPreviousMonth() {
-    return previousMonth ? goToMonth(previousMonth) : undefined;
-  }
-
-  const calendar: UseCalendar = {
-    dates,
+  const calendar = {
     months,
     weeks,
     days,
-    today,
 
-    navigationStartMonth: navigationStartMonth,
-    navigationEndMonth: navigationEndMonth,
+    navStart,
+    navEnd,
 
-    firstMonth: firstMonth,
-    lastMonth,
     previousMonth,
     nextMonth,
 
-    setFirstMonth,
-
-    isDayDisplayed,
     goToMonth,
-    goToDay,
-    goToNextMonth,
-    goToPreviousMonth
+    goToDay
   };
 
   return calendar;

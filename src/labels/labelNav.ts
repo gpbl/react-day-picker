@@ -3,7 +3,7 @@
  *
  * @defaultValue `""`
  * @group Labels
- * @see http://daypicker.dev/next/docs/translation#aria-labels
+ * @see https://daypicker.dev/docs/translation#aria-labels
  */
 export function labelNav(): string {
   return "";

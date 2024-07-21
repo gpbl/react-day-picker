@@ -9,10 +9,8 @@ import type { Modifiers } from "../types/index.js";
  * When not interactive, DayPicker will render a `DayContent` component instead
  * of a `DayButton` component.
  *
- * Use the `components` prop to swap this component with a custom one.
- *
  * @group Components
- * @see https://daypicker.dev/next/guides/custom-components
+ * @see https://daypicker.dev/guides/custom-components
  */
 export function DayButton(
   props: {

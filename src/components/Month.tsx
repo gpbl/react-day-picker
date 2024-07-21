@@ -6,10 +6,8 @@ import type { CalendarMonth } from "../classes/CalendarMonth.js";
  * Render the grid with the weekday header row and the weeks for the given
  * month.
  *
- * Use the `components` prop to swap this component with a custom one.
- *
  * @group Components
- * @see https://daypicker.dev/next/guides/custom-components
+ * @see https://daypicker.dev/guides/custom-components
  */
 export function Month(
   props: {
