@@ -42,7 +42,7 @@ export function useSingle<T extends DayPickerProps>(
   // Update the selected date if the `selected` value changes.
   React.useEffect(() => {
     setSelected(initiallySelected);
-  }, [mode, initiallySelected]);
+  }, [initiallySelected]);
 
   const isSelected = (compareDate: Date) => {
     return selected ? isSameDay(selected, compareDate) : false;
