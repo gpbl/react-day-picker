@@ -43,6 +43,7 @@ export * from "./MultipleMonthsPaged";
 export * from "./NumberingSystem";
 export * from "./OutsideDays";
 export * from "./Range";
+export * from "./RangeExcludeDisabled";
 export * from "./RangeMinMax";
 export * from "./RangeShiftKey";
 export * from "./Rtl";
