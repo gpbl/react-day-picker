@@ -2,7 +2,7 @@
 
 DayPicker follows [Semantic Versioning](http://semver.org/). See the [Releases page](https://github.com/gpbl/react-day-picker/releases) on Github for the complete list of changes, diffs and contributors, or the [list of versions](https://www.npmjs.com/package/react-day-picker?activeTab=versions) published on npm.
 
-## v9.0.0
+## v9.0
 
 _Release date: 2024-07-20_
 
