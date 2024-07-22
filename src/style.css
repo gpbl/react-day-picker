@@ -52,7 +52,7 @@
   
   --rdp-weekday-font: 500 smaller var(--rdp-font-family); /* The font of the weekday. */
   --rdp-weekday-opacity: 0.75; /* The opacity of the weekday. */
-  --rdp-weekday-padding: 0.5rem 0.75rem; /* THe padding of the weekday. */
+  --rdp-weekday-padding: 0.5rem 0rem; /* The padding of the weekday. */
   --rdp-weekday-text-align: center; /* The text alignment of the weekday cells. */
 
   --rdp-gradient-direction: 90deg;
@@ -84,10 +84,6 @@
 }
 
 .rdp-day {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-
   width: var(--rdp-day-width);
   height: var(--rdp-day-height);
   font: var(--rdp-day-font);
@@ -222,15 +218,6 @@
   height: var(--rdp-nav-height);
 }
 
-.rdp-week {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-}
-
-.rdp-root[data-week-numbers="true"] .rdp-week {
-  grid-template-columns: repeat(8, 1fr);
-}
-
 .rdp-weekday {
   opacity: var(--rdp-weekday-opacity);
   padding: var(--rdp-weekday-padding);
@@ -239,20 +226,7 @@
   text-transform: var(--rdp-weekday-text-transform);
 }
 
-.rdp-weekdays {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-}
-
-.rdp-root[data-week-numbers="true"] .rdp-weekdays {
-  grid-template-columns: repeat(8, 1fr);
-}
-
 .rdp-week_number {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-
   opacity: var(--rdp-week_number-opacity);
   font: var(--rdp-week_number-font);
   height: var(--rdp-week_number-height);
