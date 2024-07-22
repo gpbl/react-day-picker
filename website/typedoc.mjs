@@ -7,6 +7,8 @@
  *   >}
  */
 const options = {
+  // eslint-disable-next-line no-undef
+  watch: process.env.TYPEDOC_WATCH === "trueee",
   name: "API",
   includeVersion: true,
   basePath: "../",
@@ -41,7 +43,7 @@ const options = {
   hidePageHeader: true,
   preserveAnchorCasing: false,
 
-  typeDeclarationFormat: "list",
+  typeDeclarationFormat: "table",
   parametersFormat: "table",
   expandParameters: false,
   propertiesFormat: "list",

@@ -277,6 +277,14 @@ pre {
   font-size: 0.875rem;
 }
 
+.markdown details summary {
+  font-size: 1rem;
+}
+
+.markdown details table {
+  margin: 0;
+}
+
 .markdown details > summary:before {
   top: 0.37rem;
 }
