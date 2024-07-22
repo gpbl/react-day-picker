@@ -546,6 +546,12 @@ export interface PropsRangeRequired {
   mode: "range";
   required: true;
   disabled?: Matcher | Matcher[] | undefined;
+  /**
+   * When `true`, the range will reset when including a disabled day.
+   *
+   * @since V9.0.2
+   */
+  excludeDisabled?: boolean | undefined;
   /** The selected range. */
   selected: DateRange;
   /** Event handler when a range is selected. */
@@ -569,6 +575,12 @@ export interface PropsRange {
   mode: "range";
   required?: false | undefined;
   disabled?: Matcher | Matcher[] | undefined;
+  /**
+   * When `true`, the range will reset when including a disabled day.
+   *
+   * @since V9.0.2
+   */
+  excludeDisabled?: boolean | undefined;
   /** The selected range. */
   selected?: DateRange | undefined;
   /** Event handler when the selection changes. */

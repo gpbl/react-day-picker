@@ -20,7 +20,7 @@ npm install react-day-picker@latest
 - Added support for [UTC dates](https://daypicker.dev/docs/localization#utc-dates) and [Jalali Calendar](https://daypicker.dev/docs/localization#jalali-calendar).
 - [Enhanced accessibility](https://daypicker.dev/docs/accessibility) to better comply with [WCAG 2.1](https://www.w3.org/TR/WCAG21/) recommendations.
 - [Simplified styles](https://daypicker.dev/docs/styling) and new CSS variables for easier customization.
-- Improved selection logic for [range mode](https://daypicker.dev/docs/selection-modes).
+- New `excludeDisabled` prop for [range mode](https://daypicker.dev/docs/selection-modes#exclude-disabled).
 - New `dropdown-years` and `dropdown-months` caption layouts.
 - New `hideWeekdayRow` and `hideNavigation` props.
 - Updated for a complete [custom components](https://daypicker.dev/guides/custom-components) support.

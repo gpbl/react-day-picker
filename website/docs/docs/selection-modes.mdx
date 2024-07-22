@@ -194,17 +194,38 @@ export function RangeMinMax() {
 
 ## Disabling Dates
 
-To disable specific days, use the `disabled` prop. The prop accepts a [`Matcher`](../api/type-aliases/Matcher.md) or an array of matchers that can be used to make some days not selectable.
+To disable specific days, use the `disabled` prop. Disabled dates cannot be selected.
+
+The prop accepts a [`Matcher`](../api/type-aliases/Matcher.md) or an array of matchers that can be used to make some days not selectable.
 
 ```tsx
-<DayPicker
-  mode="range"
-  disabled={{ dayOfWeek: [0, 6] }} // Disable including Sundays and Saturdays in range
-/>
+// disable today
+<DayPicker mode="single" disabled={ new Date() } />
+
+// disable weekends
+<DayPicker mode="range" disabled={{ dayOfWeek: [0, 6] }} />
 ```
 
 <BrowserWindow>
   <Examples.ModifiersDisabled />
+</BrowserWindow>
+
+### Excluding Disabled Dates from Range {#exclude-disabled}
+
+When using the `range` mode, disabled dates will be included in the selected range. Use the `excludeDisabled` prop to prevent this behavior. The range will reset when a disabled date is included.
+
+```tsx
+<DayPicker
+  mode="range"
+  // Disable weekends
+  disabled={{ dayOfWeek: [0, 6] }}
+  // Reset range when a disabled date is included
+  excludeDisabled
+/>
+```
+
+<BrowserWindow>
+  <Examples.RangeExcludeDisabled />
 </BrowserWindow>
 
 ## Customizing Selections
