@@ -95,87 +95,239 @@ export enum SelectionState {
 /**
  * Deprecated UI elements and flags.
  *
- * @deprecated See the new UI elements in {@link UI}.
+ * These elements were used in previous version of DayPicker and are kept here
+ * to help the transition to the new {@link UI | UI elements}.
+ *
+ * ```diff
+ *   <DayPicker classNames={{
+ * -  cell: "my-cell",
+ * +  day: "my-cell",
+ * -  day: "my-day",
+ * +  day_button: "my-day",
+ * -  day_disabled: "my-day_disabled",
+ * +  disabled: "my-day_disabled",
+ *    // etc.
+ *   }}/>
+ * ```
+ *
+ * @deprecated
+ * @since 9.0.1
+ * @see https://daypicker.dev/upgrading
+ * @see https://daypicker.dev/docs/styling
  */
 export type DeprecatedUI<T extends CSSProperties | string> = {
-  /** @deprecated Use `button_previous` and `button_next`. */
+  /**
+   * This element was applied to the style of any button in DayPicker and it is
+   * replaced by {@link UI.ButtonPrevious} and {@link UI.ButtonNext}.
+   *
+   * @deprecated
+   */
   button: T;
-  /** @deprecated This element has been removed. */
+  /**
+   * This element was resetting the style of any button in DayPicker and it is
+   * replaced by {@link UI.ButtonPrevious} and {@link UI.ButtonNext}.
+   *
+   * @deprecated
+   */
   button_reset: T;
-  /** @deprecated This element has been renamed. Use `month_caption` instead. */
+  /**
+   * This element has been renamed to {@link UI.MonthCaption}.
+   *
+   * @deprecated
+   */
   caption: T;
-  /** @deprecated This element has been removed. */
+  /**
+   * This element has been removed. Captions are styled via
+   * {@link UI.MonthCaption}.
+   *
+   * @deprecated
+   */
   caption_between: T;
-  /** @deprecated This element has been removed. */
+  /**
+   * This element has been renamed to {@link UI.Dropdowns}.
+   *
+   * @deprecated
+   */
   caption_dropdowns: T;
-  /** @deprecated This element has been removed. */
+  /**
+   * This element has been removed. Captions are styled via
+   * {@link UI.MonthCaption}.
+   *
+   * @deprecated
+   */
   caption_end: T;
-  /** @deprecated This element has been removed. */
+  /**
+   * This element has been removed.
+   *
+   * @deprecated
+   */
   caption_start: T;
-  /** @deprecated Use `day` instead. */
+  /**
+   * This element has been renamed to {@link UI.Day}.
+   *
+   * @deprecated
+   */
   cell: T;
-  /** @deprecated Use `disabled` instead. */
+  /**
+   * This element has been renamed to {@link DayFlag.disabled}.
+   *
+   * @deprecated
+   */
   day_disabled: T;
-  /** @deprecated Use `hidden` instead. */
+  /**
+   * This element has been renamed to {@link DayFlag.hidden}.
+   *
+   * @deprecated
+   */
   day_hidden: T;
-  /** @deprecated Use `outside` instead. */
+  /**
+   * This element has been renamed to {@link DayFlag.outside}.
+   *
+   * @deprecated
+   */
   day_outside: T;
-  /** @deprecated Use `range_end` instead. */
+  /**
+   * This element has been renamed to {@link SelectionState.range_end}.
+   *
+   * @deprecated
+   */
   day_range_end: T;
-  /** @deprecated Use `range_middle` instead. */
+  /**
+   * This element has been renamed to {@link SelectionState.range_middle}.
+   *
+   * @deprecated
+   */
   day_range_middle: T;
-  /** @deprecated Use `range_start` instead. */
+  /**
+   * This element has been renamed to {@link SelectionState.range_start}.
+   *
+   * @deprecated
+   */
   day_range_start: T;
-  /** @deprecated Use `selected` instead. */
+  /**
+   * This element has been renamed to {@link SelectionState.selected}.
+   *
+   * @deprecated
+   */
   day_selected: T;
-  /** @deprecated Use `today` instead. */
+  /**
+   * This element has been renamed to {@link DayFlag.today}.
+   *
+   * @deprecated
+   */
   day_today: T;
-  /** @deprecated This element has been removed. */
+  /**
+   * This element has been removed. The dropdown icon is now {@link UI.Chevron}
+   * inside a {@link UI.CaptionLabel}.
+   *
+   * @deprecated
+   */
   dropdown_icon: T;
-  /** @deprecated Use `months_dropdown` instead. */
+  /**
+   * This element has been renamed to {@link UI.MonthsDropdown}.
+   *
+   * @deprecated
+   */
   dropdown_month: T;
-  /** @deprecated Use `years_dropdown` instead. */
+  /**
+   * This element has been renamed to {@link UI.YearsDropdown}.
+   *
+   * @deprecated
+   */
   dropdown_year: T;
-  /** @deprecated This element has been removed. */
+  /**
+   * This element has been removed.
+   *
+   * @deprecated
+   */
   head: T;
-  /** @deprecated Use `weekday` instead. */
+  /**
+   * This element has been renamed to {@link UI.Weekday}.
+   *
+   * @deprecated
+   */
   head_cell: T;
-  /** @deprecated Use `weekdays` instead. */
+  /**
+   * This element has been renamed to {@link UI.Weekdays}.
+   *
+   * @deprecated
+   */
   head_row: T;
   /**
-   * @deprecated This flag has been removed. Use `data-multiple-months` in your
-   *   CSS selectors.
+   * This flag has been removed. Use `data-multiple-months` in your CSS
+   * selectors.
+   *
+   * @deprecated
    */
   multiple_months: T;
   /**
-   * @deprecated This element has been removed. Use `button_previous` and
-   *   `button_next`.
+   * This element has been removed. To style the navigation buttons, use
+   * {@link UI.ButtonPrevious} and {@link UI.ButtonNext}.
+   *
+   * @deprecated
    */
   nav_button: T;
-  /** @deprecated This element has been renamed. Use `button_next` and */
+  /**
+   * This element has been renamed to {@link UI.ButtonNext}.
+   *
+   * @deprecated
+   */
   nav_button_next: T;
-  /** @deprecated This element has been renamed. Use `button_previous` and */
+  /**
+   * This element has been renamed to {@link UI.ButtonPrevious}.
+   *
+   * @deprecated
+   */
   nav_button_previous: T;
-  /** @deprecated This element has been removed. Use `chevron` instead. */
+  /**
+   * This element has been removed. The dropdown icon is now {@link UI.Chevron}
+   * inside a {@link UI.ButtonNext} or a {@link UI.ButtonPrevious}.
+   *
+   * @deprecated
+   */
   nav_icon: T;
-  /** @deprecated This element has been renamed. Use `week` instead. */
+  /**
+   * This element has been renamed to {@link UI.Week}.
+   *
+   * @deprecated
+   */
   row: T;
-  /** @deprecated This element has been renamed. Use `month_grid` instead. */
+  /**
+   * This element has been renamed to {@link UI.MonthGrid}.
+   *
+   * @deprecated
+   */
   table: T;
-  /** @deprecated This element has been renamed. Use `weeks` instead. */
+  /**
+   * This element has been renamed to {@link UI.Weeks}.
+   *
+   * @deprecated
+   */
   tbody: T;
-  /** @deprecated This element has been removed. Use `footer` instead. */
+  /**
+   * This element has been removed. The {@link UI.Footer} is now a single element
+   * below the months.
+   *
+   * @deprecated
+   */
   tfoot: T;
-  /** @deprecated This flag has been removed. */
+  /**
+   * This flag has been removed. There are no "visually hidden" elements in
+   * DayPicker 9.
+   *
+   * @deprecated
+   */
   vhidden: T;
   /**
-   * @deprecated This element has been renamed. Use {@link UI.WeekNumber}
-   *   instead.
+   * This element has been renamed. Use {@link UI.WeekNumber} instead.
+   *
+   * @deprecated
    */
   weeknumber: T;
   /**
-   * @deprecated This flag has been removed. Use `data-week-numbers` in your
-   *   CSS.
+   * This flag has been removed. Use `data-week-numbers` in your CSS.
+   *
+   * @deprecated
    */
   with_weeknumber: T;
 };
