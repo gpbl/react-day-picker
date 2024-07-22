@@ -1,5 +1,6 @@
 import React from "react";
 
+import { DeprecatedUI } from "../UI.js";
 import type { Locale } from "../lib/dateLib.js";
 
 import type {
@@ -63,7 +64,7 @@ export interface PropsBase {
    *
    * @see https://daypicker.dev/docs/styling
    */
-  classNames?: Partial<ClassNames>;
+  classNames?: Partial<ClassNames> & Partial<DeprecatedUI<string>>;
   /**
    * Change the class name for the day matching the `modifiers`.
    *
@@ -77,7 +78,7 @@ export interface PropsBase {
    *
    * @see https://daypicker.dev/docs/styling
    */
-  styles?: Partial<Styles>;
+  styles?: Partial<Styles> & Partial<DeprecatedUI<React.CSSProperties>>;
   /**
    * Change the class name for the day matching the {@link modifiers}.
    *
@@ -464,7 +465,9 @@ export interface PropsBase {
 export interface PropsSingleRequired {
   mode: "single";
   required: true;
+  /** The selected date. */
   selected: Date;
+  /** Event handler when a day is selected. */
   onSelect?: (
     selected: Date,
     triggerDate: Date,
@@ -480,7 +483,9 @@ export interface PropsSingleRequired {
 export interface PropsSingle {
   mode: "single";
   required?: false | undefined;
+  /** The selected date. */
   selected?: Date | undefined;
+  /** Event handler when a day is selected. */
   onSelect?: (
     selected: Date | undefined,
     triggerDate: Date,
@@ -496,14 +501,18 @@ export interface PropsSingle {
 export interface PropsMultiRequired {
   mode: "multiple";
   required: true;
+  /** The selected dates. */
   selected: Date[];
+  /** Event handler when days are selected. */
   onSelect?: (
     selected: Date[],
     triggerDate: Date,
     modifiers: Modifiers,
     e: React.MouseEvent | React.KeyboardEvent
   ) => void;
+  /** The minimum number of selectable days. */
   min?: number;
+  /** The maximum number of selectable days. */
   max?: number;
 }
 /**
@@ -514,14 +523,18 @@ export interface PropsMultiRequired {
 export interface PropsMulti {
   mode: "multiple";
   required?: false | undefined;
+  /** The selected dates. */
   selected?: Date[] | undefined;
+  /** Event handler when days are selected. */
   onSelect?: (
     selected: Date[] | undefined,
     triggerDate: Date,
     modifiers: Modifiers,
     e: React.MouseEvent | React.KeyboardEvent
   ) => void;
+  /** The minimum number of selectable days. */
   min?: number;
+  /** The maximum number of selectable days. */
   max?: number;
 }
 /**
@@ -532,14 +545,19 @@ export interface PropsMulti {
 export interface PropsRangeRequired {
   mode: "range";
   required: true;
+  disabled?: Matcher | Matcher[] | undefined;
+  /** The selected range. */
   selected: DateRange;
+  /** Event handler when a range is selected. */
   onSelect?: (
     selected: DateRange,
     triggerDate: Date,
     modifiers: Modifiers,
     e: React.MouseEvent | React.KeyboardEvent
   ) => void;
+  /** The minimum number of days to include in the range. */
   min?: number;
+  /** The maximum number of days to include in the range. */
   max?: number;
 }
 /**
@@ -550,14 +568,18 @@ export interface PropsRangeRequired {
 export interface PropsRange {
   mode: "range";
   required?: false | undefined;
-  selected?: DateRange | undefined;
   disabled?: Matcher | Matcher[] | undefined;
+  /** The selected range. */
+  selected?: DateRange | undefined;
+  /** Event handler when the selection changes. */
   onSelect?: (
     selected: DateRange | undefined,
     triggerDate: Date,
     modifiers: Modifiers,
     e: React.MouseEvent | React.KeyboardEvent
   ) => void | undefined;
+  /** The minimum number of days to include in the range. */
   min?: number;
+  /** The maximum number of days to include in the range. */
   max?: number;
 }
