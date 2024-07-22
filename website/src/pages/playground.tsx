@@ -231,7 +231,12 @@ export default function Playground() {
             </div>
           </fieldset>
           <fieldset>
-            <legend>Selection</legend>
+            <legend>
+              Selection{" "}
+              <button type="button" onClick={() => setSelected(undefined)}>
+                Reset
+              </button>
+            </legend>
             <div className={styles.fields}>
               <label>
                 Selection mode:
