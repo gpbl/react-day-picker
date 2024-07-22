@@ -1,1 +1,7 @@
-export { screen, act, within, render } from "@testing-library/react";
+export {
+  screen,
+  act,
+  within,
+  render,
+  renderHook
+} from "@testing-library/react";
