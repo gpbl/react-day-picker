@@ -87,6 +87,7 @@
   width: var(--rdp-day-width);
   height: var(--rdp-day-height);
   font: var(--rdp-day-font);
+  text-align: center;
 }
 
 .day_button {
