@@ -1,6 +1,7 @@
 ---
 name: 🐛 Bug Report
 about: Create a reproducible bug report or a regression
+body:
 - type: dropdown
   id: version
   attributes:
