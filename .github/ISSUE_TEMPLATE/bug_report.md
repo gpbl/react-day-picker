@@ -1,13 +1,22 @@
 ---
 name: 🐛 Bug Report
 about: Create a reproducible bug report or a regression
-assignees: "gpbl"
+- type: dropdown
+  id: version
+  attributes:
+    label: Which version of DayPicker
+    options:
+      - v9+
+      - v8+
+      - v7+
+      - Built from source
+  validations:
+    required: true
 ---
 
 ## Description
 
-Please provide a detailed description of the issue. Include any relevant context or steps to reproduce the problem.
-ssue.
+
 
 ## Expected Behavior
 
