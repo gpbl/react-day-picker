@@ -12,12 +12,12 @@ function DayWithShiftKey(props: DayButtonProps) {
   const { selected } = useDayPicker({ mode: "range" });
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
-    if (
+    const requireShiftKey =
       selected?.from &&
       !selected.to &&
-      !isSameDay(props.day.date, selected.from) &&
-      !e.shiftKey
-    ) {
+      !isSameDay(props.day.date, selected.from);
+
+    if (!e.shiftKey && requireShiftKey) {
       return;
     }
     props.onClick?.(e);
