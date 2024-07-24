@@ -1,7 +1,7 @@
 import React from "react";
 
-import { render, screen } from "@testing-library/react";
-import { startOfMonth } from "date-fns";
+import { fireEvent, render, screen } from "@testing-library/react";
+import { startOfDay, startOfMonth } from "date-fns";
 
 import {
   activeElement,
@@ -106,5 +106,28 @@ describe("when the grid is focused", () => {
       await user.tab();
       expect(activeElement()).toBe(dateButton(startOfMonth(today)));
     });
+  });
+});
+
+describe("when a day is mouse entered", () => {
+  const handleDayMouseEnter = jest.fn();
+  const handleDayMouseLeave = jest.fn();
+  const today = startOfDay(new Date());
+  beforeEach(async () => {
+    render(
+      <DayPicker
+        today={today}
+        defaultMonth={today}
+        mode="single"
+        onDayMouseEnter={handleDayMouseEnter}
+        onDayMouseLeave={handleDayMouseLeave}
+      />
+    );
+    fireEvent.mouseEnter(dateButton(today));
+    fireEvent.mouseLeave(dateButton(today));
+  });
+  test("should call the event handler", async () => {
+    expect(handleDayMouseEnter).toHaveBeenCalled();
+    expect(handleDayMouseLeave).toHaveBeenCalled();
   });
 });

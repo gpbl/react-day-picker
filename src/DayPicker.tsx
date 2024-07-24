@@ -69,6 +69,8 @@ export function DayPicker(props: DayPickerProps) {
     onDayClick,
     onDayFocus,
     onDayKeyDown,
+    onDayMouseEnter,
+    onDayMouseLeave,
     onNextClick,
     onPrevClick,
     showWeekNumber,
@@ -207,6 +209,20 @@ export function DayPicker(props: DayPickerProps) {
       onDayKeyDown?.(day.date, modifiers, e);
     },
     [moveFocus, onDayKeyDown, props.dir]
+  );
+
+  const handleDayMouseEnter = useCallback(
+    (day: CalendarDay, modifiers: Modifiers) => (e: MouseEvent) => {
+      onDayMouseEnter?.(day.date, modifiers, e);
+    },
+    [onDayMouseEnter]
+  );
+
+  const handleDayMouseLeave = useCallback(
+    (day: CalendarDay, modifiers: Modifiers) => (e: MouseEvent) => {
+      onDayMouseLeave?.(day.date, modifiers, e);
+    },
+    [onDayMouseLeave]
   );
 
   const { className, style } = useMemo(
@@ -552,6 +568,14 @@ export function DayPicker(props: DayPickerProps) {
                                     onBlur={handleDayBlur(day, modifiers)}
                                     onFocus={handleDayFocus(day, modifiers)}
                                     onKeyDown={handleDayKeyDown(day, modifiers)}
+                                    onMouseEnter={handleDayMouseEnter(
+                                      day,
+                                      modifiers
+                                    )}
+                                    onMouseLeave={handleDayMouseLeave(
+                                      day,
+                                      modifiers
+                                    )}
                                   >
                                     {formatDay(date, formatOptions, dateLib)}
                                   </components.DayButton>
