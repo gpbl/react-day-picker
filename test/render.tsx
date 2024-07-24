@@ -3,5 +3,6 @@ export {
   act,
   within,
   render,
-  renderHook
+  renderHook,
+  fireEvent
 } from "@testing-library/react";

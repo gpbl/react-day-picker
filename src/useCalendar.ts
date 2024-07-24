@@ -67,7 +67,7 @@ export interface Calendar {
 export function useCalendar(props: DayPickerProps, dateLib: DateLib): Calendar {
   const [navStart, navEnd] = getNavMonths(props, dateLib);
 
-  const { startOfMonth } = dateLib;
+  const { startOfMonth, endOfMonth } = dateLib;
 
   const initialDisplayMonth = getInitialMonth(props, dateLib);
 
@@ -81,7 +81,12 @@ export function useCalendar(props: DayPickerProps, dateLib: DateLib): Calendar {
   const displayMonths = getDisplayMonths(firstMonth, navEnd, props, dateLib);
 
   /** The dates displayed in the calendar. */
-  const dates = getDates(displayMonths, props.endMonth, props, dateLib);
+  const dates = getDates(
+    displayMonths,
+    props.endMonth ? endOfMonth(props.endMonth) : undefined,
+    props,
+    dateLib
+  );
 
   /** The Months displayed in the calendar. */
   const months = getMonths(displayMonths, dates, props, dateLib);

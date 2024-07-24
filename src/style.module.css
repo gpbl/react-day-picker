@@ -165,9 +165,10 @@
   gap: var(--rdp-dropdown-gap);
 }
 .dropdown {
-  z-index: 2; /* Remove ? */
+  z-index: 2;
 
   /* Reset */
+  opacity: 0;
   appearance: none;
   position: absolute;
   inset-block-start: 0;
@@ -177,9 +178,7 @@
   margin: 0;
   padding: 0;
   cursor: inherit;
-  color: transparent;
   border: none;
-  background-color: transparent;
   line-height: inherit;
 }
 
