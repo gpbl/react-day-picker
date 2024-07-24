@@ -406,6 +406,10 @@ export interface PropsBase {
   onDayBlur?: DayEventHandler<React.FocusEvent>;
   /** Event handler when a key is pressed on a day. */
   onDayKeyDown?: DayEventHandler<React.KeyboardEvent>;
+  /** Event handler when the mouse enters a day. */
+  onDayMouseEnter?: DayEventHandler<React.MouseEvent>;
+  /** Event handler when the mouse leaves a day. */
+  onDayMouseLeave?: DayEventHandler<React.MouseEvent>;
 
   /**
    * Replace the default date library with a custom one.
