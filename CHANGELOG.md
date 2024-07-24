@@ -36,6 +36,7 @@ While we tried to keep the API as stable as possible, some breaking changes were
 - Some typings have been renamed or deprecated.
 - The `useInput` hook has been removed. See [Input fields](https://daypicker.dev/guides/input-fields) guide for more details.
 - `onWeekNumberClick` has been removed. Use a custom component to handle week number clicks.
+- Some of the `onDay*` events, like `onDayTouchStart` or `onDayDoubleClick` have been removed. To reimplement them, use a custom `DayButton` component ([example](https://daypicker.dev/guides/custom-components#intercepting-click-events)).
 - The updated build system to ESM and CommonJS could break some custom bundler.
 
 ### Upgrading Guide
