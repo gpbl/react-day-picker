@@ -262,7 +262,7 @@
 
 .hidden {
   visibility: hidden;
-  color: var(end-range_start-color);
+  color: var(--rdp-range_start-color);
 }
 
 .range_start {
