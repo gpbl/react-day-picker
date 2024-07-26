@@ -18,12 +18,10 @@ If you are upgrading from v7, this guide is still valid for you. Read first the 
 npm install react-day-picker@latest
 ```
 
-Remove `date-fns` from your dependencies if you are not using it directly in your code.
-
-- Note: You still need `date-fns` if you need to use a [different locale](./docs/localization.mdx).
+Remove `date-fns` from your dependencies if you are not using it directly in your code, like when using a [different locale](./docs/localization.mdx).
 
 ```bash npm2yarn
-npm uninstall date-fns
+npm remove date-fns
 ```
 
 ### 2. Update your custom styles
