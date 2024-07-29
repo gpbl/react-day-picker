@@ -16,7 +16,7 @@ describe("addToRange", () => {
   test("add a date to an incomplete range with same start date", () => {
     const date = new Date(2022, 0, 1);
     const range = addToRange(date, { from: date, to: undefined });
-    expect(range).toEqual({ from: undefined, to: undefined });
+    expect(range).toEqual(undefined);
   });
 
   test("add a date to an incomplete range with earlier date", () => {
@@ -38,7 +38,7 @@ describe("addToRange", () => {
     const from = date;
     const to = date;
     const range = addToRange(date, { from, to }, 0, 0, false);
-    expect(range).toEqual({ from: undefined, to: undefined });
+    expect(range).toEqual(undefined);
   });
 
   test("add a date to a complete range with same start date", () => {

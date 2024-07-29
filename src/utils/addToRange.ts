@@ -32,7 +32,11 @@ export function addToRange(
     // adding date to an incomplete range
     if (isSameDay(from, date)) {
       // adding a date equal to the start of the range
-      range = { from: required ? from : undefined, to: undefined };
+      if (required) {
+        range = { from, to: undefined };
+      } else {
+        range = undefined;
+      }
     } else if (isBefore(date, from)) {
       // adding a date before the start of the range
       range = { from: date, to: from };
@@ -44,10 +48,11 @@ export function addToRange(
     // adding date to a complete range
     if (isSameDay(from, date) && isSameDay(to, date)) {
       // adding a date that is equal to both start and end of the range
-      range = {
-        from: required ? from : undefined,
-        to: required ? to : undefined
-      };
+      if (required) {
+        range = { from, to };
+      } else {
+        range = undefined;
+      }
     } else if (isSameDay(from, date)) {
       // adding a date equal to the the start of the range
       range = { from, to: min > 0 ? undefined : date };
