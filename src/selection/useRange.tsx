@@ -24,7 +24,6 @@ export function useRange<T extends DayPickerProps>(
     onSelect
   } = props as PropsRange;
 
-  const { differenceInCalendarDays } = dateLib;
   const [selected, setSelected] = React.useState<DateRange | undefined>(
     initiallySelected
   );
@@ -49,32 +48,10 @@ export function useRange<T extends DayPickerProps>(
     modifiers: Modifiers,
     e: React.MouseEvent | React.KeyboardEvent
   ) => {
-    const newRange = triggerDate
-      ? addToRange(triggerDate, selected, dateLib)
-      : undefined;
     const { min, max } = props as PropsRange;
-
-    if (min) {
-      if (
-        newRange?.from &&
-        newRange.to &&
-        differenceInCalendarDays(newRange.to, newRange.from) < min - 1
-      ) {
-        newRange.from = triggerDate;
-        newRange.to = undefined;
-      }
-    }
-
-    if (max) {
-      if (
-        newRange?.from &&
-        newRange.to &&
-        differenceInCalendarDays(newRange.to, newRange.from) >= max
-      ) {
-        newRange.from = triggerDate;
-        newRange.to = undefined;
-      }
-    }
+    const newRange = triggerDate
+      ? addToRange(triggerDate, selected, min, max, required, dateLib)
+      : undefined;
 
     if (newRange?.from && newRange.to) {
       let newDate = newRange.from;
