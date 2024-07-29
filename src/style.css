@@ -207,6 +207,10 @@
   max-width: fit-content;
 }
 
+.rdp-month_grid {
+  border-collapse: collapse;
+}
+
 .rdp-nav {
   position: absolute;
   inset-block-start: 0;
