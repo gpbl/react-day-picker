@@ -296,6 +296,9 @@
   background-color: var(--rdp-range_end-date-background-color);
 }
 
+.range_start.range_end {
+  background: revert;
+}
 .focusable {
   cursor: pointer;
 }
