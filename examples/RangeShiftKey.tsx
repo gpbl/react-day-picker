@@ -13,9 +13,7 @@ function DayWithShiftKey(props: DayButtonProps) {
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     const requireShiftKey =
-      selected?.from &&
-      !selected.to &&
-      !isSameDay(props.day.date, selected.from);
+      selected?.from && !isSameDay(props.day.date, selected.from);
 
     if (!e.shiftKey && requireShiftKey) {
       return;
