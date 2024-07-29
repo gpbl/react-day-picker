@@ -90,7 +90,7 @@ describe("useRange", () => {
 
     expect(result.current.selected).toEqual({
       from: new Date(2023, 6, 10),
-      to: undefined
+      to: new Date(2023, 6, 10)
     });
   });
 
@@ -135,7 +135,7 @@ describe("useRange", () => {
 
     expect(result.current.selected).toEqual({
       from: new Date(2023, 6, 10),
-      to: undefined
+      to: new Date(2023, 6, 10)
     });
   });
 });

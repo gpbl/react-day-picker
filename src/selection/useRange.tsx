@@ -62,6 +62,7 @@ export function useRange<T extends DayPickerProps>(
           disabled &&
           dateMatchModifiers(newDate, disabled, dateLib)
         ) {
+          // if a disabled days is found, the range is reset
           newRange.from = triggerDate;
           newRange.to = undefined;
           break;
