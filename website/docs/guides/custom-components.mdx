@@ -4,21 +4,31 @@ sidebar_position: 4
 
 # Custom Components
 
-Custom components allows to customize or replace the components rendering the DayPicker HTML elements.
+With the `components` prop, you can extend each of the rendered HTML elements by using your own components.
 
 | Prop Name    | Type                                                          | Description                            |
 | ------------ | ------------------------------------------------------------- | -------------------------------------- |
 | `components` | [`CustomComponents`](../api/type-aliases/CustomComponents.md) | Change the components of the calendar. |
 
-## When to use Custom Components
+You may need to use custom components in advanced applications, for example to:
 
-Custom components allow to enhance DayPicker to align it with your design system, to modify navigation behavior, or to present unique content within day cells.
+- Prevent default events from occurring
+- Add new event listeners, such as touch events
+- Display extra content, such as a calendar entry in the day cell
+- Implement buttons or dropdowns using your own design system components
+- Wrap an element with another element, like adding a tooltip to a day cell.
 
-Get familiar with the [API Reference](../api#components) and the [DayPicker Anatomy](../docs/anatomy.mdx) and make sure you don't break [accessibility](../docs/accessibility.mdx) when customizing components.
+When customizing the components, get familiar with the [API Reference](../api#components) and the [DayPicker Anatomy](../docs/anatomy.mdx). Make sure you don't break the [accessibility](../docs/accessibility.mdx).
 
-## How to Use Custom Components
+:::note Custom Components vs Formatters
 
-To use custom components, pass the `components` prop. The prop is an object with the components you want to customize:
+Custom components extends DayPicker more than the [formatters](../docs/translation.mdx#custom-formatters), which are used to format the content of the calendar.
+
+:::
+
+## Implementing a Custom Component
+
+Pass the components you want to customize to the `components` prop. This prop accepts any of the [`CustomComponents`](../api/type-aliases/CustomComponents.md).
 
 ```tsx
 <DayPicker
@@ -29,13 +39,6 @@ To use custom components, pass the `components` prop. The prop is an object with
   }}
 />
 ```
-
-Each component is the last step before actually rendering its element.
-
-- prevent default events to happen - e.g. prevent the click event on a day button to select a day
-- add new event listeners - e.g. add a touch event to select a day
-- display new content - e.g. add a new element to the day cell, such a calendar event.
-- wrap the element with a new component - e.g. wrap the day cell with a tooltip component
 
 <details>
   <summary>List of Customizable Components</summary>
@@ -124,78 +127,3 @@ The DayPicker context provides the current state of the calendar, such as the se
 | Function                                           | Return value                                                  | Description                                                                  |
 | :------------------------------------------------- | ------------------------------------------------------------- | :--------------------------------------------------------------------------- |
 | [`useDayPicker`](../api/functions/useDayPicker.md) | [`DayPickerContext`](../api/type-aliases/DayPickerContext.md) | Return the current state of DayPicker and functions to navigate the calendar |
-
-### Examples
-
-#### Range Selection with the <kbd>Shift</kbd> Key
-
-Implement a custom `Day` component to select ranges while pressing the <kbd>Shift</kbd> key.
-
-```tsx
-import React, { MouseEventHandler } from "react";
-
-import { isSameDay } from "date-fns";
-import {
-  DateRange,
-  DayButtonProps,
-  DayPicker,
-  useDayPicker
-} from "react-day-picker";
-
-function CustomDayButton(props: DayButtonProps) {
-  // Use the DayPicker hook to get the selected days
-  const { selected } = useDayPicker({ mode: "range" });
-
-  const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
-    const requireShiftKey =
-      selected.from && // The start of the range is selected
-      !selected.to && // The second day is not selected
-      !isSameDay(props.day.date, selected.from); // User is not clicking the start ot the range again
-
-    if (!e.shiftKey && requireShiftKey) return;
-
-    // Call the original onClick event
-    props.onClick?.(e);
-  };
-
-  // Pick the button props
-  const { day, modifiers, ...buttonProps } = props;
-
-  return (
-    <button {...buttonProps} onClick={handleClick}>
-      {props.children}
-    </button>
-  );
-}
-
-export function RangeWithShiftKey() {
-  const [range, setRange] = React.useState<DateRange | undefined>({
-    from: undefined
-  });
-
-  let footer = "Please pick a day.";
-
-  if (range?.from && !range?.to) {
-    footer = "Press Shift to choose more days.";
-  } else if (range?.to) {
-    const formattedFrom = range.from?.toDateString();
-    const formattedTo = range.to.toDateString();
-    footer = `You selected the days between ${formattedFrom} and ${formattedTo}`;
-  }
-  return (
-    <DayPicker
-      components={{
-        DayButton: CustomDayButton
-      }}
-      mode="range"
-      selected={range}
-      onSelect={setRange}
-      footer={footer}
-    />
-  );
-}
-```
-
-<BrowserWindow>
-  <Examples.RangeShiftKey />
-</BrowserWindow>
