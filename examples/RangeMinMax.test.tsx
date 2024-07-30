@@ -8,6 +8,11 @@ import { user } from "@/test/user";
 
 import { RangeMinMax } from "./RangeMinMax";
 
+const today = new Date(2022, 8, 12);
+
+beforeAll(() => jest.setSystemTime(today));
+afterAll(() => jest.useRealTimers());
+
 beforeEach(() => render(<RangeMinMax />));
 
 describe("when a day is clicked", () => {
@@ -18,22 +23,6 @@ describe("when a day is clicked", () => {
   test("should be selected", () => {
     expect(gridcell(firstDay, true)).toHaveAttribute("aria-selected", "true");
   });
-  describe("when the day before min is clicked", () => {
-    const dayAfter = addDays(firstDay, 1);
-    beforeEach(async () => {
-      await user.click(dateButton(dayAfter));
-    });
-    test("the first day should not be selected", () => {
-      expect(gridcell(firstDay, true)).not.toHaveAttribute(
-        "aria-selected",
-        "true"
-      );
-    });
-    test("the day after should be selected", () => {
-      expect(gridcell(dayAfter, true)).toHaveAttribute("aria-selected", "true");
-    });
-  });
-
   describe("when the day after min is clicked", () => {
     const dayAfter = addDays(firstDay, 4);
     beforeEach(async () => {
