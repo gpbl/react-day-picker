@@ -411,6 +411,7 @@ export function DayPicker(props: DayPickerProps) {
                   )}
                 </components.MonthCaption>
                 <components.MonthGrid
+                  role="grid"
                   aria-multiselectable={mode === "multiple" || mode === "range"}
                   aria-label={
                     labelGrid(calendarMonth.date, labelOptions, dateLib) ||
@@ -422,12 +423,14 @@ export function DayPicker(props: DayPickerProps) {
                   {!props.hideWeekdays && (
                     <components.Weekdays
                       className={classNames[UI.Weekdays]}
+                      role="row"
                       style={styles?.[UI.Weekdays]}
                     >
                       {showWeekNumber && (
                         <components.WeekNumberHeader
                           aria-label={labelWeekNumberHeader(labelOptions)}
                           className={classNames[UI.WeekNumberHeader]}
+                          role="columnheader"
                           style={styles?.[UI.WeekNumberHeader]}
                         >
                           {formatWeekNumberHeader()}
@@ -442,6 +445,7 @@ export function DayPicker(props: DayPickerProps) {
                           )}
                           className={classNames[UI.Weekday]}
                           key={i}
+                          role="columnheader"
                           style={styles?.[UI.Weekday]}
                         >
                           {formatWeekdayName(weekday, formatOptions, dateLib)}
@@ -451,6 +455,7 @@ export function DayPicker(props: DayPickerProps) {
                   )}
                   <components.Weeks
                     className={classNames[UI.Weeks]}
+                    role="rowgroup"
                     style={styles?.[UI.Weeks]}
                   >
                     {calendarMonth.weeks.map((week, weekIndex) => {
@@ -458,12 +463,14 @@ export function DayPicker(props: DayPickerProps) {
                         <components.Week
                           className={classNames[UI.Week]}
                           key={week.weekNumber}
+                          role="row"
                           style={styles?.[UI.Week]}
                           week={week}
                         >
                           {showWeekNumber && (
                             <components.WeekNumber
                               week={week}
+                              role="rowheader"
                               style={styles?.[UI.WeekNumber]}
                               aria-label={labelWeekNumber(week.weekNumber, {
                                 locale
@@ -535,6 +542,7 @@ export function DayPicker(props: DayPickerProps) {
                                 key={`${dateLib.format(date, "yyyy-MM-dd")}_${dateLib.format(day.displayMonth, "yyyy-MM")}`}
                                 day={day}
                                 modifiers={modifiers}
+                                role="gridcell"
                                 className={className.join(" ")}
                                 style={style}
                                 aria-hidden={modifiers.hidden || undefined}
