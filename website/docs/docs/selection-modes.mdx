@@ -40,23 +40,13 @@ When the `mode` prop is set to `"single"`, only one day can be selected.
 | `onSelect` | `(selected, triggerDate, modifiers, e) => void` | Event callback when a date is selected. |
 | `required` | `boolean`                                       | Make the selection required.            |
 
-The following code snippet will render a date picker with a single selected date. When a day is clicked, the `selectedDate` state is updated.
+Use the `selected` and `onSelect` props to control the selected date:
 
 ```tsx
-import { useState } from "react";
-
-import { DayPicker } from "react-day-picker";
-
 export function App() {
-  const initiallySelectedDate = new Date();
-  const [selectedDate, setSelectedDate] = useState(initiallySelectedDate);
-  return (
-    <DayPicker
-      mode="single"
-      selected={selectedDate}
-      onSelect={setSelectedDate}
-    />
-  );
+  const [selected, setSelected] = React.useState<Date | undefined>();
+
+  return <DayPicker mode="single" selected={selected} onSelect={setSelected} />;
 }
 ```
 
@@ -93,29 +83,40 @@ By setting the `mode` prop to `"multiple"`, DayPicker allows selecting multiple 
 | `min`      | `number`                                        | The minimum dates that can be selected. |
 | `max`      | `number`                                        | The maximum dates that can be selected. |
 
+Use the `selected` and `onSelect` props to control the selected date:
+
+```tsx
+export function App() {
+  const [selected, setSelected] = React.useState<Date[] | undefined>();
+
+  return (
+    <DayPicker mode="multiple" selected={selected} onSelect={setSelected} />
+  );
+}
+```
+
 ### Min and Max Dates
 
 Use the `min` and `max` props to limit the number of selectable dates.
 
 ```tsx
-import { addDays } from "date-fns";
-import { DayPicker } from "react-day-picker";
-
-export function MultipleMinMax() {
-  const defaultSelected = [new Date(), addDays(new Date(), 1)];
-  return (
-    <DayPicker
-      defaultSelected={defaultSelected}
-      mode="multiple"
-      min={2}
-      max={5}
-    />
-  );
-}
+<DayPicker mode="multiple" min={2} max={5} />
 ```
 
 <BrowserWindow>
   <Examples.MultipleMinMax />
+</BrowserWindow>
+
+### Required Selection
+
+By setting the `required` prop, DayPicker requires at least one date to be selected.
+
+```tsx
+<DayPicker mode="multiple" required selected={[new Date()]} />
+```
+
+<BrowserWindow>
+  <Examples.MultipleRequired />
 </BrowserWindow>
 
 ## Range Mode
@@ -126,70 +127,45 @@ When the `mode` prop is set to `"range"`, DayPicker allows selecting a continuou
 <DayPicker mode="range" />
 ```
 
-| Prop Name  | Type                                            | Description                             |
-| ---------- | ----------------------------------------------- | --------------------------------------- |
-| `selected` | [`DateRange`](../api/type-aliases/DateRange.md) | The selected range.                     |
-| `onSelect` | `(selected, triggerDate, modifiers, e) => void` | Event callback when a date is selected. |
-| `min`      | `number`                                        | The minimum dates that can be selected. |
-| `max`      | `number`                                        | The maximum dates that can be selected. |
-
-```tsx
-import { addDays, format } from "date-fns";
-import { DateRange, DayPicker } from "react-day-picker";
-
-export function RangeExample() {
-  const defaultMonth = new Date(2020, 5, 15);
-
-  const defaultSelected: DateRange = {
-    from: defaultMonth,
-    to: addDays(defaultMonth, 4)
-  };
-  const [range, setRange] = React.useState<DateRange | undefined>(
-    defaultSelected
-  );
-
-  return (
-    <DayPicker
-      mode="range"
-      defaultMonth={defaultMonth}
-      selected={range}
-      onSelect={setRange}
-    />
-  );
-}
-```
-
 <BrowserWindow>
   <Examples.Range />
 </BrowserWindow>
 
+### Range Mode Props
+
+| Prop Name         | Type                                            | Description                             |
+| ----------------- | ----------------------------------------------- | --------------------------------------- |
+| `selected`        | [`DateRange`](../api/type-aliases/DateRange.md) | The selected range.                     |
+| `onSelect`        | `(selected, triggerDate, modifiers, e) => void` | Event callback when a date is selected. |
+| `required`        | `boolean`                                       | Make the selection required.            |
+| `min`             | `number`                                        | The minimum dates that can be selected. |
+| `max`             | `number`                                        | The maximum dates that can be selected. |
+| `excludeDisabled` | `boolean`                                       | Exclude disabled dates from the range.  |
+
 ### Min and Max Dates
 
-Also in range mode, you can set the `min` and `max` props to limit the number of selectable dates.
+As default, a range can have length of 0 nights, thus the start date can be the same as the end date. Use the `min` prop to set the minimum number of nights. The range will stay "open" until at least `min` nights are selected.
+
+Similarly, you can se the `max` prop to set the maximum number of nights.
 
 ```tsx
-import { useState } from "react";
+<DayPicker mode="range" min={1} max={6} />
+```
 
-import { DateRange, DayPicker } from "react-day-picker";
+<BrowserWindow bodyStyle={{ justifyContent: "start" }}>
+  <Examples.RangeMinMax />
+</BrowserWindow>
 
-export function RangeMinMax() {
-  const [range, setRange] = useState<DateRange | undefined>();
+### Required Ranges
 
-  return (
-    <DayPicker
-      defaultMonth={new Date(2022, 8)}
-      mode="range"
-      min={3}
-      max={9}
-      selected={range}
-      onSelect={setRange}
-    />
-  );
-}
+By setting the `required` prop, a range must be selected. 
+
+```tsx
+<DayPicker mode="range" required />
 ```
 
 <BrowserWindow>
-  <Examples.RangeMinMax />
+  <Examples.RangeRequired />
 </BrowserWindow>
 
 ## Disabling Dates

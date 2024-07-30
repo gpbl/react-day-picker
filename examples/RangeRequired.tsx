@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 
-import { format } from "date-fns";
+import { addDays, format, startOfMonth } from "date-fns";
 import { DateRange, DayPicker } from "react-day-picker";
 
-export function RangeMinMax() {
-  const [range, setRange] = useState<DateRange | undefined>();
+export function RangeRequired() {
+  const [range, setRange] = useState<DateRange>({
+    from: startOfMonth(new Date()),
+    to: addDays(startOfMonth(new Date()), 4)
+  });
 
   let footer = `Please pick the first day.`;
   if (range?.from) {
@@ -16,16 +19,12 @@ export function RangeMinMax() {
   }
 
   return (
-    <div>
-      <p>Select up to 6 nights.</p>
-      <DayPicker
-        mode="range"
-        min={1}
-        max={6}
-        selected={range}
-        onSelect={setRange}
-        footer={footer}
-      />
-    </div>
+    <DayPicker
+      mode="range"
+      required
+      selected={range}
+      onSelect={setRange}
+      footer={footer}
+    />
   );
 }
