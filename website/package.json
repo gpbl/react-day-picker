@@ -26,7 +26,7 @@
     "prism-react-renderer": "^2.3.1",
     "react": "^18.3.1",
     "react-day-picker": "workspace:^",
-    "react-day-picker-v8": "npm:react-day-picker@8.10.1",
+    "react-day-picker-v8": "npm:react-day-picker@9.0.5",
     "react-dom": "^18.3.1",
     "remark-github": "^12.0.0"
   },
@@ -38,7 +38,7 @@
     "identity-obj-proxy": "^3.0.0",
     "typedoc": "^0.26.5",
     "typedoc-plugin-frontmatter": "^1.0.0",
-    "typedoc-plugin-markdown": "^4.2.1",
+    "typedoc-plugin-markdown": "^4.2.3",
     "typescript": "~5.5.4"
   },
   "browserslist": {

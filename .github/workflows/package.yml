@@ -27,7 +27,7 @@ jobs:
           version: 9.4.0
       - uses: actions/setup-node@v4
         with:
-          node-version: 18.16
+          node-version: 20.16
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm typecheck
@@ -41,7 +41,7 @@ jobs:
           version: 9.4.0
       - uses: actions/setup-node@v4
         with:
-          node-version: 18.16
+          node-version: 20.16
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint --max-warnings=0
@@ -56,7 +56,7 @@ jobs:
           version: 9.4.0
       - uses: actions/setup-node@v4
         with:
-          node-version: 18.16
+          node-version: 20.16
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm test
@@ -70,7 +70,7 @@ jobs:
           version: 9.4.0
       - uses: actions/setup-node@v4
         with:
-          node-version: 18.16
+          node-version: 20.16
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
@@ -92,7 +92,7 @@ jobs:
           version: 9.4.0
       - uses: actions/setup-node@v4
         with:
-          node-version: 18.16
+          node-version: 20.16
           registry-url: https://registry.npmjs.org/
           always-auth: false
       - uses: actions/download-artifact@v4

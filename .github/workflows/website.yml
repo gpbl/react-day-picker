@@ -20,7 +20,7 @@ jobs:
           version: 9.4.0
       - uses: actions/setup-node@v4
         with:
-          node-version: 18.16
+          node-version: 20.16
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
@@ -39,7 +39,7 @@ jobs:
           version: 9.4.0
       - uses: actions/setup-node@v4
         with:
-          node-version: 18.16
+          node-version: 20.16
           cache: pnpm
       - uses: actions/download-artifact@v4
         with:
@@ -58,7 +58,7 @@ jobs:
           version: 9.4.0
       - uses: actions/setup-node@v4
         with:
-          node-version: 18.16
+          node-version: 20.16
           cache: pnpm
       - uses: actions/download-artifact@v4
         with:
