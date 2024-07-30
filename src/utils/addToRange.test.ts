@@ -1,119 +1,117 @@
-import { addDays, subDays } from "date-fns";
-
-import type { DateRange } from "../types";
-
 import { addToRange } from "./addToRange";
 
-describe('when no "from" is the range', () => {
-  const range = { from: undefined };
-  const day = new Date();
-  let result: DateRange | undefined;
-  beforeAll(() => {
-    result = addToRange(day, range);
+describe("addToRange", () => {
+  test("add a date to an undefined range", () => {
+    const date = new Date(2022, 0, 1);
+    const range = addToRange(date, undefined);
+    expect(range).toEqual({ from: date, to: date });
   });
-  test('should set "from" as the given day', () => {
-    expect(result).toEqual({ from: day, to: undefined });
-  });
-});
 
-describe('when no "to" is the range', () => {
-  const day = new Date();
-  const range = { from: day, to: undefined };
-  describe('and the day is the same as the "from" day', () => {
-    let result: DateRange | undefined;
-    beforeAll(() => {
-      result = addToRange(day, range);
-    });
-    test("should reset the range", () => {
-      expect(result).toEqual({ from: undefined, to: undefined });
-    });
+  test("add a date to an empty range", () => {
+    const date = new Date(2022, 0, 1);
+    const range = addToRange(date, { from: undefined, to: undefined });
+    expect(range).toEqual({ from: date, to: date });
   });
-  describe('and the day is before "from" day', () => {
-    const day = subDays(range.from, 1);
-    let result: DateRange | undefined;
-    beforeAll(() => {
-      result = addToRange(day, range);
-    });
-    test('should set the day as the "from" range', () => {
-      expect(result).toEqual({ from: day, to: range.from });
-    });
-  });
-  describe('and the day is after the "from" day', () => {
-    const day = addDays(range.from, 1);
-    let result: DateRange | undefined;
-    beforeAll(() => {
-      result = addToRange(day, range);
-    });
-    test('should set the day as the "to" date', () => {
-      expect(result).toEqual({ from: range.from, to: day });
-    });
-  });
-});
 
-describe('when "from", "to" and "day" are the same', () => {
-  const day = new Date();
-  const range = { from: day, to: day };
-  let result: DateRange | undefined;
-  beforeAll(() => {
-    result = addToRange(day, range);
+  test("add a date to an incomplete range with same start date", () => {
+    const date = new Date(2022, 0, 1);
+    const range = addToRange(date, { from: date, to: undefined });
+    expect(range).toEqual(undefined);
   });
-  test("should return an undefined range (reset)", () => {
-    expect(result).toEqual({ from: undefined, to: undefined });
-  });
-});
 
-describe('when "to" and "day" are the same', () => {
-  const from = new Date();
-  const to = addDays(from, 4);
-  const day = to;
-  const range = { from, to };
-  let result: DateRange | undefined;
-  beforeAll(() => {
-    result = addToRange(day, range);
+  test("add a date to an incomplete range with earlier date", () => {
+    const from = new Date(2022, 0, 1);
+    const earlierDate = new Date(2021, 11, 31);
+    const range = addToRange(earlierDate, { from: from, to: undefined });
+    expect(range).toEqual({ from: earlierDate, to: from });
   });
-  test('should set "to" to undefined', () => {
-    expect(result).toEqual({ from: to, to: undefined });
-  });
-});
 
-describe('when "from" and "day" are the same', () => {
-  const from = new Date();
-  const to = addDays(from, 4);
-  const day = from;
-  const range = { from, to };
-  let result: DateRange | undefined;
-  beforeAll(() => {
-    result = addToRange(day, range);
+  test("add a date to an incomplete range with later date", () => {
+    const from = new Date(2022, 0, 1);
+    const date = new Date(2022, 0, 2);
+    const range = addToRange(date, { from: from, to: undefined });
+    expect(range).toEqual({ from: from, to: date });
   });
-  test("should reset the range", () => {
-    expect(result).toEqual({ from: undefined, to: undefined });
-  });
-});
 
-describe('when "from" is after "day"', () => {
-  const day = new Date();
-  const from = addDays(day, 1);
-  const to = addDays(from, 4);
-  const range = { from, to };
-  let result: DateRange | undefined;
-  beforeAll(() => {
-    result = addToRange(day, range);
+  test("add a date to a complete range with same start and end date", () => {
+    const date = new Date(2022, 0, 1);
+    const from = date;
+    const to = date;
+    const range = addToRange(date, { from, to }, 0, 0, false);
+    expect(range).toEqual(undefined);
   });
-  test('should set the day as "from"', () => {
-    expect(result).toEqual({ from: day, to: range.to });
-  });
-});
 
-describe('when "from" is before "day"', () => {
-  const day = new Date();
-  const from = subDays(day, 1);
-  const to = addDays(from, 4);
-  const range = { from, to };
-  let result: DateRange | undefined;
-  beforeAll(() => {
-    result = addToRange(day, range);
+  test("add a date to a complete range with same start date", () => {
+    const date = new Date(2022, 0, 1);
+    const to = new Date(2022, 0, 2);
+    const range = addToRange(date, { from: date, to: to });
+    expect(range).toEqual({ from: date, to: date });
   });
-  test('should set the day as "to"', () => {
-    expect(result).toEqual({ from: range.from, to: day });
+
+  test("add a date to a complete range with same end date", () => {
+    const date = new Date(2022, 0, 2);
+    const from = new Date(2022, 0, 1);
+    const range = addToRange(date, { from: from, to: date });
+    expect(range).toEqual({ from: date, to: date });
+  });
+
+  test("add a date when inside the range", () => {
+    const date = new Date(2022, 0, 1);
+    const from = new Date(2021, 11, 31);
+    const to = new Date(2022, 0, 2);
+    const range = addToRange(date, { from, to });
+    expect(range).toEqual({ from, to: date });
+  });
+
+  test("add an earlier date to a complete range", () => {
+    const from = new Date(2022, 0, 1);
+    const to = new Date(2022, 0, 2);
+    const date = new Date(2021, 11, 31);
+    const range = addToRange(date, { from, to });
+    expect(range).toEqual({ from: date, to: to });
+  });
+
+  test("add a later date to a complete range", () => {
+    const date = new Date(2022, 0, 2);
+    const from = new Date(2021, 11, 31);
+    const to = new Date(2022, 0, 1);
+    const range = addToRange(date, { from, to });
+    expect(range).toEqual({ from: from, to: date });
+  });
+
+  test("add a date with min > 0", () => {
+    const date = new Date(2022, 0, 1);
+    const range = addToRange(date, undefined, 1, 0, false);
+    expect(range).toEqual({ from: date, to: undefined });
+  });
+
+  test("add a date with max > 0", () => {
+    const date = new Date(2022, 0, 1);
+    const range = addToRange(date, undefined, 0, 1, false);
+    expect(range).toEqual({ from: date, to: date });
+  });
+
+  test("add a date with required set to true", () => {
+    const date = new Date(2022, 0, 1);
+    const range = addToRange(date, undefined, 0, 0, true);
+    expect(range).toEqual({ from: date, to: date });
+  });
+
+  test("when exceeding max, set the start of the range", () => {
+    const from = new Date(2022, 0, 1);
+    const to = new Date(2022, 0, 2);
+    const date = new Date(2022, 0, 4);
+    const max = 2;
+    const range = addToRange(date, { from, to }, 0, max, false);
+    expect(range).toEqual({ from: date, to: undefined });
+  });
+
+  test("when below min, set the start of the range", () => {
+    const from = new Date(2021, 11, 20);
+    const to = new Date(2022, 0, 2);
+    const date = new Date(2021, 11, 21);
+    const min = 5;
+    const range = addToRange(date, { from, to }, min, 0, false);
+    expect(range).toEqual({ from: date, to: undefined });
   });
 });
