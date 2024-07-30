@@ -49,7 +49,8 @@
   --rdp-week_number-height: var(--rdp-day-height); /* The height of the week number cells. */
   --rdp-week_number-opacity: 0.75; /* The opacity of the week number. */
   --rdp-week_number-width: var(--rdp-day-width); /* The width of the week number cells. */
-  
+  --rdp-weeknumber-text-align: center; /* The text alignment of the weekday cells. */
+
   --rdp-weekday-font: 500 smaller var(--rdp-font-family); /* The font of the weekday. */
   --rdp-weekday-opacity: 0.75; /* The opacity of the weekday. */
   --rdp-weekday-padding: 0.5rem 0rem; /* The padding of the weekday. */
@@ -237,10 +238,7 @@
   width: var(--rdp-week_number-width);
   border: var(--rdp-week_number-border);
   border-radius: var(--rdp-week_number-border-radius);
-}
-
-.week_number_interactive {
-  cursor: pointer;
+  text-align: var(--rdp-weeknumber-text-align);
 }
 
 /* DAY MODIFIERS */
