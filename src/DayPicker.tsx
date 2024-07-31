@@ -531,12 +531,6 @@ export function DayPicker(props: DayPickerProps) {
                                 )
                               : undefined;
 
-                            const dataAttributes = {
-                              "data-day": dateLib.format(date, "yyyy-MM-dd"),
-                              "data-month": day.outside
-                                ? dateLib.format(date, "yyyy-MM")
-                                : undefined
-                            };
                             return (
                               <components.Day
                                 key={`${dateLib.format(date, "yyyy-MM-dd")}_${dateLib.format(day.displayMonth, "yyyy-MM")}`}
@@ -548,7 +542,18 @@ export function DayPicker(props: DayPickerProps) {
                                 aria-hidden={modifiers.hidden || undefined}
                                 aria-selected={modifiers.selected || undefined}
                                 aria-label={ariaLabel}
-                                {...dataAttributes}
+                                data-day={dateLib.format(date, "yyyy-MM-dd")}
+                                data-month={
+                                  day.outside
+                                    ? dateLib.format(date, "yyyy-MM")
+                                    : undefined
+                                }
+                                data-selected={modifiers.selected || undefined}
+                                data-disabled={modifiers.disabled || undefined}
+                                data-hidden={modifiers.hidden || undefined}
+                                data-outside={day.outside || undefined}
+                                data-focused={modifiers.focused || undefined}
+                                data-today={modifiers.today || undefined}
                               >
                                 {isInteractive ? (
                                   <components.DayButton
