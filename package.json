@@ -113,7 +113,7 @@
   "scripts": {
     "prepublish": "pnpm build",
     "build": "pnpm build:cjs && pnpm build:esm && pnpm build:css",
-    "build:cjs": "tsc --project tsconfig-cjs.json",
+    "build:cjs": "tsc --project tsconfig-cjs.json && echo '{ \"type\": \"commonjs\" }' > dist/cjs/package.json",
     "build:esm": "tsc --project tsconfig-esm.json",
     "build:css": "./scripts/build-css.sh ./src/style.css ./src/style.module.css",
     "lint": "eslint .",
