@@ -206,8 +206,8 @@ importers:
         specifier: workspace:^
         version: link:..
       react-day-picker-v8:
-        specifier: npm:react-day-picker@9.0.5
-        version: react-day-picker@9.0.5(react@18.3.1)
+        specifier: npm:react-day-picker@8.10.1
+        version: react-day-picker@8.10.1(date-fns@3.6.0)(react@18.3.1)
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
@@ -5462,10 +5462,11 @@ packages:
       '@types/react': '*'
       typescript: '>=4.2'
 
-  react-day-picker@9.0.5:
-    resolution: {integrity: sha512-hHeB+auG71OHNcas+/S6oeqzk/szQaMEKNuU1sTBg7wmpYkVJdRaqv8BIWgSkLT+3KdjmvnEdZUURaleNAKMvQ==}
+  react-day-picker@8.10.1:
+    resolution: {integrity: sha512-TMx7fNbhLk15eqcMt+7Z7S2KF7mfTId/XJDjKE8f+IUcFn0l08/kI4FiYTL/0yuOLmEcbR4Fwe3GJf/NiiMnPA==}
     peerDependencies:
-      react: '>=16.8.0'
+      date-fns: ^2.28.0 || ^3.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
 
   react-dev-utils@12.0.1:
     resolution: {integrity: sha512-84Ivxmr17KjUupyqzFode6xKhjwuEJDROWKJy/BthkL7Wn6NJ8h4WE6k/exAv6ImS+0oZLRRW5j/aINMHyeGeQ==}
@@ -13818,7 +13819,7 @@ snapshots:
       '@types/react': 18.3.3
       typescript: 5.5.4
 
-  react-day-picker@9.0.5(react@18.3.1):
+  react-day-picker@8.10.1(date-fns@3.6.0)(react@18.3.1):
     dependencies:
       date-fns: 3.6.0
       react: 18.3.1
