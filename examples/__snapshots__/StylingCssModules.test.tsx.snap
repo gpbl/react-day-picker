@@ -137,7 +137,9 @@ exports[`should match the snapshot 1`] = `
                 aria-hidden="true"
                 class="rdp-day rdp-hidden rdp-outside"
                 data-day="2021-10-31"
+                data-hidden="true"
                 data-month="2021-10"
+                data-outside="true"
                 role="gridcell"
               >
                 <button
@@ -478,6 +480,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day rdp-today"
                 data-day="2021-11-25"
+                data-today="true"
                 role="gridcell"
               >
                 <button
@@ -562,7 +565,9 @@ exports[`should match the snapshot 1`] = `
                 aria-hidden="true"
                 class="rdp-day rdp-hidden rdp-outside"
                 data-day="2021-12-01"
+                data-hidden="true"
                 data-month="2021-12"
+                data-outside="true"
                 role="gridcell"
               >
                 <button
@@ -577,7 +582,9 @@ exports[`should match the snapshot 1`] = `
                 aria-hidden="true"
                 class="rdp-day rdp-hidden rdp-outside"
                 data-day="2021-12-02"
+                data-hidden="true"
                 data-month="2021-12"
+                data-outside="true"
                 role="gridcell"
               >
                 <button
@@ -592,7 +599,9 @@ exports[`should match the snapshot 1`] = `
                 aria-hidden="true"
                 class="rdp-day rdp-hidden rdp-outside"
                 data-day="2021-12-03"
+                data-hidden="true"
                 data-month="2021-12"
+                data-outside="true"
                 role="gridcell"
               >
                 <button
@@ -607,7 +616,9 @@ exports[`should match the snapshot 1`] = `
                 aria-hidden="true"
                 class="rdp-day rdp-hidden rdp-outside"
                 data-day="2021-12-04"
+                data-hidden="true"
                 data-month="2021-12"
+                data-outside="true"
                 role="gridcell"
               >
                 <button
