@@ -17,8 +17,8 @@ The `mode` prop determines the selection mode. The `disabled` prop can be used t
 | `mode`     | `"single"` \| `"multiple"` \| `"range"`                                              | Enter a selection mode.                 |
 | `disabled` | [`Matcher`](../api/type-aliases/Matcher.md) \| `Matcher[]`                           | Disabled days that cannot be selected.  |
 | `selected` | `Date` \| `Date[]` \| [`DateRange`](../api/type-aliases/DateRange.md) \| `undefined` | The selected day(s).                    |
-| `required` | `boolean`                                                                            | Make the selection required.            |
-| `onSelect` | `(selected, date, modifiers, e) => void`                                             | Event callback when a date is selected. |
+| `required` | `boolean`                                                                            | When `true`, the selection is required. |
+| `onSelect` | `(selected, triggerDate, modifiers, e) => void`                                      | Event callback when a date is selected. |
 
 ## Single Mode
 
@@ -34,11 +34,11 @@ When the `mode` prop is set to `"single"`, only one day can be selected.
 
 ### Single Mode Props
 
-| Prop Name  | Type                                     | Description                             |
-| ---------- | ---------------------------------------- | --------------------------------------- |
-| `selected` | `Date \| undefined`                      | The selected date.                      |
-| `onSelect` | `(selected, date, modifiers, e) => void` | Event callback when a date is selected. |
-| `required` | `boolean`                                | Make the selection required.            |
+| Prop Name  | Type                                            | Description                             |
+| ---------- | ----------------------------------------------- | --------------------------------------- |
+| `selected` | `Date \| undefined`                             | The selected date.                      |
+| `onSelect` | `(selected, triggerDate, modifiers, e) => void` | Event callback when a date is selected. |
+| `required` | `boolean`                                       | Make the selection required.            |
 
 Use the `selected` and `onSelect` props to control the selected date:
 
@@ -137,7 +137,7 @@ When the `mode` prop is set to `"range"`, DayPicker allows selecting a continuou
 | Prop Name         | Type                                            | Description                             |
 | ----------------- | ----------------------------------------------- | --------------------------------------- |
 | `selected`        | [`DateRange`](../api/type-aliases/DateRange.md) | The selected range.                     |
-| `onSelect`        | `(selected, date, modifiers, e) => void`        | Event callback when a date is selected. |
+| `onSelect`        | `(selected, triggerDate, modifiers, e) => void` | Event callback when a date is selected. |
 | `required`        | `boolean`                                       | Make the selection required.            |
 | `min`             | `number`                                        | The minimum dates that can be selected. |
 | `max`             | `number`                                        | The maximum dates that can be selected. |
