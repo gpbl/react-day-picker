@@ -20,6 +20,7 @@ import { getWeekdays } from "./helpers/getWeekdays.js";
 import { getYearOptions } from "./helpers/getYearOptions.js";
 import * as defaultLabels from "./labels/index.js";
 import type { FormatOptions, LabelOptions } from "./lib/dateLib.js";
+import { enUS } from "./lib/locales.js";
 import type {
   DayPickerProps,
   Modifiers,
@@ -43,27 +44,29 @@ import { isDateRange } from "./utils/typeguards.js";
  * @see https://daypicker.dev
  */
 export function DayPicker(props: DayPickerProps) {
-  const { components, formatters, labels, dateLib, classNames } = useMemo(
-    () => ({
-      dateLib: getDateLib(props.dateLib),
-      components: getComponents(props.components),
-      formatters: getFormatters(props.formatters),
-      labels: { ...defaultLabels, ...props.labels },
-      classNames: { ...getDefaultClassNames(), ...props.classNames }
-    }),
-    [
-      props.classNames,
-      props.components,
-      props.dateLib,
-      props.formatters,
-      props.labels
-    ]
-  );
+  const { components, formatters, labels, dateLib, locale, classNames } =
+    useMemo(
+      () => ({
+        dateLib: getDateLib(props.dateLib),
+        components: getComponents(props.components),
+        formatters: getFormatters(props.formatters),
+        labels: { ...defaultLabels, ...props.labels },
+        locale: { ...enUS, ...props.locale },
+        classNames: { ...getDefaultClassNames(), ...props.classNames }
+      }),
+      [
+        props.classNames,
+        props.components,
+        props.dateLib,
+        props.formatters,
+        props.labels,
+        props.locale
+      ]
+    );
 
   const {
     captionLayout,
     firstWeekContainsDate,
-    locale,
     mode,
     onDayBlur,
     onDayClick,
