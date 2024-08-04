@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import type {
   CalendarWeek,
   CalendarDay,
@@ -12,7 +14,6 @@ import { getNavMonths } from "./helpers/getNavMonth.js";
 import { getNextMonth } from "./helpers/getNextMonth.js";
 import { getPreviousMonth } from "./helpers/getPreviousMonth.js";
 import { getWeeks } from "./helpers/getWeeks.js";
-import { useControlledValue } from "./helpers/useControlledValue.js";
 import type { DayPickerProps } from "./types/props.js";
 import type { DateLib } from "./types/shared.js";
 
@@ -64,7 +65,39 @@ export interface Calendar {
 }
 
 /** @private */
-export function useCalendar(props: DayPickerProps, dateLib: DateLib): Calendar {
+export function useCalendar(
+  props: Pick<
+    DayPickerProps,
+    | "captionLayout"
+    | "endMonth"
+    | "startMonth"
+    | "today"
+    | "fixedWeeks"
+    | "ISOWeek"
+    | "weekStartsOn"
+    | "numberOfMonths"
+    | "disableNavigation"
+    | "onMonthChange"
+    | "month"
+    | "defaultMonth"
+    // Deprecated:
+    | "fromMonth"
+    | "fromYear"
+    | "toMonth"
+    | "toYear"
+  >,
+  dateLib: DateLib
+): Calendar {
+  const {
+    fromYear,
+    toYear,
+    startMonth,
+    endMonth,
+    today,
+    numberOfMonths,
+    month,
+    defaultMonth
+  } = props;
   const [navStart, navEnd] = getNavMonths(props, dateLib);
 
   const { startOfMonth, endOfMonth } = dateLib;
@@ -72,10 +105,34 @@ export function useCalendar(props: DayPickerProps, dateLib: DateLib): Calendar {
   const initialDisplayMonth = getInitialMonth(props, dateLib);
 
   // The first month displayed in the calendar
-  const [firstMonth, setFirstMonth] = useControlledValue(
-    initialDisplayMonth,
-    props.month ? startOfMonth(props.month) : undefined
-  );
+  const [firstMonth, setFirstMonth] = useState(initialDisplayMonth);
+
+  useEffect(() => {
+    const initialDisplayMonth = getInitialMonth(
+      {
+        fromYear,
+        toYear,
+        startMonth,
+        endMonth,
+        month,
+        defaultMonth,
+        today,
+        numberOfMonths
+      },
+      dateLib
+    );
+    setFirstMonth(initialDisplayMonth);
+  }, [
+    dateLib,
+    defaultMonth,
+    endMonth,
+    fromYear,
+    month,
+    numberOfMonths,
+    startMonth,
+    toYear,
+    today
+  ]);
 
   /** The months displayed in the calendar. */
   const displayMonths = getDisplayMonths(firstMonth, navEnd, props, dateLib);

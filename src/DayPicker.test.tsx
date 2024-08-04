@@ -1,7 +1,6 @@
 import React from "react";
 
-import { fireEvent, render, screen } from "@testing-library/react";
-import { startOfDay, startOfMonth } from "date-fns";
+import { addMonths, startOfDay, startOfMonth } from "date-fns";
 
 import {
   activeElement,
@@ -10,11 +9,13 @@ import {
   nav,
   previousButton
 } from "@/test/elements";
+import { fireEvent, render, screen } from "@/test/render";
 import { user } from "@/test/user";
 
 import { DayPicker } from "./DayPicker";
 import { MonthProps } from "./components/Month";
 import { MonthsProps } from "./components/Months";
+import { labelGrid } from "./labels";
 
 const testId = "test";
 const dayPicker = () => screen.getByTestId(testId);
@@ -24,14 +25,14 @@ test("should render a date picker component", () => {
   expect(dayPicker()).toBeInTheDocument();
 });
 
-it("should render the navigation and month grids", () => {
+test("render the navigation and month grids", () => {
   render(<DayPicker data-testid={testId} />);
 
   expect(nav()).toBeInTheDocument();
   expect(grid()).toBeInTheDocument();
 });
 
-it("should apply classnames and style according to props", () => {
+test("apply classnames and style according to props", () => {
   render(
     <DayPicker
       data-testid={testId}
@@ -47,7 +48,7 @@ it("should apply classnames and style according to props", () => {
   expect(dayPicker()).toHaveStyle({ color: "red" });
 });
 
-it("should use custom components", () => {
+test("use custom components", () => {
   render(
     <DayPicker
       data-testid={testId}
@@ -129,5 +130,31 @@ describe("when a day is mouse entered", () => {
   test("should call the event handler", async () => {
     expect(handleDayMouseEnter).toHaveBeenCalled();
     expect(handleDayMouseLeave).toHaveBeenCalled();
+  });
+});
+
+describe("when the `month` is changed programmatically", () => {
+  test("should update the calendar to reflect the new month", async () => {
+    const initialMonth = new Date(2023, 0, 1); // January 2023
+    const newMonth = new Date(2023, 1, 1); // February 2023
+    const { rerender } = render(
+      <DayPicker month={initialMonth} mode="single" />
+    );
+    expect(grid("January 2023")).toBeInTheDocument();
+    rerender(<DayPicker month={newMonth} mode="single" />);
+    expect(grid("February 2023")).toBeInTheDocument();
+  });
+});
+
+describe("when the `startMonth` is changed programmatically", () => {
+  test("should update the calendar to reflect the new month", async () => {
+    const initialStartMonth = new Date();
+    const newStartMonth = addMonths(new Date(), 2);
+    const { rerender } = render(
+      <DayPicker startMonth={initialStartMonth} mode="single" />
+    );
+    expect(grid(labelGrid(initialStartMonth))).toBeInTheDocument();
+    rerender(<DayPicker startMonth={newStartMonth} mode="single" />);
+    expect(grid(labelGrid(newStartMonth))).toBeInTheDocument();
   });
 });
