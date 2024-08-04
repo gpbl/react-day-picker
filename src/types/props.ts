@@ -37,8 +37,11 @@ export type DayPickerProps = PropsBase &
   );
 
 /**
- * Props used for customization of the calendar, localization, and event
- * handling.
+ * Props for customizing the calendar, handling localization, and managing
+ * events. These exclude the selection mode props.
+ *
+ * @group DayPicker
+ * @see https://daypicker.dev/api/interfaces/PropsBase
  */
 export interface PropsBase {
   /**
