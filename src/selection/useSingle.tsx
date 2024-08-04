@@ -23,21 +23,14 @@ export function useSingle<T extends DayPickerProps>(
   const {
     selected: initiallySelected,
     required,
-    onSelect,
-    mode
+    onSelect
   } = props as PropsSingle;
 
   const [selected, setSelected] = React.useState<Date | undefined>(
     initiallySelected
   );
 
-  const { isSameDay, Date, startOfDay } = dateLib;
-  // Update the selected date if the required flag is set.
-  React.useEffect(() => {
-    if (required && selected === undefined) {
-      setSelected(startOfDay(new Date()));
-    }
-  }, [required, selected, Date, startOfDay, mode]);
+  const { isSameDay } = dateLib;
 
   // Update the selected date if the `selected` value changes.
   React.useEffect(() => {

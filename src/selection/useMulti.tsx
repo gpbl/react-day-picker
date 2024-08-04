@@ -22,14 +22,7 @@ export function useMulti<T extends DayPickerProps>(
     initiallySelected
   );
 
-  const { isSameDay, Date } = dateLib;
-
-  // Update the selected date if the required flag is set.
-  React.useEffect(() => {
-    if (required && selected === undefined) {
-      setSelected([new Date()]);
-    }
-  }, [required, selected, Date, mode]);
+  const { isSameDay } = dateLib;
 
   // Update the selected date if the selected value from props changes.
   React.useEffect(() => {

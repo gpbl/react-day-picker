@@ -16,7 +16,6 @@ export function useRange<T extends DayPickerProps>(
   dateLib: DateLib
 ): Selection<T> {
   const {
-    mode,
     disabled,
     excludeDisabled,
     selected: initiallySelected,
@@ -27,13 +26,6 @@ export function useRange<T extends DayPickerProps>(
   const [selected, setSelected] = React.useState<DateRange | undefined>(
     initiallySelected
   );
-
-  // Update the selected date if the required flag is set.
-  React.useEffect(() => {
-    if (required && selected === undefined) {
-      setSelected({ from: undefined, to: undefined });
-    }
-  }, [required, selected, mode]);
 
   // Update the selected date if the `selected` prop changes.
   React.useEffect(() => {

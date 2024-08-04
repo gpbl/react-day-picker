@@ -2,6 +2,8 @@ import React from "react";
 
 import { DayPicker } from "../DayPicker";
 
+import { DateRange } from "./shared";
+
 const Test = () => {
   return (
     <>
@@ -23,14 +25,19 @@ const Test = () => {
         required
         onSelect={(date: Date | undefined) => {}}
       />
-      {/* @ts-expect-error selected should not be undefined. */}
+      {/* Allow undefined as initial selected value */}
       <DayPicker mode="single" required selected={undefined} />
       <DayPicker
         mode="multiple"
-        required={true}
-        // @ts-expect-error Missing `selected`
+        required
         selected={undefined}
         onSelect={(selected: Date[], date: Date, modifiers) => {}}
+      />
+      <DayPicker
+        mode="range"
+        required
+        selected={undefined}
+        onSelect={(selected: DateRange, date: Date, modifiers) => {}}
       />
       <DayPicker
         mode="multiple"

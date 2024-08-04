@@ -76,12 +76,13 @@ By setting the `mode` prop to `"multiple"`, DayPicker allows selecting multiple 
 
 ### Multiple Mode Props
 
-| Prop Name  | Type                                            | Description                             |
-| ---------- | ----------------------------------------------- | --------------------------------------- |
-| `selected` | `Date[] \| undefined`                           | The selected dates.                     |
-| `onSelect` | `(selected, triggerDate, modifiers, e) => void` | Event callback when a date is selected. |
-| `min`      | `number`                                        | The minimum dates that can be selected. |
-| `max`      | `number`                                        | The maximum dates that can be selected. |
+| Prop Name  | Type                                     | Description                             |
+| ---------- | ---------------------------------------- | --------------------------------------- |
+| `selected` | `Date[] \| undefined`                    | The selected dates.                     |
+| `onSelect` | `(selected, date, modifiers, e) => void` | Event callback when a date is selected. |
+| `min`      | `number`                                 | The minimum dates that can be selected. |
+| `max`      | `number`                                 | The maximum dates that can be selected. |
+| `required` | `boolean`                                | Make the selection required.            |
 
 Use the `selected` and `onSelect` props to control the selected date:
 
@@ -109,7 +110,7 @@ Use the `min` and `max` props to limit the number of selectable dates.
 
 ### Required Selection
 
-By setting the `required` prop, DayPicker requires at least one date to be selected.
+By setting the `required` prop, DayPicker won't allow unselect the selected dates.
 
 ```tsx
 <DayPicker mode="multiple" required selected={[new Date()]} />
@@ -158,7 +159,7 @@ Similarly, you can se the `max` prop to set the maximum number of nights.
 
 ### Required Ranges
 
-By setting the `required` prop, a range must be selected. 
+By setting the `required` prop, DayPicker won't allow unselect the selected range.
 
 ```tsx
 <DayPicker mode="range" required />
