@@ -470,7 +470,7 @@ export interface PropsSingleRequired {
   mode: "single";
   required: true;
   /** The selected date. */
-  selected: Date;
+  selected: Date | undefined;
   /** Event handler when a day is selected. */
   onSelect?: (
     selected: Date,
@@ -506,7 +506,7 @@ export interface PropsMultiRequired {
   mode: "multiple";
   required: true;
   /** The selected dates. */
-  selected: Date[];
+  selected: Date[] | undefined;
   /** Event handler when days are selected. */
   onSelect?: (
     selected: Date[],
@@ -557,7 +557,7 @@ export interface PropsRangeRequired {
    */
   excludeDisabled?: boolean | undefined;
   /** The selected range. */
-  selected: DateRange;
+  selected: DateRange | undefined;
   /** Event handler when a range is selected. */
   onSelect?: (
     selected: DateRange,

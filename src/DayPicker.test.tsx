@@ -19,19 +19,19 @@ import { MonthsProps } from "./components/Months";
 const testId = "test";
 const dayPicker = () => screen.getByTestId(testId);
 
-test("should render a date picker component", () => {
+test("render a date picker component", () => {
   render(<DayPicker data-testid={testId} />);
   expect(dayPicker()).toBeInTheDocument();
 });
 
-it("should render the navigation and month grids", () => {
+test("render the navigation and month grids", () => {
   render(<DayPicker data-testid={testId} />);
 
   expect(nav()).toBeInTheDocument();
   expect(grid()).toBeInTheDocument();
 });
 
-it("should apply classnames and style according to props", () => {
+test("apply classnames and style according to props", () => {
   render(
     <DayPicker
       data-testid={testId}
@@ -47,7 +47,7 @@ it("should apply classnames and style according to props", () => {
   expect(dayPicker()).toHaveStyle({ color: "red" });
 });
 
-it("should use custom components", () => {
+test("use custom components", () => {
   render(
     <DayPicker
       data-testid={testId}
@@ -91,7 +91,7 @@ describe("when the grid is focused", () => {
   beforeAll(() => jest.setSystemTime(today));
   afterAll(() => jest.useRealTimers());
 
-  test("should focus the today's date", async () => {
+  test("focus the today's date", async () => {
     render(<DayPicker mode="single" today={today} />);
     await user.tab();
     await user.tab();
@@ -99,7 +99,7 @@ describe("when the grid is focused", () => {
     expect(activeElement()).toBe(dateButton(today));
   });
   describe("when the today’s date is disabled", () => {
-    test("should focus the first day of the month", async () => {
+    test("focus the first day of the month", async () => {
       render(<DayPicker mode="single" disabled={today} />);
       await user.tab();
       await user.tab();
@@ -126,8 +126,27 @@ describe("when a day is mouse entered", () => {
     fireEvent.mouseEnter(dateButton(today));
     fireEvent.mouseLeave(dateButton(today));
   });
-  test("should call the event handler", async () => {
+  test("call the event handler", async () => {
     expect(handleDayMouseEnter).toHaveBeenCalled();
     expect(handleDayMouseLeave).toHaveBeenCalled();
+  });
+});
+
+describe("when a day is clicked", () => {
+  const handleDayClick = jest.fn();
+  const today = startOfDay(new Date());
+  beforeEach(async () => {
+    render(
+      <DayPicker
+        today={today}
+        defaultMonth={today}
+        mode="single"
+        onDayClick={handleDayClick}
+      />
+    );
+    fireEvent.click(dateButton(today));
+  });
+  test("call the event handler", async () => {
+    expect(handleDayClick).toHaveBeenCalled();
   });
 });
