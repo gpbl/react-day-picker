@@ -1,4 +1,3 @@
-/* eslint-disable no-useless-escape */
 import React from "react";
 
 import { addMonths, startOfDay, startOfMonth } from "date-fns";
