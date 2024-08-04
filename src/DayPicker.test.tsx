@@ -1,6 +1,8 @@
+/* eslint-disable no-useless-escape */
 import React from "react";
 
 import { addMonths, startOfDay, startOfMonth } from "date-fns";
+import { defaultLocale } from "react-day-picker";
 
 import {
   activeElement,
@@ -157,4 +159,20 @@ describe("when the `startMonth` is changed programmatically", () => {
     rerender(<DayPicker startMonth={newStartMonth} mode="single" />);
     expect(grid(labelGrid(newStartMonth))).toBeInTheDocument();
   });
+});
+
+test("extends the default locale", () => {
+  render(
+    <DayPicker
+      month={new Date(2024, 0)}
+      locale={{
+        localize: {
+          ...defaultLocale.localize,
+          month: () => "bar"
+        }
+      }}
+    />
+  );
+  // Check if the custom month name is rendered
+  expect(grid("bar 2024")).toBeInTheDocument();
 });
