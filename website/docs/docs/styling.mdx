@@ -137,7 +137,7 @@ They are the value of the [`UI`](../api/enumerations/UI.md), [`DayFlag`](../api/
 For example, to change the class name of the calendar container:
 
 ```tsx
-<DayPicker classNames={{ calendar: "my-calendar" }} />
+<DayPicker classNames={{ root: "my-calendar" }} />
 ```
 
 Or the disabled days:
@@ -166,7 +166,7 @@ export function MyCalendar() {
       classNames={{
         today: `border-amber-500`, // Add a border to today's date
         selected: `bg-amber-500 border-amber-500 text-white`, // Highlight the selected day
-        calendar: `${defaultClassNames.calendar} shadow-lg p-5` // Add a shadow to the calendar
+        root: `${defaultClassNames.root} shadow-lg p-5`, // Add a shadow to the root element
         chevron: `${defaultClassNames.chevron} fill-amber-500` // Change the color of the chevron
       }}
     />
