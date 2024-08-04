@@ -37,8 +37,11 @@ export type DayPickerProps = PropsBase &
   );
 
 /**
- * Props used for customization of the calendar, localization, and event
- * handling.
+ * Props for customizing the calendar, handling localization, and managing
+ * events. These exclude the selection mode props.
+ *
+ * @group DayPicker
+ * @see https://daypicker.dev/api/interfaces/PropsBase
  */
 export interface PropsBase {
   /**
@@ -335,12 +338,17 @@ export interface PropsBase {
   /** Add the language tag to the container element. */
   lang?: HTMLDivElement["lang"];
   /**
-   * The date-fns locale object used to localize dates.
+   * The locale object used to localize dates. Pass a locale from `date-fns` to
+   * localize the calendar.
    *
-   * @defaultValue en-US
+   * @example
+   *   import { es } from "date-fns/locale";
+   *   <DayPicker locale={es} />
+   *
+   * @defaultValue enUS - The English locale default of `date-fns`.
    * @see https://daypicker.dev/docs/localization
    */
-  locale?: Locale | undefined;
+  locale?: Partial<Locale> | undefined;
   /**
    * The index of the first day of the week (0 - Sunday). Overrides the locale's
    * one.
