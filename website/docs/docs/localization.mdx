@@ -41,6 +41,27 @@ import { es } from "date-fns/locale";
   <Examples.Spanish />
 </BrowserWindow>
 
+:::tip Customizing the Locale
+
+You can customize the locale by passing an object with the desired translations. Use the `defaultLocale` object for the default translations.
+
+```tsx
+import { DayPicker, defaultLocale } from "react-day-picker";
+
+<DayPicker
+  locale={{
+    localize: {
+      ...defaultLocale.localize,
+      day: (day) => "custom-localized-day"
+    }
+  }}
+  month={new Date(2023, 0, 1)}
+  mode="single"
+/>;
+```
+
+:::
+
 ## First Date of the Week
 
 Use the `weekStartsOn` prop to specify the starting day of the week.

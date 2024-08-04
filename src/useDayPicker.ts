@@ -6,7 +6,7 @@ import type { DayPickerProps } from "./types/props.js";
 import type { SelectedValue, SelectHandler } from "./types/selection.js";
 import { Modifiers } from "./types/shared.js";
 
-// Create a context with a default value
+/** @private */
 export const dayPickerContext = createContext<
   DayPickerContext<DayPickerProps> | undefined
 >(undefined);
