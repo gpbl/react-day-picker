@@ -88,51 +88,29 @@ export function useCalendar(
   >,
   dateLib: DateLib
 ): Calendar {
-  const {
-    fromYear,
-    toYear,
-    startMonth,
-    endMonth,
-    today,
-    numberOfMonths,
-    month,
-    defaultMonth
-  } = props;
   const [navStart, navEnd] = getNavMonths(props, dateLib);
 
   const { startOfMonth, endOfMonth } = dateLib;
 
-  const initialDisplayMonth = getInitialMonth(props, dateLib);
+  const initialMonth = getInitialMonth(props, dateLib);
 
-  // The first month displayed in the calendar
-  const [firstMonth, setFirstMonth] = useState(initialDisplayMonth);
+  const [firstMonth, setFirstMonth] = useState(initialMonth);
 
+  // Update the displayed month if `month` changes
   useEffect(() => {
-    const initialDisplayMonth = getInitialMonth(
-      {
-        fromYear,
-        toYear,
-        startMonth,
-        endMonth,
-        month,
-        defaultMonth,
-        today,
-        numberOfMonths
-      },
-      dateLib
-    );
+    const initialDisplayMonth = getInitialMonth(props, dateLib);
     setFirstMonth(initialDisplayMonth);
-  }, [
-    dateLib,
-    defaultMonth,
-    endMonth,
-    fromYear,
-    month,
-    numberOfMonths,
-    startMonth,
-    toYear,
-    today
-  ]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.month]);
+
+  // Update the displayed month if start/end month changes
+  useEffect(() => {
+    // TOFIX: this effect should do nothing if the current firstMonth is between
+    // startMonth and endMonth
+    const initialDisplayMonth = getInitialMonth(props, dateLib);
+    setFirstMonth(initialDisplayMonth);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.startMonth, props.endMonth]);
 
   /** The months displayed in the calendar. */
   const displayMonths = getDisplayMonths(firstMonth, navEnd, props, dateLib);
