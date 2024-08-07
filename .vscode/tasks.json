@@ -1,0 +1,16 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "typescript",
+      "tsconfig": "tsconfig-esm.json",
+      "option": "watch",
+      "problemMatcher": ["$tsc-watch"],
+      "group": "build",
+      "label": "tsc: watch - tsconfig-esm.json",
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    }
+  ]
+}
