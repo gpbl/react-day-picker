@@ -92,15 +92,21 @@ export function useCalendar(
 
   const { startOfMonth, endOfMonth } = dateLib;
 
-  const initialDisplayMonth = getInitialMonth(props, dateLib);
+  const initialMonth = getInitialMonth(props, dateLib);
 
-  // The first month displayed in the calendar
-  const [firstMonth, setFirstMonth] = useState(initialDisplayMonth);
+  const [firstMonth, setFirstMonth] = useState(initialMonth);
 
-  // Update the displayed month if the start month and end month changes
+  // Update the displayed month if `month` changes
   useEffect(() => {
-    // TOFIX: this should actually happen only if the currently displayed month is not
-    // available in the range
+    const initialDisplayMonth = getInitialMonth(props, dateLib);
+    setFirstMonth(initialDisplayMonth);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.month]);
+
+  // Update the displayed month if start/end month changes
+  useEffect(() => {
+    // TOFIX: this effect should do nothing if the current firstMonth is between
+    // startMonth and endMonth
     const initialDisplayMonth = getInitialMonth(props, dateLib);
     setFirstMonth(initialDisplayMonth);
     // eslint-disable-next-line react-hooks/exhaustive-deps
