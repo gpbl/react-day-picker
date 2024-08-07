@@ -88,16 +88,6 @@ export function useCalendar(
   >,
   dateLib: DateLib
 ): Calendar {
-  const {
-    fromYear,
-    toYear,
-    startMonth,
-    endMonth,
-    today,
-    numberOfMonths,
-    month,
-    defaultMonth
-  } = props;
   const [navStart, navEnd] = getNavMonths(props, dateLib);
 
   const { startOfMonth, endOfMonth } = dateLib;
@@ -107,32 +97,14 @@ export function useCalendar(
   // The first month displayed in the calendar
   const [firstMonth, setFirstMonth] = useState(initialDisplayMonth);
 
+  // Update the displayed month if the start month and end month changes
   useEffect(() => {
-    const initialDisplayMonth = getInitialMonth(
-      {
-        fromYear,
-        toYear,
-        startMonth,
-        endMonth,
-        month,
-        defaultMonth,
-        today,
-        numberOfMonths
-      },
-      dateLib
-    );
+    // TOFIX: this should actually happen only if the currently displayed month is not
+    // available in the range
+    const initialDisplayMonth = getInitialMonth(props, dateLib);
     setFirstMonth(initialDisplayMonth);
-  }, [
-    dateLib,
-    defaultMonth,
-    endMonth,
-    fromYear,
-    month,
-    numberOfMonths,
-    startMonth,
-    toYear,
-    today
-  ]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.startMonth, props.endMonth]);
 
   /** The months displayed in the calendar. */
   const displayMonths = getDisplayMonths(firstMonth, navEnd, props, dateLib);
