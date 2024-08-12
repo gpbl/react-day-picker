@@ -38,3 +38,5 @@ export function Chevron(props: {
     </svg>
   );
 }
+
+export type ChevronProps = Parameters<typeof Chevron>[0];
