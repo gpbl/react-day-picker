@@ -182,8 +182,8 @@ importers:
         specifier: 3.4.0
         version: 3.4.0(@algolia/client-search@4.24.0)(@types/react@18.3.3)(eslint@8.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.14.0)(typescript@5.5.4)
       '@docusaurus/remark-plugin-npm2yarn':
-        specifier: ^3.4.0
-        version: 3.4.0
+        specifier: ^3.5.1
+        version: 3.5.1
       '@docusaurus/theme-common':
         specifier: ^3.4.0
         version: 3.4.0(@docusaurus/types@3.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(eslint@8.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.5.4)
@@ -1130,8 +1130,8 @@ packages:
     peerDependencies:
       react: '*'
 
-  '@docusaurus/remark-plugin-npm2yarn@3.4.0':
-    resolution: {integrity: sha512-MXcYAkKu6544h7J4vbKdeH+G5HZf6LF3qZORQqWzxOi2p82PTLRu0YM6ZgzfPjH5nZClgLBHypPbyO9qhkxPKw==}
+  '@docusaurus/remark-plugin-npm2yarn@3.5.1':
+    resolution: {integrity: sha512-oN/jHOe4mI+wMmaQABYPvQm03DhiFrzJY2YEtHQrrUJNpfievoajM2QS2NObA8lngQ8U3+lMn0ULcKmfY309gQ==}
     engines: {node: '>=18.0'}
 
   '@docusaurus/theme-classic@3.4.0':
@@ -8147,7 +8147,7 @@ snapshots:
       '@types/react': 18.3.3
       react: 18.3.1
 
-  '@docusaurus/remark-plugin-npm2yarn@3.4.0':
+  '@docusaurus/remark-plugin-npm2yarn@3.5.1':
     dependencies:
       mdast-util-mdx: 3.0.0
       npm-to-yarn: 2.2.1
