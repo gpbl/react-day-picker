@@ -16,10 +16,10 @@
   },
   "dependencies": {
     "@date-fns/utc": "^1.2.0",
-    "@docusaurus/core": "3.4.0",
+    "@docusaurus/core": "3.5.2",
     "@docusaurus/preset-classic": "3.4.0",
-    "@docusaurus/remark-plugin-npm2yarn": "^3.4.0",
-    "@docusaurus/theme-common": "^3.4.0",
+    "@docusaurus/remark-plugin-npm2yarn": "^3.5.2",
+    "@docusaurus/theme-common": "^3.5.2",
     "@mdx-js/react": "^3.0.1",
     "clsx": "^2.1.1",
     "date-fns-jalali": "3.6.0-1",
@@ -31,14 +31,14 @@
     "remark-github": "^12.0.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.4.0",
-    "@docusaurus/tsconfig": "3.4.0",
-    "@docusaurus/types": "3.4.0",
-    "docusaurus-plugin-typedoc": "^1.0.4",
+    "@docusaurus/module-type-aliases": "3.5.2",
+    "@docusaurus/tsconfig": "3.5.2",
+    "@docusaurus/types": "3.5.2",
+    "docusaurus-plugin-typedoc": "^1.0.5",
     "identity-obj-proxy": "^3.0.0",
     "typedoc": "^0.26.5",
     "typedoc-plugin-frontmatter": "^1.0.0",
-    "typedoc-plugin-markdown": "^4.2.3",
+    "typedoc-plugin-markdown": "^4.2.5",
     "typescript": "~5.5.4"
   },
   "browserslist": {
