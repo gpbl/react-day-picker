@@ -25,7 +25,7 @@ These examples showcase different approaches for integrating DayPicker with inpu
 
 This example demonstrates how to integrate an input field with an inline DayPicker calendar. The input field allows users to type a date, and the calendar updates the selected date based on the input value.
 
-See also the [full source code](https://github.com/gpbl/react-day-picker/blob/main/website/examples/Input.tsx) and [the unit tests](https://github.com/gpbl/react-day-picker/blob/main/website/examples/Input.test.tsx) for this example.
+See also the [full source code](https://github.com/gpbl/react-day-picker/blob/main/examples/Input.tsx) and [the unit tests](https://github.com/gpbl/react-day-picker/blob/main/examples/Input.test.tsx) for this example.
 
 <BrowserWindow>
   <ExamplesV8.Input />
@@ -201,7 +201,8 @@ export function Dialog() {
         value={inputValue}
         placeholder={"MM/dd/yyyy"}
         onChange={handleInputChange}
-      /> <button
+      />{" "}
+      <button
         style={{ fontSize: "inherit" }}
         onClick={toggleDialog}
         aria-controls="dialog"
