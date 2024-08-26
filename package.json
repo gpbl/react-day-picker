@@ -150,7 +150,7 @@
     "date-fns-jalali": "3.6.0-1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-import-resolver-typescript": "^3.6.3",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jest": "^28.8.0",
     "eslint-plugin-prettier": "^5.2.1",
