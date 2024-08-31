@@ -57,7 +57,11 @@ export function isDayOfWeekType(value: unknown): value is DayOfWeek {
   return Boolean(value && typeof value === "object" && "dayOfWeek" in value);
 }
 
-/** Returns true if `value` is an array of valid dates. */
+/**
+ * Returns true if `value` is an array of valid dates.
+ *
+ * @private
+ */
 export function isDatesArray(
   value: unknown,
   dateLib: DateLib
