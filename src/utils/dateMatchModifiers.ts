@@ -1,3 +1,4 @@
+import { dateLib as defaultDateLib } from "../lib/dateLib.js";
 import type { DateLib, Matcher } from "../types/index.js";
 
 import { rangeIncludesDate } from "./rangeIncludesDate.js";
@@ -15,7 +16,7 @@ import {
  * {@link Matcher}.
  *
  * ```tsx
- * const day = new Date(2022, 5, 19);
+ * const date = new Date(2022, 5, 19);
  * const matcher1: DateRange = {
  *  from: new Date(2021, 12, 21),
  *  to: new Date(2021, 12, 30)
@@ -24,7 +25,7 @@ import {
  *  from: new Date(2022, 5, 1),
  *  to: new Date(2022, 5, 23)
  * }
- * const isMatch(day, [matcher1, matcher2]); // true, since day is in the matcher1 range.
+ * const dateMatchModifiers(date, [matcher1, matcher2]); // true, since day is in the matcher1 range.
  * ```
  *
  * @group Utilities
@@ -32,7 +33,7 @@ import {
 export function dateMatchModifiers(
   date: Date,
   matchers: Matcher | Matcher[],
-  dateLib: DateLib
+  dateLib: DateLib = defaultDateLib
 ): boolean {
   const matchersArr = !Array.isArray(matchers) ? [matchers] : matchers;
   const { isSameDay, differenceInCalendarDays, isAfter } = dateLib;
@@ -79,3 +80,9 @@ export function dateMatchModifiers(
     return false;
   });
 }
+
+/**
+ * @private
+ * @deprecated Use {@link dateMatchModifiers} instead.
+ */
+export const isMatch = dateMatchModifiers;
