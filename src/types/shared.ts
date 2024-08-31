@@ -10,6 +10,7 @@ import {
   formatMonthDropdown,
   formatWeekdayName,
   formatWeekNumber,
+  formatWeekNumberHeader,
   formatYearCaption,
   formatYearDropdown
 } from "../formatters/index.js";
@@ -98,20 +99,22 @@ export type DateLib = typeof dateLib;
 export type Formatters = {
   /** Format the caption of a month grid. */
   formatCaption: typeof formatCaption;
-  /** @deprecated Use {@link Formatters.formatCaption} instead. */
-  formatMonthCaption: typeof formatMonthCaption;
-  /** Format the label in the month dropdown. */
-  formatMonthDropdown: typeof formatMonthDropdown;
-  /** @deprecated Use {@link Formatters.formatYearDropdown} instead. */
-  formatYearCaption: typeof formatYearCaption;
-  /** Format the label in the year dropdown. */
-  formatYearDropdown: typeof formatYearDropdown;
   /** Format the day in the day cell. */
   formatDay: typeof formatDay;
+  /** Format the label in the month dropdown. */
+  formatMonthDropdown: typeof formatMonthDropdown;
+  /** @deprecated Use {@link Formatters.formatCaption} instead. */
+  formatMonthCaption: typeof formatMonthCaption;
   /** Format the week number. */
   formatWeekNumber: typeof formatWeekNumber;
+  /** Format the header of the week number column. */
+  formatWeekNumberHeader: typeof formatWeekNumberHeader;
   /** Format the week day name in the header. */
   formatWeekdayName: typeof formatWeekdayName;
+  /** Format the label in the year dropdown. */
+  formatYearDropdown: typeof formatYearDropdown;
+  /** @deprecated Use {@link Formatters.formatYearDropdown} instead. */
+  formatYearCaption: typeof formatYearCaption;
 };
 
 /** Map of functions to translate ARIA labels for the relative elements. */
