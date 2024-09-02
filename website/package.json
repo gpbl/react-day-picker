@@ -23,7 +23,7 @@
     "@mdx-js/react": "^3.0.1",
     "clsx": "^2.1.1",
     "date-fns-jalali": "3.6.0-1",
-    "prism-react-renderer": "^2.3.1",
+    "prism-react-renderer": "^2.4.0",
     "react": "^18.3.1",
     "react-day-picker": "workspace:^",
     "react-day-picker-v8": "npm:react-day-picker@8.10.1",
