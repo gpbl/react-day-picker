@@ -17,7 +17,7 @@ export function useGetModifiers(
 
   const { isSameDay, isSameMonth, Date } = dateLib;
 
-  const internal: Record<DayFlag, CalendarDay[]> = {
+  const internalModifiersMap: Record<DayFlag, CalendarDay[]> = {
     [DayFlag.focused]: [],
     [DayFlag.outside]: [],
     [DayFlag.disabled]: [],
@@ -25,9 +25,9 @@ export function useGetModifiers(
     [DayFlag.today]: []
   };
 
-  const custom: Record<string, CalendarDay[]> = {};
+  const customModifiersMap: Record<string, CalendarDay[]> = {};
 
-  const selection: Record<SelectionState, CalendarDay[]> = {
+  const selectionModifiersMap: Record<SelectionState, CalendarDay[]> = {
     [SelectionState.range_end]: [],
     [SelectionState.range_middle]: [],
     [SelectionState.range_start]: [],
@@ -49,10 +49,10 @@ export function useGetModifiers(
 
     const isToday = isSameDay(date, today ?? new Date());
 
-    if (isOutside) internal.outside.push(day);
-    if (isDisabled) internal.disabled.push(day);
-    if (isHidden) internal.hidden.push(day);
-    if (isToday) internal.today.push(day);
+    if (isOutside) internalModifiersMap.outside.push(day);
+    if (isDisabled) internalModifiersMap.disabled.push(day);
+    if (isHidden) internalModifiersMap.hidden.push(day);
+    if (isToday) internalModifiersMap.today.push(day);
 
     // Add custom modifiers
     if (modifiers) {
@@ -62,10 +62,10 @@ export function useGetModifiers(
           ? dateMatchModifiers(date, modifierValue, dateLib)
           : false;
         if (!isMatch) return;
-        if (custom[name]) {
-          custom[name].push(day);
+        if (customModifiersMap[name]) {
+          customModifiersMap[name].push(day);
         } else {
-          custom[name] = [day];
+          customModifiersMap[name] = [day];
         }
       });
     }
@@ -89,16 +89,16 @@ export function useGetModifiers(
     const customModifiers: Modifiers = {};
 
     // Find the modifiers for the given day
-    for (const name in internal) {
-      const days = internal[name as DayFlag];
+    for (const name in internalModifiersMap) {
+      const days = internalModifiersMap[name as DayFlag];
       dayFlags[name as DayFlag] = days.some((d) => d === day);
     }
-    for (const name in selection) {
-      const days = selection[name as SelectionState];
+    for (const name in selectionModifiersMap) {
+      const days = selectionModifiersMap[name as SelectionState];
       selectionStates[name as SelectionState] = days.some((d) => d === day);
     }
-    for (const name in custom) {
-      customModifiers[name] = custom[name].some((d) => d === day);
+    for (const name in customModifiersMap) {
+      customModifiers[name] = customModifiersMap[name].some((d) => d === day);
     }
 
     return {
