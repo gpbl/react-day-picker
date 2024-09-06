@@ -4,7 +4,14 @@ import { CalendarDay } from "./classes/CalendarDay.js";
 import { CalendarMonth } from "./classes/CalendarMonth.js";
 import type { DayPickerProps } from "./types/props.js";
 import type { SelectedValue, SelectHandler } from "./types/selection.js";
-import { Modifiers } from "./types/shared.js";
+import {
+  ClassNames,
+  CustomComponents,
+  Formatters,
+  Labels,
+  Modifiers,
+  Styles
+} from "./types/shared.js";
 
 /** @private */
 export const dayPickerContext = createContext<
@@ -28,6 +35,16 @@ export type DayPickerContext<T extends DayPickerProps> = {
   select: SelectHandler<T> | undefined;
   /** Whether the given date is selected. */
   isSelected: ((date: Date) => boolean) | undefined;
+  /** The components used internally by DayP. */
+  components: CustomComponents;
+  /** The class names for the UI elements. */
+  classNames: ClassNames;
+  /** The styles for the UI elements. */
+  styles: Partial<Styles> | undefined;
+  /** The labels used in the UI. */
+  labels: Labels;
+  /** The formatters used to format the UI elements. */
+  formatters: Formatters;
 };
 
 /**

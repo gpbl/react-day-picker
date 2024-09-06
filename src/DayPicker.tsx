@@ -248,7 +248,12 @@ export function DayPicker(props: DayPickerProps) {
     nextMonth,
     previousMonth,
     goToMonth,
-    getModifiers
+    getModifiers,
+    components,
+    classNames,
+    styles,
+    labels,
+    formatters
   };
 
   return (
