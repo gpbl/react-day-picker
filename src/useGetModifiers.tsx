@@ -32,7 +32,7 @@ export function useGetModifiers(
     [SelectionState.selected]: []
   };
 
-  const customModifiers: Record<string, CalendarDay[]> = {};
+  const customModifiersMap: Record<string, CalendarDay[]> = {};
 
   for (const day of days) {
     const { date, displayMonth } = day;
@@ -62,8 +62,8 @@ export function useGetModifiers(
           ? dateMatchModifiers(date, modifierValue, dateLib)
           : false;
         if (!isMatch) return;
-        if (customModifiers[name]) customModifiers[name].push(day);
-        else customModifiers[name] = [day];
+        if (customModifiersMap[name]) customModifiersMap[name].push(day);
+        else customModifiersMap[name] = [day];
       });
     }
   }
@@ -95,7 +95,7 @@ export function useGetModifiers(
       selectionStates[name as SelectionState] = days.some((d) => d === day);
     }
     for (const name in customModifiers) {
-      customModifiers[name] = customModifiers[name].some((d) => d === day);
+      customModifiers[name] = customModifiersMap[name].some((d) => d === day);
     }
 
     return {
