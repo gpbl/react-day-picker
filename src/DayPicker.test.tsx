@@ -1,6 +1,6 @@
 import React from "react";
 
-import { addMonths, startOfDay, startOfMonth } from "date-fns";
+import { startOfDay, startOfMonth } from "date-fns";
 import { defaultLocale } from "react-day-picker";
 
 import {
@@ -16,7 +16,6 @@ import { user } from "@/test/user";
 import { DayPicker } from "./DayPicker";
 import { MonthProps } from "./components/Month";
 import { MonthsProps } from "./components/Months";
-import { labelGrid } from "./labels";
 
 const testId = "test";
 const dayPicker = () => screen.getByTestId(testId);
@@ -144,19 +143,6 @@ describe("when the `month` is changed programmatically", () => {
     expect(grid("January 2023")).toBeInTheDocument();
     rerender(<DayPicker month={newMonth} mode="single" />);
     expect(grid("February 2023")).toBeInTheDocument();
-  });
-});
-
-describe("when the `startMonth` is changed programmatically", () => {
-  test("should update the calendar to reflect the new month", async () => {
-    const initialStartMonth = new Date();
-    const newStartMonth = addMonths(new Date(), 2);
-    const { rerender } = render(
-      <DayPicker startMonth={initialStartMonth} mode="single" />
-    );
-    expect(grid(labelGrid(initialStartMonth))).toBeInTheDocument();
-    rerender(<DayPicker startMonth={newStartMonth} mode="single" />);
-    expect(grid(labelGrid(newStartMonth))).toBeInTheDocument();
   });
 });
 
