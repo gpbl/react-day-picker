@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 import type {
   CalendarWeek,
   CalendarDay,
@@ -14,6 +12,7 @@ import { getNavMonths } from "./helpers/getNavMonth.js";
 import { getNextMonth } from "./helpers/getNextMonth.js";
 import { getPreviousMonth } from "./helpers/getPreviousMonth.js";
 import { getWeeks } from "./helpers/getWeeks.js";
+import { useControlledValue } from "./helpers/useControlledValue.js";
 import type { DayPickerProps } from "./types/props.js";
 import type { DateLib } from "./types/shared.js";
 
@@ -94,23 +93,10 @@ export function useCalendar(
 
   const initialMonth = getInitialMonth(props, dateLib);
 
-  const [firstMonth, setFirstMonth] = useState(initialMonth);
-
-  // Update the displayed month if `month` changes
-  useEffect(() => {
-    const initialDisplayMonth = getInitialMonth(props, dateLib);
-    setFirstMonth(initialDisplayMonth);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.month]);
-
-  // Update the displayed month if start/end month changes
-  useEffect(() => {
-    // TOFIX: this effect should do nothing if the current firstMonth is between
-    // startMonth and endMonth
-    const initialDisplayMonth = getInitialMonth(props, dateLib);
-    setFirstMonth(initialDisplayMonth);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.startMonth, props.endMonth]);
+  const [firstMonth, setFirstMonth] = useControlledValue(
+    initialMonth,
+    props.month ? startOfMonth(props.month) : undefined
+  );
 
   /** The months displayed in the calendar. */
   const displayMonths = getDisplayMonths(firstMonth, navEnd, props, dateLib);
