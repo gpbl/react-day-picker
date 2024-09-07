@@ -17,7 +17,7 @@ beforeEach(async () => {
   render(<TestCase2389 />);
 });
 
-describe("after moving to the next month", () => {
+describe("when moving to the next month", () => {
   beforeEach(async () => {
     await user.click(nextButton());
   });
@@ -25,13 +25,17 @@ describe("after moving to the next month", () => {
     const nextMonth = new Date(2024, 9, 1);
     expect(grid(labelGrid(nextMonth))).toBeVisible();
   });
-  describe("when clicking a day cell", () => {
+  describe("when clicking a day button", () => {
     const day = new Date(2024, 9, 10);
     beforeEach(async () => {
       await user.click(dateButton(day));
     });
     test("should select the day", async () => {
       expect(gridcell(day, true)).toHaveAttribute("aria-selected", "true");
+    });
+    test("should still display the next month", () => {
+      const nextMonth = new Date(2024, 9, 1);
+      expect(grid(labelGrid(nextMonth))).toBeVisible();
     });
   });
 });
