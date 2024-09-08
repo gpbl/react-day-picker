@@ -284,7 +284,7 @@ export function DayPicker(props: DayPickerProps) {
                 className={classNames[UI.ButtonPrevious]}
                 tabIndex={previousMonth ? undefined : -1}
                 disabled={previousMonth ? undefined : true}
-                aria-label={labelPrevious(previousMonth, labelOptions)}
+                aria-label={labelPrevious(previousMonth)}
                 onClick={handlePreviousClick}
               >
                 <components.Chevron
@@ -298,7 +298,7 @@ export function DayPicker(props: DayPickerProps) {
                 className={classNames[UI.ButtonNext]}
                 tabIndex={nextMonth ? undefined : -1}
                 disabled={nextMonth ? undefined : true}
-                aria-label={labelNext(nextMonth, labelOptions)}
+                aria-label={labelNext(nextMonth)}
                 onClick={handleNextClick}
               >
                 <components.Chevron

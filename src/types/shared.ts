@@ -133,7 +133,7 @@ export type Labels = {
   labelNext: typeof labelNext;
   /** The label for the "previous month" button. */
   labelPrevious: typeof labelPrevious;
-  /** The label for the day button.. */
+  /** The label for the day button. */
   labelDayButton: typeof labelDayButton;
   /** @deprecated Use {@link labelDayButton} instead. */
   labelDay: typeof labelDayButton;
