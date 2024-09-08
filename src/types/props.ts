@@ -45,7 +45,7 @@ export type DayPickerProps = PropsBase &
  */
 export interface PropsBase {
   /**
-   * Enable the selection of single day, multiple days or a range of days.
+   * Enable the selection of a single day, multiple days, or a range of days.
    *
    * @see https://daypicker.dev/docs/selection-modes
    */
@@ -57,13 +57,14 @@ export interface PropsBase {
    */
   required?: boolean | undefined;
 
-  /** Class name to add to the root element */
+  /** Class name to add to the root element. */
   className?: string;
   /**
    * Change the class names used by DayPicker.
    *
-   * Use this prop when you need to change the default class names — for example
-   * when importing the style via CSS modules or when using a CSS framework.
+   * Use this prop when you need to change the default class names — for
+   * example, when importing the style via CSS modules or when using a CSS
+   * framework.
    *
    * @see https://daypicker.dev/docs/styling
    */
@@ -172,7 +173,7 @@ export interface PropsBase {
   toYear?: number;
 
   /**
-   * Paginate the month navigation displaying the `numberOfMonths` at time.
+   * Paginate the month navigation displaying the `numberOfMonths` at a time.
    *
    * @see https://daypicker.dev/docs/customization#multiplemonths
    */
@@ -209,14 +210,13 @@ export interface PropsBase {
    * - `year`: display only the dropdown for the years
    *
    * **Note:** showing the dropdown will set the start/end months
-   * {@link fromYear} to the 100 years ago, and {@link toYear} to the current
-   * year.
+   * {@link fromYear} to 100 years ago, and {@link toYear} to the current year.
    *
    * @see https://daypicker.dev/docs/customization#caption-layouts
    */
   captionLayout?: "label" | "dropdown" | "dropdown-months" | "dropdown-years";
   /**
-   * Display always 6 weeks per each month, regardless the month’s number of
+   * Display always 6 weeks per each month, regardless of the month’s number of
    * weeks. Weeks will be filled with the days from the next month.
    *
    * @see https://daypicker.dev/docs/customization#fixed-weeks
@@ -263,7 +263,7 @@ export interface PropsBase {
    */
   components?: Partial<CustomComponents>;
   /**
-   * Add a footer to the calendar, acting as live region.
+   * Add a footer to the calendar, acting as a live region.
    *
    * Use this prop to communicate the calendar's status to screen readers.
    * Prefer strings over complex UI elements.
@@ -273,9 +273,9 @@ export interface PropsBase {
   footer?: React.ReactNode | string;
   /**
    * When a selection mode is set, DayPicker will focus the first selected day
-   * (if set) or the today's date (if not disabled).
+   * (if set) or today's date (if not disabled).
    *
-   * Use this prop when you need to focus DayPicker after a user actions, for
+   * Use this prop when you need to focus DayPicker after a user action, for
    * improved accessibility.
    *
    * @see https://daypicker.dev/docs/accessibility#autofocus
@@ -397,7 +397,7 @@ export interface PropsBase {
    */
   onPrevClick?: MonthChangeEventHandler;
   /**
-   * Event handler when a week number is clicked
+   * Event handler when a week number is clicked.
    *
    * @private
    * @deprecated Use a custom `WeekNumber` component instead.
@@ -469,6 +469,7 @@ export interface PropsBase {
    */
   onDayTouchStart?: DayEventHandler<React.TouchEvent>;
 }
+
 /**
  * The props when the single selection is required.
  *
@@ -487,6 +488,7 @@ export interface PropsSingleRequired {
     e: React.MouseEvent | React.KeyboardEvent
   ) => void | undefined;
 }
+
 /**
  * The props when the single selection is optional.
  *
@@ -505,6 +507,7 @@ export interface PropsSingle {
     e: React.MouseEvent | React.KeyboardEvent
   ) => void;
 }
+
 /**
  * The props when the multiple selection is required.
  *
@@ -527,6 +530,7 @@ export interface PropsMultiRequired {
   /** The maximum number of selectable days. */
   max?: number;
 }
+
 /**
  * The props when the multiple selection is optional.
  *
