@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-types */
 import type { CSSProperties } from "react";
 
 import { UI, DayFlag, SelectionState } from "../UI.js";
