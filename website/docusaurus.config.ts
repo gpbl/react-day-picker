@@ -1,7 +1,9 @@
 import type * as Preset from "@docusaurus/preset-classic";
+import remarkPluginNpm2yarn from "@docusaurus/remark-plugin-npm2yarn";
 import type { Config } from "@docusaurus/types";
 import { themes as prismThemes } from "prism-react-renderer";
 import pkg from "react-day-picker/package.json";
+import remarkGithub from "remark-github";
 
 const config: Config = {
   title: "React DayPicker",
@@ -32,8 +34,11 @@ const config: Config = {
           sidebarPath: "./sidebars.ts",
           editUrl: "https://github.com/gpbl/react-day-picker/tree/main/website",
           remarkPlugins: [
-            require("@docusaurus/remark-plugin-npm2yarn"),
-            [require("remark-github"), { repository: "gpbl/react-day-picker" }]
+            [
+              remarkPluginNpm2yarn(remarkGithub, {
+                repository: "gpbl/react-day-picker"
+              })
+            ]
           ],
           lastVersion: "current",
           versions: {
