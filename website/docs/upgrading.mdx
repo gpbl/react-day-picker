@@ -106,8 +106,8 @@ See the following list of updated class names. The [`DeprecatedUI`](./api/type-a
 
 In case you are using `fromDate` or `toDate`, replace them with the `hidden` and `startMonth`, `endMonth` prop.
 
-| Removed prop | Notes                                                                                                        |
-| ------------ | ------------------------------------------------------------------------------------------------------------ |
+| Removed prop | Notes                                                                                                         |
+| ------------ | ------------------------------------------------------------------------------------------------------------- |
 | ~`fromDate`~ | Replace it with `startMonth` and the `hidden` prop and the `before` [Matcher](./api/type-aliases/Matcher.md). |
 | ~`toDate`~   | Replace it with `endMonth` the `hidden` prop and the `after` [Matcher](./api/type-aliases/Matcher.md).        |
 
@@ -208,17 +208,17 @@ In case you are using the `components` prop, you may need to update your code, a
 <details>
   <summary>**List of Updated Components**</summary>
 
-| Components     | Changes                                                                                 |
-| -------------- | --------------------------------------------------------------------------------------- |
-| `Caption`      | Renamed to [`MonthCaption`](./api/functions/MonthCaption.md).                           |
-| `Day`          | Now it renders a [`DayButton`](./api/functions/DayButton.md).                           |
-| `DayContent`   | Removed. Change its content with [`labelDayButton`](./api/functions/labelDayButton.md). |
-| `Head`         | Removed.                                                                                |
-| `HeadRow`      | Renamed to [`Weekdays`](./api/functions/Weekdays.md).                                   |
-| `IconDropdown` | Removed. The icon is rendered by [`Chevron`](./api/functions/Chevron.md).               |
-| `IconLeft`     | Removed. The icon is rendered by [`Chevron`](./api/functions/Chevron.md).               |
-| `IconRight`    | Removed. The icon is rendered by [`Chevron`](./api/functions/Chevron.md).               |
-| `Row`          | Renamed to [`Week`](./api/functions/Week.md).                                           |
+| Components     | Changes                                                                       |
+| -------------- | ----------------------------------------------------------------------------- |
+| `Caption`      | Renamed to [`MonthCaption`](./api/functions/MonthCaption.md).                 |
+| `Day`          | Now it renders a [`DayButton`](./api/functions/DayButton.md).                 |
+| `DayContent`   | Removed. Change its content with [`formatDay`](./api/functions/formatDay.md). |
+| `Head`         | Removed.                                                                      |
+| `HeadRow`      | Renamed to [`Weekdays`](./api/functions/Weekdays.md).                         |
+| `IconDropdown` | Removed. The icon is rendered by [`Chevron`](./api/functions/Chevron.md).     |
+| `IconLeft`     | Removed. The icon is rendered by [`Chevron`](./api/functions/Chevron.md).     |
+| `IconRight`    | Removed. The icon is rendered by [`Chevron`](./api/functions/Chevron.md).     |
+| `Row`          | Renamed to [`Week`](./api/functions/Week.md).                                 |
 
 </details>
 
