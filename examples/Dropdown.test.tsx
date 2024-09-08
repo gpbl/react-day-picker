@@ -35,7 +35,7 @@ describe("when choosing a month", () => {
     await user.selectOptions(monthDropdown(), monthName);
   });
   test("should display the month", () => {
-    expect(grid()).toHaveAccessibleName(`${monthName} 2015`);
+    expect(grid()).toHaveAccessibleName(`${monthName} 2024`);
   });
   test("should disable the years out of range", () => {
     expect(
@@ -45,7 +45,7 @@ describe("when choosing a month", () => {
 });
 
 describe("when choosing a year", () => {
-  const year = "2021";
+  const year = "2025";
   beforeEach(async () => {
     await user.selectOptions(yearDropdown(), year);
   });
@@ -60,6 +60,6 @@ describe("when choosing a disabled month", () => {
     await user.selectOptions(monthDropdown(), monthName);
   });
   test("should display the first available month", () => {
-    expect(grid()).toHaveAccessibleName(`July 2015`);
+    expect(grid()).toHaveAccessibleName(`July 2024`);
   });
 });

@@ -33,12 +33,13 @@ Use the `captionLayout` prop to choose the layout of the month caption:
 
 ### Caption Dropdown
 
-To enable a navigation dropdown, assign `captionLayout="dropdown"`. Use `from*` and `to*` properties to define the [the start and end dates](./navigation.mdx#start-and-end-dates).
+To enable a navigation dropdown, assign `captionLayout="dropdown"`. Use `startMonth` and `endMonth` properties to set the [the start/end dates](./navigation.mdx#start-and-end-dates).
 
 ```tsx
 <DayPicker
   captionLayout="dropdown"
-  startMonth={new Date(2015, 6)}
+  defaultMonth={new Date(2024, 6)}
+  startMonth={new Date(2024, 6)}
   endMonth={new Date(2025, 9)}
 />
 ```
