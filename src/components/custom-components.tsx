@@ -1,4 +1,6 @@
 export * from "./Button.js";
+export * from "./PreviousMonthButton.js";
+export * from "./NextMonthButton.js";
 export * from "./Chevron.js";
 export * from "./CaptionLabel.js";
 export * from "./Day.js";

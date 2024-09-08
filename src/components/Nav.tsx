@@ -33,7 +33,7 @@ export function Nav(
 
   return (
     <nav {...navProps}>
-      <components.Button
+      <components.PreviousMonthButton
         type="button"
         className={classNames[UI.PreviousMonthButton]}
         tabIndex={previousMonth ? undefined : -1}
@@ -46,8 +46,8 @@ export function Nav(
           className={classNames[UI.Chevron]}
           orientation="left"
         />
-      </components.Button>
-      <components.Button
+      </components.PreviousMonthButton>
+      <components.NextMonthButton
         type="button"
         className={classNames[UI.NextMonthButton]}
         tabIndex={nextMonth ? undefined : -1}
@@ -60,7 +60,7 @@ export function Nav(
           orientation="right"
           className={classNames[UI.Chevron]}
         />
-      </components.Button>
+      </components.NextMonthButton>
     </nav>
   );
 }

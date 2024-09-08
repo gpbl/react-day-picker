@@ -78,6 +78,10 @@ export type CustomComponents = {
   Nav: typeof components.Nav;
   /** Render the `<option>` HTML element in the dropdown. */
   Option: typeof components.Option;
+  /** Render the previous month button element in the navigation. */
+  PreviousMonthButton: typeof components.PreviousMonthButton;
+  /** Render the next month button element in the navigation. */
+  NextMonthButton: typeof components.NextMonthButton;
   /** Render the root element of the calendar. */
   Root: typeof components.Root;
   /** Render the select element in the dropdowns. */
