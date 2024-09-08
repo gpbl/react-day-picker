@@ -137,8 +137,6 @@ export function DayPicker(props: DayPickerProps) {
     labelGrid,
     labelMonthDropdown,
     labelNav,
-    labelNext,
-    labelPrevious,
     labelWeekday,
     labelWeekNumber,
     labelWeekNumberHeader,
@@ -278,36 +276,11 @@ export function DayPicker(props: DayPickerProps) {
               className={classNames[UI.Nav]}
               style={styles?.[UI.Nav]}
               aria-label={labelNav()}
-            >
-              <components.Button
-                type="button"
-                className={classNames[UI.ButtonPrevious]}
-                tabIndex={previousMonth ? undefined : -1}
-                disabled={previousMonth ? undefined : true}
-                aria-label={labelPrevious(previousMonth)}
-                onClick={handlePreviousClick}
-              >
-                <components.Chevron
-                  disabled={previousMonth ? undefined : true}
-                  className={classNames[UI.Chevron]}
-                  orientation="left"
-                />
-              </components.Button>
-              <components.Button
-                type="button"
-                className={classNames[UI.ButtonNext]}
-                tabIndex={nextMonth ? undefined : -1}
-                disabled={nextMonth ? undefined : true}
-                aria-label={labelNext(nextMonth)}
-                onClick={handleNextClick}
-              >
-                <components.Chevron
-                  disabled={previousMonth ? undefined : true}
-                  orientation="right"
-                  className={classNames[UI.Chevron]}
-                />
-              </components.Button>
-            </components.Nav>
+              onPreviousClick={handlePreviousClick}
+              onNextClick={handleNextClick}
+              previousMonth={previousMonth}
+              nextMonth={nextMonth}
+            />
           )}
           {months.map((calendarMonth, displayIndex) => {
             const handleMonthChange: ChangeEventHandler<HTMLSelectElement> = (
