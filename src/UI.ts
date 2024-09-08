@@ -10,10 +10,6 @@ import type { CustomComponents, ClassNames, Styles } from "./types/index.js";
  * Some of these elements are extended by flags and modifiers.
  */
 export enum UI {
-  /** The previous button in the navigation. */
-  ButtonPrevious = "button_previous",
-  /** The next button the navigation. */
-  ButtonNext = "button_next",
   /** The root component displaying the months and the navigation bar. */
   Root = "root",
   /** The Chevron SVG element used by navigation buttons and dropdowns. */
@@ -47,6 +43,18 @@ export enum UI {
   Months = "months",
   /** The navigation bar with the previous and next buttons. */
   Nav = "nav",
+  /**
+   * The next month button in the navigation. *
+   *
+   * @since 9.1.0
+   */
+  NextMonthButton = "button_next",
+  /**
+   * The previous month button in the navigation.
+   *
+   * @since 9.1.0
+   */
+  PreviousMonthButton = "button_previous",
   /** The row containing the week. */
   Week = "week",
   /** The group of row weeks in a month (`tbody`). */
@@ -118,14 +126,14 @@ export enum SelectionState {
 export type DeprecatedUI<T extends CSSProperties | string> = {
   /**
    * This element was applied to the style of any button in DayPicker and it is
-   * replaced by {@link UI.ButtonPrevious} and {@link UI.ButtonNext}.
+   * replaced by {@link UI.PreviousMonthButton} and {@link UI.NextMonthButton}.
    *
    * @deprecated
    */
   button: T;
   /**
    * This element was resetting the style of any button in DayPicker and it is
-   * replaced by {@link UI.ButtonPrevious} and {@link UI.ButtonNext}.
+   * replaced by {@link UI.PreviousMonthButton} and {@link UI.NextMonthButton}.
    *
    * @deprecated
    */
@@ -262,26 +270,26 @@ export type DeprecatedUI<T extends CSSProperties | string> = {
   multiple_months: T;
   /**
    * This element has been removed. To style the navigation buttons, use
-   * {@link UI.ButtonPrevious} and {@link UI.ButtonNext}.
+   * {@link UI.PreviousMonthButton} and {@link UI.NextMonthButton}.
    *
    * @deprecated
    */
   nav_button: T;
   /**
-   * This element has been renamed to {@link UI.ButtonNext}.
+   * This element has been renamed to {@link UI.NextMonthButton}.
    *
    * @deprecated
    */
   nav_button_next: T;
   /**
-   * This element has been renamed to {@link UI.ButtonPrevious}.
+   * This element has been renamed to {@link UI.PreviousMonthButton}.
    *
    * @deprecated
    */
   nav_button_previous: T;
   /**
    * This element has been removed. The dropdown icon is now {@link UI.Chevron}
-   * inside a {@link UI.ButtonNext} or a {@link UI.ButtonPrevious}.
+   * inside a {@link UI.NextMonthButton} or a {@link UI.PreviousMonthButton}.
    *
    * @deprecated
    */

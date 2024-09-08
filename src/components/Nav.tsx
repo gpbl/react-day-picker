@@ -35,7 +35,7 @@ export function Nav(
     <nav {...navProps}>
       <components.Button
         type="button"
-        className={classNames[UI.ButtonPrevious]}
+        className={classNames[UI.PreviousMonthButton]}
         tabIndex={previousMonth ? undefined : -1}
         disabled={previousMonth ? undefined : true}
         aria-label={labelPrevious(previousMonth)}
@@ -49,7 +49,7 @@ export function Nav(
       </components.Button>
       <components.Button
         type="button"
-        className={classNames[UI.ButtonNext]}
+        className={classNames[UI.NextMonthButton]}
         tabIndex={nextMonth ? undefined : -1}
         disabled={nextMonth ? undefined : true}
         aria-label={labelNext(nextMonth)}
