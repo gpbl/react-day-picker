@@ -12,7 +12,7 @@ beforeAll(() => jest.setSystemTime(today));
 afterAll(() => jest.useRealTimers());
 
 test("the first selected day should have focus", async () => {
-  render(<FocusRecursive />).container;
+  render(<FocusRecursive />);
   await user.tab();
   await user.tab();
   await user.tab();

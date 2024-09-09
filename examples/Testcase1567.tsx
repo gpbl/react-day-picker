@@ -14,7 +14,7 @@ export function TestCase1567() {
   });
 
   const handleChange = (range: DateRange | undefined) => {
-    range && setSelected(range);
+    if (range) setSelected(range);
   };
   return (
     <div className="App">

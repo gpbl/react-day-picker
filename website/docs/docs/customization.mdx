@@ -4,41 +4,42 @@ sidebar_position: 3
 
 # Customization
 
-Use the customization props to customize the appearance of the calendar.
+Use the customization props to tailor the appearance of the calendar.
 
-| Prop Name         | Type                                                                                     | Description                                                                                                                                 |
-| ----------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `captionLayout`   | \| `"label"`<br/> \| `"dropdown"`<br/> \| `"dropdown-months"`<br/> \| `"dropdown-years"` | Choose the layout of the month caption. Default is `label`.                                                                                 |
-| `fixedWeeks`      | `boolean`                                                                                | Display 6 weeks per months.                                                                                                                 |
-| `footer`          | `ReactNode` \| `string`                                                                  | Add a footer to the calendar, acting as a [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions). |
-| `hideWeekdayRow`  | `boolean`                                                                                | Hide the row displaying the weekday names.                                                                                                  |
-| `numberOfMonths`  | `number`                                                                                 | The number of displayed months. Default is `1`.                                                                                             |
-| `showOutsideDays` | `boolean`                                                                                | Display the days falling into the other months.                                                                                             |
-| `showWeekNumber`  | `boolean`                                                                                | Display the column with the [week numbers](#showweeknumber).                                                                                |
+| Prop Name         | Type                                                                                  | Description                                                                                                                                 |
+| ----------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `captionLayout`   | `"label"`<br/> \| `"dropdown"`<br/> \| `"dropdown-months"`<br/> \| `"dropdown-years"` | Choose the layout of the month caption. Default is `label`.                                                                                 |
+| `fixedWeeks`      | `boolean`                                                                             | Display 6 weeks per month.                                                                                                                  |
+| `footer`          | `ReactNode` \| `string`                                                               | Add a footer to the calendar, acting as a [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions). |
+| `hideWeekdayRow`  | `boolean`                                                                             | Hide the row displaying the weekday names.                                                                                                  |
+| `numberOfMonths`  | `number`                                                                              | The number of displayed months. Default is `1`.                                                                                             |
+| `showOutsideDays` | `boolean`                                                                             | Display the days falling into other months.                                                                                                 |
+| `showWeekNumber`  | `boolean`                                                                             | Display the column with the [week numbers](#showweeknumber).                                                                                |
 
 ## Caption Layouts
 
-Use the `captionLayout` prop to choose the layout of the month caption:
+Use the `captionLayout` prop to customize the layout of the month caption:
 
 ```tsx
 <DayPicker captionLayout="label" /> // Default value: shows the month and year.
 ```
 
-| Caption Layout      | Description                                           |
-| ------------------- | ----------------------------------------------------- |
-| `"label"`           | Display the month and year as a label. Default value. |
-| `"dropdown"`        | Display a dropdown with the months and years.         |
-| `"dropdown-months"` | Display a dropdown with the months only.              |
-| `"dropdown-years"`  | Display a dropdown with the years only.               |
+| Caption Layout      | Description                                            |
+| ------------------- | ------------------------------------------------------ |
+| `"label"`           | Displays the month and year as a label. Default value. |
+| `"dropdown"`        | Displays a dropdown with both months and years.        |
+| `"dropdown-months"` | Displays a dropdown with the months only.              |
+| `"dropdown-years"`  | Displays a dropdown with the years only.               |
 
 ### Caption Dropdown
 
-To enable a navigation dropdown, assign `captionLayout="dropdown"`. Use `from*` and `to*` properties to define the [the start and end dates](./navigation.mdx#start-and-end-dates).
+To enable a navigation dropdown, assign `captionLayout="dropdown"`. Use the `startMonth` and `endMonth` properties to set the start and end dates for the calendar navigation.
 
 ```tsx
 <DayPicker
   captionLayout="dropdown"
-  startMonth={new Date(2015, 6)}
+  defaultMonth={new Date(2024, 6)}
+  startMonth={new Date(2024, 6)}
   endMonth={new Date(2025, 9)}
 />
 ```

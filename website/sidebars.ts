@@ -1,5 +1,7 @@
 import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 
+import typedocSidebar from "./docs/api/typedoc-sidebar.cjs";
+
 const sidebars: SidebarsConfig = {
   docs: [
     "intro",
@@ -41,7 +43,7 @@ const sidebars: SidebarsConfig = {
     //   ]
     // }
   ],
-  api: ["api/index", require("./docs/api/typedoc-sidebar.cjs")]
+  api: ["api/index", typedocSidebar]
 };
 
 export default sidebars;
