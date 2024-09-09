@@ -45,7 +45,12 @@ export type Mode = "single" | "multiple" | "range";
  * @see https://daypicker.dev/guides/custom-components
  */
 export type CustomComponents = {
-  /** Render any button element in DayPicker. */
+  /**
+   * Render any button element in DayPicker.
+   *
+   * @deprecated Use {@link CustomComponents.NextMonthButton} or
+   *   {@link CustomComponents.PreviousMonthButton} instead.
+   */
   Button: typeof components.Button;
   /** Render the chevron icon used in the navigation buttons and dropdowns. */
   Chevron: typeof components.Chevron;
