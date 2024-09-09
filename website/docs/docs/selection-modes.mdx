@@ -145,9 +145,9 @@ When the `mode` prop is set to `"range"`, DayPicker allows selecting a continuou
 
 ### Min and Max Dates
 
-As default, a range can have length of 0 nights, thus the start date can be the same as the end date. Use the `min` prop to set the minimum number of nights. The range will stay "open" until at least `min` nights are selected.
+By default, a range can have a length of 0 nights, meaning the start date can be the same as the end date. Use the `min` prop to set the minimum number of nights. The range will stay "open" until at least `min` nights are selected.
 
-Similarly, you can se the `max` prop to set the maximum number of nights.
+Similarly, you can use the `max` prop to set the maximum number of nights.
 
 ```tsx
 <DayPicker mode="range" min={1} max={6} />
@@ -159,7 +159,7 @@ Similarly, you can se the `max` prop to set the maximum number of nights.
 
 ### Required Ranges
 
-By setting the `required` prop, DayPicker won't allow unselect the selected range.
+By setting the `required` prop, DayPicker won't allow unselecting the selected range.
 
 ```tsx
 <DayPicker mode="range" required />
@@ -173,7 +173,7 @@ By setting the `required` prop, DayPicker won't allow unselect the selected rang
 
 To disable specific days, use the `disabled` prop. Disabled dates cannot be selected.
 
-The prop accepts a [`Matcher`](../api/type-aliases/Matcher.md) or an array of matchers that can be used to make some days not selectable.
+The prop accepts a [`Matcher`](../api/type-aliases/Matcher.md) or an array of matchers to specify which days should be disabled.
 
 ```tsx
 // disable today
@@ -189,7 +189,7 @@ The prop accepts a [`Matcher`](../api/type-aliases/Matcher.md) or an array of ma
 
 ### Excluding Disabled Dates from Range {#exclude-disabled}
 
-When using the `range` mode, disabled dates will be included in the selected range. Use the `excludeDisabled` prop to prevent this behavior. The range will reset when a disabled date is included.
+When using the `range` mode, disabled dates are included in the selected range by default. To exclude disabled dates from the range, use the `excludeDisabled` prop. If a disabled date is selected, the range will reset.
 
 ```tsx
 <DayPicker
@@ -207,7 +207,7 @@ When using the `range` mode, disabled dates will be included in the selected ran
 
 ## Customizing Selections
 
-To change the behavior of a selection mode, use the `select` and `onSelect` props to handle the selection event and update the selected dates according to your app requirement:
+To customize the behavior of a selection mode, use the `select` and `onSelect` props to handle the selection event and update the selected dates according to your application's requirements:
 
 ```jsx
 import { useState } from "react";
@@ -226,4 +226,4 @@ export function App() {
 }
 ```
 
-You can also toggle the selection mode to `default` and implement your own mode by using `modifiers` and `onDayClick`. Read the [Custom Selections](../guides/custom-selections.mdx) guide for more information.
+You can also toggle the selection mode to `default` and implement your own mode using `modifiers` and `onDayClick`. For more information, read the [Custom Selections](../guides/custom-selections.mdx) guide.
