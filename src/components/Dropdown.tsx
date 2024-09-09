@@ -27,7 +27,12 @@ export function Dropdown(
     components: Pick<CustomComponents, "Select" | "Option" | "Chevron">;
     classNames: Pick<
       ClassNames,
-      UI.DropdownRoot | UI.Dropdown | UI.CaptionLabel | UI.Chevron
+      | UI.DropdownRoot
+      | UI.Dropdown
+      | UI.MonthsDropdown
+      | UI.YearsDropdown
+      | UI.CaptionLabel
+      | UI.Chevron
     >;
     options?: DropdownOption[] | undefined;
   } & Omit<JSX.IntrinsicElements["select"], "children">
