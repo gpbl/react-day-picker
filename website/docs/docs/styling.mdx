@@ -6,16 +6,16 @@ sidebar_position: 2
 
 DayPicker comes with a minimal style inspired by MacOS date pickers, designed to be extended and customized.
 
-You can also use your own styles, or use a CSS framework like [Tailwind CSS](https://tailwindcss.com) or [Bootstrap](https://getbootstrap.com) utilities to style the calendar.
+You can also apply your own styles or use a CSS framework like [Tailwind CSS](https://tailwindcss.com) or [Bootstrap](https://getbootstrap.com) to style the calendar.
 
 ## Default Style
 
-To start with the included styles, add the `react-day-picker/style.css` to your HTML document. This will add the `.rdp` class names used by DayPicker.
+To use the included styles, add `react-day-picker/style.css` to your HTML document. This will apply the `.rdp` class names used by DayPicker.
 
 <details>
 <summary>Using a bundler or a React framework</summary>
 
-If you are using a React framework, such as [Next.js](http://nextjs.org) or [Gatsby](https://www.gatsbyjs.com), or a bundler like Webpack with [css-loader](https://webpack.js.org/loaders/css-loader/), import the CSS file from your app's main JavaScript or TypeScript file:
+If you are using a React framework, such as [Next.js](http://nextjs.org) or [Gatsby](https://www.gatsbyjs.com), or a bundler like Webpack with [css-loader](https://webpack.js.org/loaders/css-loader/), import the CSS file in your app's main JavaScript or TypeScript file:
 
 ```tsx title="./App.jsx"
 import "react-day-picker/style.css";
@@ -26,7 +26,7 @@ import "react-day-picker/style.css";
 <details>
 <summary>Copying the CSS file</summary>
 
-If you are not using a bundler, you can copy the CSS file to your project. See [style.css](https://github.com/gpbl/react-day-picker/blob/main/src/style.css) in the DayPicker repository for the source.
+If you are not using a bundler, you can copy the CSS file to your project. See the [style.css](https://github.com/gpbl/react-day-picker/blob/main/src/style.css) file in the DayPicker repository for the source.
 
 ```html title="./public/index.html"
 <style>
@@ -50,7 +50,7 @@ Define the CSS variables in your app's CSS file, after importing the DayPicker C
 }
 ```
 
-The following table lists the CSS variables used by DayPicker inside the `.rdp-root` class:
+The following table lists the CSS variables used by DayPicker within the `.rdp-root` class:
 
 | CSS Variable                              | Description                                                                   |
 | ----------------------------------------- | ----------------------------------------------------------------------------- |
@@ -98,7 +98,7 @@ The following table lists the CSS variables used by DayPicker inside the `.rdp-r
 
 ### Light/Dark Appearance
 
-To toggle between dark and light appearance, override the accent color with the color to use in the dark mode.
+To toggle between dark and light modes, override the accent color with the desired color for dark mode.
 
 ```css
 .rdp-root {
@@ -130,9 +130,9 @@ export function MyDatePicker() {
 
 ## Custom Class Names
 
-Use the `classNames` prop to use other classnames instead of the default ones. The [`ClassNames`](../api/type-aliases/ClassNames.md) type lists all the class names used by DayPicker.
+Use the `classNames` prop to apply custom class names instead of the default ones. The [`ClassNames`](../api/type-aliases/ClassNames.md) type lists all the class names used by DayPicker.
 
-They are the value of the [`UI`](../api/enumerations/UI.md), [`DayFlag`](../api/enumerations/DayFlag.md) and [`SelectionState`](../api/enumerations/SelectionState.md) enums.
+These class names correspond to the values of the [`UI`](../api/enumerations/UI.md), [`DayFlag`](../api/enumerations/DayFlag.md), and [`SelectionState`](../api/enumerations/SelectionState.md) enums.
 
 For example, to change the class name of the calendar container:
 
@@ -150,9 +150,9 @@ Or the disabled days:
 
 If you are including [Tailwind CSS](https://tailwindcss.com) in your project, use the Tailwind CSS class names to style the calendar.
 
-- Add to the `classNames` the class names you want to override.
-- Extend the default class names with [`getDefaultClassNames`](../api/functions//getDefaultClassNames.md).
-- Read [`style.css`](https://github.com/gpbl/react-day-picker/blob/main/src/style.css) from source and get familiar with the [UI elements](../docs/anatomy.mdx).
+- Add the class names you want to override to the `classNames` prop.
+- Extend the default class names with [`getDefaultClassNames`](../api/functions/getDefaultClassNames.md).
+- Read the [`style.css`](https://github.com/gpbl/react-day-picker/blob/main/src/style.css) file from the source and get familiar with the [UI elements](../docs/anatomy.mdx).
 - Adopt [custom components](../guides/custom-components.mdx) to further customize the HTML elements.
 
 ```tsx
@@ -180,13 +180,13 @@ export function MyCalendar() {
 
 :::info TailwindCSS-only CSS
 
-We currently don't have a CSS file _completely_ written in TailwindCSS. If you want, you can help us to create one to include in the docs here. [Open a thread](https://github.com/gpbl/react-day-picker/discussions/new?category=ideas)
+We currently don't have a CSS file completely written in Tailwind CSS. If you'd like to help create one, please [open a thread](https://github.com/gpbl/react-day-picker/discussions/new?category=ideas) to discuss it.
 
 :::
 
 ## Inline Styles
 
-To change the appearance of any DayPicker element via inline-styles use the `styles` prop.
+To change the appearance of any DayPicker element using inline styles, use the `styles` prop.
 
 ```tsx
 const monthCaptionStyle = {

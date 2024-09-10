@@ -4,9 +4,9 @@ sidebar_position: 3
 
 # Custom Modifiers
 
-In DayPicker, a **custom modifier** is added to a day when the day matches a specific condition, called [`Matcher`](../api/type-aliases/Matcher.md).
+In DayPicker, a **custom modifier** is added to a day when the day matches a specific condition, called a [`Matcher`](../api/type-aliases/Matcher.md).
 
-Modifiers are set using the `modifiers` prop. When matching a date, modifiers are passed to the `onSelect` event and to other [DayEventHandler](../api/type-aliases/DayEventHandler.md) (`onDayClick` etc.) to inspect the days the user has interacted with.
+Modifiers are set using the `modifiers` prop. When a date matches a modifier, the modifier is passed to the `onSelect` event and other [DayEventHandler](../api/type-aliases/DayEventHandler.md) events (`onDayClick`, etc.) to inspect the days the user has interacted with.
 
 For example, you can use a custom modifier to mark days as already booked in a booking app.
 
@@ -30,9 +30,9 @@ For example, you can use a custom modifier to mark days as already booked in a b
 
 ## Understanding Modifiers
 
-- Use modifiers to change the appearance of the days in the calendar or to inspect the days the user has interacted with (e.g. picking a day)
-- DayPicker comes with some [pre-built modifiers](../api/type-aliases/Modifiers.md), such as `disabled`, `selected`, `hidden`, `today`, `range_start`, etc. designed to cover the most common use cases.
-- It is possible to implement custom modifiers, extending the behavior of DayPicker: see [Custom Modifiers](#custom-modifiers) below for more details.
+- Use modifiers to change the appearance of days in the calendar or to inspect the days the user has interacted with (e.g., picking a day).
+- DayPicker comes with some [pre-built modifiers](../api/type-aliases/Modifiers.md), such as `disabled`, `selected`, `hidden`, `today`, `range_start`, etc., designed to cover the most common use cases.
+- You can implement custom modifiers to extend the behavior of DayPicker. See [Custom Modifiers](#custom-modifiers) below for more details.
 
 ## Built-in Modifiers
 
@@ -42,11 +42,11 @@ For example, you can use a custom modifier to mark days as already booked in a b
 <DayPicker selected={new Date()} />
 ```
 
-When in selection mode, use the `selected` prop to add the `selected` modifier to the selected dates, and style them accordingly. To see how to implement the `selected` modifier, see the [Selecting days guide](../docs/selection-modes.mdx).
+In selection mode, use the `selected` prop to add the `selected` modifier to the selected dates and style them accordingly. For more details on implementing the `selected` modifier, see the [Selecting Days guide](../docs/selection-modes.mdx).
 
 ### `disabled` Modifier
 
-Use the `disabled` modifier to disable one or more days. Pass a [`Matcher`](../api/type-aliases/Matcher.md) or an array of `Matchers` to choose the disabled days:
+Use the `disabled` modifier to disable one or more days. Pass a [`Matcher`](../api/type-aliases/Matcher.md) or an array of matchers to specify the disabled days:
 
 ```tsx
 // Disable Sundays and Saturdays
@@ -59,7 +59,7 @@ Use the `disabled` modifier to disable one or more days. Pass a [`Matcher`](../a
 
 ### `hidden` Modifier
 
-The `hidden` modifier removes the day from the calendar. Set the hidden days using the `hidden` prop.
+The `hidden` modifier removes a day from the calendar. Use the `hidden` prop to specify the days to be hidden.
 
 ```tsx
 const hiddenDays = [
@@ -77,7 +77,7 @@ const hiddenDays = [
 
 ### `today` Modifier
 
-The `today` modifier is a special modifier added to the current date. You can also change the current date using the `today` prop.
+The `today` modifier is a special modifier applied to the current date. You can change the current date using the `today` prop.
 
 ```tsx
 function Example() {
@@ -98,7 +98,7 @@ function Example() {
 
 ## Styling Modifiers
 
-A day can be styled according to its modifiers – using CSS or inline styles. See [Styling DayPicker](../docs/styling.mdx) for more details.
+A day can be styled based on its modifiers using CSS or inline styles. For more details, see [Styling DayPicker](../docs/styling.mdx).
 
 ```tsx
 const bookedDays = [

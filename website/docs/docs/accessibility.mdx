@@ -6,22 +6,21 @@ sidebar_position: 7
 
 DayPicker is designed to adhere to the [ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/) for date pickers. This includes features such as keyboard navigation, focus management, and labeling.
 
-Depending on your design, you may need to add new accessibility features. For instance, when working with [Input Fields](../guides/input-fields), there could be some restrictions depending on the level of accessibility you aim to achieve. Stay updated with the best practices by following the [ARIA Patterns](https://www.w3.org/WAI/ARIA/apg/patterns/).
+Depending on your design, you may need to add additional accessibility features. For instance, when working with [Input Fields](../guides/input-fields), there could be some restrictions depending on the level of accessibility you aim to achieve. Stay updated with best practices by following the [ARIA Patterns](https://www.w3.org/WAI/ARIA/apg/patterns/).
 
 ## Accessibility Tips
 
 - Regularly test your date picker with a screen reader to ensure it's accessible to all users.
-- Use an `aria-live` region in your user interface to audibly announce when a date is selected.
-  - For this purpose, you can use the `footer` prop.
-- Customize the ARIA labels with the [`labels`](../api/interfaces/PropsBase.md#labels) prop to improve feedback provided to the user.
+- Use an `aria-live` region in your user interface to audibly announce when a date is selected. You can use the `footer` prop for this purpose.
+- Customize the ARIA labels with the [`labels`](../api/interfaces/PropsBase.md#labels) prop to improve user feedback.
 - Ensure that your date picker is fully navigable using only the keyboard.
 - Use clear indicators for focus states to assist users who rely on keyboard navigation.
 - Ensure sufficient color contrast between text and background colors.
-- Consider providing instructions for how to use the date picker for first-time users or those unfamiliar with the interface.
+- Consider providing instructions on how to use the date picker for first-time users or those unfamiliar with the interface.
 
 ## Announcing the Selected Date {#footer}
 
-Example of an accessible date picker with a live region that announces the selected date using the `footer` prop.
+Here is an example of an accessible date picker with a live region that announces the selected date using the `footer` prop.
 
 ```tsx title="./AccessibleDatePicker.tsx"
 import { format } from "date-fns";
@@ -63,7 +62,7 @@ export function AccessibleDatePicker() {
 
 ## Autofocusing the Calendar {#autofocus}
 
-DayPicker manages focus automatically when the user interacts with the calendar. However, for better accessibility you may need to autofocus the calendar when it opens. To do this, you can use the `autoFocus` prop:
+DayPicker manages focus automatically when the user interacts with the calendar. However, for better accessibility, you may need to autofocus the calendar when it opens. To do this, use the `autoFocus` prop:
 
 ```tsx
 <DayPicker mode="single" autoFocus />
@@ -75,9 +74,9 @@ DayPicker supports keyboard navigation to make it easier for users to navigate t
 
 | Keys                         | Function                             |
 | ---------------------------- | ------------------------------------ |
-| <kbd>Arrow Top</kbd>         | Move focus to the previous week.     |
+| <kbd>Arrow Up</kbd>          | Move focus to the previous week.     |
 | <kbd>Arrow Right</kbd>       | Move focus to the next day.          |
-| <kbd>Arrow Bottom</kbd>      | Move focus to the next week.         |
+| <kbd>Arrow Down</kbd>        | Move focus to the next week.         |
 | <kbd>Arrow Left</kbd>        | Move focus to the previous day.      |
 | <kbd>Page Up</kbd>           | Move focus to the previous month.    |
 | <kbd>Page Down</kbd>         | Move focus to the next month.        |

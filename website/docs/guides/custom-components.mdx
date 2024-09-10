@@ -4,31 +4,31 @@ sidebar_position: 4
 
 # Custom Components
 
-With the `components` prop, you can extend each of the rendered HTML elements by using your own components.
+Use the `components` prop to extend each rendered HTML element with your own custom components.
 
 | Prop Name    | Type                                                          | Description                            |
 | ------------ | ------------------------------------------------------------- | -------------------------------------- |
 | `components` | [`CustomComponents`](../api/type-aliases/CustomComponents.md) | Change the components of the calendar. |
 
-You may need to use custom components in advanced applications, for example to:
+You may need to use custom components in advanced applications to:
 
 - Prevent default events from occurring
 - Add new event listeners, such as touch events
 - Display extra content, such as a calendar entry in the day cell
 - Implement buttons or dropdowns using your own design system components
-- Wrap an element with another element, like adding a tooltip to a day cell.
+- Wrap an element with another element, like adding a tooltip to a day cell
 
-When customizing the components, get familiar with the [API Reference](../api#components) and the [DayPicker Anatomy](../docs/anatomy.mdx). Make sure you don't break the [accessibility](../docs/accessibility.mdx).
+When customizing components, familiarize yourself with the [API Reference](../api#components) and the [DayPicker Anatomy](../docs/anatomy.mdx). Ensure you maintain [accessibility](../docs/accessibility.mdx).
 
 :::note Custom Components vs Formatters
 
-Custom components extends DayPicker more than the [formatters](../docs/translation.mdx#custom-formatters), which are used to format the content of the calendar.
+Custom components extend DayPicker more than [formatters](../docs/translation.mdx#custom-formatters), which are used to format the content of the calendar.
 
 :::
 
 ## Implementing a Custom Component
 
-Pass the components you want to customize to the `components` prop. This prop accepts any of the [`CustomComponents`](../api/type-aliases/CustomComponents.md).
+Pass the components you want to customize to the `components` prop. This prop accepts any of the [`CustomComponents`](../api/type-aliases/CustomComponents.md) types.
 
 ```tsx
 <DayPicker
@@ -81,7 +81,7 @@ We are adding new examples soon. What are you using custom components for? [Let 
 
 ### Intercepting Click Events
 
-For example, you can use a custom [DayButton](../api/functions/DayButton.md) to select days only with a double-click event.
+For example, you can use a custom [DayButton](../api/functions/DayButton.md) to select days with a double-click event.
 
 ```tsx title="./MyDatePicker.tsx"
 import React from "react";
@@ -121,9 +121,9 @@ export function MyDatePicker() {
 
 ## DayPicker Hook
 
-In a custom component, you can implement the [`useDayPicker`](../api/functions/useDayPicker.md) hook to access to the [DayPicker context](../api/type-aliases/DayPickerContext.md).
+In a custom component, you can implement the [`useDayPicker`](../api/functions/useDayPicker.md) hook to access the [DayPicker context](../api/type-aliases/DayPickerContext.md).
 
-The DayPicker context provides the current state of the calendar, such as the selected days, the modifiers, and the navigation state.
+The DayPicker context provides the current state of the calendar, including the selected days, modifiers, and navigation state.
 
 | Function                                           | Return value                                                  | Description                                                                  |
 | :------------------------------------------------- | ------------------------------------------------------------- | :--------------------------------------------------------------------------- |

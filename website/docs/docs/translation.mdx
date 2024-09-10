@@ -4,13 +4,13 @@ sidebar_position: 6
 
 # Translating DayPicker
 
-When [localizing](./localization.mdx) DayPicker, you need to translate labels into your language.
+When [localizing](./localization.mdx) DayPicker, you need to translate the labels into your language.
 
-DayPicker supports full customization of the ARIA labels and date formatters, and you will need to translate them via the `labels` props.
+DayPicker supports full customization of ARIA labels and date formatters, which can be translated using the `labels` prop.
 
 :::info Get help with Translations
 
-Get help and give suggestions to translate DayPicker into your language. See [Translations forum](https://github.com/gpbl/react-day-picker/discussions/categories/translation-and-localization) on GitHub.
+Get help and provide suggestions for translating DayPicker into your language. Visit the [Translations forum](https://github.com/gpbl/react-day-picker/discussions/categories/translation-and-localization) on GitHub.
 
 :::
 
@@ -24,7 +24,7 @@ Get help and give suggestions to translate DayPicker into your language. See [Tr
 
 ## ARIA Labels
 
-The `labels` prop allows for customization of the [ARIA labels](./accessibility.mdx).
+The `labels` prop allows you to customize the [ARIA labels](./accessibility.mdx).
 
 ### Example: Italian labels
 
@@ -60,7 +60,7 @@ function ItalianLabels() {
 
 ### Labels to Translate
 
-The following labels are required to be translated, as they default to English:
+The following labels need to be translated, as they default to English:
 
 | Function                                                       | Description                                                          |
 | -------------------------------------------------------------- | -------------------------------------------------------------------- |
@@ -86,7 +86,7 @@ The following labels are optional and should work out of the box in most languag
 
 ## RTL Text Direction
 
-To set the right-to-left text direction, toggle the `dir` prop to `rtl`.
+To set the text direction to right-to-left, use the `dir` prop with the value `rtl`.
 
 ```tsx
 import { arSA } from "date-fns/locale";
@@ -100,7 +100,7 @@ import { arSA } from "date-fns/locale";
 
 ## Custom Formatters
 
-The `formatters` prop can be used to further format dates, week numbers, day names, and more.
+Use the `formatters` prop to customize the formatting of dates, week numbers, day names, and more.
 
 ```tsx
 import { format } from "date-fns";
@@ -124,9 +124,9 @@ import { format } from "date-fns";
 
 ### Numbering System
 
-Use the `formatters` to change the [numbering system](https://en.wikipedia.org/wiki/Numeral_system) used in the calendar.
+Use the `formatters` prop to change the [numbering system](https://en.wikipedia.org/wiki/Numeral_system) used in the calendar.
 
-For example, to switch to hindu-arabic, you use the native [`Date.toLocaleString`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString):
+For example, to switch to Hindu-Arabic numerals, use the native [`Date.toLocaleString`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString) method:
 
 ```tsx
 import { format } from "date-fns/format";

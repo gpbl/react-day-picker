@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Customization
 
-Use the customization props to tailor the appearance of the calendar.
+Use the customization props to tailor the calendar's appearance.
 
 | Prop Name         | Type                                                                                  | Description                                                                                                                                 |
 | ----------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -18,7 +18,7 @@ Use the customization props to tailor the appearance of the calendar.
 
 ## Caption Layouts
 
-Use the `captionLayout` prop to customize the layout of the month caption:
+Use the `captionLayout` prop to customize the layout of the month caption.
 
 ```tsx
 <DayPicker captionLayout="label" /> // Default value: shows the month and year.
@@ -33,7 +33,7 @@ Use the `captionLayout` prop to customize the layout of the month caption:
 
 ### Caption Dropdown
 
-To enable a navigation dropdown, assign `captionLayout="dropdown"`. Use the `startMonth` and `endMonth` properties to set the start and end dates for the calendar navigation.
+To enable a navigation dropdown, set `captionLayout="dropdown"`. Use the `startMonth` and `endMonth` properties to define the start and end dates for the calendar navigation.
 
 ```tsx
 <DayPicker
@@ -50,7 +50,7 @@ To enable a navigation dropdown, assign `captionLayout="dropdown"`. Use the `sta
 
 :::info Default Range
 
-Without specifing the `from*` and `to*` properties, the dropdown will show the last 100 years.
+Without specifying the `from*` and `to*` properties, the dropdown will display the last 100 years.
 
 :::
 
@@ -68,7 +68,7 @@ By default, DayPicker hides the days falling into the other months. Use `showOut
 
 ## Fixed Weeks
 
-In a year, months can have between 4 an 6 weeks. Use `fixedWeeks` to always display 6 weeks per month. This will prevent the grid changing its height while navigating the calendar.
+In a year, months can have between 4 and 6 weeks. Use the `fixedWeeks` prop to always display 6 weeks per month. This will prevent the grid from changing its height while navigating the calendar.
 
 ```tsx
 <DayPicker fixedWeeks showWeekNumber />
@@ -98,7 +98,7 @@ To display multiple months in the calendar, use the `numberOfMonths` prop.
 
 ### Paged Navigation
 
-With `pagedNavigation`, the navigation jumps by the specified number of months at time.
+With `pagedNavigation`, the navigation jumps by the specified number of months at a time.
 
 ```tsx
 <DayPicker numberOfMonths={2} pagedNavigation />
@@ -110,7 +110,7 @@ With `pagedNavigation`, the navigation jumps by the specified number of months a
 
 ## Week Numbers {#showweeknumber}
 
-To display the column with the week numbers, use the `showWeekNumber` prop.
+To display the column with week numbers, use the `showWeekNumber` prop.
 
 | Prop Name        | Type      | Description               |
 | ---------------- | --------- | ------------------------- |
@@ -126,7 +126,7 @@ To display the column with the week numbers, use the `showWeekNumber` prop.
 
 ### Handling Week Numbers Click
 
-To handle the click on the week numbers, you can set a `WeekNumber` [custom component](../guides/custom-components):
+To handle clicks on the week numbers, you can set a custom `WeekNumber` [component](../guides/custom-components.mdx):
 
 ```tsx
 <DayPicker
@@ -141,11 +141,11 @@ To handle the click on the week numbers, you can set a `WeekNumber` [custom comp
 
 ### Selecting the Whole Week
 
-When in [selection mode](./selection-modes.mdx), create a [Custom Selection](../guides//custom-selections.mdx) that selects the whole week when a day is clicked.
+In [selection mode](./selection-modes.mdx), you can create a [custom selection](../guides/custom-selections.mdx) that selects the entire week when a day is clicked.
 
 ## Footer as Live Region
 
-Use the `footer` prop to display a footer below the calendar. The footer works as a [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) to announce changes to screen readers. See also the [Accessibility guide](./accessibility.mdx) for making the calendar accessible.
+Use the `footer` prop to display a footer below the calendar. The footer acts as a [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) to announce changes to screen readers. For more information on making the calendar accessible, see the [Accessibility guide](./accessibility.mdx).
 
 ```tsx
 export function Footer() {
@@ -171,7 +171,7 @@ export function Footer() {
 
 ## Custom Components
 
-In DayPicker, you can replace the components used internally to render the calendar. See the [Custom Components](../guides/custom-components.mdx) guide for more information.
+In DayPicker, you can replace the components used internally to render the calendar. For more information, see the [Custom Components](../guides/custom-components.mdx) guide.
 
 | Prop Name    | Type                                              | Description                                                 |
 | ------------ | ------------------------------------------------- | ----------------------------------------------------------- |

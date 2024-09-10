@@ -6,26 +6,26 @@ sidebar_position: 2
 
 :::info Draft
 
-This documentation is still a work in progress. If you have any questions, ask to the [discussions](https://github.com/gpbl/react-day-picker/discussions) page on Github.
+This documentation is still a work in progress. If you have any questions, please visit the [discussions](https://github.com/gpbl/react-day-picker/discussions) page on GitHub.
 
 :::
 
-If the built-in [selection modes](../docs/selection-modes.mdx) does not satisfy for your app’s requirements, you can control the selection behavior using the [`onDayClick`](../api/interfaces/PropsBase.md#ondayclick) and [`modifiers`](../api/interfaces/PropsBase.md#modifiers) props:
+If the built-in [selection modes](../docs/selection-modes.mdx) do not satisfy your app’s requirements, you can control the selection behavior using the [`onDayClick`](../api/interfaces/PropsBase.md#ondayclick) and [`modifiers`](../api
 
 | Prop         | Type                                                        | Description                               |
 | ------------ | ----------------------------------------------------------- | ----------------------------------------- |
 | `onDayClick` | [`DayEventHandler`](../api/type-aliases/DayEventHandler.md) | Callback when a day is clicked.           |
 | `modifiers`  | [`Modifiers`](../api/type-aliases/Modifiers.md)             | An object with the modifiers of the days. |
 
-This prop is a function that receives the clicked day and the modifiers of the day as arguments.
+This prop is a function that receives the clicked day and its modifiers as arguments.
 
 ## Examples
 
 ### Week Selection
 
-The following example shows how to select the whole week when a day is clicked.
+The following example demonstrates how to select an entire week when a day is clicked.
 
-Note the use of the `startOfWeek` and `endOfWeek` functions from [date-fns](https://date-fns.org) and how the `selectedWeek` state is passed to the `modifiers` prop.
+Note the use of the `startOfWeek` and `endOfWeek` functions from [date-fns](https://date-fns.org), and how the `selectedWeek` state is passed to the `modifiers` prop.
 
 ```tsx
 import React, { useState } from "react";
@@ -76,7 +76,7 @@ export function CustomWeek() {
 
 ### Single Selection
 
-For example, to implement the "single selection" behavior (like when `mode="single"`):
+For example, to implement the "single selection" behavior (similar to when `mode="single"`):
 
 ```tsx
 import { useState } from "react";
@@ -112,8 +112,7 @@ export function CustomSingle() {
 
 ### Multi Selections
 
-The case of a multi-days select is a bit more complex as it deals with an array. The following example replicates the `mode="multiple"`
-selection mode.
+Selecting multiple days is a bit more complex as it involves handling an array of dates. The following example replicates the `mode="multiple"` selection mode:
 
 ```tsx
 import { useState } from "react";
