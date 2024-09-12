@@ -56,7 +56,7 @@ export function Nav(
         onClick={props.onNextClick}
       >
         <components.Chevron
-          disabled={previousMonth ? undefined : true}
+          disabled={nextMonth ? undefined : true}
           orientation="right"
           className={classNames[UI.Chevron]}
         />
