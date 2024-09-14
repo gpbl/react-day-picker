@@ -24,16 +24,8 @@ export type DropdownOption = {
  */
 export function Dropdown(
   props: {
-    components: Pick<CustomComponents, "Select" | "Option" | "Chevron">;
-    classNames: Pick<
-      ClassNames,
-      | UI.DropdownRoot
-      | UI.Dropdown
-      | UI.MonthsDropdown
-      | UI.YearsDropdown
-      | UI.CaptionLabel
-      | UI.Chevron
-    >;
+    components: CustomComponents;
+    classNames: ClassNames;
     options?: DropdownOption[] | undefined;
   } & Omit<JSX.IntrinsicElements["select"], "children">
 ) {
