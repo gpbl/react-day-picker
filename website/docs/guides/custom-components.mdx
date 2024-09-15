@@ -28,7 +28,7 @@ Custom components extend DayPicker more than [formatters](../docs/translation.md
 
 ## Implementing a Custom Component
 
-Pass the components you want to customize to the `components` prop. This prop accepts any of the [`CustomComponents`](../api/type-aliases/CustomComponents.md) types.
+Pass the components you want to customize to the `components` prop. See the [list of custom components](#list-of-custom-components) below.
 
 ```tsx
 <DayPicker
@@ -40,36 +40,35 @@ Pass the components you want to customize to the `components` prop. This prop ac
 />
 ```
 
-<details>
-  <summary>List of Customizable Components</summary>
+## List of Custom Components
 
-| Function                                                         | Description                                                                                          |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| [`CaptionLabel`](../api/functions/CaptionLabel.md)               | Render the label in the month caption.                                                               |
-| [`Chevron`](../api/functions/Chevron.md)                         | Render the chevron icon used in the navigation buttons and dropdowns.                                |
-| [`Day`](../api/functions/Day.md)                                 | Render the gridcell of a day in the calendar and handle the interaction and the focus with they day. |
-| [`DayButton`](../api/functions/DayButton.md)                     | Render the button for a day in the calendar.                                                         |
-| [`Dropdown`](../api/functions/Dropdown.md)                       | Render a dropdown component to use in the navigation bar.                                            |
-| [`DropdownNav`](../api/functions/DropdownNav.md)                 | Render the the navigation dropdowns.                                                                 |
-| [`Footer`](../api/functions/Footer.md)                           | Component wrapping the footer.                                                                       |
-| [`Month`](../api/functions/Month.md)                             | Render the grid with the weekday header row and the weeks for the given month.                       |
-| [`MonthCaption`](../api/functions/MonthCaption.md)               | Render the caption of a month in the calendar.                                                       |
-| [`MonthGrid`](../api/functions/MonthGrid.md)                     | Render the grid of days in a month.                                                                  |
-| [`Months`](../api/functions/Months.md)                           | Component wrapping the month grids.                                                                  |
-| [`Nav`](../api/functions/Nav.md)                                 | Render the toolbar with the navigation button.                                                       |
-| [`NextMonthButton`](../api/functions/NextMonthButton.md)         | Render the button to navigate to the next month.                                                     |
-| [`Option`](../api/functions/Option.md)                           | Render the `option` element.                                                                         |
-| [`PreviousMonthButton`](../api/functions/PreviousMonthButton.md) | Render the button to navigate to the previous month.                                                 |
-| [`Root`](../api/functions/Root.md)                               | Render the root element.                                                                             |
-| [`Select`](../api/functions/Select.md)                           | Render the `select` element.                                                                         |
-| [`Week`](../api/functions/Week.md)                               | Render a row in the calendar, with the days and the week number.                                     |
-| [`WeekNumber`](../api/functions/WeekNumber.md)                   | Render the cell with the number of the week.                                                         |
-| [`WeekNumberHeader`](../api/functions/WeekNumberHeader.md)       | Render the column header for the week numbers.                                                       |
-| [`Weekday`](../api/functions/Weekday.md)                         | Render the column header with the weekday name (e.g. "Mo", "Tu", etc.).                              |
-| [`Weekdays`](../api/functions/Weekdays.md)                       | Render the row with the weekday names.                                                               |
-| [`Weeks`](../api/functions/Weeks.md)                             | Render the weeks in the month grid.                                                                  |
-
-</details>
+| Name                                                             | Description                                                    |
+| ---------------------------------------------------------------- | -------------------------------------------------------------- |
+| [`CaptionLabel`](../api/functions/CaptionLabel.md)               | The caption label of the month grid.                           |
+| [`Chevron`](../api/functions/Chevron.md)                         | The chevron icon used in the navigation buttons and dropdowns. |
+| [`Day`](../api/functions/Day.md)                                 | The day cell in the month grid.                                |
+| [`DayButton`](../api/functions/DayButton.md)                     | The button containing the day in the day cell.                 |
+| [`Dropdown`](../api/functions/Dropdown.md)                       | The dropdown element to select years and months.               |
+| [`DropdownNav`](../api/functions/DropdownNav.md)                 | The container of the dropdowns.                                |
+| [`Footer`](../api/functions/Footer.md)                           | The footer element announced by screen readers.                |
+| [`Month`](../api/functions/Month.md)                             | The container of the MonthGrid.                                |
+| [`MonthCaption`](../api/functions/MonthCaption.md)               | The caption of the month grid.                                 |
+| [`MonthGrid`](../api/functions/MonthGrid.md)                     | The grid of days in a month.                                   |
+| [`Months`](../api/functions/Months.md)                           | Wrapper of the month grids.                                    |
+| [`MonthsDropdown`](../api/functions/MonthsDropdown.md)           | The dropdown with the months.                                  |
+| [`Nav`](../api/functions/Nav.md)                                 | The navigation element with the next and previous buttons.     |
+| [`NextMonthButton`](../api/functions/NextMonthButton.md)         | The next month button element in the navigation.               |
+| [`Option`](../api/functions/Option.md)                           | The `<option>` HTML element in the dropdown.                   |
+| [`PreviousMonthButton`](../api/functions/PreviousMonthButton.md) | The previous month button element in the navigation.           |
+| [`Root`](../api/functions/Root.md)                               | The root element of the calendar.                              |
+| [`Select`](../api/functions/Select.md)                           | The select element in the dropdowns.                           |
+| [`Week`](../api/functions/Week.md)                               | The week rows.                                                 |
+| [`WeekNumber`](../api/functions/WeekNumber.md)                   | The cell with the number of the week.                          |
+| [`WeekNumberHeader`](../api/functions/WeekNumberHeader.md)       | The header of the week number column.                          |
+| [`Weekday`](../api/functions/Weekday.md)                         | The weekday name in the header.                                |
+| [`Weekdays`](../api/functions/Weekdays.md)                       | The row containing the week days.                              |
+| [`Weeks`](../api/functions/Weeks.md)                             | The weeks section in the month grid.                           |
+| [`YearsDropdown`](../api/functions/YearsDropdown.md)             | The dropdown with the years.                                   |
 
 ## Examples
 
@@ -121,10 +120,28 @@ export function MyDatePicker() {
 
 ## DayPicker Hook
 
-In a custom component, you can implement the [`useDayPicker`](../api/functions/useDayPicker.md) hook to access the [DayPicker context](../api/type-aliases/DayPickerContext.md).
-
-The DayPicker context provides the current state of the calendar, including the selected days, modifiers, and navigation state.
+In a custom component, you can use the [`useDayPicker`](../api/functions/useDayPicker.md) hook to access the DayPicker context.
 
 | Function                                           | Return value                                                  | Description                                                                  |
 | :------------------------------------------------- | ------------------------------------------------------------- | :--------------------------------------------------------------------------- |
 | [`useDayPicker`](../api/functions/useDayPicker.md) | [`DayPickerContext`](../api/type-aliases/DayPickerContext.md) | Return the current state of DayPicker and functions to navigate the calendar |
+
+### DayPicker Context
+
+The [DayPicker context](../api/type-aliases/DayPickerContext.md) provides the current state of the calendar, including the selected days, modifiers, and navigation state.
+
+| Name            | Type                                                      | Description                                    |
+| --------------- | --------------------------------------------------------- | ---------------------------------------------- |
+| `classNames`    | [`ClassNames`](ClassNames.md)                             | The class names for the UI elements.           |
+| `components`    | [`CustomComponents`](CustomComponents.md)                 | The components used internally by DayPicker.   |
+| `formatters`    | [`Formatters`](Formatters.md)                             | The formatters used to format the UI elements. |
+| `getModifiers`  | (`day`) => [`Modifiers`](Modifiers.md)                    | Returns the modifiers for the given day.       |
+| `goToMonth`     | (`month`) => `void`                                       | Navigate to the specified month.               |
+| `isSelected`    | (`date`) => `boolean` \| `undefined`                      | Whether the given date is selected.            |
+| `labels`        | [`Labels`](Labels.md)                                     | The labels used in the user interface.         |
+| `months`        | [`CalendarMonth`](../classes/CalendarMonth.md)[]          | The months displayed in the calendar.          |
+| `nextMonth`     | `Date` \| `undefined`                                     | The next month to display.                     |
+| `previousMonth` | `Date` \| `undefined`                                     | The previous month to display.                 |
+| `select`        | [`SelectHandler`](SelectHandler.md)\<`T`\> \| `undefined` | Set a selection.                               |
+| `selected`      | [`SelectedValue`](SelectedValue.md)\<`T`\> \| `undefined` | The selected date(s).                          |
+| `styles`        | `Partial`\<[`Styles`](Styles.md)\> \| `undefined`         | The styles for the UI elements.                |
