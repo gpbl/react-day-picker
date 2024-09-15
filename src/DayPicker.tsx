@@ -344,7 +344,7 @@ export function DayPicker(props: DayPickerProps) {
                     >
                       {captionLayout === "dropdown" ||
                       captionLayout === "dropdown-months" ? (
-                        <components.Dropdown
+                        <components.MonthsDropdown
                           className={classNames[UI.MonthsDropdown]}
                           aria-label={labelMonthDropdown()}
                           classNames={classNames}
@@ -362,7 +362,7 @@ export function DayPicker(props: DayPickerProps) {
                       )}
                       {captionLayout === "dropdown" ||
                       captionLayout === "dropdown-years" ? (
-                        <components.Dropdown
+                        <components.YearsDropdown
                           className={classNames[UI.YearsDropdown]}
                           aria-label={labelYearDropdown(labelOptions)}
                           classNames={classNames}

@@ -98,6 +98,10 @@ export type CustomComponents = {
   WeekNumber: typeof components.WeekNumber;
   /** Render the header of the week number column. */
   WeekNumberHeader: typeof components.WeekNumberHeader;
+  /** Render the dropdown with the months. */
+  MonthsDropdown: typeof components.MonthsDropdown;
+  /** Render the dropdown with the years. */
+  YearsDropdown: typeof components.YearsDropdown;
 };
 
 /** @private */

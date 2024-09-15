@@ -161,3 +161,22 @@ test("extends the default locale", () => {
   // Check if the custom month name is rendered
   expect(grid("bar 2024")).toBeInTheDocument();
 });
+
+test("should render the custom components", () => {
+  render(
+    <DayPicker
+      footer="test"
+      captionLayout="dropdown"
+      components={{
+        Nav: () => <div>Custom Nav</div>,
+        YearsDropdown: () => <div>Custom YearsDropdown</div>,
+        MonthsDropdown: () => <div>Custom MonthsDropdown</div>,
+        Footer: () => <div>Custom Footer</div>
+      }}
+    />
+  );
+  expect(screen.getByText("Custom Nav")).toBeInTheDocument();
+  expect(screen.getByText("Custom Footer")).toBeInTheDocument();
+  expect(screen.getByText("Custom YearsDropdown")).toBeInTheDocument();
+  expect(screen.getByText("Custom MonthsDropdown")).toBeInTheDocument();
+});
