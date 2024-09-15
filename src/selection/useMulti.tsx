@@ -1,5 +1,6 @@
 import React from "react";
 
+import { useControlledValue } from "../helpers/useControlledValue.js";
 import type {
   DateLib,
   DayPickerProps,
@@ -15,19 +16,15 @@ export function useMulti<T extends DayPickerProps>(
   const {
     selected: initiallySelected,
     required,
-    onSelect,
-    mode
+    onSelect
   } = props as PropsMulti;
-  const [selected, setSelected] = React.useState<Date[] | undefined>(
-    initiallySelected
+
+  const [selected, setSelected] = useControlledValue(
+    initiallySelected,
+    onSelect ? initiallySelected : undefined
   );
 
   const { isSameDay } = dateLib;
-
-  // Update the selected date if the selected value from props changes.
-  React.useEffect(() => {
-    setSelected(initiallySelected);
-  }, [mode, initiallySelected]);
 
   const isSelected = (date: Date) => {
     return selected?.some((d) => isSameDay(d, date)) ?? false;
@@ -60,8 +57,8 @@ export function useMulti<T extends DayPickerProps>(
         newDates = [...newDates, triggerDate];
       }
     }
-    onSelect?.(newDates, triggerDate, modifiers, e);
     setSelected(newDates);
+    onSelect?.(newDates, triggerDate, modifiers, e);
     return newDates;
   };
 
