@@ -15,7 +15,7 @@
     "typecheck-watch": "tsc --noEmit --watch"
   },
   "dependencies": {
-    "@date-fns/utc": "^1.2.0",
+    "@date-fns/utc": "^2.1.0",
     "@docusaurus/core": "3.5.2",
     "@docusaurus/preset-classic": "^3.5.2",
     "@docusaurus/remark-plugin-npm2yarn": "^3.5.2",
