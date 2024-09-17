@@ -2,6 +2,7 @@ export * from "./AccessibleDatePicker";
 export * from "./AutoFocus";
 export * from "./ContainerAttributes";
 export * from "./Controlled";
+export * from "./ControlledSelection";
 export * from "./CssModules";
 export * from "./CssVariables";
 export * from "./CustomCaption";

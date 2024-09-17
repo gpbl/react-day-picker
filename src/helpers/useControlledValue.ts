@@ -3,16 +3,22 @@ import { useState } from "react";
 export type DispatchStateAction<T> = React.Dispatch<React.SetStateAction<T>>;
 
 /**
- * A helper hook for handling controlled and uncontrolled values in a
- * component's props.
+ * A custom hook for managing both controlled and uncontrolled component states.
  *
- * If the value is uncontrolled, pass `undefined` as `controlledValue` and use
- * the returned setter to update it.
+ * @example
+ *   // Uncontrolled usage
+ *   const [value, setValue] = useControlledValue(0, undefined);
  *
- * If the value is controlled, pass the controlled value as the second argument,
- * which will always be returned as `value`.
+ *   // Controlled usage
+ *   const [value, setValue] = useControlledValue(0, props.value);
  *
  * @template T - The type of the value.
+ * @param {T} defaultValue - The initial value for the uncontrolled state.
+ * @param {T | undefined} controlledValue - The value for the controlled state.
+ *   If undefined, the component will use the uncontrolled state.
+ * @returns {[T, DispatchStateAction<T>]} - Returns a tuple where the first
+ *   element is the current value (either controlled or uncontrolled) and the
+ *   second element is a setter function to update the value.
  */
 export function useControlledValue<T>(
   defaultValue: T,
