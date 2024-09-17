@@ -130,10 +130,10 @@
     "tsconfig.json"
   ],
   "dependencies": {
-    "date-fns": "^3.6.0"
+    "date-fns": "^4.1.0"
   },
   "devDependencies": {
-    "@date-fns/utc": "^1.2.0",
+    "@date-fns/utc": "^2.1.0",
     "@jest/types": "^29.6.3",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.5.0",
