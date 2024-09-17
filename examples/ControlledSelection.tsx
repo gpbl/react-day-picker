@@ -6,13 +6,13 @@ import { DateRange, DayPicker } from "react-day-picker";
 export function ControlledSelection() {
   const [selected, setSelected] = useState<DateRange | undefined>();
 
-  function handleOnSelect(range: DateRange, triggerDate: Date) {
+  function handleOnSelect(range: DateRange | undefined, triggerDate: Date) {
+    // Change the behavior of the selection when a range is already selected
     if (selected?.from && selected?.to) {
-      setSelected({
+      return setSelected({
         from: triggerDate,
         to: undefined
       });
-      return;
     }
     setSelected(range);
   }
@@ -20,7 +20,7 @@ export function ControlledSelection() {
   return (
     <DayPicker
       mode="range"
-      required
+      min={1}
       selected={selected}
       onSelect={handleOnSelect}
     />
