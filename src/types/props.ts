@@ -257,6 +257,11 @@ export interface PropsBase {
    */
   ISOWeek?: boolean;
   /**
+   * @since 9.1.0
+   * @experimental
+   */
+  timeZone?: string;
+  /**
    * Change the components used for rendering the calendar elements.
    *
    * @see https://daypicker.dev/guides/custom-components
