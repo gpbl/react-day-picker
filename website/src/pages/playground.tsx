@@ -15,6 +15,12 @@ import { HighlightWithTheme } from "../components/HighlightWithTheme";
 
 import styles from "./playground.module.css";
 
+const timeZones = [
+  "America/New_York",
+  "Europe/London",
+  "Asia/Tokyo",
+  "Australia/Sydney"
+];
 /**
  * Function to format a json object of props to a jsx source displaying the
  * props as example
@@ -65,6 +71,8 @@ export default function Playground() {
     formattedProps =
       `import { DayPicker } from "react-day-picker/utc";\n\n` + formattedProps;
   }
+
+  const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
   return (
     <Layout>
@@ -339,6 +347,27 @@ export default function Playground() {
             <legend>Localization</legend>
             <div className={styles.fields}>
               <label>
+                TimeZone:
+                <select
+                  name="timeZone"
+                  value={props.timeZone}
+                  onChange={(e) =>
+                    setProps({
+                      ...props,
+                      timeZone: e.target.value
+                    })
+                  }
+                >
+                  <option></option>
+                  <option value={currentTimeZone}>{currentTimeZone}</option>
+                  {timeZones.map((tz) => (
+                    <option key={tz} value={tz}>
+                      {tz}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label>
                 Locale:
                 <select
                   name="locale"
@@ -442,8 +471,13 @@ export default function Playground() {
         </form>
         <div className={styles.browserWindow}>
           <BrowserWindow url="">
-            {/* @ts-expect-error abc */}
-            <Component {...props} onSelect={setSelected} selected={selected} />
+            <Component
+              {...props}
+              onSelect={setSelected}
+              // @ts-expect-error abc
+              selected={selected}
+              // timeZone="Europe/Athens"
+            />
           </BrowserWindow>
         </div>
         <div className={styles.props}>
