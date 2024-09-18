@@ -10,10 +10,9 @@ export function TimeZone() {
       mode="single"
       timeZone="Europe/Athens"
       selected={selected}
+      // @ts-expect-error Testing tzdate
       onSelect={setSelected}
-      footer={
-        selected ? `Selected: ${selected.toLocaleDateString()}` : "Pick a day."
-      }
+      footer={selected ? `Selected: ${selected.withTimeZone()}` : "Pick a day."}
     />
   );
 }

@@ -12,13 +12,16 @@ export function getInitialMonth(
     | "defaultMonth"
     | "today"
     | "numberOfMonths"
+    | "timeZone"
   >,
   dateLib: DateLib
 ): Date {
   const {
     month,
     defaultMonth,
-    today = new dateLib.Date(),
+    today = props.timeZone
+      ? dateLib.TZDate.tz(props.timeZone)
+      : new dateLib.Date(),
     numberOfMonths = 1,
     endMonth,
     startMonth

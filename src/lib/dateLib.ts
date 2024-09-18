@@ -1,5 +1,4 @@
 import { TZDate } from "@date-fns/tz";
-import { UTCDate } from "@date-fns/utc";
 import { GenericDateConstructor } from "date-fns";
 import type {
   FormatOptions as DateFnsFormatOptions,

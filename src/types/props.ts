@@ -1,5 +1,7 @@
 import React from "react";
 
+import { TZDate } from "@date-fns/tz";
+
 import type { DeprecatedUI } from "../UI.js";
 import type { Locale } from "../lib/dateLib.js";
 
@@ -494,7 +496,7 @@ export interface PropsSingleRequired {
   /** The selected date. */
   selected: Date | undefined;
   /** Event handler when a day is selected. */
-  onSelect?: OnSelectHandler<Date>;
+  onSelect?: OnSelectHandler<Date | TZDate>;
 }
 
 /**

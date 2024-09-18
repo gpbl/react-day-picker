@@ -144,8 +144,15 @@ export function DayPicker(props: DayPickerProps) {
   } = labels;
 
   const weekdays = useMemo(
-    () => getWeekdays(locale, props.weekStartsOn, props.ISOWeek, dateLib),
-    [dateLib, locale, props.ISOWeek, props.weekStartsOn]
+    () =>
+      getWeekdays(
+        locale,
+        props.weekStartsOn,
+        props.ISOWeek,
+        props.timeZone,
+        dateLib
+      ),
+    [dateLib, locale, props.ISOWeek, props.timeZone, props.weekStartsOn]
   );
 
   const isInteractive = mode !== undefined || onDayClick !== undefined;
