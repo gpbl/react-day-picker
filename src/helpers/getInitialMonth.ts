@@ -1,3 +1,5 @@
+import { TZDate } from "@date-fns/tz";
+
 import type { DateLib, DayPickerProps } from "../index.js";
 
 /** Return the start month based on the props passed to DayPicker. */
@@ -19,9 +21,7 @@ export function getInitialMonth(
   const {
     month,
     defaultMonth,
-    today = props.timeZone
-      ? dateLib.TZDate.tz(props.timeZone)
-      : new dateLib.Date(),
+    today = props.timeZone ? TZDate.tz(props.timeZone) : new dateLib.Date(),
     numberOfMonths = 1,
     endMonth,
     startMonth

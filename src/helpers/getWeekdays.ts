@@ -1,3 +1,5 @@
+import { TZDate } from "@date-fns/tz";
+
 import type { Locale } from "../lib/dateLib.js";
 import { dateLib as defaultDateLib } from "../lib/index.js";
 import type { DateLib } from "../types/index.js";
@@ -16,7 +18,7 @@ export function getWeekdays(
   /** @ignore */
   dateLib: DateLib = defaultDateLib
 ): Date[] {
-  const date = timeZone ? dateLib.TZDate.tz(timeZone) : new dateLib.Date();
+  const date = timeZone ? TZDate.tz(timeZone) : new dateLib.Date();
   const start = ISOWeek
     ? dateLib.startOfISOWeek(date)
     : dateLib.startOfWeek(date, { locale, weekStartsOn });

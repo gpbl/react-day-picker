@@ -1,4 +1,3 @@
-import { TZDate } from "@date-fns/tz";
 import { GenericDateConstructor } from "date-fns";
 import type {
   FormatOptions as DateFnsFormatOptions,
@@ -53,7 +52,6 @@ export type { Month as DateFnsMonth } from "date-fns";
 export const dateLib = {
   /** The constructor of the date object. */
   Date: Date as GenericDateConstructor<Date>,
-  TZDate: TZDate,
   addDays,
   addMonths,
   addWeeks,

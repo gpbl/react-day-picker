@@ -16,6 +16,7 @@ export function getMonths(
     | "weekStartsOn"
     | "reverseMonths"
     | "firstWeekContainsDate"
+    | "timeZone"
   >,
   dateLib: DateLib
 ): CalendarMonth[] {
