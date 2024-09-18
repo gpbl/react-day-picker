@@ -1,8 +1,8 @@
 import React from "react";
 
+import { useControlledValue } from "../helpers/useControlledValue.js";
 import type {
   DateLib,
-  DateRange,
   DayPickerProps,
   Modifiers,
   PropsRange,
@@ -23,14 +23,10 @@ export function useRange<T extends DayPickerProps>(
     onSelect
   } = props as PropsRange;
 
-  const [selected, setSelected] = React.useState<DateRange | undefined>(
-    initiallySelected
+  const [selected, setSelected] = useControlledValue(
+    initiallySelected,
+    onSelect ? initiallySelected : undefined
   );
-
-  // Update the selected date if the `selected` prop changes.
-  React.useEffect(() => {
-    setSelected(initiallySelected);
-  }, [initiallySelected]);
 
   const isSelected = (date: Date) =>
     selected && rangeIncludesDate(selected, date, false, dateLib);

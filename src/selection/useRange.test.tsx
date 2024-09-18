@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { DateRange, DayPickerProps } from "react-day-picker/types";
-
 import { act, renderHook } from "@/test/render";
 
 import { dateLib } from "../lib";
@@ -21,31 +19,6 @@ describe("useRange", () => {
     );
 
     expect(result.current.selected).toEqual(initiallySelected);
-  });
-
-  test("update the selected range when the initially selected value changes", () => {
-    const initiallySelected: DateRange = {
-      from: new Date(2023, 6, 1),
-      to: new Date(2023, 6, 5)
-    };
-    const { result, rerender } = renderHook(
-      (props) => useRange(props, dateLib),
-      {
-        initialProps: {
-          mode: "range",
-          selected: initiallySelected,
-          required: false
-        } as DayPickerProps
-      }
-    );
-
-    rerender({
-      mode: "range",
-      selected: undefined,
-      required: false
-    });
-
-    expect(result.current.selected).toEqual(undefined);
   });
 
   test("update the selected range on select", () => {
