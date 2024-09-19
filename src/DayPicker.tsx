@@ -541,6 +541,7 @@ export function DayPicker(props: DayPickerProps) {
                                   <components.DayButton
                                     className={classNames[UI.DayButton]}
                                     style={styles?.[UI.DayButton]}
+                                    type="button"
                                     day={day}
                                     modifiers={modifiers}
                                     disabled={modifiers.disabled || undefined}
