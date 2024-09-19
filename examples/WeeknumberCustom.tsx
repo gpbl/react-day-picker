@@ -13,9 +13,9 @@ export function WeeknumberCustom() {
       defaultMonth={addMonths(today, -1)}
       components={{
         WeekNumber: ({ week, ...props }: WeekNumberProps) => (
-          <td {...props}>
+          <th {...props}>
             <button onClick={() => console.log(week)}>{props.children}</button>
-          </td>
+          </th>
         )
       }}
       labels={{

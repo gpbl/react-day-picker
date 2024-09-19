@@ -461,6 +461,7 @@ export function DayPicker(props: DayPickerProps) {
                                 locale
                               })}
                               className={classNames[UI.WeekNumber]}
+                              scope="row"
                             >
                               {formatWeekNumber(week.weekNumber)}
                             </components.WeekNumber>
