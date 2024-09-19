@@ -27,10 +27,12 @@ export function useSingle<T extends DayPickerProps>(
     onSelect
   } = props as PropsSingle;
 
-  const [selected, setSelected] = useControlledValue(
+  const [internallySelected, setSelected] = useControlledValue(
     initiallySelected,
     onSelect ? initiallySelected : undefined
   );
+
+  const selected = !onSelect ? internallySelected : initiallySelected;
 
   const { isSameDay } = dateLib;
 
@@ -48,7 +50,9 @@ export function useSingle<T extends DayPickerProps>(
       // If the date is the same, clear the selection.
       newDate = undefined;
     }
-    setSelected(newDate);
+    if (!onSelect) {
+      setSelected(newDate);
+    }
     if (required) {
       onSelect?.(newDate as Date, triggerDate, modifiers, e);
     } else {
