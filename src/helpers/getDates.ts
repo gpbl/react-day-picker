@@ -9,7 +9,7 @@ export function getDates(
   maxDate: Date | undefined,
   props: Pick<
     DayPickerProps,
-    "ISOWeek" | "fixedWeeks" | "locale" | "weekStartsOn"
+    "ISOWeek" | "fixedWeeks" | "locale" | "weekStartsOn" | "timeZone"
   >,
   dateLib: DateLib
 ): Date[] {
@@ -53,7 +53,7 @@ export function getDates(
     if (maxDate && isAfter(date, maxDate)) {
       break;
     }
-    dates.push(new Date(date));
+    dates.push(date);
   }
 
   // If fixed weeks is enabled, add the extra dates to the array

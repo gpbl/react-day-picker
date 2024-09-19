@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import type {
   CalendarWeek,
   CalendarDay,
@@ -79,6 +81,7 @@ export function useCalendar(
     | "onMonthChange"
     | "month"
     | "defaultMonth"
+    | "timeZone"
     // Deprecated:
     | "fromMonth"
     | "fromYear"
@@ -90,13 +93,17 @@ export function useCalendar(
   const [navStart, navEnd] = getNavMonths(props, dateLib);
 
   const { startOfMonth, endOfMonth } = dateLib;
-
   const initialMonth = getInitialMonth(props, dateLib);
-
   const [firstMonth, setFirstMonth] = useControlledValue(
     initialMonth,
     props.month ? startOfMonth(props.month) : undefined
   );
+
+  useEffect(() => {
+    const newInitialMonth = getInitialMonth(props, dateLib);
+    setFirstMonth(newInitialMonth);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.timeZone]);
 
   /** The months displayed in the calendar. */
   const displayMonths = getDisplayMonths(firstMonth, navEnd, props, dateLib);

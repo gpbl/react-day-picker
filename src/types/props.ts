@@ -257,6 +257,21 @@ export interface PropsBase {
    */
   ISOWeek?: boolean;
   /**
+   * The time zone (IANA or UTC offset) to use in the calendar (experimental).
+   * See
+   * [Wikipedia](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+   * for the possible values.
+   *
+   * Time zones are supported by the `TZDate` object by the
+   * [@date-fns/tz](https://github.com/date-fns/tz) package. Please refer to the
+   * package documentation for more information.
+   *
+   * @since 9.1.1
+   * @experimental
+   * @see https://daypicker.dev/docs/localization#time-zone
+   */
+  timeZone?: string | undefined;
+  /**
    * Change the components used for rendering the calendar elements.
    *
    * @see https://daypicker.dev/guides/custom-components

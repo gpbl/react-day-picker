@@ -8,13 +8,19 @@ import {
   DayPickerProps,
   isDateRange
 } from "react-day-picker";
-import { DayPicker as DayPickerUtc } from "react-day-picker/utc";
 
 import { BrowserWindow } from "../components/BrowserWindow";
 import { HighlightWithTheme } from "../components/HighlightWithTheme";
 
 import styles from "./playground.module.css";
 
+const timeZones = [
+  "UTC",
+  "America/New_York",
+  "Europe/London",
+  "Asia/Tokyo",
+  "Australia/Sydney"
+];
 /**
  * Function to format a json object of props to a jsx source displaying the
  * props as example
@@ -51,20 +57,15 @@ export default function Playground() {
   const [selected, setSelected] = React.useState<
     Date | Date[] | DateRange | undefined
   >();
-  const [utc, setUtc] = React.useState(false);
 
   const [accentColor, setAccentColor] = React.useState<string>();
   const [backgroundAccentColor, setBackgroundAccountColor] =
     React.useState<string>();
   const [rangeMiddleColor, setrangeMiddleColor] = React.useState<string>();
 
-  const Component = utc ? DayPickerUtc : DayPicker;
-  let formattedProps = `<DayPicker${toJSX({ ...props, locale: undefined })} \n/>`;
+  const formattedProps = `<DayPicker${toJSX({ ...props, locale: undefined })} \n/>`;
 
-  if (utc) {
-    formattedProps =
-      `import { DayPicker } from "react-day-picker/utc";\n\n` + formattedProps;
-  }
+  const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
   return (
     <Layout>
@@ -339,6 +340,27 @@ export default function Playground() {
             <legend>Localization</legend>
             <div className={styles.fields}>
               <label>
+                Time Zone:
+                <select
+                  name="timeZone"
+                  value={props.timeZone}
+                  onChange={(e) =>
+                    setProps({
+                      ...props,
+                      timeZone: e.target.value
+                    })
+                  }
+                >
+                  <option></option>
+                  <option value={currentTimeZone}>{currentTimeZone}</option>
+                  {timeZones.map((tz) => (
+                    <option key={tz} value={tz}>
+                      {tz}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label>
                 Locale:
                 <select
                   name="locale"
@@ -406,17 +428,6 @@ export default function Playground() {
               <label>
                 <input
                   type="checkbox"
-                  name="UTC"
-                  onChange={(e) => {
-                    setSelected(undefined);
-                    setUtc(e.target.checked);
-                  }}
-                />
-                UTC Dates
-              </label>
-              <label>
-                <input
-                  type="checkbox"
                   name="ISOWeek"
                   onChange={(e) =>
                     setProps({ ...props, ISOWeek: e.target.checked })
@@ -442,8 +453,13 @@ export default function Playground() {
         </form>
         <div className={styles.browserWindow}>
           <BrowserWindow url="">
-            {/* @ts-expect-error abc */}
-            <Component {...props} onSelect={setSelected} selected={selected} />
+            <DayPicker
+              {...props}
+              onSelect={setSelected}
+              // @ts-expect-error abc
+              selected={selected}
+              // timeZone="Europe/Athens"
+            />
           </BrowserWindow>
         </div>
         <div className={styles.props}>

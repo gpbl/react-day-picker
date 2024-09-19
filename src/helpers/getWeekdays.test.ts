@@ -32,7 +32,7 @@ describe.each<0 | 1 | 2 | 3 | 4 | 5 | 6>([0, 1, 2, 3, 4, 5, 6])(
 
 describe("when using ISO week", () => {
   beforeEach(() => {
-    result = getWeekdays(es, 3, true, dateLib);
+    result = getWeekdays(es, 3, true, undefined, dateLib);
   });
   test("should return Monday as first day", () => {
     expect(result[0]).toBeMonday();

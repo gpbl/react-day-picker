@@ -51,7 +51,7 @@ export type { Month as DateFnsMonth } from "date-fns";
  */
 export const dateLib = {
   /** The constructor of the date object. */
-  Date: Date as GenericDateConstructor,
+  Date: Date as GenericDateConstructor<Date>,
   addDays,
   addMonths,
   addWeeks,

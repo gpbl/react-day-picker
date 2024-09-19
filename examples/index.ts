@@ -65,6 +65,7 @@ export * from "./TailwindCSS";
 export * from "./Testcase1567";
 export * from "./TestCase2047";
 export * from "./TestCase2389";
+export * from "./TimeZone";
 export * from "./Utc";
 export * from "./WeekIso";
 export * from "./Weeknumber";

@@ -1,3 +1,5 @@
+import { TZDate } from "@date-fns/tz";
+
 import type { DateLib, DayPickerProps } from "../types/index.js";
 
 /** Return the start and end months for the calendar navigation. */
@@ -8,6 +10,7 @@ export function getNavMonths(
     | "endMonth"
     | "startMonth"
     | "today"
+    | "timeZone"
     // Deprecated:
     | "fromMonth"
     | "fromYear"
@@ -49,14 +52,20 @@ export function getNavMonths(
   } else if (fromYear) {
     startMonth = new Date(fromYear, 0, 1);
   } else if (!startMonth && hasDropdowns) {
-    startMonth = startOfYear(addYears(props.today ?? new Date(), -100));
+    const today =
+      props.today ??
+      (props.timeZone ? TZDate.tz(props.timeZone) : new dateLib.Date());
+    startMonth = startOfYear(addYears(today, -100));
   }
   if (endMonth) {
     endMonth = endOfMonth(endMonth);
   } else if (toYear) {
     endMonth = new Date(toYear, 11, 31);
   } else if (!endMonth && hasDropdowns) {
-    endMonth = endOfYear(props.today ?? new Date());
+    const today =
+      props.today ??
+      (props.timeZone ? TZDate.tz(props.timeZone) : new dateLib.Date());
+    endMonth = endOfYear(today);
   }
   return [
     startMonth ? startOfDay(startMonth) : startMonth,

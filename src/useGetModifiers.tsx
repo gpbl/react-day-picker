@@ -1,3 +1,5 @@
+import { TZDate } from "@date-fns/tz";
+
 import { DayFlag, SelectionState } from "./UI.js";
 import { CalendarDay } from "./classes/index.js";
 import type { DateLib, DayPickerProps, Modifiers } from "./types/index.js";
@@ -15,7 +17,7 @@ export function useGetModifiers(
 ) {
   const { disabled, hidden, modifiers, showOutsideDays, today } = props;
 
-  const { isSameDay, isSameMonth, Date } = dateLib;
+  const { isSameDay, isSameMonth } = dateLib;
 
   const internalModifiersMap: Record<DayFlag, CalendarDay[]> = {
     [DayFlag.focused]: [],
@@ -47,7 +49,10 @@ export function useGetModifiers(
       Boolean(hidden && dateMatchModifiers(date, hidden, dateLib)) ||
       (!showOutsideDays && isOutside);
 
-    const isToday = isSameDay(date, today ?? new Date());
+    const isToday = isSameDay(
+      date,
+      today ?? (props.timeZone ? TZDate.tz(props.timeZone) : new dateLib.Date())
+    );
 
     if (isOutside) internalModifiersMap.outside.push(day);
     if (isDisabled) internalModifiersMap.disabled.push(day);
