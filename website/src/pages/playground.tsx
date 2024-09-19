@@ -8,7 +8,6 @@ import {
   DayPickerProps,
   isDateRange
 } from "react-day-picker";
-import { DayPicker as DayPickerUtc } from "react-day-picker/utc";
 
 import { BrowserWindow } from "../components/BrowserWindow";
 import { HighlightWithTheme } from "../components/HighlightWithTheme";
@@ -341,7 +340,7 @@ export default function Playground() {
             <legend>Localization</legend>
             <div className={styles.fields}>
               <label>
-                TimeZone:
+                Time Zone:
                 <select
                   name="timeZone"
                   value={props.timeZone}

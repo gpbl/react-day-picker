@@ -62,7 +62,29 @@ import { DayPicker, defaultLocale } from "react-day-picker";
 
 :::
 
-## First Date of the Week
+## Changing the Time Zone {#time-zone}
+
+Use the `timeZone` prop to set a different time zone for the calendar. See [Wikipedia](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+for a list of the possible values.
+
+```tsx
+<DayPicker timeZone="UTC" /> // Use Coordinated Universal Time
+<DayPicker timeZone="Pacific/Kiritimati" /> // Use Line Islands Time
+```
+
+<BrowserWindow bodyStyle={{ justifyContent: "start" }}>
+  <Examples.TimeZone />
+</BrowserWindow>
+
+:::note Experimental feature
+
+Time zones are supported by the `TZDate` object by the [@date-fns/tz](https://github.com/date-fns/tz) package. If you encounter any issues, please [report them](https://github.com/gpbl/react-day-picker/issues). Thank you!
+
+:::
+
+## Calendar Options
+
+### First Date of the Week
 
 Use the `weekStartsOn` prop to set the first day of the week.
 
@@ -74,7 +96,7 @@ Use the `weekStartsOn` prop to set the first day of the week.
   <Examples.SpanishWeekStartsOn />
 </BrowserWindow>
 
-## First Week Contains Date
+### First Week Contains Date
 
 The `firstWeekContainsDate` prop sets the first day of the year's initial week, which is used to calculate week numbers.
 
@@ -88,7 +110,7 @@ The `firstWeekContainsDate` prop sets the first day of the year's initial week, 
 />
 ```
 
-## ISO Week Dates
+### ISO Week Dates
 
 Use the `ISOWeek` prop to switch to [ISO Week Dates](https://en.wikipedia.org/wiki/ISO_week_date) instead of the locale setting.
 
@@ -98,61 +120,6 @@ Use the `ISOWeek` prop to switch to [ISO Week Dates](https://en.wikipedia.org/wi
 
 <BrowserWindow>
   <Examples.WeeknumberIso />
-</BrowserWindow>
-
-## UTC Dates
-
-Since DayPicker works with the native JavaScript `Date`, it uses the local time zone by default. To switch to UTC dates:
-
-1. Add [@date-fns/utc](https://www.npmjs.com/package/@date-fns/utc) to your dependencies.
-2. Import `DayPicker` from `react-day-picker/utc`.
-3. Use `new UTCDate()` instead of `new Date()`.
-
-:::note Experimental feature
-
-The UTC mode is an experimental feature. If you encounter any issues, please [report them](https://github.com/gpbl/react-day-picker/issues). Thank you!
-
-:::
-
-#### 1. Install the `@date-fns/utc` package
-
-```bash npm2yarn
-npm install @date-fns/utc
-```
-
-#### 2. Import `DayPicker` from `react-day-picker/utc`
-
-```diff
-- import { DayPicker } from 'react-day-picker';
-+ import { DayPicker } from 'react-day-picker/utc';
-```
-
-#### 3. Use DayPicker as usual
-
-Use `new UTCDate()` instead of `new Date()` to ensure dates are always in GMT.
-
-```tsx
-import { UTCDate } from "@date-fns/utc";
-import { DayPicker } from "react-day-picker/utc";
-
-export function Utc() {
-  const [selected, setSelected] = React.useState<Date>(new UTCDate());
-  return (
-    <DayPicker
-      mode="single"
-      required
-      selected={selected}
-      onSelect={(date: Date) => {
-        setSelected(date);
-      }}
-      footer={selected ? `Selected: ${selected.toUTCString()}` : null}
-    />
-  );
-}
-```
-
-<BrowserWindow>
-  <Examples.Utc />
 </BrowserWindow>
 
 ## Jalali Calendar
