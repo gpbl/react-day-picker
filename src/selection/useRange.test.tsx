@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { DayPickerProps } from "react-day-picker/types";
+
 import { act, renderHook } from "@/test/render";
 
 import { dateLib } from "../lib";
@@ -109,6 +111,45 @@ describe("useRange", () => {
     expect(result.current.selected).toEqual({
       from: new Date(2023, 6, 10),
       to: new Date(2023, 6, 10)
+    });
+  });
+  it("uses the selected value from props when onSelect is provided", () => {
+    const mockOnSelect = jest.fn();
+    const selectedRange = {
+      from: new Date(2023, 9, 1),
+      to: new Date(2023, 9, 5)
+    };
+    const props: DayPickerProps = {
+      mode: "range",
+
+      selected: selectedRange,
+      onSelect: mockOnSelect
+    };
+
+    const { result } = renderHook(() => useRange(props, dateLib));
+
+    expect(result.current.selected).toBe(selectedRange);
+  });
+
+  it("uses the internally selected value when onSelect is not provided", () => {
+    const initialSelectedRange = {
+      from: new Date(2023, 9, 1),
+      to: new Date(2023, 9, 5)
+    };
+    const props: DayPickerProps = {
+      mode: "range",
+      selected: initialSelectedRange
+    };
+
+    const { result } = renderHook(() => useRange(props, dateLib));
+
+    act(() => {
+      result.current.select?.(new Date(2023, 9, 6), {}, {} as React.MouseEvent);
+    });
+
+    expect(result.current.selected).toEqual({
+      from: new Date(2023, 9, 1),
+      to: new Date(2023, 9, 6)
     });
   });
 });

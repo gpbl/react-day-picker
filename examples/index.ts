@@ -52,6 +52,7 @@ export * from "./RangeRequired";
 export * from "./RangeShiftKey";
 export * from "./Rtl";
 export * from "./Single";
+export * from "./SingleControlled";
 export * from "./SingleRequired";
 export * from "./Spanish";
 export * from "./SpanishWeekStartsOn";

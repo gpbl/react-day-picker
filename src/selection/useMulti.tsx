@@ -19,10 +19,12 @@ export function useMulti<T extends DayPickerProps>(
     onSelect
   } = props as PropsMulti;
 
-  const [selected, setSelected] = useControlledValue(
+  const [internallySelected, setSelected] = useControlledValue(
     initiallySelected,
     onSelect ? initiallySelected : undefined
   );
+
+  const selected = !onSelect ? internallySelected : initiallySelected;
 
   const { isSameDay } = dateLib;
 
@@ -57,7 +59,9 @@ export function useMulti<T extends DayPickerProps>(
         newDates = [...newDates, triggerDate];
       }
     }
-    setSelected(newDates);
+    if (!onSelect) {
+      setSelected(newDates);
+    }
     onSelect?.(newDates, triggerDate, modifiers, e);
     return newDates;
   };
