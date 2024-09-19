@@ -40,15 +40,20 @@ When the `mode` prop is set to `"single"`, only one day can be selected at a tim
 | `onSelect` | `(selected, triggerDate, modifiers, e) => void` | Event callback when a date is selected. |
 | `required` | `boolean`                                       | Make the selection required.            |
 
-Use the `selected` and `onSelect` props to manage the selected date:
+### Controlled Selections
+
+Use the `selected` and `onSelect` props to control the selected date:
 
 ```tsx
 export function App() {
   const [selected, setSelected] = React.useState<Date | undefined>();
-
   return <DayPicker mode="single" selected={selected} onSelect={setSelected} />;
 }
 ```
+
+<BrowserWindow>
+  <Examples.SingleControlled />
+</BrowserWindow>
 
 ### Required Selection
 

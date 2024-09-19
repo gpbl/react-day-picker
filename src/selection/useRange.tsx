@@ -23,10 +23,12 @@ export function useRange<T extends DayPickerProps>(
     onSelect
   } = props as PropsRange;
 
-  const [selected, setSelected] = useControlledValue(
+  const [internallySelected, setSelected] = useControlledValue(
     initiallySelected,
     onSelect ? initiallySelected : undefined
   );
+
+  const selected = !onSelect ? internallySelected : initiallySelected;
 
   const isSelected = (date: Date) =>
     selected && rangeIncludesDate(selected, date, false, dateLib);
@@ -58,7 +60,9 @@ export function useRange<T extends DayPickerProps>(
       }
     }
 
-    setSelected(newRange);
+    if (!onSelect) {
+      setSelected(newRange);
+    }
     onSelect?.(newRange, triggerDate, modifiers, e);
 
     return newRange;
