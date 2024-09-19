@@ -279,7 +279,6 @@ export function DayPicker(props: DayPickerProps) {
         >
           {!props.hideNavigation && (
             <components.Nav
-              role="navigation"
               className={classNames[UI.Nav]}
               style={styles?.[UI.Nav]}
               aria-label={labelNav()}
@@ -413,15 +412,14 @@ export function DayPicker(props: DayPickerProps) {
                   {!props.hideWeekdays && (
                     <components.Weekdays
                       className={classNames[UI.Weekdays]}
-                      role="row"
                       style={styles?.[UI.Weekdays]}
                     >
                       {showWeekNumber && (
                         <components.WeekNumberHeader
                           aria-label={labelWeekNumberHeader(labelOptions)}
                           className={classNames[UI.WeekNumberHeader]}
-                          role="columnheader"
                           style={styles?.[UI.WeekNumberHeader]}
+                          scope="col"
                         >
                           {formatWeekNumberHeader()}
                         </components.WeekNumberHeader>
@@ -435,8 +433,8 @@ export function DayPicker(props: DayPickerProps) {
                           )}
                           className={classNames[UI.Weekday]}
                           key={i}
-                          role="columnheader"
                           style={styles?.[UI.Weekday]}
+                          scope="col"
                         >
                           {formatWeekdayName(weekday, formatOptions, dateLib)}
                         </components.Weekday>
@@ -445,7 +443,6 @@ export function DayPicker(props: DayPickerProps) {
                   )}
                   <components.Weeks
                     className={classNames[UI.Weeks]}
-                    role="rowgroup"
                     style={styles?.[UI.Weeks]}
                   >
                     {calendarMonth.weeks.map((week, weekIndex) => {
@@ -453,19 +450,18 @@ export function DayPicker(props: DayPickerProps) {
                         <components.Week
                           className={classNames[UI.Week]}
                           key={week.weekNumber}
-                          role="row"
                           style={styles?.[UI.Week]}
                           week={week}
                         >
                           {showWeekNumber && (
                             <components.WeekNumber
                               week={week}
-                              role="rowheader"
                               style={styles?.[UI.WeekNumber]}
                               aria-label={labelWeekNumber(week.weekNumber, {
                                 locale
                               })}
                               className={classNames[UI.WeekNumber]}
+                              scope="row"
                             >
                               {formatWeekNumber(week.weekNumber)}
                             </components.WeekNumber>
@@ -526,7 +522,6 @@ export function DayPicker(props: DayPickerProps) {
                                 key={`${dateLib.format(date, "yyyy-MM-dd")}_${dateLib.format(day.displayMonth, "yyyy-MM")}`}
                                 day={day}
                                 modifiers={modifiers}
-                                role="gridcell"
                                 className={className.join(" ")}
                                 style={style}
                                 aria-hidden={modifiers.hidden || undefined}
@@ -549,6 +544,7 @@ export function DayPicker(props: DayPickerProps) {
                                   <components.DayButton
                                     className={classNames[UI.DayButton]}
                                     style={styles?.[UI.DayButton]}
+                                    type="button"
                                     day={day}
                                     modifiers={modifiers}
                                     disabled={modifiers.disabled || undefined}

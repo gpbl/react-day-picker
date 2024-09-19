@@ -61,7 +61,7 @@ describe("when a day in the range is clicked", () => {
 });
 
 function getAllSelected() {
-  const gridcells = screen.getAllByRole("gridcell");
+  const gridcells = screen.getAllByRole("cell");
 
   return Array.from(gridcells).filter(
     (gridcell) => gridcell.getAttribute("aria-selected") === "true"

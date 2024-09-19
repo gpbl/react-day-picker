@@ -180,3 +180,16 @@ test("should render the custom components", () => {
   expect(screen.getByText("Custom YearsDropdown")).toBeInTheDocument();
   expect(screen.getByText("Custom MonthsDropdown")).toBeInTheDocument();
 });
+
+describe("when interactive", () => {
+  test("render a valid HTML", () => {
+    render(<DayPicker mode="single" />);
+    expect(document.body).toHTMLValidate();
+  });
+});
+describe("when not interactive", () => {
+  test("render a valid HTML", () => {
+    render(<DayPicker />);
+    expect(document.body).toHTMLValidate();
+  });
+});
