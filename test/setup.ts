@@ -1,5 +1,6 @@
 import { configure } from "@testing-library/dom";
 import "@testing-library/jest-dom";
+import "html-validate/jest";
 
 import "./dateMatchers";
 
