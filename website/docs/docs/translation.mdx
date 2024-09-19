@@ -30,7 +30,7 @@ The `labels` prop allows you to customize the [ARIA labels](./accessibility.mdx)
 
 ```tsx
 import { format } from "date-fns";
-import { it } from "date-fns/locale";
+import { it } from "react-day-picker/locale";
 
 function ItalianLabels() {
   return (
@@ -89,7 +89,7 @@ The following labels are optional and should work out of the box in most languag
 To set the text direction to right-to-left, use the `dir` prop with the value `rtl`.
 
 ```tsx
-import { arSA } from "date-fns/locale";
+import { arSA } from "react-day-picker/locale";
 
 <DayPicker locale={arSA} dir="rtl" />;
 ```
@@ -130,8 +130,8 @@ For example, to switch to Hindu-Arabic numerals, use the native [`Date.toLocaleS
 
 ```tsx
 import { format } from "date-fns/format";
-import { arSA } from "date-fns/locale";
 import { DayPicker, Formatters } from "react-day-picker";
+import { arSA } from "react-day-picker/locale";
 
 const NU_LOCALE = "ar-u-nu-arab";
 

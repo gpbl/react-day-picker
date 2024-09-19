@@ -74,6 +74,20 @@
         "default": "./dist/cjs/jalali.js"
       }
     },
+    "./locale": {
+      "require": {
+        "types": "./dist/cjs/locale.d.ts",
+        "default": "./dist/cjs/locale.js"
+      },
+      "import": {
+        "types": "./dist/esm/locale.d.ts",
+        "default": "./dist/esm/locale.js"
+      },
+      "default": {
+        "types": "./dist/cjs/locale.d.ts",
+        "default": "./dist/cjs/locale.js"
+      }
+    },
     "./style.css": {
       "require": "./src/style.css",
       "import": "./src/style.css",

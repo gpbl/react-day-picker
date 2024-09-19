@@ -1,13 +1,13 @@
 import React from "react";
 
 import Layout from "@theme/Layout";
-import * as locales from "date-fns/locale";
 import {
   DateRange,
   DayPicker,
   DayPickerProps,
   isDateRange
 } from "react-day-picker";
+import * as locales from "react-day-picker/locale";
 
 import { BrowserWindow } from "../components/BrowserWindow";
 import { HighlightWithTheme } from "../components/HighlightWithTheme";

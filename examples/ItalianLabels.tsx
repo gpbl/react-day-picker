@@ -1,8 +1,8 @@
 import React from "react";
 
 import { format } from "date-fns";
-import { it } from "date-fns/locale";
 import { DayPicker } from "react-day-picker";
+import { it } from "react-day-picker/locale";
 
 export function ItalianLabels() {
   return (
