@@ -44,6 +44,7 @@ export * from "./MultipleMonths";
 export * from "./MultipleMonthsPaged";
 export * from "./NumberingSystem";
 export * from "./OutsideDays";
+export * from "./PastDatesDisabled";
 export * from "./Range";
 export * from "./RangeExcludeDisabled";
 export * from "./RangeMinMax";

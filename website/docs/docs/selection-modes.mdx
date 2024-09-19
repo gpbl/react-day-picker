@@ -175,16 +175,25 @@ To disable specific days, use the `disabled` prop. Disabled dates cannot be sele
 
 The prop accepts a [`Matcher`](../api/type-aliases/Matcher.md) or an array of matchers to specify which days should be disabled.
 
-```tsx
-// disable today
-<DayPicker mode="single" disabled={ new Date() } />
+### Disabling Specific Dates
 
+```tsx
 // disable weekends
 <DayPicker mode="range" disabled={{ dayOfWeek: [0, 6] }} />
 ```
 
 <BrowserWindow>
   <Examples.ModifiersDisabled />
+</BrowserWindow>
+
+### Disabling Dates in the Past
+
+```tsx
+<DayPicker mode="single" disabled={{ before: new Date() }} />
+```
+
+<BrowserWindow>
+  <Examples.PastDatesDisabled />
 </BrowserWindow>
 
 ### Excluding Disabled Dates from Range {#exclude-disabled}
