@@ -16,6 +16,7 @@ import { HighlightWithTheme } from "../components/HighlightWithTheme";
 import styles from "./playground.module.css";
 
 const timeZones = [
+  "UTC",
   "America/New_York",
   "Europe/London",
   "Asia/Tokyo",
@@ -57,20 +58,13 @@ export default function Playground() {
   const [selected, setSelected] = React.useState<
     Date | Date[] | DateRange | undefined
   >();
-  const [utc, setUtc] = React.useState(false);
 
   const [accentColor, setAccentColor] = React.useState<string>();
   const [backgroundAccentColor, setBackgroundAccountColor] =
     React.useState<string>();
   const [rangeMiddleColor, setrangeMiddleColor] = React.useState<string>();
 
-  const Component = utc ? DayPickerUtc : DayPicker;
-  let formattedProps = `<DayPicker${toJSX({ ...props, locale: undefined })} \n/>`;
-
-  if (utc) {
-    formattedProps =
-      `import { DayPicker } from "react-day-picker/utc";\n\n` + formattedProps;
-  }
+  const formattedProps = `<DayPicker${toJSX({ ...props, locale: undefined })} \n/>`;
 
   const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
@@ -435,17 +429,6 @@ export default function Playground() {
               <label>
                 <input
                   type="checkbox"
-                  name="UTC"
-                  onChange={(e) => {
-                    setSelected(undefined);
-                    setUtc(e.target.checked);
-                  }}
-                />
-                UTC Dates
-              </label>
-              <label>
-                <input
-                  type="checkbox"
                   name="ISOWeek"
                   onChange={(e) =>
                     setProps({ ...props, ISOWeek: e.target.checked })
@@ -471,7 +454,7 @@ export default function Playground() {
         </form>
         <div className={styles.browserWindow}>
           <BrowserWindow url="">
-            <Component
+            <DayPicker
               {...props}
               onSelect={setSelected}
               // @ts-expect-error abc
