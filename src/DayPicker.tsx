@@ -419,6 +419,7 @@ export function DayPicker(props: DayPickerProps) {
                           aria-label={labelWeekNumberHeader(labelOptions)}
                           className={classNames[UI.WeekNumberHeader]}
                           style={styles?.[UI.WeekNumberHeader]}
+                          scope="col"
                         >
                           {formatWeekNumberHeader()}
                         </components.WeekNumberHeader>
@@ -433,6 +434,7 @@ export function DayPicker(props: DayPickerProps) {
                           className={classNames[UI.Weekday]}
                           key={i}
                           style={styles?.[UI.Weekday]}
+                          scope="col"
                         >
                           {formatWeekdayName(weekday, formatOptions, dateLib)}
                         </components.Weekday>
