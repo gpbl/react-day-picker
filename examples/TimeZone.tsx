@@ -7,12 +7,6 @@ export function TimeZone() {
   const [selected, setSelected] = useState<Date | undefined>(
     TZDate.tz(Intl.DateTimeFormat().resolvedOptions().timeZone)
   );
-  console.log(
-    "selected",
-    selected?.toISOString(),
-    selected?.toString(),
-    selected?.toJSON()
-  );
   return (
     <DayPicker
       mode="single"

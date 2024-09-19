@@ -115,7 +115,6 @@ export function useCalendar(
     props,
     dateLib
   );
-  console.log({ firstMonth, initialMonth, dates });
 
   /** The Months displayed in the calendar. */
   const months = getMonths(displayMonths, dates, props, dateLib);
@@ -173,8 +172,6 @@ export function useCalendar(
     goToMonth,
     goToDay
   };
-
-  console.log(calendar);
 
   return calendar;
 }
