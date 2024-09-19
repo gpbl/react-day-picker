@@ -12,22 +12,19 @@ Learn how to set the locale, changing the time zone, and adjust other calendar o
 | --------- | ------------------------------------------ | ----------------------------------- |
 | `locale`  | [`Locale`](https://date-fns.org/docs/I18n) | Set the locale. Default is `en-US`. |
 
-### 1. Install date-fns
+DayPicker export the [date-fns](https://date-fns.org) locales for easier calendar localization. To set a different locale, import it from `react-day-picker/locale`.
 
-DayPicker uses the [date-fns](https://date-fns.org) library for calendar localization. To set a different locale, install `date-fns`:
-
-```bash npm2yarn
-npm install date-fns
+```bash ts
+// import the locale object
+import { es } from "react-day-picker/locale";
 ```
 
-### 2. Set a Different Locale
-
-By default, the locale is set to English (US). To localize the calendar, pass a [`Locale`](https://date-fns.org/docs/I18n) object to the `locale` prop.
+By default, the locale is set to English (US). To localize the calendar, pass the imported [`Locale`](https://date-fns.org/docs/I18n) object to the `locale` prop.
 
 For example, to localize the calendar in Spanish, import the `es` locale object from `date-fns` and pass it to the component.
 
 ```tsx
-import { es } from "date-fns/locale";
+import { es } from "react-day-picker/locale";
 
 <DayPicker locale={es} />; // Set the locale to Spanish
 ```
@@ -106,8 +103,6 @@ export function TimeZone() {
 
 ## Calendar Options
 
-## Locale props
-
 | Prop Name               | Type                                          | Description                                                        |
 | ----------------------- | --------------------------------------------- | ------------------------------------------------------------------ |
 | `weekStartsOn`          | `1` \| `2` \| `3` \| `4` \| `5` \| `6` \| `7` | Display the days falling into the other months.                    |
@@ -182,8 +177,8 @@ You can set the right-to-left direction and change the locale as needed.
 ```tsx title="./JalaliCalendar.jsx"
 import React from "react";
 
-import { faIR } from "date-fns/locale";
 import { DayPicker } from "react-day-picker/jalali";
+import { faIR } from "react-day-picker/locale";
 
 export function Jalali() {
   return <DayPicker mode="single" locale={faIR} dir="rtl" />;

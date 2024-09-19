@@ -357,7 +357,7 @@ export interface PropsBase {
    * localize the calendar.
    *
    * @example
-   *   import { es } from "date-fns/locale";
+   *   import { es } from "react-day-picker/locale";
    *   <DayPicker locale={es} />
    *
    * @defaultValue enUS - The English locale default of `date-fns`.

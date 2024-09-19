@@ -1,7 +1,7 @@
 import React from "react";
 
 import { format } from "date-fns";
-import { arSA } from "date-fns/locale";
+import { arSA } from "react-day-picker/locale";
 
 import {
   DateFormatter,
