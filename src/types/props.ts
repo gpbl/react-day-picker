@@ -257,7 +257,9 @@ export interface PropsBase {
    */
   ISOWeek?: boolean;
   /**
-   * @since 9.1.0
+   * The time zone to use in the calendar (experimental).
+   *
+   * @since 9.2.0
    * @experimental
    */
   timeZone?: string;
