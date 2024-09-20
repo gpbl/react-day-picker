@@ -83,10 +83,10 @@ export function dateButton(date: Date) {
  */
 export function gridcell(date: Date, interactive?: boolean) {
   if (interactive)
-    return screen.getByRole("gridcell", {
+    return screen.getByRole("cell", {
       name: date.getDate().toString()
     });
-  return screen.getByRole("gridcell", {
+  return screen.getByRole("cell", {
     name: labelGridcell(date)
   });
 }

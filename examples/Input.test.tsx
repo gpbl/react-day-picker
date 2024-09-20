@@ -13,7 +13,7 @@ function textbox() {
 }
 
 function gridcells() {
-  return screen.queryAllByRole("gridcell") as HTMLTableCellElement[];
+  return screen.queryAllByRole("cell") as HTMLTableCellElement[];
 }
 
 function selectedCells() {
