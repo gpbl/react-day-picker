@@ -85,6 +85,8 @@ When working with time zones, make sure to use the `TZDate` object instead of th
 To initialize a date in a specific time zone, use the `tz` method:
 
 ```tsx
+import { DayPicker, TZDate } from "react-day-picker";
+
 export function TimeZone() {
   const timeZone = "America/New_York";
   const [selected, setSelected] = useState<Date | undefined>(
