@@ -49,9 +49,9 @@ import { DayPicker, defaultLocale } from "react-day-picker";
 
 ## Changing the Time Zone {#time-zone}
 
-:::warning Experimental Feature
+:::warning Experimental Feature (since v9.1.1)
 
-Time zones are supported by the `TZDate` object by the [@date-fns/tz](https://github.com/date-fns/tz) package. If you encounter any issues, please [report them](https://github.com/gpbl/react-day-picker/issues). Thank you!
+DayPicker supports time zones through the `date-fns` library. For more information, refer to the [date-fns time zones documentation](https://date-fns.org/v4.1.0/docs/Time-Zones). If you encounter any issues, please [report them on GitHub](https://github.com/gpbl/react-day-picker/issues). Thank you!
 
 :::
 
@@ -75,7 +75,7 @@ for a list of the possible values.
 
 When working with time zones, make sure to use the `TZDate` object instead of the native `Date` object. The `TZDate` object is exported from [@date-fns/tz](https://github.com/date-fns/date-fns-tz). Refer to their documentation for more information.
 
-To initialize a date in a specific time zone, use the `tz` method:
+- To initialize a date in a specific time zone, create a `new TZDate()` object or the `TZDate.tz`.
 
 ```tsx
 import { DayPicker, TZDate } from "react-day-picker";
@@ -83,7 +83,7 @@ import { DayPicker, TZDate } from "react-day-picker";
 export function TimeZone() {
   const timeZone = "America/New_York";
   const [selected, setSelected] = useState<Date | undefined>(
-    TZDate.tz(timeZone) // Make sure you use `TZDate` instead of `Date`
+    new TZDate(2024, 12, 10, timeZone) // Make sure you use `TZDate` instead of `Date`
   );
   return (
     <DayPicker

@@ -353,8 +353,8 @@ export interface PropsBase {
   /** Add the language tag to the container element. */
   lang?: HTMLDivElement["lang"];
   /**
-   * The locale object used to localize dates. Pass a locale from `date-fns` to
-   * localize the calendar.
+   * The locale object used to localize dates. Pass a locale from
+   * `react-day-picker/locale` to localize the calendar.
    *
    * @example
    *   import { es } from "react-day-picker/locale";
@@ -362,6 +362,7 @@ export interface PropsBase {
    *
    * @defaultValue enUS - The English locale default of `date-fns`.
    * @see https://daypicker.dev/docs/localization
+   * @see https://github.com/date-fns/date-fns/tree/main/src/locale for a list of the supported locales
    */
   locale?: Partial<Locale> | undefined;
   /**
