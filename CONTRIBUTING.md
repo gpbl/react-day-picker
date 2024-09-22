@@ -22,12 +22,11 @@ There are many ways to contribute to the development of DayPicker:
 
 DayPicker is built using the following tools and libraries:
 
-- **[React](https://reactjs.org/)**
-- **[TypeScript](https://www.typescriptlang.org/)**
-- **[Vite](https://vitejs.dev/)** - for the examples app
-- **[Docusaurus](https://docusaurus.io/)** - for the documentation
-- **[Jest](https://jestjs.io/)** - for testing
-- **[pnpm](https://pnpm.io/)** - for package management
+- [pnpm](https://pnpm.io/) - for package management
+- [TypeScript](https://www.typescriptlang.org/) with [React](https://reactjs.org/)
+- [Docusaurus](https://docusaurus.io/) - for the documentation websi
+- [Vite](https://vitejs.dev/) - for the examples app
+- [Jest](https://jestjs.io/) - for unit tests
 
 To contribute to DayPicker, start by cloning the repository:
 
