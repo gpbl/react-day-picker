@@ -18,7 +18,7 @@ The `mode` prop determines the selection mode. Use the `disabled` prop to preven
 | `disabled` | [`Matcher`](../api/type-aliases/Matcher.md) \| `Matcher[]`                           | Disabled days that cannot be selected.  |
 | `selected` | `Date` \| `Date[]` \| [`DateRange`](../api/type-aliases/DateRange.md) \| `undefined` | The selected day(s).                    |
 | `required` | `boolean`                                                                            | When `true`, the selection is required. |
-| `onSelect` | `(selected, triggerDate, modifiers, e) => void`                                      | Event callback when a date is selected. |
+| `onSelect` | [`OnSelectHandler`](../api/type-aliases/OnSelectHandler.md)                          | Event callback when a date is selected. |
 
 ## Single Mode
 
@@ -34,11 +34,11 @@ When the `mode` prop is set to `"single"`, only one day can be selected at a tim
 
 ### Single Mode Props
 
-| Prop Name  | Type                                            | Description                             |
-| ---------- | ----------------------------------------------- | --------------------------------------- |
-| `selected` | `Date \| undefined`                             | The selected date.                      |
-| `onSelect` | `(selected, triggerDate, modifiers, e) => void` | Event callback when a date is selected. |
-| `required` | `boolean`                                       | Make the selection required.            |
+| Prop Name  | Type                                                                           | Description                             |
+| ---------- | ------------------------------------------------------------------------------ | --------------------------------------- |
+| `selected` | `Date \| undefined`                                                            | The selected date.                      |
+| `onSelect` | [`OnSelectHandler<Date \| undefined>`](../api/type-aliases/OnSelectHandler.md) | Event callback when a date is selected. |
+| `required` | `boolean`                                                                      | Make the selection required.            |
 
 ### Controlled Selections
 
@@ -81,13 +81,13 @@ Set the `mode` prop to `"multiple"` to enable the selection of multiple days in 
 
 ### Multiple Mode Props
 
-| Prop Name  | Type                                     | Description                             |
-| ---------- | ---------------------------------------- | --------------------------------------- |
-| `selected` | `Date[] \| undefined`                    | The selected dates.                     |
-| `onSelect` | `(selected, date, modifiers, e) => void` | Event callback when a date is selected. |
-| `min`      | `number`                                 | The minimum dates that can be selected. |
-| `max`      | `number`                                 | The maximum dates that can be selected. |
-| `required` | `boolean`                                | Make the selection required.            |
+| Prop Name  | Type                                                                             | Description                             |
+| ---------- | -------------------------------------------------------------------------------- | --------------------------------------- |
+| `selected` | `Date[] \| undefined`                                                            | The selected dates.                     |
+| `onSelect` | [`OnSelectHandler<Date[] \| undefined>`](../api/type-aliases/OnSelectHandler.md) | Event callback when a date is selected. |
+| `min`      | `number`                                                                         | The minimum dates that can be selected. |
+| `max`      | `number`                                                                         | The maximum dates that can be selected. |
+| `required` | `boolean`                                                                        | Make the selection required.            |
 
 Use the `selected` and `onSelect` props to manage the selected date:
 
@@ -139,14 +139,14 @@ Set the `mode` prop to `"range"` to enable the selection of a continuous range o
 
 ### Range Mode Props
 
-| Prop Name         | Type                                            | Description                             |
-| ----------------- | ----------------------------------------------- | --------------------------------------- |
-| `selected`        | [`DateRange`](../api/type-aliases/DateRange.md) | The selected range.                     |
-| `onSelect`        | `(selected, triggerDate, modifiers, e) => void` | Event callback when a date is selected. |
-| `required`        | `boolean`                                       | Make the selection required.            |
-| `min`             | `number`                                        | The minimum dates that can be selected. |
-| `max`             | `number`                                        | The maximum dates that can be selected. |
-| `excludeDisabled` | `boolean`                                       | Exclude disabled dates from the range.  |
+| Prop Name         | Type                                                                                | Description                             |
+| ----------------- | ----------------------------------------------------------------------------------- | --------------------------------------- |
+| `selected`        | [`DateRange`](../api/type-aliases/DateRange.md)                                     | The selected range.                     |
+| `onSelect`        | [`OnSelectHandler<DateRange \| undefined>`](../api/type-aliases/OnSelectHandler.md) | Event callback when a date is selected. |
+| `required`        | `boolean`                                                                           | Make the selection required.            |
+| `min`             | `number`                                                                            | The minimum dates that can be selected. |
+| `max`             | `number`                                                                            | The maximum dates that can be selected. |
+| `excludeDisabled` | `boolean`                                                                           | Exclude disabled dates from the range.  |
 
 ### Min and Max Dates
 

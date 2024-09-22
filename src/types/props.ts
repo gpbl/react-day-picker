@@ -485,7 +485,16 @@ export interface PropsBase {
   onDayTouchStart?: DayEventHandler<React.TouchEvent>;
 }
 
-/** Shared handler type for onSelect events */
+/**
+ * Shared handler type for `onSelect` callback when a selection mode is set.
+ *
+ * @template T - The type of the selected item.
+ * @callback OnSelectHandler
+ * @param {T} selected - The selected item after the event.
+ * @param {Date} triggerDate - The date when the event was triggered.
+ * @param {Modifiers} modifiers - The modifiers associated with the event.
+ * @param {React.MouseEvent | React.KeyboardEvent} e - The event object.
+ */
 export type OnSelectHandler<T> = (
   selected: T,
   triggerDate: Date,

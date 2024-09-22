@@ -323,15 +323,27 @@ export type Styles = {
 };
 
 /**
- * The modifiers that are matching a day in the calendar.
+ * Represents the modifiers that match a specific day in the calendar.
+ *
+ * - Retrieve modifiers using the {@link OnSelectHandler} via the `onSelect` prop,
+ *   or within custom components using the {@link useDayPicker} hook.
+ * - Includes built-in modifiers from {@link DayFlag} and {@link SelectionState}.
+ * - Add custom modifiers using the `modifiers` prop.
  *
  * @example
  *   const modifiers: Modifiers = {
- *     today: false, // the day is not today
- *     selected: true, // the day is selected
- *     weekend: false // the day is not in the weekend
- *     // etc
+ *   today: false, // the day is not today
+ *   selected: true, // the day is selected
+ *   disabled: false, // the day is not disabled
+ *   outside: false, // the day is not outside the month
+ *   focused: false, // the day is not focused
+ *
+ *   weekend: false // custom modifier example for matching a weekend
+ *   booked: true // custom modifier example for matching a booked day
+ *   available: false // custom modifier example for matching an available day
  *   };
+ *
+ * @see https://daypicker.dev/guides/custom-modifiers
  */
 export type Modifiers = Record<string, boolean>;
 
