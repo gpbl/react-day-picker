@@ -116,7 +116,11 @@ What are you using custom components for? [Let us know](https://github.com/gpbl/
 
 ## DayPicker Hook
 
-In a custom component, use the [`useDayPicker`](../api/functions/useDayPicker.md) hook to access the DayPicker context.
+In a custom component, import the `useDayPicker` hook to access the DayPicker context.
+
+```ts
+import { useDayPicker } from "react-day-picker";
+```
 
 | Function                                           | Return value                                                  | Description                                                                  |
 | :------------------------------------------------- | ------------------------------------------------------------- | :--------------------------------------------------------------------------- |
@@ -124,7 +128,7 @@ In a custom component, use the [`useDayPicker`](../api/functions/useDayPicker.md
 
 ### DayPicker Context
 
-The [DayPicker context](../api/type-aliases/DayPickerContext.md) provides the current state of the calendar, including the selected days, modifiers, and navigation state.
+The DayPicker context provides the current state of the calendar, including the selected days, modifiers, and navigation state.
 
 | Name            | Type                                                                          | Description                                    |
 | --------------- | ----------------------------------------------------------------------------- | ---------------------------------------------- |
