@@ -9,7 +9,7 @@ import {
 } from "react-day-picker";
 
 function DayWithShiftKey(props: DayButtonProps) {
-  const { selected } = useDayPicker({ mode: "range" });
+  const { selected } = useDayPicker<{ mode: "range" }>();
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     const requireShiftKey =

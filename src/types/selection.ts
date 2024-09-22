@@ -1,5 +1,5 @@
 import type { DayPickerProps } from "./props.js";
-import type { DateRange, Modifiers } from "./shared.js";
+import type { DateRange, Mode, Modifiers } from "./shared.js";
 
 export type Selection<T extends DayPickerProps> = {
   /** The selected date(s). */
@@ -25,25 +25,28 @@ export type SelectedValue<T> = T extends { mode: "single"; required?: boolean }
       ? SelectedRange<T>
       : undefined;
 
-export type SelectHandlerSingle<T extends DayPickerProps> = (
-  triggerDate: Date,
-  modifiers: Modifiers,
-  e: React.MouseEvent | React.KeyboardEvent
-) => T["required"] extends true ? Date : Date | undefined;
+export type SelectHandlerSingle<T extends { required?: boolean | undefined }> =
+  (
+    triggerDate: Date,
+    modifiers: Modifiers,
+    e: React.MouseEvent | React.KeyboardEvent
+  ) => T["required"] extends true ? Date : Date | undefined;
 
-export type SelectHandlerMulti<T extends DayPickerProps> = (
+export type SelectHandlerMulti<T extends { required?: boolean | undefined }> = (
   triggerDate: Date,
   modifiers: Modifiers,
   e: React.MouseEvent | React.KeyboardEvent
 ) => T["required"] extends true ? Date[] : Date[] | undefined;
 
-export type SelectHandlerRange<T extends DayPickerProps> = (
+export type SelectHandlerRange<T extends { required?: boolean | undefined }> = (
   triggerDate: Date,
   modifiers: Modifiers,
   e: React.MouseEvent | React.KeyboardEvent
 ) => T["required"] extends true ? DateRange : DateRange | undefined;
 
-export type SelectHandler<T extends DayPickerProps> = T extends {
+export type SelectHandler<
+  T extends { mode?: Mode | undefined; required?: boolean | undefined }
+> = T extends {
   mode: "single";
 }
   ? SelectHandlerSingle<T>
