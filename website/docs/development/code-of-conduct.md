@@ -1,11 +1,9 @@
 ---
-draft: true
+hide_title: true
+title: Code Of Conduct
+sidebar_position: 2
 ---
 
-# Code Of Conduct
+import CodeOfConduct from "../../../.github/CODE_OF_CONDUCT.md";
 
-:::info Draft
-
-This documentation is still a work in progress. If you have any questions, ask to the [discussions](https://github.com/gpbl/react-day-picker/discussions) page on Github.
-
-:::
+<CodeOfConduct />
