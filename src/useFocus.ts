@@ -3,10 +3,10 @@ import { useState } from "react";
 import type { CalendarDay } from "./classes/index.js";
 import { calculateFocusTarget } from "./helpers/calculateFocusTarget.js";
 import { getNextFocus } from "./helpers/getNextFocus.js";
+import type { DateLib } from "./lib/index.js";
 import type {
   MoveFocusBy,
   MoveFocusDir,
-  DateLib,
   DayPickerProps,
   Modifiers
 } from "./types/index.js";

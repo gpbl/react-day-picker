@@ -1,4 +1,5 @@
-import type { DateLib, DayPickerProps } from "../types/index.js";
+import type { DateLib } from "../lib/index.js";
+import type { DayPickerProps } from "../types/index.js";
 
 /**
  * Return the next month the user can navigate to according to the given

@@ -15,8 +15,8 @@ import { getNextMonth } from "./helpers/getNextMonth.js";
 import { getPreviousMonth } from "./helpers/getPreviousMonth.js";
 import { getWeeks } from "./helpers/getWeeks.js";
 import { useControlledValue } from "./helpers/useControlledValue.js";
+import type { DateLib } from "./lib/index.js";
 import type { DayPickerProps } from "./types/props.js";
-import type { DateLib } from "./types/shared.js";
 
 /**
  * Return the calendar object to work with the calendar in custom components.

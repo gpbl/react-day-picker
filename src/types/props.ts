@@ -1,7 +1,7 @@
 import React from "react";
 
 import type { DeprecatedUI } from "../UI.js";
-import type { Locale } from "../lib/dateLib.js";
+import type { Locale, DateLib } from "../lib/dateLib.js";
 
 import type {
   ClassNames,
@@ -16,8 +16,7 @@ import type {
   DayEventHandler,
   Modifiers,
   DateRange,
-  Mode,
-  DateLib
+  Mode
 } from "./shared.js";
 
 /**

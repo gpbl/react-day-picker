@@ -2,7 +2,8 @@ import { TZDate } from "@date-fns/tz";
 
 import { DayFlag, SelectionState } from "./UI.js";
 import { CalendarDay } from "./classes/index.js";
-import type { DateLib, DayPickerProps, Modifiers } from "./types/index.js";
+import type { DateLib } from "./lib/index.js";
+import type { DayPickerProps, Modifiers } from "./types/index.js";
 import { dateMatchModifiers } from "./utils/dateMatchModifiers.js";
 
 /**
@@ -51,7 +52,12 @@ export function useGetModifiers(
 
     const isToday = isSameDay(
       date,
-      today ?? (props.timeZone ? TZDate.tz(props.timeZone) : new dateLib.Date())
+      today ??
+        (props.timeZone
+          ? TZDate.tz(props.timeZone)
+          : dateLib.Date
+            ? new dateLib.Date()
+            : new Date())
     );
 
     if (isOutside) internalModifiersMap.outside.push(day);

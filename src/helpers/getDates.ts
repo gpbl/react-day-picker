@@ -26,8 +26,7 @@ export function getDates(
     differenceInCalendarDays,
     differenceInCalendarMonths,
     isAfter,
-    endOfMonth,
-    Date
+    endOfMonth
   } = dateLib;
 
   const startWeekFirstDate = ISOWeek
@@ -61,7 +60,7 @@ export function getDates(
   if (fixedWeeks && dates.length < extraDates) {
     for (let i = 0; i < 7; i++) {
       const date = addDays(dates[dates.length - 1], 1);
-      dates.push(new Date(date));
+      dates.push(date);
     }
   }
   return dates;

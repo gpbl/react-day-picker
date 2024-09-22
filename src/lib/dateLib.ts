@@ -1,4 +1,3 @@
-import { GenericDateConstructor } from "date-fns";
 import type {
   FormatOptions as DateFnsFormatOptions,
   Locale as DateFnsLocale
@@ -43,6 +42,38 @@ export type Locale = DateFnsLocale;
 
 export type { Month as DateFnsMonth } from "date-fns";
 
+export type DateLib = {
+  Date?: DateConstructor | undefined;
+  addDays: typeof addDays;
+  addMonths: typeof addMonths;
+  addWeeks: typeof addWeeks;
+  addYears: typeof addYears;
+  differenceInCalendarDays: typeof differenceInCalendarDays;
+  differenceInCalendarMonths: typeof differenceInCalendarMonths;
+  endOfISOWeek: typeof endOfISOWeek;
+  endOfMonth: typeof endOfMonth;
+  endOfWeek: typeof endOfWeek;
+  endOfYear: typeof endOfYear;
+  format: typeof format;
+  getISOWeek: typeof getISOWeek;
+  getWeek: typeof getWeek;
+  isAfter: typeof isAfter;
+  isBefore: typeof isBefore;
+  isDate: typeof isDate;
+  isSameDay: typeof isSameDay;
+  isSameMonth: typeof isSameMonth;
+  isSameYear: typeof isSameYear;
+  max: typeof max;
+  min: typeof min;
+  setMonth: typeof setMonth;
+  setYear: typeof setYear;
+  startOfDay: typeof startOfDay;
+  startOfISOWeek: typeof startOfISOWeek;
+  startOfMonth: typeof startOfMonth;
+  startOfWeek: typeof startOfWeek;
+  startOfYear: typeof startOfYear;
+};
+
 /**
  * The default date library to use with the date picker.
  *
@@ -51,7 +82,7 @@ export type { Month as DateFnsMonth } from "date-fns";
  */
 export const dateLib = {
   /** The constructor of the date object. */
-  Date: Date as GenericDateConstructor<Date>,
+  Date: undefined,
   addDays,
   addMonths,
   addWeeks,

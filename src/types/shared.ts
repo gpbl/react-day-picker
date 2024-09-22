@@ -26,7 +26,6 @@ import {
   labelWeekNumberHeader,
   labelYearDropdown
 } from "../labels/index.js";
-import { dateLib } from "../lib/index.js";
 
 /**
  * Selection modes supported by DayPicker.
@@ -103,9 +102,6 @@ export type CustomComponents = {
   /** Render the dropdown with the years. */
   YearsDropdown: typeof components.YearsDropdown;
 };
-
-/** @private */
-export type DateLib = typeof dateLib;
 
 /** Represent a map of formatters used to render localized content. */
 export type Formatters = {

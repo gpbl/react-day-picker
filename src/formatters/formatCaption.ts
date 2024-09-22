@@ -1,5 +1,8 @@
-import { FormatOptions, dateLib as defaultDateLib } from "../lib/index.js";
-import type { DateLib } from "../types/index.js";
+import {
+  FormatOptions,
+  dateLib as defaultDateLib,
+  type DateLib
+} from "../lib/index.js";
 
 /**
  * Format the caption of the month.
