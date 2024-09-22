@@ -1,5 +1,5 @@
+import type { DateLib } from "../lib/index.js";
 import type {
-  DateLib,
   DayPickerProps,
   MoveFocusBy,
   MoveFocusDir

@@ -1,8 +1,7 @@
 import { TZDate } from "@date-fns/tz";
 
-import type { Locale } from "../lib/dateLib.js";
+import type { Locale, DateLib } from "../lib/dateLib.js";
 import { dateLib as defaultDateLib } from "../lib/index.js";
-import type { DateLib } from "../types/index.js";
 
 /**
  * Generate a series of 7 days, starting from the week, to use for formatting
@@ -18,7 +17,11 @@ export function getWeekdays(
   /** @ignore */
   dateLib: DateLib = defaultDateLib
 ): Date[] {
-  const date = timeZone ? TZDate.tz(timeZone) : new dateLib.Date();
+  const date = timeZone
+    ? TZDate.tz(timeZone)
+    : dateLib.Date
+      ? new dateLib.Date()
+      : new Date();
   const start = ISOWeek
     ? dateLib.startOfISOWeek(date)
     : dateLib.startOfWeek(date, { locale, weekStartsOn });

@@ -1,5 +1,6 @@
 import { DropdownOption } from "../components/Dropdown.js";
-import type { DateLib, Formatters } from "../types/index.js";
+import type { DateLib } from "../lib/dateLib.js";
+import type { Formatters } from "../types/index.js";
 
 /** Return the years to show in the dropdown. */
 export function getYearOptions(
@@ -17,8 +18,7 @@ export function getYearOptions(
     endOfYear,
     addYears,
     isBefore,
-    isSameYear,
-    Date
+    isSameYear
   } = dateLib;
   const month = displayMonth.getMonth();
   const firstNavYear = startOfYear(calendarStart);
@@ -32,11 +32,12 @@ export function getYearOptions(
   }
 
   return years.map((value) => {
+    const year = dateLib.Date
+      ? new dateLib.Date(value, month)
+      : new Date(value, month);
     const disabled =
-      (calendarStart && new Date(value, month) < startOfMonth(calendarStart)) ||
-      (month &&
-        calendarEnd &&
-        new Date(value, month) > startOfMonth(calendarEnd)) ||
+      (calendarStart && year < startOfMonth(calendarStart)) ||
+      (month && calendarEnd && year > startOfMonth(calendarEnd)) ||
       false;
     const label = formatters.formatYearDropdown(value);
     return {

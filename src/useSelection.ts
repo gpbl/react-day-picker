@@ -1,7 +1,8 @@
+import { type DateLib } from "./lib/index.js";
 import { useMulti } from "./selection/useMulti.js";
 import { useRange } from "./selection/useRange.js";
 import { useSingle } from "./selection/useSingle.js";
-import type { DateLib, DayPickerProps } from "./types/index.js";
+import type { DayPickerProps } from "./types/index.js";
 import { Selection } from "./types/selection.js";
 
 export function useSelection<T extends DayPickerProps>(

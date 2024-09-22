@@ -1,8 +1,8 @@
+import type { DateLib } from "../lib/index.js";
 import type {
   DateAfter,
   DateBefore,
   DateInterval,
-  DateLib,
   DateRange,
   DayOfWeek
 } from "../types/index.js";
