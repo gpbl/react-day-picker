@@ -22,13 +22,13 @@ When customizing components, familiarize yourself with the [API Reference](../ap
 
 :::note Custom Components vs Formatters
 
-Custom components let you extend DayPicker beyond what [formatters](../docs/translation.mdx#custom-formatters) can do. Formatters change the content of the calendar, while custom components can change the structure of the HTML elements..
+Custom components allow you to extend DayPicker beyond just using [formatters](../docs/translation.mdx#custom-formatters). While formatters modify the content within the calendar, custom components enable you to alter the structure of the HTML elements.
 
 :::
 
 ## Implementing a Custom Component
 
-Pass the components you want to customize to the `components` prop. See the [list of custom components](#list-of-custom-components) below.
+Pass the components to customize to the `components` prop. See the [list of custom components](#list-of-custom-components) below.
 
 ```tsx
 <DayPicker
@@ -72,12 +72,6 @@ Pass the components you want to customize to the `components` prop. See the [lis
 
 ## Examples
 
-:::note
-
-We are adding new examples soon. What are you using custom components for? [Let us know](https://github.com/gpbl/react-day-picker/discussions).
-
-:::
-
 ### Intercepting Click Events
 
 For example, you can use a custom [DayButton](../api/functions/DayButton.md) to select days with a double-click event.
@@ -118,9 +112,11 @@ export function MyDatePicker() {
   <Examples.CustomDayButton />
 </BrowserWindow>
 
+What are you using custom components for? [Let us know](https://github.com/gpbl/react-day-picker/discussions).
+
 ## DayPicker Hook
 
-In a custom component, you can use the [`useDayPicker`](../api/functions/useDayPicker.md) hook to access the DayPicker context.
+In a custom component, use the [`useDayPicker`](../api/functions/useDayPicker.md) hook to access the DayPicker context.
 
 | Function                                           | Return value                                                  | Description                                                                  |
 | :------------------------------------------------- | ------------------------------------------------------------- | :--------------------------------------------------------------------------- |
