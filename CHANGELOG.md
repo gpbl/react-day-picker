@@ -2,9 +2,9 @@
 
 DayPicker follows [Semantic Versioning](http://semver.org/). See the [Releases page](https://github.com/gpbl/react-day-picker/releases) on Github for the complete list of changes, diffs and contributors, or the [list of versions](https://www.npmjs.com/package/react-day-picker?activeTab=versions) published on npm.
 
-## v9.0
+## v9
 
-_Release date: 2024-07-20_
+_First release: 2024-07-20_
 
 This release includes important updates related to accessibility, styles and localization. See the updated docs at https://daypicker.dev and the [Upgrading Guide](https://daypicker.dev/upgrading) for more details.
 
@@ -17,7 +17,7 @@ npm install react-day-picker@latest
 ## What’s New
 
 - Moved `date-fns` from peer dependencies to dependencies.
-- Added support for [UTC dates](https://daypicker.dev/docs/localization#utc-dates) and [Jalali Calendar](https://daypicker.dev/docs/localization#jalali-calendar).
+- Added support for [time zones](https://daypicker.dev/docs/localization#time-zone) and [Jalali Calendar](https://daypicker.dev/docs/localization#jalali-calendar).
 - [Enhanced accessibility](https://daypicker.dev/docs/accessibility) to better comply with [WCAG 2.1](https://www.w3.org/TR/WCAG21/) recommendations.
 - [Simplified styles](https://daypicker.dev/docs/styling) and new CSS variables for easier customization.
 - New `excludeDisabled` prop for [range mode](https://daypicker.dev/docs/selection-modes#exclude-disabled).

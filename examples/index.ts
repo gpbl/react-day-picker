@@ -71,3 +71,4 @@ export * from "./WeekIso";
 export * from "./Weeknumber";
 export * from "./WeeknumberCustom";
 export * from "./WeeknumberIso";
+export * from "./WeekStartsOn";

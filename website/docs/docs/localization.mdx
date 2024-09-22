@@ -12,21 +12,14 @@ Learn how to set the locale, changing the time zone, and adjust other calendar o
 | --------- | ------------------------------------------ | ----------------------------------- |
 | `locale`  | [`Locale`](https://date-fns.org/docs/I18n) | Set the locale. Default is `en-US`. |
 
-DayPicker export the [date-fns](https://date-fns.org) locales for easier calendar localization. To set a different locale, import it from `react-day-picker/locale`.
-
-```bash ts
-// import the locale object
-import { es } from "react-day-picker/locale";
-```
-
-By default, the locale is set to English (US). To localize the calendar, pass the imported [`Locale`](https://date-fns.org/docs/I18n) object to the `locale` prop.
-
-For example, to localize the calendar in Spanish, import the `es` locale object from `date-fns` and pass it to the component.
+To set a different locale, import the locale object from `react-day-picker/locale`and pass it to the`locale` prop.
 
 ```tsx
+// import the locale object
 import { es } from "react-day-picker/locale";
 
-<DayPicker locale={es} />; // Set the locale to Spanish
+// use the locale object
+<DayPicker locale={es} />;
 ```
 
 <BrowserWindow>
@@ -105,30 +98,29 @@ export function TimeZone() {
 
 ## Calendar Options
 
-| Prop Name               | Type                                          | Description                                                        |
-| ----------------------- | --------------------------------------------- | ------------------------------------------------------------------ |
-| `weekStartsOn`          | `1` \| `2` \| `3` \| `4` \| `5` \| `6` \| `7` | Display the days falling into the other months.                    |
-| `firstWeekContainsDate` | `1` \| `4`                                    | Configure the first date in the first week of the year.            |
-| `ISOWeek`               | `boolean`                                     | Use [ISO Week Dates](https://en.wikipedia.org/wiki/ISO_week_date). |
+| Prop Name               | Type                                          | Description                                                              |
+| ----------------------- | --------------------------------------------- | ------------------------------------------------------------------------ |
+| `weekStartsOn`          | `1` \| `2` \| `3` \| `4` \| `5` \| `6` \| `7` | Change the first day of the week.                                        |
+| `firstWeekContainsDate` | `1` \| `4`                                    | Configure the first date in the first week of the year.                  |
+| `ISOWeek`               | `boolean`                                     | Switch to [ISO Week Dates](https://en.wikipedia.org/wiki/ISO_week_date). |
 
 ### First Date of the Week
 
 Use the `weekStartsOn` prop to set the first day of the week.
 
 ```tsx
-<DayPicker locale={es} weekStartsOn={0} /> // Start the week on Domingo
+<DayPicker weekStartsOn={0} /> // Start the week on Sunday
 ```
 
 <BrowserWindow>
-  <Examples.SpanishWeekStartsOn />
+  <Examples.WeekStartsOn />
 </BrowserWindow>
 
 ### First Week Contains Date
 
-The `firstWeekContainsDate` prop sets the first day of the year's initial week, which is used to calculate week numbers.
+The `firstWeekContainsDate` prop sets the first day of the year's initial week, which is used to calculate week numbers. Acceptable values are `1` for Monday and `4` for Thursday.
 
-- Acceptable values are `1` for Monday and `4` for Thursday.
-- For more information, see [Week Numbering](https://en.wikipedia.org/wiki/Week#Numbering) and the [getWeek function](https://date-fns.org/docs/getWeek).
+For more information, see [Week Numbering](https://en.wikipedia.org/wiki/Week#Numbering) on Wikipedia and the [getWeek function](https://date-fns.org/docs/getWeek) from `date-fns`.
 
 ```tsx
 <DayPicker
