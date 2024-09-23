@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@date-fns/tz':
-        specifier: ^1.1.0
-        version: 1.1.0
+        specifier: ^1.1.1
+        version: 1.1.1
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
@@ -1006,8 +1006,8 @@ packages:
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
     engines: {node: '>=12'}
 
-  '@date-fns/tz@1.1.0':
-    resolution: {integrity: sha512-ebywM7KeJY5cm13Aq037FmjjghyOAMxccqQn0BIpHkvdAZe+gb7V18Sz2usKECguMcSrvy49TR1gR7Y9naGseQ==}
+  '@date-fns/tz@1.1.1':
+    resolution: {integrity: sha512-q6heoR1X13DVTGUfb5MncqAVf5cG4VQakdcvSRrKV2Mcdh4xksTLtWzVuhHwb5rYx75DNHhq/XE/VcEj7wVE8w==}
 
   '@date-fns/utc@1.2.0':
     resolution: {integrity: sha512-YLq+crMPJiBmIdkRmv9nZuZy1mVtMlDcUKlg4mvI0UsC/dZeIaGoGB5p/C4FrpeOhZ7zBTK03T58S0DFkRNMnw==}
@@ -7884,7 +7884,7 @@ snapshots:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
 
-  '@date-fns/tz@1.1.0': {}
+  '@date-fns/tz@1.1.1': {}
 
   '@date-fns/utc@1.2.0': {}
 
