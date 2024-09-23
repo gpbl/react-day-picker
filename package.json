@@ -144,7 +144,7 @@
     "tsconfig.json"
   ],
   "dependencies": {
-    "@date-fns/tz": "^1.1.0",
+    "@date-fns/tz": "^1.1.1",
     "date-fns": "^4.1.0"
   },
   "devDependencies": {
