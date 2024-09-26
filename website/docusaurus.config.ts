@@ -69,6 +69,17 @@ const config: Config = {
         entryPoints: ["../src/index.ts"],
         tsconfig: "../tsconfig-docs.json"
       }
+    ],
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        redirects: [
+          {
+            to: "/guides/accessibility",
+            from: ["/docs/accessibility"]
+          }
+        ]
+      }
     ]
   ],
 
