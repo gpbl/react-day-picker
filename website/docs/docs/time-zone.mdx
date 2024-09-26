@@ -1,0 +1,46 @@
+---
+sidebar_position: 5
+---
+
+# Time Zone
+
+Use the `timeZone` prop to set the time zone for the calendar.
+
+| Prop Name  | Type     | Description                           |
+| ---------- | -------- | ------------------------------------- |
+| `timeZone` | `string` | The time zone to use in the calendar. |
+
+The time zone can be specified as either an [IANA time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) identifier or a UTC offset.
+
+```tsx
+<DayPicker timeZone="UTC" /> // Use Coordinated Universal Time
+<DayPicker timeZone="Pacific/Kiritimati" /> // Use Line Islands Time
+<DayPicker timeZone="+02:00" /> // Use UTC+2
+```
+
+<BrowserWindow bodyStyle={{ justifyContent: "start" }}>
+  <Examples.TimeZone />
+</BrowserWindow>
+
+### Working with Time-Zoned Dates
+
+When working with time zones, make sure to use the `TZDate` object exported by `react-day-picker` instead of the native `Date` object. For more information, refer to the [date-fns doc](https://date-fns.org/v4.1.0/docs/Time-Zones).
+
+```tsx
+import { DayPicker, TZDate } from "react-day-picker";
+
+export function TimeZone() {
+  const timeZone = "America/New_York";
+  const [selected, setSelected] = useState<Date | undefined>(
+    new TZDate(2024, 12, 10, timeZone) // Make sure you use `TZDate` instead of `Date`
+  );
+  return (
+    <DayPicker
+      mode="single"
+      timeZone={timeZone}
+      selected={selected}
+      onSelect={setSelected}
+    />
+  );
+}
+```

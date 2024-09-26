@@ -267,7 +267,7 @@ export interface PropsBase {
    *
    * @since 9.1.1
    * @experimental
-   * @see https://daypicker.dev/docs/localization#time-zone
+   * @see https://daypicker.dev/docs/time-zone
    */
   timeZone?: string | undefined;
   /**
