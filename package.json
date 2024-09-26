@@ -145,7 +145,7 @@
     "tsconfig-base.json"
   ],
   "dependencies": {
-    "@date-fns/tz": "^1.1.1",
+    "@date-fns/tz": "^1.1.2",
     "date-fns": "^4.1.0"
   },
   "devDependencies": {
@@ -196,4 +196,3 @@
     "url": "https://github.com/sponsors/gpbl"
   }
 }
-
