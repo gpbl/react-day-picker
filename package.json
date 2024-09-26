@@ -141,7 +141,8 @@
     "src",
     "examples",
     "website/docs",
-    "tsconfig.json"
+    "tsconfig.json",
+    "tsconfig-base.json"
   ],
   "dependencies": {
     "@date-fns/tz": "^1.1.1",
@@ -195,3 +196,4 @@
     "url": "https://github.com/sponsors/gpbl"
   }
 }
+
