@@ -18,7 +18,7 @@ npm install react-day-picker@latest
 
 - Moved `date-fns` from peer dependencies to dependencies.
 - Added support for [time zones](https://daypicker.dev/docs/localization#time-zone) and [Jalali Calendar](https://daypicker.dev/docs/localization#jalali-calendar).
-- [Enhanced accessibility](https://daypicker.dev/docs/accessibility) to better comply with [WCAG 2.1](https://www.w3.org/TR/WCAG21/) recommendations.
+- [Enhanced accessibility](https://daypicker.dev/guides/accessibility) to better comply with [WCAG 2.1](https://www.w3.org/TR/WCAG21/) recommendations.
 - [Simplified styles](https://daypicker.dev/docs/styling) and new CSS variables for easier customization.
 - New `excludeDisabled` prop for [range mode](https://daypicker.dev/docs/selection-modes#exclude-disabled).
 - New `dropdown-years` and `dropdown-months` caption layouts.
