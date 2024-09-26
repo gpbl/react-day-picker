@@ -1,22 +1,22 @@
 ---
-sidebar_position: 7
+sidebar_position: 2
 ---
 
 # Accessible Date Pickers
 
-DayPicker is designed to adhere to the [ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/) for date pickers. This includes features such as keyboard navigation, focus management, and labeling.
+DayPicker follows the [ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/) for date pickers, including features like keyboard navigation, focus management, and labeling.
 
-Depending on your design, you may need to add additional accessibility features. For instance, when working with [Input Fields](../guides/input-fields), there could be some restrictions depending on the level of accessibility you aim to achieve. Stay updated with best practices by following the [ARIA Patterns](https://www.w3.org/WAI/ARIA/apg/patterns/).
+Depending on your design, you might need to add more accessibility features. For example, when using [Input Fields](../guides/input-fields), there may be some limitations based on your accessibility goals. Keep up with best practices by following the [ARIA Patterns](https://www.w3.org/WAI/ARIA/apg/patterns/).
 
 ## Accessibility Tips
 
-- Regularly test your date picker with a screen reader to ensure it's accessible to all users.
-- Use an `aria-live` region in your user interface to audibly announce when a date is selected. You can use the `footer` prop for this purpose.
-- Customize the ARIA labels with the [`labels`](../api/interfaces/PropsBase.md#labels) prop to improve user feedback.
-- Ensure that your date picker is fully navigable using only the keyboard.
-- Use clear indicators for focus states to assist users who rely on keyboard navigation.
-- Ensure sufficient color contrast between text and background colors.
-- Consider providing instructions on how to use the date picker for first-time users or those unfamiliar with the interface.
+- Test your date picker regularly with a screen reader to ensure accessibility.
+- Use an `aria-live` region to announce when a date is selected, utilizing the `footer` prop.
+- Customize ARIA labels with the [`labels`](../api/interfaces/PropsBase.md#labels) prop for better user feedback.
+- Ensure the date picker is fully navigable with just the keyboard.
+- Provide clear focus indicators for keyboard users.
+- Maintain sufficient color contrast between text and background.
+- Offer instructions for first-time users or those unfamiliar with the date picker.
 
 ## Announcing the Selected Date {#footer}
 
@@ -62,7 +62,7 @@ export function AccessibleDatePicker() {
 
 ## Autofocusing the Calendar {#autofocus}
 
-DayPicker manages focus automatically when the user interacts with the calendar. However, for better accessibility, you may need to autofocus the calendar when it opens. To do this, use the `autoFocus` prop:
+DayPicker manages focus automatically when users interact with the calendar. For better accessibility, you might want to autofocus the calendar when it opens. Use the `autoFocus` prop to achieve this:
 
 ```tsx
 <DayPicker mode="single" autoFocus />
