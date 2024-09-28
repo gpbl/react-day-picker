@@ -21,6 +21,11 @@ import { es } from "./locale";
 const testId = "test";
 const dayPicker = () => screen.getByTestId(testId);
 
+const today = new Date(2024, 8, 25);
+
+beforeAll(() => jest.setSystemTime(today));
+afterAll(() => jest.useRealTimers());
+
 test("should render a date picker component", () => {
   render(<DayPicker data-testid={testId} />);
   expect(dayPicker()).toBeInTheDocument();
@@ -197,10 +202,7 @@ describe("when not interactive", () => {
 
 describe("should localize the calendar", () => {
   test("should use the custom locale", () => {
-    const today = new Date(2025, 10, 25);
-    jest.setSystemTime(today);
     render(<DayPicker locale={es} captionLayout="dropdown-years" />);
     expect(document.body).toMatchSnapshot();
-    jest.useRealTimers();
   });
 });
