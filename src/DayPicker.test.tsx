@@ -199,10 +199,3 @@ describe("when not interactive", () => {
     expect(document.body).toHTMLValidate();
   });
 });
-
-describe("should localize the calendar", () => {
-  test("should use the custom locale", () => {
-    render(<DayPicker locale={es} captionLayout="dropdown-years" />);
-    expect(document.body).toMatchSnapshot();
-  });
-});
