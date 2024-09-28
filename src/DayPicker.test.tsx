@@ -16,7 +16,6 @@ import { user } from "@/test/user";
 import { DayPicker } from "./DayPicker";
 import { MonthProps } from "./components/Month";
 import { MonthsProps } from "./components/Months";
-import { es } from "./locale";
 
 const testId = "test";
 const dayPicker = () => screen.getByTestId(testId);
