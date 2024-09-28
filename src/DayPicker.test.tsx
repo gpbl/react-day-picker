@@ -196,13 +196,11 @@ describe("when not interactive", () => {
 });
 
 describe("should localize the calendar", () => {
-  const today = new Date(2024, 10, 25);
-
-  beforeAll(() => jest.setSystemTime(today));
-  afterAll(() => jest.useRealTimers());
-
   test("should use the custom locale", () => {
+    const today = new Date(2025, 10, 25);
+    jest.setSystemTime(today);
     render(<DayPicker locale={es} captionLayout="dropdown-years" />);
     expect(document.body).toMatchSnapshot();
+    jest.useRealTimers();
   });
 });
