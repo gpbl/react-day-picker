@@ -202,7 +202,7 @@ describe("should localize the calendar", () => {
   afterAll(() => jest.useRealTimers());
 
   test("should use the custom locale", () => {
-    render(<DayPicker locale={es} />);
+    render(<DayPicker locale={es} captionLayout="dropdown-years" />);
     expect(document.body).toMatchSnapshot();
   });
 });
