@@ -1,0 +1,420 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should localize the calendar should use the custom locale 1`] = `
+<body>
+  <div>
+    <div
+      class="rdp-root"
+    >
+      <div
+        class="rdp-months"
+      >
+        <nav
+          aria-label=""
+          class="rdp-nav"
+        >
+          <button
+            aria-label="Go to the Previous Month"
+            class="rdp-button_previous"
+            type="button"
+          >
+            <svg
+              class="rdp-chevron"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+            >
+              <polygon
+                points="16 18.112 9.81111111 12 16 5.87733333 14.0888889 4 6 12 14.0888889 20"
+              />
+            </svg>
+          </button>
+          <button
+            aria-label="Go to the Next Month"
+            class="rdp-button_next"
+            type="button"
+          >
+            <svg
+              class="rdp-chevron"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+            >
+              <polygon
+                points="8 18.612 14.1888889 12.5 8 6.37733333 9.91111111 4.5 18 12.5 9.91111111 20.5"
+              />
+            </svg>
+          </button>
+        </nav>
+        <div
+          class="rdp-month"
+        >
+          <div
+            class="rdp-month_caption"
+          >
+            <span
+              aria-live="polite"
+              class="rdp-caption_label"
+              role="status"
+            >
+              noviembre 2024
+            </span>
+          </div>
+          <table
+            aria-label="noviembre 2024"
+            aria-multiselectable="false"
+            class="rdp-month_grid"
+            role="grid"
+          >
+            <thead>
+              <tr
+                class="rdp-weekdays"
+              >
+                <th
+                  aria-label="lunes"
+                  class="rdp-weekday"
+                  scope="col"
+                >
+                  lu
+                </th>
+                <th
+                  aria-label="martes"
+                  class="rdp-weekday"
+                  scope="col"
+                >
+                  ma
+                </th>
+                <th
+                  aria-label="miércoles"
+                  class="rdp-weekday"
+                  scope="col"
+                >
+                  mi
+                </th>
+                <th
+                  aria-label="jueves"
+                  class="rdp-weekday"
+                  scope="col"
+                >
+                  ju
+                </th>
+                <th
+                  aria-label="viernes"
+                  class="rdp-weekday"
+                  scope="col"
+                >
+                  vi
+                </th>
+                <th
+                  aria-label="sábado"
+                  class="rdp-weekday"
+                  scope="col"
+                >
+                  sá
+                </th>
+                <th
+                  aria-label="domingo"
+                  class="rdp-weekday"
+                  scope="col"
+                >
+                  do
+                </th>
+              </tr>
+            </thead>
+            <tbody
+              class="rdp-weeks"
+            >
+              <tr
+                class="rdp-week"
+              >
+                <td
+                  aria-hidden="true"
+                  aria-label="lunes, 28 de octubre de 2024"
+                  class="rdp-day rdp-hidden rdp-outside"
+                  data-day="2024-10-28"
+                  data-hidden="true"
+                  data-month="2024-10"
+                  data-outside="true"
+                >
+                  28
+                </td>
+                <td
+                  aria-hidden="true"
+                  aria-label="martes, 29 de octubre de 2024"
+                  class="rdp-day rdp-hidden rdp-outside"
+                  data-day="2024-10-29"
+                  data-hidden="true"
+                  data-month="2024-10"
+                  data-outside="true"
+                >
+                  29
+                </td>
+                <td
+                  aria-hidden="true"
+                  aria-label="miércoles, 30 de octubre de 2024"
+                  class="rdp-day rdp-hidden rdp-outside"
+                  data-day="2024-10-30"
+                  data-hidden="true"
+                  data-month="2024-10"
+                  data-outside="true"
+                >
+                  30
+                </td>
+                <td
+                  aria-hidden="true"
+                  aria-label="jueves, 31 de octubre de 2024"
+                  class="rdp-day rdp-hidden rdp-outside"
+                  data-day="2024-10-31"
+                  data-hidden="true"
+                  data-month="2024-10"
+                  data-outside="true"
+                >
+                  31
+                </td>
+                <td
+                  aria-label="viernes, 1 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-01"
+                >
+                  1
+                </td>
+                <td
+                  aria-label="sábado, 2 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-02"
+                >
+                  2
+                </td>
+                <td
+                  aria-label="domingo, 3 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-03"
+                >
+                  3
+                </td>
+              </tr>
+              <tr
+                class="rdp-week"
+              >
+                <td
+                  aria-label="lunes, 4 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-04"
+                >
+                  4
+                </td>
+                <td
+                  aria-label="martes, 5 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-05"
+                >
+                  5
+                </td>
+                <td
+                  aria-label="miércoles, 6 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-06"
+                >
+                  6
+                </td>
+                <td
+                  aria-label="jueves, 7 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-07"
+                >
+                  7
+                </td>
+                <td
+                  aria-label="viernes, 8 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-08"
+                >
+                  8
+                </td>
+                <td
+                  aria-label="sábado, 9 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-09"
+                >
+                  9
+                </td>
+                <td
+                  aria-label="domingo, 10 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-10"
+                >
+                  10
+                </td>
+              </tr>
+              <tr
+                class="rdp-week"
+              >
+                <td
+                  aria-label="lunes, 11 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-11"
+                >
+                  11
+                </td>
+                <td
+                  aria-label="martes, 12 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-12"
+                >
+                  12
+                </td>
+                <td
+                  aria-label="miércoles, 13 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-13"
+                >
+                  13
+                </td>
+                <td
+                  aria-label="jueves, 14 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-14"
+                >
+                  14
+                </td>
+                <td
+                  aria-label="viernes, 15 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-15"
+                >
+                  15
+                </td>
+                <td
+                  aria-label="sábado, 16 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-16"
+                >
+                  16
+                </td>
+                <td
+                  aria-label="domingo, 17 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-17"
+                >
+                  17
+                </td>
+              </tr>
+              <tr
+                class="rdp-week"
+              >
+                <td
+                  aria-label="lunes, 18 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-18"
+                >
+                  18
+                </td>
+                <td
+                  aria-label="martes, 19 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-19"
+                >
+                  19
+                </td>
+                <td
+                  aria-label="miércoles, 20 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-20"
+                >
+                  20
+                </td>
+                <td
+                  aria-label="jueves, 21 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-21"
+                >
+                  21
+                </td>
+                <td
+                  aria-label="viernes, 22 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-22"
+                >
+                  22
+                </td>
+                <td
+                  aria-label="sábado, 23 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-23"
+                >
+                  23
+                </td>
+                <td
+                  aria-label="domingo, 24 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-24"
+                >
+                  24
+                </td>
+              </tr>
+              <tr
+                class="rdp-week"
+              >
+                <td
+                  aria-label="Today, lunes, 25 de noviembre de 2024"
+                  class="rdp-day rdp-today"
+                  data-day="2024-11-25"
+                  data-today="true"
+                >
+                  25
+                </td>
+                <td
+                  aria-label="martes, 26 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-26"
+                >
+                  26
+                </td>
+                <td
+                  aria-label="miércoles, 27 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-27"
+                >
+                  27
+                </td>
+                <td
+                  aria-label="jueves, 28 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-28"
+                >
+                  28
+                </td>
+                <td
+                  aria-label="viernes, 29 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-29"
+                >
+                  29
+                </td>
+                <td
+                  aria-label="sábado, 30 de noviembre de 2024"
+                  class="rdp-day"
+                  data-day="2024-11-30"
+                >
+                  30
+                </td>
+                <td
+                  aria-hidden="true"
+                  aria-label="domingo, 1 de diciembre de 2024"
+                  class="rdp-day rdp-hidden rdp-outside"
+                  data-day="2024-12-01"
+                  data-hidden="true"
+                  data-month="2024-12"
+                  data-outside="true"
+                >
+                  1
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

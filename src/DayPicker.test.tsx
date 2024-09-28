@@ -16,6 +16,7 @@ import { user } from "@/test/user";
 import { DayPicker } from "./DayPicker";
 import { MonthProps } from "./components/Month";
 import { MonthsProps } from "./components/Months";
+import { es } from "./locale";
 
 const testId = "test";
 const dayPicker = () => screen.getByTestId(testId);
@@ -191,5 +192,17 @@ describe("when not interactive", () => {
   test("render a valid HTML", () => {
     render(<DayPicker />);
     expect(document.body).toHTMLValidate();
+  });
+});
+
+describe("should localize the calendar", () => {
+  const today = new Date(2024, 10, 25);
+
+  beforeAll(() => jest.setSystemTime(today));
+  afterAll(() => jest.useRealTimers());
+
+  test("should use the custom locale", () => {
+    render(<DayPicker locale={es} />);
+    expect(document.body).toMatchSnapshot();
   });
 });
