@@ -20,11 +20,6 @@ import { MonthsProps } from "./components/Months";
 const testId = "test";
 const dayPicker = () => screen.getByTestId(testId);
 
-const today = new Date(2024, 8, 25);
-
-beforeAll(() => jest.setSystemTime(today));
-afterAll(() => jest.useRealTimers());
-
 test("should render a date picker component", () => {
   render(<DayPicker data-testid={testId} />);
   expect(dayPicker()).toBeInTheDocument();
