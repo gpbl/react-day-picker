@@ -267,7 +267,7 @@ export interface PropsBase {
    *
    * @since 9.1.1
    * @experimental
-   * @see https://daypicker.dev/docs/localization#time-zone
+   * @see https://daypicker.dev/docs/time-zone
    */
   timeZone?: string | undefined;
   /**
@@ -282,7 +282,7 @@ export interface PropsBase {
    * Use this prop to communicate the calendar's status to screen readers.
    * Prefer strings over complex UI elements.
    *
-   * @see https://daypicker.dev/docs/accessibility#footer
+   * @see https://daypicker.dev/guides/accessibility#footer
    */
   footer?: React.ReactNode | string;
   /**
@@ -292,7 +292,7 @@ export interface PropsBase {
    * Use this prop when you need to focus DayPicker after a user action, for
    * improved accessibility.
    *
-   * @see https://daypicker.dev/docs/accessibility#autofocus
+   * @see https://daypicker.dev/guides/accessibility#autofocus
    */
   autoFocus?: boolean;
   /**

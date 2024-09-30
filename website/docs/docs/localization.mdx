@@ -1,18 +1,22 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 # Localization
 
-Learn how to set the locale, changing the time zone, and adjust other calendar options.
+DayPicker provides various options to customize the calendar for different languages and regions.
+
+| Prop Name               | Type                                          | Description                                                              |
+| ----------------------- | --------------------------------------------- | ------------------------------------------------------------------------ |
+| `locale`                | [`Locale`](https://date-fns.org/docs/I18n)    | Set the locale. Default is `en-US`.                                      |
+| `weekStartsOn`          | `1` \| `2` \| `3` \| `4` \| `5` \| `6` \| `7` | Change the first day of the week.                                        |
+| `firstWeekContainsDate` | `1` \| `4`                                    | Configure the first date in the first week of the year.                  |
+| `ISOWeek`               | `boolean`                                     | Switch to [ISO Week Dates](https://en.wikipedia.org/wiki/ISO_week_date). |
+| `timeZone`              | `string`                                      | The time zone (IANA or UTC offset) to use in the calendar.               |
 
 ## Setting the Locale
 
-| Prop Name | Type                                       | Description                         |
-| --------- | ------------------------------------------ | ----------------------------------- |
-| `locale`  | [`Locale`](https://date-fns.org/docs/I18n) | Set the locale. Default is `en-US`. |
-
-To set a different locale, import the locale object from `react-day-picker/locale`and pass it to the`locale` prop.
+To change the default `en-US` to another locale, import a locale object from `react-day-picker/locale` and pass it to the`locale` prop.
 
 ```tsx
 // import the locale object
@@ -49,60 +53,9 @@ import { DayPicker, defaultLocale } from "react-day-picker";
 
 ## Changing the Time Zone {#time-zone}
 
-:::warning Experimental Feature (since v9.1.1)
+See [Time Zone docs](./time-zone.mdx) for more information.
 
-DayPicker supports time zones through the `date-fns` library. For more information, refer to the [date-fns time zones documentation](https://date-fns.org/v4.1.0/docs/Time-Zones). If you encounter any issues, please [report them on GitHub](https://github.com/gpbl/react-day-picker/issues). Thank you!
-
-:::
-
-| Prop Name  | Type     | Description                                    |
-| ---------- | -------- | ---------------------------------------------- |
-| `timeZone` | `string` | Set a time zone for the dates in the calendar. |
-
-Use the `timeZone` prop to set a different time zone for the calendar. See [Wikipedia](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
-for a list of the possible values.
-
-```tsx
-<DayPicker timeZone="UTC" /> // Use Coordinated Universal Time
-<DayPicker timeZone="Pacific/Kiritimati" /> // Use Line Islands Time
-```
-
-<BrowserWindow bodyStyle={{ justifyContent: "start" }}>
-  <Examples.TimeZone />
-</BrowserWindow>
-
-### Working with Time-Zoned Dates
-
-When working with time zones, make sure to use the `TZDate` object instead of the native `Date` object. The `TZDate` object is exported from [@date-fns/tz](https://github.com/date-fns/date-fns-tz). Refer to their documentation for more information.
-
-- To initialize a date in a specific time zone, create a `new TZDate()` object or the `TZDate.tz`.
-
-```tsx
-import { DayPicker, TZDate } from "react-day-picker";
-
-export function TimeZone() {
-  const timeZone = "America/New_York";
-  const [selected, setSelected] = useState<Date | undefined>(
-    new TZDate(2024, 12, 10, timeZone) // Make sure you use `TZDate` instead of `Date`
-  );
-  return (
-    <DayPicker
-      mode="single"
-      timeZone={timeZone}
-      selected={selected}
-      onSelect={setSelected}
-    />
-  );
-}
-```
-
-## Calendar Options
-
-| Prop Name               | Type                                          | Description                                                              |
-| ----------------------- | --------------------------------------------- | ------------------------------------------------------------------------ |
-| `weekStartsOn`          | `1` \| `2` \| `3` \| `4` \| `5` \| `6` \| `7` | Change the first day of the week.                                        |
-| `firstWeekContainsDate` | `1` \| `4`                                    | Configure the first date in the first week of the year.                  |
-| `ISOWeek`               | `boolean`                                     | Switch to [ISO Week Dates](https://en.wikipedia.org/wiki/ISO_week_date). |
+## Localization Options
 
 ### First Date of the Week
 
