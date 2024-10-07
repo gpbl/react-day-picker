@@ -88,8 +88,8 @@ importers:
         specifier: ^6.3.0
         version: 6.3.0(eslint@8.57.0)(typescript@5.5.4)
       html-validate:
-        specifier: ^8.23.0
-        version: 8.23.0(jest-diff@29.7.0)(jest-snapshot@29.7.0)(jest@29.7.0(@types/node@22.5.4)(ts-node@10.9.2(@types/node@22.5.4)(typescript@5.5.4)))
+        specifier: ^8.24.1
+        version: 8.24.1(jest-diff@29.7.0)(jest-snapshot@29.7.0)(jest@29.7.0(@types/node@22.5.4)(ts-node@10.9.2(@types/node@22.5.4)(typescript@5.5.4)))
       jest:
         specifier: ^29.7.0
         version: 29.7.0(@types/node@22.5.4)(ts-node@10.9.2(@types/node@22.5.4)(typescript@5.5.4))
@@ -3991,8 +3991,8 @@ packages:
     resolution: {integrity: sha512-ztqyC3kLto0e9WbNp0aeP+M3kTt+nbaIveGmUxAtZa+8iFgKLUOD4YKM5j+f3QD89bra7UeumolZHKuOXnTmeQ==}
     engines: {node: '>=8'}
 
-  html-validate@8.23.0:
-    resolution: {integrity: sha512-j4BZVXGiQVVO46bh/gKlFGXcuV+LzP3m//VmrrbCWiATWaGWurl5DhMr3im9zoxhkIb99CffxdJ3HRI3vLSM4w==}
+  html-validate@8.24.1:
+    resolution: {integrity: sha512-WDV/JI4sVdX0QW4cupodsuMfI8vDygw3dMXD76OHKNMf7qhKxUsLDnNVKG7GLeAkRP0e0Y6H8AOrlaatob+g4Q==}
     engines: {node: '>= 16.14'}
     hasBin: true
     peerDependencies:
@@ -12837,7 +12837,7 @@ snapshots:
 
   html-tags@3.3.1: {}
 
-  html-validate@8.23.0(jest-diff@29.7.0)(jest-snapshot@29.7.0)(jest@29.7.0(@types/node@22.5.4)(ts-node@10.9.2(@types/node@22.5.4)(typescript@5.5.4))):
+  html-validate@8.24.1(jest-diff@29.7.0)(jest-snapshot@29.7.0)(jest@29.7.0(@types/node@22.5.4)(ts-node@10.9.2(@types/node@22.5.4)(typescript@5.5.4))):
     dependencies:
       '@html-validate/stylish': 4.2.0
       '@sidvind/better-ajv-errors': 3.0.1(ajv@8.16.0)
