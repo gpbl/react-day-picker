@@ -37,7 +37,7 @@
     "@docusaurus/types": "3.5.2",
     "docusaurus-plugin-typedoc": "^1.0.5",
     "identity-obj-proxy": "^3.0.0",
-    "typedoc": "^0.26.7",
+    "typedoc": "^0.26.8",
     "typedoc-plugin-frontmatter": "^1.0.0",
     "typedoc-plugin-markdown": "^4.2.7",
     "typescript": "^5.5.4"
