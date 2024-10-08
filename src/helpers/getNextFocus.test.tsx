@@ -1,16 +1,15 @@
 import { CalendarDay } from "../classes";
-import { dateLib } from "../lib";
 import type { DayPickerProps, MoveFocusBy, MoveFocusDir } from "../types";
 
+import { dateLib, defaultLocale as locale } from "..";
 import { getNextFocus } from "./getNextFocus";
 
 const props: Pick<
   DayPickerProps,
-  "disabled" | "hidden" | "startMonth" | "endMonth" | "dateLib"
+  "disabled" | "hidden" | "startMonth" | "endMonth"
 > = {
   disabled: [],
-  hidden: [],
-  dateLib
+  hidden: []
 };
 
 it("should return `undefined` if `attempt` exceeds 365", () => {
@@ -29,6 +28,7 @@ it("should return `undefined` if `attempt` exceeds 365", () => {
     undefined,
     props,
     dateLib,
+    locale,
     366
   );
   expect(result).toBeUndefined();
@@ -48,7 +48,8 @@ it("should return the focus date if it is not disabled or hidden", () => {
     undefined,
     undefined,
     props,
-    dateLib
+    dateLib,
+    locale
   );
   expect(result?.date).toEqual(expectedDate);
 });
@@ -71,7 +72,8 @@ it("should return the next focus date if it is disabled", () => {
       ...props,
       disabled: [disabledDate]
     },
-    dateLib
+    dateLib,
+    locale
   );
   expect(result?.date).toEqual(expectedDate);
 });
@@ -94,7 +96,8 @@ it("should return the next focus date if it is hidden", () => {
       ...props,
       hidden: [hiddenDate]
     },
-    dateLib
+    dateLib,
+    locale
   );
   expect(result?.date).toEqual(expectedDate);
 });

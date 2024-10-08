@@ -15,7 +15,7 @@ import { getNextMonth } from "./helpers/getNextMonth.js";
 import { getPreviousMonth } from "./helpers/getPreviousMonth.js";
 import { getWeeks } from "./helpers/getWeeks.js";
 import { useControlledValue } from "./helpers/useControlledValue.js";
-import type { DateLib } from "./lib/index.js";
+import type { DateLib, Locale } from "./lib/index.js";
 import type { DayPickerProps } from "./types/props.js";
 
 /**
@@ -88,7 +88,8 @@ export function useCalendar(
     | "toMonth"
     | "toYear"
   >,
-  dateLib: DateLib
+  dateLib: DateLib,
+  locale: Locale
 ): Calendar {
   const [navStart, navEnd] = getNavMonths(props, dateLib);
 
@@ -113,11 +114,12 @@ export function useCalendar(
     displayMonths,
     props.endMonth ? endOfMonth(props.endMonth) : undefined,
     props,
-    dateLib
+    dateLib,
+    locale
   );
 
   /** The Months displayed in the calendar. */
-  const months = getMonths(displayMonths, dates, props, dateLib);
+  const months = getMonths(displayMonths, dates, props, dateLib, locale);
 
   /** The Weeks displayed in the calendar. */
   const weeks = getWeeks(months);

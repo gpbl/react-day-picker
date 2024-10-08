@@ -1,5 +1,5 @@
 import { CalendarDay } from "../classes/index.js";
-import type { DateLib } from "../lib/index.js";
+import type { DateLib, Locale } from "../lib/index.js";
 import type {
   DayPickerProps,
   MoveFocusBy,
@@ -21,12 +21,12 @@ export function getNextFocus(
     | "disabled"
     | "hidden"
     | "modifiers"
-    | "locale"
     | "ISOWeek"
     | "weekStartsOn"
     | "timeZone"
   >,
   dateLib: DateLib,
+  locale: Locale,
   attempt: number = 0
 ): CalendarDay | undefined {
   if (attempt > 365) {
@@ -41,7 +41,8 @@ export function getNextFocus(
     calendarStartMonth,
     calendarEndMonth,
     props,
-    dateLib
+    dateLib,
+    locale
   );
 
   const isDisabled = Boolean(
@@ -68,6 +69,7 @@ export function getNextFocus(
     calendarEndMonth,
     props,
     dateLib,
+    locale,
     attempt + 1
   );
 }

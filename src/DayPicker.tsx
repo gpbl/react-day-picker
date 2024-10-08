@@ -103,7 +103,7 @@ export function DayPicker(props: DayPickerProps) {
     formatYearDropdown
   } = formatters;
 
-  const calendar = useCalendar(props, dateLib);
+  const calendar = useCalendar(props, dateLib, locale);
 
   const {
     days,
@@ -128,7 +128,8 @@ export function DayPicker(props: DayPickerProps) {
     calendar,
     getModifiers,
     isSelected ?? (() => false),
-    dateLib
+    dateLib,
+    locale
   );
 
   const {

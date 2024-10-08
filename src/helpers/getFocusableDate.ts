@@ -1,4 +1,4 @@
-import type { DateLib } from "../lib/index.js";
+import type { DateLib, Locale } from "../lib/index.js";
 import type {
   DayPickerProps,
   MoveFocusBy,
@@ -12,10 +12,11 @@ export function getFocusableDate(
   refDate: Date,
   navStart: Date | undefined,
   navEnd: Date | undefined,
-  props: Pick<DayPickerProps, "locale" | "ISOWeek" | "weekStartsOn">,
-  dateLib: DateLib
+  props: Pick<DayPickerProps, "ISOWeek" | "weekStartsOn">,
+  dateLib: DateLib,
+  locale: Locale
 ): Date {
-  const { weekStartsOn, locale, ISOWeek } = props;
+  const { weekStartsOn, ISOWeek } = props;
   const {
     addDays,
     addMonths,
