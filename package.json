@@ -160,7 +160,7 @@
     "@types/node": "^22.5.4",
     "@types/react": "^18.3.8",
     "@types/react-dom": "^18.3.0",
-    "@typescript-eslint/eslint-plugin": "^8.4.0",
+    "@typescript-eslint/eslint-plugin": "^8.8.1",
     "@typescript-eslint/parser": "^8.6.0",
     "date-fns": "^3.6.0",
     "date-fns-jalali": "3.6.0-1",
