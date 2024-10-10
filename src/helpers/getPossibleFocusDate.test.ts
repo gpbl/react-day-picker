@@ -13,12 +13,11 @@ import {
 
 import type { DayPickerProps, MoveFocusBy, MoveFocusDir } from "../types";
 
-import { dateLib } from "..";
+import { dateLib, defaultLocale as locale } from "..";
 import { getFocusableDate } from "./getFocusableDate";
 
 const focusedDate = new Date(2023, 0, 1); // Jan 1, 2023
-const options: Pick<DayPickerProps, "locale" | "ISOWeek" | "weekStartsOn"> = {
-  locale: undefined,
+const options: Pick<DayPickerProps, "ISOWeek" | "weekStartsOn"> = {
   ISOWeek: false,
   weekStartsOn: 0 // Sunday
 };
@@ -51,7 +50,8 @@ testCases.forEach(({ moveBy, moveDir, expectedFn }) => {
       calendarStartMonth,
       calendarEndMonth,
       options,
-      dateLib
+      dateLib,
+      locale
     );
     expect(result).toEqual(expectedDate);
   });
@@ -84,7 +84,8 @@ weekTestCases.forEach(({ moveBy, moveDir, expectedFn }) => {
       calendarStartMonth,
       calendarEndMonth,
       options,
-      dateLib
+      dateLib,
+      locale
     );
 
     expect(result).toEqual(expectedDate);
@@ -110,7 +111,8 @@ ISOWeekTestCases.forEach(({ moveBy, moveDir, expectedFn }) => {
       calendarStartMonth,
       calendarEndMonth,
       { ...options, ISOWeek: true },
-      dateLib
+      dateLib,
+      locale
     );
     expect(result).toEqual(expectedDate);
   });
@@ -124,7 +126,8 @@ test("should not move before startMonth", () => {
     calendarStartMonth,
     calendarEndMonth,
     options,
-    dateLib
+    dateLib,
+    locale
   );
   expect(result).toEqual(calendarStartMonth);
 });
@@ -137,7 +140,8 @@ test("should not move after endMonth", () => {
     calendarStartMonth,
     calendarEndMonth,
     options,
-    dateLib
+    dateLib,
+    locale
   );
   expect(result).toEqual(calendarEndMonth);
 });
