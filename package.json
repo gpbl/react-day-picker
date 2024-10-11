@@ -19,42 +19,54 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js",
-      "default": "./dist/cjs/index.js"
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
     },
     "./jalali": {
-      "import": "./dist/esm/jalali.js",
-      "require": "./dist/cjs/jalali.js",
-      "default": "./dist/cjs/jalali.js"
+      "import": {
+        "types": "./dist/esm/jalali.d.ts",
+        "default": "./dist/esm/jalali.js"
+      },
+      "require": {
+        "types": "./dist/cjs/jalali.d.ts",
+        "default": "./dist/cjs/jalali.js"
+      }
     },
     "./locale": {
-      "import": "./dist/esm/locale.js",
-      "require": "./dist/cjs/locale.js",
-      "default": "./dist/cjs/locale.js"
+      "import": {
+        "types": "./dist/esm/locale.d.ts",
+        "default": "./dist/esm/locale.js"
+      },
+      "require": {
+        "types": "./dist/cjs/locale.d.ts",
+        "default": "./dist/cjs/locale.js"
+      }
     },
     "./style.css": {
-      "import": "./src/style.css",
-      "require": "./src/style.css",
-      "default": "./src/style.css",
-      "types": "./src/style.css.d.ts"
-    },
-    "./dist/style.css": {
-      "import": "./src/style.css",
-      "require": "./src/style.css",
-      "default": "./src/style.css"
+      "import": {
+        "types": "./src/style.css.d.ts",
+        "default": "./src/style.css"
+      },
+      "require": {
+        "types": "./src/style.css.d.ts",
+        "default": "./src/style.css"
+      }
     },
     "./style.module.css": {
-      "import": "./src/style.module.css",
-      "require": "./src/style.module.css",
-      "default": "./src/style.module.css",
-      "types": "./src/style.css.d.ts"
-    },
-    "./dist/style.module.css": {
-      "import": "./src/style.module.css",
-      "require": "./src/style.module.css",
-      "default": "./src/style.module.css",
-      "types": "./src/style.css.d.ts"
+      "import": {
+        "types": "./src/style.css.d.ts",
+        "default": "./src/style.module.css"
+      },
+      "require": {
+        "types": "./src/style.css.d.ts",
+        "default": "./src/style.module.css"
+      }
     },
     "./package.json": {
       "import": "./package.json",
@@ -62,6 +74,7 @@
       "default": "./package.json"
     },
     "./examples": {
+      "types": "./examples/index.d.ts",
       "import": "./examples/index.ts"
     }
   },
