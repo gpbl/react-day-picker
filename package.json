@@ -119,8 +119,6 @@
     "tsconfig-base.json",
     "style.css",
     "style.module.css",
-    "style.css.d.ts",
-    "style.module.css.d.ts",
     "jalali.js",
     "jalali.d.ts",
     "locale.js",
