@@ -47,6 +47,7 @@ export * from "./OutsideDays";
 export * from "./PastDatesDisabled";
 export * from "./Range";
 export * from "./RangeExcludeDisabled";
+export * from "./RangeLong";
 export * from "./RangeMinMax";
 export * from "./RangeRequired";
 export * from "./RangeShiftKey";
