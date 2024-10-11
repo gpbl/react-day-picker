@@ -15,9 +15,6 @@ importers:
         specifier: ^4.1.0
         version: 4.1.0
     devDependencies:
-      '@date-fns/utc':
-        specifier: ^2.1.0
-        version: 2.1.0
       '@jest/types':
         specifier: ^29.6.3
         version: 29.6.3
