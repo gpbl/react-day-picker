@@ -15,7 +15,7 @@
   "main": "./dist/cjs/index.js",
   "types": "./dist/cjs/index.d.ts",
   "module": "./dist/esm/index.js",
-  "style": "./src/style.css",
+  "style": "./style.css",
   "type": "module",
   "exports": {
     ".": {
