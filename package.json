@@ -15,113 +15,87 @@
   "main": "./dist/cjs/index.js",
   "types": "./dist/cjs/index.d.ts",
   "module": "./dist/esm/index.js",
-  "style": "./src/style.css",
+  "style": "./style.css",
   "type": "module",
   "exports": {
     ".": {
-      "require": {
-        "types": "./dist/cjs/index.d.ts",
-        "default": "./dist/cjs/index.js"
-      },
       "import": {
         "types": "./dist/esm/index.d.ts",
         "default": "./dist/esm/index.js"
       },
-      "default": {
+      "require": {
         "types": "./dist/cjs/index.d.ts",
         "default": "./dist/cjs/index.js"
       }
     },
-    "./lib": {
-      "require": {
-        "types": "./dist/cjs/lib/dateLib.d.ts",
-        "default": "./dist/cjs/lib/dateLib.js"
-      },
-      "import": {
-        "types": "./dist/esm/lib/dateLib.d.ts",
-        "default": "./dist/esm/lib/dateLib.js"
-      },
-      "default": {
-        "types": "./dist/cjs/lib/dateLib.d.ts",
-        "default": "./dist/cjs/lib/dateLib.js"
-      }
-    },
-    "./utc": {
-      "require": {
-        "types": "./dist/cjs/utc.d.ts",
-        "default": "./dist/cjs/utc.js"
-      },
-      "import": {
-        "types": "./dist/esm/utc.d.ts",
-        "default": "./dist/esm/utc.js"
-      },
-      "default": {
-        "types": "./dist/cjs/utc.d.ts",
-        "default": "./dist/cjs/utc.js"
-      }
-    },
     "./jalali": {
-      "require": {
-        "types": "./dist/cjs/jalali.d.ts",
-        "default": "./dist/cjs/jalali.js"
-      },
       "import": {
         "types": "./dist/esm/jalali.d.ts",
         "default": "./dist/esm/jalali.js"
       },
-      "default": {
+      "require": {
         "types": "./dist/cjs/jalali.d.ts",
         "default": "./dist/cjs/jalali.js"
       }
     },
     "./locale": {
-      "require": {
-        "types": "./dist/cjs/locale.d.ts",
-        "default": "./dist/cjs/locale.js"
-      },
       "import": {
         "types": "./dist/esm/locale.d.ts",
         "default": "./dist/esm/locale.js"
       },
-      "default": {
+      "require": {
         "types": "./dist/cjs/locale.d.ts",
         "default": "./dist/cjs/locale.js"
       }
     },
     "./style.css": {
-      "require": "./src/style.css",
-      "import": "./src/style.css",
-      "default": "./src/style.css",
-      "types": "./src/style.css.d.ts"
-    },
-    "./dist/style.css": {
-      "require": "./src/style.css",
-      "import": "./src/style.css",
-      "default": "./src/style.css",
-      "types": "./src/style.css.d.ts"
+      "import": {
+        "types": "./style.css.d.ts",
+        "default": "./style.css"
+      },
+      "require": {
+        "types": "./style.css.d.ts",
+        "default": "./style.css"
+      }
     },
     "./style.module.css": {
-      "require": "./src/style.module.css",
-      "import": "./src/style.module.css",
-      "default": "./src/style.module.css",
-      "types": "./src/style.module.css.d.ts"
+      "import": {
+        "types": "./style.css.d.ts",
+        "default": "./style.module.css"
+      },
+      "require": {
+        "types": "./style.css.d.ts",
+        "default": "./style.module.css"
+      }
+    },
+    "./dist/style.css": {
+      "import": {
+        "types": "./style.css.d.ts",
+        "default": "./style.css"
+      },
+      "require": {
+        "types": "./style.css.d.ts",
+        "default": "./style.css"
+      }
     },
     "./dist/style.module.css": {
-      "require": "./src/style.module.css",
-      "import": "./src/style.module.css",
-      "default": "./src/style.module.css",
-      "types": "./src/style.module.css.d.ts"
+      "import": {
+        "types": "./style.css.d.ts",
+        "default": "./style.module.css"
+      },
+      "require": {
+        "types": "./style.css.d.ts",
+        "default": "./style.module.css"
+      }
     },
     "./package.json": {
-      "require": "./package.json",
       "import": "./package.json",
+      "require": "./package.json",
       "default": "./package.json"
     },
     "./examples": {
-      "require": "./examples/index.ts",
-      "import": "./examples/index.ts",
-      "default": "./examples/index.ts",
-      "types": "./examples/index.ts"
+      "types": "./examples/index.d.ts",
+      "import": "./examples/index.ts"
     }
   },
   "scripts": {
@@ -129,7 +103,7 @@
     "build": "pnpm build:cjs && pnpm build:esm && pnpm build:css",
     "build:cjs": "tsc --project tsconfig-cjs.json && echo '{ \"type\": \"commonjs\" }' > dist/cjs/package.json",
     "build:esm": "tsc --project tsconfig-esm.json",
-    "build:css": "./scripts/build-css.sh ./src/style.css ./src/style.module.css",
+    "build:css": "./scripts/build-css.sh ./style.css ./style.module.css",
     "lint": "eslint .",
     "test": "jest",
     "test-watch": "jest --watch",
@@ -142,14 +116,19 @@
     "examples",
     "website/docs",
     "tsconfig.json",
-    "tsconfig-base.json"
+    "tsconfig-base.json",
+    "style.css",
+    "style.module.css",
+    "jalali.js",
+    "jalali.d.ts",
+    "locale.js",
+    "locale.d.ts"
   ],
   "dependencies": {
     "@date-fns/tz": "^1.1.2",
     "date-fns": "^4.1.0"
   },
   "devDependencies": {
-    "@date-fns/utc": "^2.1.0",
     "@jest/types": "^29.6.3",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.5.0",

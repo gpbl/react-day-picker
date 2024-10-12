@@ -247,10 +247,6 @@ export interface PropsBase {
    * Use ISO week dates instead of the locale setting. Setting this prop will
    * ignore `weekStartsOn` and `firstWeekContainsDate`.
    *
-   * Use the
-   * [react-day-picker/utc](https://daypicker.dev/docs/localization#utc-dates)
-   * to set the calendar to UTC.
-   *
    * @see https://daypicker.dev/docs/localization#iso-week-dates
    * @see https://en.wikipedia.org/wiki/ISO_week_date
    */
