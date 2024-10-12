@@ -18,13 +18,7 @@ export function getNextFocus(
   calendarEndMonth: Date | undefined,
   props: Pick<
     DayPickerProps,
-    | "disabled"
-    | "hidden"
-    | "modifiers"
-    | "locale"
-    | "ISOWeek"
-    | "weekStartsOn"
-    | "timeZone"
+    "disabled" | "hidden" | "modifiers" | "ISOWeek" | "timeZone"
   >,
   dateLib: DateLib,
   attempt: number = 0

@@ -12,7 +12,6 @@ export function getNavMonths(
     | "startMonth"
     | "today"
     | "timeZone"
-    | "dateLib"
     // Deprecated:
     | "fromMonth"
     | "fromYear"

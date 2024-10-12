@@ -9,16 +9,7 @@ export function getMonths(
   /** The dates to display in the calendar. */
   dates: Date[],
   /** Options from the props context. */
-  props: Pick<
-    DayPickerProps,
-    | "fixedWeeks"
-    | "ISOWeek"
-    | "locale"
-    | "weekStartsOn"
-    | "reverseMonths"
-    | "firstWeekContainsDate"
-    | "timeZone"
-  >,
+  props: Pick<DayPickerProps, "fixedWeeks" | "ISOWeek" | "reverseMonths">,
   dateLib: DateLib
 ): CalendarMonth[] {
   const {
@@ -35,17 +26,11 @@ export function getMonths(
     (months, month) => {
       const firstDateOfFirstWeek = props.ISOWeek
         ? startOfISOWeek(month)
-        : startOfWeek(month, {
-            locale: props.locale,
-            weekStartsOn: props.weekStartsOn
-          });
+        : startOfWeek(month);
 
       const lastDateOfLastWeek = props.ISOWeek
         ? endOfISOWeek(endOfMonth(month))
-        : endOfWeek(endOfMonth(month), {
-            locale: props.locale,
-            weekStartsOn: props.weekStartsOn
-          });
+        : endOfWeek(endOfMonth(month));
 
       /** The dates to display in the month. */
       const monthDates = dates.filter((date) => {
@@ -63,13 +48,7 @@ export function getMonths(
 
       const weeks: CalendarWeek[] = monthDates.reduce<CalendarWeek[]>(
         (weeks, date) => {
-          const weekNumber = props.ISOWeek
-            ? getISOWeek(date)
-            : getWeek(date, {
-                locale: props.locale,
-                weekStartsOn: props.weekStartsOn,
-                firstWeekContainsDate: props.firstWeekContainsDate
-              });
+          const weekNumber = props.ISOWeek ? getISOWeek(date) : getWeek(date);
           const week = weeks.find((week) => week.weekNumber === weekNumber);
 
           const day = new CalendarDay(date, month, dateLib);

@@ -1,4 +1,4 @@
-import { dateLib } from "react-day-picker";
+import { DateLib } from "../lib/dateLib";
 
 import { getFormatters } from "./getFormatters";
 import { getYearOptions } from "./getYearOptions";
@@ -13,14 +13,14 @@ test("return undefined if startMonth or endMonth is not provided", () => {
     undefined,
     new Date(2022, 11, 31),
     formatters,
-    dateLib
+    new DateLib()
   );
   const result2 = getYearOptions(
     displayMonth,
     new Date(2022, 0, 1),
     undefined,
     formatters,
-    dateLib
+    new DateLib()
   );
 
   expect(result1).toBeUndefined();
@@ -40,7 +40,7 @@ test("return correct dropdown options", () => {
     startMonth,
     endMonth,
     formatters,
-    dateLib
+    new DateLib()
   );
 
   expect(result).toEqual([

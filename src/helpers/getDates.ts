@@ -7,16 +7,13 @@ const NrOfDaysWithFixedWeeks = 42;
 export function getDates(
   displayMonths: Date[],
   maxDate: Date | undefined,
-  props: Pick<
-    DayPickerProps,
-    "ISOWeek" | "fixedWeeks" | "locale" | "weekStartsOn" | "timeZone"
-  >,
+  props: Pick<DayPickerProps, "ISOWeek" | "fixedWeeks">,
   dateLib: DateLib
 ): Date[] {
   const firstMonth = displayMonths[0];
   const lastMonth = displayMonths[displayMonths.length - 1];
 
-  const { ISOWeek, fixedWeeks, locale, weekStartsOn } = props ?? {};
+  const { ISOWeek, fixedWeeks } = props ?? {};
   const {
     startOfWeek,
     endOfWeek,
@@ -31,17 +28,11 @@ export function getDates(
 
   const startWeekFirstDate = ISOWeek
     ? startOfISOWeek(firstMonth)
-    : startOfWeek(firstMonth, {
-        weekStartsOn,
-        locale
-      });
+    : startOfWeek(firstMonth);
 
   const endWeekLastDate = ISOWeek
     ? endOfISOWeek(endOfMonth(lastMonth))
-    : endOfWeek(endOfMonth(lastMonth), {
-        weekStartsOn,
-        locale
-      });
+    : endOfWeek(endOfMonth(lastMonth));
 
   const nOfDays = differenceInCalendarDays(endWeekLastDate, startWeekFirstDate);
   const nOfMonths = differenceInCalendarMonths(lastMonth, firstMonth) + 1;

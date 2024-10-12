@@ -75,7 +75,6 @@ export function useCalendar(
     | "today"
     | "fixedWeeks"
     | "ISOWeek"
-    | "weekStartsOn"
     | "numberOfMonths"
     | "disableNavigation"
     | "onMonthChange"

@@ -1,5 +1,5 @@
 import * as defaultFormatters from "../formatters";
-import { dateLib } from "../lib";
+import { DateLib } from "../lib/dateLib";
 
 import { getFormatters } from "./getFormatters";
 
@@ -20,8 +20,10 @@ test("merges custom formatters with default formatters", () => {
 
 test("assigns `formatMonthCaption` to `formatCaption` if `formatCaption` is not defined", () => {
   const result = getFormatters({ formatMonthCaption: () => "customMonth" });
-  expect(result.formatCaption(new Date(), {}, dateLib)).toBe("customMonth");
-  expect(result.formatMonthCaption(new Date(), {}, dateLib)).toBe(
+  expect(result.formatCaption(new Date(), {}, new DateLib())).toBe(
+    "customMonth"
+  );
+  expect(result.formatMonthCaption(new Date(), {}, new DateLib())).toBe(
     "customMonth"
   );
 });
@@ -31,8 +33,10 @@ test("does not overwrite `formatCaption` if already defined", () => {
     formatMonthCaption: () => "customMonth",
     formatCaption: () => "customCaption"
   });
-  expect(result.formatCaption(new Date(), {}, dateLib)).toBe("customCaption");
-  expect(result.formatMonthCaption(new Date(), {}, dateLib)).toBe(
+  expect(result.formatCaption(new Date(), {}, new DateLib())).toBe(
+    "customCaption"
+  );
+  expect(result.formatMonthCaption(new Date(), {}, new DateLib())).toBe(
     "customMonth"
   );
 });

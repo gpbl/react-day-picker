@@ -11,17 +11,18 @@ import {
   endOfWeek
 } from "date-fns";
 
+import { DateLib } from "../lib/dateLib";
 import type { DayPickerProps, MoveFocusBy, MoveFocusDir } from "../types";
 
-import { dateLib } from "..";
 import { getFocusableDate } from "./getFocusableDate";
 
 const focusedDate = new Date(2023, 0, 1); // Jan 1, 2023
-const options: Pick<DayPickerProps, "locale" | "ISOWeek" | "weekStartsOn"> = {
-  locale: undefined,
-  ISOWeek: false,
-  weekStartsOn: 0 // Sunday
+const options: Pick<DayPickerProps, "ISOWeek"> = {
+  ISOWeek: false
 };
+const dateLib = DateLib.fromOptionsDefaultLocale({
+  weekStartsOn: 0 // Sunday
+});
 
 const calendarStartMonth = new Date(2022, 0, 1); // Jan 1, 2022
 const calendarEndMonth = new Date(2024, 0, 1); // Jan 1, 2024
