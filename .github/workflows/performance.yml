@@ -111,7 +111,7 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const artifactUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/suites/${context.runId}/artifacts/${context.runNumber}`;
+            const artifactUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
             const comment = `Performance test reports are available [here](${artifactUrl}).`;
             github.rest.issues.createComment({
               ...context.repo,
