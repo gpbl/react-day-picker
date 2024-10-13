@@ -9,6 +9,7 @@ import lighthouseConfig from "./lighthouse-config.mjs";
 async function captureReport() {
   const browser = await puppeteer.launch({
     headless: true,
+    executablePath: "/opt/hostedtoolcache/setup-chrome/chromium/1368061/x64",
     defaultViewport: { width: 1200, height: 800, deviceScaleFactor: 2 }
   });
   const page = await browser.newPage();
