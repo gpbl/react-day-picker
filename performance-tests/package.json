@@ -2,7 +2,6 @@
   "name": "performance-tests",
   "version": "1.0.0",
   "description": "Performance tests for react-day-picker",
-  "packageManager": "pnpm@9.11.0",
   "main": "capture.mjs",
   "scripts": {
     "start-server": "pnpm --filter examples-app run build && pnpm --filter examples-app run preview",

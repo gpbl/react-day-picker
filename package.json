@@ -4,6 +4,7 @@
   "description": "Customizable Date Picker for React",
   "author": "Giampaolo Bellavite <io@gpbl.dev>",
   "homepage": "https://daypicker.dev",
+  "packageManager": "pnpm@9.11.0",
   "license": "MIT",
   "repository": {
     "type": "git",
