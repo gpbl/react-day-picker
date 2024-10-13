@@ -178,7 +178,6 @@ importers:
       puppeteer:
         specifier: ^23.5.3
         version: 23.5.3(typescript@5.5.4)
-    devDependencies:
       wait-on:
         specifier: ^8.0.1
         version: 8.0.1
