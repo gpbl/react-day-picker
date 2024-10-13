@@ -6,6 +6,8 @@ import puppeteer from "puppeteer";
 import { rangeLong } from "./flows/range-long.mjs";
 import lighthouseConfig from "./lighthouse-config.mjs";
 
+const reportFileName = `./reports/report.html`;
+
 async function captureReport() {
   const browser = await puppeteer.launch({
     headless: Boolean(process.env.CI) === true,
@@ -23,37 +25,40 @@ async function captureReport() {
 
   await rangeLong(flow, page);
 
-  await flow.snapshot();
-
   const report = await flow.generateReport();
-
   await browser.close();
 
-  const reportFileName = `./reports/report.html`;
+  fs.writeFileSync(reportFileName, report);
 
-  const jsonReport = await flow.createFlowResult(); // Generate the JSON report
+  const jsonReport = await flow.createFlowResult();
   let hasFailure = false;
-
   for (const step of jsonReport.steps) {
-    const accessibilityScore = step.lhr.categories.accessibility.score;
-    const performanceScore = step.lhr.categories.performance.score;
+    const categories = step.lhr.categories;
 
-    if (accessibilityScore < 1 || performanceScore < 1) {
-      console.error(
-        `Test failed on step "${step.name}": Accessibility score: ${accessibilityScore}, Performance score: ${performanceScore}`
-      );
-      hasFailure = true; // Mark as failure but continue
+    for (const key in categories) {
+      const score = categories[key]?.score;
+
+      if (score !== undefined && score < 1) {
+        console.error(
+          `Test failed on step "${step.name}" in category "${key}": Score: ${score}`
+        );
+        hasFailure = true; // Mark as failure but continue
+      }
     }
+  }
+  if (process.env.CI && hasFailure) {
+    throw new Error("Test failed: Some steps do not meet the score threshold.");
   }
 
   if (hasFailure) {
-    process.exit(1); // Exit only if one or more steps failed
+    console.error("Test failed: Some steps do not meet the score threshold.");
   } else {
     console.log("Test passed: All steps meet the score threshold.");
   }
 
-  fs.writeFileSync(reportFileName, report);
-  open(reportFileName, { wait: false });
+  if (!process.env.CI) {
+    open(reportFileName, { wait: false });
+  }
 }
 
 captureReport();
