@@ -18,13 +18,10 @@ jobs:
 
       - name: Set up pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 9.4.0
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20.16
           cache: pnpm
 
       - name: Create pnpm store directory
@@ -64,13 +61,10 @@ jobs:
 
       - name: Set up pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 9.4.0
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20.16
           cache: pnpm
 
       - name: Download build artifacts
