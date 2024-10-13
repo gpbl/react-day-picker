@@ -2,3 +2,4 @@
 
 node_modules
 dist
+/performance-tests/reports/report.html
