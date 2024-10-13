@@ -1,0 +1,37 @@
+name: Performance Test
+
+on:
+  pull_request:
+    types: [labeled]
+
+jobs:
+  run-performance-test:
+    if: contains(github.event.label.name, 'performance')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run examples app
+        run: pnpm --filter performance-tests start-server &
+
+      - name: Wait for server to start
+        run: npx wait-on http://localhost:4173
+
+      - name: Run performance test
+        run: node performance-tests/capture.mjs
+
+      - name: Upload report
+        uses: actions/upload-artifact@v2
+        with:
+          name: performance-report
+          path: reports/
