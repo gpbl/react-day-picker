@@ -14,9 +14,7 @@
   "dependencies": {
     "lighthouse": "^12.2.1",
     "open": "^10.1.0",
+    "wait-on": "^8.0.1",
     "puppeteer": "^23.5.3"
-  },
-  "devDependencies": {
-    "wait-on": "^8.0.1"
   }
 }

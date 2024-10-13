@@ -51,12 +51,9 @@ jobs:
           name: rdp-dist
           path: dist
       - run: pnpm install --frozen-lockfile
-      - name: Install Chrome
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
       - run: pnpm --filter performance-tests start-server &
-      - run: npx wait-on http://localhost:4173
+      - run: pnpx wait-on http://localhost:4173 --timeout 5000
+      - run: mkdir performance-tests/reports
       - run: node performance-tests/capture.mjs
       - uses: actions/upload-artifact@v4
         with:
