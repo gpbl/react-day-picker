@@ -39,17 +39,16 @@ async function captureReport() {
       const score = categories[key]?.score;
 
       if (score !== undefined && score < 1) {
-        console.error(
-          `❌ Test failed on step "${step.name}" in category "${key}": Score: ${score}`
+        console.warn(
+          `⚠️  Test failed on step "${step.name}" in category "${key}": Score: ${score}`
         );
-        hasFailure = true; // Mark as failure but continue
+        hasFailure = true;
       }
     }
   }
 
   let markdownReport = "# Lighthouse Report\n\n";
 
-  // Add table header
   markdownReport +=
     "| Step Name       | Accessibility | Performance | Best Practices |\n";
   markdownReport +=
@@ -72,9 +71,7 @@ async function captureReport() {
   console.log(`Markdown report generated: ${reportFileName}`);
 
   if (hasFailure) {
-    console.error(
-      "❌ Test failed: Some steps do not meet the score threshold."
-    );
+    console.warn("⚠️ Some steps do not meet the score threshold.");
   } else {
     console.log("✅ Test passed: All steps meet the score threshold.");
   }
