@@ -39,21 +39,22 @@ async function captureReport() {
       const score = categories[key]?.score;
 
       if (score !== undefined && score < 1) {
-        console.error(
-          `Test failed on step "${step.name}" in category "${key}": Score: ${score}`
+        console.warn(
+          `❌ Test failed on step "${step.name}" in category "${key}": Score: ${score}`
         );
         hasFailure = true; // Mark as failure but continue
       }
     }
   }
-  if (process.env.CI && hasFailure) {
-    throw new Error("Test failed: Some steps do not meet the score threshold.");
-  }
 
   if (hasFailure) {
-    console.error("Test failed: Some steps do not meet the score threshold.");
+    console.warn("❌ Test failed: Some steps do not meet the score threshold.");
   } else {
-    console.log("Test passed: All steps meet the score threshold.");
+    console.log("✅ Test passed: All steps meet the score threshold.");
+  }
+
+  if (process.env.CI && hasFailure) {
+    process.exit(1);
   }
 
   if (!process.env.CI) {
