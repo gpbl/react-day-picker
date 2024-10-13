@@ -2,5 +2,5 @@
 
 node_modules
 dist
-/website/docs/api
-/test-website
+/performance-tests/reports/report.html
+/performance-tests/reports/markdown-report.md

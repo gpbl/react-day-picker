@@ -21,6 +21,9 @@
     },
     {
       "path": "examples-app"
+    },
+    {
+      "path": "performance-tests"
     }
   ],
   "settings": {
