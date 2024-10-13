@@ -11,6 +11,7 @@ on:
 
 jobs:
   build-react-day-picker:
+    if: contains(github.event.label.name, 'performance')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -48,9 +49,9 @@ jobs:
           path: dist
 
   run-performance-test:
+    if: contains(github.event.label.name, 'performance')
     needs: [build-react-day-picker]
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
