@@ -1,0 +1,18 @@
+{
+  "name": "performance-tests",
+  "version": "1.0.0",
+  "description": "Performance tests for react-day-picker",
+  "main": "capture.mjs",
+  "scripts": {
+    "capture": "node capture.mjs"
+  },
+  "keywords": [],
+  "module": "true",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lighthouse": "^12.2.1",
+    "open": "^10.1.0",
+    "puppeteer": "^23.5.3"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "checkJs": true,
+    "module": "esnext",
+    "target": "es6",
+    "allowJs": true,
+    "moduleResolution": "Node"
+  },
+  "include": ["**/*.js", "**/*.mjs"]
+}
