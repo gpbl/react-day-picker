@@ -29,8 +29,7 @@ async function captureReport() {
 
   await browser.close();
 
-  const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
-  const reportFileName = `./reports/flow.report.${timestamp}.html`;
+  const reportFileName = `./reports/report.html`;
 
   fs.writeFileSync(reportFileName, report);
   open(reportFileName, { wait: false });

@@ -95,14 +95,17 @@ jobs:
       - name: Wait for server to start
         run: pnpx wait-on http://localhost:4173 --timeout 10000
 
-      - name: Create reports directory
-        run: mkdir -p ./reports
-
-      - name: Run performance test
-        run: node performance-tests/capture.mjs
+      - name: Capture performance test
+        run: pnpm --filter performance-tests run capture
         env:
           CHROME_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
           CI: true
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: report
+          path: ./performance-tests/reports/report.html
 
       - name: Post comment with download link
         if: success()
