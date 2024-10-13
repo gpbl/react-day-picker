@@ -11,7 +11,7 @@ on:
 
 jobs:
   build-react-day-picker:
-    if: github.event_name == 'push' || contains(github.event.label.name, 'performance')
+    if: contains(github.event.label.name, 'performance')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
