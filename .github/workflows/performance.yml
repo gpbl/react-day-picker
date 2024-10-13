@@ -104,8 +104,16 @@ jobs:
           CHROME_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
           CI: true
 
-      - name: Upload reports
-        uses: actions/upload-artifact@v4
+      - name: Post comment with download link
+        if: success()
+        uses: actions/github-script@v7
         with:
-          name: reports
-          path: ./reports
+          script: |
+            const { context, github } = require('@actions/github');
+            const artifactUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/suites/${context.runId}/artifacts/${context.runNumber}`;
+            const comment = `Performance test reports are available [here](${artifactUrl}).`;
+            github.rest.issues.createComment({
+              ...context.repo,
+              issue_number: context.issue.number,
+              body: comment
+            });
