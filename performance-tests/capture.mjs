@@ -9,8 +9,7 @@ import lighthouseConfig from "./lighthouse-config.mjs";
 async function captureReport() {
   const browser = await puppeteer.launch({
     headless: true,
-    executablePath:
-      "/opt/hostedtoolcache/setup-chrome/chromium/1368061/x64/chrome",
+    executablePath: process.env.CHROME_PATH || undefined,
     defaultViewport: { width: 1200, height: 800, deviceScaleFactor: 2 }
   });
   const page = await browser.newPage();
@@ -24,12 +23,15 @@ async function captureReport() {
 
   await rangeLong(flow, page);
 
-  await browser.close();
+  await flow.snapshot();
 
   const report = await flow.generateReport();
 
+  await browser.close();
+
   const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
   const reportFileName = `./reports/flow.report.${timestamp}.html`;
+
   fs.writeFileSync(reportFileName, report);
   open(reportFileName, { wait: false });
 }
