@@ -2,10 +2,12 @@ name: Performance Test
 
 on:
   pull_request:
+    types: [labeled]
     branches:
       - main
-    types:
-      - labeled
+  push:
+    branches:
+      - main
 
 jobs:
   run-performance-test:
