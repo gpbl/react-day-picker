@@ -52,7 +52,7 @@ jobs:
           name: rdp-dist
           path: dist
 
-  run:
+  capture-report:
     if: contains(github.event.pull_request.labels.*.name, 'performance')
     needs: [build]
     runs-on: ubuntu-latest
