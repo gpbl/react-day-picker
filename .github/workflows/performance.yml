@@ -22,10 +22,7 @@ jobs:
           node-version: 20.16
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - name: Install Chrome
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
+     
       - run: pnpm build
       - uses: actions/upload-artifact@v4
         with:
@@ -50,6 +47,10 @@ jobs:
           name: rdp-dist
           path: dist
       - run: pnpm install --frozen-lockfile
+      - name: Install Chrome
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
       - run: pnpm --filter performance-tests start-server &
       - run: npx wait-on http://localhost:4173
       - run: node performance-tests/capture.mjs
