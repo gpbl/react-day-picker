@@ -2,7 +2,6 @@ name: Performance Test
 
 on:
   pull_request:
-    types: [labeled, synchronize, opened]
     branches:
       - main
   push:
@@ -11,7 +10,7 @@ on:
 
 jobs:
   build-react-day-picker:
-    if: github.event_name == 'pull_request' && contains(github.event.label.name, 'performance')
+    if: contains(github.event.pull_request.labels.*.name, 'performance')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
