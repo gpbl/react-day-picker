@@ -13,18 +13,36 @@ jobs:
   build-react-day-picker:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
         with:
           version: 9.4.0
-      - uses: actions/setup-node@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20.16
           cache: pnpm
-      - run: pnpm install --frozen-lockfile
-     
-      - run: pnpm build
-      - uses: actions/upload-artifact@v4
+
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build project
+        run: pnpm build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
         with:
           name: rdp-dist
           path: dist
@@ -34,28 +52,59 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-      - uses: browser-actions/setup-chrome@v1
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Chrome
+        uses: browser-actions/setup-chrome@v1
         id: setup-chrome
-      - run: |
-          echo ${{ steps.setup-chrome.outputs.chrome-path }}
-      - uses: pnpm/action-setup@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
         with:
           version: 9.4.0
-      - uses: actions/setup-node@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20.16
           cache: pnpm
-      - uses: actions/download-artifact@v4
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
         with:
           name: rdp-dist
           path: dist
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm --filter performance-tests start-server &
-      - run: pnpx wait-on http://localhost:4173 --timeout 5000
-      - run: mkdir -p ./reports
-      - run: node performance-tests/capture.mjs
-      - uses: actions/upload-artifact@v4
+
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Start server
+        run: pnpm --filter performance-tests start-server &
+        env:
+          CHROME_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
+
+      - name: Wait for server to start
+        run: pnpx wait-on http://localhost:4173 --timeout 10000
+
+      - name: Create reports directory
+        run: mkdir -p ./reports
+
+      - name: Run performance test
+        run: node performance-tests/capture.mjs
+        env:
+          CHROME_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
+
+      - name: Upload reports
+        uses: actions/upload-artifact@v4
         with:
           name: reports
           path: ./reports
