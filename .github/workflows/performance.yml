@@ -36,6 +36,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: browser-actions/setup-chrome@v1
+        id: setup-chrome
+      - run: |
+          echo ${{ steps.setup-chrome.outputs.chrome-path }}
       - uses: pnpm/action-setup@v4
         with:
           version: 9.4.0
