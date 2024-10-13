@@ -8,7 +8,7 @@ import lighthouseConfig from "./lighthouse-config.mjs";
 
 async function captureReport() {
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     defaultViewport: { width: 1200, height: 800, deviceScaleFactor: 2 }
   });
   const page = await browser.newPage();
