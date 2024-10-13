@@ -31,6 +31,27 @@ async function captureReport() {
 
   const reportFileName = `./reports/report.html`;
 
+  const jsonReport = await flow.createFlowResult(); // Generate the JSON report
+  let hasFailure = false;
+
+  for (const step of jsonReport.steps) {
+    const accessibilityScore = step.lhr.categories.accessibility.score;
+    const performanceScore = step.lhr.categories.performance.score;
+
+    if (accessibilityScore < 1 || performanceScore < 1) {
+      console.error(
+        `Test failed on step "${step.name}": Accessibility score: ${accessibilityScore}, Performance score: ${performanceScore}`
+      );
+      hasFailure = true; // Mark as failure but continue
+    }
+  }
+
+  if (hasFailure) {
+    process.exit(1); // Exit only if one or more steps failed
+  } else {
+    console.log("Test passed: All steps meet the score threshold.");
+  }
+
   fs.writeFileSync(reportFileName, report);
   open(reportFileName, { wait: false });
 }
