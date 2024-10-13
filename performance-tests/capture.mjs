@@ -39,7 +39,7 @@ async function captureReport() {
       const score = categories[key]?.score;
 
       if (score !== undefined && score < 1) {
-        console.warn(
+        console.error(
           `❌ Test failed on step "${step.name}" in category "${key}": Score: ${score}`
         );
         hasFailure = true; // Mark as failure but continue
@@ -47,8 +47,34 @@ async function captureReport() {
     }
   }
 
+  let markdownReport = "# Lighthouse Report\n\n";
+
+  // Add table header
+  markdownReport +=
+    "| Step Name       | Accessibility | Performance | Best Practices |\n";
+  markdownReport +=
+    "|-----------------|---------------|-------------|----------------|\n";
+
+  // Iterate through each step and build table rows
+  for (const step of jsonReport.steps) {
+    const categories = step.lhr.categories;
+
+    const accessibilityScore = categories["accessibility"]?.score ?? "/";
+    const performanceScore = categories["performance"]?.score ?? "/";
+    const bestPracticesScore = categories["best-practices"]?.score ?? "/";
+
+    // Append row for the current step
+    markdownReport += `| ${step.name} | ${accessibilityScore} | ${performanceScore} | ${bestPracticesScore} |\n`;
+  }
+
+  // Write the markdown report to a file
+  fs.writeFileSync("./reports/markdown-report.md", markdownReport);
+  console.log(`Markdown report generated: ${reportFileName}`);
+
   if (hasFailure) {
-    console.warn("❌ Test failed: Some steps do not meet the score threshold.");
+    console.error(
+      "❌ Test failed: Some steps do not meet the score threshold."
+    );
   } else {
     console.log("✅ Test passed: All steps meet the score threshold.");
   }

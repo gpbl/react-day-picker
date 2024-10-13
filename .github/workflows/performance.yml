@@ -106,15 +106,45 @@ jobs:
           name: report
           path: ./performance-tests/reports/report.html
 
-      - name: Post comment with download link
+      - name: Upload markdown report
+        uses: actions/upload-artifact@v4
+        with:
+          name: markdown-report
+          path: ./performance-tests/reports/markdown-report.md
+  
+      - name: Download markdown report
+        uses: actions/download-artifact@v4
+        with:
+          name: markdown-report
+          path: ./markdown-report
+
+      - name: Read markdown report
+        id: read-markdown
+        run: echo "markdown=$(cat ./markdown-report/markdown-report.md)" >> $GITHUB_ENV
+
+      - name: Post comment with download link and markdown content
         if: success()
         uses: actions/github-script@v7
         with:
           script: |
             const artifactUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
-            const comment = `Performance test reports are available [here](${artifactUrl}).`;
+            const markdownContent = process.env.markdown;
+            const comment = `Performance test reports are available [here](${artifactUrl}).\n\n### Markdown Report:\n\n${markdownContent}`;
             github.rest.issues.createComment({
               ...context.repo,
               issue_number: context.issue.number,
               body: comment
             });
+
+      # - name: Post comment with download link
+      #   if: success()
+      #   uses: actions/github-script@v7
+      #   with:
+      #     script: |
+      #       const artifactUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+      #       const comment = `Performance test reports are available [here](${artifactUrl}).`;
+      #       github.rest.issues.createComment({
+      #         ...context.repo,
+      #         issue_number: context.issue.number,
+      #         body: comment
+      #       });
