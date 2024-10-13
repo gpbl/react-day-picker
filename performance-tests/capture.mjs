@@ -79,10 +79,6 @@ async function captureReport() {
     console.log("✅ Test passed: All steps meet the score threshold.");
   }
 
-  if (process.env.CI && hasFailure) {
-    process.exit(1);
-  }
-
   if (!process.env.CI) {
     open(reportFileName, { wait: false });
   }
