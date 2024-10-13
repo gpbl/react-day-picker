@@ -5,6 +5,9 @@
   "author": "Giampaolo Bellavite <io@gpbl.dev>",
   "homepage": "https://daypicker.dev",
   "packageManager": "pnpm@9.11.0",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
