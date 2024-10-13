@@ -26,19 +26,9 @@ jobs:
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
-        with:
-          cache: pnpm
 
       - name: Create pnpm store directory
         run: mkdir -p ~/.pnpm-store
-
-      - name: Cache node_modules
-        uses: actions/cache@v4
-        with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -52,7 +42,7 @@ jobs:
           name: rdp-dist
           path: dist
 
-  run:
+  capture-report:
     if: contains(github.event.pull_request.labels.*.name, 'performance')
     needs: [build]
     runs-on: ubuntu-latest
@@ -69,8 +59,6 @@ jobs:
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
-        with:
-          cache: pnpm
 
       - name: Download build artifacts
         uses: actions/download-artifact@v4
@@ -80,14 +68,6 @@ jobs:
 
       - name: Create pnpm store directory
         run: mkdir -p ~/.pnpm-store
-
-      - name: Cache node_modules
-        uses: actions/cache@v4
-        with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -111,37 +91,3 @@ jobs:
         with:
           name: report
           path: ./performance-tests/reports/report.html
-
-      - name: Upload markdown report
-        uses: actions/upload-artifact@v4
-        with:
-          name: markdown-report
-          path: ./performance-tests/reports/markdown-report.md
-
-      - name: Download markdown report
-        uses: actions/download-artifact@v4
-        with:
-          name: markdown-report
-          path: ./markdown-report
-  
-      - name: Read markdown report
-        id: read-markdown
-        run: |
-          markdown_content=$(cat ./markdown-report/markdown-report.md)
-          echo "markdown_content<<EOF" >> $GITHUB_ENV
-          echo "$markdown_content" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
-
-      - name: Post comment with download link and markdown content
-        if: success()
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const artifactUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
-            const markdownContent = process.env.markdown_content;
-            const comment = `Performance test reports are available [here](${artifactUrl}).\n\n### Markdown Report:\n\n${markdownContent}`;
-            github.rest.issues.createComment({
-              ...context.repo,
-              issue_number: context.issue.number,
-              body: comment
-            });
