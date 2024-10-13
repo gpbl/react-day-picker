@@ -27,6 +27,9 @@ jobs:
           node-version: 20.16
           cache: pnpm
 
+      - name: Create pnpm store directory
+        run: mkdir -p ~/.pnpm-store
+
       - name: Cache node_modules
         uses: actions/cache@v3
         with:
@@ -75,6 +78,9 @@ jobs:
         with:
           name: rdp-dist
           path: dist
+
+      - name: Create pnpm store directory
+        run: mkdir -p ~/.pnpm-store
 
       - name: Cache node_modules
         uses: actions/cache@v3
