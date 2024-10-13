@@ -114,17 +114,12 @@ jobs:
           name: markdown-report
           path: ./performance-tests/reports/markdown-report.md
 
-  post-comment:
-    if: contains(github.event.pull_request.labels.*.name, 'performance')
-    needs: [run]
-    runs-on: ubuntu-latest
-    steps:
       - name: Download markdown report
         uses: actions/download-artifact@v4
         with:
           name: markdown-report
           path: ./markdown-report
-
+  
       - name: Read markdown report
         id: read-markdown
         run: |
