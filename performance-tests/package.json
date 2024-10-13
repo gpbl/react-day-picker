@@ -4,6 +4,7 @@
   "description": "Performance tests for react-day-picker",
   "main": "capture.mjs",
   "scripts": {
+    "start-server": "pnpm --filter examples-app run build && pnpm --filter examples-app run preview",
     "capture": "node capture.mjs"
   },
   "keywords": [],
