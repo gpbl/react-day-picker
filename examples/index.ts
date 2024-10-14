@@ -52,6 +52,7 @@ export * from "./RangeMinMax";
 export * from "./RangeRequired";
 export * from "./RangeShiftKey";
 export * from "./RangeLong";
+export * from "./RangeLongExcludeDisabled";
 export * from "./Rtl";
 export * from "./Single";
 export * from "./SingleControlled";
