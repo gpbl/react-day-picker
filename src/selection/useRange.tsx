@@ -45,8 +45,11 @@ export function useRange<T extends DayPickerProps>(
 
     if (excludeDisabled && disabled && newRange?.from && newRange.to) {
       let newDate = newRange.from;
-      while (dateLib.differenceInCalendarDays(newRange.to, newDate) > 0) {
+      const totalDays = dateLib.differenceInCalendarDays(newRange.to, newDate);
+
+      for (let i = 0; i < totalDays; i++) {
         newDate = dateLib.addDays(newDate, 1);
+
         if (dateMatchModifiers(newDate, disabled, dateLib)) {
           // if a disabled days is found, the range is reset
           newRange.from = triggerDate;
