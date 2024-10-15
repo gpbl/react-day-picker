@@ -76,6 +76,7 @@ jobs:
     needs: [build, test]
     if: ${{ github.event_name == 'release' || github.event.inputs.publish }}
     permissions:
+      contents: write
       id-token: write
     steps:
       - uses: actions/checkout@v4
@@ -94,6 +95,15 @@ jobs:
         run: |
           TAG=$(git describe --tags)
           npm version $TAG --no-git-tag-version
+      - name: Commit and push version bump
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add package.json
+          git commit -m "build: bump version to $TAG"
+          git push origin HEAD:${{ github.ref }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: npm publish --provenance --tag latest
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
