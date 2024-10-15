@@ -101,7 +101,7 @@ export function rangeMatchModifiers(
   });
 
   if (nonFunctionMatchersResult) {
-    return nonFunctionMatchersResult;
+    return true;
   }
 
   const functionMatchers = matchersArr.filter(
