@@ -53,44 +53,20 @@
       }
     },
     "./style.css": {
-      "import": {
-        "types": "./style.css.d.ts",
-        "default": "./style.css"
-      },
-      "require": {
-        "types": "./style.css.d.ts",
-        "default": "./style.css"
-      }
+      "types": "./style.css.d.ts",
+      "default": "./style.css"
     },
     "./style.module.css": {
-      "import": {
-        "types": "./style.css.d.ts",
-        "default": "./style.module.css"
-      },
-      "require": {
-        "types": "./style.css.d.ts",
-        "default": "./style.module.css"
-      }
+      "types": "./style.css.d.ts",
+      "default": "./style.module.css"
     },
     "./dist/style.css": {
-      "import": {
-        "types": "./style.css.d.ts",
-        "default": "./style.css"
-      },
-      "require": {
-        "types": "./style.css.d.ts",
-        "default": "./style.css"
-      }
+      "types": "./style.css.d.ts",
+      "default": "./style.css"
     },
     "./dist/style.module.css": {
-      "import": {
-        "types": "./style.css.d.ts",
-        "default": "./style.module.css"
-      },
-      "require": {
-        "types": "./style.css.d.ts",
-        "default": "./style.module.css"
-      }
+      "types": "./style.css.d.ts",
+      "default": "./style.module.css"
     },
     "./package.json": {
       "import": "./package.json",
