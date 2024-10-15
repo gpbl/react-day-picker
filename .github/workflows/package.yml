@@ -90,6 +90,10 @@ jobs:
           name: rdp-dist
           path: dist
       - run: echo "//<npm-registry>:8080/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
+      - name: Bump version
+        run: |
+          TAG=$(git describe --tags)
+          npm version $TAG --no-git-tag-version
       - run: npm publish --provenance --tag latest
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
