@@ -53,28 +53,82 @@
       }
     },
     "./style.css": {
-      "types": "./src/style.module.css.d.ts",
-      "default": "./src/style.css"
+      "style": {
+        "default": "./src/style.css"
+      },
+      "import": {
+        "types": "./src/style.module.css.d.ts",
+        "default": "./src/style.css"
+      },
+      "require": {
+        "types": "./src/style.module.css.d.ts",
+        "default": "./src/style.css"
+      }
     },
     "./style.module.css": {
-      "types": "./src/style.module.css.d.ts",
-      "default": "./src/style.module.css"
+      "style": {
+        "default": "./src/style.module.css"
+      },
+      "import": {
+        "types": "./src/style.module.css.d.ts",
+        "default": "./src/style.module.css"
+      },
+      "require": {
+        "types": "./src/style.module.css.d.ts",
+        "default": "./src/style.module.css"
+      }
     },
     "./src/style.css": {
-      "types": "./src/style.module.css.d.ts",
-      "default": "./src/style.css"
+      "style": {
+        "default": "./src/style.css"
+      },
+      "import": {
+        "types": "./src/style.module.css.d.ts",
+        "default": "./src/style.css"
+      },
+      "require": {
+        "types": "./src/style.module.css.d.ts",
+        "default": "./src/style.css"
+      }
     },
     "./src/style.module.css": {
-      "types": "./src/style.module.css.d.ts",
-      "default": "./src/style.module.css"
+      "style": {
+        "default": "./src/style.module.css"
+      },
+      "import": {
+        "types": "./src/style.module.css.d.ts",
+        "default": "./src/style.module.css"
+      },
+      "require": {
+        "types": "./src/style.module.css.d.ts",
+        "default": "./src/style.module.css"
+      }
     },
     "./dist/style.css": {
-      "types": "./src/style.module.css.d.ts",
-      "default": "./src/style.css"
+      "style": {
+        "default": "./src/style.css"
+      },
+      "import": {
+        "types": "./src/style.module.css.d.ts",
+        "default": "./src/style.css"
+      },
+      "require": {
+        "types": "./src/style.module.css.d.ts",
+        "default": "./src/style.css"
+      }
     },
     "./dist/style.module.css": {
-      "types": "./src/style.module.css.d.ts",
-      "default": "./src/style.module.css"
+      "style": {
+        "default": "./src/style.module.css"
+      },
+      "import": {
+        "types": "./src/style.module.css.d.ts",
+        "default": "./src/style.module.css"
+      },
+      "require": {
+        "types": "./src/style.module.css.d.ts",
+        "default": "./src/style.module.css"
+      }
     },
     "./package.json": {
       "import": "./package.json",
