@@ -1,6 +1,6 @@
 # Contributing to DayPicker
 
-You are welcome to join the [DayPicker contributors](https://github.com/gpbl/react-day-picker/graphs/contributors) and help us build the best date picker for React.
+You are welcome to join the [DayPicker  contributors](https://github.com/gpbl/react-day-picker/graphs/contributors) and help us build the best date picker for React.
 
 ## Ways to Contribute
 
