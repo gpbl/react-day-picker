@@ -55,7 +55,7 @@ const config: Config = {
           customCss: [
             "./src/css/custom.css",
             "./src/css/docusaurus-reset.css",
-            "../style.css"
+            "../src/style.css"
           ]
         }
       } satisfies Preset.Options
