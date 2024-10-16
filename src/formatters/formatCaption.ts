@@ -1,8 +1,4 @@
-import {
-  FormatOptions,
-  dateLib as defaultDateLib,
-  type DateLib
-} from "../lib/index.js";
+import { DateLib, type FormatOptions } from "../lib/dateLib.js";
 
 /**
  * Format the caption of the month.
@@ -15,9 +11,9 @@ export function formatCaption(
   month: Date,
   options?: FormatOptions,
   /** @ignore */
-  dateLib: DateLib = defaultDateLib
+  dateLib: DateLib = DateLib.fromOptionsDefaultLocale(options)
 ) {
-  return dateLib.format(month, "LLLL y", options);
+  return dateLib.format(month, "LLLL y");
 }
 
 /**
