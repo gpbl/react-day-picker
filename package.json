@@ -19,7 +19,7 @@
   "main": "./dist/cjs/index.js",
   "types": "./dist/cjs/index.d.ts",
   "module": "./dist/esm/index.js",
-  "style": "./style.css",
+  "style": "./src/style.css",
   "type": "module",
   "exports": {
     ".": {
@@ -53,20 +53,28 @@
       }
     },
     "./style.css": {
-      "types": "./style.css.d.ts",
-      "default": "./style.css"
+      "types": "./src/style.module.css.d.ts",
+      "default": "./src/style.css"
     },
     "./style.module.css": {
-      "types": "./style.css.d.ts",
-      "default": "./style.module.css"
+      "types": "./src/style.module.css.d.ts",
+      "default": "./src/style.module.css"
+    },
+    "./src/style.css": {
+      "types": "./src/style.module.css.d.ts",
+      "default": "./src/style.css"
+    },
+    "./src/style.module.css": {
+      "types": "./src/style.module.css.d.ts",
+      "default": "./src/style.module.css"
     },
     "./dist/style.css": {
-      "types": "./style.css.d.ts",
-      "default": "./style.css"
+      "types": "./src/style.module.css.d.ts",
+      "default": "./src/style.css"
     },
     "./dist/style.module.css": {
-      "types": "./style.css.d.ts",
-      "default": "./style.module.css"
+      "types": "./src/style.module.css.d.ts",
+      "default": "./src/style.module.css"
     },
     "./package.json": {
       "import": "./package.json",
@@ -83,7 +91,7 @@
     "build": "pnpm build:cjs && pnpm build:esm && pnpm build:css",
     "build:cjs": "tsc --project tsconfig-cjs.json && echo '{ \"type\": \"commonjs\" }' > dist/cjs/package.json",
     "build:esm": "tsc --project tsconfig-esm.json",
-    "build:css": "./scripts/build-css.sh ./style.css ./style.module.css",
+    "build:css": "./scripts/build-css.sh ./src/style.css ./src/style.module.css",
     "lint": "eslint .",
     "test": "jest",
     "test-watch": "jest --watch",
