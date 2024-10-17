@@ -3,7 +3,7 @@ import { useState } from "react";
 import type { CalendarDay } from "./classes/index.js";
 import { calculateFocusTarget } from "./helpers/calculateFocusTarget.js";
 import { getNextFocus } from "./helpers/getNextFocus.js";
-import type { DateLib } from "./lib/index.js";
+import type { DateLib, Locale } from "./lib/index.js";
 import type {
   MoveFocusBy,
   MoveFocusDir,
@@ -35,7 +35,8 @@ export function useFocus<T extends DayPickerProps>(
   calendar: Calendar,
   getModifiers: (day: CalendarDay) => Modifiers,
   isSelected: (date: Date) => boolean,
-  dateLib: DateLib
+  dateLib: DateLib,
+  locale: Locale
 ): UseFocus {
   const { autoFocus } = props;
   const [lastFocused, setLastFocused] = useState<CalendarDay | undefined>();
@@ -64,7 +65,8 @@ export function useFocus<T extends DayPickerProps>(
       calendar.navStart,
       calendar.navEnd,
       props,
-      dateLib
+      dateLib,
+      locale
     );
     if (!nextFocus) return;
 

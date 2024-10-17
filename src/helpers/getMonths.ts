@@ -1,5 +1,5 @@
 import { CalendarWeek, CalendarDay, CalendarMonth } from "../classes/index.js";
-import type { DateLib } from "../lib/index.js";
+import type { DateLib, Locale } from "../lib/index.js";
 import type { DayPickerProps } from "../types/index.js";
 
 /** Return the months to display in the calendar. */
@@ -13,13 +13,13 @@ export function getMonths(
     DayPickerProps,
     | "fixedWeeks"
     | "ISOWeek"
-    | "locale"
     | "weekStartsOn"
     | "reverseMonths"
     | "firstWeekContainsDate"
     | "timeZone"
   >,
-  dateLib: DateLib
+  dateLib: DateLib,
+  locale: Locale
 ): CalendarMonth[] {
   const {
     startOfWeek,
@@ -36,14 +36,14 @@ export function getMonths(
       const firstDateOfFirstWeek = props.ISOWeek
         ? startOfISOWeek(month)
         : startOfWeek(month, {
-            locale: props.locale,
+            locale,
             weekStartsOn: props.weekStartsOn
           });
 
       const lastDateOfLastWeek = props.ISOWeek
         ? endOfISOWeek(endOfMonth(month))
         : endOfWeek(endOfMonth(month), {
-            locale: props.locale,
+            locale,
             weekStartsOn: props.weekStartsOn
           });
 
@@ -66,7 +66,7 @@ export function getMonths(
           const weekNumber = props.ISOWeek
             ? getISOWeek(date)
             : getWeek(date, {
-                locale: props.locale,
+                locale,
                 weekStartsOn: props.weekStartsOn,
                 firstWeekContainsDate: props.firstWeekContainsDate
               });
