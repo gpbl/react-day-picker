@@ -1,21 +1,17 @@
 import { TZDate } from "@date-fns/tz";
 
-import type { Locale, DateLib } from "../lib/dateLib.js";
-import { dateLib as defaultDateLib } from "../lib/index.js";
+import { DateLib } from "../lib/dateLib.js";
 
 /**
  * Generate a series of 7 days, starting from the week, to use for formatting
  * the weekday names (Monday, Tuesday, etc.).
  */
 export function getWeekdays(
-  locale?: Locale | undefined,
-  /** The index of the first day of the week (0 - Sunday). */
-  weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined,
+  /** The date library. */
+  dateLib: DateLib,
   /** Use ISOWeek instead of locale/ */
   ISOWeek?: boolean | undefined,
-  timeZone?: string | undefined,
-  /** @ignore */
-  dateLib: DateLib = defaultDateLib
+  timeZone?: string | undefined
 ): Date[] {
   const date = timeZone
     ? TZDate.tz(timeZone)
@@ -24,7 +20,7 @@ export function getWeekdays(
       : new Date();
   const start = ISOWeek
     ? dateLib.startOfISOWeek(date)
-    : dateLib.startOfWeek(date, { locale, weekStartsOn });
+    : dateLib.startOfWeek(date);
 
   const days = [];
   for (let i = 0; i < 7; i++) {

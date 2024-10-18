@@ -1,1 +1,1 @@
-export { enUS } from "date-fns/locale/en-US";
+export { enUS as defaultLocale } from "date-fns/locale/en-US";
