@@ -76,6 +76,7 @@ jobs:
     needs: [build, test]
     if: ${{ github.event_name == 'release' || github.event.inputs.publish }}
     permissions:
+      contents: write
       id-token: write
     steps:
       - uses: actions/checkout@v4
