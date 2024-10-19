@@ -26,7 +26,7 @@ export function getWeekdays(
     ? dateLib.startOfISOWeek(date)
     : dateLib.startOfWeek(date, { locale, weekStartsOn });
 
-  const days = [];
+  const days: Date[] = [];
   for (let i = 0; i < 7; i++) {
     const day = dateLib.addDays(start, i);
     days.push(day);
