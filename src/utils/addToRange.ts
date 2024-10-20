@@ -1,4 +1,4 @@
-import { type DateLib, dateLib } from "../lib/dateLib.js";
+import { defaultDateLib, type DateLib } from "../lib/index.js";
 import type { DateRange } from "../types/index.js";
 
 /**
@@ -18,7 +18,7 @@ export function addToRange(
   max = 0,
   required = false,
   /** @ignore */
-  dateLib: DateLib = dateLib
+  dateLib: DateLib = defaultDateLib
 ): DateRange | undefined {
   const { from, to } = initialRange || {};
   const { isSameDay, isAfter, isBefore } = dateLib;
