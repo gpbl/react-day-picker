@@ -38,11 +38,7 @@ import { enUS } from "date-fns/locale";
 export type { Locale } from "date-fns/locale";
 export type { Month as DateFnsMonth } from "date-fns";
 
-/**
- * The options for the `DateLib` class.
- *
- * @private
- */
+/** The options for the `DateLib` class. */
 export interface DateLibOptions
   extends FormatOptions,
     StartOfWeekOptions,
@@ -54,14 +50,26 @@ export interface DateLibOptions
 type DateFnsOverrides = Partial<typeof DateLib.prototype>;
 
 /**
- * A wrapper around date-fns functions.
+ * A wrapper around date-fns functions that can be initialized with an options
+ * object to share settings across the functions. Methods can be overridden via
+ * the `overrides` param.
  *
- * @private
+ * @example
+ *   const dateLib = new DateLib({ locale: enUS });
+ *   const newDate = dateLib.addDays(new Date(), 5);
+ *   console.log(dateLib.format(newDate, "yyyy-MM-dd"));
  */
 export class DateLib {
+  /** The formatting options for the date library. */
   options: DateLibOptions;
+
+  /** The overrides for the date library functions. */
   overrides?: DateFnsOverrides;
 
+  /**
+   * @param options - The formatting options for the date library.
+   * @param overrides - Optional overrides for the date library functions.
+   */
   constructor(options?: DateLibOptions, overrides?: DateFnsOverrides) {
     this.options = { locale: enUS, ...options };
     this.overrides = overrides;
