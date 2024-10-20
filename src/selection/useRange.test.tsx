@@ -3,7 +3,7 @@ import { DayPickerProps } from "react-day-picker/types";
 
 import { act, renderHook } from "@/test/render";
 
-import { defaultDateLib } from "../lib/dateLib";
+import { dateLib } from "../lib/dateLib";
 
 import { useRange } from "./useRange";
 
@@ -16,7 +16,7 @@ describe("useRange", () => {
     const { result } = renderHook(() =>
       useRange(
         { mode: "range", selected: initiallySelected, required: false },
-        defaultDateLib
+        dateLib
       )
     );
 
@@ -31,7 +31,7 @@ describe("useRange", () => {
     const { result } = renderHook(() =>
       useRange(
         { mode: "range", selected: initiallySelected, required: false },
-        defaultDateLib
+        dateLib
       )
     );
 
@@ -54,7 +54,7 @@ describe("useRange", () => {
           required: false,
           max: 5
         },
-        defaultDateLib
+        dateLib
       )
     );
 
@@ -73,7 +73,7 @@ describe("useRange", () => {
     const { result } = renderHook(() =>
       useRange(
         { mode: "range", selected: undefined, required: false, min: 5 },
-        defaultDateLib
+        dateLib
       )
     );
 
@@ -99,7 +99,7 @@ describe("useRange", () => {
           excludeDisabled: true,
           disabled
         },
-        defaultDateLib
+        dateLib
       )
     );
 
@@ -126,7 +126,7 @@ describe("useRange", () => {
       onSelect: mockOnSelect
     };
 
-    const { result } = renderHook(() => useRange(props, defaultDateLib));
+    const { result } = renderHook(() => useRange(props, dateLib));
 
     expect(result.current.selected).toBe(selectedRange);
   });
@@ -141,7 +141,7 @@ describe("useRange", () => {
       selected: initialSelectedRange
     };
 
-    const { result } = renderHook(() => useRange(props, defaultDateLib));
+    const { result } = renderHook(() => useRange(props, dateLib));
 
     act(() => {
       result.current.select?.(new Date(2023, 9, 6), {}, {} as React.MouseEvent);

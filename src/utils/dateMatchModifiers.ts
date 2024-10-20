@@ -1,4 +1,4 @@
-import { type DateLib, defaultDateLib } from "../lib/dateLib.js";
+import { type DateLib, dateLib } from "../lib/dateLib.js";
 import type { Matcher } from "../types/index.js";
 
 import { rangeIncludesDate } from "./rangeIncludesDate.js";
@@ -33,7 +33,7 @@ import {
 export function dateMatchModifiers(
   date: Date,
   matchers: Matcher | Matcher[],
-  dateLib: DateLib = defaultDateLib
+  dateLib: DateLib = dateLib
 ): boolean {
   const matchersArr = !Array.isArray(matchers) ? [matchers] : matchers;
   const { isSameDay, differenceInCalendarDays, isAfter } = dateLib;

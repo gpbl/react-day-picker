@@ -1,4 +1,4 @@
-import { defaultDateLib } from "../lib/dateLib";
+import { dateLib } from "../lib/dateLib";
 
 import { getDisplayMonths } from "./getDisplayMonths";
 
@@ -6,7 +6,7 @@ describe("getDisplayMonths", () => {
   it("should return the months to display in the calendar", () => {
     const firstMonth = new Date(2020, 0);
     const expectedResult = [new Date(2020, 0)];
-    const result = getDisplayMonths(firstMonth, undefined, {}, defaultDateLib);
+    const result = getDisplayMonths(firstMonth, undefined, {}, dateLib);
     expect(result).toEqual(expectedResult);
   });
 
@@ -23,7 +23,7 @@ describe("getDisplayMonths", () => {
       {
         numberOfMonths: 3
       },
-      defaultDateLib
+      dateLib
     );
     expect(result).toEqual(expectedResult);
   });
@@ -37,7 +37,7 @@ describe("getDisplayMonths", () => {
       {
         numberOfMonths: 3
       },
-      defaultDateLib
+      dateLib
     );
     expect(result).toEqual(expectedResult);
   });
