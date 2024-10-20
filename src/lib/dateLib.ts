@@ -38,6 +38,11 @@ import { enUS } from "date-fns/locale";
 export type { Locale } from "date-fns/locale";
 export type { Month as DateFnsMonth } from "date-fns";
 
+/**
+ * The options for the `DateLib` class.
+ *
+ * @private
+ */
 export interface DateLibOptions
   extends FormatOptions,
     StartOfWeekOptions,
@@ -48,9 +53,14 @@ export interface DateLibOptions
 
 type DateFnsOverrides = Partial<typeof DateLib.prototype>;
 
+/**
+ * A wrapper around date-fns functions.
+ *
+ * @private
+ */
 export class DateLib {
   options: DateLibOptions;
-  private overrides?: DateFnsOverrides;
+  overrides?: DateFnsOverrides;
 
   constructor(options?: DateLibOptions, overrides?: DateFnsOverrides) {
     this.options = { locale: enUS, ...options };
