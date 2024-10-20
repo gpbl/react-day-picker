@@ -38,12 +38,20 @@ import { enUS } from "date-fns/locale";
 export type { Locale } from "date-fns/locale";
 export type { Month as DateFnsMonth } from "date-fns";
 
-/** The options for the `DateLib` class. */
+/**
+ * The options for the `DateLib` class.
+ *
+ * Extends `date-fns` [format](https://date-fns.org/docs/format),
+ * [startOfWeek](https://date-fns.org/docs/startOfWeek) and
+ * [endOfWeek](https://date-fns.org/docs/endOfWeek) options.
+ */
 export interface DateLibOptions
   extends FormatOptions,
     StartOfWeekOptions,
     EndOfWeekOptions {
+  /** A constructor for the `Date` object. */
   Date?: typeof Date;
+  /** A locale to use for formatting dates. */
   locale?: Locale;
 }
 
