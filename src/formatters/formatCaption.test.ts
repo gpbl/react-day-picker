@@ -15,7 +15,9 @@ test("should return the formatted caption", () => {
 
 describe("when a locale is passed in", () => {
   test("should format using the locale", () => {
-    expect(formatCaption(date, { locale: es })).toEqual("noviembre 2022");
+    expect(formatCaption(date, {}, new DateLib({ locale: es }))).toEqual(
+      "noviembre 2022"
+    );
   });
 });
 

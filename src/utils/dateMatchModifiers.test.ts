@@ -1,6 +1,6 @@
 import { addDays, subDays } from "date-fns";
 
-import { DateLib } from "../lib/dateLib";
+import { defaultDateLib } from "../lib/dateLib";
 import {
   DateAfter,
   DateBefore,
@@ -15,14 +15,14 @@ const testDay = new Date();
 
 describe("when the matcher is a boolean", () => {
   const matcher = true;
-  const result = dateMatchModifiers(testDay, [matcher], new DateLib());
+  const result = dateMatchModifiers(testDay, [matcher], defaultDateLib);
   test("should return the boolean", () => {
     expect(result).toBe(matcher);
   });
 });
 describe("when matching the same day", () => {
   const matcher = testDay;
-  const result = dateMatchModifiers(testDay, [matcher], new DateLib());
+  const result = dateMatchModifiers(testDay, [matcher], defaultDateLib);
   test("should return true", () => {
     expect(result).toBe(true);
   });
@@ -30,7 +30,7 @@ describe("when matching the same day", () => {
 
 describe("when matching an array of dates including the day", () => {
   const matcher = [addDays(testDay, -1), testDay, addDays(testDay, 1)];
-  const result = dateMatchModifiers(testDay, [matcher], new DateLib());
+  const result = dateMatchModifiers(testDay, [matcher], defaultDateLib);
   test("should return true", () => {
     expect(result).toBe(true);
   });
@@ -41,7 +41,7 @@ describe("when matching date range", () => {
     from: testDay,
     to: addDays(testDay, 1)
   };
-  const result = dateMatchModifiers(testDay, [matcher], new DateLib());
+  const result = dateMatchModifiers(testDay, [matcher], defaultDateLib);
   test("should return true", () => {
     expect(result).toBe(true);
   });
@@ -51,7 +51,7 @@ describe("when matching the day of week", () => {
   const matcher: DayOfWeek = {
     dayOfWeek: [testDay.getDay()]
   };
-  const result = dateMatchModifiers(testDay, [matcher], new DateLib());
+  const result = dateMatchModifiers(testDay, [matcher], defaultDateLib);
   test("should return true", () => {
     expect(result).toBe(true);
   });
@@ -62,7 +62,7 @@ describe("when matching date interval (closed)", () => {
     before: addDays(testDay, 5),
     after: subDays(testDay, 3)
   };
-  const result = dateMatchModifiers(testDay, [matcher], new DateLib());
+  const result = dateMatchModifiers(testDay, [matcher], defaultDateLib);
   test("should return true for the included day", () => {
     expect(result).toBe(true);
   });
@@ -74,14 +74,14 @@ describe("when matching date interval (open)", () => {
     after: addDays(testDay, 5)
   };
   test("should return false", () => {
-    const result = dateMatchModifiers(testDay, [matcher], new DateLib());
+    const result = dateMatchModifiers(testDay, [matcher], defaultDateLib);
     expect(result).toBe(false);
   });
   test("should return true for the days before", () => {
     const result = dateMatchModifiers(
       subDays(testDay, 8),
       [matcher],
-      new DateLib()
+      defaultDateLib
     );
     expect(result).toBe(true);
   });
@@ -89,7 +89,7 @@ describe("when matching date interval (open)", () => {
     const result = dateMatchModifiers(
       addDays(testDay, 8),
       [matcher],
-      new DateLib()
+      defaultDateLib
     );
     expect(result).toBe(true);
   });
@@ -97,7 +97,7 @@ describe("when matching date interval (open)", () => {
 
 describe("when matching the date after", () => {
   const matcher: DateAfter = { after: addDays(testDay, -1) };
-  const result = dateMatchModifiers(testDay, [matcher], new DateLib());
+  const result = dateMatchModifiers(testDay, [matcher], defaultDateLib);
   test("should return true", () => {
     expect(result).toBe(true);
   });
@@ -105,7 +105,7 @@ describe("when matching the date after", () => {
 
 describe("when matching the date before", () => {
   const matcher: DateBefore = { before: addDays(testDay, +1) };
-  const result = dateMatchModifiers(testDay, [matcher], new DateLib());
+  const result = dateMatchModifiers(testDay, [matcher], defaultDateLib);
   test("should return true", () => {
     expect(result).toBe(true);
   });
@@ -113,7 +113,7 @@ describe("when matching the date before", () => {
 
 describe("when the matcher is a function", () => {
   const matcher = () => true;
-  const result = dateMatchModifiers(testDay, [matcher], new DateLib());
+  const result = dateMatchModifiers(testDay, [matcher], defaultDateLib);
   test("should return the result of the function", () => {
     expect(result).toBe(true);
   });

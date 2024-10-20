@@ -271,3 +271,5 @@ export class DateLib {
       : startOfYear(date);
   };
 }
+
+export const defaultDateLib = new DateLib();

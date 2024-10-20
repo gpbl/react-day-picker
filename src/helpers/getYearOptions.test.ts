@@ -1,4 +1,4 @@
-import { DateLib } from "../lib/dateLib";
+import { defaultDateLib } from "../lib/dateLib";
 
 import { getFormatters } from "./getFormatters";
 import { getYearOptions } from "./getYearOptions";
@@ -13,14 +13,14 @@ test("return undefined if startMonth or endMonth is not provided", () => {
     undefined,
     new Date(2022, 11, 31),
     formatters,
-    new DateLib()
+    defaultDateLib
   );
   const result2 = getYearOptions(
     displayMonth,
     new Date(2022, 0, 1),
     undefined,
     formatters,
-    new DateLib()
+    defaultDateLib
   );
 
   expect(result1).toBeUndefined();
@@ -40,7 +40,7 @@ test("return correct dropdown options", () => {
     startMonth,
     endMonth,
     formatters,
-    new DateLib()
+    defaultDateLib
   );
 
   expect(result).toEqual([
