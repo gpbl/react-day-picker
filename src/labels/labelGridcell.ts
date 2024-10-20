@@ -1,4 +1,4 @@
-import { DateLib, type LabelOptions } from "../lib/dateLib.js";
+import { DateLib, type DateLibOptions } from "../lib/dateLib.js";
 import type { Modifiers } from "../types/index.js";
 
 /**
@@ -11,9 +11,9 @@ export function labelGridcell(
   date: Date,
   /** The modifiers for the day. */
   modifiers?: Modifiers,
-  options?: LabelOptions,
+  options?: DateLibOptions,
   /** @ignore */
-  dateLib: DateLib = DateLib.fromOptionsDefaultLocale(options)
+  dateLib: DateLib = new DateLib(options)
 ) {
   let label = dateLib.format(date, "PPPP");
   if (modifiers?.today) {

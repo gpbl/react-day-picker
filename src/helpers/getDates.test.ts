@@ -13,7 +13,7 @@ describe("when the first month and the last month are the same", () => {
           {
             fixedWeeks: false
           },
-          DateLib.fromOptionsDefaultLocale({})
+          new DateLib()
         );
         expect(dates).toHaveLength(42);
         expect(dates[0]).toEqual(new Date(2023, 10, 26));
@@ -28,7 +28,7 @@ describe("when the first month and the last month are the same", () => {
           {
             fixedWeeks: true
           },
-          DateLib.fromOptionsDefaultLocale({})
+          new DateLib()
         );
         expect(dates).toHaveLength(42);
         expect(dates[0]).toEqual(new Date(2023, 10, 26));
@@ -46,7 +46,7 @@ describe("when the first month and the last month are the same", () => {
           {
             fixedWeeks: false
           },
-          DateLib.fromOptionsDefaultLocale({})
+          new DateLib()
         );
         expect(dates).toHaveLength(35);
         expect(dates[0]).toEqual(new Date(2023, 3, 30));
@@ -61,7 +61,7 @@ describe("when the first month and the last month are the same", () => {
           {
             fixedWeeks: true
           },
-          DateLib.fromOptionsDefaultLocale({})
+          new DateLib()
         );
         expect(dates).toHaveLength(42);
         expect(dates[0]).toEqual(new Date(2023, 3, 30));
@@ -76,7 +76,7 @@ describe("when the first month and the last month are the same", () => {
         [month],
         undefined,
         {},
-        DateLib.fromOptionsDefaultLocale({ weekStartsOn: 1 })
+        new DateLib({ weekStartsOn: 1 })
       );
       expect(dates[0]).toBeMonday();
       expect(dates[0]).toEqual(new Date(2023, 4, 1));
@@ -92,7 +92,7 @@ describe("when the first month and the last month are the same", () => {
         [month],
         maxDate,
         {},
-        DateLib.fromOptionsDefaultLocale({ weekStartsOn: 1 })
+        new DateLib({ weekStartsOn: 1 })
       );
       expect(dates).toHaveLength(15);
       expect(dates[dates.length - 1]).toEqual(maxDate);
@@ -105,7 +105,7 @@ describe("when the first month and the last month are the same", () => {
         [month],
         undefined,
         { ISOWeek: true },
-        DateLib.fromOptionsDefaultLocale({})
+        new DateLib()
       );
       expect(dates[0]).toBeMonday();
       expect(dates[0]).toEqual(new Date(2023, 4, 1));
@@ -123,7 +123,7 @@ describe("when the first month and the last month are different", () => {
         [firstMonth, lastMonth],
         undefined,
         { fixedWeeks: false },
-        DateLib.fromOptionsDefaultLocale({})
+        new DateLib()
       );
       expect(dates).toHaveLength(252);
       expect(dates[0]).toEqual(new Date(2023, 3, 30));
@@ -140,7 +140,7 @@ describe("when the first month and the last month are different", () => {
         [firstMonth, lastMonth],
         maxDate,
         {},
-        DateLib.fromOptionsDefaultLocale({ weekStartsOn: 1 })
+        new DateLib({ weekStartsOn: 1 })
       );
       expect(dates).toHaveLength(46);
       expect(dates[dates.length - 1]).toEqual(maxDate);
@@ -153,7 +153,7 @@ describe("when the first month and the last month are different", () => {
         [month],
         undefined,
         { ISOWeek: true },
-        DateLib.fromOptionsDefaultLocale({})
+        new DateLib()
       );
       expect(dates[0]).toBeMonday();
       expect(dates[0]).toEqual(new Date(2023, 4, 1));

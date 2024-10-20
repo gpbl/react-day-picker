@@ -20,7 +20,7 @@ const focusedDate = new Date(2023, 0, 1); // Jan 1, 2023
 const options: Pick<DayPickerProps, "ISOWeek"> = {
   ISOWeek: false
 };
-const dateLib = DateLib.fromOptionsDefaultLocale({
+const dateLib = new DateLib({
   weekStartsOn: 0 // Sunday
 });
 

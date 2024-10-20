@@ -8,7 +8,7 @@ let result: Date[];
 
 describe("when rendered without a locale", () => {
   beforeEach(() => {
-    result = getWeekdays(DateLib.fromOptionsDefaultLocale({}));
+    result = getWeekdays(new DateLib());
   });
   test("should return 7 days", () => {
     expect(result).toHaveLength(7);
@@ -22,9 +22,7 @@ describe.each<0 | 1 | 2 | 3 | 4 | 5 | 6>([0, 1, 2, 3, 4, 5, 6])(
   "when week start on %s",
   (weekStartsOn) => {
     beforeEach(() => {
-      result = getWeekdays(
-        DateLib.fromOptionsDefaultLocale({ locale: es, weekStartsOn })
-      );
+      result = getWeekdays(new DateLib({ locale: es, weekStartsOn }));
     });
     test("the first date should be weekStartsOn", () => {
       expect(result[0].getDay()).toBe(weekStartsOn);
@@ -35,7 +33,7 @@ describe.each<0 | 1 | 2 | 3 | 4 | 5 | 6>([0, 1, 2, 3, 4, 5, 6])(
 describe("when using ISO week", () => {
   beforeEach(() => {
     result = getWeekdays(
-      DateLib.fromOptionsDefaultLocale({ locale: es, weekStartsOn: 3 }),
+      new DateLib({ locale: es, weekStartsOn: 3 }),
       true,
       undefined
     );

@@ -1,4 +1,4 @@
-import type { LabelOptions } from "../lib/dateLib.js";
+import type { DateLibOptions } from "../lib/dateLib.js";
 
 /**
  * The ARIA label for the years dropdown.
@@ -7,6 +7,6 @@ import type { LabelOptions } from "../lib/dateLib.js";
  * @group Labels
  * @see https://daypicker.dev/docs/translation#aria-labels
  */
-export function labelYearDropdown(options?: LabelOptions) {
+export function labelYearDropdown(options?: DateLibOptions) {
   return "Choose the Year";
 }

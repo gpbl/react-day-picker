@@ -1,7 +1,7 @@
 import React from "react";
 
 import type { DeprecatedUI } from "../UI.js";
-import type { Locale, DateLibBase } from "../lib/dateLib.js";
+import type { Locale, DateLib } from "../lib/dateLib.js";
 
 import type {
   ClassNames,
@@ -437,7 +437,7 @@ export interface PropsBase {
    * @since 9.0.0
    * @experimental
    */
-  dateLib?: Partial<DateLibBase> | undefined;
+  dateLib?: Partial<DateLib> | undefined;
 
   /**
    * @private

@@ -26,7 +26,7 @@ export function getMonthOptions(
     return a - b;
   });
   const options = sortedMonths.map((value) => {
-    const label = formatters.formatMonthDropdown(value, dateLib.locale);
+    const label = formatters.formatMonthDropdown(value, dateLib.options.locale);
     const month = dateLib.Date
       ? new dateLib.Date(year, value)
       : new Date(year, value);

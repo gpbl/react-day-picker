@@ -1,4 +1,4 @@
-import { DateLib, type LabelOptions } from "../lib/dateLib.js";
+import { DateLib, type DateLibOptions } from "../lib/dateLib.js";
 
 /**
  * Return an ARIA label for the month grid, that will be announced when entering
@@ -10,9 +10,9 @@ import { DateLib, type LabelOptions } from "../lib/dateLib.js";
  */
 export function labelGrid(
   date: Date,
-  options?: LabelOptions,
+  options?: DateLibOptions,
   /** @ignore */
-  dateLib: DateLib = DateLib.fromOptionsDefaultLocale(options)
+  dateLib: DateLib = new DateLib(options)
 ) {
   return dateLib.format(date, "LLLL y");
 }

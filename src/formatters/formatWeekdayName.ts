@@ -1,4 +1,4 @@
-import { DateLib, type FormatOptions } from "../lib/dateLib.js";
+import { DateLib, type DateLibOptions } from "../lib/dateLib.js";
 
 /**
  * Format the weekday name to be displayed in the weekdays header.
@@ -9,9 +9,9 @@ import { DateLib, type FormatOptions } from "../lib/dateLib.js";
  */
 export function formatWeekdayName(
   weekday: Date,
-  options?: FormatOptions,
+  options?: DateLibOptions,
   /** @ignore */
-  dateLib: DateLib = DateLib.fromOptionsDefaultLocale(options)
+  dateLib: DateLib = new DateLib(options)
 ) {
   return dateLib.format(weekday, "cccccc");
 }

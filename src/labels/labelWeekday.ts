@@ -1,4 +1,4 @@
-import { DateLib, type LabelOptions } from "../lib/dateLib.js";
+import { DateLib, type DateLibOptions } from "../lib/dateLib.js";
 
 /**
  * The ARIA label for the Weekday column header.
@@ -9,9 +9,9 @@ import { DateLib, type LabelOptions } from "../lib/dateLib.js";
  */
 export function labelWeekday(
   date: Date,
-  options?: LabelOptions,
+  options?: DateLibOptions,
   /** @ignore */
-  dateLib: DateLib = DateLib.fromOptionsDefaultLocale(options)
+  dateLib: DateLib = new DateLib(options)
 ): string {
   return dateLib.format(date, "cccc");
 }

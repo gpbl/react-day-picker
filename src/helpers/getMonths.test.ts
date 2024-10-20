@@ -24,7 +24,7 @@ const mockProps: Pick<
   reverseMonths: false
 };
 
-const dateLib = DateLib.fromOptionsDefaultLocale({
+const dateLib = new DateLib({
   weekStartsOn: 0, // Sunday
   firstWeekContainsDate: 1
 });
