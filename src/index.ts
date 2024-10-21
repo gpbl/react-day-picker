@@ -14,4 +14,4 @@ export * from "./UI.js";
 
 export * from "./useDayPicker.js";
 
-export { enUS as defaultLocale } from "./lib/locales.js";
+export { defaultLocale } from "./lib/locales.js";

@@ -1,4 +1,4 @@
-import { dateLib } from "../lib/dateLib.js";
+import { DateLib } from "../lib/dateLib.js";
 import type {
   DateInterval,
   DateRange,
@@ -73,11 +73,11 @@ test("isDayOfWeekType return false for invalid DayOfWeek", () => {
 
 test("isDatesArray return true for valid array of dates", () => {
   const validDatesArray: Date[] = [new Date(), new Date()];
-  expect(isDatesArray(validDatesArray, dateLib)).toBe(true);
+  expect(isDatesArray(validDatesArray, new DateLib())).toBe(true);
 });
 
 test("isDatesArray return false for invalid array of dates", () => {
-  expect(isDatesArray([{}, {}], dateLib)).toBe(false);
-  expect(isDatesArray(null, dateLib)).toBe(false);
-  expect(isDatesArray(undefined, dateLib)).toBe(false);
+  expect(isDatesArray([{}, {}], new DateLib())).toBe(false);
+  expect(isDatesArray(null, new DateLib())).toBe(false);
+  expect(isDatesArray(undefined, new DateLib())).toBe(false);
 });
