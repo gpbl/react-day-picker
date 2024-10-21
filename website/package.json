@@ -20,9 +20,9 @@
     "@docusaurus/preset-classic": "^3.5.2",
     "@docusaurus/remark-plugin-npm2yarn": "^3.5.2",
     "@docusaurus/theme-common": "^3.5.2",
-    "@mdx-js/react": "^3.0.1",
+    "@mdx-js/react": "^3.1.0",
     "clsx": "^2.1.1",
-    "date-fns-jalali": "3.6.0-1",
+    "date-fns-jalali": "^3.6.0-1",
     "prism-react-renderer": "^2.4.0",
     "react": "^18.3.1",
     "react-day-picker": "workspace:^",
@@ -36,10 +36,10 @@
     "@docusaurus/types": "3.5.2",
     "docusaurus-plugin-typedoc": "^1.0.5",
     "identity-obj-proxy": "^3.0.0",
-    "typedoc": "^0.26.7",
+    "typedoc": "^0.26.10",
     "typedoc-plugin-frontmatter": "^1.0.0",
-    "typedoc-plugin-markdown": "^4.2.7",
-    "typescript": "^5.5.4"
+    "typedoc-plugin-markdown": "^4.2.9",
+    "typescript": "^5.6.3"
   },
   "browserslist": {
     "production": [
