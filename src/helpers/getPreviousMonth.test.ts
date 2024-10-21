@@ -1,4 +1,5 @@
-import { dateLib } from "..";
+import { dateLib } from "../lib/dateLib";
+
 import { getPreviousMonth } from "./getPreviousMonth";
 
 it("should return undefined if navigation is disabled", () => {
@@ -62,8 +63,7 @@ it("should return the correct previous month when pagedNavigation is true", () =
     disableNavigation: false,
     pagedNavigation: true,
     numberOfMonths: 2,
-    startMonth: new Date(2022, 0, 1),
-    dateLib
+    startMonth: new Date(2022, 0, 1)
   };
 
   const result = getPreviousMonth(

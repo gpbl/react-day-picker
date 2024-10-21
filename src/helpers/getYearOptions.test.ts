@@ -1,4 +1,4 @@
-import { dateLib } from "react-day-picker";
+import { dateLib } from "../lib/dateLib";
 
 import { getFormatters } from "./getFormatters";
 import { getYearOptions } from "./getYearOptions";

@@ -431,9 +431,9 @@ export interface PropsBase {
   onDayMouseLeave?: DayEventHandler<React.MouseEvent>;
 
   /**
-   * Replace the default date library with a custom one.
+   * Replace the default date library with a custom one. Experimental: not
+   * guaranteed to be stable (may not respect semver).
    *
-   * @private
    * @since 9.0.0
    * @experimental
    */

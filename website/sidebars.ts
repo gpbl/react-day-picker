@@ -2,6 +2,26 @@ import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 
 import typedocSidebar from "./docs/api/typedoc-sidebar.cjs";
 
+// Something doesn't work when using the TypeDoc sidebar with DateLib importing types from date-fns.
+const typedocSidebarFixed = typedocSidebar.map((item) => {
+  if (item.label === "Classes") {
+    return {
+      ...item,
+      items: item.items?.map((item) => {
+        if (item.label === "DateLib") {
+          return {
+            type: "doc",
+            id: "api/classes/DateLib",
+            label: "DateLib"
+          };
+        }
+        return item;
+      })
+    };
+  }
+  return item;
+});
+
 const sidebars: SidebarsConfig = {
   docs: [
     "intro",
@@ -43,7 +63,7 @@ const sidebars: SidebarsConfig = {
       ]
     }
   ],
-  api: ["api/index", typedocSidebar]
+  api: ["api/index", typedocSidebarFixed]
 };
 
 export default sidebars;

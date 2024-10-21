@@ -1,16 +1,15 @@
 import { CalendarDay } from "../classes";
-import { dateLib } from "../lib";
+import { dateLib } from "../lib/dateLib";
 import type { DayPickerProps, MoveFocusBy, MoveFocusDir } from "../types";
 
 import { getNextFocus } from "./getNextFocus";
 
 const props: Pick<
   DayPickerProps,
-  "disabled" | "hidden" | "startMonth" | "endMonth" | "dateLib"
+  "disabled" | "hidden" | "startMonth" | "endMonth"
 > = {
   disabled: [],
-  hidden: [],
-  dateLib
+  hidden: []
 };
 
 it("should return `undefined` if `attempt` exceeds 365", () => {

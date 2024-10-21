@@ -1,4 +1,4 @@
-import type { LabelOptions } from "../lib/dateLib.js";
+import type { DateLibOptions } from "../lib/dateLib.js";
 
 /**
  * The ARIA label for the week number cell (the first cell in the row).
@@ -9,7 +9,7 @@ import type { LabelOptions } from "../lib/dateLib.js";
  */
 export function labelWeekNumber(
   weekNumber: number,
-  options?: LabelOptions
+  options?: DateLibOptions
 ): string {
   return `Week ${weekNumber}`;
 }

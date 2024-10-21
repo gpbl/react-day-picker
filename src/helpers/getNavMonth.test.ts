@@ -1,4 +1,4 @@
-import { dateLib } from "../lib";
+import { dateLib } from "../lib/dateLib";
 
 import { getNavMonths } from "./getNavMonth";
 

@@ -1,6 +1,6 @@
 import { act, renderHook } from "@/test/render";
 
-import { dateLib } from "../lib";
+import { dateLib } from "../lib/dateLib";
 import { DayPickerProps } from "../types";
 
 import { useSingle } from "./useSingle";

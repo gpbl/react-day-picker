@@ -1,5 +1,4 @@
-import type { FormatOptions, DateLib } from "../lib/dateLib.js";
-import { dateLib as defaultDateLib } from "../lib/index.js";
+import { DateLib, type DateLibOptions } from "../lib/dateLib.js";
 
 /**
  * Format the day date shown in the day cell.
@@ -10,9 +9,9 @@ import { dateLib as defaultDateLib } from "../lib/index.js";
  */
 export function formatDay(
   date: Date,
-  options?: FormatOptions,
+  options?: DateLibOptions,
   /** @ignore */
-  dateLib: DateLib = defaultDateLib
+  dateLib: DateLib = new DateLib(options)
 ) {
-  return dateLib.format(date, "d", options);
+  return dateLib.format(date, "d");
 }

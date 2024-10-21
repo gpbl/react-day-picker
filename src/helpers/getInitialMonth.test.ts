@@ -1,5 +1,6 @@
 import { addMonths, isSameMonth } from "date-fns";
-import { dateLib } from "react-day-picker";
+
+import { dateLib } from "../lib/dateLib";
 
 import { getInitialMonth } from "./getInitialMonth";
 
