@@ -1,4 +1,5 @@
-import { DateLib, DayPickerProps } from "../index.js";
+import { type DateLib } from "../classes/DateLib.js";
+import { type DayPickerProps } from "../types/props.js";
 
 /** The number of days in a month when having 6 weeks. */
 const NrOfDaysWithFixedWeeks = 42;

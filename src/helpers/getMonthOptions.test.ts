@@ -1,7 +1,6 @@
 import { type Locale, format } from "date-fns";
-import { enUS as locale } from "date-fns/locale";
 
-import { DateLib } from "../lib/dateLib";
+import { DateLib, defaultLocale } from "../classes/DateLib";
 
 import { getFormatters } from "./getFormatters";
 import { getMonthOptions } from "./getMonthOptions";
@@ -19,7 +18,7 @@ test("return correct dropdown options", () => {
     startMonth,
     endMonth,
     formatters,
-    new DateLib({ locale })
+    new DateLib({ locale: defaultLocale })
   );
 
   expect(result).toEqual([

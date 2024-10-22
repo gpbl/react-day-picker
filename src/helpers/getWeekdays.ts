@@ -1,6 +1,6 @@
 import { TZDate } from "@date-fns/tz";
 
-import { DateLib } from "../lib/dateLib.js";
+import { DateLib } from "../classes/DateLib.js";
 
 /**
  * Generate a series of 7 days, starting from the week, to use for formatting

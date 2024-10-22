@@ -1,6 +1,6 @@
 import { addDays, subDays } from "date-fns";
 
-import { dateLib } from "../lib/dateLib";
+import { dateLib } from "../classes/DateLib";
 import {
   DateAfter,
   DateBefore,

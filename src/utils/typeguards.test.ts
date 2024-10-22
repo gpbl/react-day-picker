@@ -1,4 +1,4 @@
-import { dateLib } from "../lib/dateLib.js";
+import { dateLib } from "../classes/DateLib.js";
 import type {
   DateInterval,
   DateRange,

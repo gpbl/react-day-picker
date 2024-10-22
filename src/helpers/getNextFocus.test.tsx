@@ -1,5 +1,5 @@
 import { CalendarDay } from "../classes";
-import { dateLib } from "../lib/dateLib";
+import { dateLib } from "../classes/DateLib";
 import type { DayPickerProps, MoveFocusBy, MoveFocusDir } from "../types";
 
 import { getNextFocus } from "./getNextFocus";

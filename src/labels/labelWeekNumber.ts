@@ -1,4 +1,4 @@
-import type { DateLibOptions } from "../lib/dateLib.js";
+import type { DateLibOptions } from "../classes/DateLib.js";
 
 /**
  * The ARIA label for the week number cell (the first cell in the row).

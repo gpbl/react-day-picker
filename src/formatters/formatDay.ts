@@ -1,4 +1,4 @@
-import { DateLib, type DateLibOptions } from "../lib/dateLib.js";
+import { DateLib, type DateLibOptions } from "../classes/DateLib.js";
 
 /**
  * Format the day date shown in the day cell.

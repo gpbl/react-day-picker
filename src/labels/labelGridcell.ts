@@ -1,4 +1,4 @@
-import { DateLib, type DateLibOptions } from "../lib/dateLib.js";
+import { DateLib, type DateLibOptions } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
 /**

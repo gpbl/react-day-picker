@@ -1,4 +1,4 @@
-import { DateLib, type DateLibOptions } from "../lib/dateLib.js";
+import { DateLib, type DateLibOptions } from "../classes/DateLib.js";
 
 /**
  * Return an ARIA label for the month grid, that will be announced when entering

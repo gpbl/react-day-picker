@@ -8,6 +8,7 @@ import type {
 
 import { UI, DayFlag, SelectionState } from "./UI.js";
 import type { CalendarDay } from "./classes/CalendarDay.js";
+import { DateLib, defaultLocale } from "./classes/DateLib.js";
 import { getClassNamesForModifiers } from "./helpers/getClassNamesForModifiers.js";
 import { getComponents } from "./helpers/getComponents.js";
 import { getDataAttributes } from "./helpers/getDataAttributes.js";
@@ -18,8 +19,6 @@ import { getStyleForModifiers } from "./helpers/getStyleForModifiers.js";
 import { getWeekdays } from "./helpers/getWeekdays.js";
 import { getYearOptions } from "./helpers/getYearOptions.js";
 import * as defaultLabels from "./labels/index.js";
-import { DateLib } from "./lib/dateLib.js";
-import { defaultLocale } from "./lib/locales.js";
 import type {
   DayPickerProps,
   Modifiers,

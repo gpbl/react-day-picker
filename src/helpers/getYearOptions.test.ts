@@ -1,4 +1,4 @@
-import { dateLib } from "../lib/dateLib";
+import { dateLib } from "../classes/DateLib";
 
 import { getFormatters } from "./getFormatters";
 import { getYearOptions } from "./getYearOptions";

@@ -1,6 +1,6 @@
 import { addMonths, isSameMonth } from "date-fns";
 
-import { dateLib } from "../lib/dateLib";
+import { dateLib } from "../classes/DateLib";
 
 import { getInitialMonth } from "./getInitialMonth";
 

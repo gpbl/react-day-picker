@@ -3,7 +3,7 @@ import { DayPickerProps } from "react-day-picker/types";
 
 import { act, renderHook } from "@/test/render";
 
-import { dateLib } from "../lib/dateLib";
+import { dateLib } from "../classes/DateLib";
 
 import { useRange } from "./useRange";
 

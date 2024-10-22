@@ -1,7 +1,7 @@
 import { DayPickerProps } from "react-day-picker";
 
 import { CalendarMonth } from "../classes";
-import { DateLib } from "../lib/dateLib";
+import { DateLib } from "../classes/DateLib";
 
 import { getMonths } from "./getMonths";
 

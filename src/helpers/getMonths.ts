@@ -1,5 +1,5 @@
+import type { DateLib } from "../classes/DateLib.js";
 import { CalendarWeek, CalendarDay, CalendarMonth } from "../classes/index.js";
-import type { DateLib } from "../lib/index.js";
 import type { DayPickerProps } from "../types/index.js";
 
 /** Return the months to display in the calendar. */

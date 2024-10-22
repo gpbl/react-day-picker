@@ -1,4 +1,4 @@
-import { defaultDateLib } from "../lib/index.js";
+import { defaultDateLib } from "../classes/index.js";
 import type { DateRange } from "../types/index.js";
 
 /**

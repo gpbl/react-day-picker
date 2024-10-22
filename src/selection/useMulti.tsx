@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useControlledValue } from "../helpers/useControlledValue.js";
-import type { DateLib } from "../lib/dateLib.js";
+import type { DateLib } from "../classes/DateLib.js";
 import type {
   DayPickerProps,
   Modifiers,

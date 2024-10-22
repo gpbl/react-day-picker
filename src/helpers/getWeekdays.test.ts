@@ -1,6 +1,6 @@
 import { es } from "date-fns/locale/es";
 
-import { DateLib } from "../lib/dateLib";
+import { DateLib } from "../classes/DateLib";
 
 import { getWeekdays } from "./getWeekdays";
 

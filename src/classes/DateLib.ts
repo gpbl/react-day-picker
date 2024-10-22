@@ -1,7 +1,7 @@
 import {
   DateArg,
   EndOfWeekOptions,
-  FormatOptions,
+  FormatOptions as DateFnsFormatOptions,
   StartOfWeekOptions,
   addDays,
   addMonths,
@@ -38,15 +38,22 @@ import { enUS } from "date-fns/locale";
 export type { Locale } from "date-fns/locale";
 export type { Month as DateFnsMonth } from "date-fns";
 
+/** @deprecated Use {@link DateLibOptions} instead. */
+export type FormatOptions = DateLibOptions;
+/** @deprecated Use {@link DateLibOptions} instead. */
+export type LabelOptions = DateLibOptions;
+
 /**
  * The options for the `DateLib` class.
  *
  * Extends `date-fns` [format](https://date-fns.org/docs/format),
  * [startOfWeek](https://date-fns.org/docs/startOfWeek) and
  * [endOfWeek](https://date-fns.org/docs/endOfWeek) options.
+ *
+ * @since 9.2.0
  */
 export interface DateLibOptions
-  extends FormatOptions,
+  extends DateFnsFormatOptions,
     StartOfWeekOptions,
     EndOfWeekOptions {
   /** A constructor for the `Date` object. */
@@ -54,8 +61,6 @@ export interface DateLibOptions
   /** A locale to use for formatting dates. */
   locale?: Locale;
 }
-
-type DateFnsOverrides = Partial<typeof DateLib.prototype>;
 
 /**
  * A wrapper around date-fns functions that can be initialized with an options
@@ -68,17 +73,15 @@ type DateFnsOverrides = Partial<typeof DateLib.prototype>;
  *   console.log(dateLib.format(newDate, "yyyy-MM-dd"));
  */
 export class DateLib {
-  /** The formatting options for the date library. */
-  options: DateLibOptions;
+  readonly options: DateLibOptions;
+  readonly overrides?: Partial<typeof DateLib.prototype>;
 
-  /** The overrides for the date library functions. */
-  overrides?: DateFnsOverrides;
-
-  /**
-   * @param options - The formatting options for the date library.
-   * @param overrides - Optional overrides for the date library functions.
-   */
-  constructor(options?: DateLibOptions, overrides?: DateFnsOverrides) {
+  constructor(
+    /** The options for the date library. */
+    options?: DateLibOptions,
+    /** Overrides for the date library functions. */
+    overrides?: Partial<typeof DateLib.prototype>
+  ) {
     this.options = { locale: enUS, ...options };
     this.overrides = overrides;
   }
@@ -271,6 +274,9 @@ export class DateLib {
       : startOfYear(date);
   };
 }
+
+/** The default locale (English). */
+export { enUS as defaultLocale } from "date-fns/locale/en-US";
 
 /** The default date library with English locale. */
 export const defaultDateLib = new DateLib();

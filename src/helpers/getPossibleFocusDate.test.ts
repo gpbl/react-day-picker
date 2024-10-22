@@ -11,7 +11,7 @@ import {
   endOfWeek
 } from "date-fns";
 
-import { DateLib } from "../lib/dateLib";
+import { DateLib } from "../classes/DateLib";
 import type { DayPickerProps, MoveFocusBy, MoveFocusDir } from "../types";
 
 import { getFocusableDate } from "./getFocusableDate";

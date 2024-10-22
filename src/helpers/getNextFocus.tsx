@@ -1,5 +1,5 @@
+import type { DateLib } from "../classes/DateLib.js";
 import { CalendarDay } from "../classes/index.js";
-import type { DateLib } from "../lib/index.js";
 import type {
   DayPickerProps,
   MoveFocusBy,

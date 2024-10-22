@@ -1,5 +1,5 @@
 import { DropdownOption } from "../components/Dropdown.js";
-import type { DateLib } from "../lib/dateLib.js";
+import type { DateLib } from "../classes/DateLib.js";
 import type { Formatters } from "../types/index.js";
 
 /** Return the years to show in the dropdown. */

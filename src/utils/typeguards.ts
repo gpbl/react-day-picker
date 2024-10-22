@@ -1,4 +1,4 @@
-import type { DateLib } from "../lib/index.js";
+import type { DateLib } from "../classes/DateLib.js";
 import type {
   DateAfter,
   DateBefore,
