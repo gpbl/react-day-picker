@@ -1,6 +1,6 @@
 import { act, renderHook } from "@/test/render";
 
-import { dateLib } from "../classes/DateLib";
+import { defaultDateLib } from "../classes/DateLib";
 import { DayPickerProps } from "../types";
 
 import { useMulti } from "./useMulti";
@@ -15,7 +15,7 @@ describe("useMulti", () => {
       onSelect: mockOnSelect
     };
 
-    const { result } = renderHook(() => useMulti(props, dateLib));
+    const { result } = renderHook(() => useMulti(props, defaultDateLib));
 
     expect(result.current.selected).toBe(selectedDates);
   });
@@ -27,7 +27,7 @@ describe("useMulti", () => {
       selected: initialSelectedDates
     };
 
-    const { result } = renderHook(() => useMulti(props, dateLib));
+    const { result } = renderHook(() => useMulti(props, defaultDateLib));
 
     act(() => {
       result.current.select?.(new Date(2023, 9, 3), {}, {} as React.MouseEvent);

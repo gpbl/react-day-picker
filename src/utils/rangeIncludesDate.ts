@@ -12,7 +12,6 @@ export function rangeIncludesDate(
   date: Date,
   /** If `true`, the ends of the range are excluded. */
   excludeEnds = false,
-  /** @ignore */
   dateLib = defaultDateLib
 ): boolean {
   let { from, to } = range;
