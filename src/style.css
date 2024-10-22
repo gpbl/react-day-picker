@@ -11,8 +11,8 @@
   
   --rdp-day_button-border-radius: 100%; /* The border radius of the day cells. */
   --rdp-day_button-border: 2px solid transparent; /* The border of the day cells. */
-  --rdp-day_button-height: var(--rdp-day-width); /* The height of the day cells. */
-  --rdp-day_button-width: var(--rdp-day-height); /* The width of the day cells. */
+  --rdp-day_button-height: var(--rdp-day-height); /* The height of the day cells. */
+  --rdp-day_button-width: var(--rdp-day-width); /* The width of the day cells. */
   
   --rdp-selected-border: 2px solid var(--rdp-accent-color); /* The border of the selected days. */
   --rdp-selected-font: bold large var(--rdp-font-family); /* The font of the selected days. */
