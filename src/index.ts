@@ -11,3 +11,5 @@ export * from "./utils/index.js";
 export * from "./UI.js";
 
 export * from "./useDayPicker.js";
+
+export { TZDate } from "@date-fns/tz";
