@@ -1,4 +1,4 @@
-import { DateLib } from "../classes/DateLib";
+import { DateLib, defaultDateLib } from "../classes/DateLib";
 
 import { getDates } from "./getDates";
 
@@ -13,7 +13,7 @@ describe("when the first month and the last month are the same", () => {
           {
             fixedWeeks: false
           },
-          new DateLib()
+          defaultDateLib
         );
         expect(dates).toHaveLength(42);
         expect(dates[0]).toEqual(new Date(2023, 10, 26));
@@ -28,7 +28,7 @@ describe("when the first month and the last month are the same", () => {
           {
             fixedWeeks: true
           },
-          new DateLib()
+          defaultDateLib
         );
         expect(dates).toHaveLength(42);
         expect(dates[0]).toEqual(new Date(2023, 10, 26));
@@ -46,7 +46,7 @@ describe("when the first month and the last month are the same", () => {
           {
             fixedWeeks: false
           },
-          new DateLib()
+          defaultDateLib
         );
         expect(dates).toHaveLength(35);
         expect(dates[0]).toEqual(new Date(2023, 3, 30));
@@ -61,7 +61,7 @@ describe("when the first month and the last month are the same", () => {
           {
             fixedWeeks: true
           },
-          new DateLib()
+          defaultDateLib
         );
         expect(dates).toHaveLength(42);
         expect(dates[0]).toEqual(new Date(2023, 3, 30));
@@ -105,7 +105,7 @@ describe("when the first month and the last month are the same", () => {
         [month],
         undefined,
         { ISOWeek: true },
-        new DateLib()
+        defaultDateLib
       );
       expect(dates[0]).toBeMonday();
       expect(dates[0]).toEqual(new Date(2023, 4, 1));
@@ -123,7 +123,7 @@ describe("when the first month and the last month are different", () => {
         [firstMonth, lastMonth],
         undefined,
         { fixedWeeks: false },
-        new DateLib()
+        defaultDateLib
       );
       expect(dates).toHaveLength(252);
       expect(dates[0]).toEqual(new Date(2023, 3, 30));
@@ -153,7 +153,7 @@ describe("when the first month and the last month are different", () => {
         [month],
         undefined,
         { ISOWeek: true },
-        new DateLib()
+        defaultDateLib
       );
       expect(dates[0]).toBeMonday();
       expect(dates[0]).toEqual(new Date(2023, 4, 1));

@@ -2,7 +2,7 @@ import React from "react";
 
 import { format } from "date-fns";
 import { arSA } from "date-fns/locale";
-import { DayPicker, DateLibOptions } from "react-day-picker";
+import { DayPicker, type DateLibOptions } from "react-day-picker";
 
 const NU_LOCALE = "ar-u-nu-arab";
 

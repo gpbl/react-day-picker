@@ -67,6 +67,7 @@ export interface DateLibOptions
  * object to share settings across the functions. Methods can be overridden via
  * the `overrides` param.
  *
+ * @since 9.2.0
  * @example
  *   const dateLib = new DateLib({ locale: enUS });
  *   const newDate = dateLib.addDays(new Date(), 5);
@@ -278,7 +279,11 @@ export class DateLib {
 /** The default locale (English). */
 export { enUS as defaultLocale } from "date-fns/locale/en-US";
 
-/** The default date library with English locale. */
+/**
+ * The default date library with English locale.
+ *
+ * @since 9.2.0
+ */
 export const defaultDateLib = new DateLib();
 
 /** @deprecated Use `defaultDateLib`. */

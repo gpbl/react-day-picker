@@ -1,6 +1,6 @@
 import { es } from "date-fns/locale/es";
 
-import { DateLib } from "../classes/DateLib";
+import { DateLib, defaultDateLib } from "../classes/DateLib";
 
 import { getWeekdays } from "./getWeekdays";
 
@@ -8,7 +8,7 @@ let result: Date[];
 
 describe("when rendered without a locale", () => {
   beforeEach(() => {
-    result = getWeekdays(new DateLib());
+    result = getWeekdays(defaultDateLib);
   });
   test("should return 7 days", () => {
     expect(result).toHaveLength(7);

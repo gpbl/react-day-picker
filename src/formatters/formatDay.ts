@@ -10,8 +10,7 @@ import { DateLib, type DateLibOptions } from "../classes/DateLib.js";
 export function formatDay(
   date: Date,
   options?: DateLibOptions,
-  /** @ignore */
-  dateLib: DateLib = new DateLib(options)
+  dateLib?: DateLib
 ) {
-  return dateLib.format(date, "d");
+  return (dateLib ?? new DateLib(options)).format(date, "d");
 }

@@ -11,10 +11,9 @@ import { DateLib, type DateLibOptions } from "../classes/DateLib.js";
 export function labelGrid(
   date: Date,
   options?: DateLibOptions,
-  /** @ignore */
-  dateLib: DateLib = new DateLib(options)
+  dateLib?: DateLib
 ) {
-  return dateLib.format(date, "LLLL y");
+  return (dateLib ?? new DateLib(options)).format(date, "LLLL y");
 }
 
 /**

@@ -16,10 +16,9 @@ export function labelDayButton(
   /** The modifiers for the day. */
   modifiers: Modifiers,
   options?: DateLibOptions,
-  /** @ignore */
-  dateLib: DateLib = new DateLib(options)
+  dateLib?: DateLib
 ) {
-  let label = dateLib.format(date, "PPPP");
+  let label = (dateLib ?? new DateLib(options)).format(date, "PPPP");
   if (modifiers.today) label = `Today, ${label}`;
   if (modifiers.selected) label = `${label}, selected`;
   return label;

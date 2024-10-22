@@ -1,4 +1,4 @@
-import { dateLib } from "../classes/DateLib";
+import { defaultDateLib } from "../classes/DateLib";
 
 import { getPreviousMonth } from "./getPreviousMonth";
 
@@ -15,7 +15,7 @@ it("should return undefined if navigation is disabled", () => {
     firstDisplayedMonth,
     calendarStartMonth,
     props,
-    dateLib
+    defaultDateLib
   );
 
   expect(result).toBeUndefined();
@@ -33,7 +33,7 @@ it("should return the previous month if startMonth is not provided", () => {
     firstDisplayedMonth,
     undefined,
     props,
-    dateLib
+    defaultDateLib
   );
 
   expect(result).toEqual(new Date(2022, 0, 1)); // January 2022
@@ -51,7 +51,7 @@ it("should return undefined if the previous month is before the startMonth", () 
     firstDisplayedMonth,
     calendarStartMonth,
     props,
-    dateLib
+    defaultDateLib
   );
   expect(result).toBeUndefined();
 });
@@ -70,7 +70,7 @@ it("should return the correct previous month when pagedNavigation is true", () =
     firstDisplayedMonth,
     calendarStartMonth,
     props,
-    dateLib
+    defaultDateLib
   );
 
   expect(result).toEqual(new Date(2022, 0, 1)); // January 2022
