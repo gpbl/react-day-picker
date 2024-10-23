@@ -52,11 +52,11 @@
         "default": "./dist/cjs/locale.js"
       }
     },
+    "./style": {
+      "sass": "./src/style.css"
+    },
     "./style.css": {
       "style": {
-        "default": "./src/style.css"
-      },
-      "sass": {
         "default": "./src/style.css"
       },
       "import": {
@@ -68,11 +68,11 @@
         "default": "./src/style.css"
       }
     },
+    "./style.module": {
+      "sass": "./src/style.module.css"
+    },
     "./style.module.css": {
       "style": {
-        "default": "./src/style.module.css"
-      },
-      "sass": {
         "default": "./src/style.module.css"
       },
       "import": {
@@ -88,9 +88,6 @@
       "style": {
         "default": "./src/style.css"
       },
-      "sass": {
-        "default": "./src/style.css"
-      },
       "import": {
         "types": "./src/style.module.css.d.ts",
         "default": "./src/style.css"
@@ -102,9 +99,6 @@
     },
     "./src/style.module.css": {
       "style": {
-        "default": "./src/style.module.css"
-      },
-      "sass": {
         "default": "./src/style.module.css"
       },
       "import": {
@@ -120,9 +114,6 @@
       "style": {
         "default": "./src/style.css"
       },
-      "sass": {
-        "default": "./src/style.css"
-      },
       "import": {
         "types": "./src/style.module.css.d.ts",
         "default": "./src/style.css"
@@ -134,9 +125,6 @@
     },
     "./dist/style.module.css": {
       "style": {
-        "default": "./src/style.module.css"
-      },
-      "sass": {
         "default": "./src/style.module.css"
       },
       "import": {
