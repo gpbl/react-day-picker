@@ -3,7 +3,8 @@ import { useEffect } from "react";
 import type {
   CalendarWeek,
   CalendarDay,
-  CalendarMonth
+  CalendarMonth,
+  DateLib
 } from "./classes/index.js";
 import { getDates } from "./helpers/getDates.js";
 import { getDays } from "./helpers/getDays.js";
@@ -15,7 +16,6 @@ import { getNextMonth } from "./helpers/getNextMonth.js";
 import { getPreviousMonth } from "./helpers/getPreviousMonth.js";
 import { getWeeks } from "./helpers/getWeeks.js";
 import { useControlledValue } from "./helpers/useControlledValue.js";
-import type { DateLib } from "./lib/index.js";
 import type { DayPickerProps } from "./types/props.js";
 
 /**
@@ -75,7 +75,6 @@ export function useCalendar(
     | "today"
     | "fixedWeeks"
     | "ISOWeek"
-    | "weekStartsOn"
     | "numberOfMonths"
     | "disableNavigation"
     | "onMonthChange"

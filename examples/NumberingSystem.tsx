@@ -2,7 +2,7 @@ import React from "react";
 
 import { format } from "date-fns";
 import { arSA } from "date-fns/locale";
-import { DayPicker, FormatOptions } from "react-day-picker";
+import { DayPicker, type DateLibOptions } from "react-day-picker";
 
 const NU_LOCALE = "ar-u-nu-arab";
 
@@ -12,7 +12,10 @@ const formatWeekNumber = (weekNumber: number) => {
   return weekNumber.toLocaleString(NU_LOCALE);
 };
 
-const formatMonthCaption = (date: Date, options: FormatOptions | undefined) => {
+const formatMonthCaption = (
+  date: Date,
+  options: DateLibOptions | undefined
+) => {
   const y = date.getFullYear().toLocaleString(NU_LOCALE);
   const m = format(date, "LLLL", { locale: options?.locale });
   return `${m} ${y}`;

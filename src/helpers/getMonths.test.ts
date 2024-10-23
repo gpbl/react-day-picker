@@ -1,7 +1,7 @@
 import { DayPickerProps } from "react-day-picker";
 
 import { CalendarMonth } from "../classes";
-import { dateLib } from "../lib";
+import { DateLib } from "../classes/DateLib";
 
 import { getMonths } from "./getMonths";
 
@@ -17,20 +17,17 @@ const mockDates = [
 
 const mockProps: Pick<
   DayPickerProps,
-  | "fixedWeeks"
-  | "ISOWeek"
-  | "locale"
-  | "weekStartsOn"
-  | "reverseMonths"
-  | "firstWeekContainsDate"
+  "fixedWeeks" | "ISOWeek" | "reverseMonths"
 > = {
   fixedWeeks: false,
   ISOWeek: false,
-  locale: undefined,
-  weekStartsOn: 0, // Sunday
-  reverseMonths: false,
-  firstWeekContainsDate: 1
+  reverseMonths: false
 };
+
+const dateLib = new DateLib({
+  weekStartsOn: 0, // Sunday
+  firstWeekContainsDate: 1
+});
 
 it("should return the correct months without ISO weeks and reverse months", () => {
   const displayMonths = [new Date(2023, 5, 1)]; // June 2023

@@ -1,6 +1,6 @@
 import { TZDate } from "@date-fns/tz";
 
-import type { DateLib } from "../lib/index.js";
+import type { DateLib } from "../classes/DateLib.js";
 import type { DayPickerProps } from "../types/index.js";
 
 /** Return the start and end months for the calendar navigation. */
@@ -12,7 +12,6 @@ export function getNavMonths(
     | "startMonth"
     | "today"
     | "timeZone"
-    | "dateLib"
     // Deprecated:
     | "fromMonth"
     | "fromYear"

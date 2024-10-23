@@ -1,6 +1,6 @@
 import { type Locale, format } from "date-fns";
-import { enUS as locale } from "date-fns/locale";
-import { dateLib } from "react-day-picker";
+
+import { defaultDateLib } from "../classes/DateLib";
 
 import { getFormatters } from "./getFormatters";
 import { getMonthOptions } from "./getMonthOptions";
@@ -18,8 +18,7 @@ test("return correct dropdown options", () => {
     startMonth,
     endMonth,
     formatters,
-    locale,
-    dateLib
+    defaultDateLib
   );
 
   expect(result).toEqual([
