@@ -52,6 +52,9 @@
         "default": "./dist/cjs/locale.js"
       }
     },
+    "./style": {
+      "sass": "./src/style.css"
+    },
     "./style.css": {
       "style": {
         "default": "./src/style.css"
@@ -64,6 +67,9 @@
         "types": "./src/style.module.css.d.ts",
         "default": "./src/style.css"
       }
+    },
+    "./style.module": {
+      "sass": "./src/style.module.css"
     },
     "./style.module.css": {
       "style": {
