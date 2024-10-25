@@ -22,13 +22,18 @@ export function Range() {
   }
 
   return (
-    <DayPicker
-      id="test"
-      mode="range"
-      defaultMonth={defaultMonth}
-      selected={range}
-      footer={footer}
-      onSelect={setRange}
-    />
+    <div>
+      <DayPicker
+        id="test"
+        mode="range"
+        defaultMonth={defaultMonth}
+        selected={range}
+        footer={footer}
+        onSelect={setRange}
+      />
+      <button type="button" onClick={() => setRange(undefined)}>
+        Reset
+      </button>
+    </div>
   );
 }
