@@ -37,6 +37,14 @@ describe("when a day in the range is clicked", () => {
   test.each([days[3], days[4]])("%s should not be selected", (day) => {
     expect(gridcell(day, true)).not.toHaveAttribute("aria-selected");
   });
+  describe("when the reset button is clicked", () => {
+    beforeEach(async () =>
+      user.click(screen.getByRole("button", { name: "Reset" }))
+    );
+    test("no day should be selected", () => {
+      expect(getAllSelected()).toHaveLength(0);
+    });
+  });
   describe("when the day is clicked again", () => {
     const day = days[2];
     beforeEach(async () => user.click(dateButton(day)));

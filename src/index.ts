@@ -4,8 +4,6 @@ export * from "./types/index.js";
 export * from "./classes/index.js";
 export * from "./components/custom-components.js";
 
-export * from "./lib/index.js";
-
 export * from "./formatters/index.js";
 export * from "./helpers/index.js";
 export * from "./labels/index.js";
@@ -14,4 +12,4 @@ export * from "./UI.js";
 
 export * from "./useDayPicker.js";
 
-export { enUS as defaultLocale } from "./lib/locales.js";
+export { TZDate } from "@date-fns/tz";

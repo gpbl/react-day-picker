@@ -1,4 +1,4 @@
-import { type DateLib } from "./lib/index.js";
+import { type DateLib } from "./classes/DateLib.js";
 import { useMulti } from "./selection/useMulti.js";
 import { useRange } from "./selection/useRange.js";
 import { useSingle } from "./selection/useSingle.js";

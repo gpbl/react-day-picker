@@ -1,10 +1,10 @@
-import { dateLib } from "../lib";
+import { defaultDateLib } from "../classes/DateLib";
 
 import { getNavMonths } from "./getNavMonth";
 
 describe('when "startMonth" is not passed in', () => {
   test('"startMonth" should be undefined', () => {
-    const [navStartMonth] = getNavMonths({}, dateLib);
+    const [navStartMonth] = getNavMonths({}, defaultDateLib);
     expect(navStartMonth).toBeUndefined();
   });
 });
@@ -13,7 +13,7 @@ describe('when "startMonth" is passed in', () => {
     {
       startMonth: new Date(2021, 4, 3)
     },
-    dateLib
+    defaultDateLib
   );
   test('"startMonth" should be the start of that month', () => {
     expect(navStartMonth).toEqual(new Date(2021, 4, 1));
@@ -25,7 +25,7 @@ describe('when "startMonth" is passed in', () => {
   });
 });
 describe('when "fromYear" is passed in', () => {
-  const [navStartMonth] = getNavMonths({ fromYear: 2021 }, dateLib);
+  const [navStartMonth] = getNavMonths({ fromYear: 2021 }, defaultDateLib);
   test('"startMonth" should be the start of that year', () => {
     expect(navStartMonth).toEqual(new Date(2021, 0, 1));
   });
@@ -35,7 +35,7 @@ describe('when "endMonth" is passed in', () => {
     {
       endMonth: new Date(2021, 4, 3)
     },
-    dateLib
+    defaultDateLib
   );
   test('"endMonth" should be the end of that month', () => {
     expect(navEndMonth).toEqual(new Date(2021, 4, 31));
@@ -50,7 +50,7 @@ describe('when "endMonth" is passed in', () => {
 describe('when "toYear" is passed in', () => {
   const toYear = 2021;
   const expectedendMonth = new Date(2021, 11, 31);
-  const [, navEndMonth] = getNavMonths({ toYear }, dateLib);
+  const [, navEndMonth] = getNavMonths({ toYear }, defaultDateLib);
   test('"endMonth" should be the end of that year', () => {
     expect(navEndMonth).toEqual(expectedendMonth);
   });
@@ -63,7 +63,7 @@ describe('when "captionLayout" is dropdown', () => {
       captionLayout: "dropdown",
       today
     },
-    dateLib
+    defaultDateLib
   );
   test('"startMonth" should be 100 years ago', () => {
     expect(navStartMonth).toEqual(new Date(1924, 0, 1));
@@ -80,7 +80,7 @@ describe('when "captionLayout" is dropdown', () => {
         fromYear,
         today
       },
-      dateLib
+      defaultDateLib
     );
     test('"startMonth" should be equal to the "fromYear"', () => {
       expect(navStartMonth).toEqual(new Date(2022, 0, 1));
@@ -98,7 +98,7 @@ describe('when "captionLayout" is dropdown', () => {
         toYear,
         today
       },
-      dateLib
+      defaultDateLib
     );
     test('"startMonth" should be 100 years ago', () => {
       expect(navStartMonth).toEqual(new Date(1921, 0, 1));

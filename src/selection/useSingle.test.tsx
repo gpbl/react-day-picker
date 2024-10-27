@@ -1,6 +1,6 @@
 import { act, renderHook } from "@/test/render";
 
-import { dateLib } from "../lib";
+import { defaultDateLib } from "../classes/DateLib";
 import { DayPickerProps } from "../types";
 
 import { useSingle } from "./useSingle";
@@ -15,7 +15,7 @@ describe("useSingle", () => {
       onSelect: mockOnSelect
     };
 
-    const { result } = renderHook(() => useSingle(props, dateLib));
+    const { result } = renderHook(() => useSingle(props, defaultDateLib));
 
     expect(result.current.selected).toBe(selectedDate);
   });
@@ -27,7 +27,7 @@ describe("useSingle", () => {
       selected: initialSelectedDate
     };
 
-    const { result } = renderHook(() => useSingle(props, dateLib));
+    const { result } = renderHook(() => useSingle(props, defaultDateLib));
 
     act(() => {
       result.current.select?.(new Date(2023, 9, 2), {}, {} as React.MouseEvent);

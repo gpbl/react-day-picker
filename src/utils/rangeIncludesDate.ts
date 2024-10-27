@@ -1,4 +1,4 @@
-import { dateLib as defaultDateLib, type DateLib } from "../lib/index.js";
+import { defaultDateLib } from "../classes/index.js";
 import type { DateRange } from "../types/index.js";
 
 /**
@@ -12,8 +12,7 @@ export function rangeIncludesDate(
   date: Date,
   /** If `true`, the ends of the range are excluded. */
   excludeEnds = false,
-  /** @ignore */
-  dateLib: DateLib = defaultDateLib
+  dateLib = defaultDateLib
 ): boolean {
   let { from, to } = range;
   const { differenceInCalendarDays, isSameDay } = dateLib;

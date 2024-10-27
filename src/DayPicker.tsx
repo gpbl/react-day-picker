@@ -8,10 +8,10 @@ import type {
 
 import { UI, DayFlag, SelectionState } from "./UI.js";
 import type { CalendarDay } from "./classes/CalendarDay.js";
+import { DateLib, defaultLocale } from "./classes/DateLib.js";
 import { getClassNamesForModifiers } from "./helpers/getClassNamesForModifiers.js";
 import { getComponents } from "./helpers/getComponents.js";
 import { getDataAttributes } from "./helpers/getDataAttributes.js";
-import { getDateLib } from "./helpers/getDateLib.js";
 import { getDefaultClassNames } from "./helpers/getDefaultClassNames.js";
 import { getFormatters } from "./helpers/getFormatters.js";
 import { getMonthOptions } from "./helpers/getMonthOptions.js";
@@ -19,8 +19,6 @@ import { getStyleForModifiers } from "./helpers/getStyleForModifiers.js";
 import { getWeekdays } from "./helpers/getWeekdays.js";
 import { getYearOptions } from "./helpers/getYearOptions.js";
 import * as defaultLabels from "./labels/index.js";
-import type { FormatOptions, LabelOptions } from "./lib/dateLib.js";
-import { enUS } from "./lib/locales.js";
 import type {
   DayPickerProps,
   Modifiers,
@@ -45,28 +43,43 @@ import { isDateRange } from "./utils/typeguards.js";
  */
 export function DayPicker(props: DayPickerProps) {
   const { components, formatters, labels, dateLib, locale, classNames } =
-    useMemo(
-      () => ({
-        dateLib: getDateLib(props.dateLib),
+    useMemo(() => {
+      const locale = { ...defaultLocale, ...props.locale };
+
+      const dateLib = new DateLib(
+        {
+          locale,
+          weekStartsOn: props.weekStartsOn,
+          firstWeekContainsDate: props.firstWeekContainsDate,
+          useAdditionalWeekYearTokens: props.useAdditionalWeekYearTokens,
+          useAdditionalDayOfYearTokens: props.useAdditionalDayOfYearTokens
+        },
+        props.dateLib
+      );
+
+      return {
+        dateLib,
         components: getComponents(props.components),
         formatters: getFormatters(props.formatters),
         labels: { ...defaultLabels, ...props.labels },
-        locale: { ...enUS, ...props.locale },
+        locale,
         classNames: { ...getDefaultClassNames(), ...props.classNames }
-      }),
-      [
-        props.classNames,
-        props.components,
-        props.dateLib,
-        props.formatters,
-        props.labels,
-        props.locale
-      ]
-    );
+      };
+    }, [
+      props.classNames,
+      props.components,
+      props.dateLib,
+      props.firstWeekContainsDate,
+      props.formatters,
+      props.labels,
+      props.locale,
+      props.useAdditionalDayOfYearTokens,
+      props.useAdditionalWeekYearTokens,
+      props.weekStartsOn
+    ]);
 
   const {
     captionLayout,
-    firstWeekContainsDate,
     mode,
     onDayBlur,
     onDayClick,
@@ -77,21 +90,8 @@ export function DayPicker(props: DayPickerProps) {
     onNextClick,
     onPrevClick,
     showWeekNumber,
-    styles,
-    useAdditionalDayOfYearTokens,
-    useAdditionalWeekYearTokens,
-    weekStartsOn
+    styles
   } = props;
-
-  const formatOptions: FormatOptions = {
-    locale,
-    weekStartsOn,
-    firstWeekContainsDate,
-    useAdditionalWeekYearTokens,
-    useAdditionalDayOfYearTokens
-  };
-
-  const labelOptions: LabelOptions = formatOptions;
 
   const {
     formatCaption,
@@ -144,15 +144,8 @@ export function DayPicker(props: DayPickerProps) {
   } = labels;
 
   const weekdays = useMemo(
-    () =>
-      getWeekdays(
-        locale,
-        props.weekStartsOn,
-        props.ISOWeek,
-        props.timeZone,
-        dateLib
-      ),
-    [dateLib, locale, props.ISOWeek, props.timeZone, props.weekStartsOn]
+    () => getWeekdays(dateLib, props.ISOWeek, props.timeZone),
+    [dateLib, props.ISOWeek, props.timeZone]
   );
 
   const isInteractive = mode !== undefined || onDayClick !== undefined;
@@ -317,7 +310,6 @@ export function DayPicker(props: DayPickerProps) {
               navStart,
               navEnd,
               formatters,
-              locale,
               dateLib
             );
 
@@ -373,7 +365,7 @@ export function DayPicker(props: DayPickerProps) {
                       captionLayout === "dropdown-years" ? (
                         <components.YearsDropdown
                           className={classNames[UI.YearsDropdown]}
-                          aria-label={labelYearDropdown(labelOptions)}
+                          aria-label={labelYearDropdown(dateLib.options)}
                           classNames={classNames}
                           components={components}
                           disabled={Boolean(props.disableNavigation)}
@@ -396,7 +388,7 @@ export function DayPicker(props: DayPickerProps) {
                     >
                       {formatCaption(
                         calendarMonth.date,
-                        formatOptions,
+                        dateLib.options,
                         dateLib
                       )}
                     </components.CaptionLabel>
@@ -406,7 +398,7 @@ export function DayPicker(props: DayPickerProps) {
                   role="grid"
                   aria-multiselectable={mode === "multiple" || mode === "range"}
                   aria-label={
-                    labelGrid(calendarMonth.date, labelOptions, dateLib) ||
+                    labelGrid(calendarMonth.date, dateLib.options, dateLib) ||
                     undefined
                   }
                   className={classNames[UI.MonthGrid]}
@@ -419,7 +411,7 @@ export function DayPicker(props: DayPickerProps) {
                     >
                       {showWeekNumber && (
                         <components.WeekNumberHeader
-                          aria-label={labelWeekNumberHeader(labelOptions)}
+                          aria-label={labelWeekNumberHeader(dateLib.options)}
                           className={classNames[UI.WeekNumberHeader]}
                           style={styles?.[UI.WeekNumberHeader]}
                           scope="col"
@@ -431,7 +423,7 @@ export function DayPicker(props: DayPickerProps) {
                         <components.Weekday
                           aria-label={labelWeekday(
                             weekday,
-                            labelOptions,
+                            dateLib.options,
                             dateLib
                           )}
                           className={classNames[UI.Weekday]}
@@ -439,7 +431,7 @@ export function DayPicker(props: DayPickerProps) {
                           style={styles?.[UI.Weekday]}
                           scope="col"
                         >
-                          {formatWeekdayName(weekday, formatOptions, dateLib)}
+                          {formatWeekdayName(weekday, dateLib.options, dateLib)}
                         </components.Weekday>
                       ))}
                     </components.Weekdays>
@@ -515,7 +507,7 @@ export function DayPicker(props: DayPickerProps) {
                               ? labelGridcell(
                                   date,
                                   modifiers,
-                                  labelOptions,
+                                  dateLib.options,
                                   dateLib
                                 )
                               : undefined;
@@ -555,7 +547,7 @@ export function DayPicker(props: DayPickerProps) {
                                     aria-label={labelDayButton(
                                       date,
                                       modifiers,
-                                      labelOptions,
+                                      dateLib.options,
                                       dateLib
                                     )}
                                     onClick={handleDayClick(day, modifiers)}
@@ -571,10 +563,10 @@ export function DayPicker(props: DayPickerProps) {
                                       modifiers
                                     )}
                                   >
-                                    {formatDay(date, formatOptions, dateLib)}
+                                    {formatDay(date, dateLib.options, dateLib)}
                                   </components.DayButton>
                                 ) : (
-                                  formatDay(day.date, formatOptions, dateLib)
+                                  formatDay(day.date, dateLib.options, dateLib)
                                 )}
                               </components.Day>
                             );

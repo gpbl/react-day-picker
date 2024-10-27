@@ -1,4 +1,4 @@
-import { dateLib as defaultDateLib, type DateLib } from "../lib/dateLib.js";
+import { type DateLib, defaultDateLib } from "../classes/DateLib.js";
 import type { Matcher } from "../types/index.js";
 
 import { rangeIncludesDate } from "./rangeIncludesDate.js";

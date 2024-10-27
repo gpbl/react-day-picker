@@ -1,8 +1,7 @@
 import { TZDate } from "@date-fns/tz";
 
 import { DayFlag, SelectionState } from "./UI.js";
-import { CalendarDay } from "./classes/index.js";
-import type { DateLib } from "./lib/index.js";
+import type { CalendarDay, DateLib } from "./classes/index.js";
 import type { DayPickerProps, Modifiers } from "./types/index.js";
 import { dateMatchModifiers } from "./utils/dateMatchModifiers.js";
 
