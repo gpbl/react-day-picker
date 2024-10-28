@@ -49,6 +49,7 @@ export function rangeContainsModifiers(
     if (typeof matcher === "boolean") {
       return matcher;
     }
+
     if (dateLib.isDate(matcher)) {
       return rangeIncludesDate(range, matcher, false, dateLib);
     }
@@ -64,13 +65,32 @@ export function rangeContainsModifiers(
         matcher.from &&
         matcher.to &&
         (rangeIncludesDate(range, matcher.from, false, dateLib) ||
-          rangeIncludesDate(range, matcher.to, false, dateLib))
+          rangeIncludesDate(range, matcher.to, false, dateLib) ||
+          rangeIncludesDate(matcher, range.from, false, dateLib) ||
+          rangeIncludesDate(matcher, range.to, false, dateLib))
       );
     }
+
     if (isDayOfWeekType(matcher)) {
       return rangeContainsDayOfWeek(range, matcher, dateLib);
     }
+
     if (isDateInterval(matcher)) {
+      const isClosedInterval = dateLib.isAfter(matcher.before, matcher.after);
+
+      if (isClosedInterval) {
+        const dateRangeMatcher = {
+          from: dateLib.addDays(matcher.after, 1),
+          to: dateLib.addDays(matcher.before, -1)
+        };
+        return (
+          rangeIncludesDate(range, dateRangeMatcher.from, false, dateLib) ||
+          rangeIncludesDate(range, dateRangeMatcher.to, false, dateLib) ||
+          rangeIncludesDate(dateRangeMatcher, range.from, false, dateLib) ||
+          rangeIncludesDate(dateRangeMatcher, range.to, false, dateLib)
+        );
+      }
+
       return (
         dateMatchModifiers(range.from, matcher, dateLib) ||
         dateMatchModifiers(range.to, matcher, dateLib)
