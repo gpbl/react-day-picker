@@ -8,7 +8,7 @@ import type {
   PropsRange,
   Selection
 } from "../types/index.js";
-import { addToRange, rangeMatchModifiers } from "../utils/index.js";
+import { addToRange, rangeContainsModifiers } from "../utils/index.js";
 import { rangeIncludesDate } from "../utils/rangeIncludesDate.js";
 
 export function useRange<T extends DayPickerProps>(
@@ -44,7 +44,13 @@ export function useRange<T extends DayPickerProps>(
       : undefined;
 
     if (excludeDisabled && disabled && newRange?.from && newRange.to) {
-      if (rangeMatchModifiers(newRange, disabled, dateLib)) {
+      if (
+        rangeContainsModifiers(
+          { from: newRange.from, to: newRange.to },
+          disabled,
+          dateLib
+        )
+      ) {
         // if a disabled days is found, the range is reset
         newRange.from = triggerDate;
         newRange.to = undefined;
