@@ -20,15 +20,15 @@ import {
  *
  * ```tsx
  * const range: DateRange = {
- *  from: new Date(2021, 12, 21),
- *  to: new Date(2021, 12, 30)
- * }
- * const matcher1: Date = new Date(2021, 12, 21)
+ *   from: new Date(2021, 12, 21),
+ *   to: new Date(2021, 12, 30)
+ * };
+ * const matcher1: Date = new Date(2021, 12, 21);
  * const matcher2: DateRange = {
- *  from: new Date(2022, 5, 1),
- *  to: new Date(2022, 5, 23)
- * }
- * const dateMatchModifiers(date, [matcher1, matcher2]); // true, since matcher1 is in the date.
+ *   from: new Date(2022, 5, 1),
+ *   to: new Date(2022, 5, 23)
+ * };
+ * rangeContainsModifiers(date, [matcher1, matcher2]); // true, since matcher1 is in the date.
  * ```
  *
  * @group Utilities
