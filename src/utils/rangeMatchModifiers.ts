@@ -1,7 +1,8 @@
 import { defaultDateLib, type DateLib } from "../classes/DateLib.js";
-import type { DateRange, Matcher } from "../types/index.js";
+import type { Matcher } from "../types/index.js";
 
 import { dateMatchModifiers } from "./dateMatchModifiers.js";
+import { rangeContainsDayOfWeek } from "./rangeContainsDayOfWeek.js";
 import { rangeIncludesDate } from "./rangeIncludesDate.js";
 import {
   isDateAfterType,
@@ -31,12 +32,11 @@ import {
  *
  * @group Utilities
  */
-export function rangeMatchModifiers(
-  range: DateRange,
+export function rangeContainsModifiers(
+  range: { from: Date; to: Date },
   matchers: Matcher | Matcher[],
   dateLib: DateLib = defaultDateLib
 ): boolean {
-  // TODO maybe add a console.warning if this function took too long to finish
   const matchersArr = !Array.isArray(matchers) ? [matchers] : matchers;
 
   // function matchers needs to verified against every day in the date range,
@@ -46,9 +46,6 @@ export function rangeMatchModifiers(
   );
 
   const nonFunctionMatchersResult = nonFunctionMatchers.some((matcher) => {
-    if (!range.to || !range.from) {
-      return false;
-    }
     if (typeof matcher === "boolean") {
       return matcher;
     }
@@ -71,27 +68,21 @@ export function rangeMatchModifiers(
       );
     }
     if (isDayOfWeekType(matcher)) {
-      const dayOfWeekArr = !Array.isArray(matcher.dayOfWeek)
-        ? [matcher.dayOfWeek]
-        : matcher.dayOfWeek;
-      let date = range.from;
-      const totalDays = dateLib.differenceInCalendarDays(range.to, range.from);
-
-      // iterate at maximum one week or the total days if the range is shorter than one week
-      const totalDaysLimit = Math.min(totalDays, 6);
-      for (let i = 0; i <= totalDaysLimit; i++) {
-        if (dayOfWeekArr.includes(date.getDay())) {
-          return true;
-        }
-        date = dateLib.addDays(date, 1);
-      }
-      return false;
+      return rangeContainsDayOfWeek(range, matcher, dateLib);
     }
-    if (
-      isDateInterval(matcher) ||
-      isDateAfterType(matcher) ||
-      isDateBeforeType(matcher)
-    ) {
+    if (isDateInterval(matcher)) {
+      return (
+        dateMatchModifiers(range.from, matcher, dateLib) ||
+        dateMatchModifiers(range.to, matcher, dateLib)
+      );
+    }
+    if (isDateAfterType(matcher)) {
+      return (
+        dateMatchModifiers(range.from, matcher, dateLib) ||
+        dateMatchModifiers(range.to, matcher, dateLib)
+      );
+    }
+    if (isDateBeforeType(matcher)) {
       return (
         dateMatchModifiers(range.from, matcher, dateLib) ||
         dateMatchModifiers(range.to, matcher, dateLib)
@@ -107,7 +98,7 @@ export function rangeMatchModifiers(
   const functionMatchers = matchersArr.filter(
     (matcher) => typeof matcher === "function"
   );
-  if (functionMatchers.length && range.to && range.from) {
+  if (functionMatchers.length) {
     let date = range.from;
     const totalDays = dateLib.differenceInCalendarDays(range.to, range.from);
 
