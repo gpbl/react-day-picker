@@ -1,6 +1,7 @@
 import { defaultDateLib, type DateLib } from "../classes/DateLib.js";
 import type { Matcher } from "../types/index.js";
 
+import { areRangesOverlapping } from "./areRangesOverlapping.js";
 import { dateMatchModifiers } from "./dateMatchModifiers.js";
 import { rangeContainsDayOfWeek } from "./rangeContainsDayOfWeek.js";
 import { rangeIncludesDate } from "./rangeIncludesDate.js";
@@ -61,14 +62,11 @@ export function rangeContainsModifiers(
     }
 
     if (isDateRange(matcher)) {
-      return (
-        matcher.from &&
-        matcher.to &&
-        (rangeIncludesDate(range, matcher.from, false, dateLib) ||
-          rangeIncludesDate(range, matcher.to, false, dateLib) ||
-          rangeIncludesDate(matcher, range.from, false, dateLib) ||
-          rangeIncludesDate(matcher, range.to, false, dateLib))
-      );
+      if (matcher.from && matcher.to) {
+        const dateRangeMatcher = { from: matcher.from, to: matcher.to };
+        return areRangesOverlapping(range, dateRangeMatcher, dateLib);
+      }
+      return false;
     }
 
     if (isDayOfWeekType(matcher)) {
@@ -83,12 +81,7 @@ export function rangeContainsModifiers(
           from: dateLib.addDays(matcher.after, 1),
           to: dateLib.addDays(matcher.before, -1)
         };
-        return (
-          rangeIncludesDate(range, dateRangeMatcher.from, false, dateLib) ||
-          rangeIncludesDate(range, dateRangeMatcher.to, false, dateLib) ||
-          rangeIncludesDate(dateRangeMatcher, range.from, false, dateLib) ||
-          rangeIncludesDate(dateRangeMatcher, range.to, false, dateLib)
-        );
+        return areRangesOverlapping(range, dateRangeMatcher, dateLib);
       }
 
       return (
