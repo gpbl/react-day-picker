@@ -96,6 +96,11 @@ describe("when matching date range", () => {
     const result = rangeContainsModifiers(testRange, [matcher], defaultDateLib);
     expect(result).toBe(false);
   });
+  test("should return false if matcher is an incomplete date range", () => {
+    const matcher = { from: monday };
+    const result = rangeContainsModifiers(testRange, [matcher], defaultDateLib);
+    expect(result).toBe(false);
+  });
 });
 
 describe("when matching the day of week", () => {
