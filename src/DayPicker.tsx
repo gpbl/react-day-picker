@@ -239,6 +239,7 @@ export function DayPicker(props: DayPickerProps) {
   const dataAttributes = getDataAttributes(props);
 
   const contextValue: DayPickerContext<DayPickerProps> = {
+    dayPickerProps: props,
     selected: selectedValue as SelectedValue<DayPickerProps>,
     select: select as SelectHandler<DayPickerProps>,
     isSelected,
