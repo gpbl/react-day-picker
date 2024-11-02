@@ -60,7 +60,7 @@ export type DayPickerContext<
   labels: Labels;
   /** The formatters used to format the UI elements. */
   formatters: Formatters;
-  /** The props passed to the DayPicker component. */
+  /** The props as passed to the DayPicker component. */
   dayPickerProps: DayPickerProps;
 };
 

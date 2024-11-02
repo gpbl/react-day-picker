@@ -130,18 +130,19 @@ import { useDayPicker } from "react-day-picker";
 
 The DayPicker context provides the current state of the calendar, including the selected days, modifiers, and navigation state.
 
-| Name            | Type                                                                          | Description                                    |
-| --------------- | ----------------------------------------------------------------------------- | ---------------------------------------------- |
-| `classNames`    | [`ClassNames`](../api/type-aliases/ClassNames.md)                             | The class names for the UI elements.           |
-| `components`    | [`CustomComponents`](../api/type-aliases/CustomComponents.md)                 | The components used internally by DayPicker.   |
-| `formatters`    | [`Formatters`](../api/type-aliases/Formatters.md)                             | The formatters used to format the UI elements. |
-| `getModifiers`  | (`day`) => [`Modifiers`](../api/type-aliases/Modifiers.md)                    | Returns the modifiers for the given day.       |
-| `goToMonth`     | (`month`) => `void`                                                           | Navigate to the specified month.               |
-| `isSelected`    | (`date`) => `boolean` \| `undefined`                                          | Whether the given date is selected.            |
-| `labels`        | [`Labels`](../api/type-aliases/Labels.md)                                     | The labels used in the user interface.         |
-| `months`        | [`CalendarMonth`](../api/classes/CalendarMonth.md)[]                          | The months displayed in the calendar.          |
-| `nextMonth`     | `Date` \| `undefined`                                                         | The next month to display.                     |
-| `previousMonth` | `Date` \| `undefined`                                                         | The previous month to display.                 |
-| `select`        | [`SelectHandler`](../api/type-aliases/SelectHandler.md)\<`T`\> \| `undefined` | Set a selection.                               |
-| `selected`      | [`SelectedValue`](../api/type-aliases/SelectedValue.md)\<`T`\> \| `undefined` | The selected date(s).                          |
-| `styles`        | `Partial`\<[`Styles`](../api/type-aliases/Styles.md)\> \| `undefined`         | The styles for the UI elements.                |
+| Name             | Type                                                                          | Description                                    |
+| ---------------- | ----------------------------------------------------------------------------- | ---------------------------------------------- |
+| `classNames`     | [`ClassNames`](../api/type-aliases/ClassNames.md)                             | The class names for the UI elements.           |
+| `components`     | [`CustomComponents`](../api/type-aliases/CustomComponents.md)                 | The components used internally by DayPicker.   |
+| `formatters`     | [`Formatters`](../api/type-aliases/Formatters.md)                             | The formatters used to format the UI elements. |
+| `getModifiers`   | (`day`) => [`Modifiers`](../api/type-aliases/Modifiers.md)                    | Returns the modifiers for the given day.       |
+| `goToMonth`      | (`month`) => `void`                                                           | Navigate to the specified month.               |
+| `isSelected`     | (`date`) => `boolean` \| `undefined`                                          | Whether the given date is selected.            |
+| `labels`         | [`Labels`](../api/type-aliases/Labels.md)                                     | The labels used in the user interface.         |
+| `months`         | [`CalendarMonth`](../api/classes/CalendarMonth.md)[]                          | The months displayed in the calendar.          |
+| `nextMonth`      | `Date` \| `undefined`                                                         | The next month to display.                     |
+| `previousMonth`  | `Date` \| `undefined`                                                         | The previous month to display.                 |
+| `select`         | [`SelectHandler`](../api/type-aliases/SelectHandler.md)\<`T`\> \| `undefined` | Set a selection.                               |
+| `selected`       | [`SelectedValue`](../api/type-aliases/SelectedValue.md)\<`T`\> \| `undefined` | The selected date(s).                          |
+| `styles`         | `Partial`\<[`Styles`](../api/type-aliases/Styles.md)\> \| `undefined`         | The styles for the UI elements.                |
+| `dayPickerProps` | [`DayPickerProps`](../api/type-aliases/DayPickerProps.md)                     | The props passed to the DayPicker component.   |
