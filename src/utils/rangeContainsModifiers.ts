@@ -1,10 +1,10 @@
 import { defaultDateLib, type DateLib } from "../classes/DateLib.js";
 import type { Matcher } from "../types/index.js";
 
-import { areRangesOverlapping } from "./areRangesOverlapping.js";
 import { dateMatchModifiers } from "./dateMatchModifiers.js";
 import { rangeContainsDayOfWeek } from "./rangeContainsDayOfWeek.js";
 import { rangeIncludesDate } from "./rangeIncludesDate.js";
+import { rangeOverlaps } from "./rangeOverlaps.js";
 import {
   isDateAfterType,
   isDateBeforeType,
@@ -15,8 +15,7 @@ import {
 } from "./typeguards.js";
 
 /**
- * Returns whether a date range matches against at least one of the given
- * {@link Matcher}.
+ * Returns whether a range contains dates that match the given modifiers.
  *
  * ```tsx
  * const range: DateRange = {
@@ -28,28 +27,26 @@ import {
  *   from: new Date(2022, 5, 1),
  *   to: new Date(2022, 5, 23)
  * };
- * rangeContainsModifiers(date, [matcher1, matcher2]); // true, since matcher1 is in the date.
+ * rangeContainsModifiers(range, [matcher1, matcher2]); // true, since matcher1 is in the date.
  * ```
  *
+ * @since 9.2.2
  * @group Utilities
  */
 export function rangeContainsModifiers(
   range: { from: Date; to: Date },
-  matchers: Matcher | Matcher[],
+  modifiers: Matcher | Matcher[],
   dateLib: DateLib = defaultDateLib
 ): boolean {
-  const matchersArr = !Array.isArray(matchers) ? [matchers] : matchers;
+  const matchers = Array.isArray(modifiers) ? modifiers : [modifiers];
 
-  // function matchers needs to verified against every day in the date range,
-  // because of that it's the least performant one and should be deferred to be the last evaluated
-  const nonFunctionMatchers = matchersArr.filter(
+  // Defer function matchers evaluation as they are the least performant.
+  const nonFunctionMatchers = matchers.filter(
     (matcher) => typeof matcher !== "function"
   );
 
   const nonFunctionMatchersResult = nonFunctionMatchers.some((matcher) => {
-    if (typeof matcher === "boolean") {
-      return matcher;
-    }
+    if (typeof matcher === "boolean") return matcher;
 
     if (dateLib.isDate(matcher)) {
       return rangeIncludesDate(range, matcher, false, dateLib);
@@ -63,44 +60,44 @@ export function rangeContainsModifiers(
 
     if (isDateRange(matcher)) {
       if (matcher.from && matcher.to) {
-        const dateRangeMatcher = { from: matcher.from, to: matcher.to };
-        return areRangesOverlapping(range, dateRangeMatcher, dateLib);
+        return rangeOverlaps(
+          range,
+          { from: matcher.from, to: matcher.to },
+          dateLib
+        );
       }
       return false;
     }
 
     if (isDayOfWeekType(matcher)) {
-      return rangeContainsDayOfWeek(range, matcher, dateLib);
+      return rangeContainsDayOfWeek(range, matcher.dayOfWeek, dateLib);
     }
 
     if (isDateInterval(matcher)) {
       const isClosedInterval = dateLib.isAfter(matcher.before, matcher.after);
-
       if (isClosedInterval) {
-        const dateRangeMatcher = {
-          from: dateLib.addDays(matcher.after, 1),
-          to: dateLib.addDays(matcher.before, -1)
-        };
-        return areRangesOverlapping(range, dateRangeMatcher, dateLib);
+        return rangeOverlaps(
+          range,
+          {
+            from: dateLib.addDays(matcher.after, 1),
+            to: dateLib.addDays(matcher.before, -1)
+          },
+          dateLib
+        );
       }
+      return (
+        dateMatchModifiers(range.from, matcher, dateLib) ||
+        dateMatchModifiers(range.to, matcher, dateLib)
+      );
+    }
 
+    if (isDateAfterType(matcher) || isDateBeforeType(matcher)) {
       return (
         dateMatchModifiers(range.from, matcher, dateLib) ||
         dateMatchModifiers(range.to, matcher, dateLib)
       );
     }
-    if (isDateAfterType(matcher)) {
-      return (
-        dateMatchModifiers(range.from, matcher, dateLib) ||
-        dateMatchModifiers(range.to, matcher, dateLib)
-      );
-    }
-    if (isDateBeforeType(matcher)) {
-      return (
-        dateMatchModifiers(range.from, matcher, dateLib) ||
-        dateMatchModifiers(range.to, matcher, dateLib)
-      );
-    }
+
     return false;
   });
 
@@ -108,9 +105,10 @@ export function rangeContainsModifiers(
     return true;
   }
 
-  const functionMatchers = matchersArr.filter(
+  const functionMatchers = matchers.filter(
     (matcher) => typeof matcher === "function"
   );
+
   if (functionMatchers.length) {
     let date = range.from;
     const totalDays = dateLib.differenceInCalendarDays(range.to, range.from);
