@@ -490,6 +490,7 @@ export interface PropsBase {
  * @param {Date} triggerDate - The date when the event was triggered.
  * @param {Modifiers} modifiers - The modifiers associated with the event.
  * @param {React.MouseEvent | React.KeyboardEvent} e - The event object.
+ * @group DayPicker
  */
 export type OnSelectHandler<T> = (
   selected: T,
@@ -501,6 +502,7 @@ export type OnSelectHandler<T> = (
 /**
  * The props when the single selection is required.
  *
+ * @group DayPicker
  * @see https://daypicker.dev/docs/selection-modes#single-mode
  */
 export interface PropsSingleRequired {
@@ -515,6 +517,7 @@ export interface PropsSingleRequired {
 /**
  * The props when the single selection is optional.
  *
+ * @group DayPicker
  * @see https://daypicker.dev/docs/selection-modes#single-mode
  */
 export interface PropsSingle {
@@ -529,6 +532,7 @@ export interface PropsSingle {
 /**
  * The props when the multiple selection is required.
  *
+ * @group DayPicker
  * @see https://daypicker.dev/docs/selection-modes#multiple-mode
  */
 export interface PropsMultiRequired {
@@ -547,6 +551,7 @@ export interface PropsMultiRequired {
 /**
  * The props when the multiple selection is optional.
  *
+ * @group DayPicker
  * @see https://daypicker.dev/docs/selection-modes#multiple-mode
  */
 export interface PropsMulti {
@@ -564,6 +569,7 @@ export interface PropsMulti {
 /**
  * The props when the range selection is required.
  *
+ * @group DayPicker
  * @see https://daypicker.dev/docs/selection-modes#range-mode
  */
 export interface PropsRangeRequired {
@@ -588,6 +594,7 @@ export interface PropsRangeRequired {
 /**
  * The props when the range selection is optional.
  *
+ * @group DayPicker
  * @see https://daypicker.dev/docs/selection-modes#range-mode
  */
 export interface PropsRange {
