@@ -14,7 +14,7 @@ import {
   Styles
 } from "./types/shared.js";
 
-/** @private */
+/** @ignore */
 export const dayPickerContext = createContext<
   | DayPickerContext<{
       mode?: Mode | undefined;
