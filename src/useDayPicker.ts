@@ -2,6 +2,7 @@ import { createContext, useContext } from "react";
 
 import { CalendarDay } from "./classes/CalendarDay.js";
 import { CalendarMonth } from "./classes/CalendarMonth.js";
+import { DayPickerProps } from "./types/props.js";
 import type { SelectedValue, SelectHandler } from "./types/selection.js";
 import {
   ClassNames,
@@ -59,6 +60,8 @@ export type DayPickerContext<
   labels: Labels;
   /** The formatters used to format the UI elements. */
   formatters: Formatters;
+  /** The props passed to the DayPicker component. */
+  dayPickerProps: DayPickerProps;
 };
 
 /**
