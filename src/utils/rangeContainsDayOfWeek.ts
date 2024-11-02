@@ -1,27 +1,25 @@
 import { defaultDateLib, type DateLib } from "../classes/DateLib.js";
-import type { DayOfWeek } from "../types/index.js";
 
 /**
- * Returns whether a date range matches against a given {@link DayOfWeek}.
+ * Returns whether a date range contains one or more days of the week.
  *
  * ```tsx
  * const range: DateRange = {
- *   from: new Date(2024, 8, 1), //  day of the week 0
- *   to: new Date(2024, 8, 6) //  day of the week 5
+ *   from: new Date(2024, 8, 1), //  Sunday
+ *   to: new Date(2024, 8, 6) //  Thursday
  * };
- * rangeContainsDayOfWeek(date, { dayOfWeek: 0 }); // true
+ * rangeContainsDayOfWeek(date, 1); // true: contains range contains Monday
  * ```
  *
+ * @since 9.2.2
  * @group Utilities
  */
 export function rangeContainsDayOfWeek(
   range: { from: Date; to: Date },
-  matcher: DayOfWeek,
+  dayOfWeek: number | number[],
   dateLib: DateLib = defaultDateLib
 ) {
-  const dayOfWeekArr = !Array.isArray(matcher.dayOfWeek)
-    ? [matcher.dayOfWeek]
-    : matcher.dayOfWeek;
+  const dayOfWeekArr = !Array.isArray(dayOfWeek) ? [dayOfWeek] : dayOfWeek;
   let date = range.from;
   const totalDays = dateLib.differenceInCalendarDays(range.to, range.from);
 

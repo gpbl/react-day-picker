@@ -5,9 +5,10 @@ import { rangeIncludesDate } from "./rangeIncludesDate.js";
 /**
  * Determines whether a given range overlaps with another range.
  *
+ * @since 9.2.2
  * @group Utilities
  */
-export function areRangesOverlapping(
+export function rangeOverlaps(
   rangeLeft: { from: Date; to: Date },
   rangeRight: { from: Date; to: Date },
   dateLib = defaultDateLib
