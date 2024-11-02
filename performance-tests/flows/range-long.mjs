@@ -3,9 +3,12 @@
  * @param {import("puppeteer").Page} page
  */
 export async function rangeLong(flow, page) {
-  await flow.navigate("http://localhost:4173/?example=RangeLong", {
-    name: "Range selection with long range"
-  });
+  await flow.navigate(
+    "http://localhost:4173/?example=RangeLongExcludeDisabled",
+    {
+      name: "Range selection with long range"
+    }
+  );
   await flow.startTimespan({
     name: "Day selection"
   });
