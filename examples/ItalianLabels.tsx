@@ -10,7 +10,7 @@ export function ItalianLabels() {
       locale={it}
       labels={{
         labelDayButton: (date, { today, selected }) => {
-          let label = format(date, "PPPP");
+          let label = format(date, "PPPP", { locale: it });
           if (today) label = `Oggi, ${label}`;
           if (selected) label = `${label}, selezionato`;
           return label;
