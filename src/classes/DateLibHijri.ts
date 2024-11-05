@@ -57,7 +57,11 @@ export class DateLibHijri {
   differenceInCalendarDays = (dateLeft: Date, dateRight: Date) => {
     const hijriDateLeft = new HijriDate(dateLeft);
     const hijriDateRight = new HijriDate(dateRight);
-    return hijriDateLeft.getDate() - hijriDateRight.getDate();
+    return Math.floor(
+      (hijriDateLeft.toGregorian().getTime() -
+        hijriDateRight.toGregorian().getTime()) /
+        (1000 * 60 * 60 * 24)
+    );
   };
 
   differenceInCalendarMonths = (dateLeft: Date, dateRight: Date) => {
@@ -166,6 +170,23 @@ export class DateLibHijri {
     const hijriDate = new HijriDate(date);
     hijriDate.setMonth(0, 1);
     return hijriDate;
+  };
+
+  getHijriMonthNames = () => {
+    return [
+      "Muharram",
+      "Safar",
+      "Rabi' al-awwal",
+      "Rabi' al-thani",
+      "Jumada al-awwal",
+      "Jumada al-thani",
+      "Rajab",
+      "Sha'ban",
+      "Ramadan",
+      "Shawwal",
+      "Dhu al-Qi'dah",
+      "Dhu al-Hijjah"
+    ];
   };
 }
 
