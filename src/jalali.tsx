@@ -1,7 +1,6 @@
 import React from "react";
 
-import * as jalaliDateLib from "date-fns-jalali";
-
+import { DateLibHijri } from "./classes/DateLibHijri.js";
 import {
   DayPicker as DayPickerComponent,
   type DayPickerProps
@@ -14,7 +13,7 @@ export function DayPicker(props: DayPickerProps) {
       //     are not compatible with the date-fns 4.0 types. The `addDays`
       //     function's return type is causing a type mismatch. (This casting should
       //     be not needed when date-fns-jalali upgrades to date-fns@4)
-      dateLib={jalaliDateLib}
+      dateLib={DateLibHijri}
       {...props}
     />
   );
