@@ -243,6 +243,22 @@ export interface PropsBase {
    * @see https://daypicker.dev/docs/customization#showweeknumber
    */
   showWeekNumber?: boolean;
+
+  /**
+   * Experimental. Animate navigating between months.
+   *
+   * @experimental
+   * @see https://daypicker.dev/docs/customization#animation
+   */
+  animate?: boolean;
+
+  /**
+   * The duration of the month transition animation in milliseconds.
+   *
+   * @see https://daypicker.dev/docs/customization#animation
+   */
+  animationDuration?: number;
+
   /**
    * Use ISO week dates instead of the locale setting. Setting this prop will
    * ignore `weekStartsOn` and `firstWeekContainsDate`.

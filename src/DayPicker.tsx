@@ -112,7 +112,8 @@ export function DayPicker(props: DayPickerProps) {
     navEnd,
     previousMonth,
     nextMonth,
-    goToMonth
+    goToMonth,
+    direction
   } = calendar;
 
   const getModifiers = useGetModifiers(days, props, dateLib);
@@ -335,6 +336,9 @@ export function DayPicker(props: DayPickerProps) {
                   style={styles?.[UI.MonthCaption]}
                   calendarMonth={calendarMonth}
                   displayIndex={displayIndex}
+                  animate={props.animate}
+                  transitionDirection={direction}
+                  transitionDuration={props.animationDuration}
                 >
                   {captionLayout?.startsWith("dropdown") ? (
                     <components.DropdownNav
@@ -438,8 +442,16 @@ export function DayPicker(props: DayPickerProps) {
                     </components.Weekdays>
                   )}
                   <components.Weeks
+                    month={calendarMonth.date}
                     className={classNames[UI.Weeks]}
                     style={styles?.[UI.Weeks]}
+                    animate={props.animate}
+                    transitionDirection={direction}
+                    transitionDuration={props.animationDuration}
+                    onTransitionEnter={() => calendar.setIsTransitioning(true)}
+                    onTransitionEntered={() =>
+                      calendar.setIsTransitioning(false)
+                    }
                   >
                     {calendarMonth.weeks.map((week, weekIndex) => {
                       return (

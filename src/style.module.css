@@ -51,6 +51,15 @@
   --rdp-weekday-text-align: center; /* The text alignment of the weekday cells. */
 
   --rdp-gradient-direction: 90deg;
+
+  --rdp-grid-template-columns: 7;
+
+
+  --rdp-animation-duration: .25s;
+}
+
+.root[data-week-numbers="true"] {
+  --rdp-grid-template-columns: 8;
 }
 
 .root[dir="rtl"] {
@@ -198,7 +207,34 @@
 }
 
 .month_grid {
+  width: 100%;
   border-collapse: collapse;
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.month_grid thead,
+.month_grid .week {
+  display: contents;
+}
+
+.month_grid .weekdays {
+  display: grid;
+  grid-template-columns: repeat(var(--rdp-grid-template-columns), 1fr);
+  height: var(--rdp-nav-height);
+}
+
+.month_grid .weeks {
+  display: grid;
+  grid-template-columns: repeat(var(--rdp-grid-template-columns), 1fr);
+}
+
+.month_grid .weeks ~ .weeks {
+  position: absolute;
+  margin-top: var(--rdp-nav-height);
+  /* border: 1px solid red; */
 }
 
 .nav {
@@ -295,4 +331,36 @@
 
 .focusable {
   cursor: pointer;
+}
+
+.slide-next-enter {
+  transform: translateX(100%);
+}
+.slide-next-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform var(--rdp-animation-duration) ease-in-out;
+}
+.slide-next-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+.slide-next-exit-active {
+  transform: translateX(-100%);
+  transition: transform var(--rdp-animation-duration) ease-in-out;
+}
+
+.slide-prev-enter {
+  transform: translateX(-100%);
+}
+.slide-prev-enter-active {
+  transform: translateX(0);
+  transition: transform var(--rdp-animation-duration) ease-in-out;
+}
+.slide-prev-exit {
+  transform: translateX(0);
+}
+.slide-prev-exit-active {
+  transform: translateX(100%);
+  transition: transform var(--rdp-animation-duration) ease-in-out;
 }

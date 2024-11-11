@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-
-import { useDayPicker } from "../useDayPicker.js";
 
 /**
  * Render the weeks in the month grid.
@@ -10,32 +8,45 @@ import { useDayPicker } from "../useDayPicker.js";
  * @group Components
  * @see https://daypicker.dev/guides/custom-components
  */
-export function Weeks(props: JSX.IntrinsicElements["tbody"]) {
-  const [direction, setDirection] = useState<"next" | "prev">("next");
-  const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
-  const dayPicker = useDayPicker();
+export function Weeks(
+  props: JSX.IntrinsicElements["tbody"] & {
+    month: Date;
+    animate?: boolean;
+    transitionDirection?: "next" | "prev";
+    transitionDuration?: number;
+    onTransitionEnter?: () => void;
+    onTransitionEntered?: () => void;
+  }
+) {
+  const {
+    animate,
+    transitionDirection: animateDirection,
+    onTransitionEnter: onEnter,
+    onTransitionEntered: onEntered,
+    month,
+    transitionDuration,
+    ...tbodyProps
+  } = props;
 
-  const key = dayPicker.months[0].date.toISOString();
-
-  console.log(key);
-  return (
-    <TransitionGroup component={null}>
-      <CSSTransition
-        key={key}
-        timeout={250}
-        classNames={
-          direction === "next"
-            ? "animate rdp-slide-next"
-            : "animate rdp-slide-prev"
-        }
-        onEnter={() => setIsTransitioning(true)}
-        onEntered={() => setIsTransitioning(false)}
-      >
-        <tbody {...props}>{props.children}</tbody>
-      </CSSTransition>
-    </TransitionGroup>
-  );
-  // return <tbody {...props} />;
+  if (animate) {
+    return (
+      <TransitionGroup component={null}>
+        <CSSTransition
+          key={month.toISOString()}
+          timeout={transitionDuration ?? 250}
+          classNames={
+            animateDirection === "next" ? "rdp-slide-next" : "rdp-slide-prev"
+          }
+          onEnter={onEnter}
+          onEntered={onEntered}
+        >
+          <tbody {...tbodyProps}>{props.children}</tbody>
+        </CSSTransition>
+      </TransitionGroup>
+    );
+  } else {
+    return <tbody {...tbodyProps} />;
+  }
 }
 
 export type WeeksProps = Parameters<typeof Weeks>[0];

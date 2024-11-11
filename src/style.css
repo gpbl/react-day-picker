@@ -55,7 +55,7 @@
   --rdp-grid-template-columns: 7;
 
 
-  --rdp-animation-duration: .25s;
+  --rdp-animation-duration: .2s;
 }
 
 .rdp-root[data-week-numbers="true"] {
@@ -198,6 +198,13 @@
   font-size: large;
 }
 
+.rdp-month_caption ~ .rdp-month_caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
 .rdp-months {
   position: relative;
   display: flex;
@@ -234,13 +241,13 @@
 .rdp-month_grid .rdp-weeks ~ .rdp-weeks {
   position: absolute;
   margin-top: var(--rdp-nav-height);
-  /* border: 1px solid red; */
 }
 
 .rdp-nav {
   position: absolute;
   inset-block-start: 0;
   inset-inline-end: 0;
+  z-index: 1;
 
   display: flex;
   align-items: center;
@@ -362,5 +369,67 @@
 }
 .rdp-slide-prev-exit-active {
   transform: translateX(100%);
+  transition: transform var(--rdp-animation-duration) ease-in-out;
+}
+
+.rdp-opacity-next-enter {
+  opacity: 0;
+}
+.rdp-opacity-next-enter-active {
+  opacity: 1;
+  transition: opacity var(--rdp-animation-duration) ease-in-out;
+}
+.rdp-opacity-next-exit {
+  opacity: 1;
+}
+.rdp-opacity-next-exit-active {
+  opacity: 0;
+  transition: opacity var(--rdp-animation-duration) ease-in-out;
+}
+
+.rdp-opacity-prev-enter {
+  opacity: 0;
+}
+.rdp-opacity-prev-enter-active {
+  opacity: 1;
+  transition: opacity var(--rdp-animation-duration) ease-in-out;
+}
+.rdp-opacity-prev-exit {
+  opacity: 1;
+}
+.rdp-opacity-prev-exit-active {
+  opacity: 0;
+  transition: opacity var(--rdp-animation-duration) ease-in-out;
+}
+
+.rdp-slide-up-next-enter {
+  transform: translateY(100%);
+}
+.rdp-slide-up-next-enter-active {
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform var(--rdp-animation-duration) ease-in-out;
+}
+.rdp-slide-up-next-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+.rdp-slide-up-next-exit-active {
+  transform: translateY(-100%);
+  transition: transform var(--rdp-animation-duration) ease-in-out;
+}
+
+.rdp-slide-up-prev-enter {
+  transform: translateY(-100%);
+}
+.rdp-slide-up-prev-enter-active {
+  transform: translateY(0);
+  transition: transform var(--rdp-animation-duration) ease-in-out;
+}
+.rdp-slide-up-prev-exit {
+  transform: translateY(0);
+}
+.rdp-slide-up-prev-exit-active {
+  transform: translateY(100%);
   transition: transform var(--rdp-animation-duration) ease-in-out;
 }

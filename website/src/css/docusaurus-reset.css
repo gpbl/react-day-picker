@@ -116,9 +116,9 @@
 }
 
 .docusaurus-reset table {
-  display: revert;
+  /* display: revert;
   margin-bottom: revert;
-  overflow: revert;
+  overflow: revert; */
 }
 
 .docusaurus-reset table thead tr {
