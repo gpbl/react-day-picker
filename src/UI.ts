@@ -100,7 +100,11 @@ export enum SelectionState {
   selected = "selected"
 }
 
-/** The transition that can be applied to the DayPicker component. */
+/**
+ * The transition that can be applied to the DayPicker component.
+ *
+ * @since 9.4.0
+ */
 export enum TransitionType {
   /** Slide the element horizontally. */
   Slide = "slide",

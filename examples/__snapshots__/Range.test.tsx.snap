@@ -657,6 +657,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
   <div>
     <div
       class="rdp-root"
+      data-focused="2020-06-17"
       data-mode="range"
       id="test"
     >

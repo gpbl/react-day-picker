@@ -6,13 +6,8 @@ import React from "react";
  * @group Components
  * @see https://daypicker.dev/guides/custom-components
  */
-export function Weeks(
-  props: JSX.IntrinsicElements["tbody"] & {
-    month: Date;
-  }
-) {
-  const { month, ...tbodyProps } = props;
-  return <tbody {...tbodyProps} />;
+export function Weeks(props: JSX.IntrinsicElements["tbody"]) {
+  return <tbody {...props} />;
 }
 
 export type WeeksProps = Parameters<typeof Weeks>[0];

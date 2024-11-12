@@ -463,7 +463,6 @@ export function DayPicker(props: DayPickerProps) {
                     onEntered={() => calendar.setIsTransitioning(false)}
                   >
                     <components.Weeks
-                      month={calendarMonth.date}
                       className={classNames[UI.Weeks]}
                       style={styles?.[UI.Weeks]}
                     >
