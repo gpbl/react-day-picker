@@ -64,7 +64,7 @@ export interface Calendar {
    */
   goToDay: (day: CalendarDay) => void;
 
-  /** The direction of the transition. */
+  /** The direction of the transition when navigating to the next/prev months. */
   direction: "next" | "prev";
   /** Set the transitioning state. */
   setIsTransitioning: (isTransitioning: boolean) => void;

@@ -267,6 +267,9 @@ export function DayPicker(props: DayPickerProps) {
         nonce={props.nonce}
         title={props.title}
         {...dataAttributes}
+        data-focused={
+          focused ? dateLib.format(focused.date, "yyyy-MM-dd") : undefined
+        }
       >
         <components.Months
           className={classNames[UI.Months]}
@@ -338,7 +341,7 @@ export function DayPicker(props: DayPickerProps) {
                   displayIndex={displayIndex}
                   animate={props.animate}
                   transitionDirection={direction}
-                  transitionDuration={props.animationDuration}
+                  transitionDuration={focused ? 0 : props.transitionDuration}
                 >
                   {captionLayout?.startsWith("dropdown") ? (
                     <components.DropdownNav
@@ -447,7 +450,7 @@ export function DayPicker(props: DayPickerProps) {
                     style={styles?.[UI.Weeks]}
                     animate={props.animate}
                     transitionDirection={direction}
-                    transitionDuration={props.animationDuration}
+                    transitionDuration={focused ? 0 : props.transitionDuration}
                     onTransitionEnter={() => calendar.setIsTransitioning(true)}
                     onTransitionEntered={() =>
                       calendar.setIsTransitioning(false)

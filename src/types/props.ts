@@ -257,7 +257,7 @@ export interface PropsBase {
    *
    * @see https://daypicker.dev/docs/customization#animation
    */
-  animationDuration?: number;
+  transitionDuration?: number;
 
   /**
    * Use ISO week dates instead of the locale setting. Setting this prop will

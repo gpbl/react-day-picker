@@ -33,7 +33,7 @@ export function Weeks(
       <TransitionGroup component={null}>
         <CSSTransition
           key={month.toISOString()}
-          timeout={transitionDuration ?? 250}
+          timeout={transitionDuration ?? 200}
           classNames={
             animateDirection === "next" ? "rdp-slide-next" : "rdp-slide-prev"
           }

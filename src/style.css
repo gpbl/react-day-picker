@@ -55,7 +55,12 @@
   --rdp-grid-template-columns: 7;
 
 
-  --rdp-animation-duration: .2s;
+  --rdp-transition-duration: 200ms;
+}
+
+.rdp-root[data-focused] {
+  /* Disable when navigating with keyboard */
+  --rdp-transition-duration: 0ms;
 }
 
 .rdp-root[data-week-numbers="true"] {
@@ -198,7 +203,7 @@
   font-size: large;
 }
 
-.rdp-month_caption ~ .rdp-month_caption {
+.rdp-root[data-animate="true"] .rdp-month_caption ~ .rdp-month_caption {
   position: absolute;
   top: 0;
   left: 0;
@@ -346,7 +351,7 @@
 .rdp-slide-next-enter-active {
   transform: translateX(0);
   opacity: 1;
-  transition: transform var(--rdp-animation-duration) ease-in-out;
+  transition: transform var(--rdp-transition-duration) ease-in-out;
 }
 .rdp-slide-next-exit {
   opacity: 1;
@@ -354,7 +359,7 @@
 }
 .rdp-slide-next-exit-active {
   transform: translateX(-100%);
-  transition: transform var(--rdp-animation-duration) ease-in-out;
+  transition: transform var(--rdp-transition-duration) ease-in-out;
 }
 
 .rdp-slide-prev-enter {
@@ -362,14 +367,14 @@
 }
 .rdp-slide-prev-enter-active {
   transform: translateX(0);
-  transition: transform var(--rdp-animation-duration) ease-in-out;
+  transition: transform var(--rdp-transition-duration) ease-in-out;
 }
 .rdp-slide-prev-exit {
   transform: translateX(0);
 }
 .rdp-slide-prev-exit-active {
   transform: translateX(100%);
-  transition: transform var(--rdp-animation-duration) ease-in-out;
+  transition: transform var(--rdp-transition-duration) ease-in-out;
 }
 
 .rdp-opacity-next-enter {
@@ -377,14 +382,14 @@
 }
 .rdp-opacity-next-enter-active {
   opacity: 1;
-  transition: opacity var(--rdp-animation-duration) ease-in-out;
+  transition: opacity var(--rdp-transition-duration) ease-in-out;
 }
 .rdp-opacity-next-exit {
   opacity: 1;
 }
 .rdp-opacity-next-exit-active {
   opacity: 0;
-  transition: opacity var(--rdp-animation-duration) ease-in-out;
+  transition: opacity var(--rdp-transition-duration) ease-in-out;
 }
 
 .rdp-opacity-prev-enter {
@@ -392,14 +397,14 @@
 }
 .rdp-opacity-prev-enter-active {
   opacity: 1;
-  transition: opacity var(--rdp-animation-duration) ease-in-out;
+  transition: opacity var(--rdp-transition-duration) ease-in-out;
 }
 .rdp-opacity-prev-exit {
   opacity: 1;
 }
 .rdp-opacity-prev-exit-active {
   opacity: 0;
-  transition: opacity var(--rdp-animation-duration) ease-in-out;
+  transition: opacity var(--rdp-transition-duration) ease-in-out;
 }
 
 .rdp-slide-up-next-enter {
@@ -408,7 +413,7 @@
 .rdp-slide-up-next-enter-active {
   transform: translateY(0);
   opacity: 1;
-  transition: transform var(--rdp-animation-duration) ease-in-out;
+  transition: transform var(--rdp-transition-duration) ease-in-out;
 }
 .rdp-slide-up-next-exit {
   opacity: 1;
@@ -416,7 +421,7 @@
 }
 .rdp-slide-up-next-exit-active {
   transform: translateY(-100%);
-  transition: transform var(--rdp-animation-duration) ease-in-out;
+  transition: transform var(--rdp-transition-duration) ease-in-out;
 }
 
 .rdp-slide-up-prev-enter {
@@ -424,12 +429,12 @@
 }
 .rdp-slide-up-prev-enter-active {
   transform: translateY(0);
-  transition: transform var(--rdp-animation-duration) ease-in-out;
+  transition: transform var(--rdp-transition-duration) ease-in-out;
 }
 .rdp-slide-up-prev-exit {
   transform: translateY(0);
 }
 .rdp-slide-up-prev-exit-active {
   transform: translateY(100%);
-  transition: transform var(--rdp-animation-duration) ease-in-out;
+  transition: transform var(--rdp-transition-duration) ease-in-out;
 }
