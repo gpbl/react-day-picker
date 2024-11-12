@@ -64,9 +64,12 @@ export interface Calendar {
    */
   goToDay: (day: CalendarDay) => void;
 
-  /** The direction of the transition when navigating to the next/prev months. */
-  direction: "next" | "prev";
-  /** Set the transitioning state. */
+  /**
+   * The direction of the transition when navigating to the next/previous
+   * months.
+   */
+  direction: "next" | "previous";
+  /** Set the transitioning state when the calendar is animated. */
   setIsTransitioning: (isTransitioning: boolean) => void;
 }
 
@@ -94,7 +97,7 @@ export function useCalendar(
   >,
   dateLib: DateLib
 ): Calendar {
-  const [direction, setDirection] = useState<"next" | "prev">("next");
+  const [direction, setDirection] = useState<"next" | "previous">("next");
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
 
   const [navStart, navEnd] = getNavMonths(props, dateLib);
@@ -155,7 +158,7 @@ export function useCalendar(
     }
     setFirstMonth(newMonth);
     if (newMonth < firstMonth) {
-      setDirection("prev");
+      setDirection("previous");
     } else {
       setDirection("next");
     }

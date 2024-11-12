@@ -55,7 +55,12 @@
   --rdp-grid-template-columns: 7;
 
 
-  --rdp-animation-duration: .25s;
+  --rdp-transition-duration: 200ms;
+}
+
+.root[data-focused] {
+  /* Disable when navigating with keyboard */
+  --rdp-transition-duration: 0ms;
 }
 
 .root[data-week-numbers="true"] {
@@ -198,6 +203,13 @@
   font-size: large;
 }
 
+.root[data-animate="true"] .month_caption ~ .month_caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
 .months {
   position: relative;
   display: flex;
@@ -207,40 +219,43 @@
 }
 
 .month_grid {
-  width: 100%;
   border-collapse: collapse;
+}
+
+.root[data-animate] .month_grid {
+  width: 100%;
   overflow: hidden;
   position: relative;
   display: grid;
   grid-template-rows: auto 1fr;
 }
 
-.month_grid thead,
-.month_grid .week {
+.root[data-animate] .month_grid thead,
+.root[data-animate] .month_grid .week {
   display: contents;
 }
 
-.month_grid .weekdays {
+.root[data-animate] .weekdays {
   display: grid;
   grid-template-columns: repeat(var(--rdp-grid-template-columns), 1fr);
   height: var(--rdp-nav-height);
 }
 
-.month_grid .weeks {
+.root[data-animate] .weeks {
   display: grid;
   grid-template-columns: repeat(var(--rdp-grid-template-columns), 1fr);
 }
 
-.month_grid .weeks ~ .weeks {
+.root[data-animate] .weeks ~ .weeks {
   position: absolute;
   margin-top: var(--rdp-nav-height);
-  /* border: 1px solid red; */
 }
 
 .nav {
   position: absolute;
   inset-block-start: 0;
   inset-inline-end: 0;
+  z-index: 1;
 
   display: flex;
   align-items: center;
@@ -339,7 +354,7 @@
 .slide-next-enter-active {
   transform: translateX(0);
   opacity: 1;
-  transition: transform var(--rdp-animation-duration) ease-in-out;
+  transition: transform var(--rdp-transition-duration) ease-in-out;
 }
 .slide-next-exit {
   opacity: 1;
@@ -347,20 +362,50 @@
 }
 .slide-next-exit-active {
   transform: translateX(-100%);
-  transition: transform var(--rdp-animation-duration) ease-in-out;
+  transition: transform var(--rdp-transition-duration) ease-in-out;
 }
 
-.slide-prev-enter {
+.slide-previous-enter {
   transform: translateX(-100%);
 }
-.slide-prev-enter-active {
+.slide-previous-enter-active {
   transform: translateX(0);
-  transition: transform var(--rdp-animation-duration) ease-in-out;
+  transition: transform var(--rdp-transition-duration) ease-in-out;
 }
-.slide-prev-exit {
+.slide-previous-exit {
   transform: translateX(0);
 }
-.slide-prev-exit-active {
+.slide-previous-exit-active {
   transform: translateX(100%);
-  transition: transform var(--rdp-animation-duration) ease-in-out;
+  transition: transform var(--rdp-transition-duration) ease-in-out;
+}
+
+.opacity-fade-next-enter {
+  opacity: 0;
+}
+.opacity-fade-next-enter-active {
+  opacity: 1;
+  transition: opacity var(--rdp-transition-duration) ease-in-out;
+}
+.opacity-fade-next-exit {
+  opacity: 1;
+}
+.opacity-fade-next-exit-active {
+  opacity: 0;
+  transition: opacity var(--rdp-transition-duration) ease-in-out;
+}
+
+.opacity-fade-previous-enter {
+  opacity: 0;
+}
+.opacity-fade-previous-enter-active {
+  opacity: 1;
+  transition: opacity var(--rdp-transition-duration) ease-in-out;
+}
+.opacity-fade-previous-exit {
+  opacity: 1;
+}
+.opacity-fade-previous-exit-active {
+  opacity: 0;
+  transition: opacity var(--rdp-transition-duration) ease-in-out;
 }

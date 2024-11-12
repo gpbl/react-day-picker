@@ -100,6 +100,14 @@ export enum SelectionState {
   selected = "selected"
 }
 
+/** The transition that can be applied to the DayPicker component. */
+export enum TransitionType {
+  /** Slide the element horizontally. */
+  Slide = "slide",
+  /** Animate the opacity. */
+  Fade = "fade"
+}
+
 /**
  * Deprecated UI elements and flags.
  *
