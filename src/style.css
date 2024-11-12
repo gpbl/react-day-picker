@@ -219,31 +219,34 @@
 }
 
 .rdp-month_grid {
-  width: 100%;
   border-collapse: collapse;
+}
+
+.rdp-root[data-animate] .rdp-month_grid {
+  width: 100%;
   overflow: hidden;
   position: relative;
   display: grid;
   grid-template-rows: auto 1fr;
 }
 
-.rdp-month_grid thead,
-.rdp-month_grid .rdp-week {
+.rdp-root[data-animate] .rdp-month_grid thead,
+.rdp-root[data-animate] .rdp-month_grid .rdp-week {
   display: contents;
 }
 
-.rdp-month_grid .rdp-weekdays {
+.rdp-root[data-animate] .rdp-weekdays {
   display: grid;
   grid-template-columns: repeat(var(--rdp-grid-template-columns), 1fr);
   height: var(--rdp-nav-height);
 }
 
-.rdp-month_grid .rdp-weeks {
+.rdp-root[data-animate] .rdp-weeks {
   display: grid;
   grid-template-columns: repeat(var(--rdp-grid-template-columns), 1fr);
 }
 
-.rdp-month_grid .rdp-weeks ~ .rdp-weeks {
+.rdp-root[data-animate] .rdp-weeks ~ .rdp-weeks {
   position: absolute;
   margin-top: var(--rdp-nav-height);
 }
