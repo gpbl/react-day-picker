@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { DayFlag, SelectionState } from "../UI.js";
 import {
   MonthCaption,
   type MonthCaptionProps
@@ -98,6 +99,20 @@ export type DaySelectionMode = Mode;
  * @protected
  */
 export type Modifier = string;
+
+/**
+ * @deprecated This type will be removed. Use {@link DayFlag} or
+ *   {@link SelectionState} instead.
+ * @protected
+ */
+export type InternalModifier =
+  | DayFlag.disabled
+  | DayFlag.hidden
+  | DayFlag.focused
+  | SelectionState.range_end
+  | SelectionState.range_middle
+  | SelectionState.range_start
+  | SelectionState.selected;
 
 /**
  * @deprecated This type will be removed. Use `SelectHandler<"single">` instead.

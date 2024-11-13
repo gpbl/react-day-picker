@@ -292,6 +292,11 @@ export interface PropsBase {
    */
   autoFocus?: boolean;
   /**
+   * @private
+   * @deprecated This prop will be removed. Use {@link autoFocus} instead.
+   */
+  initialFocus?: boolean;
+  /**
    * Apply the `disabled` modifier to the matching days.
    *
    * @see https://daypicker.dev/docs/selection-modes#disabling-dates
