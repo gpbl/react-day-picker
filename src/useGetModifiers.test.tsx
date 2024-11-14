@@ -27,7 +27,8 @@ const props = {
   disabled: [date1],
   hidden: [date2],
   modifiers: {
-    custom: [date3]
+    custom: [date3],
+    selected: [date5]
   },
   selected: date6,
   showOutsideDays: true,
@@ -53,6 +54,11 @@ describe("useGetModifiers", () => {
   test("return the custom modifiers for a given day", () => {
     const modifiers = getModifiers(day3);
     expect(modifiers.custom).toBe(true);
+  });
+
+  test("return the custom `selected` modifier for a given day", () => {
+    const modifiers = getModifiers(day5);
+    expect(modifiers.selected).toBe(true);
   });
 
   test("return the today modifier for a given day", () => {
