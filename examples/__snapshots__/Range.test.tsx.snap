@@ -338,7 +338,7 @@ exports[`should match the snapshot 1`] = `
                 </td>
                 <td
                   aria-selected="true"
-                  class="rdp-day rdp-range_start rdp-selected"
+                  class="rdp-day rdp-selected rdp-range_start"
                   data-day="2020-06-15"
                   data-selected="true"
                 >
@@ -353,7 +353,7 @@ exports[`should match the snapshot 1`] = `
                 </td>
                 <td
                   aria-selected="true"
-                  class="rdp-day rdp-range_middle rdp-selected"
+                  class="rdp-day rdp-selected rdp-range_middle"
                   data-day="2020-06-16"
                   data-selected="true"
                 >
@@ -368,7 +368,7 @@ exports[`should match the snapshot 1`] = `
                 </td>
                 <td
                   aria-selected="true"
-                  class="rdp-day rdp-range_middle rdp-selected"
+                  class="rdp-day rdp-selected rdp-range_middle"
                   data-day="2020-06-17"
                   data-selected="true"
                 >
@@ -383,7 +383,7 @@ exports[`should match the snapshot 1`] = `
                 </td>
                 <td
                   aria-selected="true"
-                  class="rdp-day rdp-range_middle rdp-selected"
+                  class="rdp-day rdp-selected rdp-range_middle"
                   data-day="2020-06-18"
                   data-selected="true"
                 >
@@ -398,7 +398,7 @@ exports[`should match the snapshot 1`] = `
                 </td>
                 <td
                   aria-selected="true"
-                  class="rdp-day rdp-range_end rdp-selected"
+                  class="rdp-day rdp-selected rdp-range_end"
                   data-day="2020-06-19"
                   data-selected="true"
                 >
