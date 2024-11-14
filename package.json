@@ -174,7 +174,8 @@
   ],
   "dependencies": {
     "@date-fns/tz": "^1.1.2",
-    "date-fns": "^4.1.0"
+    "date-fns": "^4.1.0",
+    "hijri-date": "^0.2.2"
   },
   "devDependencies": {
     "@jest/types": "^29.6.3",
