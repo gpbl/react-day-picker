@@ -79,6 +79,7 @@ html[data-theme="dark"] {
 .rdp-footer {
   margin: 1rem 0;
 }
+
 html[data-theme="dark"] .rdp-root {
   --rdp-accent-color: var(--ifm-color-primary);
   --rdp-accent-background-color: #073845;
