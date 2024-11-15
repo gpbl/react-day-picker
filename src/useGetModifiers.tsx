@@ -59,13 +59,14 @@ export function useGetModifiers(
       endMonth && isAfter(date, endOfMonth(endMonth))
     );
 
-    const isDisabled =
-      Boolean(disabled && dateMatchModifiers(date, disabled, dateLib)) ||
-      isBeforeStartMonth ||
-      isAfterEndMonth;
+    const isDisabled = Boolean(
+      disabled && dateMatchModifiers(date, disabled, dateLib)
+    );
 
     const isHidden =
       Boolean(hidden && dateMatchModifiers(date, hidden, dateLib)) ||
+      isBeforeStartMonth ||
+      isAfterEndMonth ||
       (!showOutsideDays && isOutside);
 
     const isToday = isSameDay(
