@@ -2,6 +2,8 @@ import type { DateLib } from "../classes/DateLib.js";
 import { CalendarWeek, CalendarDay, CalendarMonth } from "../classes/index.js";
 import type { DayPickerProps } from "../types/index.js";
 
+import { NrOfDaysWithFixedWeeks } from "./getDates.js";
+
 /** Return the months to display in the calendar. */
 export function getMonths(
   /** The months (as dates) to display in the calendar. */
@@ -37,10 +39,12 @@ export function getMonths(
         return date >= firstDateOfFirstWeek && date <= lastDateOfLastWeek;
       });
 
-      if (props.fixedWeeks && monthDates.length < 42) {
+      if (props.fixedWeeks && monthDates.length < NrOfDaysWithFixedWeeks) {
         const extraDates = dates.filter((date) => {
+          const daysToAdd = NrOfDaysWithFixedWeeks - monthDates.length;
           return (
-            date > lastDateOfLastWeek && date <= addDays(lastDateOfLastWeek, 7)
+            date > lastDateOfLastWeek &&
+            date <= addDays(lastDateOfLastWeek, daysToAdd)
           );
         });
         monthDates.push(...extraDates);
