@@ -69,6 +69,7 @@ export * from "./Testcase1567";
 export * from "./TestCase2047";
 export * from "./TestCase2389";
 export * from "./TestCase2511";
+export * from "./TestCase2585";
 export * from "./TimeZone";
 export * from "./Utc";
 export * from "./WeekIso";
