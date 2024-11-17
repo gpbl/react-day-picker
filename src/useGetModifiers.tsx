@@ -17,9 +17,27 @@ export function useGetModifiers(
   props: DayPickerProps,
   dateLib: DateLib
 ) {
-  const { disabled, hidden, modifiers, showOutsideDays, today } = props;
+  const {
+    disabled,
+    hidden,
+    modifiers,
+    showOutsideDays,
+    today,
+    startMonth,
+    endMonth
+  } = props;
 
-  const { isSameDay, isSameMonth } = dateLib;
+  const {
+    isSameDay,
+    isSameMonth,
+    startOfMonth,
+    isBefore,
+    endOfMonth,
+    isAfter
+  } = dateLib;
+
+  const computedStartMonth = startMonth && startOfMonth(startMonth);
+  const computedEndMonth = endMonth && endOfMonth(endMonth);
 
   const internalModifiersMap: Record<DayFlag, CalendarDay[]> = {
     [DayFlag.focused]: [],
@@ -36,12 +54,22 @@ export function useGetModifiers(
 
     const isOutside = Boolean(displayMonth && !isSameMonth(date, displayMonth));
 
+    const isBeforeStartMonth = Boolean(
+      computedStartMonth && isBefore(date, computedStartMonth)
+    );
+
+    const isAfterEndMonth = Boolean(
+      computedEndMonth && isAfter(date, computedEndMonth)
+    );
+
     const isDisabled = Boolean(
       disabled && dateMatchModifiers(date, disabled, dateLib)
     );
 
     const isHidden =
       Boolean(hidden && dateMatchModifiers(date, hidden, dateLib)) ||
+      isBeforeStartMonth ||
+      isAfterEndMonth ||
       (!showOutsideDays && isOutside);
 
     const isToday = isSameDay(
