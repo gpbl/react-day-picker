@@ -36,6 +36,9 @@ export function useGetModifiers(
     isAfter
   } = dateLib;
 
+  const computedStartMonth = startMonth && startOfMonth(startMonth);
+  const computedEndMonth = endMonth && endOfMonth(endMonth);
+
   const internalModifiersMap: Record<DayFlag, CalendarDay[]> = {
     [DayFlag.focused]: [],
     [DayFlag.outside]: [],
@@ -52,11 +55,11 @@ export function useGetModifiers(
     const isOutside = Boolean(displayMonth && !isSameMonth(date, displayMonth));
 
     const isBeforeStartMonth = Boolean(
-      startMonth && isBefore(date, startOfMonth(startMonth))
+      computedStartMonth && isBefore(date, computedStartMonth)
     );
 
     const isAfterEndMonth = Boolean(
-      endMonth && isAfter(date, endOfMonth(endMonth))
+      computedEndMonth && isAfter(date, computedEndMonth)
     );
 
     const isDisabled = Boolean(

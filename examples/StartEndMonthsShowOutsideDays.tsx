@@ -12,8 +12,8 @@ export function StartEndMonthsShowOutsideDays() {
       onSelect={setSelected}
       showOutsideDays={true}
       defaultMonth={new Date(2024, 2)}
-      startMonth={new Date(2024, 2)}
-      endMonth={new Date(2024, 2)}
+      startMonth={new Date(2024, 2, 30)}
+      endMonth={new Date(2024, 2, 1)}
       disabled={new Date(2024, 2, 10)}
     />
   );
