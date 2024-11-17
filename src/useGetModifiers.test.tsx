@@ -107,10 +107,15 @@ describe("useGetModifiers", () => {
   });
 
   describe("with startMonth and endMonth props", () => {
+    const startMonth = new Date(displayedMonth);
+    startMonth.setDate(30);
+    const endMonth = new Date(displayedMonth);
+    endMonth.setDate(1);
+
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const getModifiers = useGetModifiers(
       days,
-      { ...props, startMonth: displayedMonth, endMonth: displayedMonth },
+      { ...props, startMonth, endMonth },
       dateLib
     );
     test("return the modifiers for a given day", () => {
