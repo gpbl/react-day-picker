@@ -81,6 +81,7 @@ export function useCalendar(
     | "month"
     | "defaultMonth"
     | "timeZone"
+    | "broadcastCalendar"
     // Deprecated:
     | "fromMonth"
     | "fromYear"
@@ -116,7 +117,13 @@ export function useCalendar(
   );
 
   /** The Months displayed in the calendar. */
-  const months = getMonths(displayMonths, dates, props, dateLib);
+  const months = getMonths(
+    displayMonths,
+    dates,
+    props,
+    dateLib,
+    props.broadcastCalendar
+  );
 
   /** The Weeks displayed in the calendar. */
   const weeks = getWeeks(months);

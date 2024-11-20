@@ -250,6 +250,14 @@ export interface PropsBase {
    * @see https://daypicker.dev/docs/localization#iso-week-dates
    * @see https://en.wikipedia.org/wiki/ISO_week_date
    */
+  broadcastCalendar?: boolean;
+  /**
+   * Display the weeks in the month following broadcast calendar standard.
+   *
+   * Setting this prop will ignore {@link weekStartsOn} and {@link useFixedWeeks}.
+   *
+   * @defaultValue false
+   */
   ISOWeek?: boolean;
   /**
    * The time zone (IANA or UTC offset) to use in the calendar (experimental).

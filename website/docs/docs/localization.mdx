@@ -135,3 +135,27 @@ export function Jalali() {
 <BrowserWindow>
   <Examples.Jalali />
 </BrowserWindow>
+
+## Broadcast Calendar
+
+DayPicker supports the Broadcast Calendar. More Details in https://en.wikipedia.org/wiki/Broadcast_calendar
+
+:::warning Experimental Feature
+
+Support for the Broadcast calendar is an experimental feature. [Please report](https://github.com/gpbl/react-day-picker/issues) any issues you encounter. Thank you!
+
+:::
+
+```tsx title="./broadcastCalendar.jsx"
+import React from "react";
+
+import { DayPicker } from "react-day-picker";
+
+export default function App() {
+  return <DayPicker showOutsideDays showWeekNumber broadcastCalendar />;
+}
+```
+
+<BrowserWindow>
+  <Examples.BroadcastCalendar />
+</BrowserWindow>
