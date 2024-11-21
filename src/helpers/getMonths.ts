@@ -36,8 +36,6 @@ export function getMonths(
       if (broadcastCalendar) {
         firstDateOfFirstWeek = getBroadcastStartDate(month);
         lastDateOfLastWeek = getBroadcastEndDate(month);
-        console.log("firstDateOfFirstWeek", firstDateOfFirstWeek);
-        console.log("lastDateOfLastWeek", lastDateOfLastWeek);
       } else {
         firstDateOfFirstWeek = props.ISOWeek
           ? startOfISOWeek(month)
