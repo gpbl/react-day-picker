@@ -15,12 +15,12 @@ describe("Broadcast Date Functions", () => {
   test("getBroadcastStartDate should return correct start date", () => {
     // Test for a month starting on a Monday
     expect(getBroadcastStartDate(new Date(2023, 0, 1))).toEqual(
-      new Date(2022, 12, 26)
-    ); // January 2023
-    // Test for a month starting on a Sunday
-    expect(getBroadcastStartDate(new Date(2023, 0, 2))).toEqual(
-      new Date(2022, 12, 26)
-    ); // January 2023
+      new Date(2022, 11, 26)
+    ); // December 26 2022
+    // Test for a month starting on a Wednesday
+    expect(getBroadcastStartDate(new Date(2020, 0, 1))).toEqual(
+      new Date(2019, 11, 30)
+    ); // December 30 2019
   });
 
   test("getBroadcastEndDate should return correct end date", () => {
