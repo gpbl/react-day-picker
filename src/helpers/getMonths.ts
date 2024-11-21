@@ -3,6 +3,7 @@ import { CalendarWeek, CalendarDay, CalendarMonth } from "../classes/index.js";
 import type { DayPickerProps } from "../types/index.js";
 
 import { NrOfDaysWithFixedWeeks } from "./getDates.js";
+import { getBroadcastStartDate, getBroadcastEndDate } from "./getBroadcastCalendar.js";
 
 /** Return the months to display in the calendar. */
 export function getMonths(
@@ -12,7 +13,8 @@ export function getMonths(
   dates: Date[],
   /** Options from the props context. */
   props: Pick<DayPickerProps, "fixedWeeks" | "ISOWeek" | "reverseMonths">,
-  dateLib: DateLib
+  dateLib: DateLib,
+  broadcastCalendar: boolean = false
 ): CalendarMonth[] {
   const {
     startOfWeek,
@@ -26,14 +28,22 @@ export function getMonths(
   } = dateLib;
   const dayPickerMonths = displayMonths.reduce<CalendarMonth[]>(
     (months, month) => {
-      const firstDateOfFirstWeek = props.ISOWeek
-        ? startOfISOWeek(month)
-        : startOfWeek(month);
+      let firstDateOfFirstWeek: Date;
+      let lastDateOfLastWeek: Date;
+      if (broadcastCalendar) {
+        firstDateOfFirstWeek = getBroadcastStartDate(month);
+        lastDateOfLastWeek = getBroadcastEndDate(month);
+        console.log("firstDateOfFirstWeek", firstDateOfFirstWeek);
+        console.log("lastDateOfLastWeek", lastDateOfLastWeek);
+      } else {
+        firstDateOfFirstWeek = props.ISOWeek
+          ? startOfISOWeek(month)
+          : startOfWeek(month);
 
-      const lastDateOfLastWeek = props.ISOWeek
-        ? endOfISOWeek(endOfMonth(month))
-        : endOfWeek(endOfMonth(month));
-
+        lastDateOfLastWeek = props.ISOWeek
+          ? endOfISOWeek(endOfMonth(month))
+          : endOfWeek(endOfMonth(month));
+      }
       /** The dates to display in the month. */
       const monthDates = dates.filter((date) => {
         return date >= firstDateOfFirstWeek && date <= lastDateOfLastWeek;
