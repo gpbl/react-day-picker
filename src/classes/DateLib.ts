@@ -35,6 +35,8 @@ import {
 import type { Locale } from "date-fns/locale";
 import { enUS } from "date-fns/locale";
 
+import type { PropsBase } from "../types/props.js";
+
 export type { Locale } from "date-fns/locale";
 export type { Month as DateFnsMonth } from "date-fns";
 
