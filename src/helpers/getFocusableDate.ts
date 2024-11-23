@@ -5,11 +5,6 @@ import type {
   MoveFocusDir
 } from "../types/index.js";
 
-import {
-  startOfBroadcastWeek,
-  endOfBroadcastWeek
-} from "./broadcastCalendar.js";
-
 /** Return the next date that should be focused. */
 export function getFocusableDate(
   moveBy: MoveFocusBy,
@@ -24,14 +19,16 @@ export function getFocusableDate(
   const {
     addDays,
     addMonths,
-    addYears,
     addWeeks,
-    startOfISOWeek,
+    addYears,
+    endOfBroadcastWeek,
     endOfISOWeek,
-    startOfWeek,
     endOfWeek,
     max,
-    min
+    min,
+    startOfBroadcastWeek,
+    startOfISOWeek,
+    startOfWeek
   } = dateLib;
   const moveFns = {
     day: addDays,

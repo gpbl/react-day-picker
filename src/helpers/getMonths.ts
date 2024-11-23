@@ -2,11 +2,6 @@ import type { DateLib } from "../classes/DateLib.js";
 import { CalendarWeek, CalendarDay, CalendarMonth } from "../classes/index.js";
 import type { DayPickerProps } from "../types/index.js";
 
-import {
-  startOfBroadcastWeek,
-  endOfBroadcastWeek
-} from "./broadcastCalendar.js";
-
 /** Return the months to display in the calendar. */
 export function getMonths(
   /** The months (as dates) to display in the calendar. */
@@ -28,6 +23,8 @@ export function getMonths(
     endOfMonth,
     addDays,
     getWeek,
+    startOfBroadcastWeek,
+    endOfBroadcastWeek,
     getISOWeek
   } = dateLib;
   const dayPickerMonths = displayMonths.reduce<CalendarMonth[]>(
