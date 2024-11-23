@@ -15,9 +15,11 @@ export function getMonths(
   /** The dates to display in the calendar. */
   dates: Date[],
   /** Options from the props context. */
-  props: Pick<DayPickerProps, "fixedWeeks" | "ISOWeek" | "reverseMonths">,
-  dateLib: DateLib,
-  broadcastCalendar: boolean = false
+  props: Pick<
+    DayPickerProps,
+    "broadcastCalendar" | "fixedWeeks" | "ISOWeek" | "reverseMonths"
+  >,
+  dateLib: DateLib
 ): CalendarMonth[] {
   const {
     startOfWeek,
@@ -33,9 +35,10 @@ export function getMonths(
     (months, month) => {
       let firstDateOfFirstWeek: Date;
       let lastDateOfLastWeek: Date;
-      if (broadcastCalendar) {
-        firstDateOfFirstWeek = getBroadcastStartDate(month);
-        lastDateOfLastWeek = getBroadcastEndDate(month);
+      
+      if (props.broadcastCalendar) {
+        firstDateOfFirstWeek = startOfBroadcastWeek(month);
+        lastDateOfLastWeek = endOfBroadcastWeek(month);
       } else {
         firstDateOfFirstWeek = props.ISOWeek
           ? startOfISOWeek(month)

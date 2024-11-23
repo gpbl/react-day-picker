@@ -117,13 +117,7 @@ export function useCalendar(
   );
 
   /** The Months displayed in the calendar. */
-  const months = getMonths(
-    displayMonths,
-    dates,
-    props,
-    dateLib,
-    props.broadcastCalendar
-  );
+  const months = getMonths(displayMonths, dates, props, dateLib);
 
   /** The Weeks displayed in the calendar. */
   const weeks = getWeeks(months);
