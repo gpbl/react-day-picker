@@ -1,8 +1,6 @@
-import {
-  getBroadcastWeeksInMonth,
-  startOfBroadcastWeek,
-  endOfBroadcastWeek
-} from "./broadcastCalendar";
+import { getBroadcastWeeksInMonth } from "./getBroadcastWeeksInMonth";
+import { endOfBroadcastWeek } from "./endOfBroadcastWeek";
+import { startOfBroadcastWeek } from "./startOfBroadcastWeek";
 
 describe("broadcastCalendar", () => {
   test("getBroadcastWeeksInMonth should return correct number of weeks", () => {

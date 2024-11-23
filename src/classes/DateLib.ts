@@ -35,10 +35,8 @@ import {
 import type { Locale } from "date-fns/locale";
 import { enUS } from "date-fns/locale";
 
-import {
-  endOfBroadcastWeek,
-  startOfBroadcastWeek
-} from "../helpers/broadcastCalendar.js";
+import { endOfBroadcastWeek } from "../helpers/endOfBroadcastWeek.js";
+import { startOfBroadcastWeek } from "../helpers/startOfBroadcastWeek.js";
 import type { PropsBase } from "../types/props.js";
 
 export type { Locale } from "date-fns/locale";
