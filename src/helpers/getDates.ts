@@ -1,20 +1,17 @@
 import { type DateLib } from "../classes/DateLib.js";
 import { type DayPickerProps } from "../types/props.js";
 
-/** The number of days in a month when having 6 weeks. */
-export const NrOfDaysWithFixedWeeks = 42;
-
 /** Return all the dates to display in the calendar. */
 export function getDates(
   displayMonths: Date[],
   maxDate: Date | undefined,
-  props: Pick<DayPickerProps, "ISOWeek" | "fixedWeeks">,
+  props: Pick<DayPickerProps, "ISOWeek" | "fixedWeeks" | "broadcastCalendar">,
   dateLib: DateLib
 ): Date[] {
   const firstMonth = displayMonths[0];
   const lastMonth = displayMonths[displayMonths.length - 1];
 
-  const { ISOWeek, fixedWeeks } = props ?? {};
+  const { ISOWeek, fixedWeeks, broadcastCalendar } = props ?? {};
   const {
     startOfWeek,
     endOfWeek,
@@ -48,7 +45,8 @@ export function getDates(
   }
 
   // If fixed weeks is enabled, add the extra dates to the array
-  const extraDates = NrOfDaysWithFixedWeeks * nOfMonths;
+  const nrOfDaysWithFixedWeeks = broadcastCalendar ? 35 : 42;
+  const extraDates = nrOfDaysWithFixedWeeks * nOfMonths;
   if (fixedWeeks && dates.length < extraDates) {
     const daysToAdd = extraDates - dates.length;
     for (let i = 0; i < daysToAdd; i++) {

@@ -6,7 +6,6 @@ import {
   startOfBroadcastWeek,
   endOfBroadcastWeek
 } from "./broadcastCalendar.js";
-import { NrOfDaysWithFixedWeeks } from "./getDates.js";
 
 /** Return the months to display in the calendar. */
 export function getMonths(
@@ -49,9 +48,11 @@ export function getMonths(
         return date >= firstDateOfFirstWeek && date <= lastDateOfLastWeek;
       });
 
-      if (props.fixedWeeks && monthDates.length < NrOfDaysWithFixedWeeks) {
+      const nrOfDaysWithFixedWeeks = props.broadcastCalendar ? 35 : 42;
+
+      if (props.fixedWeeks && monthDates.length < nrOfDaysWithFixedWeeks) {
         const extraDates = dates.filter((date) => {
-          const daysToAdd = NrOfDaysWithFixedWeeks - monthDates.length;
+          const daysToAdd = nrOfDaysWithFixedWeeks - monthDates.length;
           return (
             date > lastDateOfLastWeek &&
             date <= addDays(lastDateOfLastWeek, daysToAdd)
