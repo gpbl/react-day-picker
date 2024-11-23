@@ -244,19 +244,19 @@ export interface PropsBase {
    */
   showWeekNumber?: boolean;
   /**
+   * Display the weeks in the month following the broadcast calendar. Setting
+   * this prop will ignore {@link weekStartsOn} and {@link fixedWeeks}.
+   *
+   * @see https://daypicker.dev/docs/customization#broadcast-calendar
+   * @see https://en.wikipedia.org/wiki/Broadcast_calendar
+   */
+  broadcastCalendar?: boolean;
+  /**
    * Use ISO week dates instead of the locale setting. Setting this prop will
    * ignore `weekStartsOn` and `firstWeekContainsDate`.
    *
    * @see https://daypicker.dev/docs/localization#iso-week-dates
    * @see https://en.wikipedia.org/wiki/ISO_week_date
-   */
-  broadcastCalendar?: boolean;
-  /**
-   * Display the weeks in the month following broadcast calendar standard.
-   *
-   * Setting this prop will ignore {@link weekStartsOn} and {@link useFixedWeeks}.
-   *
-   * @defaultValue false
    */
   ISOWeek?: boolean;
   /**
