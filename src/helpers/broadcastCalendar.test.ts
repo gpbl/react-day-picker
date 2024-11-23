@@ -4,7 +4,7 @@ import {
   endOfBroadcastWeek
 } from "./broadcastCalendar";
 
-describe("Broadcast Date Functions", () => {
+describe("broadcastCalendar", () => {
   test("getBroadcastWeeksInMonth should return correct number of weeks", () => {
     // Test for a month with 5 weeks
     expect(getBroadcastWeeksInMonth(new Date(2023, 0, 1))).toBe(5); // January 2023
@@ -12,7 +12,7 @@ describe("Broadcast Date Functions", () => {
     expect(getBroadcastWeeksInMonth(new Date(2023, 1, 1))).toBe(4); // February 2023
   });
 
-  test("getBroadcastStartDate should return correct start date", () => {
+  test("startOfBroadcastWeek should return correct start date", () => {
     // Test for a month starting on a Monday
     expect(startOfBroadcastWeek(new Date(2023, 0, 1))).toEqual(
       new Date(2022, 11, 26)
@@ -23,7 +23,7 @@ describe("Broadcast Date Functions", () => {
     ); // December 30 2019
   });
 
-  test("getBroadcastEndDate should return correct end date", () => {
+  test("endOfBroadcastWeek should return correct end date", () => {
     const startDate = startOfBroadcastWeek(new Date(2023, 0, 1));
     expect(endOfBroadcastWeek(new Date(2023, 0, 1))).toEqual(
       new Date(
