@@ -230,6 +230,8 @@ export interface PropsBase {
   /**
    * Show the outside days (days falling in the next or the previous month).
    *
+   * **Note:** when {@link broadcastCalendar} is set, this prop defaults to true.
+   *
    * @see https://daypicker.dev/docs/customization#outside-days
    */
   showOutsideDays?: boolean;
@@ -245,7 +247,8 @@ export interface PropsBase {
   showWeekNumber?: boolean;
   /**
    * Display the weeks in the month following the broadcast calendar. Setting
-   * this prop will ignore {@link weekStartsOn} (always Monday).
+   * this prop will ignore {@link weekStartsOn} (always Monday) and
+   * {@link showOutsideDays} will default to true.
    *
    * @see https://daypicker.dev/docs/localization#broadcast-calendar
    * @see https://en.wikipedia.org/wiki/Broadcast_calendar
