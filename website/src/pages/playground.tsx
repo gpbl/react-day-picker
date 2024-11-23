@@ -386,6 +386,7 @@ export default function Playground() {
                 Weeks starts on:
                 <select
                   name="weekStartsOn"
+                  disabled={props.broadcastCalendar}
                   onChange={(e) =>
                     setProps({
                       ...props,
@@ -428,7 +429,18 @@ export default function Playground() {
               <label>
                 <input
                   type="checkbox"
+                  name="broadcastCalendar"
+                  onChange={(e) =>
+                    setProps({ ...props, broadcastCalendar: e.target.checked })
+                  }
+                />
+                Broadcast Calendar
+              </label>
+              <label>
+                <input
+                  type="checkbox"
                   name="ISOWeek"
+                  disabled={props.broadcastCalendar}
                   onChange={(e) =>
                     setProps({ ...props, ISOWeek: e.target.checked })
                   }
