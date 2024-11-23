@@ -1,3 +1,4 @@
+/** Return the number of weeks to display in the broadcast calendar. */
 export function getBroadcastWeeksInMonth(month: Date): number {
   const NUMBER_OF_5_WEEKS = 5;
   const NUMBER_OF_4_WEEKS = 4;
@@ -22,6 +23,7 @@ export function getBroadcastWeeksInMonth(month: Date): number {
   return numberOfWeeks;
 }
 
+/** Return the start date of the week in the broadcast calendar. */
 export function startOfBroadcastWeek(date: Date): Date {
   const year = date.getFullYear();
   const month = date.getMonth();
@@ -42,6 +44,7 @@ export function startOfBroadcastWeek(date: Date): Date {
   }
 }
 
+/** Return the end date of the week in the broadcast calendar. */
 export function endOfBroadcastWeek(date: Date): Date {
   const startDate = startOfBroadcastWeek(date);
   // end date based on the weeks to show, it is calculated by getBroadcastWeeksInMonth

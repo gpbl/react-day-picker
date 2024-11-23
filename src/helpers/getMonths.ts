@@ -35,7 +35,7 @@ export function getMonths(
     (months, month) => {
       let firstDateOfFirstWeek: Date;
       let lastDateOfLastWeek: Date;
-      
+
       if (props.broadcastCalendar) {
         firstDateOfFirstWeek = startOfBroadcastWeek(month);
         lastDateOfLastWeek = endOfBroadcastWeek(month);
