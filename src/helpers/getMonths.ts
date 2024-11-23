@@ -3,9 +3,9 @@ import { CalendarWeek, CalendarDay, CalendarMonth } from "../classes/index.js";
 import type { DayPickerProps } from "../types/index.js";
 
 import {
-  getBroadcastStartDate,
-  getBroadcastEndDate
-} from "./getBroadcastCalendar.js";
+  startOfBroadcastWeek,
+  endOfBroadcastWeek
+} from "./broadcastCalendar.js";
 import { NrOfDaysWithFixedWeeks } from "./getDates.js";
 
 /** Return the months to display in the calendar. */

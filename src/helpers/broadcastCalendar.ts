@@ -1,6 +1,7 @@
-export const getBroadcastWeeksInMonth = (month: Date): number => {
+export function getBroadcastWeeksInMonth(month: Date): number {
   const NUMBER_OF_5_WEEKS = 5;
   const NUMBER_OF_4_WEEKS = 4;
+
   const firstDayOfMonth = new Date(month.getFullYear(), month.getMonth(), 1);
   const dayOfWeekOfFirstDayOfMonth =
     firstDayOfMonth.getDay() > 0 ? firstDayOfMonth.getDay() : 7;
@@ -19,9 +20,9 @@ export const getBroadcastWeeksInMonth = (month: Date): number => {
       ? NUMBER_OF_5_WEEKS
       : NUMBER_OF_4_WEEKS;
   return numberOfWeeks;
-};
+}
 
-export const getBroadcastStartDate = (date: Date): Date => {
+export function startOfBroadcastWeek(date: Date): Date {
   const year = date.getFullYear();
   const month = date.getMonth();
 
@@ -39,10 +40,10 @@ export const getBroadcastStartDate = (date: Date): Date => {
     const startDate = new Date(year, month, 1 - dayOfWeek + 1);
     return startDate;
   }
-};
+}
 
-export const getBroadcastEndDate = (date: Date): Date => {
-  const startDate = getBroadcastStartDate(date);
+export function endOfBroadcastWeek(date: Date): Date {
+  const startDate = startOfBroadcastWeek(date);
   // end date based on the weeks to show, it is calculated by getBroadcastWeeksInMonth
   const numberOfWeeks = getBroadcastWeeksInMonth(date);
   const endDate = new Date(
@@ -51,4 +52,4 @@ export const getBroadcastEndDate = (date: Date): Date => {
     startDate.getDate() + numberOfWeeks * 7 - 1
   );
   return endDate;
-};
+}
