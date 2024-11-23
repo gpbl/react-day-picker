@@ -63,7 +63,6 @@ export function DayPicker(props: DayPickerProps) {
         formatters: getFormatters(props.formatters),
         labels: { ...defaultLabels, ...props.labels },
         locale,
-        broadcastCalendar: props.broadcastCalendar,
         classNames: { ...getDefaultClassNames(), ...props.classNames }
       };
     }, [
