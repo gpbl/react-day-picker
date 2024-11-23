@@ -49,7 +49,7 @@ export function DayPicker(props: DayPickerProps) {
       const dateLib = new DateLib(
         {
           locale,
-          weekStartsOn: props.weekStartsOn,
+          weekStartsOn: props.broadcastCalendar ? 1 : props.weekStartsOn,
           firstWeekContainsDate: props.firstWeekContainsDate,
           useAdditionalWeekYearTokens: props.useAdditionalWeekYearTokens,
           useAdditionalDayOfYearTokens: props.useAdditionalDayOfYearTokens
@@ -75,7 +75,8 @@ export function DayPicker(props: DayPickerProps) {
       props.locale,
       props.useAdditionalDayOfYearTokens,
       props.useAdditionalWeekYearTokens,
-      props.weekStartsOn
+      props.weekStartsOn,
+      props.broadcastCalendar
     ]);
 
   const {
