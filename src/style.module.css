@@ -57,6 +57,10 @@
   --rdp-gradient-direction: -90deg;
 }
 
+.root[data-broadcast-calendar="true"] {
+  --rdp-outside-opacity: unset;
+}
+
 /* Root of the component. */
 .root {
   position: relative; /* Required to position the navigation toolbar. */
