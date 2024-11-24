@@ -1,33 +1,30 @@
-import type { DateLib } from "../classes/index.js";
+import { DateLib } from "../classes/index.js";
+
+const FIVE_WEEKS = 5;
+const FOUR_WEEKS = 4;
 
 /** Return the number of weeks to display in the broadcast calendar. */
 export function getBroadcastWeeksInMonth(
   month: Date,
   dateLib: DateLib
 ): number {
-  const NUMBER_OF_5_WEEKS = 5;
-  const NUMBER_OF_4_WEEKS = 4;
+  // Get the first day of the month
+  const firstDayOfMonth = dateLib.startOfMonth(month);
 
-  const firstDayOfMonth = new dateLib.Date(
-    month.getFullYear(),
-    month.getMonth(),
-    1
-  );
-  const dayOfWeekOfFirstDayOfMonth =
+  // Get the day of the week for the first day of the month (1-7, where 1 is Monday)
+  const firstDayOfWeek =
     firstDayOfMonth.getDay() > 0 ? firstDayOfMonth.getDay() : 7;
-  const beginDate = new dateLib.Date(
-    month.getFullYear(),
-    month.getMonth(),
-    month.getDate() - dayOfWeekOfFirstDayOfMonth + 1
+
+  const broadcastStartDate = dateLib.addDays(month, -firstDayOfWeek + 1);
+
+  const lastDateOfLastWeek = dateLib.addDays(
+    broadcastStartDate,
+    FIVE_WEEKS * 7 - 1
   );
   const numberOfWeeks =
-    month.getMonth() ===
-    new dateLib.Date(
-      beginDate.getFullYear(),
-      beginDate.getMonth(),
-      beginDate.getDate() + NUMBER_OF_5_WEEKS * 7 - 1
-    ).getMonth()
-      ? NUMBER_OF_5_WEEKS
-      : NUMBER_OF_4_WEEKS;
+    month.getMonth() === lastDateOfLastWeek.getMonth()
+      ? FIVE_WEEKS
+      : FOUR_WEEKS;
+
   return numberOfWeeks;
 }
