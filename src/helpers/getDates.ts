@@ -33,7 +33,7 @@ export function getDates(
       : startOfWeek(firstMonth);
 
   const endWeekLastDate = broadcastCalendar
-    ? endOfBroadcastWeek(firstMonth, dateLib)
+    ? endOfBroadcastWeek(lastMonth, dateLib)
     : ISOWeek
       ? endOfISOWeek(endOfMonth(lastMonth))
       : endOfWeek(endOfMonth(lastMonth));
