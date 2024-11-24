@@ -109,6 +109,11 @@
   border: 0;
 }
 
+.rdp-dropdown:focus-visible ~ .rdp-caption_label {
+  outline: 5px auto Highlight;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
 .rdp-button_next,
 .rdp-button_previous {
   border: none;
