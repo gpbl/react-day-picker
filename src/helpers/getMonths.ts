@@ -2,12 +2,6 @@ import type { DateLib } from "../classes/DateLib.js";
 import { CalendarWeek, CalendarDay, CalendarMonth } from "../classes/index.js";
 import type { DayPickerProps } from "../types/index.js";
 
-import {
-  startOfBroadcastWeek,
-  endOfBroadcastWeek
-} from "./broadcastCalendar.js";
-import { NrOfDaysWithFixedWeeks } from "./getDates.js";
-
 /** Return the months to display in the calendar. */
 export function getMonths(
   /** The months (as dates) to display in the calendar. */
@@ -22,36 +16,41 @@ export function getMonths(
   dateLib: DateLib
 ): CalendarMonth[] {
   const {
-    startOfWeek,
-    endOfWeek,
-    startOfISOWeek,
+    addDays,
+    endOfBroadcastWeek,
     endOfISOWeek,
     endOfMonth,
-    addDays,
+    endOfWeek,
+    getISOWeek,
     getWeek,
-    getISOWeek
+    startOfBroadcastWeek,
+    startOfISOWeek,
+    startOfWeek
   } = dateLib;
   const dayPickerMonths = displayMonths.reduce<CalendarMonth[]>(
     (months, month) => {
       const firstDateOfFirstWeek = props.broadcastCalendar
-        ? startOfBroadcastWeek(month)
+        ? startOfBroadcastWeek(month, dateLib)
         : props.ISOWeek
           ? startOfISOWeek(month)
           : startOfWeek(month);
 
       const lastDateOfLastWeek = props.broadcastCalendar
-        ? endOfBroadcastWeek(month)
+        ? endOfBroadcastWeek(month, dateLib)
         : props.ISOWeek
           ? endOfISOWeek(endOfMonth(month))
           : endOfWeek(endOfMonth(month));
+
       /** The dates to display in the month. */
       const monthDates = dates.filter((date) => {
         return date >= firstDateOfFirstWeek && date <= lastDateOfLastWeek;
       });
 
-      if (props.fixedWeeks && monthDates.length < NrOfDaysWithFixedWeeks) {
+      const nrOfDaysWithFixedWeeks = props.broadcastCalendar ? 35 : 42;
+
+      if (props.fixedWeeks && monthDates.length < nrOfDaysWithFixedWeeks) {
         const extraDates = dates.filter((date) => {
-          const daysToAdd = NrOfDaysWithFixedWeeks - monthDates.length;
+          const daysToAdd = nrOfDaysWithFixedWeeks - monthDates.length;
           return (
             date > lastDateOfLastWeek &&
             date <= addDays(lastDateOfLastWeek, daysToAdd)
@@ -77,7 +76,6 @@ export function getMonths(
       );
 
       const dayPickerMonth = new CalendarMonth(month, weeks);
-
       months.push(dayPickerMonth);
       return months;
     },

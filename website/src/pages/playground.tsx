@@ -118,6 +118,7 @@ export default function Playground() {
                 <input
                   type="checkbox"
                   name="showOutsideDays"
+                  checked={props.showOutsideDays}
                   onChange={(e) =>
                     setProps({ ...props, showOutsideDays: e.target.checked })
                   }
@@ -395,6 +396,7 @@ export default function Playground() {
                 <select
                   name="weekStartsOn"
                   disabled={props.broadcastCalendar}
+                  value={props.weekStartsOn}
                   onChange={(e) =>
                     setProps({
                       ...props,
@@ -437,16 +439,6 @@ export default function Playground() {
               <label>
                 <input
                   type="checkbox"
-                  name="broadcastCalendar"
-                  onChange={(e) =>
-                    setProps({ ...props, broadcastCalendar: e.target.checked })
-                  }
-                />
-                Broadcast Calendar
-              </label>
-              <label>
-                <input
-                  type="checkbox"
                   name="ISOWeek"
                   disabled={props.broadcastCalendar}
                   onChange={(e) =>
@@ -467,6 +459,23 @@ export default function Playground() {
                   }
                 />
                 Right-to-left direction
+              </label>
+
+              <label>
+                <input
+                  type="checkbox"
+                  name="broadcastCalendar"
+                  onChange={(e) =>
+                    setProps({
+                      ...props,
+                      broadcastCalendar: e.target.checked,
+                      showOutsideDays: e.target.checked
+                        ? true
+                        : props.showOutsideDays
+                    })
+                  }
+                />
+                Broadcast Calendar
               </label>
             </div>
           </fieldset>
