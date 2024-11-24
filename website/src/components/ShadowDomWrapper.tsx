@@ -1,4 +1,4 @@
-import style from "!raw-loader!react-day-picker/style.css";
+import style from "!raw-loader!react-day-picker/src/style.css";
 import { useColorMode } from "@docusaurus/theme-common";
 import root from "react-shadow";
 
