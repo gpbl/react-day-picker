@@ -4,10 +4,7 @@ const FIVE_WEEKS = 5;
 const FOUR_WEEKS = 4;
 
 /** Return the number of weeks to display in the broadcast calendar. */
-export function getBroadcastWeeksInMonth(
-  month: Date,
-  dateLib: DateLib
-): number {
+export function getBroadcastWeeksInMonth(month: Date, dateLib: DateLib): 4 | 5 {
   // Get the first day of the month
   const firstDayOfMonth = dateLib.startOfMonth(month);
 
