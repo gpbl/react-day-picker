@@ -62,7 +62,6 @@ export function getMonths(
       const weeks: CalendarWeek[] = monthDates.reduce<CalendarWeek[]>(
         (weeks, date) => {
           const weekNumber = props.ISOWeek ? getISOWeek(date) : getWeek(date);
-          console.log(weekNumber);
           const week = weeks.find((week) => week.weekNumber === weekNumber);
 
           const day = new CalendarDay(date, month, dateLib);
