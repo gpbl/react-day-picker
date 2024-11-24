@@ -16,16 +16,16 @@ export function getMonths(
   dateLib: DateLib
 ): CalendarMonth[] {
   const {
-    startOfWeek,
-    endOfWeek,
-    startOfISOWeek,
+    addDays,
+    endOfBroadcastWeek,
     endOfISOWeek,
     endOfMonth,
-    addDays,
+    endOfWeek,
+    getISOWeek,
     getWeek,
     startOfBroadcastWeek,
-    endOfBroadcastWeek,
-    getISOWeek
+    startOfISOWeek,
+    startOfWeek
   } = dateLib;
   const dayPickerMonths = displayMonths.reduce<CalendarMonth[]>(
     (months, month) => {
@@ -62,6 +62,7 @@ export function getMonths(
       const weeks: CalendarWeek[] = monthDates.reduce<CalendarWeek[]>(
         (weeks, date) => {
           const weekNumber = props.ISOWeek ? getISOWeek(date) : getWeek(date);
+          console.log(weekNumber);
           const week = weeks.find((week) => week.weekNumber === weekNumber);
 
           const day = new CalendarDay(date, month, dateLib);
@@ -76,7 +77,6 @@ export function getMonths(
       );
 
       const dayPickerMonth = new CalendarMonth(month, weeks);
-
       months.push(dayPickerMonth);
       return months;
     },
