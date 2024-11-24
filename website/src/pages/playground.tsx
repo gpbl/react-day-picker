@@ -1,5 +1,6 @@
 import React from "react";
 
+import Head from "@docusaurus/Head";
 import Layout from "@theme/Layout";
 import {
   DateRange,
@@ -69,8 +70,9 @@ export default function Playground() {
 
   return (
     <Layout>
-      <style>
-        {`
+      <Head>
+        <style>
+          {`
           .rdp-root,
           [data-theme="dark"] .rdp-root {
             ${accentColor ? `--rdp-accent-color: ${accentColor} !important` : ""};
@@ -78,7 +80,13 @@ export default function Playground() {
             ${rangeMiddleColor ? `--rdp-range_middle-color: ${rangeMiddleColor} !important` : ""};
           }
         `}
-      </style>
+        </style>
+        <title>DayPicker Playground</title>
+        <meta
+          name="description"
+          content="Customize the DayPicker component and see the code changes in real time."
+        />
+      </Head>
       <div className={styles.playground}>
         <h1>Playground</h1>
         <form className={styles.form}>
