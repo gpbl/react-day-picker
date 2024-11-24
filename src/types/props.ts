@@ -250,6 +250,7 @@ export interface PropsBase {
    * this prop will ignore {@link weekStartsOn} (always Monday) and
    * {@link showOutsideDays} will default to true.
    *
+   * @since 9.4.0
    * @see https://daypicker.dev/docs/localization#broadcast-calendar
    * @see https://en.wikipedia.org/wiki/Broadcast_calendar
    */

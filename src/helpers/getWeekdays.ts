@@ -12,6 +12,7 @@ export function getWeekdays(
   /** Use ISOWeek instead of locale/ */
   ISOWeek?: boolean | undefined,
   timeZone?: string | undefined,
+  /** @since 9.4.0 */
   broadcastCalendar?: boolean | undefined
 ): Date[] {
   const date = timeZone
