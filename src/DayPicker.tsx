@@ -1,10 +1,5 @@
 import React, { useCallback, useMemo } from "react";
-import type {
-  ChangeEventHandler,
-  MouseEvent,
-  FocusEvent,
-  KeyboardEvent
-} from "react";
+import type { MouseEvent, FocusEvent, KeyboardEvent, ChangeEvent } from "react";
 
 import { UI, DayFlag, SelectionState } from "./UI.js";
 import type { CalendarDay } from "./classes/CalendarDay.js";
@@ -227,6 +222,24 @@ export function DayPicker(props: DayPickerProps) {
     [onDayMouseLeave]
   );
 
+  const handleMonthChange = useCallback(
+    (date: Date) => (e: ChangeEvent<HTMLSelectElement>) => {
+      const selectedMonth = Number(e.target.value);
+      const month = dateLib.setMonth(dateLib.startOfMonth(date), selectedMonth);
+      goToMonth(month);
+    },
+    [dateLib, goToMonth]
+  );
+
+  const handleYearChange = useCallback(
+    (date: Date) => (e: ChangeEvent<HTMLSelectElement>) => {
+      const selectedYear = Number(e.target.value);
+      const month = dateLib.setYear(dateLib.startOfMonth(date), selectedYear);
+      goToMonth(month);
+    },
+    [dateLib, goToMonth]
+  );
+
   const { className, style } = useMemo(
     () => ({
       className: [classNames[UI.Root], props.className]
@@ -284,29 +297,6 @@ export function DayPicker(props: DayPickerProps) {
             />
           )}
           {months.map((calendarMonth, displayIndex) => {
-            const handleMonthChange: ChangeEventHandler<HTMLSelectElement> = (
-              e
-            ) => {
-              const selectedMonth = Number(
-                (e.target as HTMLSelectElement).value
-              );
-              const month = dateLib.setMonth(
-                dateLib.startOfMonth(calendarMonth.date),
-                selectedMonth
-              );
-              goToMonth(month);
-            };
-
-            const handleYearChange: ChangeEventHandler<HTMLSelectElement> = (
-              e
-            ) => {
-              const month = dateLib.setYear(
-                dateLib.startOfMonth(calendarMonth.date),
-                Number(e.target.value)
-              );
-              goToMonth(month);
-            };
-
             const dropdownMonths = getMonthOptions(
               calendarMonth.date,
               navStart,
@@ -350,7 +340,7 @@ export function DayPicker(props: DayPickerProps) {
                           classNames={classNames}
                           components={components}
                           disabled={Boolean(props.disableNavigation)}
-                          onChange={handleMonthChange}
+                          onChange={handleMonthChange(calendarMonth.date)}
                           options={dropdownMonths}
                           style={styles?.[UI.Dropdown]}
                           value={calendarMonth.date.getMonth()}
@@ -371,7 +361,7 @@ export function DayPicker(props: DayPickerProps) {
                           classNames={classNames}
                           components={components}
                           disabled={Boolean(props.disableNavigation)}
-                          onChange={handleYearChange}
+                          onChange={handleYearChange(calendarMonth.date)}
                           options={dropdownYears}
                           style={styles?.[UI.Dropdown]}
                           value={calendarMonth.date.getFullYear()}
