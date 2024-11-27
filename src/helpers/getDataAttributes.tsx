@@ -10,7 +10,8 @@ export function getDataAttributes(
     "data-multiple-months":
       (props.numberOfMonths && props.numberOfMonths > 1) || undefined,
     "data-week-numbers": props.showWeekNumber || undefined,
-    "data-animate": props.animate ?? undefined
+    "data-animate": props.animate ?? undefined,
+    "data-broadcast-calendar": props.broadcastCalendar || undefined
   };
   Object.entries(props).forEach(([key, val]) => {
     if (key.startsWith("data-")) {

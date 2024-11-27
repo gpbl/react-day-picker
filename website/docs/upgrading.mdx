@@ -264,33 +264,34 @@ See also the source of [types/deprecated.ts](https://github.com/gpbl/react-day-p
 <details>
   <summary>**List of Deprecated Types**</summary>
 
-| Deprecated Type                | Deprecation Reason                                                                                                          |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
-| ~`Caption`~                    | This component has been renamed. Use [`MonthCaption`](./api/functions/MonthCaption.md) instead.                             |
-| ~`HeadRow`~                    | This component has been removed.                                                                                            |
-| ~`Row`~                        | This component has been renamed. Use [`Week`](./api/functions/Week.md) instead.                                             |
-| ~`DayPickerSingleProps`~       | This type has been renamed. Use [`PropsSingle`](./api/interfaces/PropsSingle.md) instead.                                   |
-| ~`DayPickerMultipleProps`~     | This type has been renamed. Use [`PropsMulti`](./api/interfaces/PropsMulti.md) instead.                                     |
-| ~`DayPickerRangeProps`~        | This type has been renamed. Use [`PropsRange`](./api/interfaces/PropsRange.md) instead.                                     |
-| ~`DayPickerDefaultProps`~      | This type has been renamed. Use [`PropsBase`](./api/interfaces/PropsBase.md) instead.                                       |
-| ~`DaySelectionMode`~           | This type has been renamed. Use [`Mode`](./api/type-aliases/Mode.md) instead.                                               |
-| ~`Modifier`~                   | This type will be removed. Use `string` instead.                                                                            |
-| ~`SelectSingleEventHandler`~   | This type will be removed. Use [`PropsSingle["onSelect]`](./api/interfaces/PropsSingle.md) instead.                         |
-| ~`SelectMultipleEventHandler`~ | This type will be removed. Use [`PropsMulti["onSelect]`](./api/interfaces/PropsMulti.md) instead.                           |
-| ~`SelectRangeEventHandler`~    | This type will be removed. Use [`PropsRange["onSelect]`](./api/interfaces/PropsRange.md) instead.                           |
-| ~`DayPickerProviderProps`~     | This type is not used anymore.                                                                                              |
-| ~`useNavigation`~              | This type has been included in [`useDayPicker`](./api/functions/useDayPicker.md).                                           |
-| ~`useDayRender`~               | This hook has been removed. To customize the rendering of a day, use the `htmlAttributes` prop in a custom `Day` component. |
-| ~`ContextProvidersProps`~      | This type is not used anymore.                                                                                              |
-| ~`DayLabel`~                   | Use `typeof labelDay` instead.                                                                                              |
-| ~`NavButtonLabel`~             | Use `typeof labelNext` or `typeof labelPrevious` instead.                                                                   |
-| ~`WeekdayLabel`~               | Use `typeof labelWeekday` instead.                                                                                          |
-| ~`WeekNumberLabel`~            | Use `typeof labelWeekNumber` instead.                                                                                       |
-| ~`DayClickEventHandler`~       | Use `DayMouseEventHandler` instead.                                                                                         |
-| ~`DayFocusEventHandler`~       | This type will be removed. Use `DayEventHandler<React.FocusEvent \| React.KeyboardEvent>` instead.                          |
-| ~`DayKeyboardEventHandler`~    | This type will be removed. Use `DayEventHandler<React.KeyboardEvent>` instead.                                              |
-| ~`DayMouseEventHandler`~       | This type will be removed. Use `DayEventHandler<React.MouseEvent>` instead.                                                 |
-| ~`DayPointerEventHandler`~     | This type will be removed. Use `DayEventHandler<React.PointerEvent>` instead.                                               |
-| ~`DayTouchEventHandler`~       | This type will be removed. Use `DayEventHandler<React.TouchEvent>` instead.                                                 |
+| Deprecated Type                | Deprecation Reason                                                                                                              |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| ~`Caption`~                    | This component has been renamed. Use [`MonthCaption`](./api/functions/MonthCaption.md) instead.                                 |
+| ~`HeadRow`~                    | This component has been removed.                                                                                                |
+| ~`Row`~                        | This component has been renamed. Use [`Week`](./api/functions/Week.md) instead.                                                 |
+| ~`DayPickerSingleProps`~       | This type has been renamed. Use [`PropsSingle`](./api/interfaces/PropsSingle.md) instead.                                       |
+| ~`DayPickerMultipleProps`~     | This type has been renamed. Use [`PropsMulti`](./api/interfaces/PropsMulti.md) instead.                                         |
+| ~`DayPickerRangeProps`~        | This type has been renamed. Use [`PropsRange`](./api/interfaces/PropsRange.md) instead.                                         |
+| ~`DayPickerDefaultProps`~      | This type has been renamed. Use [`PropsBase`](./api/interfaces/PropsBase.md) instead.                                           |
+| ~`DaySelectionMode`~           | This type has been renamed. Use [`Mode`](./api/type-aliases/Mode.md) instead.                                                   |
+| ~`Modifier`~                   | This type will be removed. Use `string` instead.                                                                                |
+| ~`InternaModifier`~            | This type has been split into [`DayFlag`](./api/enumerations/DayFlag) and [`SelectionState`](./api/enumerations/SelectionState) |
+| ~`SelectSingleEventHandler`~   | This type will be removed. Use [`PropsSingle["onSelect]`](./api/interfaces/PropsSingle.md) instead.                             |
+| ~`SelectMultipleEventHandler`~ | This type will be removed. Use [`PropsMulti["onSelect]`](./api/interfaces/PropsMulti.md) instead.                               |
+| ~`SelectRangeEventHandler`~    | This type will be removed. Use [`PropsRange["onSelect]`](./api/interfaces/PropsRange.md) instead.                               |
+| ~`DayPickerProviderProps`~     | This type is not used anymore.                                                                                                  |
+| ~`useNavigation`~              | This type has been included in [`useDayPicker`](./api/functions/useDayPicker.md).                                               |
+| ~`useDayRender`~               | This hook has been removed. To customize the rendering of a day, use the `htmlAttributes` prop in a custom `Day` component.     |
+| ~`ContextProvidersProps`~      | This type is not used anymore.                                                                                                  |
+| ~`DayLabel`~                   | Use `typeof labelDay` instead.                                                                                                  |
+| ~`NavButtonLabel`~             | Use `typeof labelNext` or `typeof labelPrevious` instead.                                                                       |
+| ~`WeekdayLabel`~               | Use `typeof labelWeekday` instead.                                                                                              |
+| ~`WeekNumberLabel`~            | Use `typeof labelWeekNumber` instead.                                                                                           |
+| ~`DayClickEventHandler`~       | Use `DayMouseEventHandler` instead.                                                                                             |
+| ~`DayFocusEventHandler`~       | This type will be removed. Use `DayEventHandler<React.FocusEvent \| React.KeyboardEvent>` instead.                              |
+| ~`DayKeyboardEventHandler`~    | This type will be removed. Use `DayEventHandler<React.KeyboardEvent>` instead.                                                  |
+| ~`DayMouseEventHandler`~       | This type will be removed. Use `DayEventHandler<React.MouseEvent>` instead.                                                     |
+| ~`DayPointerEventHandler`~     | This type will be removed. Use `DayEventHandler<React.PointerEvent>` instead.                                                   |
+| ~`DayTouchEventHandler`~       | This type will be removed. Use `DayEventHandler<React.TouchEvent>` instead.                                                     |
 
 </details>

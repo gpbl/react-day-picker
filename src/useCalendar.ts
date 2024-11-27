@@ -89,6 +89,7 @@ export function useCalendar(
     | "month"
     | "defaultMonth"
     | "timeZone"
+    | "broadcastCalendar"
     // Deprecated:
     | "fromMonth"
     | "fromYear"

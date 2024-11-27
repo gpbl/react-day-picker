@@ -35,6 +35,10 @@ import {
 import type { Locale } from "date-fns/locale";
 import { enUS } from "date-fns/locale";
 
+import { endOfBroadcastWeek } from "../helpers/endOfBroadcastWeek.js";
+import { startOfBroadcastWeek } from "../helpers/startOfBroadcastWeek.js";
+import type { PropsBase } from "../types/props.js";
+
 export type { Locale } from "date-fns/locale";
 export type { Month as DateFnsMonth } from "date-fns";
 
@@ -178,6 +182,18 @@ export class DateLib {
     return this.overrides?.differenceInCalendarMonths
       ? this.overrides.differenceInCalendarMonths(dateLeft, dateRight)
       : differenceInCalendarMonths(dateLeft, dateRight);
+  };
+
+  /**
+   * Returns the end of the broadcast week for the given date.
+   *
+   * @param date The original date.
+   * @returns The end of the broadcast week.
+   */
+  endOfBroadcastWeek: typeof endOfBroadcastWeek = (date: Date) => {
+    return this.overrides?.endOfBroadcastWeek
+      ? this.overrides.endOfBroadcastWeek(date, this)
+      : endOfBroadcastWeek(date, this);
   };
 
   /**
@@ -394,6 +410,18 @@ export class DateLib {
     return this.overrides?.setYear
       ? this.overrides.setYear(date, year)
       : setYear(date, year);
+  };
+
+  /**
+   * Returns the start of the broadcast week for the given date.
+   *
+   * @param date The original date.
+   * @returns The start of the broadcast week.
+   */
+  startOfBroadcastWeek: typeof startOfBroadcastWeek = (date: Date) => {
+    return this.overrides?.startOfBroadcastWeek
+      ? this.overrides.startOfBroadcastWeek(date, this)
+      : startOfBroadcastWeek(date, this);
   };
 
   /**

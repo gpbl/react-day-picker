@@ -1,5 +1,6 @@
 import React from "react";
 
+import Head from "@docusaurus/Head";
 import Layout from "@theme/Layout";
 import {
   DateRange,
@@ -69,8 +70,9 @@ export default function Playground() {
 
   return (
     <Layout>
-      <style>
-        {`
+      <Head>
+        <style>
+          {`
           .rdp-root,
           [data-theme="dark"] .rdp-root {
             ${accentColor ? `--rdp-accent-color: ${accentColor} !important` : ""};
@@ -78,7 +80,13 @@ export default function Playground() {
             ${rangeMiddleColor ? `--rdp-range_middle-color: ${rangeMiddleColor} !important` : ""};
           }
         `}
-      </style>
+        </style>
+        <title>DayPicker Playground</title>
+        <meta
+          name="description"
+          content="Customize the DayPicker component and see the code changes in real time."
+        />
+      </Head>
       <div className={styles.playground}>
         <h1>Playground</h1>
         <form className={styles.form}>
@@ -110,6 +118,7 @@ export default function Playground() {
                 <input
                   type="checkbox"
                   name="showOutsideDays"
+                  checked={props.showOutsideDays}
                   onChange={(e) =>
                     setProps({ ...props, showOutsideDays: e.target.checked })
                   }
@@ -396,6 +405,8 @@ export default function Playground() {
                 Weeks starts on:
                 <select
                   name="weekStartsOn"
+                  disabled={props.broadcastCalendar}
+                  value={props.weekStartsOn}
                   onChange={(e) =>
                     setProps({
                       ...props,
@@ -439,6 +450,7 @@ export default function Playground() {
                 <input
                   type="checkbox"
                   name="ISOWeek"
+                  disabled={props.broadcastCalendar}
                   onChange={(e) =>
                     setProps({ ...props, ISOWeek: e.target.checked })
                   }
@@ -457,6 +469,23 @@ export default function Playground() {
                   }
                 />
                 Right-to-left direction
+              </label>
+
+              <label>
+                <input
+                  type="checkbox"
+                  name="broadcastCalendar"
+                  onChange={(e) =>
+                    setProps({
+                      ...props,
+                      broadcastCalendar: e.target.checked,
+                      showOutsideDays: e.target.checked
+                        ? true
+                        : props.showOutsideDays
+                    })
+                  }
+                />
+                Broadcast Calendar
               </label>
             </div>
           </fieldset>

@@ -12,21 +12,23 @@ export function getFocusableDate(
   refDate: Date,
   navStart: Date | undefined,
   navEnd: Date | undefined,
-  props: Pick<DayPickerProps, "ISOWeek">,
+  props: Pick<DayPickerProps, "ISOWeek" | "broadcastCalendar">,
   dateLib: DateLib
 ): Date {
-  const { ISOWeek } = props;
+  const { ISOWeek, broadcastCalendar } = props;
   const {
     addDays,
     addMonths,
-    addYears,
     addWeeks,
-    startOfISOWeek,
+    addYears,
+    endOfBroadcastWeek,
     endOfISOWeek,
-    startOfWeek,
     endOfWeek,
     max,
-    min
+    min,
+    startOfBroadcastWeek,
+    startOfISOWeek,
+    startOfWeek
   } = dateLib;
   const moveFns = {
     day: addDays,
@@ -34,8 +36,17 @@ export function getFocusableDate(
     month: addMonths,
     year: addYears,
     startOfWeek: (date: Date) =>
-      ISOWeek ? startOfISOWeek(date) : startOfWeek(date),
-    endOfWeek: (date: Date) => (ISOWeek ? endOfISOWeek(date) : endOfWeek(date))
+      broadcastCalendar
+        ? startOfBroadcastWeek(date, dateLib)
+        : ISOWeek
+          ? startOfISOWeek(date)
+          : startOfWeek(date),
+    endOfWeek: (date: Date) =>
+      broadcastCalendar
+        ? endOfBroadcastWeek(date, dateLib)
+        : ISOWeek
+          ? endOfISOWeek(date)
+          : endOfWeek(date)
   };
 
   let focusableDate = moveFns[moveBy](refDate, moveDir === "after" ? 1 : -1);

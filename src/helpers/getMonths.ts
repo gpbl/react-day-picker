@@ -9,38 +9,51 @@ export function getMonths(
   /** The dates to display in the calendar. */
   dates: Date[],
   /** Options from the props context. */
-  props: Pick<DayPickerProps, "fixedWeeks" | "ISOWeek" | "reverseMonths">,
+  props: Pick<
+    DayPickerProps,
+    "broadcastCalendar" | "fixedWeeks" | "ISOWeek" | "reverseMonths"
+  >,
   dateLib: DateLib
 ): CalendarMonth[] {
   const {
-    startOfWeek,
-    endOfWeek,
-    startOfISOWeek,
+    addDays,
+    endOfBroadcastWeek,
     endOfISOWeek,
     endOfMonth,
-    addDays,
+    endOfWeek,
+    getISOWeek,
     getWeek,
-    getISOWeek
+    startOfBroadcastWeek,
+    startOfISOWeek,
+    startOfWeek
   } = dateLib;
   const dayPickerMonths = displayMonths.reduce<CalendarMonth[]>(
     (months, month) => {
-      const firstDateOfFirstWeek = props.ISOWeek
-        ? startOfISOWeek(month)
-        : startOfWeek(month);
+      const firstDateOfFirstWeek = props.broadcastCalendar
+        ? startOfBroadcastWeek(month, dateLib)
+        : props.ISOWeek
+          ? startOfISOWeek(month)
+          : startOfWeek(month);
 
-      const lastDateOfLastWeek = props.ISOWeek
-        ? endOfISOWeek(endOfMonth(month))
-        : endOfWeek(endOfMonth(month));
+      const lastDateOfLastWeek = props.broadcastCalendar
+        ? endOfBroadcastWeek(month, dateLib)
+        : props.ISOWeek
+          ? endOfISOWeek(endOfMonth(month))
+          : endOfWeek(endOfMonth(month));
 
       /** The dates to display in the month. */
       const monthDates = dates.filter((date) => {
         return date >= firstDateOfFirstWeek && date <= lastDateOfLastWeek;
       });
 
-      if (props.fixedWeeks && monthDates.length < 42) {
+      const nrOfDaysWithFixedWeeks = props.broadcastCalendar ? 35 : 42;
+
+      if (props.fixedWeeks && monthDates.length < nrOfDaysWithFixedWeeks) {
         const extraDates = dates.filter((date) => {
+          const daysToAdd = nrOfDaysWithFixedWeeks - monthDates.length;
           return (
-            date > lastDateOfLastWeek && date <= addDays(lastDateOfLastWeek, 7)
+            date > lastDateOfLastWeek &&
+            date <= addDays(lastDateOfLastWeek, daysToAdd)
           );
         });
         monthDates.push(...extraDates);
@@ -63,7 +76,6 @@ export function getMonths(
       );
 
       const dayPickerMonth = new CalendarMonth(month, weeks);
-
       months.push(dayPickerMonth);
       return months;
     },
