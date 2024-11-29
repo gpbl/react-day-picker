@@ -52,11 +52,7 @@ const config: Config = {
         },
         blog: false,
         theme: {
-          customCss: [
-            "./src/css/custom.css",
-            "./src/css/docusaurus-reset.css",
-            "../src/style.css"
-          ]
+          customCss: ["./src/css/custom.css", "../src/style.css"]
         }
       } satisfies Preset.Options
     ]
