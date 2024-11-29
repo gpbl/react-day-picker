@@ -80,6 +80,12 @@ const config: Config = {
           }
         ]
       }
+    ],
+    [
+      "docusaurus-plugin-plausible",
+      {
+        domain: "daypicker.dev"
+      }
     ]
   ],
 
