@@ -33,7 +33,10 @@ export function nextButton() {
  * @param {string} name - The name of the columnheader.
  */
 export function columnheader(name?: ByRoleOptions["name"]) {
-  return screen.getByRole("columnheader", name ? { name } : undefined);
+  return screen.getByRole(
+    "columnheader",
+    name ? { name, hidden: true } : { hidden: true }
+  );
 }
 
 /**

@@ -451,7 +451,7 @@ export function DayPicker(props: DayPickerProps) {
                               })}
                               className={classNames[UI.WeekNumber]}
                               scope="row"
-                              role="gridcell"
+                              role="rowheader"
                             >
                               {formatWeekNumber(week.weekNumber)}
                             </components.WeekNumber>

@@ -11,7 +11,9 @@ afterAll(() => jest.useRealTimers());
 
 function getWeek(week: number) {
   return screen.getByRole("rowheader", {
-    name: `Week ${week}`
+    name: (name, el) =>
+      name === `Week number` && el.textContent === week.toString(),
+    hidden: true
   });
 }
 

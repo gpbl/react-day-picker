@@ -68,7 +68,9 @@ exports[`should match the snapshot 1`] = `
             class="rdp-month_grid"
             role="grid"
           >
-            <thead>
+            <thead
+              aria-hidden="true"
+            >
               <tr
                 class="rdp-weekdays"
               >
@@ -130,25 +132,17 @@ exports[`should match the snapshot 1`] = `
                 class="rdp-week"
               >
                 <td
-                  aria-hidden="true"
                   class="rdp-day rdp-hidden rdp-outside"
                   data-day="2020-05-31"
                   data-hidden="true"
                   data-month="2020-05"
                   data-outside="true"
-                >
-                  <button
-                    aria-label="Sunday, May 31st, 2020"
-                    class="rdp-day_button"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    31
-                  </button>
-                </td>
+                  role="gridcell"
+                />
                 <td
                   class="rdp-day"
                   data-day="2020-06-01"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Monday, June 1st, 2020"
@@ -162,6 +156,7 @@ exports[`should match the snapshot 1`] = `
                 <td
                   class="rdp-day"
                   data-day="2020-06-02"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Tuesday, June 2nd, 2020"
@@ -175,6 +170,7 @@ exports[`should match the snapshot 1`] = `
                 <td
                   class="rdp-day"
                   data-day="2020-06-03"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Wednesday, June 3rd, 2020"
@@ -188,6 +184,7 @@ exports[`should match the snapshot 1`] = `
                 <td
                   class="rdp-day"
                   data-day="2020-06-04"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Thursday, June 4th, 2020"
@@ -201,6 +198,7 @@ exports[`should match the snapshot 1`] = `
                 <td
                   class="rdp-day"
                   data-day="2020-06-05"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Friday, June 5th, 2020"
@@ -214,6 +212,7 @@ exports[`should match the snapshot 1`] = `
                 <td
                   class="rdp-day"
                   data-day="2020-06-06"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Saturday, June 6th, 2020"
@@ -231,6 +230,7 @@ exports[`should match the snapshot 1`] = `
                 <td
                   class="rdp-day"
                   data-day="2020-06-07"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Sunday, June 7th, 2020"
@@ -244,6 +244,7 @@ exports[`should match the snapshot 1`] = `
                 <td
                   class="rdp-day"
                   data-day="2020-06-08"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Monday, June 8th, 2020"
@@ -257,6 +258,7 @@ exports[`should match the snapshot 1`] = `
                 <td
                   class="rdp-day"
                   data-day="2020-06-09"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Tuesday, June 9th, 2020"
@@ -270,6 +272,7 @@ exports[`should match the snapshot 1`] = `
                 <td
                   class="rdp-day"
                   data-day="2020-06-10"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Wednesday, June 10th, 2020"
@@ -283,6 +286,7 @@ exports[`should match the snapshot 1`] = `
                 <td
                   class="rdp-day"
                   data-day="2020-06-11"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Thursday, June 11th, 2020"
@@ -296,6 +300,7 @@ exports[`should match the snapshot 1`] = `
                 <td
                   class="rdp-day"
                   data-day="2020-06-12"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Friday, June 12th, 2020"
@@ -309,6 +314,7 @@ exports[`should match the snapshot 1`] = `
                 <td
                   class="rdp-day"
                   data-day="2020-06-13"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Saturday, June 13th, 2020"
@@ -326,6 +332,7 @@ exports[`should match the snapshot 1`] = `
                 <td
                   class="rdp-day"
                   data-day="2020-06-14"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Sunday, June 14th, 2020"
@@ -341,6 +348,7 @@ exports[`should match the snapshot 1`] = `
                   class="rdp-day rdp-selected rdp-range_start"
                   data-day="2020-06-15"
                   data-selected="true"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Monday, June 15th, 2020, selected"
@@ -356,6 +364,7 @@ exports[`should match the snapshot 1`] = `
                   class="rdp-day rdp-selected rdp-range_middle"
                   data-day="2020-06-16"
                   data-selected="true"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Tuesday, June 16th, 2020, selected"
@@ -371,6 +380,7 @@ exports[`should match the snapshot 1`] = `
                   class="rdp-day rdp-selected rdp-range_middle"
                   data-day="2020-06-17"
                   data-selected="true"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Wednesday, June 17th, 2020, selected"
@@ -386,6 +396,7 @@ exports[`should match the snapshot 1`] = `
                   class="rdp-day rdp-selected rdp-range_middle"
                   data-day="2020-06-18"
                   data-selected="true"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Thursday, June 18th, 2020, selected"
@@ -401,6 +412,7 @@ exports[`should match the snapshot 1`] = `
                   class="rdp-day rdp-selected rdp-range_end"
                   data-day="2020-06-19"
                   data-selected="true"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Friday, June 19th, 2020, selected"
@@ -414,6 +426,7 @@ exports[`should match the snapshot 1`] = `
                 <td
                   class="rdp-day"
                   data-day="2020-06-20"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Saturday, June 20th, 2020"
@@ -431,6 +444,7 @@ exports[`should match the snapshot 1`] = `
                 <td
                   class="rdp-day"
                   data-day="2020-06-21"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Sunday, June 21st, 2020"
@@ -444,6 +458,7 @@ exports[`should match the snapshot 1`] = `
                 <td
                   class="rdp-day"
                   data-day="2020-06-22"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Monday, June 22nd, 2020"
@@ -457,6 +472,7 @@ exports[`should match the snapshot 1`] = `
                 <td
                   class="rdp-day"
                   data-day="2020-06-23"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Tuesday, June 23rd, 2020"
@@ -470,6 +486,7 @@ exports[`should match the snapshot 1`] = `
                 <td
                   class="rdp-day"
                   data-day="2020-06-24"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Wednesday, June 24th, 2020"
@@ -483,6 +500,7 @@ exports[`should match the snapshot 1`] = `
                 <td
                   class="rdp-day"
                   data-day="2020-06-25"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Thursday, June 25th, 2020"
@@ -496,6 +514,7 @@ exports[`should match the snapshot 1`] = `
                 <td
                   class="rdp-day"
                   data-day="2020-06-26"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Friday, June 26th, 2020"
@@ -509,6 +528,7 @@ exports[`should match the snapshot 1`] = `
                 <td
                   class="rdp-day"
                   data-day="2020-06-27"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Saturday, June 27th, 2020"
@@ -526,6 +546,7 @@ exports[`should match the snapshot 1`] = `
                 <td
                   class="rdp-day"
                   data-day="2020-06-28"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Sunday, June 28th, 2020"
@@ -539,6 +560,7 @@ exports[`should match the snapshot 1`] = `
                 <td
                   class="rdp-day"
                   data-day="2020-06-29"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Monday, June 29th, 2020"
@@ -552,6 +574,7 @@ exports[`should match the snapshot 1`] = `
                 <td
                   class="rdp-day"
                   data-day="2020-06-30"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Tuesday, June 30th, 2020"
@@ -563,73 +586,37 @@ exports[`should match the snapshot 1`] = `
                   </button>
                 </td>
                 <td
-                  aria-hidden="true"
                   class="rdp-day rdp-hidden rdp-outside"
                   data-day="2020-07-01"
                   data-hidden="true"
                   data-month="2020-07"
                   data-outside="true"
-                >
-                  <button
-                    aria-label="Wednesday, July 1st, 2020"
-                    class="rdp-day_button"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    1
-                  </button>
-                </td>
+                  role="gridcell"
+                />
                 <td
-                  aria-hidden="true"
                   class="rdp-day rdp-hidden rdp-outside"
                   data-day="2020-07-02"
                   data-hidden="true"
                   data-month="2020-07"
                   data-outside="true"
-                >
-                  <button
-                    aria-label="Thursday, July 2nd, 2020"
-                    class="rdp-day_button"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    2
-                  </button>
-                </td>
+                  role="gridcell"
+                />
                 <td
-                  aria-hidden="true"
                   class="rdp-day rdp-hidden rdp-outside"
                   data-day="2020-07-03"
                   data-hidden="true"
                   data-month="2020-07"
                   data-outside="true"
-                >
-                  <button
-                    aria-label="Friday, July 3rd, 2020"
-                    class="rdp-day_button"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    3
-                  </button>
-                </td>
+                  role="gridcell"
+                />
                 <td
-                  aria-hidden="true"
                   class="rdp-day rdp-hidden rdp-outside"
                   data-day="2020-07-04"
                   data-hidden="true"
                   data-month="2020-07"
                   data-outside="true"
-                >
-                  <button
-                    aria-label="Saturday, July 4th, 2020"
-                    class="rdp-day_button"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    4
-                  </button>
-                </td>
+                  role="gridcell"
+                />
               </tr>
             </tbody>
           </table>
@@ -720,7 +707,9 @@ exports[`when a day in the range is clicked when the day is clicked again when a
             class="rdp-month_grid"
             role="grid"
           >
-            <thead>
+            <thead
+              aria-hidden="true"
+            >
               <tr
                 class="rdp-weekdays"
               >
@@ -782,25 +771,17 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 class="rdp-week"
               >
                 <td
-                  aria-hidden="true"
                   class="rdp-day rdp-hidden rdp-outside"
                   data-day="2020-05-31"
                   data-hidden="true"
                   data-month="2020-05"
                   data-outside="true"
-                >
-                  <button
-                    aria-label="Sunday, May 31st, 2020"
-                    class="rdp-day_button"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    31
-                  </button>
-                </td>
+                  role="gridcell"
+                />
                 <td
                   class="rdp-day"
                   data-day="2020-06-01"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Monday, June 1st, 2020"
@@ -814,6 +795,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-02"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Tuesday, June 2nd, 2020"
@@ -827,6 +809,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-03"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Wednesday, June 3rd, 2020"
@@ -840,6 +823,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-04"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Thursday, June 4th, 2020"
@@ -853,6 +837,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-05"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Friday, June 5th, 2020"
@@ -866,6 +851,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-06"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Saturday, June 6th, 2020"
@@ -883,6 +869,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-07"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Sunday, June 7th, 2020"
@@ -896,6 +883,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-08"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Monday, June 8th, 2020"
@@ -909,6 +897,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-09"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Tuesday, June 9th, 2020"
@@ -922,6 +911,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-10"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Wednesday, June 10th, 2020"
@@ -935,6 +925,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-11"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Thursday, June 11th, 2020"
@@ -948,6 +939,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-12"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Friday, June 12th, 2020"
@@ -961,6 +953,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-13"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Saturday, June 13th, 2020"
@@ -978,6 +971,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-14"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Sunday, June 14th, 2020"
@@ -991,6 +985,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-15"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Monday, June 15th, 2020"
@@ -1004,6 +999,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-16"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Tuesday, June 16th, 2020"
@@ -1018,6 +1014,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                   class="rdp-day rdp-focused"
                   data-day="2020-06-17"
                   data-focused="true"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Wednesday, June 17th, 2020"
@@ -1031,6 +1028,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-18"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Thursday, June 18th, 2020"
@@ -1044,6 +1042,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-19"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Friday, June 19th, 2020"
@@ -1057,6 +1056,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-20"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Saturday, June 20th, 2020"
@@ -1074,6 +1074,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-21"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Sunday, June 21st, 2020"
@@ -1087,6 +1088,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-22"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Monday, June 22nd, 2020"
@@ -1100,6 +1102,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-23"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Tuesday, June 23rd, 2020"
@@ -1113,6 +1116,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-24"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Wednesday, June 24th, 2020"
@@ -1126,6 +1130,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-25"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Thursday, June 25th, 2020"
@@ -1139,6 +1144,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-26"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Friday, June 26th, 2020"
@@ -1152,6 +1158,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-27"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Saturday, June 27th, 2020"
@@ -1169,6 +1176,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-28"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Sunday, June 28th, 2020"
@@ -1182,6 +1190,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-29"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Monday, June 29th, 2020"
@@ -1195,6 +1204,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                 <td
                   class="rdp-day"
                   data-day="2020-06-30"
+                  role="gridcell"
                 >
                   <button
                     aria-label="Tuesday, June 30th, 2020"
@@ -1206,73 +1216,37 @@ exports[`when a day in the range is clicked when the day is clicked again when a
                   </button>
                 </td>
                 <td
-                  aria-hidden="true"
                   class="rdp-day rdp-hidden rdp-outside"
                   data-day="2020-07-01"
                   data-hidden="true"
                   data-month="2020-07"
                   data-outside="true"
-                >
-                  <button
-                    aria-label="Wednesday, July 1st, 2020"
-                    class="rdp-day_button"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    1
-                  </button>
-                </td>
+                  role="gridcell"
+                />
                 <td
-                  aria-hidden="true"
                   class="rdp-day rdp-hidden rdp-outside"
                   data-day="2020-07-02"
                   data-hidden="true"
                   data-month="2020-07"
                   data-outside="true"
-                >
-                  <button
-                    aria-label="Thursday, July 2nd, 2020"
-                    class="rdp-day_button"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    2
-                  </button>
-                </td>
+                  role="gridcell"
+                />
                 <td
-                  aria-hidden="true"
                   class="rdp-day rdp-hidden rdp-outside"
                   data-day="2020-07-03"
                   data-hidden="true"
                   data-month="2020-07"
                   data-outside="true"
-                >
-                  <button
-                    aria-label="Friday, July 3rd, 2020"
-                    class="rdp-day_button"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    3
-                  </button>
-                </td>
+                  role="gridcell"
+                />
                 <td
-                  aria-hidden="true"
                   class="rdp-day rdp-hidden rdp-outside"
                   data-day="2020-07-04"
                   data-hidden="true"
                   data-month="2020-07"
                   data-outside="true"
-                >
-                  <button
-                    aria-label="Saturday, July 4th, 2020"
-                    class="rdp-day_button"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    4
-                  </button>
-                </td>
+                  role="gridcell"
+                />
               </tr>
             </tbody>
           </table>
