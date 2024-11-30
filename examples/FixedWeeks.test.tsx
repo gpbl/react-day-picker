@@ -13,6 +13,6 @@ beforeEach(() => {
   render(<FixedWeeks />);
 });
 
-test("should render 6 rows", () => {
-  expect(screen.getAllByRole("row")).toHaveLength(6);
+test("should render 7 rows", () => {
+  expect(screen.getAllByRole("row", { hidden: true })).toHaveLength(7);
 });

@@ -11,5 +11,5 @@ export function labelWeekNumber(
   weekNumber: number,
   options?: DateLibOptions
 ): string {
-  return `Week number`;
+  return `Week ${weekNumber}`;
 }

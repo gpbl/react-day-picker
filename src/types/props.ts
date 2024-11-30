@@ -355,7 +355,19 @@ export interface PropsBase {
    * @see https://daypicker.dev/docs/translation#rtl-text-direction
    */
   dir?: HTMLDivElement["dir"];
+  /**
+   * The aria-label attribute to add to the container element.
+   *
+   * @since 9.4.1
+   * @see https://daypicker.dev/guides/accessibility
+   */
   ["aria-label"]?: string;
+  /**
+   * The role attribute to add to the container element.
+   *
+   * @since 9.4.1
+   * @see https://daypicker.dev/guides/accessibility
+   */
   role?: "application" | "dialog" | undefined;
   /**
    * A cryptographic nonce ("number used once") which can be used by Content

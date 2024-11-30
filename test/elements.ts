@@ -33,10 +33,7 @@ export function nextButton() {
  * @param {string} name - The name of the columnheader.
  */
 export function columnheader(name?: ByRoleOptions["name"]) {
-  return screen.getByRole(
-    "columnheader",
-    name ? { name, hidden: true } : { hidden: true }
-  );
+  return screen.getByRole("columnheader", { name, hidden: true });
 }
 
 /**
@@ -45,7 +42,7 @@ export function columnheader(name?: ByRoleOptions["name"]) {
  * @param {string} name - The name of the grid.
  */
 export function grid(name?: ByRoleOptions["name"]) {
-  return screen.getByRole("grid", name ? { name } : undefined);
+  return screen.getByRole("grid", { name });
 }
 
 /** Return the parent element of the next button from the screen. */
@@ -100,7 +97,7 @@ export function gridcell(date: Date, interactive?: boolean) {
  * @param {string} name - The name of the rowheader.
  */
 export function rowheader(name?: ByRoleOptions["name"]) {
-  return screen.getByRole("rowheader", name ? { name } : undefined);
+  return screen.getByRole("rowheader", { name });
 }
 
 /** Return the year dropdown element from the screen. */
