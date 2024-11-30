@@ -15,11 +15,11 @@
     "typecheck-watch": "tsc --noEmit --watch"
   },
   "dependencies": {
-    "@docusaurus/core": "3.6.1",
-    "@docusaurus/plugin-client-redirects": "^3.6.1",
-    "@docusaurus/preset-classic": "^3.6.1",
-    "@docusaurus/remark-plugin-npm2yarn": "^3.6.1",
-    "@docusaurus/theme-common": "^3.6.1",
+    "@docusaurus/core": "3.6.3",
+    "@docusaurus/plugin-client-redirects": "^3.6.3",
+    "@docusaurus/preset-classic": "^3.6.3",
+    "@docusaurus/remark-plugin-npm2yarn": "^3.6.3",
+    "@docusaurus/theme-common": "^3.6.3",
     "@mdx-js/react": "^3.1.0",
     "date-fns-jalali": "^3.6.0-1",
     "docusaurus-plugin-plausible": "^0.0.5",
@@ -32,16 +32,16 @@
     "remark-github": "^12.0.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.6.1",
-    "@docusaurus/tsconfig": "3.6.1",
-    "@docusaurus/types": "3.6.1",
-    "docusaurus-plugin-typedoc": "^1.0.5",
+    "@docusaurus/module-type-aliases": "3.6.3",
+    "@docusaurus/tsconfig": "3.6.3",
+    "@docusaurus/types": "3.6.3",
+    "docusaurus-plugin-typedoc": "^1.1.0",
     "identity-obj-proxy": "^3.0.0",
     "raw-loader": "^4.0.2",
-    "typedoc": "^0.26.11",
-    "typedoc-plugin-frontmatter": "^1.0.0",
-    "typedoc-plugin-markdown": "^4.2.10",
-    "typescript": "^5.6.3"
+    "typedoc": "^0.27.2",
+    "typedoc-plugin-frontmatter": "^1.1.0",
+    "typedoc-plugin-markdown": "^4.3.0",
+    "typescript": "^5.7.2"
   },
   "browserslist": {
     "production": [
