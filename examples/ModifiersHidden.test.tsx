@@ -18,6 +18,6 @@ afterAll(() => jest.useRealTimers());
 test.each(days)("the day %s should be hidden", (day) => {
   render(<ModifiersHidden />);
   expect(
-    screen.queryByRole("cell", { name: `${day.getDate()}` })
+    screen.queryByRole("gridcell", { name: `${day.getDate()}` })
   ).not.toBeInTheDocument();
 });

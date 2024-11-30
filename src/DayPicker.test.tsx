@@ -184,12 +184,16 @@ test("should render the custom components", () => {
 describe("when interactive", () => {
   test("render a valid HTML", () => {
     render(<DayPicker mode="single" />);
-    expect(document.body).toHTMLValidate();
+    expect(document.body).toHTMLValidate({
+      rules: { "no-redundant-role": "off" } // Redundant role is allowed for VoiceOver
+    });
   });
 });
 describe("when not interactive", () => {
   test("render a valid HTML", () => {
     render(<DayPicker />);
-    expect(document.body).toHTMLValidate();
+    expect(document.body).toHTMLValidate({
+      rules: { "no-redundant-role": "off" } // Redundant role is allowed for VoiceOver
+    });
   });
 });

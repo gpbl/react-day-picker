@@ -8,7 +8,7 @@ import React from "react";
  */
 export function Weekdays(props: JSX.IntrinsicElements["tr"]) {
   return (
-    <thead>
+    <thead aria-hidden>
       <tr {...props} />
     </thead>
   );
