@@ -9,6 +9,8 @@ beforeEach(async () => {
 });
 
 test("first weekday is Monday", () => {
-  const weekdaysElements = screen.queryAllByRole("columnheader");
+  const weekdaysElements = screen.queryAllByRole("columnheader", {
+    hidden: true
+  });
   expect(weekdaysElements[0]).toHaveAccessibleName("Monday");
 });

@@ -8,61 +8,29 @@ DayPicker follows the [ARIA Authoring Practices Guide](https://www.w3.org/WAI/AR
 
 Depending on your design, you might need to add more accessibility features. For example, when using [Input Fields](../guides/input-fields), there may be some limitations based on your accessibility goals. Keep up with best practices by following the [ARIA Patterns](https://www.w3.org/WAI/ARIA/apg/patterns/).
 
-## Accessibility Tips
+:::tip Accessibility Tips
 
 - Test your date picker regularly with a screen reader to ensure accessibility.
-- Use an `aria-live` region to announce when a date is selected, utilizing the `footer` prop.
+- Use an `aria-live` region to announce when a date is selected, like using the `footer` prop.
 - Customize ARIA labels with the [`labels`](../api/interfaces/PropsBase.md#labels) prop for better user feedback.
-- Ensure the date picker is fully navigable with just the keyboard.
-- Provide clear focus indicators for keyboard users.
 - Maintain sufficient color contrast between text and background.
 - Offer instructions for first-time users or those unfamiliar with the date picker.
 
-## Announcing the Selected Date {#footer}
+:::
 
-Here is an example of an accessible date picker with a live region that announces the selected date using the `footer` prop.
+## Accessibility Props
 
-```tsx title="./AccessibleDatePicker.tsx"
-import { format } from "date-fns";
-import { DayPicker } from "react-day-picker";
+| Prop Name    | Type                                      | Description                                                                                                                                                            |
+| ------------ | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `labels`     | [`Labels`](../api/type-aliases/Labels.md) | Map of the ARIA labels used within DayPicker for better accessibility.                                                                                                 |
+| `footer`     | `ReactNode` \| `string`                   | Add a footer to the calendar, which can act as a [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) to announce updates. |
+| `role`       | `application` \| `dialog`                 | Set the ARIA role for the container. Use `application` for a more interactive widget or `dialog` for a modal-like date picker.                                         |
+| `aria-label` | `string`                                  | The label to use for the container when a `role` is set, providing a descriptive text for screen readers.                                                              |
+| `autoFocus`  | `boolean`                                 | Autofocus the calendar when it opens, improving keyboard navigation.                                                                                                   |
 
-export function AccessibleDatePicker() {
-  const [meetingDate, setMeetingDate] = React.useState<Date | undefined>(
-    undefined
-  );
+### Autofocusing the Calendar {#autofocus}
 
-  const footer = meetingDate
-    ? `Meeting date is set to ${format(meetingDate, "PPPP")}`
-    : "Please pick a date for the meeting.";
-
-  const labels = {
-    labelCaption: () => "Select a date for the meeting",
-    labelDay: (date, modifiers) => {
-      return modifiers.selected
-        ? `Selected Meeting Date: ${format(date, "PPP")}`
-        : "";
-    }
-  };
-
-  return (
-    <DayPicker
-      mode="single"
-      onSelect={setMeetingDate}
-      selected={meetingDate}
-      labels={labels}
-      footer={footer}
-    />
-  );
-}
-```
-
-<BrowserWindow>
-  <Examples.AccessibleDatePicker />
-</BrowserWindow>
-
-## Autofocusing the Calendar {#autofocus}
-
-DayPicker manages focus automatically when users interact with the calendar. For better accessibility, you might want to autofocus the calendar when it opens. Use the `autoFocus` prop to achieve this:
+DayPicker automatically manages focus when users interact with the calendar. To enhance accessibility, you can autofocus the calendar when it opens by using the `autoFocus` prop:
 
 ```tsx
 <DayPicker mode="single" autoFocus />

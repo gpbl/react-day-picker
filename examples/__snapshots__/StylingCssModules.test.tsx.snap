@@ -68,7 +68,9 @@ exports[`should match the snapshot 1`] = `
           class="rdp-month_grid"
           role="grid"
         >
-          <thead>
+          <thead
+            aria-hidden="true"
+          >
             <tr
               class="rdp-weekdays"
             >
@@ -130,25 +132,17 @@ exports[`should match the snapshot 1`] = `
               class="rdp-week"
             >
               <td
-                aria-hidden="true"
                 class="rdp-day rdp-hidden rdp-outside"
                 data-day="2021-10-31"
                 data-hidden="true"
                 data-month="2021-10"
                 data-outside="true"
-              >
-                <button
-                  aria-label="Sunday, October 31st, 2021"
-                  class="rdp-day_button"
-                  tabindex="-1"
-                  type="button"
-                >
-                  31
-                </button>
-              </td>
+                role="gridcell"
+              />
               <td
                 class="rdp-day"
                 data-day="2021-11-01"
+                role="gridcell"
               >
                 <button
                   aria-label="Monday, November 1st, 2021"
@@ -162,6 +156,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-02"
+                role="gridcell"
               >
                 <button
                   aria-label="Tuesday, November 2nd, 2021"
@@ -175,6 +170,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-03"
+                role="gridcell"
               >
                 <button
                   aria-label="Wednesday, November 3rd, 2021"
@@ -188,6 +184,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-04"
+                role="gridcell"
               >
                 <button
                   aria-label="Thursday, November 4th, 2021"
@@ -201,6 +198,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-05"
+                role="gridcell"
               >
                 <button
                   aria-label="Friday, November 5th, 2021"
@@ -214,6 +212,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-06"
+                role="gridcell"
               >
                 <button
                   aria-label="Saturday, November 6th, 2021"
@@ -231,6 +230,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-07"
+                role="gridcell"
               >
                 <button
                   aria-label="Sunday, November 7th, 2021"
@@ -244,6 +244,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-08"
+                role="gridcell"
               >
                 <button
                   aria-label="Monday, November 8th, 2021"
@@ -257,6 +258,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-09"
+                role="gridcell"
               >
                 <button
                   aria-label="Tuesday, November 9th, 2021"
@@ -270,6 +272,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-10"
+                role="gridcell"
               >
                 <button
                   aria-label="Wednesday, November 10th, 2021"
@@ -283,6 +286,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-11"
+                role="gridcell"
               >
                 <button
                   aria-label="Thursday, November 11th, 2021"
@@ -296,6 +300,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-12"
+                role="gridcell"
               >
                 <button
                   aria-label="Friday, November 12th, 2021"
@@ -309,6 +314,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-13"
+                role="gridcell"
               >
                 <button
                   aria-label="Saturday, November 13th, 2021"
@@ -326,6 +332,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-14"
+                role="gridcell"
               >
                 <button
                   aria-label="Sunday, November 14th, 2021"
@@ -339,6 +346,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-15"
+                role="gridcell"
               >
                 <button
                   aria-label="Monday, November 15th, 2021"
@@ -352,6 +360,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-16"
+                role="gridcell"
               >
                 <button
                   aria-label="Tuesday, November 16th, 2021"
@@ -365,6 +374,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-17"
+                role="gridcell"
               >
                 <button
                   aria-label="Wednesday, November 17th, 2021"
@@ -378,6 +388,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-18"
+                role="gridcell"
               >
                 <button
                   aria-label="Thursday, November 18th, 2021"
@@ -391,6 +402,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-19"
+                role="gridcell"
               >
                 <button
                   aria-label="Friday, November 19th, 2021"
@@ -404,6 +416,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-20"
+                role="gridcell"
               >
                 <button
                   aria-label="Saturday, November 20th, 2021"
@@ -421,6 +434,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-21"
+                role="gridcell"
               >
                 <button
                   aria-label="Sunday, November 21st, 2021"
@@ -434,6 +448,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-22"
+                role="gridcell"
               >
                 <button
                   aria-label="Monday, November 22nd, 2021"
@@ -447,6 +462,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-23"
+                role="gridcell"
               >
                 <button
                   aria-label="Tuesday, November 23rd, 2021"
@@ -460,6 +476,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-24"
+                role="gridcell"
               >
                 <button
                   aria-label="Wednesday, November 24th, 2021"
@@ -474,6 +491,7 @@ exports[`should match the snapshot 1`] = `
                 class="rdp-day rdp-today"
                 data-day="2021-11-25"
                 data-today="true"
+                role="gridcell"
               >
                 <button
                   aria-label="Today, Thursday, November 25th, 2021"
@@ -487,6 +505,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-26"
+                role="gridcell"
               >
                 <button
                   aria-label="Friday, November 26th, 2021"
@@ -500,6 +519,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-27"
+                role="gridcell"
               >
                 <button
                   aria-label="Saturday, November 27th, 2021"
@@ -517,6 +537,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-28"
+                role="gridcell"
               >
                 <button
                   aria-label="Sunday, November 28th, 2021"
@@ -530,6 +551,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-29"
+                role="gridcell"
               >
                 <button
                   aria-label="Monday, November 29th, 2021"
@@ -543,6 +565,7 @@ exports[`should match the snapshot 1`] = `
               <td
                 class="rdp-day"
                 data-day="2021-11-30"
+                role="gridcell"
               >
                 <button
                   aria-label="Tuesday, November 30th, 2021"
@@ -554,73 +577,37 @@ exports[`should match the snapshot 1`] = `
                 </button>
               </td>
               <td
-                aria-hidden="true"
                 class="rdp-day rdp-hidden rdp-outside"
                 data-day="2021-12-01"
                 data-hidden="true"
                 data-month="2021-12"
                 data-outside="true"
-              >
-                <button
-                  aria-label="Wednesday, December 1st, 2021"
-                  class="rdp-day_button"
-                  tabindex="-1"
-                  type="button"
-                >
-                  1
-                </button>
-              </td>
+                role="gridcell"
+              />
               <td
-                aria-hidden="true"
                 class="rdp-day rdp-hidden rdp-outside"
                 data-day="2021-12-02"
                 data-hidden="true"
                 data-month="2021-12"
                 data-outside="true"
-              >
-                <button
-                  aria-label="Thursday, December 2nd, 2021"
-                  class="rdp-day_button"
-                  tabindex="-1"
-                  type="button"
-                >
-                  2
-                </button>
-              </td>
+                role="gridcell"
+              />
               <td
-                aria-hidden="true"
                 class="rdp-day rdp-hidden rdp-outside"
                 data-day="2021-12-03"
                 data-hidden="true"
                 data-month="2021-12"
                 data-outside="true"
-              >
-                <button
-                  aria-label="Friday, December 3rd, 2021"
-                  class="rdp-day_button"
-                  tabindex="-1"
-                  type="button"
-                >
-                  3
-                </button>
-              </td>
+                role="gridcell"
+              />
               <td
-                aria-hidden="true"
                 class="rdp-day rdp-hidden rdp-outside"
                 data-day="2021-12-04"
                 data-hidden="true"
                 data-month="2021-12"
                 data-outside="true"
-              >
-                <button
-                  aria-label="Saturday, December 4th, 2021"
-                  class="rdp-day_button"
-                  tabindex="-1"
-                  type="button"
-                >
-                  4
-                </button>
-              </td>
+                role="gridcell"
+              />
             </tr>
           </tbody>
         </table>
