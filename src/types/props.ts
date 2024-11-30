@@ -355,6 +355,8 @@ export interface PropsBase {
    * @see https://daypicker.dev/docs/translation#rtl-text-direction
    */
   dir?: HTMLDivElement["dir"];
+  ["aria-label"]?: string;
+  role?: "application" | "dialog" | undefined;
   /**
    * A cryptographic nonce ("number used once") which can be used by Content
    * Security Policy for the inline `style` attributes.
