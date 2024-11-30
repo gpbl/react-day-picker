@@ -449,6 +449,7 @@ export function DayPicker(props: DayPickerProps) {
                               })}
                               className={classNames[UI.WeekNumber]}
                               scope="row"
+                              role="gridcell"
                             >
                               {formatWeekNumber(week.weekNumber)}
                             </components.WeekNumber>
@@ -495,14 +496,15 @@ export function DayPicker(props: DayPickerProps) {
                               props.modifiersClassNames
                             );
 
-                            const ariaLabel = !isInteractive
-                              ? labelGridcell(
-                                  date,
-                                  modifiers,
-                                  dateLib.options,
-                                  dateLib
-                                )
-                              : undefined;
+                            const ariaLabel =
+                              !isInteractive && !modifiers.hidden
+                                ? labelGridcell(
+                                    date,
+                                    modifiers,
+                                    dateLib.options,
+                                    dateLib
+                                  )
+                                : undefined;
 
                             return (
                               <components.Day
@@ -511,7 +513,7 @@ export function DayPicker(props: DayPickerProps) {
                                 modifiers={modifiers}
                                 className={className.join(" ")}
                                 style={style}
-                                aria-hidden={modifiers.hidden || undefined}
+                                role="gridcell"
                                 aria-selected={modifiers.selected || undefined}
                                 aria-label={ariaLabel}
                                 data-day={dateLib.format(date, "yyyy-MM-dd")}
@@ -527,7 +529,7 @@ export function DayPicker(props: DayPickerProps) {
                                 data-focused={modifiers.focused || undefined}
                                 data-today={modifiers.today || undefined}
                               >
-                                {isInteractive ? (
+                                {!modifiers.hidden && isInteractive ? (
                                   <components.DayButton
                                     className={classNames[UI.DayButton]}
                                     style={styles?.[UI.DayButton]}
@@ -558,6 +560,7 @@ export function DayPicker(props: DayPickerProps) {
                                     {formatDay(date, dateLib.options, dateLib)}
                                   </components.DayButton>
                                 ) : (
+                                  !modifiers.hidden &&
                                   formatDay(day.date, dateLib.options, dateLib)
                                 )}
                               </components.Day>
