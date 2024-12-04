@@ -6,9 +6,10 @@ export function DropdownMultipleMonths() {
   return (
     <DayPicker
       numberOfMonths={5}
+      defaultMonth={new Date(2024, 6)}
       captionLayout="dropdown"
-      fromYear={2015}
-      toYear={2025}
+      startMonth={new Date(2024, 6)}
+      endMonth={new Date(2025, 9)}
     />
   );
 }
