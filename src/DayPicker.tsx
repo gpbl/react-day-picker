@@ -308,7 +308,6 @@ export function DayPicker(props: DayPickerProps) {
             );
 
             const dropdownYears = getYearOptions(
-              months[0].date,
               navStart,
               navEnd,
               formatters,

@@ -23,43 +23,65 @@ test("should display the year dropdown", () => {
   expect(yearDropdown()).toBeInTheDocument();
 });
 
-test("should disable the months out of range", () => {
-  expect(
-    within(monthDropdown()).getByRole("option", { name: "January" })
-  ).toBeDisabled();
+test("should disable the months before startMonth", () => {
+  const disablesMonth = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June"
+  ];
+  for (const month of disablesMonth) {
+    expect(
+      within(monthDropdown()).getByRole("option", { name: month })
+    ).toBeDisabled();
+  }
+});
+
+test("should disable the months after endMonth", async () => {
+  await user.selectOptions(yearDropdown(), "2025");
+  const disablesMonth = ["November", "December"];
+  for (const month of disablesMonth) {
+    expect(
+      within(monthDropdown()).getByRole("option", { name: month })
+    ).toBeDisabled();
+  }
 });
 
 describe("when choosing a month", () => {
-  const monthName = "December";
-  beforeEach(async () => {
+  test("should display the month", async () => {
+    const monthName = "December";
     await user.selectOptions(monthDropdown(), monthName);
-  });
-  test("should display the month", () => {
     expect(grid()).toHaveAccessibleName(`${monthName} 2024`);
-  });
-  test("should disable the years out of range", () => {
-    expect(
-      within(yearDropdown()).getByRole("option", { name: "2025" })
-    ).toBeDisabled();
   });
 });
 
 describe("when choosing a year", () => {
-  const year = "2025";
-  beforeEach(async () => {
+  test("should display the year", async () => {
+    const year = "2025";
     await user.selectOptions(yearDropdown(), year);
-  });
-  test("should display the year", () => {
     expect(grid()).toHaveAccessibleName(`July ${year}`);
+  });
+
+  test("should display the first available month when selecting a month before startMonth", async () => {
+    await user.selectOptions(yearDropdown(), "2025");
+    await user.selectOptions(monthDropdown(), "January");
+    await user.selectOptions(yearDropdown(), "2024");
+    expect(grid()).toHaveAccessibleName(`July 2024`);
+  });
+
+  test("should display the last available month when selecting a month after endMonth", async () => {
+    await user.selectOptions(monthDropdown(), "December");
+    await user.selectOptions(yearDropdown(), "2025");
+    expect(grid()).toHaveAccessibleName(`October 2025`);
   });
 });
 
 describe("when choosing a disabled month", () => {
-  const monthName = "February";
-  beforeEach(async () => {
+  test("should display the first available month", async () => {
+    const monthName = "February";
     await user.selectOptions(monthDropdown(), monthName);
-  });
-  test("should display the first available month", () => {
     expect(grid()).toHaveAccessibleName(`July 2024`);
   });
 });
