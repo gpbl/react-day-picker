@@ -98,13 +98,6 @@ const config: Config = {
   ],
 
   themeConfig: {
-    announcementBar: {
-      id: "v9",
-      content:
-        "🎉 Introducing DayPicker v9. See the <a href='/changelog'>full changelog</a>.",
-      backgroundColor: "rebeccapurple",
-      textColor: "white"
-    },
     image: "img/social-card.png",
     metadata: [
       {
