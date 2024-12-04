@@ -5,13 +5,13 @@ import type { Formatters } from "../types/index.js";
 /** Return the years to show in the dropdown. */
 export function getYearOptions(
   displayMonth: Date,
-  calendarStart: Date | undefined,
-  calendarEnd: Date | undefined,
+  navStart: Date | undefined,
+  navEnd: Date | undefined,
   formatters: Pick<Formatters, "formatYearDropdown">,
   dateLib: DateLib
 ): DropdownOption[] | undefined {
-  if (!calendarStart) return undefined;
-  if (!calendarEnd) return undefined;
+  if (!navStart) return undefined;
+  if (!navEnd) return undefined;
   const {
     startOfMonth,
     startOfYear,
@@ -21,8 +21,8 @@ export function getYearOptions(
     isSameYear
   } = dateLib;
   const month = displayMonth.getMonth();
-  const firstNavYear = startOfYear(calendarStart);
-  const lastNavYear = endOfYear(calendarEnd);
+  const firstNavYear = startOfYear(navStart);
+  const lastNavYear = endOfYear(navEnd);
   const years: number[] = [];
 
   let year = firstNavYear;
@@ -36,8 +36,8 @@ export function getYearOptions(
       ? new dateLib.Date(value, month)
       : new Date(value, month);
     const disabled =
-      (calendarStart && year < startOfMonth(calendarStart)) ||
-      (month && calendarEnd && year > startOfMonth(calendarEnd)) ||
+      (navStart && year < startOfMonth(navStart)) ||
+      (month && navEnd && year > startOfMonth(navEnd)) ||
       false;
     const label = formatters.formatYearDropdown(value);
     return {
