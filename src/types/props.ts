@@ -209,7 +209,8 @@ export interface PropsBase {
    * - `year`: display only the dropdown for the years
    *
    * **Note:** showing the dropdown will set the start/end months
-   * {@link fromYear} to 100 years ago, and {@link toYear} to the current year.
+   * {@link startMonth} to 100 years ago, and {@link endMonth} to the end of the
+   * current year.
    *
    * @see https://daypicker.dev/docs/customization#caption-layouts
    */
