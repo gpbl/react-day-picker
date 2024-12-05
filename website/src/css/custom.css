@@ -397,10 +397,10 @@ span[class^="admonitionIcon"] svg {
 
 div.theme-admonition {
   font-size: 0.875rem;
-  border-left-width: 0.1rem;
+  border-left-width: 2px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  border-radius: 0;
+  /* border-radius: 0; */
 }
 
 .theme-admonition p {
