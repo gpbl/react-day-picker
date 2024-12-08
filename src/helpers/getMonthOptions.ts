@@ -13,12 +13,12 @@ export function getMonthOptions(
   if (!navStart) return undefined;
   if (!navEnd) return undefined;
 
-  const { addMonths, startOfMonth, isBefore } = dateLib;
+  const { addMonths, startOfMonth } = dateLib;
   const year = displayMonth.getFullYear();
 
   const months: number[] = [];
   let month = navStart;
-  while (months.length < 12 && isBefore(month, addMonths(navEnd, 1))) {
+  while (months.length < 12) {
     months.push(month.getMonth());
     month = addMonths(month, 1);
   }
