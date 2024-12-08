@@ -24,7 +24,7 @@ test("should display the year dropdown", () => {
 });
 
 test("should disable the months before startMonth", () => {
-  const disablesMonth = [
+  const disabledMonth = [
     "January",
     "February",
     "March",
@@ -32,7 +32,7 @@ test("should disable the months before startMonth", () => {
     "May",
     "June"
   ];
-  for (const month of disablesMonth) {
+  for (const month of disabledMonth) {
     expect(
       within(monthDropdown()).getByRole("option", { name: month })
     ).toBeDisabled();
@@ -41,8 +41,8 @@ test("should disable the months before startMonth", () => {
 
 test("should disable the months after endMonth", async () => {
   await user.selectOptions(yearDropdown(), "2025");
-  const disablesMonth = ["November", "December"];
-  for (const month of disablesMonth) {
+  const disabledMonth = ["November", "December"];
+  for (const month of disabledMonth) {
     expect(
       within(monthDropdown()).getByRole("option", { name: month })
     ).toBeDisabled();
