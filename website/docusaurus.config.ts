@@ -97,6 +97,15 @@ const config: Config = {
     ]
   ],
 
+  scripts: [
+    {
+      src: "/q/p/script.js",
+      defer: true,
+      "data-domain": "daypicker.dev",
+      "data-api": "/q/event"
+    }
+  ],
+
   themeConfig: {
     image: "img/social-card.png",
     metadata: [
