@@ -1,7 +1,6 @@
 import type { Config } from "@jest/types";
 
 const config: Config.InitialOptions = {
-  preset: "ts-jest",
   roots: ["./src", "./examples"],
   moduleNameMapper: {
     "@/test/(.*)": ["<rootDir>/test/$1"],
@@ -12,7 +11,25 @@ const config: Config.InitialOptions = {
   testEnvironment: "jsdom",
   coverageReporters: ["lcov", "text", "clover"],
   setupFilesAfterEnv: ["./test/setup.ts"],
-  fakeTimers: { enableGlobally: true }
+  fakeTimers: { enableGlobally: true },
+  /**
+   * Configuration for transforming source files before testing Uses @swc/jest
+   * to quickly transform JavaScript/TypeScript files
+   */
+  transform: {
+    "^.+\\.(t|j)sx?$": [
+      "@swc/jest",
+      {
+        jsc: {
+          transform: {
+            react: {
+              runtime: "automatic"
+            }
+          }
+        }
+      }
+    ]
+  }
 };
 
 export default config;
