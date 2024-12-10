@@ -280,6 +280,8 @@ export function DayPicker(props: DayPickerProps) {
         lang={props.lang}
         nonce={props.nonce}
         title={props.title}
+        role={props.role}
+        aria-label={props["aria-label"]}
         {...dataAttributes}
         data-focused={
           focused ? dateLib.format(focused.date, "yyyy-MM-dd") : undefined
@@ -310,7 +312,6 @@ export function DayPicker(props: DayPickerProps) {
             );
 
             const dropdownYears = getYearOptions(
-              months[0].date,
               navStart,
               navEnd,
               formatters,
@@ -461,6 +462,7 @@ export function DayPicker(props: DayPickerProps) {
                                 })}
                                 className={classNames[UI.WeekNumber]}
                                 scope="row"
+                                role="rowheader"
                               >
                                 {formatWeekNumber(week.weekNumber)}
                               </components.WeekNumber>
@@ -507,14 +509,15 @@ export function DayPicker(props: DayPickerProps) {
                                 props.modifiersClassNames
                               );
 
-                              const ariaLabel = !isInteractive
-                                ? labelGridcell(
-                                    date,
-                                    modifiers,
-                                    dateLib.options,
-                                    dateLib
-                                  )
-                                : undefined;
+                              const ariaLabel =
+                                !isInteractive && !modifiers.hidden
+                                  ? labelGridcell(
+                                      date,
+                                      modifiers,
+                                      dateLib.options,
+                                      dateLib
+                                    )
+                                  : undefined;
 
                               return (
                                 <components.Day
@@ -523,7 +526,7 @@ export function DayPicker(props: DayPickerProps) {
                                   modifiers={modifiers}
                                   className={className.join(" ")}
                                   style={style}
-                                  aria-hidden={modifiers.hidden || undefined}
+                                  role="gridcell"
                                   aria-selected={
                                     modifiers.selected || undefined
                                   }
@@ -545,7 +548,7 @@ export function DayPicker(props: DayPickerProps) {
                                   data-focused={modifiers.focused || undefined}
                                   data-today={modifiers.today || undefined}
                                 >
-                                  {isInteractive ? (
+                                  {!modifiers.hidden && isInteractive ? (
                                     <components.DayButton
                                       className={classNames[UI.DayButton]}
                                       style={styles?.[UI.DayButton]}
@@ -583,6 +586,7 @@ export function DayPicker(props: DayPickerProps) {
                                       )}
                                     </components.DayButton>
                                   ) : (
+                                    !modifiers.hidden &&
                                     formatDay(
                                       day.date,
                                       dateLib.options,

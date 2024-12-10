@@ -209,7 +209,8 @@ export interface PropsBase {
    * - `year`: display only the dropdown for the years
    *
    * **Note:** showing the dropdown will set the start/end months
-   * {@link fromYear} to 100 years ago, and {@link toYear} to the current year.
+   * {@link startMonth} to 100 years ago, and {@link endMonth} to the end of the
+   * current year.
    *
    * @see https://daypicker.dev/docs/customization#caption-layouts
    */
@@ -371,6 +372,20 @@ export interface PropsBase {
    * @see https://daypicker.dev/docs/translation#rtl-text-direction
    */
   dir?: HTMLDivElement["dir"];
+  /**
+   * The aria-label attribute to add to the container element.
+   *
+   * @since 9.4.1
+   * @see https://daypicker.dev/guides/accessibility
+   */
+  ["aria-label"]?: string;
+  /**
+   * The role attribute to add to the container element.
+   *
+   * @since 9.4.1
+   * @see https://daypicker.dev/guides/accessibility
+   */
+  role?: "application" | "dialog" | undefined;
   /**
    * A cryptographic nonce ("number used once") which can be used by Content
    * Security Policy for the inline `style` attributes.

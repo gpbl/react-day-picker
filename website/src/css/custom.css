@@ -25,9 +25,9 @@
   --ifm-toc-border-color: transparent;
   --ifm-table-background: rgba(0, 0, 0, 0.03);
   --ifm-table-cell-padding: 0.25rem;
-  --ifm-transition-fast: 0;
+  /* --ifm-transition-fast: 0;
   --ifm-transition-slow: 0;
-  --ifm-transition-slow: 0;
+  --ifm-transition-slow: 0; */
 
   --ifm-table-cell-padding: 0.35rem 0.5rem;
   --ifm-table-border-width: 0;
@@ -62,6 +62,8 @@ html[data-theme="dark"] {
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 
   --ifm-toc-border-color: transparent !important;
+
+  --ifm-color-content: #d3d3d3;
 }
 
 .rdp-root {
@@ -183,7 +185,6 @@ a.menu__link--active {
 }
 a.menu__link[aria-expanded] {
   font-weight: 600;
-  /* cursor: default; */
 }
 
 .menu__list-item-collapsible {
@@ -197,7 +198,8 @@ a.menu__link[aria-expanded]:hover {
 .menu__link--sublist {
 }
 
-.menu__list-item {
+.menu__list-item:not(:first-child) {
+  margin-top: 0.1rem;
 }
 
 a.table-of-contents__link:not(:hover):not(.table-of-contents__link--active) {
@@ -244,7 +246,8 @@ a.theme-edit-this-page > svg {
   background-color: unset;
 }
 
-.markdown table tr td {
+.markdown table tr td code {
+  white-space: nowrap;
 }
 
 .markdown table th {
@@ -394,10 +397,10 @@ span[class^="admonitionIcon"] svg {
 
 div.theme-admonition {
   font-size: 0.875rem;
-  border-left-width: 0.1rem;
+  border-left-width: 2px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  border-radius: 0;
+  /* border-radius: 0; */
 }
 
 .theme-admonition p {
@@ -432,4 +435,27 @@ div[class^="docRoot"] {
 
 .navbar__logo {
   height: 1.75rem;
+}
+
+.markdown table.no-wrap-table {
+  display: block;
+}
+
+.no-wrap-table th,
+.no-wrap-table td {
+  white-space: nowrap;
+}
+
+div[class^="tocCollapsible"] {
+  background-color: transparent;
+}
+
+div[class^="tocCollapsible"] > button {
+  padding-left: 0;
+  padding-top: 0;
+  padding-right: 0;
+}
+
+div[class^="tocCollapsibleContent"] > ul {
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
 }

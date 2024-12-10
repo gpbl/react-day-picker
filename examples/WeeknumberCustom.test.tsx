@@ -9,5 +9,9 @@ beforeEach(() => {
 });
 
 test("should display the 1st week (even if December)", () => {
-  expect(screen.getByRole("rowheader", { name: `W1` })).toBeInTheDocument();
+  expect(
+    screen.getByRole("rowheader", {
+      name: (name, el) => name === "W1"
+    })
+  ).toBeInTheDocument();
 });

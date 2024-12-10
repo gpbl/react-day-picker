@@ -26,7 +26,7 @@ import "react-day-picker/style.css";
 <details>
 <summary>Copying the CSS file</summary>
 
-If you are not using a bundler, you can copy the CSS file to your project. See the [style.css](https://github.com/gpbl/react-day-picker/blob/main/style.css) file in the DayPicker repository for the source.
+If you are not using a bundler, you can copy the CSS file to your project. See the [style.css](https://github.com/gpbl/react-day-picker/blob/main/src/style.css) file in the DayPicker repository for the source.
 
 ```html title="./public/index.html"
 <style>
@@ -52,42 +52,226 @@ Define the CSS variables in your app's CSS file, after importing the DayPicker C
 
 The following table lists the CSS variables used by DayPicker within the `.rdp-root` class:
 
-| CSS Variable                              | Description                                                          |
-| ----------------------------------------- | -------------------------------------------------------------------- |
-| `--rdp-accent-color`                      | The accent color used for selected days and UI elements.             |
-| `--rdp-accent-background-color`           | The accent background color used for selected days and UI elements.  |
-| `--rdp-day-height`                        | The height of the day cells (default: `44px`).                       |
-| `--rdp-day-width`                         | The width of the day cells (default: `44px`).                        |
-| `--rdp-chevron-disabled-opacity`          | The opacity of the chevron when its container is disabled.           |
-| `--rdp-day_button-border-radius`          | The border radius of the day cells.                                  |
-| `--rdp-day_button-border`                 | The border of the day cells.                                         |
-| `--rdp-day_button-height`                 | The height of the day cells (default: `42px`).                       |
-| `--rdp-day_button-width`                  | The width of the day cells (default: `42px`).                        |
-| `--rdp-selected-border`                   | The border of the selected days.                                     |
-| `--rdp-disabled-opacity`                  | The opacity of the disabled days.                                    |
-| `--rdp-outside-opacity`                   | The opacity of the days outside the current month.                   |
-| `--rdp-today-color`                       | The color of today's date.                                           |
-| `--rdp-dropdown-gap`                      | The gap between the dropdowns used in the month captions.            |
-| `--rdp-months-gap`                        | The gap between the months in the multi-month view.                  |
-| `--rdp-nav_button-disabled-opacity`       | The opacity of the disabled navigation buttons.                      |
-| `--rdp-nav_button-height`                 | The height of the navigation buttons.                                |
-| `--rdp-nav_button-width`                  | The width of the navigation buttons.                                 |
-| `--rdp-nav-height`                        | The height of the navigation bar.                                    |
-| `--rdp-range_middle-background-color`     | The color of the background for days in the middle of a range.       |
-| `--rdp-range_middle-foreground-color`     | The color of the text for days in the middle of a range.             |
-| `--rdp-range_start-color`                 | The color of the range text at the start of the range.               |
-| `--rdp-range_start-background`            | Used for the background of the start of the selected range.          |
-| `--rdp-range_start-date-background-color` | The background color of the date at the start of the selected range. |
-| `--rdp-range_end-background`              | Used for the background of the end of the selected range.            |
-| `--rdp-range_end-color`                   | The color of the range text at the end of the range.                 |
-| `--rdp-range_end-date-background-color`   | The background color of the date at the end of the selected range.   |
-| `--rdp-week_number-border-radius`         | The border radius of the week number.                                |
-| `--rdp-week_number-border`                | The border of the week number.                                       |
-| `--rdp-week_number-height`                | The height of the week number cells.                                 |
-| `--rdd-week_number-width`                 | The width of the week number cells.                                  |
-| `--rdp-weekday-opacity`                   | The opacity of the weekday.                                          |
-| `--rdp-weekday-padding`                   | The padding of the weekday.                                          |
-| `--rdp-weekday-text-align`                | The text alignment of the weekday cells.                             |
+<table class="no-wrap-table">
+  <thead>
+    <tr>
+      <th>CSS Variable</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--rdp-accent-color</code>
+      </td>
+      <td>The accent color used for selected days and UI elements.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-accent-background-color</code>
+      </td>
+      <td>
+        The accent background color used for selected days and UI elements.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-day-height</code>
+      </td>
+      <td>The height of the day cells (default: `44px`).</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-day-width</code>
+      </td>
+      <td>The width of the day cells (default: `44px`).</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-chevron-disabled-opacity</code>
+      </td>
+      <td>The opacity of the chevron when its container is disabled.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-day_button-border-radius</code>
+      </td>
+      <td>The border radius of the day cells.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-day_button-border</code>
+      </td>
+      <td>The border of the day cells.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-day_button-height</code>
+      </td>
+      <td>The height of the day cells (default: `42px`).</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-day_button-width</code>
+      </td>
+      <td>The width of the day cells (default: `42px`).</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-selected-border</code>
+      </td>
+      <td>The border of the selected days.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-disabled-opacity</code>
+      </td>
+      <td>The opacity of the disabled days.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-outside-opacity</code>
+      </td>
+      <td>The opacity of the days outside the current month.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-today-color</code>
+      </td>
+      <td>The color of today's date.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-dropdown-gap</code>
+      </td>
+      <td>The gap between the dropdowns used in the month captions.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-months-gap</code>
+      </td>
+      <td>The gap between the months in the multi-month view.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-nav_button-disabled-opacity</code>
+      </td>
+      <td>The opacity of the disabled navigation buttons.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-nav_button-height</code>
+      </td>
+      <td>The height of the navigation buttons.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-nav_button-width</code>
+      </td>
+      <td>The width of the navigation buttons.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-nav-height</code>
+      </td>
+      <td>The height of the navigation bar.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-range_middle-background-color</code>
+      </td>
+      <td>The color of the background for days in the middle of a range.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-range_middle-color</code>
+      </td>
+      <td>The color of the text for days in the middle of a range.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-range_start-color</code>
+      </td>
+      <td>The color of the range text at the start of the range.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-range_start-background</code>
+      </td>
+      <td>Used for the background of the start of the selected range.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-range_start-date-background-color</code>
+      </td>
+      <td>
+        The background color of the date at the start of the selected range.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-range_end-background</code>
+      </td>
+      <td>Used for the background of the end of the selected range.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-range_end-color</code>
+      </td>
+      <td>The color of the range text at the end of the range.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-range_end-date-background-color</code>
+      </td>
+      <td>
+        The background color of the date at the end of the selected range.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-week_number-border-radius</code>
+      </td>
+      <td>The border radius of the week number.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-week_number-border</code>
+      </td>
+      <td>The border of the week number.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-week_number-height</code>
+      </td>
+      <td>The height of the week number cells.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdd-week_number-width</code>
+      </td>
+      <td>The width of the week number cells.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-weekday-opacity</code>
+      </td>
+      <td>The opacity of the weekday.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-weekday-padding</code>
+      </td>
+      <td>The padding of the weekday.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--rdp-weekday-text-align</code>
+      </td>
+      <td>The text alignment of the weekday cells.</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Light/Dark Appearance
 
@@ -116,10 +300,6 @@ export function MyDatePicker() {
   return <DayPicker mode="single" classNames={classNames} />;
 }
 ```
-
-<BrowserWindow>
-  <Examples.CssModules />
-</BrowserWindow>
 
 ## Custom Class Names
 

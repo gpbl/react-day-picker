@@ -14,5 +14,5 @@ beforeEach(() => {
 });
 
 test("should render 7 rows", () => {
-  expect(screen.getAllByRole("row")).toHaveLength(7);
+  expect(screen.getAllByRole("row", { hidden: true })).toHaveLength(7);
 });

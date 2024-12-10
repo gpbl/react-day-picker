@@ -6,6 +6,7 @@
  */
 
 .browserWindow {
+  min-height: 320px;
   border: 1px solid var(--ifm-color-emphasis-200);
   border-radius: var(--ifm-global-radius);
   box-shadow: var(--ifm-global-shadow-lw);

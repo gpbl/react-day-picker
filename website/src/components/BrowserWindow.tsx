@@ -15,28 +15,28 @@ interface Props {
   url: string;
   style?: CSSProperties;
   bodyStyle?: CSSProperties;
+  shadow?: boolean;
 }
 
 export function BrowserWindow({
   children,
   minHeight,
   style,
-  bodyStyle
+  bodyStyle,
+  shadow = true
 }: Props): JSX.Element {
   return (
-    <div className="docusaurus-reset">
-      <div className={styles.browserWindow} style={{ ...style, minHeight }}>
-        <div className={styles.browserWindowHeader}>
-          <div className={styles.buttons}>
-            <span className={styles.dot} style={{ background: "#f25f58" }} />
-            <span className={styles.dot} style={{ background: "#fbbe3c" }} />
-            <span className={styles.dot} style={{ background: "#58cb42" }} />
-          </div>
+    <div className={styles.browserWindow} style={{ ...style, minHeight }}>
+      <div className={styles.browserWindowHeader}>
+        <div className={styles.buttons}>
+          <span className={styles.dot} style={{ background: "#f25f58" }} />
+          <span className={styles.dot} style={{ background: "#fbbe3c" }} />
+          <span className={styles.dot} style={{ background: "#58cb42" }} />
         </div>
+      </div>
 
-        <div className={styles.browserWindowBody} style={bodyStyle}>
-          <ShadowDomWrapper>{children}</ShadowDomWrapper>
-        </div>
+      <div className={styles.browserWindowBody} style={bodyStyle}>
+        {shadow ? <ShadowDomWrapper>{children}</ShadowDomWrapper> : children}
       </div>
     </div>
   );
