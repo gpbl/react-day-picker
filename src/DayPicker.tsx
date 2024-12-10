@@ -326,70 +326,82 @@ export function DayPicker(props: DayPickerProps) {
                 displayIndex={displayIndex}
                 calendarMonth={calendarMonth}
               >
-                <components.MonthCaption
-                  calendarMonth={calendarMonth}
-                  displayIndex={displayIndex}
-                  className={classNames[UI.MonthCaption]}
+                <components.Transition
+                  enabled={props.animate}
+                  className={classNames[TransitionType.Fade]}
+                  transitionKey={calendarMonth.date.toISOString()}
+                  direction={direction}
+                  duration={focused ? 0 : props.transitionDuration}
+                  onEnter={() => calendar.setIsTransitioning(true)}
+                  onEntered={() => calendar.setIsTransitioning(false)}
                 >
-                  {captionLayout?.startsWith("dropdown") ? (
-                    <components.DropdownNav
-                      className={classNames[UI.Dropdowns]}
-                      style={styles?.[UI.Dropdowns]}
-                    >
-                      {captionLayout === "dropdown" ||
-                      captionLayout === "dropdown-months" ? (
-                        <components.MonthsDropdown
-                          className={classNames[UI.MonthsDropdown]}
-                          aria-label={labelMonthDropdown()}
-                          classNames={classNames}
-                          components={components}
-                          disabled={Boolean(props.disableNavigation)}
-                          onChange={handleMonthChange(calendarMonth.date)}
-                          options={dropdownMonths}
-                          style={styles?.[UI.Dropdown]}
-                          value={calendarMonth.date.getMonth()}
-                        />
-                      ) : (
-                        <span role="status" aria-live="polite">
-                          {formatMonthDropdown(
-                            calendarMonth.date.getMonth(),
-                            locale
-                          )}
-                        </span>
-                      )}
-                      {captionLayout === "dropdown" ||
-                      captionLayout === "dropdown-years" ? (
-                        <components.YearsDropdown
-                          className={classNames[UI.YearsDropdown]}
-                          aria-label={labelYearDropdown(dateLib.options)}
-                          classNames={classNames}
-                          components={components}
-                          disabled={Boolean(props.disableNavigation)}
-                          onChange={handleYearChange(calendarMonth.date)}
-                          options={dropdownYears}
-                          style={styles?.[UI.Dropdown]}
-                          value={calendarMonth.date.getFullYear()}
-                        />
-                      ) : (
-                        <span role="status" aria-live="polite">
-                          {formatYearDropdown(calendarMonth.date.getFullYear())}
-                        </span>
-                      )}
-                    </components.DropdownNav>
-                  ) : (
-                    <components.CaptionLabel
-                      className={classNames[UI.CaptionLabel]}
-                      role="status"
-                      aria-live="polite"
-                    >
-                      {formatCaption(
-                        calendarMonth.date,
-                        dateLib.options,
-                        dateLib
-                      )}
-                    </components.CaptionLabel>
-                  )}
-                </components.MonthCaption>
+                  <components.MonthCaption
+                    calendarMonth={calendarMonth}
+                    displayIndex={displayIndex}
+                    className={classNames[UI.MonthCaption]}
+                  >
+                    {captionLayout?.startsWith("dropdown") ? (
+                      <components.DropdownNav
+                        className={classNames[UI.Dropdowns]}
+                        style={styles?.[UI.Dropdowns]}
+                      >
+                        {captionLayout === "dropdown" ||
+                        captionLayout === "dropdown-months" ? (
+                          <components.MonthsDropdown
+                            className={classNames[UI.MonthsDropdown]}
+                            aria-label={labelMonthDropdown()}
+                            classNames={classNames}
+                            components={components}
+                            disabled={Boolean(props.disableNavigation)}
+                            onChange={handleMonthChange(calendarMonth.date)}
+                            options={dropdownMonths}
+                            style={styles?.[UI.Dropdown]}
+                            value={calendarMonth.date.getMonth()}
+                          />
+                        ) : (
+                          <span role="status" aria-live="polite">
+                            {formatMonthDropdown(
+                              calendarMonth.date.getMonth(),
+                              locale
+                            )}
+                          </span>
+                        )}
+                        {captionLayout === "dropdown" ||
+                        captionLayout === "dropdown-years" ? (
+                          <components.YearsDropdown
+                            className={classNames[UI.YearsDropdown]}
+                            aria-label={labelYearDropdown(dateLib.options)}
+                            classNames={classNames}
+                            components={components}
+                            disabled={Boolean(props.disableNavigation)}
+                            onChange={handleYearChange(calendarMonth.date)}
+                            options={dropdownYears}
+                            style={styles?.[UI.Dropdown]}
+                            value={calendarMonth.date.getFullYear()}
+                          />
+                        ) : (
+                          <span role="status" aria-live="polite">
+                            {formatYearDropdown(
+                              calendarMonth.date.getFullYear()
+                            )}
+                          </span>
+                        )}
+                      </components.DropdownNav>
+                    ) : (
+                      <components.CaptionLabel
+                        className={classNames[UI.CaptionLabel]}
+                        role="status"
+                        aria-live="polite"
+                      >
+                        {formatCaption(
+                          calendarMonth.date,
+                          dateLib.options,
+                          dateLib
+                        )}
+                      </components.CaptionLabel>
+                    )}
+                  </components.MonthCaption>
+                </components.Transition>
                 <components.MonthGrid
                   role="grid"
                   aria-multiselectable={mode === "multiple" || mode === "range"}

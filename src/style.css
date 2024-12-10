@@ -54,7 +54,7 @@
   --rdp-grid-template-columns: 7;
 
 
-  --rdp-transition-duration: 200ms;
+  --rdp-transition-duration: 300ms;
 }
 
 .rdp-root[data-focused] {
