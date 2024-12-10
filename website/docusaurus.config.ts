@@ -96,7 +96,7 @@ const config: Config = {
       src: "/q/p/script.js",
       defer: true,
       "data-domain": "daypicker.dev",
-      "data-api": "/q/event"
+      "data-api": "/a/event"
     }
   ],
 
