@@ -1,4 +1,4 @@
-import React from "react";
+import React, { type TableHTMLAttributes } from "react";
 
 /**
  * Render the grid of days in a month.
@@ -6,7 +6,7 @@ import React from "react";
  * @group Components
  * @see https://daypicker.dev/guides/custom-components
  */
-export function MonthGrid(props: React.TableHTMLAttributes<HTMLTableElement>) {
+export function MonthGrid(props: TableHTMLAttributes<HTMLTableElement>) {
   return <table {...props} />;
 }
 

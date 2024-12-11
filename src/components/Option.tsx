@@ -1,4 +1,4 @@
-import React from "react";
+import React, { type OptionHTMLAttributes } from "react";
 
 /**
  * Render the `option` element.
@@ -6,7 +6,7 @@ import React from "react";
  * @group Components
  * @see https://daypicker.dev/guides/custom-components
  */
-export function Option(props: React.OptionHTMLAttributes<HTMLOptionElement>) {
+export function Option(props: OptionHTMLAttributes<HTMLOptionElement>) {
   return <option {...props} />;
 }
 

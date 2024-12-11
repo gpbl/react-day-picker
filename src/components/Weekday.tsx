@@ -1,4 +1,4 @@
-import React from "react";
+import React, { type ThHTMLAttributes } from "react";
 
 /**
  * Render the column header with the weekday name (e.g. "Mo", "Tu", etc.).
@@ -6,7 +6,7 @@ import React from "react";
  * @group Components
  * @see https://daypicker.dev/guides/custom-components
  */
-export function Weekday(props: React.ThHTMLAttributes<HTMLTableCellElement>) {
+export function Weekday(props: ThHTMLAttributes<HTMLTableCellElement>) {
   return <th {...props} />;
 }
 
