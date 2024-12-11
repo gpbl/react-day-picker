@@ -194,14 +194,15 @@ In case you are using the `components` prop, you may need to update your code, a
 ```diff
   <DayPicker
     components={{
+-     IconRight: MyRightIcon,
 -     IconLeft: MyLeftIcon,
 +     Chevron: (props) => {
-+        if (props.orientation === "left") {
-+          return <MyLeftIcon {...props} />;
-+        }
-+       return <Chevron {...props} />;
-+     }
-  }}
++       if (props.orientation === "left") {
++         return <ChevronLeftIcon {...props} />;
++       }
++       return <ChevronRightIcon {...props} />;
++     },
+    }}
   />
 ```
 
