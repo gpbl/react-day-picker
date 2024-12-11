@@ -12,6 +12,7 @@ import {
 
 function DayWithShiftKey(props: DayProps) {
   const buttonRef = React.useRef<HTMLButtonElement>(null);
+  // @ts-expect-error - Not compatible with react 19
   const dayRender = useDayRender(props.date, props.displayMonth, buttonRef);
 
   if (dayRender.isHidden) {
