@@ -1,4 +1,4 @@
-import React, { type HTMLAttributes } from "react";
+import React, { type ButtonHTMLAttributes } from "react";
 
 /**
  * Render the button elements in the calendar.
@@ -6,7 +6,7 @@ import React, { type HTMLAttributes } from "react";
  * @private
  * @deprecated Use `PreviousMonthButton` or `@link NextMonthButton` instead.
  */
-export function Button(props: HTMLAttributes<HTMLButtonElement>) {
+export function Button(props: ButtonHTMLAttributes<HTMLButtonElement>) {
   return <button {...props} />;
 }
 
