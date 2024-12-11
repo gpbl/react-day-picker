@@ -59,12 +59,7 @@ const options = {
     hideValues: false,
     leftAlignHeaders: false
   },
-  plugin: ["typedoc-plugin-markdown", "typedoc-plugin-frontmatter"],
-  frontmatterGlobals: {
-    pagination_next: null,
-    pagination_prev: null,
-    custom_edit_url: null
-  }
+  plugin: ["typedoc-plugin-markdown", "typedoc-plugin-frontmatter"]
 };
 
 export default options;
