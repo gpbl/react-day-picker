@@ -1,4 +1,4 @@
-import React from "react";
+import React, { type HTMLAttributes } from "react";
 
 /**
  * Render the row with the weekday names.
@@ -6,7 +6,7 @@ import React from "react";
  * @group Components
  * @see https://daypicker.dev/guides/custom-components
  */
-export function Weekdays(props: JSX.IntrinsicElements["tr"]) {
+export function Weekdays(props: HTMLAttributes<HTMLTableRowElement>) {
   return (
     <thead aria-hidden>
       <tr {...props} />

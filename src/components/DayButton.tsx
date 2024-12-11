@@ -1,4 +1,4 @@
-import React from "react";
+import React, { type ButtonHTMLAttributes } from "react";
 
 import type { CalendarDay } from "../classes/index.js";
 import type { Modifiers } from "../types/index.js";
@@ -15,7 +15,7 @@ export function DayButton(
     day: CalendarDay;
     /** The modifiers for the day. */
     modifiers: Modifiers;
-  } & JSX.IntrinsicElements["button"]
+  } & ButtonHTMLAttributes<HTMLButtonElement>
 ) {
   const { day, modifiers, ...buttonProps } = props;
 

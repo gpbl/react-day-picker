@@ -1,4 +1,4 @@
-import React from "react";
+import React, { type HTMLAttributes } from "react";
 
 import type { CalendarDay } from "../classes/index.js";
 import type { Modifiers } from "../types/index.js";
@@ -19,7 +19,7 @@ export function Day(
     day: CalendarDay;
     /** The modifiers to apply to the day. */
     modifiers: Modifiers;
-  } & JSX.IntrinsicElements["td"]
+  } & HTMLAttributes<HTMLDivElement>
 ) {
   const { day, modifiers, ...tdProps } = props;
   return <td {...tdProps} />;
