@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 
-import { UI, DayFlag, SelectionState } from "../UI.js";
+import { UI, DayFlag, SelectionState, TransitionType } from "../UI.js";
 import * as components from "../components/custom-components.js";
 import {
   formatCaption,
@@ -101,6 +101,7 @@ export type CustomComponents = {
   MonthsDropdown: typeof components.MonthsDropdown;
   /** Render the dropdown with the years. */
   YearsDropdown: typeof components.YearsDropdown;
+  Transition: typeof components.Transition;
 };
 
 /** Represent a map of formatters used to render localized content. */
@@ -307,7 +308,7 @@ export type MonthChangeEventHandler = (month: Date) => void;
  *   };
  */
 export type ClassNames = {
-  [key in UI | SelectionState | DayFlag]: string;
+  [key in UI | SelectionState | DayFlag | TransitionType]: string;
 };
 
 /**
