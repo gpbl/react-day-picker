@@ -35,7 +35,7 @@ export function Dropdown(
      */
     classNames: ClassNames;
     options?: DropdownOption[] | undefined;
-  } & Omit<JSX.IntrinsicElements["select"], "children">
+  } & Omit<React.SelectHTMLAttributes<HTMLSelectElement>, "children">
 ) {
   const { options, className, components, classNames, ...selectProps } = props;
 

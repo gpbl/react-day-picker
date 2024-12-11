@@ -6,7 +6,7 @@ import React from "react";
  * @group Components
  * @see https://daypicker.dev/guides/custom-components
  */
-export function Option(props: JSX.IntrinsicElements["option"]) {
+export function Option(props: React.OptionHTMLAttributes<HTMLOptionElement>) {
   return <option {...props} />;
 }
 

@@ -24,7 +24,7 @@ export function BrowserWindow({
   style,
   bodyStyle,
   shadow = true
-}: Props): JSX.Element {
+}: Props) {
   return (
     <div className={styles.browserWindow} style={{ ...style, minHeight }}>
       <div className={styles.browserWindowHeader}>
