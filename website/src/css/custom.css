@@ -45,13 +45,13 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 html[data-theme="dark"] {
-  --ifm-color-primary: #00c7fc;
-  --ifm-color-primary-dark: #00b3e3;
-  --ifm-color-primary-darker: #00a9d6;
-  --ifm-color-primary-darkest: #008bb0;
-  --ifm-color-primary-light: #16ceff;
-  --ifm-color-primary-lighter: #23d1ff;
-  --ifm-color-primary-lightest: #49d9ff;
+  --ifm-color-primary: #4a8cf8;
+  --ifm-color-primary-dark: #2681f7;
+  --ifm-color-primary-darker: #1679f6;
+  --ifm-color-primary-darkest: #0862d5;
+  --ifm-color-primary-light: #62a5f9;
+  --ifm-color-primary-lighter: #72adfa;
+  --ifm-color-primary-lightest: #9fc8fb;
 
   --ifm-table-background: rgba(0, 0, 0, 0.1);
   --ifm-table-border-color: var(--ifm-color-emphasis-100);
