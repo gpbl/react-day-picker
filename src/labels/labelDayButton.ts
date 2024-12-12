@@ -24,5 +24,8 @@ export function labelDayButton(
   return label;
 }
 
-/** @deprecated Use `labelDayButton` instead. */
+/**
+ * @ignore
+ * @deprecated Use `labelDayButton` instead.
+ */
 export const labelDay = labelDayButton;
