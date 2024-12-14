@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from "react";
+import React, { type MouseEventHandler, type HTMLAttributes } from "react";
 
 import { UI } from "../UI.js";
 import { useDayPicker } from "../useDayPicker.js";
@@ -15,7 +15,7 @@ export function Nav(
     onNextClick?: MouseEventHandler<HTMLButtonElement>;
     previousMonth?: Date | undefined;
     nextMonth?: Date | undefined;
-  } & JSX.IntrinsicElements["nav"]
+  } & HTMLAttributes<HTMLElement>
 ) {
   const {
     onPreviousClick,

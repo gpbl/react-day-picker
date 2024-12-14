@@ -42,9 +42,15 @@ import type { PropsBase } from "../types/props.js";
 export type { Locale } from "date-fns/locale";
 export type { Month as DateFnsMonth } from "date-fns";
 
-/** @deprecated Use {@link DateLibOptions} instead. */
+/**
+ * @ignore
+ * @deprecated Use {@link DateLibOptions} instead.
+ */
 export type FormatOptions = DateLibOptions;
-/** @deprecated Use {@link DateLibOptions} instead. */
+/**
+ * @ignore
+ * @deprecated Use {@link DateLibOptions} instead.
+ */
 export type LabelOptions = DateLibOptions;
 
 /**
@@ -502,5 +508,8 @@ export { enUS as defaultLocale } from "date-fns/locale/en-US";
  */
 export const defaultDateLib = new DateLib();
 
-/** @deprecated Use `defaultDateLib`. */
+/**
+ * @ignore
+ * @deprecated Use `defaultDateLib`.
+ */
 export const dateLib = defaultDateLib;

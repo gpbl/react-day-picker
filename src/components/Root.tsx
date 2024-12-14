@@ -1,4 +1,4 @@
-import React from "react";
+import React, { type HTMLAttributes } from "react";
 
 /**
  * Render the root element.
@@ -6,7 +6,7 @@ import React from "react";
  * @group Components
  * @see https://daypicker.dev/guides/custom-components
  */
-export function Root(props: JSX.IntrinsicElements["div"]) {
+export function Root(props: HTMLAttributes<HTMLDivElement>) {
   return <div {...props} />;
 }
 

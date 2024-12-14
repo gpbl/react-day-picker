@@ -141,12 +141,12 @@ DayPicker relies on ARIA labels to make the calendar accessible, and v9 include 
 
 The following ARIA labels have been updated:
 
-| Label                                                                                                | Old label                | New label                                                                                                  |
-| ---------------------------------------------------------------------------------------------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------- |
-| [`labelDayButton`](./api/functions/labelDayButton)<br/>_ex_ ~[`labelDay`](./api/functions/labelDay)~ | `21st November (Monday)` | `Monday, November 21st, 2024`<br/>`Monday, November 21st, 2024, selected`<br/>`Today, November 21st, 2024` |
-| [`labelPrevious`](./api/functions/labelPrevious)                                                     | `Go to previous month`   | `Go to the Previous Month`                                                                                 |
-| [`labelNext`](./api/functions/labelNext)                                                             | `Go to next month`       | `Go to the Next Month`                                                                                     |
-| [`labelWeekNumber`](./api/functions/labelWeekNumber.md)                                              | `Week nr. ##`            | `Week ##`                                                                                                  |
+| Label                                                                    | Old label                | New label                                                                                                  |
+| ------------------------------------------------------------------------ | ------------------------ | ---------------------------------------------------------------------------------------------------------- |
+| [`labelDayButton`](./api/functions/labelDayButton)<br/>_ex_ ~`labelDay`~ | `21st November (Monday)` | `Monday, November 21st, 2024`<br/>`Monday, November 21st, 2024, selected`<br/>`Today, November 21st, 2024` |
+| [`labelPrevious`](./api/functions/labelPrevious)                         | `Go to previous month`   | `Go to the Previous Month`                                                                                 |
+| [`labelNext`](./api/functions/labelNext)                                 | `Go to next month`       | `Go to the Next Month`                                                                                     |
+| [`labelWeekNumber`](./api/functions/labelWeekNumber.md)                  | `Week nr. ##`            | `Week ##`                                                                                                  |
 
 You may need to update your test selectors — for example:
 
@@ -194,14 +194,15 @@ In case you are using the `components` prop, you may need to update your code, a
 ```diff
   <DayPicker
     components={{
+-     IconRight: MyRightIcon,
 -     IconLeft: MyLeftIcon,
 +     Chevron: (props) => {
-+        if (props.orientation === "left") {
-+          return <MyLeftIcon {...props} />;
-+        }
-+       return <Chevron {...props} />;
-+     }
-  }}
++       if (props.orientation === "left") {
++         return <ChevronLeftIcon {...props} />;
++       }
++       return <ChevronRightIcon {...props} />;
++     },
+    }}
   />
 ```
 

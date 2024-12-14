@@ -123,7 +123,8 @@ const config: Config = {
       title: "React DayPicker",
       logo: {
         alt: "DayPicker Logo",
-        src: "img/logo.png"
+        src: "img/logo.png",
+        srcDark: "img/logo-dark.png"
       },
       items: [
         {

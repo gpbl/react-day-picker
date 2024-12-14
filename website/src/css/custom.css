@@ -45,13 +45,13 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 html[data-theme="dark"] {
-  --ifm-color-primary: #00c7fc;
-  --ifm-color-primary-dark: #00b3e3;
-  --ifm-color-primary-darker: #00a9d6;
-  --ifm-color-primary-darkest: #008bb0;
-  --ifm-color-primary-light: #16ceff;
-  --ifm-color-primary-lighter: #23d1ff;
-  --ifm-color-primary-lightest: #49d9ff;
+  --ifm-color-primary: #4a8cf8;
+  --ifm-color-primary-dark: #2681f7;
+  --ifm-color-primary-darker: #1679f6;
+  --ifm-color-primary-darkest: #0862d5;
+  --ifm-color-primary-light: #62a5f9;
+  --ifm-color-primary-lighter: #72adfa;
+  --ifm-color-primary-lightest: #9fc8fb;
 
   --ifm-table-background: rgba(0, 0, 0, 0.1);
   --ifm-table-border-color: var(--ifm-color-emphasis-100);
@@ -139,8 +139,12 @@ html[data-theme="dark"] {
 .markdown > h2 {
   font-size: 1.75rem;
   letter-spacing: -0.015em;
-  padding-bottom: 0.15em;
-  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  padding-top: 1em;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.markdown > header + h2 {
+  border-top: 0;
 }
 
 .markdown > h3 {
@@ -210,7 +214,7 @@ a.table-of-contents__link:not(:hover):not(.table-of-contents__link--active) {
   .table-of-contents::before {
     content: "On This Page";
     font-weight: 600;
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin: var(--ifm-toc-padding-vertical) var(--ifm-toc-padding-horizontal);
   }
 }

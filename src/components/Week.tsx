@@ -1,4 +1,4 @@
-import React from "react";
+import React, { type HTMLAttributes } from "react";
 
 import type { CalendarWeek } from "../classes/index.js";
 
@@ -11,7 +11,7 @@ import type { CalendarWeek } from "../classes/index.js";
 export function Week(
   props: {
     week: CalendarWeek;
-  } & JSX.IntrinsicElements["tr"]
+  } & HTMLAttributes<HTMLTableRowElement>
 ) {
   const { week, ...trProps } = props;
   return <tr {...trProps} />;

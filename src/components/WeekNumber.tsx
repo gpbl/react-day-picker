@@ -1,4 +1,4 @@
-import React from "react";
+import React, { type ThHTMLAttributes } from "react";
 
 import type { CalendarWeek } from "../classes/index.js";
 
@@ -12,7 +12,7 @@ export function WeekNumber(
   props: {
     /** The week to render. */
     week: CalendarWeek;
-  } & JSX.IntrinsicElements["th"]
+  } & ThHTMLAttributes<HTMLTableCellElement>
 ) {
   const { week, ...thProps } = props;
   return <th {...thProps} />;
