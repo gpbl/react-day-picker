@@ -1,6 +1,7 @@
 import React from "react";
 
 import * as jalaliDateLib from "date-fns-jalali";
+import { faIR } from "date-fns-jalali/locale";
 
 import {
   DayPicker as DayPickerComponent,
@@ -15,6 +16,8 @@ export function DayPicker(props: DayPickerProps) {
       //     function's return type is causing a type mismatch. (This casting should
       //     be not needed when date-fns-jalali upgrades to date-fns@4)
       dateLib={jalaliDateLib}
+      locale={faIR}
+      dir="rtl"
       {...props}
     />
   );
