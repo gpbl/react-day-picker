@@ -37,7 +37,7 @@ import { useState } from "react";
 import { DayPicker } from "react-day-picker";
 
 export function Controlled() {
-  const [month, setMonth] = useState(new Date());
+  const [month, setMonth] = useState(new Date(2024, 9)); // Start from October 2024
   return <DayPicker month={month} onMonthChange={setMonth} />;
 }
 ```
