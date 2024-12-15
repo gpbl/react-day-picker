@@ -114,12 +114,6 @@ In the broadcast calendar, weeks start on Monday and end on Sunday. Each month h
 
 DayPicker supports the Jalali calendar through the [date-fns-jalali](https://www.npmjs.com/package/date-fns-jalali) package. To switch to the Jalali calendar, add `date-fns-jalali` to your dependencies and import `DayPicker` from `react-day-picker/jalali`.
 
-:::warning Experimental Feature
-
-Support for the Jalali calendar is an experimental feature. [Please report](https://github.com/gpbl/react-day-picker/issues) any issues you encounter. Thank you!
-
-:::
-
 #### 1. Install the `date-fns-jalali` package
 
 ```bash npm2yarn
@@ -135,16 +129,15 @@ npm install date-fns-jalali
 
 #### 3. Use DayPicker as usual
 
-You can set the right-to-left direction and change the locale as needed.
+By defaults, Jalali DayPicker uses the Persian/Farsi locale (Iran) and a `dir` from right to left.
 
 ```tsx title="./JalaliCalendar.jsx"
 import React from "react";
 
 import { DayPicker } from "react-day-picker/jalali";
-import { faIR } from "react-day-picker/locale";
 
 export function Jalali() {
-  return <DayPicker mode="single" locale={faIR} dir="rtl" />;
+  return <DayPicker mode="single" />;
 }
 ```
 
