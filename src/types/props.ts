@@ -246,6 +246,22 @@ export interface PropsBase {
    * @see https://daypicker.dev/docs/customization#showweeknumber
    */
   showWeekNumber?: boolean;
+
+  /**
+   * Experimental. Animate navigating between months.
+   *
+   * @experimental
+   * @see https://daypicker.dev/docs/customization#animation
+   */
+  animate?: boolean;
+
+  /**
+   * The duration of the month transition animation in milliseconds.
+   *
+   * @see https://daypicker.dev/docs/customization#animation
+   */
+  transitionDuration?: number;
+
   /**
    * Display the weeks in the month following the broadcast calendar. Setting
    * this prop will ignore {@link weekStartsOn} (always Monday) and

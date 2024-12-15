@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import type {
   CalendarWeek,
@@ -63,6 +63,14 @@ export interface Calendar {
    *   month is set to one month before the date.
    */
   goToDay: (day: CalendarDay) => void;
+
+  /**
+   * The direction of the transition when navigating to the next/previous
+   * months.
+   */
+  direction: "next" | "previous";
+  /** Set the transitioning state when the calendar is animated. */
+  setIsTransitioning: (isTransitioning: boolean) => void;
 }
 
 /** @private */
@@ -90,6 +98,9 @@ export function useCalendar(
   >,
   dateLib: DateLib
 ): Calendar {
+  const [direction, setDirection] = useState<"next" | "previous">("next");
+  const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
+
   const [navStart, navEnd] = getNavMonths(props, dateLib);
 
   const { startOfMonth, endOfMonth } = dateLib;
@@ -134,9 +145,9 @@ export function useCalendar(
     weeks.some((week: CalendarWeek) => week.days.some((d) => d.isEqualTo(day)));
 
   const goToMonth = (date: Date) => {
-    if (disableNavigation) {
-      return;
-    }
+    if (disableNavigation) return;
+    if (isTransitioning) return;
+
     let newMonth = startOfMonth(date);
     // if month is before start, use the first month instead
     if (navStart && newMonth < startOfMonth(navStart)) {
@@ -147,6 +158,11 @@ export function useCalendar(
       newMonth = startOfMonth(navEnd);
     }
     setFirstMonth(newMonth);
+    if (newMonth < firstMonth) {
+      setDirection("previous");
+    } else {
+      setDirection("next");
+    }
     onMonthChange?.(newMonth);
   };
 
@@ -170,7 +186,10 @@ export function useCalendar(
     nextMonth,
 
     goToMonth,
-    goToDay
+    goToDay,
+
+    direction,
+    setIsTransitioning
   };
 
   return calendar;

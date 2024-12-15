@@ -1,4 +1,4 @@
-import { UI, DayFlag, SelectionState } from "../UI.js";
+import { UI, DayFlag, SelectionState, TransitionType } from "../UI.js";
 import type { ClassNames } from "../types/index.js";
 
 /**
@@ -22,6 +22,11 @@ export function getDefaultClassNames(): ClassNames {
   for (const key in SelectionState) {
     classNames[SelectionState[key as keyof typeof SelectionState]] =
       `rdp-${SelectionState[key as keyof typeof SelectionState]}`;
+  }
+
+  for (const key in TransitionType) {
+    classNames[TransitionType[key as keyof typeof TransitionType]] =
+      `rdp-${TransitionType[key as keyof typeof TransitionType]}`;
   }
 
   return classNames as Required<ClassNames>;
