@@ -87,7 +87,7 @@ export default function Playground() {
           content="Customize the DayPicker component and see the code changes in real time."
         />
       </Head>
-      <div className={styles.playground}>
+      <main className={styles.playground}>
         <h1>Playground</h1>
         <form className={styles.form}>
           <fieldset>
@@ -526,7 +526,7 @@ export default function Playground() {
           <h2>Code</h2>
           <HighlightWithTheme code={formattedProps} language="tsx" />
         </div>
-      </div>
+      </main>
     </Layout>
   );
 }
