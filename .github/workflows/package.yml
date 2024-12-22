@@ -85,7 +85,6 @@ jobs:
         with:
           name: rdp-dist
       - run: pnpm install --frozen-lockfile
-      - run: pnpm install .
       - run: pnpm test:build
 
   publish-on-npm:
