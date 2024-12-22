@@ -73,12 +73,7 @@ export function useGetModifiers(
 
     const isToday = isSameDay(
       date,
-      today ??
-        (props.timeZone
-          ? TZDate.tz(props.timeZone)
-          : dateLib.Date
-            ? new dateLib.Date()
-            : new Date())
+      today ?? (props.timeZone ? TZDate.tz(props.timeZone) : new dateLib.Date())
     );
 
     if (isOutside) internalModifiersMap.outside.push(day);

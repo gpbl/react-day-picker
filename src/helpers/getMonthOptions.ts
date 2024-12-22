@@ -30,9 +30,7 @@ export function getMonthOptions(
       value,
       dateLib.options.locale ?? defaultLocale
     );
-    const month = dateLib.Date
-      ? new dateLib.Date(year, value)
-      : new Date(year, value);
+    const month = new dateLib.Date(year, value);
     const disabled =
       (navStart && month < startOfMonth(navStart)) ||
       (navEnd && month > startOfMonth(navEnd)) ||

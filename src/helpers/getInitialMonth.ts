@@ -22,11 +22,7 @@ export function getInitialMonth(
   const {
     month,
     defaultMonth,
-    today = props.timeZone
-      ? TZDate.tz(props.timeZone)
-      : dateLib.Date
-        ? new dateLib.Date()
-        : new Date(),
+    today = props.timeZone ? TZDate.tz(props.timeZone) : new dateLib.Date(),
     numberOfMonths = 1,
     endMonth,
     startMonth
