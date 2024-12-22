@@ -186,6 +186,9 @@ const config: Config = {
       defaultMode: "light",
       respectPrefersColorScheme: true
     }
+  },
+  future: {
+    experimental_faster: true
   } satisfies Preset.ThemeConfig
 };
 
