@@ -85,7 +85,7 @@ jobs:
         with:
           name: rdp-dist
       - run: pnpm install --frozen-lockfile
-      - run: pnpm test-build
+      - run: pnpm test:build
 
   publish-on-npm:
     runs-on: ubuntu-latest
