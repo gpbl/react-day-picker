@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { DayPickerProps } from "react-day-picker/types";
-
 import { act, renderHook } from "@/test/render";
 
 import { defaultDateLib } from "../classes/DateLib";
+import type { DayPickerProps } from "../types";
 
 import { useRange } from "./useRange";
 
@@ -18,7 +17,7 @@ describe("useRange", () => {
         { mode: "range", selected: initiallySelected, required: false },
         defaultDateLib
       )
-    );
+  );
 
     expect(result.current.selected).toEqual(initiallySelected);
   });
