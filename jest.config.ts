@@ -41,7 +41,8 @@ const config: Config.InitialOptions = {
       displayName: "examples/built",
       roots: ["<rootDir>/examples"],
       moduleNameMapper: {
-        "@/test/(.*)": ["<rootDir>/test/$1"]
+        "@/test/(.*)": ["<rootDir>/test/$1"],
+        "../src": ["react-day-picker"] // allow using same @/test/elements in both env
       }
     }
   ]
