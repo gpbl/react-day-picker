@@ -37,42 +37,34 @@ export function getNavMonths(
     startMonth = fromMonth;
   }
   if (!startMonth && fromYear) {
-    startMonth = new Date(fromYear, 0, 1);
+    startMonth = new dateLib.Date(fromYear, 0, 1);
   }
   if (!endMonth && toMonth) {
     endMonth = toMonth;
   }
   if (!endMonth && toYear) {
-    endMonth = new Date(toYear, 11, 31);
+    endMonth = new dateLib.Date(toYear, 11, 31);
   }
 
   const hasDropdowns = props.captionLayout?.startsWith("dropdown");
   if (startMonth) {
     startMonth = startOfMonth(startMonth);
   } else if (fromYear) {
-    startMonth = new Date(fromYear, 0, 1);
+    startMonth = new dateLib.Date(fromYear, 0, 1);
   } else if (!startMonth && hasDropdowns) {
     const today =
       props.today ??
-      (props.timeZone
-        ? TZDate.tz(props.timeZone)
-        : dateLib.Date
-          ? new dateLib.Date()
-          : new Date());
+      (props.timeZone ? TZDate.tz(props.timeZone) : new dateLib.Date());
     startMonth = startOfYear(addYears(today, -100));
   }
   if (endMonth) {
     endMonth = endOfMonth(endMonth);
   } else if (toYear) {
-    endMonth = new Date(toYear, 11, 31);
+    endMonth = new dateLib.Date(toYear, 11, 31);
   } else if (!endMonth && hasDropdowns) {
     const today =
       props.today ??
-      (props.timeZone
-        ? TZDate.tz(props.timeZone)
-        : dateLib.Date
-          ? new dateLib.Date()
-          : new Date());
+      (props.timeZone ? TZDate.tz(props.timeZone) : new dateLib.Date());
     endMonth = endOfYear(today);
   }
   return [

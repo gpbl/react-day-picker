@@ -15,11 +15,7 @@ export function getWeekdays(
   /** @since 9.4.0 */
   broadcastCalendar?: boolean | undefined
 ): Date[] {
-  const date = timeZone
-    ? TZDate.tz(timeZone)
-    : dateLib.Date
-      ? new dateLib.Date()
-      : new Date();
+  const date = timeZone ? TZDate.tz(timeZone) : new dateLib.Date();
 
   const start = broadcastCalendar
     ? dateLib.startOfBroadcastWeek(date, dateLib)
