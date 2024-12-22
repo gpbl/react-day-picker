@@ -7,7 +7,28 @@
       "option": "watch",
       "problemMatcher": ["$tsc-watch"],
       "group": "build",
-      "label": "tsc: watch - tsconfig-esm.json",
+      "label": "👀 tsc: watch - tsconfig-esm.json",
+      "detail": "Watch the project in ESM format",
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "🔨 npm: build",
+      "detail": "Build the project in ESM and CJS format"
+    },
+    {
+      "type": "typescript",
+      "tsconfig": "tsconfig-esm.json",
+      "option": "watch",
+      "problemMatcher": ["$tsc-watch"],
+      "group": "build",
+      "label": "⏯️ tsc: watch",
+      "detail": "Watch the project in ESM format",
       "runOptions": {
         "runOn": "folderOpen"
       }
