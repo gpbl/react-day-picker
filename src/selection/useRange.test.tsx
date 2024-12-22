@@ -17,7 +17,7 @@ describe("useRange", () => {
         { mode: "range", selected: initiallySelected, required: false },
         defaultDateLib
       )
-  );
+    );
 
     expect(result.current.selected).toEqual(initiallySelected);
   });
