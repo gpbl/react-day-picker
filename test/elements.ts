@@ -1,4 +1,5 @@
 import { ByRoleOptions, screen } from "@testing-library/react";
+
 import {
   DayFlag,
   SelectionState,
@@ -6,7 +7,7 @@ import {
   labelGridcell,
   labelMonthDropdown,
   labelYearDropdown
-} from "react-day-picker";
+} from "../src";
 
 /** Return the application element from the screen. */
 export function app() {

@@ -71,6 +71,23 @@ jobs:
           name: rdp-dist
           path: dist
 
+  test-build:
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.16
+          cache: pnpm
+      - uses: actions/download-artifact@v4
+        with:
+          name: rdp-dist
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run build
+      - run: pnpm test:build
+
   publish-on-npm:
     runs-on: ubuntu-latest
     needs: [build, test]

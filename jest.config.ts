@@ -1,35 +1,54 @@
 import type { Config } from "@jest/types";
 
-const config: Config.InitialOptions = {
-  roots: ["./src", "./examples"],
-  moduleNameMapper: {
-    "@/test/(.*)": ["<rootDir>/test/$1"],
-    "react-day-picker": ["<rootDir>/src/index.ts"],
-    "react-day-picker/(.*)": ["<rootDir>/src/$1.js"],
-    "^(\\.\\.?\\/.+)\\.jsx?$": "$1" // see https://github.com/kulshekhar/ts-jest/issues/1057
-  },
+const sharedConfig: Config.InitialOptions = {
   testEnvironment: "jsdom",
-  coverageReporters: ["lcov", "text", "clover"],
-  setupFilesAfterEnv: ["./test/setup.ts"],
+  setupFilesAfterEnv: ["<rootDir>/test/setup.ts"],
   fakeTimers: { enableGlobally: true },
-  /**
-   * Configuration for transforming source files before testing Uses @swc/jest
-   * to quickly transform JavaScript/TypeScript files
-   */
   transform: {
-    "^.+\\.(t|j)sx?$": [
+    "^.+\\.tsx?$": [
       "@swc/jest",
-      {
-        jsc: {
-          transform: {
-            react: {
-              runtime: "automatic"
-            }
-          }
-        }
-      }
-    ]
+      { jsc: { transform: { react: { runtime: "automatic" } } } }
+    ],
+    "^.+\\.css$": "jest-transform-css"
   }
+};
+
+const config: Config.InitialOptions = {
+  coverageReporters: ["lcov", "text", "clover"],
+  projects: [
+    {
+      ...sharedConfig,
+      displayName: "src",
+      roots: ["<rootDir>/src"],
+      moduleNameMapper: {
+        "@/test/(.*)": ["<rootDir>/test/$1"],
+        "^(\\.\\.?\\/.+)\\.jsx?$": "$1" // see https://github.com/kulshekhar/ts-jest/issues/1057
+      }
+    },
+    {
+      ...sharedConfig,
+      displayName: "examples",
+      roots: ["<rootDir>/examples"],
+      moduleNameMapper: {
+        "@/test/(.*)": ["<rootDir>/test/$1"],
+        "react-day-picker/jalali": ["<rootDir>/src/jalali.tsx"],
+        "react-day-picker": ["<rootDir>/src/index.ts"],
+        "^(\\.\\.?\\/.+)\\.jsx?$": "$1" // see https://github.com/kulshekhar/ts-jest/issues/1057
+      }
+    },
+    {
+      ...sharedConfig,
+      displayName: "examples/built",
+      roots: ["<rootDir>/examples"],
+      moduleNameMapper: {
+        "@/test/(.*)": ["<rootDir>/test/$1"],
+        "react-day-picker/jalali": ["<rootDir>/dist/cjs/jalali.js"],
+        "react-day-picker": ["<rootDir>/dist/cjs/index.js"],
+        "../src": ["<rootDir>/dist/cjs"], // allow using same @/test/elements in both env
+        "^(\\.\\.?\\/.+)\\.jsx?$": "$1" // see https://github.com/kulshekhar/ts-jest/issues/1057
+      }
+    }
+  ]
 };
 
 export default config;
