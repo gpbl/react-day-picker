@@ -5,13 +5,12 @@ import { render } from "@/test/render";
 
 import { Jalali } from "./Jalali";
 
-const today = new Date(1403, 10, 25);
+const today = new Date(2024, 11, 22);
 
 beforeAll(() => jest.setSystemTime(today));
 afterAll(() => jest.useRealTimers());
 
-// eslint-disable-next-line jest/no-disabled-tests
-test.skip("should render خرداد 1403", () => {
+test("should render دی 1403", () => {
   render(<Jalali />);
-  expect(grid("خرداد 1403")).toBeInTheDocument();
+  expect(grid("دی 1403")).toBeInTheDocument();
 });
