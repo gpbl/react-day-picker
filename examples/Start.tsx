@@ -7,6 +7,7 @@ export function Start() {
 
   return (
     <DayPicker
+      animate
       mode="single"
       selected={selected}
       onSelect={setSelected}
