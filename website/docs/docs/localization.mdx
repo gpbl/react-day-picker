@@ -110,30 +110,20 @@ In the broadcast calendar, weeks start on Monday and end on Sunday. Each month h
   <Examples.BroadcastCalendar />
 </BrowserWindow>
 
-## Jalali Calendar
+## Jalali (Persian) Calendar
 
-DayPicker supports the Jalali calendar through the [date-fns-jalali](https://www.npmjs.com/package/date-fns-jalali) package. To switch to the Jalali calendar, add `date-fns-jalali` to your dependencies and import `DayPicker` from `react-day-picker/jalali`.
+DayPicker supports the Jalali (Persian) calendar through the [date-fns-jalali](https://www.npmjs.com/package/date-fns-jalali) package.
 
-#### 1. Install the `date-fns-jalali` package
-
-```bash npm2yarn
-npm install date-fns-jalali
-```
-
-#### 2. Import `DayPicker` from `react-day-picker/jalali`
+To use the Jalali calendar, import `DayPicker` from `react-day-picker/jalali`:
 
 ```diff
 - import { DayPicker } from 'react-day-picker';
 + import { DayPicker } from 'react-day-picker/jalali';
 ```
 
-#### 3. Use DayPicker as usual
-
 By defaults, Jalali DayPicker uses the Persian/Farsi locale (Iran) and a `dir` from right to left.
 
 ```tsx title="./JalaliCalendar.jsx"
-import React from "react";
-
 import { DayPicker } from "react-day-picker/jalali";
 
 export function Jalali() {

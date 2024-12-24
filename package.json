@@ -175,7 +175,8 @@
   ],
   "dependencies": {
     "@date-fns/tz": "^1.2.0",
-    "date-fns": "^4.1.0"
+    "date-fns": "^4.1.0",
+    "date-fns-jalali": "^4.1.0-0"
   },
   "devDependencies": {
     "@jest/types": "^29.6.3",
@@ -192,7 +193,6 @@
     "@types/react-dom": "^19.0.2",
     "@typescript-eslint/eslint-plugin": "^8.18.0",
     "@typescript-eslint/parser": "^8.18.0",
-    "date-fns-jalali": "^3.6.0-1",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.7.0",
