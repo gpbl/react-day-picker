@@ -22,7 +22,6 @@
     "@docusaurus/remark-plugin-npm2yarn": "^3.6.3",
     "@docusaurus/theme-common": "^3.6.3",
     "@mdx-js/react": "^3.1.0",
-    "date-fns-jalali": "^3.6.0-1",
     "docusaurus-plugin-plausible": "^0.0.5",
     "prism-react-renderer": "^2.4.1",
     "react": "^19.0.0",
@@ -39,9 +38,9 @@
     "docusaurus-plugin-typedoc": "^1.1.1",
     "identity-obj-proxy": "^3.0.0",
     "raw-loader": "^4.0.2",
-    "typedoc": "^0.27.4",
+    "typedoc": "^0.27.5",
     "typedoc-plugin-frontmatter": "^1.1.2",
-    "typedoc-plugin-markdown": "^4.3.2",
+    "typedoc-plugin-markdown": "^4.3.3",
     "typescript": "^5.7.2"
   },
   "browserslist": {
