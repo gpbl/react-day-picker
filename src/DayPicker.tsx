@@ -350,10 +350,7 @@ export function DayPicker(props: DayPickerProps) {
                         />
                       ) : (
                         <span role="status" aria-live="polite">
-                          {formatMonthDropdown(
-                            calendarMonth.date.getMonth(),
-                            locale
-                          )}
+                          {formatMonthDropdown(calendarMonth.date, dateLib)}
                         </span>
                       )}
                       {captionLayout === "dropdown" ||
@@ -371,7 +368,7 @@ export function DayPicker(props: DayPickerProps) {
                         />
                       ) : (
                         <span role="status" aria-live="polite">
-                          {formatYearDropdown(calendarMonth.date.getFullYear())}
+                          {formatYearDropdown(calendarMonth.date, dateLib)}
                         </span>
                       )}
                     </components.DropdownNav>
