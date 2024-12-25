@@ -346,7 +346,7 @@ export function DayPicker(props: DayPickerProps) {
                           onChange={handleMonthChange(calendarMonth.date)}
                           options={dropdownMonths}
                           style={styles?.[UI.Dropdown]}
-                          value={calendarMonth.date.getMonth()}
+                          value={dateLib.getMonth(calendarMonth.date)}
                         />
                       ) : (
                         <span role="status" aria-live="polite">
@@ -367,7 +367,7 @@ export function DayPicker(props: DayPickerProps) {
                           onChange={handleYearChange(calendarMonth.date)}
                           options={dropdownYears}
                           style={styles?.[UI.Dropdown]}
-                          value={calendarMonth.date.getFullYear()}
+                          value={dateLib.getYear(calendarMonth.date)}
                         />
                       ) : (
                         <span role="status" aria-live="polite">

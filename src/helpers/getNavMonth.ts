@@ -1,5 +1,3 @@
-import { TZDate } from "@date-fns/tz";
-
 import type { DateLib } from "../classes/DateLib.js";
 import type { DayPickerProps } from "../types/index.js";
 
@@ -28,7 +26,9 @@ export function getNavMonths(
     startOfMonth,
     endOfMonth,
     addYears,
-    endOfYear
+    endOfYear,
+    newDate,
+    today
   } = dateLib;
 
   // Handle deprecated code
@@ -37,35 +37,29 @@ export function getNavMonths(
     startMonth = fromMonth;
   }
   if (!startMonth && fromYear) {
-    startMonth = new dateLib.Date(fromYear, 0, 1);
+    startMonth = dateLib.newDate(fromYear, 0, 1);
   }
   if (!endMonth && toMonth) {
     endMonth = toMonth;
   }
   if (!endMonth && toYear) {
-    endMonth = new dateLib.Date(toYear, 11, 31);
+    endMonth = newDate(toYear, 11, 31);
   }
 
   const hasDropdowns = props.captionLayout?.startsWith("dropdown");
   if (startMonth) {
     startMonth = startOfMonth(startMonth);
   } else if (fromYear) {
-    startMonth = new dateLib.Date(fromYear, 0, 1);
+    startMonth = newDate(fromYear, 0, 1);
   } else if (!startMonth && hasDropdowns) {
-    const today =
-      props.today ??
-      (props.timeZone ? TZDate.tz(props.timeZone) : new dateLib.Date());
-    startMonth = startOfYear(addYears(today, -100));
+    startMonth = startOfYear(addYears(props.today ?? today(), -100));
   }
   if (endMonth) {
     endMonth = endOfMonth(endMonth);
   } else if (toYear) {
-    endMonth = new dateLib.Date(toYear, 11, 31);
+    endMonth = newDate(toYear, 11, 31);
   } else if (!endMonth && hasDropdowns) {
-    const today =
-      props.today ??
-      (props.timeZone ? TZDate.tz(props.timeZone) : new dateLib.Date());
-    endMonth = endOfYear(today);
+    endMonth = endOfYear(props.today ?? today());
   }
   return [
     startMonth ? startOfDay(startMonth) : startMonth,
