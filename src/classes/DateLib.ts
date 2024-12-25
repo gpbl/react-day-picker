@@ -323,10 +323,10 @@ export class DateLib {
    * @param formatStr The format string.
    * @returns The formatted date string.
    */
-  format: typeof format = (date, formatStr, options) => {
+  format: typeof format = (date, formatStr) => {
     return this.overrides?.format
-      ? this.overrides.format(date, formatStr, { ...this.options, ...options })
-      : format(date, formatStr, { ...this.options, ...options });
+      ? this.overrides.format(date, formatStr, this.options)
+      : format(date, formatStr, this.options);
   };
 
   /**
