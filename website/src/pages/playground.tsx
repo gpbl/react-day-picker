@@ -3,12 +3,19 @@ import React from "react";
 import Head from "@docusaurus/Head";
 import Layout from "@theme/Layout";
 import {
-  DateRange,
+  type DateRange,
+  type DayPickerProps,
+  DateLib,
   DayPicker,
-  DayPickerProps,
   isDateRange
 } from "react-day-picker";
 import * as locales from "react-day-picker/locale";
+import {
+  DayPicker as DayPickerPersian,
+  enUS as enUSPersian,
+  faIR as faIRPersian,
+  getDateLib
+} from "react-day-picker/persian";
 
 import { BrowserWindow } from "../components/BrowserWindow";
 import { HighlightWithTheme } from "../components/HighlightWithTheme";
@@ -22,6 +29,9 @@ const timeZones = [
   "Asia/Tokyo",
   "Australia/Sydney"
 ];
+
+const calendars = ["Gregorian", "Persian"];
+const persianLocales = { faIR: faIRPersian, enUS: enUSPersian };
 /**
  * Function to format a json object of props to a jsx source displaying the
  * props as example
@@ -60,13 +70,42 @@ export default function Playground() {
   >();
 
   const [accentColor, setAccentColor] = React.useState<string>();
+  const [calendar, setCalendar] = React.useState(calendars[0]);
+
   const [backgroundAccentColor, setBackgroundAccountColor] =
     React.useState<string>();
-  const [rangeMiddleColor, setrangeMiddleColor] = React.useState<string>();
+  const [rangeMiddleColor, setRangeMiddleColor] = React.useState<string>();
 
-  const formattedProps = `<DayPicker${toJSX({ ...props, locale: undefined })} \n/>`;
+  let formattedProps = `<DayPicker${toJSX({
+    ...props,
+    locale: undefined,
+    dir: calendar === "Persian" && props.dir === "rtl" ? undefined : props.dir
+  })} \n/>`;
 
+  if (calendar === "Persian") {
+    formattedProps =
+      `import { DayPicker } from "react-day-picker/persian";\n\n` +
+      formattedProps;
+  } else {
+    formattedProps =
+      `import { DayPicker } from "react-day-picker";\n\n` + formattedProps;
+  }
   const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+  const DayPickerComponent =
+    calendar === "Persian" ? DayPickerPersian : DayPicker;
+
+  const dateLib =
+    calendar === "Persian"
+      ? getDateLib({
+          locale: (props.locale as locales.Locale) ?? faIRPersian,
+          timeZone: props.timeZone
+        })
+      : new DateLib({
+          locale: (props.locale as locales.Locale) ?? locales.enUS,
+          timeZone: props.timeZone
+        });
+  const formatFn = calendar === "Persian" ? "formatPersian" : "formatGregorian";
 
   return (
     <Layout>
@@ -338,7 +377,7 @@ export default function Playground() {
                     <input
                       value={rangeMiddleColor ?? ""}
                       type="color"
-                      onChange={(e) => setrangeMiddleColor(e.target.value)}
+                      onChange={(e) => setRangeMiddleColor(e.target.value)}
                     />
                   </label>
                 </>
@@ -370,32 +409,87 @@ export default function Playground() {
                 </select>
               </label>
               <label>
-                Locale:
+                Calendar:
                 <select
-                  name="locale"
-                  value={Object.keys(locales).find(
-                    (locale) =>
-                      locales[locale as keyof typeof locales] === props.locale
-                  )}
-                  onChange={(e) =>
+                  name="calendar"
+                  value={calendar}
+                  onChange={(e) => {
                     setProps({
                       ...props,
-                      locale: locales[e.target.value as keyof typeof locales]
-                    })
-                  }
+                      dir: e.target.value === "Persian" ? "rtl" : "ltr",
+                      locale:
+                        e.target.value === "Persian"
+                          ? faIRPersian
+                          : props.locale
+                    });
+                    setCalendar(e.target.value);
+                  }}
                 >
-                  {Object.keys(locales).map((locale) => (
-                    <option key={locale} value={locale}>
-                      {locales[locale as keyof typeof locales].code}
+                  {calendars.map((calendar) => (
+                    <option key={calendar} value={calendar}>
+                      {calendar}
                     </option>
                   ))}
                 </select>
               </label>
               <label>
+                Locale:
+                {calendar === "Persian" ? (
+                  <select
+                    name="locale"
+                    value={Object.keys(persianLocales).find(
+                      (locale) =>
+                        persianLocales[
+                          locale as keyof typeof persianLocales
+                        ] === props.locale
+                    )}
+                    onChange={(e) =>
+                      setProps({
+                        ...props,
+                        locale:
+                          persianLocales[
+                            e.target.value as keyof typeof persianLocales
+                          ]
+                      })
+                    }
+                  >
+                    {Object.keys(persianLocales).map((locale) => (
+                      <option key={locale} value={locale}>
+                        {
+                          persianLocales[locale as keyof typeof persianLocales]
+                            .code
+                        }
+                      </option>
+                    ))}
+                  </select>
+                ) : (
+                  <select
+                    name="locale"
+                    value={Object.keys(locales).find(
+                      (locale) =>
+                        locales[locale as keyof typeof locales] === props.locale
+                    )}
+                    onChange={(e) =>
+                      setProps({
+                        ...props,
+                        locale: locales[e.target.value as keyof typeof locales]
+                      })
+                    }
+                  >
+                    {Object.keys(locales).map((locale) => (
+                      <option key={locale} value={locale}>
+                        {locales[locale as keyof typeof locales].code}
+                      </option>
+                    ))}
+                  </select>
+                )}
+              </label>
+
+              <label>
                 Weeks starts on:
                 <select
                   name="weekStartsOn"
-                  disabled={props.broadcastCalendar}
+                  disabled={props.broadcastCalendar || props.ISOWeek}
                   value={props.weekStartsOn}
                   onChange={(e) =>
                     setProps({
@@ -421,6 +515,7 @@ export default function Playground() {
               <label>
                 First week contains:
                 <select
+                  disabled={props.broadcastCalendar || props.ISOWeek}
                   name="firstWeekContainsDate"
                   onChange={(e) =>
                     setProps({
@@ -451,6 +546,7 @@ export default function Playground() {
                 <input
                   type="checkbox"
                   name="rtl"
+                  checked={props.dir === "rtl"}
                   onChange={(e) =>
                     setProps({
                       ...props,
@@ -475,19 +571,18 @@ export default function Playground() {
                     })
                   }
                 />
-                Broadcast Calendar
+                Broadcast Weeks
               </label>
             </div>
           </fieldset>
         </form>
         <div className={styles.browserWindow}>
           <BrowserWindow url="">
-            <DayPicker
+            <DayPickerComponent
               {...props}
               onSelect={setSelected}
               // @ts-expect-error abc
               selected={selected}
-              // timeZone="Europe/Athens"
             />
           </BrowserWindow>
         </div>
@@ -497,22 +592,27 @@ export default function Playground() {
             {selected ? (
               <div>
                 <pre>
-                  {props.mode === "single" && selected && selected.toString()}
+                  {props.mode === "single" &&
+                    selected &&
+                    dateLib.format(selected as Date, "EEEE, d MMMM yyyy")}
                   {props.mode === "multiple" &&
                     (selected as Date[] | undefined)?.map((date) => {
                       return (
                         <>
-                          {date.toString()}
+                          {dateLib.format(date, "EEEE, d MMMM yyyy")}
                           <br />
                         </>
                       );
                     })}
                   {props.mode === "range" && isDateRange(selected) && (
                     <>
-                      From: {selected.from && selected.from.toString()}
+                      From:{" "}
+                      {selected.from &&
+                        dateLib.format(selected.from, "EEEE, d MMMM yyyy")}
                       <br />
                       To: {"  "}
-                      {selected.to && selected.to.toString()}
+                      {selected.to &&
+                        dateLib.format(selected.to, "EEEE, d MMMM yyyy")}
                     </>
                   )}
                 </pre>
