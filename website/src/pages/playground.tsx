@@ -71,7 +71,6 @@ export default function Playground() {
 
   const [accentColor, setAccentColor] = React.useState<string>();
   const [calendar, setCalendar] = React.useState(calendars[0]);
-  const [persianLocale, setPersianLocale] = React.useState(persianLocales[0]);
 
   const [backgroundAccentColor, setBackgroundAccountColor] =
     React.useState<string>();
