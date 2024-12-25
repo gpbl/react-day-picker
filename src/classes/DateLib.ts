@@ -10,7 +10,6 @@ import {
   endOfISOWeek,
   endOfMonth,
   endOfWeek,
-  EndOfWeekOptions,
   endOfYear,
   format,
   getISOWeek,
@@ -34,6 +33,7 @@ import {
   startOfYear
 } from "date-fns";
 import type {
+  EndOfWeekOptions,
   StartOfWeekOptions,
   FormatOptions as DateFnsFormatOptions,
   DateArg
