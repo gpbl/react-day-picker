@@ -17,6 +17,7 @@ export * from "./Option.js";
 export * from "./PreviousMonthButton.js";
 export * from "./Root.js";
 export * from "./Select.js";
+export * from "./Transition.js";
 export * from "./Week.js";
 export * from "./Weekday.js";
 export * from "./Weekdays.js";
