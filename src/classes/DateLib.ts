@@ -1,21 +1,21 @@
+import { TZDate } from "@date-fns/tz";
 import {
-  DateArg,
-  EndOfWeekOptions,
-  FormatOptions as DateFnsFormatOptions,
-  StartOfWeekOptions,
   addDays,
   addMonths,
   addWeeks,
   addYears,
   differenceInCalendarDays,
   differenceInCalendarMonths,
+  eachMonthOfInterval,
   endOfISOWeek,
   endOfMonth,
   endOfWeek,
   endOfYear,
   format,
   getISOWeek,
+  getMonth,
   getWeek,
+  getYear,
   isAfter,
   isBefore,
   isDate,
@@ -31,6 +31,12 @@ import {
   startOfMonth,
   startOfWeek,
   startOfYear
+} from "date-fns";
+import type {
+  EndOfWeekOptions,
+  StartOfWeekOptions,
+  FormatOptions as DateFnsFormatOptions,
+  DateArg
 } from "date-fns";
 import type { Locale } from "date-fns/locale";
 import { enUS } from "date-fns/locale";
@@ -70,6 +76,8 @@ export interface DateLibOptions
   Date?: typeof Date;
   /** A locale to use for formatting dates. */
   locale?: Locale;
+  /** A time zone to use for dates. */
+  timeZone?: string;
 }
 
 /**
@@ -103,8 +111,47 @@ export class DateLib {
     this.overrides = overrides;
   }
 
-  /** Reference to the built-in Date constructor. */
+  /**
+   * Reference to the built-in Date constructor.
+   *
+   * @deprecated Use `newDate()` or `today()`.
+   */
   Date: typeof Date = Date;
+
+  /**
+   * Creates a new date object to the today's date.
+   *
+   * @since 9.5.0
+   * @returns The new date object.
+   */
+  today = (): Date => {
+    if (this.overrides?.today) {
+      return this.overrides.today();
+    }
+    if (this.options.timeZone) {
+      return TZDate.tz(this.options.timeZone);
+    }
+    return new this.Date();
+  };
+
+  /**
+   * Creates a new date object with the specified year, month and date.
+   *
+   * @since 9.5.0
+   * @param year The year.
+   * @param monthIndex The month (0-11).
+   * @param date The day of the month.
+   * @returns The new date object.
+   */
+  newDate = (year: number, monthIndex: number, date: number): Date => {
+    if (this.overrides?.newDate) {
+      return this.overrides.newDate(year, monthIndex, date);
+    }
+    if (this.options.timeZone) {
+      return new TZDate(year, monthIndex, date, this.options.timeZone);
+    }
+    return new Date(year, monthIndex, date);
+  };
 
   /**
    * Adds the specified number of days to the given date.
@@ -188,6 +235,17 @@ export class DateLib {
     return this.overrides?.differenceInCalendarMonths
       ? this.overrides.differenceInCalendarMonths(dateLeft, dateRight)
       : differenceInCalendarMonths(dateLeft, dateRight);
+  };
+
+  /**
+   * Returns the months between the given dates.
+   *
+   * @param interval The interval to get the months for.
+   */
+  eachMonthOfInterval: typeof eachMonthOfInterval = (interval) => {
+    return this.overrides?.eachMonthOfInterval
+      ? this.overrides.eachMonthOfInterval(interval)
+      : eachMonthOfInterval(interval);
   };
 
   /**
@@ -281,6 +339,30 @@ export class DateLib {
     return this.overrides?.getISOWeek
       ? this.overrides.getISOWeek(date)
       : getISOWeek(date);
+  };
+
+  /**
+   * Returns the month of the given date.
+   *
+   * @param date The date to get the month for.
+   * @returns The month.
+   */
+  getMonth: typeof getMonth = (date) => {
+    return this.overrides?.getMonth
+      ? this.overrides.getMonth(date, this.options)
+      : getMonth(date, this.options);
+  };
+
+  /**
+   * Returns the year of the given date.
+   *
+   * @param date The date to get the year for.
+   * @returns The year.
+   */
+  getYear: typeof getYear = (date) => {
+    return this.overrides?.getYear
+      ? this.overrides.getYear(date, this.options)
+      : getYear(date, this.options);
   };
 
   /**
