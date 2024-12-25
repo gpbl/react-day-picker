@@ -341,12 +341,24 @@ export class DateLib {
       : getISOWeek(date);
   };
 
+  /**
+   * Returns the month of the given date.
+   *
+   * @param date The date to get the month for.
+   * @returns The month.
+   */
   getMonth: typeof getMonth = (date) => {
     return this.overrides?.getMonth
       ? this.overrides.getMonth(date, this.options)
       : getMonth(date, this.options);
   };
 
+  /**
+   * Returns the year of the given date.
+   *
+   * @param date The date to get the year for.
+   * @returns The year.
+   */
   getYear: typeof getYear = (date) => {
     return this.overrides?.getYear
       ? this.overrides.getYear(date, this.options)
