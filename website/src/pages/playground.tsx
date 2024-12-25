@@ -11,7 +11,8 @@ import {
 import * as locales from "react-day-picker/locale";
 import {
   DayPicker as DayPickerPersian,
-  PersianLocale
+  enUS as enUSPersian,
+  faIR as faIRPersian
 } from "react-day-picker/persian";
 
 import { BrowserWindow } from "../components/BrowserWindow";
@@ -28,7 +29,7 @@ const timeZones = [
 ];
 
 const calendars = ["Gregorian", "Persian"];
-const persianLocales: PersianLocale[] = ["faIR", "enUS"];
+const persianLocales = { faIR: faIRPersian, enUS: enUSPersian };
 /**
  * Function to format a json object of props to a jsx source displaying the
  * props as example
@@ -401,10 +402,13 @@ export default function Playground() {
                   onChange={(e) => {
                     setProps({
                       ...props,
-                      dir: e.target.value === "Persian" ? "rtl" : "ltr"
+                      dir: e.target.value === "Persian" ? "rtl" : "ltr",
+                      locale:
+                        e.target.value === "Persian"
+                          ? faIRPersian
+                          : props.locale
                     });
                     setCalendar(e.target.value);
-                    setPersianLocale("faIR");
                   }}
                 >
                   {calendars.map((calendar) => (
@@ -418,15 +422,29 @@ export default function Playground() {
                 Locale:
                 {calendar === "Persian" ? (
                   <select
-                    name="persianLocale"
-                    value={persianLocale}
+                    name="locale"
+                    value={Object.keys(persianLocales).find(
+                      (locale) =>
+                        persianLocales[
+                          locale as keyof typeof persianLocales
+                        ] === props.locale
+                    )}
                     onChange={(e) =>
-                      setPersianLocale(e.target.value as PersianLocale)
+                      setProps({
+                        ...props,
+                        locale:
+                          persianLocales[
+                            e.target.value as keyof typeof persianLocales
+                          ]
+                      })
                     }
                   >
-                    {persianLocales.map((locale) => (
+                    {Object.keys(persianLocales).map((locale) => (
                       <option key={locale} value={locale}>
-                        {locale}
+                        {
+                          persianLocales[locale as keyof typeof persianLocales]
+                            .code
+                        }
                       </option>
                     ))}
                   </select>
@@ -551,8 +569,6 @@ export default function Playground() {
               onSelect={setSelected}
               // @ts-expect-error abc
               selected={selected}
-              // @ts-expect-error abc
-              locale={calendar === "Persian" ? persianLocale : props.locale}
             />
           </BrowserWindow>
         </div>
