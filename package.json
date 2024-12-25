@@ -42,6 +42,16 @@
         "default": "./dist/cjs/jalali.js"
       }
     },
+    "./persian": {
+      "import": {
+        "types": "./dist/esm/persian.d.ts",
+        "default": "./dist/esm/persian.js"
+      },
+      "require": {
+        "types": "./dist/cjs/persian.d.ts",
+        "default": "./dist/cjs/persian.js"
+      }
+    },
     "./locale": {
       "import": {
         "types": "./dist/esm/locale.d.ts",

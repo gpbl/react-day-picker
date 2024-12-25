@@ -96,6 +96,63 @@ Use the `ISOWeek` prop to switch to [ISO Week Dates](https://en.wikipedia.org/wi
   <Examples.WeeknumberIso />
 </BrowserWindow>
 
+## Persian Calendar
+
+DayPicker supports the Persian [Solar Hijri](<https://en.wikipedia.org/wiki/Iranian_calendars#Modern_calendar:_Solar_Hijri_(SH)>) calendar through the [date-fns-jalali](https://www.npmjs.com/package/date-fns-jalali) package.
+
+- To use the Persian calendar, import `DayPicker` from `react-day-picker/persian`:
+
+```diff
+- import { DayPicker } from 'react-day-picker';
++ import { DayPicker } from 'react-day-picker/persian';
+```
+
+<BrowserWindow>
+  <Examples.Persian />
+</BrowserWindow>
+
+### English (US) Locale
+
+By default, the Persian calendar uses the Farsi (Iran) locale. To use the English (US) locale, import it and pass the `locale` prop:
+
+```tsx
+import { DayPicker, enUS } from "react-day-picker/persian";
+
+export function PersianEn() {
+  return <DayPicker locale={enUS} />;
+}
+```
+
+<BrowserWindow>
+  <Examples.PersianEn />
+</BrowserWindow>
+
+### Formatting Persian Dates
+
+The calendar always returns Gregorian dates. Use the exported `getDateLib` getter to format dates to Persian calendar.
+
+```tsx
+import { DayPicker, getDateLib } from "react-day-picker/persian";
+
+export function PersianCalendar() {
+  const [selected, setSelected] = React.useState(new Date());
+  const dateLib = getDateLib();
+  return (
+    <DayPicker
+      mode="single"
+      selected={selected}
+      required
+      onSelect={setSelected}
+      footer={`Selected: ${dateLib.format(selected)}`}
+    />
+  );
+}
+```
+
+<BrowserWindow>
+  <Examples.PersianFormatted />
+</BrowserWindow>
+
 ## Broadcast Calendar
 
 Switch to the [US Broadcast Calendar](https://en.wikipedia.org/wiki/Broadcast_calendar) by setting the `broadcastCalendar` prop.
@@ -108,29 +165,4 @@ In the broadcast calendar, weeks start on Monday and end on Sunday. Each month h
 
 <BrowserWindow>
   <Examples.BroadcastCalendar />
-</BrowserWindow>
-
-## Jalali (Persian) Calendar
-
-DayPicker supports the Jalali (Persian) calendar through the [date-fns-jalali](https://www.npmjs.com/package/date-fns-jalali) package.
-
-To use the Jalali calendar, import `DayPicker` from `react-day-picker/jalali`:
-
-```diff
-- import { DayPicker } from 'react-day-picker';
-+ import { DayPicker } from 'react-day-picker/jalali';
-```
-
-By defaults, Jalali DayPicker uses the Persian/Farsi locale (Iran) and a `dir` from right to left.
-
-```tsx title="./JalaliCalendar.jsx"
-import { DayPicker } from "react-day-picker/jalali";
-
-export function Jalali() {
-  return <DayPicker mode="single" />;
-}
-```
-
-<BrowserWindow>
-  <Examples.Jalali />
 </BrowserWindow>
