@@ -47,7 +47,8 @@ export function DayPicker(props: DayPickerProps) {
           weekStartsOn: props.broadcastCalendar ? 1 : props.weekStartsOn,
           firstWeekContainsDate: props.firstWeekContainsDate,
           useAdditionalWeekYearTokens: props.useAdditionalWeekYearTokens,
-          useAdditionalDayOfYearTokens: props.useAdditionalDayOfYearTokens
+          useAdditionalDayOfYearTokens: props.useAdditionalDayOfYearTokens,
+          timeZone: props.timeZone
         },
         props.dateLib
       );
@@ -61,17 +62,18 @@ export function DayPicker(props: DayPickerProps) {
         classNames: { ...getDefaultClassNames(), ...props.classNames }
       };
     }, [
-      props.classNames,
-      props.components,
-      props.dateLib,
+      props.locale,
+      props.broadcastCalendar,
+      props.weekStartsOn,
       props.firstWeekContainsDate,
+      props.useAdditionalWeekYearTokens,
+      props.useAdditionalDayOfYearTokens,
+      props.timeZone,
+      props.dateLib,
+      props.components,
       props.formatters,
       props.labels,
-      props.locale,
-      props.useAdditionalDayOfYearTokens,
-      props.useAdditionalWeekYearTokens,
-      props.weekStartsOn,
-      props.broadcastCalendar
+      props.classNames
     ]);
 
   const {
@@ -140,8 +142,8 @@ export function DayPicker(props: DayPickerProps) {
   } = labels;
 
   const weekdays = useMemo(
-    () => getWeekdays(dateLib, props.ISOWeek, props.timeZone),
-    [dateLib, props.ISOWeek, props.timeZone]
+    () => getWeekdays(dateLib, props.ISOWeek),
+    [dateLib, props.ISOWeek]
   );
 
   const isInteractive = mode !== undefined || onDayClick !== undefined;

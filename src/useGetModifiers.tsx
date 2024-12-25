@@ -1,5 +1,3 @@
-import { TZDate } from "@date-fns/tz";
-
 import { DayFlag } from "./UI.js";
 import type { CalendarDay, DateLib } from "./classes/index.js";
 import type { DayPickerProps, Modifiers } from "./types/index.js";
@@ -71,10 +69,7 @@ export function useGetModifiers(
       (!broadcastCalendar && !showOutsideDays && isOutside) ||
       (broadcastCalendar && showOutsideDays === false && isOutside);
 
-    const isToday = isSameDay(
-      date,
-      today ?? (props.timeZone ? TZDate.tz(props.timeZone) : new dateLib.Date())
-    );
+    const isToday = isSameDay(date, today ?? dateLib.today());
 
     if (isOutside) internalModifiersMap.outside.push(day);
     if (isDisabled) internalModifiersMap.disabled.push(day);
