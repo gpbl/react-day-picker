@@ -1,4 +1,3 @@
-import { defaultDateLib } from "../classes/DateLib";
 import * as defaultFormatters from "../formatters";
 
 import { getFormatters } from "./getFormatters";
@@ -20,12 +19,8 @@ test("merges custom formatters with default formatters", () => {
 
 test("assigns `formatMonthCaption` to `formatCaption` if `formatCaption` is not defined", () => {
   const result = getFormatters({ formatMonthCaption: () => "customMonth" });
-  expect(result.formatCaption(new Date(), {}, defaultDateLib)).toBe(
-    "customMonth"
-  );
-  expect(result.formatMonthCaption(new Date(), {}, defaultDateLib)).toBe(
-    "customMonth"
-  );
+  expect(result.formatCaption(new Date(), {})).toBe("customMonth");
+  expect(result.formatMonthCaption(new Date(), {})).toBe("customMonth");
 });
 
 test("does not overwrite `formatCaption` if already defined", () => {
@@ -33,22 +28,14 @@ test("does not overwrite `formatCaption` if already defined", () => {
     formatMonthCaption: () => "customMonth",
     formatCaption: () => "customCaption"
   });
-  expect(result.formatCaption(new Date(), {}, defaultDateLib)).toBe(
-    "customCaption"
-  );
-  expect(result.formatMonthCaption(new Date(), {}, defaultDateLib)).toBe(
-    "customMonth"
-  );
+  expect(result.formatCaption(new Date(), {})).toBe("customCaption");
+  expect(result.formatMonthCaption(new Date(), {})).toBe("customMonth");
 });
 
 test("assigns `formatYearCaption` to `formatYearDropdown` if `formatYearDropdown` is not defined", () => {
   const result = getFormatters({ formatYearCaption: () => "customYear" });
-  expect(result.formatYearDropdown(new Date(2000, 0), defaultDateLib)).toBe(
-    "customYear"
-  );
-  expect(result.formatYearCaption(new Date(2000, 0), defaultDateLib)).toBe(
-    "customYear"
-  );
+  expect(result.formatYearDropdown(new Date(2000, 0))).toBe("customYear");
+  expect(result.formatYearCaption(new Date(2000, 0))).toBe("customYear");
 });
 
 test("does not overwrite `formatYearDropdown` if already defined", () => {
@@ -56,8 +43,6 @@ test("does not overwrite `formatYearDropdown` if already defined", () => {
     formatYearCaption: () => "customYear",
     formatYearDropdown: () => "customDropdown"
   });
-  expect(result.formatYearDropdown(new Date().getFullYear())).toBe(
-    "customDropdown"
-  );
-  expect(result.formatYearCaption(new Date().getFullYear())).toBe("customYear");
+  expect(result.formatYearDropdown(new Date())).toBe("customDropdown");
+  expect(result.formatYearCaption(new Date())).toBe("customYear");
 });

@@ -1,4 +1,4 @@
-import type { DateLib } from "../classes/DateLib.js";
+import { defaultDateLib, type DateLib } from "../classes/DateLib.js";
 
 /**
  * Format the years for the dropdown option label.
@@ -6,7 +6,10 @@ import type { DateLib } from "../classes/DateLib.js";
  * @group Formatters
  * @see https://daypicker.dev/docs/translation#custom-formatters
  */
-export function formatYearDropdown(year: Date, dateLib: DateLib): string {
+export function formatYearDropdown(
+  year: Date,
+  dateLib: DateLib = defaultDateLib
+): string {
   return dateLib.format(year, "yyyy");
 }
 
