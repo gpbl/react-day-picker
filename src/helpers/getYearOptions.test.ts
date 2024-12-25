@@ -5,7 +5,8 @@ import { getYearOptions } from "./getYearOptions";
 
 test("return undefined if startMonth or endMonth is not provided", () => {
   const formatters = getFormatters({
-    formatYearDropdown: (year: number) => `${year}`
+    formatYearDropdown: (year: number, dateLib?: typeof defaultDateLib) =>
+      `${year}`
   });
   const result1 = getYearOptions(
     undefined,
@@ -28,7 +29,7 @@ test("return correct dropdown options", () => {
   const startMonth = new Date(2022, 0, 1); // January 2022
   const endMonth = new Date(2024, 11, 31); // December 2024
   const formatters = getFormatters({
-    formatYearDropdown: (year: number) => `${year}`
+    formatYearDropdown: (year: Date) => `${year.getFullYear()}`
   });
 
   const result = getYearOptions(

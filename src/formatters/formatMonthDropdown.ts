@@ -1,4 +1,4 @@
-import type { DateFnsMonth, Locale } from "../classes/DateLib.js";
+import type { DateLib } from "../classes/DateLib.js";
 
 /**
  * Format the month number for the dropdown option label.
@@ -7,11 +7,6 @@ import type { DateFnsMonth, Locale } from "../classes/DateLib.js";
  * @group Formatters
  * @see https://daypicker.dev/docs/translation#custom-formatters
  */
-export function formatMonthDropdown(
-  /** The month number to format. */
-  monthNumber: number,
-  /** The locale to use for formatting. */
-  locale: Locale
-): string {
-  return locale.localize?.month(monthNumber as DateFnsMonth);
+export function formatMonthDropdown(month: Date, dateLib: DateLib): string {
+  return dateLib.format(month, "LLLL");
 }

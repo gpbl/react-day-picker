@@ -43,10 +43,10 @@ test("does not overwrite `formatCaption` if already defined", () => {
 
 test("assigns `formatYearCaption` to `formatYearDropdown` if `formatYearDropdown` is not defined", () => {
   const result = getFormatters({ formatYearCaption: () => "customYear" });
-  expect(result.formatYearDropdown(new Date(0).getFullYear())).toBe(
+  expect(result.formatYearDropdown(new Date(2000, 0), defaultDateLib)).toBe(
     "customYear"
   );
-  expect(result.formatYearCaption(new Date(0).getFullYear())).toBe(
+  expect(result.formatYearCaption(new Date(2000, 0), defaultDateLib)).toBe(
     "customYear"
   );
 });
