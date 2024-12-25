@@ -5,6 +5,7 @@ import Layout from "@theme/Layout";
 import {
   type DateRange,
   type DayPickerProps,
+  DateLib,
   DayPicker,
   isDateRange
 } from "react-day-picker";
@@ -12,7 +13,8 @@ import * as locales from "react-day-picker/locale";
 import {
   DayPicker as DayPickerPersian,
   enUS as enUSPersian,
-  faIR as faIRPersian
+  faIR as faIRPersian,
+  getDateLib
 } from "react-day-picker/persian";
 
 import { BrowserWindow } from "../components/BrowserWindow";
@@ -93,6 +95,19 @@ export default function Playground() {
 
   const DayPickerComponent =
     calendar === "Persian" ? DayPickerPersian : DayPicker;
+
+  const dateLib =
+    calendar === "Persian"
+      ? getDateLib({
+          locale: (props.locale as locales.Locale) ?? faIRPersian,
+          timeZone: props.timeZone
+        })
+      : new DateLib({
+          locale: (props.locale as locales.Locale) ?? locales.enUS,
+          timeZone: props.timeZone
+        });
+  const formatFn = calendar === "Persian" ? "formatPersian" : "formatGregorian";
+
   return (
     <Layout>
       <Head>
@@ -578,22 +593,27 @@ export default function Playground() {
             {selected ? (
               <div>
                 <pre>
-                  {props.mode === "single" && selected && selected.toString()}
+                  {props.mode === "single" &&
+                    selected &&
+                    dateLib.format(selected as Date, "EEEE, d MMMM yyyy")}
                   {props.mode === "multiple" &&
                     (selected as Date[] | undefined)?.map((date) => {
                       return (
                         <>
-                          {date.toString()}
+                          {dateLib.format(date, "EEEE, d MMMM yyyy")}
                           <br />
                         </>
                       );
                     })}
                   {props.mode === "range" && isDateRange(selected) && (
                     <>
-                      From: {selected.from && selected.from.toString()}
+                      From:{" "}
+                      {selected.from &&
+                        dateLib.format(selected.from, "EEEE, d MMMM yyyy")}
                       <br />
                       To: {"  "}
-                      {selected.to && selected.to.toString()}
+                      {selected.to &&
+                        dateLib.format(selected.to, "EEEE, d MMMM yyyy")}
                     </>
                   )}
                 </pre>
