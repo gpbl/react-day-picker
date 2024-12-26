@@ -7,7 +7,7 @@ export function ShadowDomWrapper({
   styleStr
 }: {
   children: React.ReactNode;
-  styleStr: string;
+  styleStr: string | undefined;
 }) {
   const colorMode = useColorMode();
   return (
