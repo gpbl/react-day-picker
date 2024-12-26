@@ -231,7 +231,8 @@ export interface PropsBase {
   /**
    * Show the outside days (days falling in the next or the previous month).
    *
-   * **Note:** when {@link broadcastCalendar} is set, this prop defaults to true.
+   * **Note:** when a broadcast {@link calendar} is set, this prop defaults to
+   * true.
    *
    * @see https://daypicker.dev/docs/customization#outside-days
    */
@@ -239,9 +240,6 @@ export interface PropsBase {
   /**
    * Show the week numbers column. Weeks are numbered according to the local
    * week index.
-   *
-   * - To use ISO week numbering, use the `ISOWeek` prop.
-   * - To change how the week numbers are displayed, use the `formatters` prop.
    *
    * @see https://daypicker.dev/docs/customization#showweeknumber
    */
