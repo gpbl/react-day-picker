@@ -37,7 +37,7 @@ const persianLocales = { faIR: faIRPersian, enUS: enUSPersian };
 const numerals: { value: Numerals; label: string }[] = [
   { value: "latn", label: "Latin (Western Arabic)" },
   { value: "arab", label: "Arabic-Indic" },
-  { value: "arabext", label: "Eastern Arabic-Indic" },
+  { value: "arabext", label: "Eastern Arabic-Indic (Persian)" },
   { value: "deva", label: "Devanagari" },
   { value: "beng", label: "Bengali" },
   { value: "guru", label: "Gurmukhi" },
@@ -440,6 +440,7 @@ export default function Playground() {
               <label>
                 Numerals:
                 <select
+                  style={{ maxWidth: 100 }}
                   name="numerals"
                   value={
                     numerals.find((numeral) => numeral.value === props.numerals)
