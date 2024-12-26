@@ -10,9 +10,6 @@ export function getMonthOptions(
   formatters: Pick<Formatters, "formatMonthDropdown">,
   dateLib: DateLib
 ): DropdownOption[] | undefined {
-  if (!navStart) return undefined;
-  if (!navEnd) return undefined;
-  // const year = dateLib.getYear(displayMonth);
   const {
     startOfMonth,
     startOfYear,

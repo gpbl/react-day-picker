@@ -56,27 +56,162 @@ describe('when "toYear" is passed in', () => {
   });
 });
 
-describe('when "captionLayout" is dropdown', () => {
+describe.each([["dropdown" as const], ["dropdown-years" as const]])(
+  'when "captionLayout" is "%s"',
+  (captionLayout) => {
+    const today = new Date(2024, 4, 3);
+    const [navStartMonth, navEndMonth] = getNavMonths(
+      {
+        captionLayout,
+        today
+      },
+      defaultDateLib
+    );
+    test('"startMonth" should be 100 years ago', () => {
+      expect(navStartMonth).toEqual(new Date(1924, 0, 1));
+    });
+    test('"endMonth" should be the end of this year', () => {
+      expect(navEndMonth).toEqual(new Date(2024, 11, 31));
+    });
+
+    describe('when "startMonth" is set', () => {
+      const today = new Date(2024, 4, 3);
+      const startMonth = new Date(2021, 4, 3);
+      const [navStartMonth, navEndMonth] = getNavMonths(
+        {
+          captionLayout,
+          startMonth,
+          today
+        },
+        defaultDateLib
+      );
+      test('"startMonth" should be the start of that month', () => {
+        expect(navStartMonth).toEqual(new Date(2021, 4, 1));
+      });
+      test('"endMonth" should be the end of this year', () => {
+        expect(navEndMonth).toEqual(new Date(2024, 11, 31));
+      });
+    });
+
+    describe('when "endMonth" is set', () => {
+      const today = new Date(2021, 4, 3);
+      const endMonth = new Date(2022, 4, 3);
+      const [navStartMonth, navEndMonth] = getNavMonths(
+        {
+          captionLayout,
+          endMonth,
+          today
+        },
+        defaultDateLib
+      );
+      test('"startMonth" should be 100 years ago', () => {
+        expect(navStartMonth).toEqual(new Date(1921, 0, 1));
+      });
+      test('"endMonth" should be the end of that month', () => {
+        expect(navEndMonth).toEqual(new Date(2022, 4, 31));
+      });
+    });
+
+    describe('when "fromYear" is set', () => {
+      const today = new Date(2024, 4, 3);
+      const fromYear = 2022;
+      const [navStartMonth, navEndMonth] = getNavMonths(
+        {
+          captionLayout,
+          fromYear,
+          today
+        },
+        defaultDateLib
+      );
+      test('"startMonth" should be equal to the "fromYear"', () => {
+        expect(navStartMonth).toEqual(new Date(2022, 0, 1));
+      });
+      test('"endMonth" should be the end of this year', () => {
+        expect(navEndMonth).toEqual(new Date(2024, 11, 31));
+      });
+    });
+
+    describe('when "toYear" is set', () => {
+      const today = new Date(2021, 4, 3);
+      const toYear = 2022;
+      const [navStartMonth, navEndMonth] = getNavMonths(
+        {
+          captionLayout,
+          toYear,
+          today
+        },
+        defaultDateLib
+      );
+      test('"startMonth" should be 100 years ago', () => {
+        expect(navStartMonth).toEqual(new Date(1921, 0, 1));
+      });
+      test('"endMonth" should be equal to "toYear"', () => {
+        expect(navEndMonth).toEqual(new Date(2022, 11, 31));
+      });
+    });
+  }
+);
+
+describe('when "captionLayout" is "dropdown-months"', () => {
   const today = new Date(2024, 4, 3);
   const [navStartMonth, navEndMonth] = getNavMonths(
     {
-      captionLayout: "dropdown",
+      captionLayout: "dropdown-months",
       today
     },
     defaultDateLib
   );
-  test('"startMonth" should be 100 years ago', () => {
-    expect(navStartMonth).toEqual(new Date(1924, 0, 1));
+  test('"startMonth" should be undefined', () => {
+    expect(navStartMonth).toBeUndefined();
   });
-  test('"endMonth" should be the end of this year', () => {
-    expect(navEndMonth).toEqual(new Date(2024, 11, 31));
+  test('"endMonth" should be undefined', () => {
+    expect(navEndMonth).toBeUndefined();
   });
+
+  describe('when "startMonth" is set', () => {
+    const today = new Date(2024, 4, 3);
+    const startMonth = new Date(2021, 4, 3);
+    const [navStartMonth, navEndMonth] = getNavMonths(
+      {
+        captionLayout: "dropdown-months",
+        startMonth,
+        today
+      },
+      defaultDateLib
+    );
+    test('"startMonth" should be the start of that month', () => {
+      expect(navStartMonth).toEqual(new Date(2021, 4, 1));
+    });
+    test('"endMonth" should be undefined', () => {
+      expect(navEndMonth).toBeUndefined();
+    });
+  });
+
+  describe('when "endMonth" is set', () => {
+    const today = new Date(2021, 4, 3);
+    const endMonth = new Date(2022, 4, 3);
+    const [navStartMonth, navEndMonth] = getNavMonths(
+      {
+        captionLayout: "dropdown-months",
+        endMonth,
+        today
+      },
+      defaultDateLib
+    );
+    test('"startMonth" should be undefined', () => {
+      expect(navStartMonth).toBeUndefined();
+    });
+    test('"endMonth" should be the end of that month', () => {
+      expect(navEndMonth).toEqual(new Date(2022, 4, 31));
+    });
+  });
+
   describe('when "fromYear" is set', () => {
     const today = new Date(2024, 4, 3);
     const fromYear = 2022;
     const [navStartMonth, navEndMonth] = getNavMonths(
       {
-        captionLayout: "dropdown",
+        captionLayout: "dropdown-months",
         fromYear,
         today
       },
@@ -85,23 +220,24 @@ describe('when "captionLayout" is dropdown', () => {
     test('"startMonth" should be equal to the "fromYear"', () => {
       expect(navStartMonth).toEqual(new Date(2022, 0, 1));
     });
-    test('"endMonth" should be the end of this year', () => {
-      expect(navEndMonth).toEqual(new Date(2024, 11, 31));
+    test('"endMonth" should be undefined', () => {
+      expect(navEndMonth).toBeUndefined();
     });
   });
+
   describe('when "toYear" is set', () => {
     const today = new Date(2021, 4, 3);
     const toYear = 2022;
     const [navStartMonth, navEndMonth] = getNavMonths(
       {
-        captionLayout: "dropdown",
+        captionLayout: "dropdown-months",
         toYear,
         today
       },
       defaultDateLib
     );
-    test('"startMonth" should be 100 years ago', () => {
-      expect(navStartMonth).toEqual(new Date(1921, 0, 1));
+    test('"startMonth" should be undefined', () => {
+      expect(navStartMonth).toBeUndefined();
     });
     test('"endMonth" should be equal to "toYear"', () => {
       expect(navEndMonth).toEqual(new Date(2022, 11, 31));
