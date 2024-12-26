@@ -44,6 +44,7 @@ import { enUS } from "date-fns/locale";
 import { endOfBroadcastWeek } from "../helpers/endOfBroadcastWeek.js";
 import { startOfBroadcastWeek } from "../helpers/startOfBroadcastWeek.js";
 import type { PropsBase } from "../types/props.js";
+import { Numerals } from "../types/shared.js";
 
 export type { Locale } from "date-fns/locale";
 export type { Month as DateFnsMonth } from "date-fns";
@@ -76,8 +77,18 @@ export interface DateLibOptions
   Date?: typeof Date;
   /** A locale to use for formatting dates. */
   locale?: Locale;
-  /** A time zone to use for dates. */
+  /**
+   * A time zone to use for dates.
+   *
+   * @since 9.5.0
+   */
   timeZone?: string;
+  /**
+   * The numbering system to use for formatting numbers.
+   *
+   * @since 9.5.0
+   */
+  numerals?: Numerals;
 }
 
 /**
@@ -109,6 +120,49 @@ export class DateLib {
   ) {
     this.options = { locale: enUS, ...options };
     this.overrides = overrides;
+  }
+
+  /**
+   * Generate digit map dynamically using Intl.NumberFormat.
+   *
+   * @since 9.5.0
+   */
+  private getDigitMap(): Record<string, string> {
+    const { numerals = "latn" } = this.options;
+
+    // Use Intl.NumberFormat to create a formatter with the specified numbering system
+    const formatter = new Intl.NumberFormat("en-US", {
+      numberingSystem: numerals
+    });
+
+    // Map Arabic digits (0-9) to the target numerals
+    const digitMap: Record<string, string> = {};
+    for (let i = 0; i < 10; i++) {
+      digitMap[i.toString()] = formatter.format(i);
+    }
+
+    return digitMap;
+  }
+
+  /**
+   * Replace Arabic digits with the target numbering system digits.
+   *
+   * @since 9.5.0
+   */
+  private replaceDigits(input: string): string {
+    const digitMap = this.getDigitMap();
+    return input.replace(/\d/g, (digit) => digitMap[digit] || digit);
+  }
+
+  /**
+   * Format number using the custom numbering system.
+   *
+   * @since 9.5.0
+   * @param value The number to format.
+   * @returns The formatted number.
+   */
+  formatNumber(value: number): string {
+    return this.replaceDigits(value.toString());
   }
 
   /**
@@ -324,9 +378,13 @@ export class DateLib {
    * @returns The formatted date string.
    */
   format: typeof format = (date, formatStr) => {
-    return this.overrides?.format
+    const formatted = this.overrides?.format
       ? this.overrides.format(date, formatStr, this.options)
       : format(date, formatStr, this.options);
+    if (this.options.numerals && this.options.numerals !== "latn") {
+      return this.replaceDigits(formatted);
+    }
+    return formatted;
   };
 
   /**
