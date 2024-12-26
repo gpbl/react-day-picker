@@ -42,7 +42,7 @@ export * from "./MultipleMinMax";
 export * from "./MultipleRequired";
 export * from "./MultipleMonths";
 export * from "./MultipleMonthsPaged";
-export * from "./NumberingSystem";
+export * from "./Numerals";
 export * from "./OutsideDays";
 export * from "./PastDatesDisabled";
 export * from "./Persian";

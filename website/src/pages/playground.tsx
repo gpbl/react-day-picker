@@ -7,7 +7,8 @@ import {
   type DayPickerProps,
   DateLib,
   DayPicker,
-  isDateRange
+  isDateRange,
+  Numerals
 } from "react-day-picker";
 import * as locales from "react-day-picker/locale";
 import {
@@ -32,6 +33,21 @@ const timeZones = [
 
 const calendars = ["Gregorian", "Persian"];
 const persianLocales = { faIR: faIRPersian, enUS: enUSPersian };
+
+const numerals: { value: Numerals; label: string }[] = [
+  { value: "latn", label: "Latin (Western Arabic)" },
+  { value: "arab", label: "Arabic-Indic" },
+  { value: "arabext", label: "Eastern Arabic-Indic" },
+  { value: "deva", label: "Devanagari" },
+  { value: "beng", label: "Bengali" },
+  { value: "guru", label: "Gurmukhi" },
+  { value: "gujr", label: "Gujarati" },
+  { value: "orya", label: "Oriya" },
+  { value: "tamldec", label: "Tamil" },
+  { value: "telu", label: "Telugu" },
+  { value: "knda", label: "Kannada" },
+  { value: "mlym", label: "Malayalam" }
+];
 /**
  * Function to format a json object of props to a jsx source displaying the
  * props as example
@@ -417,6 +433,32 @@ export default function Playground() {
                   {calendars.map((calendar) => (
                     <option key={calendar} value={calendar}>
                       {calendar}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                Numerals:
+                <select
+                  name="numerals"
+                  value={
+                    numerals.find((numeral) => numeral.value === props.numerals)
+                      ?.value
+                  }
+                  onChange={(e) =>
+                    setProps({
+                      ...props,
+                      numerals:
+                        e.target.value === ""
+                          ? undefined
+                          : (e.target.value as Numerals)
+                    })
+                  }
+                >
+                  <option value=""></option>
+                  {numerals.map((numeral) => (
+                    <option key={numeral.value} value={numeral.value}>
+                      {numeral.label}
                     </option>
                   ))}
                 </select>

@@ -48,7 +48,8 @@ export function DayPicker(props: DayPickerProps) {
           firstWeekContainsDate: props.firstWeekContainsDate,
           useAdditionalWeekYearTokens: props.useAdditionalWeekYearTokens,
           useAdditionalDayOfYearTokens: props.useAdditionalDayOfYearTokens,
-          timeZone: props.timeZone
+          timeZone: props.timeZone,
+          numerals: props.numerals
         },
         props.dateLib
       );
@@ -69,6 +70,7 @@ export function DayPicker(props: DayPickerProps) {
       props.useAdditionalWeekYearTokens,
       props.useAdditionalDayOfYearTokens,
       props.timeZone,
+      props.numerals,
       props.dateLib,
       props.components,
       props.formatters,

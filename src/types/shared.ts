@@ -408,3 +408,18 @@ export type MoveFocusBy =
   | "endOfWeek"
   | "month"
   | "year";
+
+/** The numbering system supported by the `DateLib` class. */
+export type Numerals =
+  | "latn" // Latin (Western Arabic)
+  | "arab" // Arabic-Indic
+  | "arabext" // Eastern Arabic-Indic (Persian)
+  | "deva" // Devanagari
+  | "beng" // Bengali
+  | "guru" // Gurmukhi
+  | "gujr" // Gujarati
+  | "orya" // Oriya
+  | "tamldec" // Tamil
+  | "telu" // Telugu
+  | "knda" // Kannada
+  | "mlym"; // Malayalam
