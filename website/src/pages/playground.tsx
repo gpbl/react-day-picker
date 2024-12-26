@@ -105,21 +105,10 @@ export default function Playground() {
           locale: (props.locale as locales.Locale) ?? locales.enUS,
           timeZone: props.timeZone
         });
-  const formatFn = calendar === "Persian" ? "formatPersian" : "formatGregorian";
 
   return (
     <Layout>
       <Head>
-        <style>
-          {`
-          .rdp-root,
-          [data-theme="dark"] .rdp-root {
-            ${accentColor ? `--rdp-accent-color: ${accentColor} !important` : ""};
-            ${backgroundAccentColor ? `--rdp-accent-background-color: ${backgroundAccentColor} !important` : ""};
-            ${rangeMiddleColor ? `--rdp-range_middle-color: ${rangeMiddleColor} !important` : ""};
-          }
-        `}
-        </style>
         <title>DayPicker Playground</title>
         <meta
           name="description"
@@ -577,7 +566,17 @@ export default function Playground() {
           </fieldset>
         </form>
         <div className={styles.browserWindow}>
-          <BrowserWindow url="">
+          <BrowserWindow
+            url=""
+            styleStr={`
+          .rdp-root,
+          [data-theme="dark"] .rdp-root {
+            ${accentColor ? `--rdp-accent-color: ${accentColor} !important` : ""};
+            ${backgroundAccentColor ? `--rdp-accent-background-color: ${backgroundAccentColor} !important` : ""};
+            ${rangeMiddleColor ? `--rdp-range_middle-color: ${rangeMiddleColor} !important` : ""};
+          }
+        `}
+          >
             <DayPickerComponent
               {...props}
               onSelect={setSelected}
@@ -592,13 +591,17 @@ export default function Playground() {
             {selected ? (
               <div>
                 <pre>
-                  {props.mode === "single" &&
-                    selected &&
-                    dateLib.format(selected as Date, "EEEE, d MMMM yyyy")}
+                  {props.mode === "single" && selected && (
+                    <>
+                      {String(selected)} -{" "}
+                      {dateLib.format(selected as Date, "EEEE, d MMMM yyyy")}
+                    </>
+                  )}
                   {props.mode === "multiple" &&
                     (selected as Date[] | undefined)?.map((date) => {
                       return (
                         <>
+                          {String(date)} -{" "}
                           {dateLib.format(date, "EEEE, d MMMM yyyy")}
                           <br />
                         </>
@@ -607,12 +610,20 @@ export default function Playground() {
                   {props.mode === "range" && isDateRange(selected) && (
                     <>
                       From:{" "}
-                      {selected.from &&
-                        dateLib.format(selected.from, "EEEE, d MMMM yyyy")}
+                      {selected.from && (
+                        <>
+                          {String(selected.from)} -{" "}
+                          {dateLib.format(selected.from, "EEEE, d MMMM yyyy")}
+                        </>
+                      )}
                       <br />
                       To: {"  "}
-                      {selected.to &&
-                        dateLib.format(selected.to, "EEEE, d MMMM yyyy")}
+                      {selected.to && (
+                        <>
+                          {String(selected.to)} -{" "}
+                          {dateLib.format(selected.to, "EEEE, d MMMM yyyy")}
+                        </>
+                      )}
                     </>
                   )}
                 </pre>
