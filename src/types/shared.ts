@@ -409,17 +409,34 @@ export type MoveFocusBy =
   | "month"
   | "year";
 
-/** The numbering system supported by the `DateLib` class. */
+/**
+ * The numbering system supported by DayPicker.
+ *
+ * - `latn`: Latin (Western Arabic)
+ * - `arab`: Arabic-Indic
+ * - `arabext`: Eastern Arabic-Indic (Persian)
+ * - `deva`: Devanagari
+ * - `beng`: Bengali
+ * - `guru`: Gurmukhi
+ * - `gujr`: Gujarati
+ * - `orya`: Oriya
+ * - `tamldec`: Tamil
+ * - `telu`: Telugu
+ * - `knda`: Kannada
+ * - `mlym`: Malayalam
+ *
+ * @see https://daypicker.dev/docs/translation#numeral-systems
+ */
 export type Numerals =
-  | "latn" // Latin (Western Arabic)
-  | "arab" // Arabic-Indic
-  | "arabext" // Eastern Arabic-Indic (Persian)
-  | "deva" // Devanagari
-  | "beng" // Bengali
-  | "guru" // Gurmukhi
-  | "gujr" // Gujarati
-  | "orya" // Oriya
-  | "tamldec" // Tamil
-  | "telu" // Telugu
-  | "knda" // Kannada
-  | "mlym"; // Malayalam
+  | "latn"
+  | "arab"
+  | "arabext"
+  | "deva"
+  | "beng"
+  | "guru"
+  | "gujr"
+  | "orya"
+  | "tamldec"
+  | "telu"
+  | "knda"
+  | "mlym";

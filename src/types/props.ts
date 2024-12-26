@@ -391,6 +391,11 @@ export interface PropsBase {
    * @see https://github.com/date-fns/date-fns/tree/main/src/locale for a list of the supported locales
    */
   locale?: Partial<Locale> | undefined;
+  /**
+   * The numeral system to use when formatting dates.
+   *
+   * @see https://daypicker.dev/docs/translation#numeral-systems
+   */
   numerals?: Numerals;
   /**
    * The index of the first day of the week (0 - Sunday). Overrides the locale's
