@@ -3,7 +3,7 @@ import { defaultDateLib } from "../classes/DateLib";
 import { getFormatters } from "./getFormatters";
 import { getYearOptions } from "./getYearOptions";
 
-test("return undefined if startMonth or endMonth is not provided", () => {
+test("return undefined if navStart or navEnd is not provided", () => {
   const formatters = getFormatters({
     formatYearDropdown: (date: Date) => `${date.getFullYear()}`
   });
