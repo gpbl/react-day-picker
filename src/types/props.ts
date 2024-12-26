@@ -520,7 +520,6 @@ export interface PropsBase {
  * @param {Date} triggerDate - The date when the event was triggered.
  * @param {Modifiers} modifiers - The modifiers associated with the event.
  * @param {React.MouseEvent | React.KeyboardEvent} e - The event object.
- * @group DayPicker
  */
 export type OnSelectHandler<T> = (
   selected: T,
