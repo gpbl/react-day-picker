@@ -8,7 +8,7 @@
  */
 const options = {
   // eslint-disable-next-line no-undef
-  watch: process.env.TYPEDOC_WATCH === "trueee",
+  watch: process.env.TYPEDOC_WATCH === "true",
   name: "API",
   includeVersion: true,
   basePath: "../",
