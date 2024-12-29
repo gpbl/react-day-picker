@@ -7,10 +7,7 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "strict": true,
-    "types": ["node", "@docusaurus/module-type-aliases"],
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "types": ["node", "@docusaurus/module-type-aliases"]
   },
   "include": ["src", "examples-v8"]
 }
