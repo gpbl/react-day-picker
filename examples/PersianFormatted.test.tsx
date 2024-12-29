@@ -12,5 +12,5 @@ afterAll(() => jest.useRealTimers());
 
 test("should render دی 1403", () => {
   render(<PersianFormatted />);
-  expect(grid("دی 1403")).toBeInTheDocument();
+  expect(grid("دی ۱۴۰۳")).toBeInTheDocument();
 });
