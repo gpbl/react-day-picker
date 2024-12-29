@@ -12,6 +12,7 @@ export function PersianEn() {
       selected={selected}
       required
       onSelect={setSelected}
+      numerals="latn"
       footer={`Selected: ${dateLib.format(selected, "d MMM yyyy")}`}
     />
   );

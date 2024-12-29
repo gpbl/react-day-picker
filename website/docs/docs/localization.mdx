@@ -84,13 +84,16 @@ DayPicker supports the Persian [Solar Hijri](<https://en.wikipedia.org/wiki/Iran
 
 ### English (US) Locale
 
-By default, the Persian calendar uses the Farsi (Iran) locale. To use the English (US) locale, import it and pass the `locale` prop:
+By default, the Persian calendar uses the Farsi (Iran) locale and the Eastern Arabic-Indic (Persian) number system.
+
+- To use the English (US) locale, import it and pass the `locale` prop.
+- To change the numerals to Western Arabic, use the `numerals` prop.
 
 ```tsx
 import { DayPicker, enUS } from "react-day-picker/persian";
 
 export function PersianEn() {
-  return <DayPicker locale={enUS} />;
+  return <DayPicker locale={enUS} numerals="latn" />;
 }
 ```
 

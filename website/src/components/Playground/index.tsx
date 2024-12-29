@@ -215,6 +215,85 @@ export function Playground() {
 
           <div className={styles.fields}>
             <label>
+              Number of months:
+              <input
+                type="number"
+                min={1}
+                max={12}
+                size={4}
+                value={props.numberOfMonths}
+                name="numberOfMonths"
+                onChange={(e) =>
+                  setProps({
+                    ...props,
+                    numberOfMonths: Number(e.target.value)
+                  })
+                }
+              />
+            </label>
+
+            {props.numberOfMonths && props.numberOfMonths > 1 && (
+              <label>
+                <input
+                  type="checkbox"
+                  name="reverseMonths"
+                  checked={props.reverseMonths}
+                  onChange={(e) =>
+                    setProps({
+                      ...props,
+                      reverseMonths: e.target.checked
+                    })
+                  }
+                />
+                Reverse Months
+              </label>
+            )}
+            {props.numberOfMonths && props.numberOfMonths > 1 && (
+              <label>
+                <input
+                  type="checkbox"
+                  name="pagedNavigation"
+                  checked={props.pagedNavigation}
+                  onChange={(e) =>
+                    setProps({
+                      ...props,
+                      pagedNavigation: e.target.checked
+                    })
+                  }
+                />
+                Paged Navigation
+              </label>
+            )}
+            <label>
+              <input
+                type="checkbox"
+                name="hideNavigation"
+                checked={props.hideNavigation}
+                onChange={(e) =>
+                  setProps({ ...props, hideNavigation: e.target.checked })
+                }
+              />
+              Hide Navigation
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="disableNavigation"
+                checked={props.disableNavigation}
+                onChange={(e) =>
+                  setProps({ ...props, disableNavigation: e.target.checked })
+                }
+              />
+              Disable Navigation
+            </label>
+            <hr
+              style={{
+                borderTop: "1px solid var(--ifm-color-emphasis-200)",
+                marginBottom: "1rem",
+                marginTop: "1rem"
+              }}
+            />
+            <label>
               Month:
               <div>
                 <input
@@ -282,79 +361,6 @@ export function Playground() {
                 />
               </div>
             </label>
-            <label>
-              <input
-                type="checkbox"
-                name="hideNavigation"
-                checked={props.hideNavigation}
-                onChange={(e) =>
-                  setProps({ ...props, hideNavigation: e.target.checked })
-                }
-              />
-              Hide Navigation
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                name="disableNavigation"
-                checked={props.disableNavigation}
-                onChange={(e) =>
-                  setProps({ ...props, disableNavigation: e.target.checked })
-                }
-              />
-              Disable Navigation
-            </label>
-            <label>
-              Number of months:
-              <input
-                type="number"
-                min={1}
-                max={12}
-                size={4}
-                value={props.numberOfMonths}
-                name="numberOfMonths"
-                onChange={(e) =>
-                  setProps({
-                    ...props,
-                    numberOfMonths: Number(e.target.value)
-                  })
-                }
-              />
-            </label>
-
-            {props.numberOfMonths && props.numberOfMonths > 1 && (
-              <label>
-                <input
-                  type="checkbox"
-                  name="reverseMonths"
-                  checked={props.reverseMonths}
-                  onChange={(e) =>
-                    setProps({
-                      ...props,
-                      reverseMonths: e.target.checked
-                    })
-                  }
-                />
-                Reverse Months
-              </label>
-            )}
-            {props.numberOfMonths && props.numberOfMonths > 1 && (
-              <label>
-                <input
-                  type="checkbox"
-                  name="pagedNavigation"
-                  checked={props.pagedNavigation}
-                  onChange={(e) =>
-                    setProps({
-                      ...props,
-                      pagedNavigation: e.target.checked
-                    })
-                  }
-                />
-                Paged Navigation
-              </label>
-            )}
-
             <label>
               Start month:
               <div>
@@ -920,7 +926,7 @@ export function Playground() {
           ) : props.mode ? (
             "Pick on a day to start selection."
           ) : (
-            "Choose a selection mode to enable selections."
+            "Choose a selection mode to display the selected days."
           )}
         </p>
         <h2>Code</h2>
