@@ -58,7 +58,7 @@ describe("return correct dropdown options", () => {
     ]);
   });
 
-  test("when less than 12 months", () => {
+  test("when less than 12 months between start and end month", () => {
     const displayMonth = new Date(2024, 9);
     const startMonth = new Date(2024, 9);
     const endMonth = new Date(2025, 5);
