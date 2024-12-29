@@ -6,7 +6,7 @@ import { user } from "@/test/user";
 
 import { DropdownMonths } from "./DropdownMonths";
 
-const today = new Date(2015, 6, 1);
+const today = new Date(2015, 11, 1);
 
 beforeAll(() => jest.setSystemTime(today));
 afterAll(() => jest.useRealTimers());

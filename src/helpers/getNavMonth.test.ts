@@ -1,58 +1,79 @@
+import {
+  addYears,
+  endOfMonth,
+  endOfYear,
+  startOfDay,
+  startOfMonth,
+  startOfYear
+} from "date-fns";
+import { DayPickerProps } from "react-day-picker/types";
+
 import { defaultDateLib } from "../classes/DateLib";
 
 import { getNavMonths } from "./getNavMonth";
 
-describe('when "startMonth" is not passed in', () => {
+describe('when "startMonth" is not set', () => {
   test('"startMonth" should be undefined', () => {
     const [navStartMonth] = getNavMonths({}, defaultDateLib);
     expect(navStartMonth).toBeUndefined();
   });
 });
-describe('when "startMonth" is passed in', () => {
-  const [navStartMonth] = getNavMonths(
-    {
-      startMonth: new Date(2021, 4, 3)
-    },
-    defaultDateLib
-  );
+describe('when "startMonth" is set', () => {
+  const startMonth = new Date(2021, 4, 3);
+  const props: DayPickerProps = { startMonth };
   test('"startMonth" should be the start of that month', () => {
-    expect(navStartMonth).toEqual(new Date(2021, 4, 1));
+    const [navStartMonth] = getNavMonths(props, defaultDateLib);
+    const startOfThatMonth = startOfMonth(startMonth);
+    expect(navStartMonth).toEqual(startOfThatMonth);
   });
-  describe('when "fromYear" is passed in', () => {
+  describe('when "fromYear" is set', () => {
+    const fromYear = 2021;
     test('"startMonth" should be the start of that month', () => {
-      expect(navStartMonth).toEqual(new Date(2021, 4, 1));
+      const [navStartMonth] = getNavMonths(
+        { ...props, fromYear },
+        defaultDateLib
+      );
+      const startOfThatMonth = startOfMonth(startMonth);
+      expect(navStartMonth).toEqual(startOfThatMonth);
     });
   });
 });
-describe('when "fromYear" is passed in', () => {
-  const [navStartMonth] = getNavMonths({ fromYear: 2021 }, defaultDateLib);
+describe('when "fromYear" is set', () => {
+  const fromYear = 2021;
+  const props: DayPickerProps = { fromYear };
   test('"startMonth" should be the start of that year', () => {
-    expect(navStartMonth).toEqual(new Date(2021, 0, 1));
+    const [navStartMonth] = getNavMonths(props, defaultDateLib);
+    const startOfThatYear = new Date(fromYear, 0, 1);
+    expect(navStartMonth).toEqual(startOfThatYear);
   });
 });
-describe('when "endMonth" is passed in', () => {
-  const [, navEndMonth] = getNavMonths(
-    {
-      endMonth: new Date(2021, 4, 3)
-    },
-    defaultDateLib
-  );
+describe('when "endMonth" is set', () => {
+  const endMonth = new Date(2021, 4, 3);
+  const props: DayPickerProps = { endMonth };
   test('"endMonth" should be the end of that month', () => {
-    expect(navEndMonth).toEqual(new Date(2021, 4, 31));
+    const [, navEndMonth] = getNavMonths(props, defaultDateLib);
+    const endOfThatMonth = startOfDay(endOfMonth(endMonth));
+    expect(navEndMonth).toEqual(endOfThatMonth);
   });
-  describe('when "fromYear" is passed in', () => {
+  describe('when "fromYear" is set', () => {
+    const fromYear = 2021;
     test('"endMonth" should be the end of that month', () => {
-      expect(navEndMonth).toEqual(new Date(2021, 4, 31));
+      const [, navEndMonth] = getNavMonths(
+        { ...props, fromYear },
+        defaultDateLib
+      );
+      const endOfThatMonth = startOfDay(endOfMonth(endMonth));
+      expect(navEndMonth).toEqual(endOfThatMonth);
     });
   });
 });
 
-describe('when "toYear" is passed in', () => {
+describe('when "toYear" is set', () => {
   const toYear = 2021;
-  const expectedendMonth = new Date(2021, 11, 31);
-  const [, navEndMonth] = getNavMonths({ toYear }, defaultDateLib);
+  const props: DayPickerProps = { toYear };
   test('"endMonth" should be the end of that year', () => {
-    expect(navEndMonth).toEqual(expectedendMonth);
+    const [, navEndMonth] = getNavMonths(props, defaultDateLib);
+    expect(navEndMonth).toEqual(new Date(toYear, 11, 31));
   });
 });
 
@@ -60,93 +81,80 @@ describe.each([["dropdown" as const], ["dropdown-years" as const]])(
   'when "captionLayout" is "%s"',
   (captionLayout) => {
     const today = new Date(2024, 4, 3);
-    const [navStartMonth, navEndMonth] = getNavMonths(
-      {
-        captionLayout,
-        today
-      },
-      defaultDateLib
-    );
+    const props: DayPickerProps = { captionLayout, today };
+
     test('"startMonth" should be 100 years ago', () => {
-      expect(navStartMonth).toEqual(new Date(1924, 0, 1));
+      const [navStartMonth] = getNavMonths(props, defaultDateLib);
+      const startOf100YearsAgo = startOfYear(addYears(today, -100));
+      expect(navStartMonth).toEqual(startOf100YearsAgo);
     });
     test('"endMonth" should be the end of this year', () => {
-      expect(navEndMonth).toEqual(new Date(2024, 11, 31));
+      const [, navEndMonth] = getNavMonths(props, defaultDateLib);
+      const endOfThisYear = startOfDay(endOfYear(new Date()));
+      expect(navEndMonth).toEqual(endOfThisYear);
     });
 
     describe('when "startMonth" is set', () => {
       const today = new Date(2024, 4, 3);
       const startMonth = new Date(2021, 4, 3);
-      const [navStartMonth, navEndMonth] = getNavMonths(
-        {
-          captionLayout,
-          startMonth,
-          today
-        },
-        defaultDateLib
-      );
+      const props: DayPickerProps = { captionLayout, startMonth, today };
       test('"startMonth" should be the start of that month', () => {
-        expect(navStartMonth).toEqual(new Date(2021, 4, 1));
+        const [navStartMonth] = getNavMonths(props, defaultDateLib);
+        const startOfThatMonth = startOfMonth(startMonth);
+        expect(navStartMonth).toEqual(startOfThatMonth);
       });
       test('"endMonth" should be the end of this year', () => {
-        expect(navEndMonth).toEqual(new Date(2024, 11, 31));
+        const [, navEndMonth] = getNavMonths(props, defaultDateLib);
+        const endOfThisYear = startOfDay(endOfYear(new Date()));
+        expect(navEndMonth).toEqual(endOfThisYear);
       });
     });
 
     describe('when "endMonth" is set', () => {
       const today = new Date(2021, 4, 3);
       const endMonth = new Date(2022, 4, 3);
-      const [navStartMonth, navEndMonth] = getNavMonths(
-        {
-          captionLayout,
-          endMonth,
-          today
-        },
-        defaultDateLib
-      );
+      const props: DayPickerProps = { captionLayout, endMonth, today };
+
       test('"startMonth" should be 100 years ago', () => {
-        expect(navStartMonth).toEqual(new Date(1921, 0, 1));
+        const [navStartMonth] = getNavMonths(props, defaultDateLib);
+        const startOf100YearsAgo = startOfYear(addYears(today, -100));
+        expect(navStartMonth).toEqual(startOf100YearsAgo);
       });
       test('"endMonth" should be the end of that month', () => {
-        expect(navEndMonth).toEqual(new Date(2022, 4, 31));
+        const [, navEndMonth] = getNavMonths(props, defaultDateLib);
+        expect(navEndMonth).toEqual(startOfDay(endOfMonth(endMonth)));
       });
     });
 
     describe('when "fromYear" is set', () => {
       const today = new Date(2024, 4, 3);
       const fromYear = 2022;
-      const [navStartMonth, navEndMonth] = getNavMonths(
-        {
-          captionLayout,
-          fromYear,
-          today
-        },
-        defaultDateLib
-      );
+      const props: DayPickerProps = { captionLayout, fromYear, today };
+
       test('"startMonth" should be equal to the "fromYear"', () => {
-        expect(navStartMonth).toEqual(new Date(2022, 0, 1));
+        const [navStartMonth] = getNavMonths(props, defaultDateLib);
+        const startOfThatYear = new Date(fromYear, 0, 1);
+        expect(navStartMonth).toEqual(startOfThatYear);
       });
       test('"endMonth" should be the end of this year', () => {
-        expect(navEndMonth).toEqual(new Date(2024, 11, 31));
+        const [, navEndMonth] = getNavMonths(props, defaultDateLib);
+        const endOfThisYear = startOfDay(endOfYear(today));
+        expect(navEndMonth).toEqual(endOfThisYear);
       });
     });
 
     describe('when "toYear" is set', () => {
       const today = new Date(2021, 4, 3);
       const toYear = 2022;
-      const [navStartMonth, navEndMonth] = getNavMonths(
-        {
-          captionLayout,
-          toYear,
-          today
-        },
-        defaultDateLib
-      );
+      const props: DayPickerProps = { captionLayout, toYear, today };
+
       test('"startMonth" should be 100 years ago', () => {
-        expect(navStartMonth).toEqual(new Date(1921, 0, 1));
+        const [navStartMonth] = getNavMonths(props, defaultDateLib);
+        expect(navStartMonth).toEqual(startOfYear(addYears(today, -100)));
       });
-      test('"endMonth" should be equal to "toYear"', () => {
-        expect(navEndMonth).toEqual(new Date(2022, 11, 31));
+      test('"endMonth" should be equal the last day of the year', () => {
+        const [, navEndMonth] = getNavMonths(props, defaultDateLib);
+        expect(navEndMonth).toEqual(new Date(toYear, 11, 31));
       });
     });
   }
@@ -154,35 +162,34 @@ describe.each([["dropdown" as const], ["dropdown-years" as const]])(
 
 describe('when "captionLayout" is "dropdown-months"', () => {
   const today = new Date(2024, 4, 3);
-  const [navStartMonth, navEndMonth] = getNavMonths(
-    {
-      captionLayout: "dropdown-months",
-      today
-    },
-    defaultDateLib
-  );
+  const props: DayPickerProps = {
+    captionLayout: "dropdown-months",
+    today
+  };
   test('"startMonth" should be undefined', () => {
+    const [navStartMonth] = getNavMonths(props, defaultDateLib);
     expect(navStartMonth).toBeUndefined();
   });
   test('"endMonth" should be undefined', () => {
+    const [, navEndMonth] = getNavMonths(props, defaultDateLib);
     expect(navEndMonth).toBeUndefined();
   });
 
   describe('when "startMonth" is set', () => {
     const today = new Date(2024, 4, 3);
     const startMonth = new Date(2021, 4, 3);
-    const [navStartMonth, navEndMonth] = getNavMonths(
-      {
-        captionLayout: "dropdown-months",
-        startMonth,
-        today
-      },
-      defaultDateLib
-    );
+    const props: DayPickerProps = {
+      captionLayout: "dropdown-months",
+      startMonth,
+      today
+    };
     test('"startMonth" should be the start of that month', () => {
-      expect(navStartMonth).toEqual(new Date(2021, 4, 1));
+      const [navStartMonth] = getNavMonths(props, defaultDateLib);
+      const startOfThatMonth = startOfMonth(startMonth);
+      expect(navStartMonth).toEqual(startOfThatMonth);
     });
     test('"endMonth" should be undefined', () => {
+      const [, navEndMonth] = getNavMonths(props, defaultDateLib);
       expect(navEndMonth).toBeUndefined();
     });
   });
@@ -190,37 +197,37 @@ describe('when "captionLayout" is "dropdown-months"', () => {
   describe('when "endMonth" is set', () => {
     const today = new Date(2021, 4, 3);
     const endMonth = new Date(2022, 4, 3);
-    const [navStartMonth, navEndMonth] = getNavMonths(
-      {
-        captionLayout: "dropdown-months",
-        endMonth,
-        today
-      },
-      defaultDateLib
-    );
+    const props: DayPickerProps = {
+      captionLayout: "dropdown-months",
+      endMonth,
+      today
+    };
     test('"startMonth" should be undefined', () => {
+      const [navStartMonth] = getNavMonths(props, defaultDateLib);
       expect(navStartMonth).toBeUndefined();
     });
     test('"endMonth" should be the end of that month', () => {
-      expect(navEndMonth).toEqual(new Date(2022, 4, 31));
+      const [, navEndMonth] = getNavMonths(props, defaultDateLib);
+      const endOfThatMonth = startOfDay(endOfMonth(endMonth));
+      expect(navEndMonth).toEqual(endOfThatMonth);
     });
   });
 
   describe('when "fromYear" is set', () => {
     const today = new Date(2024, 4, 3);
     const fromYear = 2022;
-    const [navStartMonth, navEndMonth] = getNavMonths(
-      {
-        captionLayout: "dropdown-months",
-        fromYear,
-        today
-      },
-      defaultDateLib
-    );
-    test('"startMonth" should be equal to the "fromYear"', () => {
-      expect(navStartMonth).toEqual(new Date(2022, 0, 1));
+    const props: DayPickerProps = {
+      captionLayout: "dropdown-months",
+      fromYear,
+      today
+    };
+    test('"startMonth" should be equal to the start of that year', () => {
+      const [navStartMonth] = getNavMonths(props, defaultDateLib);
+      const startOfThatYear = new Date(fromYear, 0, 1);
+      expect(navStartMonth).toEqual(startOfThatYear);
     });
     test('"endMonth" should be undefined', () => {
+      const [, navEndMonth] = getNavMonths(props, defaultDateLib);
       expect(navEndMonth).toBeUndefined();
     });
   });
@@ -228,19 +235,19 @@ describe('when "captionLayout" is "dropdown-months"', () => {
   describe('when "toYear" is set', () => {
     const today = new Date(2021, 4, 3);
     const toYear = 2022;
-    const [navStartMonth, navEndMonth] = getNavMonths(
-      {
-        captionLayout: "dropdown-months",
-        toYear,
-        today
-      },
-      defaultDateLib
-    );
+    const props: DayPickerProps = {
+      captionLayout: "dropdown-months",
+      toYear,
+      today
+    };
     test('"startMonth" should be undefined', () => {
+      const [navStartMonth] = getNavMonths(props, defaultDateLib);
       expect(navStartMonth).toBeUndefined();
     });
-    test('"endMonth" should be equal to "toYear"', () => {
-      expect(navEndMonth).toEqual(new Date(2022, 11, 31));
+    test('"endMonth" should be equal to the end of that year', () => {
+      const [, navEndMonth] = getNavMonths(props, defaultDateLib);
+      const endOfThatYear = new Date(2022, 11, 31);
+      expect(navEndMonth).toEqual(endOfThatYear);
     });
   });
 });
