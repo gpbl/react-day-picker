@@ -46,19 +46,21 @@ export function getNavMonths(
     endMonth = newDate(toYear, 11, 31);
   }
 
-  const hasDropdowns = props.captionLayout?.startsWith("dropdown");
+  const hasYearDropdown =
+    props.captionLayout === "dropdown" ||
+    props.captionLayout === "dropdown-years";
   if (startMonth) {
     startMonth = startOfMonth(startMonth);
   } else if (fromYear) {
     startMonth = newDate(fromYear, 0, 1);
-  } else if (!startMonth && hasDropdowns) {
+  } else if (!startMonth && hasYearDropdown) {
     startMonth = startOfYear(addYears(props.today ?? today(), -100));
   }
   if (endMonth) {
     endMonth = endOfMonth(endMonth);
   } else if (toYear) {
     endMonth = newDate(toYear, 11, 31);
-  } else if (!endMonth && hasDropdowns) {
+  } else if (!endMonth && hasYearDropdown) {
     endMonth = endOfYear(props.today ?? today());
   }
   return [

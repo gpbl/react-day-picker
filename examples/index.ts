@@ -16,6 +16,7 @@ export * from "./Dialog";
 export * from "./Disabled";
 export * from "./DisableNavigation";
 export * from "./Dropdown";
+export * from "./DropdownMonths";
 export * from "./DropdownMultipleMonths";
 export * from "./Fixedweeks";
 export * from "./FocusRecursive";
