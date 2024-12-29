@@ -14,7 +14,11 @@ import type { DayPickerProps } from "./types/props.js";
 export const faIR = locales.faIR;
 export const enUS = locales.enUS;
 
-/** Render the Persian Calendar */
+/**
+ * Render the Persian Calendar.
+ *
+ * @see https://daypicker.dev/docs/localization#persian-calendar
+ */
 export function DayPicker(
   props: DayPickerProps & {
     /**
@@ -35,6 +39,26 @@ export function DayPicker(
      * @default `jalaliDateLib` from `date-fns-jalali`
      */
     dateLib?: DayPickerProps["dateLib"];
+    /**
+     * The numeral system to use when formatting dates.
+     *
+     * - `latn`: Latin (Western Arabic)
+     * - `arab`: Arabic-Indic
+     * - `arabext`: Eastern Arabic-Indic (Persian)
+     * - `deva`: Devanagari
+     * - `beng`: Bengali
+     * - `guru`: Gurmukhi
+     * - `gujr`: Gujarati
+     * - `orya`: Oriya
+     * - `tamldec`: Tamil
+     * - `telu`: Telugu
+     * - `knda`: Kannada
+     * - `mlym`: Malayalam
+     *
+     * @defaultValue `arabext` Eastern Arabic-Indic (Persian)
+     * @see https://daypicker.dev/docs/translation#numeral-systems
+     */
+    numerals?: DayPickerProps["numerals"];
   }
 ) {
   const dateLib = getDateLib({
@@ -49,6 +73,7 @@ export function DayPicker(
     <DayPickerComponent
       {...props}
       locale={props.locale ?? faIR}
+      numerals={props.numerals ?? "arabext"}
       dir={props.dir ?? "rtl"}
       dateLib={dateLib}
     />

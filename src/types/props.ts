@@ -394,9 +394,23 @@ export interface PropsBase {
   /**
    * The numeral system to use when formatting dates.
    *
+   * - `latn`: Latin (Western Arabic)
+   * - `arab`: Arabic-Indic
+   * - `arabext`: Eastern Arabic-Indic (Persian)
+   * - `deva`: Devanagari
+   * - `beng`: Bengali
+   * - `guru`: Gurmukhi
+   * - `gujr`: Gujarati
+   * - `orya`: Oriya
+   * - `tamldec`: Tamil
+   * - `telu`: Telugu
+   * - `knda`: Kannada
+   * - `mlym`: Malayalam
+   *
+   * @defaultValue `latn` Latin (Western Arabic)
    * @see https://daypicker.dev/docs/translation#numeral-systems
    */
-  numerals?: Numerals;
+  numerals?: Numerals | undefined;
   /**
    * The index of the first day of the week (0 - Sunday). Overrides the locale's
    * one.
