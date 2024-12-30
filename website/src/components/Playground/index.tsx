@@ -67,8 +67,9 @@ export function Playground() {
   let formattedProps = `<DayPicker${toJSX({
     ...props,
     locale: undefined,
+    month: undefined,
     dir: calendar === "Persian" && props.dir === "rtl" ? undefined : props.dir
-  })} \n/>`;
+  })} />`;
 
   if (calendar === "Persian") {
     formattedProps =
@@ -221,18 +222,20 @@ export function Playground() {
                 min={1}
                 max={12}
                 size={4}
-                value={props.numberOfMonths}
+                value={props.numberOfMonths ?? ""}
                 name="numberOfMonths"
-                onChange={(e) =>
+                onChange={(e) => {
+                  const value = e.target.value;
                   setProps({
                     ...props,
-                    numberOfMonths: Number(e.target.value)
-                  })
-                }
+                    numberOfMonths:
+                      value === "" ? undefined : Math.max(1, Number(value))
+                  });
+                }}
               />
             </label>
 
-            {props.numberOfMonths && props.numberOfMonths > 1 && (
+            {props.numberOfMonths !== undefined && props.numberOfMonths > 1 && (
               <label>
                 <input
                   type="checkbox"
@@ -248,7 +251,7 @@ export function Playground() {
                 Reverse Months
               </label>
             )}
-            {props.numberOfMonths && props.numberOfMonths > 1 && (
+            {props.numberOfMonths !== undefined && props.numberOfMonths > 1 && (
               <label>
                 <input
                   type="checkbox"

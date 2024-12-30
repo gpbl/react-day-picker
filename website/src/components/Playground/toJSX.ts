@@ -21,7 +21,7 @@ export function toJSX(props: Partial<DayPickerProps>) {
               : value
                 ? ""
                 : `x={${JSON.stringify(value)}}`;
-        return `\n  ${key}${valueAsString}`;
+        return ` ${key}${valueAsString}`;
       })
       .join("")
   );
