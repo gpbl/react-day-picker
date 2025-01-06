@@ -44,7 +44,6 @@ import { enUS } from "date-fns/locale";
 
 import { endOfBroadcastWeek } from "../helpers/endOfBroadcastWeek.js";
 import { startOfBroadcastWeek } from "../helpers/startOfBroadcastWeek.js";
-import type { PropsBase } from "../types/props.js";
 import { Numerals } from "../types/shared.js";
 
 export type { Locale } from "date-fns/locale";
@@ -93,9 +92,8 @@ export interface DateLibOptions
 }
 
 /**
- * Date manipulation and formatting library built around
- * [date-fns](http://date-fns.org). Supports overrides, custom numeral systems,
- * locales, and time zones.
+ * A wrapper class around [date-fns](http://date-fns.org) sharing the same
+ * options.
  *
  * @since 9.2.0
  * @example
