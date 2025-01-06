@@ -18,6 +18,7 @@ export * from "./DisableNavigation";
 export * from "./Dropdown";
 export * from "./DropdownMonths";
 export * from "./DropdownMultipleMonths";
+export * from "./Ethiopic";
 export * from "./Fixedweeks";
 export * from "./FocusRecursive";
 export * from "./Footer";
