@@ -90,7 +90,7 @@ describe.each([["dropdown" as const], ["dropdown-years" as const]])(
     });
     test('"endMonth" should be the end of this year', () => {
       const [, navEndMonth] = getNavMonths(props, defaultDateLib);
-      const endOfThisYear = startOfDay(endOfYear(new Date()));
+      const endOfThisYear = startOfDay(endOfYear(today));
       expect(navEndMonth).toEqual(endOfThisYear);
     });
 
@@ -105,7 +105,7 @@ describe.each([["dropdown" as const], ["dropdown-years" as const]])(
       });
       test('"endMonth" should be the end of this year', () => {
         const [, navEndMonth] = getNavMonths(props, defaultDateLib);
-        const endOfThisYear = startOfDay(endOfYear(new Date()));
+        const endOfThisYear = startOfDay(endOfYear(today));
         expect(navEndMonth).toEqual(endOfThisYear);
       });
     });
