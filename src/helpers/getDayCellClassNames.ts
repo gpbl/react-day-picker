@@ -10,7 +10,6 @@ export function getDayCellClassNames(
     .filter(([, active]) => active === true)
     .reduce(
       (val, [modifier]) => {
-        val.push(`${classNames[UI.Day]}-${modifier}`);
         if (modifiersClassNames[modifier]) {
           val.push(modifiersClassNames[modifier as string]);
         } else if (classNames[DayFlag[modifier as DayFlag]]) {
