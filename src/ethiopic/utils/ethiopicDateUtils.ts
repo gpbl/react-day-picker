@@ -239,8 +239,8 @@ export function formatEthiopianDate(
 
 export function getStartOfEthiopianWeek(date: Date): Date {
   const dayOfWeek = date.getDay();
-  // In Ethiopian calendar, Monday is 1 and Sunday is 0
-  // Convert JavaScript's Sunday=0 to Ethiopian's Sunday=0
+  // In Ethiopic calendar, Monday is 1 and Sunday is 0
+  // Convert JavaScript's Sunday=0 to Ethiopic's Sunday=0
   const ethiopianDayOfWeek = dayOfWeek === 0 ? 6 : dayOfWeek - 1;
 
   // Create a new date by subtracting the days to get to Monday

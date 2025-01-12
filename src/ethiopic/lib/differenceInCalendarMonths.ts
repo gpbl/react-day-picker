@@ -1,5 +1,12 @@
-import { toEthiopicDate } from "../utils/toEthiopicDate.js";
+import { toEthiopicDate, isEthiopicLeapYear } from "../utils/index.js";
 
+/**
+ * Difference in calendar months
+ *
+ * @param {Date} dateLeft - The later date
+ * @param {Date} dateRight - The earlier date
+ * @returns {number} The number of calendar months between the two dates
+ */
 export function differenceInCalendarMonths(
   dateLeft: Date,
   dateRight: Date

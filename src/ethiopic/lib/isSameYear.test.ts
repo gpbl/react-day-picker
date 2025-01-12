@@ -1,5 +1,5 @@
 describe("isSameYear", () => {
-  test.todo("Should return true for dates in same Ethiopian year");
-  test.todo("Should return false for dates in different Ethiopian years");
-  test.todo("Should handle Ethiopian year boundary correctly");
+  test.todo("should return true for dates in same Ethiopic year");
+  test.todo("should return false for dates in different Ethiopic years");
+  test.todo("should handle Ethiopic year boundary correctly");
 });

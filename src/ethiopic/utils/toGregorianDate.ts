@@ -1,4 +1,4 @@
-import { EthiopicDate } from "./EthiopicDate.js";
+import type { EthiopicDate } from "./EthiopicDate.js";
 import {
   gregorianDateFromDayNo,
   getDayNoEthiopian

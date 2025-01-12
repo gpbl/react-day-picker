@@ -1,6 +1,6 @@
 describe("getWeek", () => {
-  test.todo("Should return correct Ethiopian week number");
-  test.todo("Should handle different week start options");
-  test.todo("Should handle dates at Ethiopian year boundaries");
-  test.todo("Should maintain week continuity in Ethiopian calendar");
+  test.todo("should return correct Ethiopic week number");
+  test.todo("should handle different week start options");
+  test.todo("should handle dates at Ethiopic year boundaries");
+  test.todo("should maintain week continuity in Ethiopic calendar");
 });

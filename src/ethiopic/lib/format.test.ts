@@ -1,6 +1,6 @@
 describe("format", () => {
-  test.todo("Should format date in Ethiopian calendar");
-  test.todo("Should format Ethiopian month names correctly");
-  test.todo("Should format time components correctly");
-  test.todo("Should format full date with Ethiopian day names");
+  test.todo("should format date in Ethiopic calendar");
+  test.todo("should format Ethiopic month names correctly");
+  test.todo("should format time components correctly");
+  test.todo("should format full date with Ethiopic day names");
 });

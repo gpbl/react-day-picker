@@ -1,4 +1,4 @@
 describe("endOfYear", () => {
-  test.todo("Should return last day of Ethiopian year for non-leap year");
-  test.todo("Should return last day of Ethiopian year for leap year");
+  test.todo("should return last day of Ethiopic year for non-leap year");
+  test.todo("should return last day of Ethiopic year for leap year");
 });

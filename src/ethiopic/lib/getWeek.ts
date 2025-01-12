@@ -1,4 +1,4 @@
-import { GetWeekOptions } from "date-fns";
+import type { GetWeekOptions } from "date-fns";
 
 import { toGregorianDate, toEthiopicDate } from "../utils/index.js";
 
@@ -12,18 +12,18 @@ import { toGregorianDate, toEthiopicDate } from "../utils/index.js";
  * @returns {number} The week number
  */
 export function getWeek(date: Date, options?: GetWeekOptions): number {
-  const etDate = toEthiopicDate(date);
+  const { year } = toEthiopicDate(date);
 
   // Get the first day of the current year
   const firstDayOfYear = toGregorianDate({
-    year: etDate.year,
+    year: year,
     month: 1,
     day: 1
   });
 
   // Get the first day of next year
   const firstDayOfNextYear = toGregorianDate({
-    year: etDate.year + 1,
+    year: year + 1,
     month: 1,
     day: 1
   });
@@ -52,7 +52,7 @@ export function getWeek(date: Date, options?: GetWeekOptions): number {
   // If the date is before the first week of its year, it belongs to the last week of previous year
   if (date < firstWeekStart) {
     const prevYearFirstDay = toGregorianDate({
-      year: etDate.year - 1,
+      year: year - 1,
       month: 1,
       day: 1
     });

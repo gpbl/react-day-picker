@@ -1,5 +1,5 @@
 describe("formatNumber", () => {
-  test.todo("Should format numbers using Ethiopian numerals");
-  test.todo("Should format numbers using latin numerals by default");
-  test.todo("Should handle zero and negative numbers correctly");
+  test.todo("should format numbers using Ethiopic numerals");
+  test.todo("should format numbers using latin numerals by default");
+  test.todo("should handle zero and negative numbers correctly");
 });

@@ -9,7 +9,6 @@ import { toEthiopicDate, toGregorianDate } from "../utils/index.js";
  */
 export function endOfMonth(date: Date): Date {
   const { year, month } = toEthiopicDate(date);
-  const lastDay = ethiopicMonthLength(month, year);
-
-  return toGregorianDate({ year, month, day: lastDay });
+  const daysInMonth = ethiopicMonthLength(month, year);
+  return toGregorianDate({ year, month, day: daysInMonth });
 }

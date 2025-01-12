@@ -1,5 +1,5 @@
 describe("getYear", () => {
-  test.todo("Should return correct Ethiopian year");
+  test.todo("should return correct Ethiopic year");
 
-  test.todo("Should handle Ethiopian year boundary correctly");
+  test.todo("should handle Ethiopic year boundary correctly");
 });
