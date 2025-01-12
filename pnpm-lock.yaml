@@ -17,6 +17,9 @@ importers:
       date-fns-jalali:
         specifier: ^4.1.0-0
         version: 4.1.0-0
+      ethiopian-date:
+        specifier: ^0.0.6
+        version: 0.0.6
     devDependencies:
       '@jest/types':
         specifier: ^29.6.3
@@ -4281,6 +4284,9 @@ packages:
   etag@1.8.1:
     resolution: {integrity: sha512-aIL5Fx7mawVa300al2BnEE4iNvo1qETxLrPI/o05L7z6go7fCw1J6EQmbK4FmJ2AS7kgVF/KEZWufBfdClMcPg==}
     engines: {node: '>= 0.6'}
+
+  ethiopian-date@0.0.6:
+    resolution: {integrity: sha512-O+8hYimosZVn85MWcHtq9HQLR2HdELZPbv1zk3Xc6nm1cYvBl3V1fezrcMkqWKt8tin9dr3/vk0JkQAEWQZzXA==}
 
   eval@0.1.8:
     resolution: {integrity: sha512-EzV94NYKoO09GLXGjXj9JIlXijVck4ONSr5wiCWDvhsvj5jxSrzTmRU/9C1DyB6uToszLs8aifA6NQ7lEQdvFw==}
@@ -13646,6 +13652,8 @@ snapshots:
   eta@2.2.0: {}
 
   etag@1.8.1: {}
+
+  ethiopian-date@0.0.6: {}
 
   eval@0.1.8:
     dependencies:
