@@ -1,1 +1,14 @@
-export { startOfYear } from "./startOfYear.js";
+export * from "./addMonths.js";
+export * from "./addYears.js";
+export * from "./differenceInCalendarMonths.js";
+export * from "./endOfMonth.js";
+export * from "./endOfYear.js";
+export * from "./getMonth.js";
+export * from "./getWeek.js";
+export * from "./getYear.js";
+export * from "./isSameMonth.js";
+export * from "./isSameYear.js";
+export * from "./newDate.js";
+export * from "./setYear.js";
+export * from "./startOfMonth.js";
+export * from "./startOfYear.js";
