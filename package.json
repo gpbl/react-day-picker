@@ -196,8 +196,7 @@
   "dependencies": {
     "@date-fns/tz": "^1.2.0",
     "date-fns": "^4.1.0",
-    "date-fns-jalali": "^4.1.0-0",
-    "ethiopian-date": "^0.0.6"
+    "date-fns-jalali": "^4.1.0-0"
   },
   "devDependencies": {
     "@jest/types": "^29.6.3",
