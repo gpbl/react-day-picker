@@ -1,10 +1,9 @@
 import { toEth, toGreg } from "../utils/ethiopicDateUtils.js";
 
-export function startOfYear(date: Date): Date {
+export function addYears(date: Date, amount: number): Date {
   const etDate = toEth(date);
   return toGreg({
-    Year: etDate.Year,
-    Month: 1,
-    Day: 1
+    ...etDate,
+    Year: etDate.Year + amount
   });
 }
