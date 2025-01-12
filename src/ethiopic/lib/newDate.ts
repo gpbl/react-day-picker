@@ -1,4 +1,5 @@
 import { toGregorianDate } from "../utils/toGregorianDate.js";
+
 export function newDate(year: number, monthIndex: number, date: number): Date {
   // Convert from 0-based month index to 1-based Ethiopian month
   const month = monthIndex + 1;

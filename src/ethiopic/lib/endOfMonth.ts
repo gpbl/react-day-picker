@@ -1,6 +1,4 @@
-import {
-  ethiopianMonthLength
-} from "../utils/ethiopicDateUtils.js";
+import { ethiopianMonthLength } from "../utils/ethiopicDateUtils.js";
 import { toEthiopicDate } from "../utils/toEthiopicDate.js";
 import { toGregorianDate } from "../utils/toGregorianDate.js";
 
