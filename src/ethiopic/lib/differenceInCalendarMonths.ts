@@ -1,10 +1,10 @@
-import { toEth } from "../utils/ethiopicDateUtils.js";
+import { toEthiopicDate } from "../utils/toEthiopicDate.js";
 
 export function differenceInCalendarMonths(
   dateLeft: Date,
   dateRight: Date
 ): number {
-  const etDate1 = toEth(dateLeft);
-  const etDate2 = toEth(dateRight);
-  return (etDate1.Year - etDate2.Year) * 13 + (etDate1.Month - etDate2.Month);
+  const etDate1 = toEthiopicDate(dateLeft);
+  const etDate2 = toEthiopicDate(dateRight);
+  return (etDate1.year - etDate2.year) * 13 + (etDate1.month - etDate2.month);
 }

@@ -1,6 +1,6 @@
-import { toEth } from "../utils/ethiopicDateUtils.js";
+import { toEthiopicDate } from "../utils/toEthiopicDate.js";
 
 export function getYear(date: Date): number {
-  const etDate = toEth(date);
-  return etDate.Year;
+  const etDate = toEthiopicDate(date);
+  return etDate.year;
 }

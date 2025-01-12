@@ -1,4 +1,4 @@
-import { toGreg } from "../utils/ethiopicDateUtils.js";
+import { toGregorianDate } from "../utils/toGregorianDate.js";
 export function newDate(year: number, monthIndex: number, date: number): Date {
   // Convert from 0-based month index to 1-based Ethiopian month
   const month = monthIndex + 1;
@@ -9,9 +9,9 @@ export function newDate(year: number, monthIndex: number, date: number): Date {
     );
   }
 
-  return toGreg({
-    Year: year,
-    Month: month,
-    Day: date
+  return toGregorianDate({
+    year: year,
+    month: month,
+    day: date
   });
 }

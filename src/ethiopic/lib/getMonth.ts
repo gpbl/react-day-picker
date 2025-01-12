@@ -1,6 +1,6 @@
-import { toEth } from "../utils/ethiopicDateUtils.js";
+import { toEthiopicDate } from "../utils/toEthiopicDate.js";
 
 export function getMonth(date: Date): number {
-  const etDate = toEth(date);
-  return etDate.Month - 1; // Convert to 0-based for compatibility
+  const etDate = toEthiopicDate(date);
+  return etDate.month - 1; // Convert to 0-based for compatibility
 }
