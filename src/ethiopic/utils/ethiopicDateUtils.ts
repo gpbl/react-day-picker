@@ -21,7 +21,7 @@ export const ethMonths = [
 export const shortDays = ["እ", "ሰ", "ማ", "ረ", "ሐ", "ዓ", "ቅ"];
 export const longDays = ["እሁድ", "ሰኞ", "ማክሰኞ", "ረቡዕ", "ሐሙስ", "ዓርብ", "ቅዳሜ"];
 
-export function ethiopianMonthLength(m: number, y: number): number {
+export function ethiopicMonthLength(m: number, y: number): number {
   if (m === 13) {
     return isEthiopicLeapYear(y) ? 6 : 5;
   }
@@ -172,7 +172,7 @@ function isValid(date: EthiopicDate): boolean {
   if (date.month < 1) return false;
   if (date.day < 1) return false;
   if (date.month > 13) return false;
-  if (date.day > ethiopianMonthLength(date.month, date.year)) return false;
+  if (date.day > ethiopicMonthLength(date.month, date.year)) return false;
   return true;
 }
 

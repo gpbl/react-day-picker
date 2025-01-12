@@ -1,6 +1,12 @@
-import { toEthiopicDate } from "../utils/toEthiopicDate.js";
+import { toEthiopicDate } from "../utils/index.js";
 
+/**
+ * Get year
+ *
+ * @param {Date} date - The original date
+ * @returns {number} The year
+ */
 export function getYear(date: Date): number {
-  const etDate = toEthiopicDate(date);
-  return etDate.year;
+  const { year } = toEthiopicDate(date);
+  return year;
 }

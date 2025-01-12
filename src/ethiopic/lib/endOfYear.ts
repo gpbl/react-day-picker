@@ -1,12 +1,17 @@
-import { isEthiopicLeapYear } from "../utils/isEthiopicLeapYear.js";
-import { toEthiopicDate } from "../utils/toEthiopicDate.js";
-import { toGregorianDate } from "../utils/toGregorianDate.js";
+import {
+  toEthiopicDate,
+  isEthiopicLeapYear,
+  toGregorianDate
+} from "../utils/index.js";
 
+/**
+ * End of year
+ *
+ * @param {Date} date - The original date
+ * @returns {Date} The end of the year
+ */
 export function endOfYear(date: Date): Date {
-  const etDate = toEthiopicDate(date);
-  return toGregorianDate({
-    year: etDate.year,
-    month: 13,
-    day: isEthiopicLeapYear(etDate.year) ? 6 : 5
-  });
+  const { year } = toEthiopicDate(date);
+  const day = isEthiopicLeapYear(year) ? 6 : 5;
+  return toGregorianDate({ year, month: 13, day });
 }

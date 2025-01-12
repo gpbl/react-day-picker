@@ -1,11 +1,16 @@
-import { toEthiopicDate } from "../utils/toEthiopicDate.js";
-import { toGregorianDate } from "../utils/toGregorianDate.js";
+import { GetWeekOptions } from "date-fns";
 
-export interface GetWeekOptions {
-  firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
-  weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
-}
+import { toGregorianDate, toEthiopicDate } from "../utils/index.js";
 
+/**
+ * Get week
+ *
+ * @param {Date} date - The original date
+ * @param {Object} [options] - The options object
+ * @param {number} [options.weekStartsOn=0] - The index of the first day of the
+ *   week (0 - Sunday). Default is `0`
+ * @returns {number} The week number
+ */
 export function getWeek(date: Date, options?: GetWeekOptions): number {
   const etDate = toEthiopicDate(date);
 

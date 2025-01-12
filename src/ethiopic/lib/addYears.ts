@@ -1,10 +1,10 @@
-import { toEthiopicDate } from "../utils/toEthiopicDate.js";
-import { toGregorianDate } from "../utils/toGregorianDate.js";
+import { toEthiopicDate, toGregorianDate } from "../utils/index.js";
 
 export function addYears(date: Date, amount: number): Date {
-  const etDate = toEthiopicDate(date);
+  const { year, month, day } = toEthiopicDate(date);
   return toGregorianDate({
-    ...etDate,
-    year: etDate.year + amount
+    year: year + amount,
+    month,
+    day
   });
 }

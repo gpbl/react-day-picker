@@ -4,7 +4,10 @@ export function differenceInCalendarMonths(
   dateLeft: Date,
   dateRight: Date
 ): number {
-  const etDate1 = toEthiopicDate(dateLeft);
-  const etDate2 = toEthiopicDate(dateRight);
-  return (etDate1.year - etDate2.year) * 13 + (etDate1.month - etDate2.month);
+  const ethiopicLeft = toEthiopicDate(dateLeft);
+  const ethiopicRight = toEthiopicDate(dateRight);
+  return (
+    (ethiopicLeft.year - ethiopicRight.year) * 13 +
+    (ethiopicLeft.month - ethiopicRight.month)
+  );
 }

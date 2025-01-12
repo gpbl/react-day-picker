@@ -1,11 +1,12 @@
-import { toEthiopicDate } from "../utils/toEthiopicDate.js";
-import { toGregorianDate } from "../utils/toGregorianDate.js";
+import { toEthiopicDate, toGregorianDate } from "../utils/index.js";
 
+/**
+ * Start of year
+ *
+ * @param {Date} date - The original date
+ * @returns {Date} The start of the year
+ */
 export function startOfYear(date: Date): Date {
-  const etDate = toEthiopicDate(date);
-  return toGregorianDate({
-    year: etDate.year,
-    month: 1,
-    day: 1
-  });
+  const { year } = toEthiopicDate(date);
+  return toGregorianDate({ year, month: 1, day: 1 });
 }
