@@ -1,8 +1,6 @@
-export interface EthiopianDate {
-  Day: number;
-  Month: number;
-  Year: number;
-}
+import { EthiopicDate } from "./EthiopicDate.js";
+import { isEthiopicLeapYear } from "./isEthiopicLeapYear.js";
+import { toEthiopicDate } from "./toEthiopicDate.js";
 
 export const ethMonths = [
   "መስከረም",
@@ -23,13 +21,9 @@ export const ethMonths = [
 export const shortDays = ["እ", "ሰ", "ማ", "ረ", "ሐ", "ዓ", "ቅ"];
 export const longDays = ["እሁድ", "ሰኞ", "ማክሰኞ", "ረቡዕ", "ሐሙስ", "ዓርብ", "ቅዳሜ"];
 
-export function isLeapYearEt(y: number): boolean {
-  return y % 4 === 3;
-}
-
 export function ethiopianMonthLength(m: number, y: number): number {
   if (m === 13) {
-    return isLeapYearEt(y) ? 6 : 5;
+    return isEthiopicLeapYear(y) ? 6 : 5;
   }
   return 30;
 }
@@ -38,13 +32,13 @@ function isLeapYearGr(year: number): boolean {
   return year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
 }
 
-function getDayNoEthiopian(etDate: EthiopianDate): number {
-  const num = Math.floor(etDate.Year / 4);
-  const num2 = etDate.Year % 4;
-  return num * 1461 + num2 * 365 + (etDate.Month - 1) * 30 + etDate.Day - 1;
+export function getDayNoEthiopian(etDate: EthiopicDate): number {
+  const num = Math.floor(etDate.year / 4);
+  const num2 = etDate.year % 4;
+  return num * 1461 + num2 * 365 + (etDate.month - 1) * 30 + etDate.day - 1;
 }
 
-function grigorianMonthLength(index: number, year: number): number {
+function gregorianMonthLength(index: number, year: number): number {
   switch (index) {
     case 1: // January
     case 3: // March
@@ -66,7 +60,7 @@ export function getEtDayName(day: Date, short: boolean = true): string {
   return short ? shortDays[dayOfWeek] : longDays[dayOfWeek];
 }
 
-function grigorianDateFromDayNo(dayNum: number): Date {
+export function gregorianDateFromDayNo(dayNum: number): Date {
   let year = 1,
     month = 1,
     day;
@@ -98,7 +92,7 @@ function grigorianDateFromDayNo(dayNum: number): Date {
   year += 400 * num400 + 100 * num100 + 4 * num4 + num1;
 
   while (dayNum > 0) {
-    const daysInMonth = grigorianMonthLength(month, year);
+    const daysInMonth = gregorianMonthLength(month, year);
 
     if (dayNum <= daysInMonth) {
       day = dayNum;
@@ -113,22 +107,22 @@ function grigorianDateFromDayNo(dayNum: number): Date {
   return new Date(year, month - 1, day);
 }
 
-function createEthiopianDate(dn: number): EthiopianDate {
+export function createEthiopianDate(dn: number): EthiopicDate {
   const num = Math.floor(dn / 1461);
   const num2 = dn % 1461;
   const num3 = Math.floor(num2 / 365);
   const num4 = num2 % 365;
   if (num2 !== 1460) {
     return {
-      Year: num * 4 + num3,
-      Month: Math.floor(num4 / 30) + 1,
-      Day: (num4 % 30) + 1
+      year: num * 4 + num3,
+      month: Math.floor(num4 / 30) + 1,
+      day: (num4 % 30) + 1
     };
   } else {
     return {
-      Year: num * 4 + num3 - 1,
-      Month: 13,
-      Day: 6
+      year: num * 4 + num3 - 1,
+      month: 13,
+      day: 6
     };
   }
 }
@@ -136,12 +130,12 @@ function createEthiopianDate(dn: number): EthiopianDate {
 function addGregorianMonths(m: number, y: number): number {
   let sum = 0;
   for (let i = 1; i < m; i++) {
-    sum += grigorianMonthLength(i, y);
+    sum += gregorianMonthLength(i, y);
   }
   return sum;
 }
 
-function getDayNoGrigorian(date: Date): number {
+export function getDayNoGregorian(date: Date): number {
   if (!(date instanceof Date)) {
     return 0;
   }
@@ -157,14 +151,6 @@ function getDayNoGrigorian(date: Date): number {
   return days_in_previous_years + days_in_current_year;
 }
 
-export function toEth(dt: Date): EthiopianDate {
-  return createEthiopianDate(getDayNoGrigorian(dt) - 2431);
-}
-
-export function toGreg(et: EthiopianDate): Date {
-  return grigorianDateFromDayNo(getDayNoEthiopian(et) + 2431);
-}
-
 export function getEtMonthName(m: number): string {
   if (m > 0 && m <= 13) {
     return ethMonths[m - 1];
@@ -173,74 +159,73 @@ export function getEtMonthName(m: number): string {
 }
 
 export function ethiopianDayDiff(
-  date1: EthiopianDate,
-  date2: EthiopianDate
+  date1: EthiopicDate,
+  date2: EthiopicDate
 ): number {
   const day1 = getDayNoEthiopian(date1);
   const day2 = getDayNoEthiopian(date2);
   return day1 - day2;
 }
 
-function isValid(date: EthiopianDate): boolean {
-  if (date.Year < 1000 || date.Year > 3000) return false;
-  if (date.Month < 1) return false;
-  if (date.Day < 1) return false;
-  if (date.Month > 13) return false;
-  if (date.Day > ethiopianMonthLength(date.Month, date.Year)) return false;
+function isValid(date: EthiopicDate): boolean {
+  if (date.year < 1000 || date.year > 3000) return false;
+  if (date.month < 1) return false;
+  if (date.day < 1) return false;
+  if (date.month > 13) return false;
+  if (date.day > ethiopianMonthLength(date.month, date.year)) return false;
   return true;
 }
 
-export function addYears(etDate: EthiopianDate, years: number): EthiopianDate {
+export function addYears(etDate: EthiopicDate, years: number): EthiopicDate {
   if (!isValid(etDate))
     throw new Error(
-      `Invalid ethiopian date ${etDate.Day}-${etDate.Month}-${etDate.Year}`
+      `Invalid ethiopian date ${etDate.day}-${etDate.month}-${etDate.year}`
     );
 
-  const newYear = etDate.Year + years;
+  const newYear = etDate.year + years;
 
-  if (etDate.Month === 13 && etDate.Day === 6) {
-    if (!isLeapYearEt(newYear)) {
-      return { Day: 5, Month: etDate.Month, Year: newYear };
+  if (etDate.month === 13 && etDate.day === 6) {
+    if (!isEthiopicLeapYear(newYear)) {
+      return { day: 5, month: etDate.month, year: newYear };
     }
   }
 
-  return { Day: etDate.Day, Month: etDate.Month, Year: newYear };
+  return { day: etDate.day, month: etDate.month, year: newYear };
 }
 
 export function formatEthiopianDate(
   dateObj: Date | undefined,
   formatStr: string
 ): string {
-  const etDate = dateObj ? toEth(dateObj) : undefined;
+  const etDate = dateObj ? toEthiopicDate(dateObj) : undefined;
 
   if (!etDate) return "";
 
   switch (formatStr) {
     case "LLLL yyyy":
     case "LLLL y":
-      return `${getEtMonthName(etDate.Month)} ${etDate.Year}`;
+      return `${getEtMonthName(etDate.month)} ${etDate.year}`;
 
     case "LLLL":
-      return getEtMonthName(etDate.Month);
+      return getEtMonthName(etDate.month);
 
     case "yyyy-MM-dd":
-      return `${etDate.Year}-${etDate.Month.toString().padStart(
-        2,
-        "0"
-      )}-${etDate.Day.toString().padStart(2, "0")}`;
+      return `${etDate.year}-${etDate.month
+        .toString()
+        .padStart(2, "0")}-${etDate.day.toString().padStart(2, "0")}`;
 
     case "yyyy-MM":
-      return `${etDate.Year}-${etDate.Month.toString().padStart(2, "0")}`;
+      return `${etDate.year}-${etDate.month.toString().padStart(2, "0")}`;
 
     case "d":
-      return etDate.Day.toString();
+      return etDate.day.toString();
     case "PPP":
-      return ` ${getEtMonthName(etDate.Month)} ${etDate.Day}, ${etDate.Year}`;
+      return ` ${getEtMonthName(etDate.month)} ${etDate.day}, ${etDate.year}`;
     case "PPPP":
       if (!dateObj) return "";
-      return `${getEtDayName(dateObj)}, ${getEtMonthName(etDate.Month)} ${
-        etDate.Day
-      }, ${etDate.Year}`;
+      return `${getEtDayName(dateObj)}, ${getEtMonthName(etDate.month)} ${
+        etDate.day
+      }, ${etDate.year}`;
 
     case "cccc":
       return dateObj ? getEtDayName(dateObj, false) : "";
@@ -248,7 +233,7 @@ export function formatEthiopianDate(
       return dateObj ? getEtDayName(dateObj) : "";
 
     default:
-      return `${etDate.Day}/${etDate.Month}/${etDate.Year}`;
+      return `${etDate.day}/${etDate.month}/${etDate.year}`;
   }
 }
 

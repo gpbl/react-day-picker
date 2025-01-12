@@ -1,4 +1,5 @@
-import { toEth, toGreg } from "../utils/ethiopicDateUtils.js";
+import { toEthiopicDate } from "../utils/toEthiopicDate.js";
+import { toGregorianDate } from "../utils/toGregorianDate.js";
 
 export interface GetWeekOptions {
   firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
@@ -6,20 +7,20 @@ export interface GetWeekOptions {
 }
 
 export function getWeek(date: Date, options?: GetWeekOptions): number {
-  const etDate = toEth(date);
+  const etDate = toEthiopicDate(date);
 
   // Get the first day of the current year
-  const firstDayOfYear = toGreg({
-    Year: etDate.Year,
-    Month: 1,
-    Day: 1
+  const firstDayOfYear = toGregorianDate({
+    year: etDate.year,
+    month: 1,
+    day: 1
   });
 
   // Get the first day of next year
-  const firstDayOfNextYear = toGreg({
-    Year: etDate.Year + 1,
-    Month: 1,
-    Day: 1
+  const firstDayOfNextYear = toGregorianDate({
+    year: etDate.year + 1,
+    month: 1,
+    day: 1
   });
 
   // Adjust to the start of the week (Monday)
@@ -45,10 +46,10 @@ export function getWeek(date: Date, options?: GetWeekOptions): number {
 
   // If the date is before the first week of its year, it belongs to the last week of previous year
   if (date < firstWeekStart) {
-    const prevYearFirstDay = toGreg({
-      Year: etDate.Year - 1,
-      Month: 1,
-      Day: 1
+    const prevYearFirstDay = toGregorianDate({
+      year: etDate.year - 1,
+      month: 1,
+      day: 1
     });
     const prevYearFirstWeekStart = getWeekStart(prevYearFirstDay);
     const daysSincePrevStart = Math.floor(

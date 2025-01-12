@@ -1,10 +1,12 @@
-import { toEth, toGreg, isLeapYearEt } from "../utils/ethiopicDateUtils.js";
+import { isEthiopicLeapYear } from "../utils/isEthiopicLeapYear.js";
+import { toEthiopicDate } from "../utils/toEthiopicDate.js";
+import { toGregorianDate } from "../utils/toGregorianDate.js";
 
 export function endOfYear(date: Date): Date {
-  const etDate = toEth(date);
-  return toGreg({
-    Year: etDate.Year,
-    Month: 13,
-    Day: isLeapYearEt(etDate.Year) ? 6 : 5
+  const etDate = toEthiopicDate(date);
+  return toGregorianDate({
+    year: etDate.year,
+    month: 13,
+    day: isEthiopicLeapYear(etDate.year) ? 6 : 5
   });
 }

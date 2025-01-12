@@ -1,9 +1,10 @@
-import { toEth, toGreg } from "../utils/ethiopicDateUtils.js";
+import { toEthiopicDate } from "../utils/toEthiopicDate.js";
+import { toGregorianDate } from "../utils/toGregorianDate.js";
 
 export function startOfMonth(date: Date): Date {
-  const etDate = toEth(date);
-  return toGreg({
+  const etDate = toEthiopicDate(date);
+  return toGregorianDate({
     ...etDate,
-    Day: 1
+    day: 1
   });
 }
