@@ -1,6 +1,6 @@
-import { toGregorianDate, toEthiopicDate } from "../utils/index.js";
+import type { GetWeekOptions } from "date-fns";
 
-import { differenceInCalendarDays } from "./differenceInCalendarDays.js";
+import { toGregorianDate, toEthiopicDate } from "../utils/index.js";
 
 /**
  * Get week
@@ -11,16 +11,59 @@ import { differenceInCalendarDays } from "./differenceInCalendarDays.js";
  *   week (0 - Sunday). Default is `0`
  * @returns {number} The week number
  */
-export function getWeek(
-  date: Date,
-  options?: { weekStartsOn?: number }
-): number {
-  const weekStartsOn = options?.weekStartsOn ?? 0; // Default to Sunday
-  const startOfYear = toGregorianDate({
-    year: toEthiopicDate(date).year,
+export function getWeek(date: Date, options?: GetWeekOptions): number {
+  const { year } = toEthiopicDate(date);
+
+  // Get the first day of the current year
+  const firstDayOfYear = toGregorianDate({
+    year: year,
     month: 1,
     day: 1
   });
-  const diffInDays = differenceInCalendarDays(date, startOfYear);
-  return Math.floor((diffInDays + weekStartsOn) / 7) + 1;
+
+  // Get the first day of next year
+  const firstDayOfNextYear = toGregorianDate({
+    year: year + 1,
+    month: 1,
+    day: 1
+  });
+
+  // Adjust to the start of the week (Monday)
+  const getWeekStart = (date: Date) => {
+    const daysSinceMonday = (date.getDay() + 6) % 7;
+    const weekStart = new Date(date);
+    weekStart.setDate(date.getDate() - daysSinceMonday);
+    return weekStart;
+  };
+
+  const firstWeekStart = getWeekStart(firstDayOfYear);
+  const nextYearFirstWeekStart = getWeekStart(firstDayOfNextYear);
+
+  // If the date is in the last week of the year, check if it belongs to week 1 of next year
+  if (date >= nextYearFirstWeekStart) {
+    return 1;
+  }
+
+  // Calculate days since the first week start
+  const daysSinceStart = Math.floor(
+    (date.getTime() - firstWeekStart.getTime()) / (24 * 60 * 60 * 1000)
+  );
+
+  // If the date is before the first week of its year, it belongs to the last week of previous year
+  if (date < firstWeekStart) {
+    const prevYearFirstDay = toGregorianDate({
+      year: year - 1,
+      month: 1,
+      day: 1
+    });
+    const prevYearFirstWeekStart = getWeekStart(prevYearFirstDay);
+    const daysSincePrevStart = Math.floor(
+      (date.getTime() - prevYearFirstWeekStart.getTime()) /
+        (24 * 60 * 60 * 1000)
+    );
+    return Math.floor(daysSincePrevStart / 7) + 1;
+  }
+
+  const data = Math.floor(daysSinceStart / 7) + 1;
+  return data;
 }

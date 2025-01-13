@@ -1,1 +1,3 @@
-test.todo("startOfYear should return the start of the Ethiopic year");
+test.todo("returns first day of Ethiopic year");
+test.todo("maintains month and day");
+test.todo("handles leap year changes");

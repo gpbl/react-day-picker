@@ -1,1 +1,5 @@
-test.todo("isSameYear should return true if two dates are in the same year");
+describe("isSameYear", () => {
+  test.todo("should return true for dates in same Ethiopic year");
+  test.todo("should return false for dates in different Ethiopic years");
+  test.todo("should handle Ethiopic year boundary correctly");
+});

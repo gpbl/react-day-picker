@@ -1,1 +1,3 @@
-test.todo("addMonths should correctly add months to an Ethiopic date");
+test.todo("should add positive months correctly in Ethiopic calendar");
+test.todo("should add negative months correctly in Ethiopic calendar");
+test.todo("should handle month overflow correctly in Ethiopic calendar");

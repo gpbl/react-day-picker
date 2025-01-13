@@ -1,1 +1,4 @@
-test.todo("should return the correct zero-based month index for a given date");
+describe("getMonth", () => {
+  test.todo("should return correct Ethiopic month (0-based)");
+  test.todo("should handle Pagume (13th month) correctly");
+});

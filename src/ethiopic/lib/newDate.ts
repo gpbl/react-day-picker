@@ -9,5 +9,14 @@ import { toGregorianDate } from "../utils/index.js";
  * @returns {Date} The corresponding Gregorian date
  */
 export function newDate(year: number, monthIndex: number, date: number): Date {
-  return toGregorianDate({ year, month: monthIndex + 1, day: date });
+  // Convert from 0-based month index to 1-based Ethiopic month
+  const month = monthIndex + 1;
+
+  if (month < 1 || month > 13) {
+    throw new Error(
+      "Month must be between 0 and 12 (1-13 in Ethiopic calendar)"
+    );
+  }
+
+  return toGregorianDate({ year, month, day: date });
 }

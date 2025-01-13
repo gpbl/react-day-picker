@@ -1,3 +1,4 @@
+import { daysInMonth } from "../utils/daysInMonth.js";
 import { toEthiopicDate, toGregorianDate } from "../utils/index.js";
 
 /**
@@ -9,8 +10,19 @@ import { toEthiopicDate, toGregorianDate } from "../utils/index.js";
  */
 export function addMonths(date: Date, amount: number): Date {
   const { year, month, day } = toEthiopicDate(date);
-  const totalMonths = month + amount - 1;
-  const newYear = year + Math.floor(totalMonths / 12);
-  const newMonth = (totalMonths % 12) + 1;
-  return toGregorianDate({ year: newYear, month: newMonth, day });
+  let newMonth = month + amount;
+  const yearAdjustment = Math.floor((newMonth - 1) / 13);
+  newMonth = ((newMonth - 1) % 13) + 1;
+
+  if (newMonth < 1) {
+    newMonth += 13;
+  }
+
+  const newYear = year + yearAdjustment;
+
+  // Adjust day if it exceeds the month length
+  const monthLength = daysInMonth(newMonth, newYear);
+  const newDay = Math.min(day, monthLength);
+
+  return toGregorianDate({ year: newYear, month: newMonth, day: newDay });
 }

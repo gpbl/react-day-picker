@@ -1,4 +1,4 @@
-import { toEthiopicDate, isEthiopicLeapYear } from "../utils/index.js";
+import { toEthiopicDate } from "../utils/index.js";
 
 /**
  * Difference in calendar months
@@ -13,13 +13,8 @@ export function differenceInCalendarMonths(
 ): number {
   const ethiopicLeft = toEthiopicDate(dateLeft);
   const ethiopicRight = toEthiopicDate(dateRight);
-  const leapDays = Array.from(
-    { length: ethiopicLeft.year - ethiopicRight.year },
-    (_, i) => ethiopicRight.year + i
-  ).filter(isEthiopicLeapYear).length;
   return (
-    (ethiopicLeft.year - ethiopicRight.year) * 12 +
-    (ethiopicLeft.month - ethiopicRight.month) +
-    leapDays
+    (ethiopicLeft.year - ethiopicRight.year) * 13 +
+    (ethiopicLeft.month - ethiopicRight.month)
   );
 }
