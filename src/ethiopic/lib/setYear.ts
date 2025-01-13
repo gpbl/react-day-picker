@@ -1,4 +1,4 @@
-import { ethiopicMonthLength } from "../utils/ethiopicDateUtils.js";
+import { daysInMonth } from "../utils/daysInMonth.js";
 import { toEthiopicDate, toGregorianDate } from "../utils/index.js";
 
 /**
@@ -12,7 +12,7 @@ export function setYear(date: Date, year: number): Date {
   const { month, day } = toEthiopicDate(date);
 
   // Check if the day is valid in the new year (handles leap year changes)
-  const maxDays = ethiopicMonthLength(month, year);
+  const maxDays = daysInMonth(month, year);
   const newDay = Math.min(day, maxDays);
 
   return toGregorianDate({ year, month, day: newDay });

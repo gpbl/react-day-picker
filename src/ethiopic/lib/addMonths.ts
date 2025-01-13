@@ -1,4 +1,4 @@
-import { ethiopicMonthLength } from "../utils/ethiopicDateUtils.js";
+import { daysInMonth } from "../utils/daysInMonth.js";
 import { toEthiopicDate, toGregorianDate } from "../utils/index.js";
 
 /**
@@ -21,7 +21,7 @@ export function addMonths(date: Date, amount: number): Date {
   const newYear = year + yearAdjustment;
 
   // Adjust day if it exceeds the month length
-  const monthLength = ethiopicMonthLength(newMonth, newYear);
+  const monthLength = daysInMonth(newMonth, newYear);
   const newDay = Math.min(day, monthLength);
 
   return toGregorianDate({ year: newYear, month: newMonth, day: newDay });

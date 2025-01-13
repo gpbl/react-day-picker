@@ -1,4 +1,4 @@
-import { toEthiopicDate, isEthiopicLeapYear } from "../utils/index.js";
+import { toEthiopicDate } from "../utils/index.js";
 
 /**
  * Difference in calendar months

@@ -1,4 +1,4 @@
-import { ethiopicMonthLength } from "../utils/ethiopicDateUtils.js";
+import { daysInMonth } from "../utils/daysInMonth.js";
 import { toEthiopicDate, toGregorianDate } from "../utils/index.js";
 
 /**
@@ -9,6 +9,6 @@ import { toEthiopicDate, toGregorianDate } from "../utils/index.js";
  */
 export function endOfMonth(date: Date): Date {
   const { year, month } = toEthiopicDate(date);
-  const daysInMonth = ethiopicMonthLength(month, year);
-  return toGregorianDate({ year, month, day: daysInMonth });
+  const day = daysInMonth(month, year);
+  return toGregorianDate({ year, month, day: day });
 }
