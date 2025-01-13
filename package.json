@@ -52,6 +52,16 @@
         "default": "./dist/cjs/persian.js"
       }
     },
+    "./ethiopic": {
+      "import": {
+        "types": "./dist/esm/ethiopic/index.d.ts",
+        "default": "./dist/esm/ethiopic/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/ethiopic/index.d.ts",
+        "default": "./dist/cjs/ethiopic/index.js"
+      }
+    },
     "./locale": {
       "import": {
         "types": "./dist/esm/locale.d.ts",
