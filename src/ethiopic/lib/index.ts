@@ -5,7 +5,6 @@ export * from "./addYears.js";
 export * from "./differenceInCalendarDays.js";
 export * from "./differenceInCalendarMonths.js";
 export * from "./eachMonthOfInterval.js";
-export * from "./endOfISOWeek.js";
 export * from "./endOfMonth.js";
 export * from "./endOfWeek.js";
 export * from "./endOfYear.js";
