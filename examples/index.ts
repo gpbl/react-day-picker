@@ -28,6 +28,7 @@ export * from "./HideNavigation";
 export * from "./Input";
 export * from "./InputRange";
 export * from "./InputTime";
+export * from "./InvalidMonth";
 export * from "./ItalianLabels";
 export * from "./ItalianLabels";
 export * from "./Keyboard";
