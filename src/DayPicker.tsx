@@ -4,9 +4,9 @@ import type { MouseEvent, FocusEvent, KeyboardEvent, ChangeEvent } from "react";
 import { UI, DayFlag, SelectionState } from "./UI.js";
 import type { CalendarDay } from "./classes/CalendarDay.js";
 import { DateLib, defaultLocale } from "./classes/DateLib.js";
-import { getClassNamesForModifiers } from "./helpers/getClassNamesForModifiers.js";
 import { getComponents } from "./helpers/getComponents.js";
 import { getDataAttributes } from "./helpers/getDataAttributes.js";
+import { getDayCellClassNames } from "./helpers/getDayCellClassNames.js";
 import { getDefaultClassNames } from "./helpers/getDefaultClassNames.js";
 import { getFormatters } from "./helpers/getFormatters.js";
 import { getMonthOptions } from "./helpers/getMonthOptions.js";
@@ -486,13 +486,13 @@ export function DayPicker(props: DayPickerProps) {
                                 );
                             }
 
-                            const style = getStyleForModifiers(
+                            const cellStyle = getStyleForModifiers(
                               modifiers,
                               styles,
                               props.modifiersStyles
                             );
 
-                            const className = getClassNamesForModifiers(
+                            const cellClassNames = getDayCellClassNames(
                               modifiers,
                               classNames,
                               props.modifiersClassNames
@@ -513,8 +513,8 @@ export function DayPicker(props: DayPickerProps) {
                                 key={`${dateLib.format(date, "yyyy-MM-dd")}_${dateLib.format(day.displayMonth, "yyyy-MM")}`}
                                 day={day}
                                 modifiers={modifiers}
-                                className={className.join(" ")}
-                                style={style}
+                                className={cellClassNames.join(" ")}
+                                style={cellStyle}
                                 role="gridcell"
                                 aria-selected={modifiers.selected || undefined}
                                 aria-label={ariaLabel}
