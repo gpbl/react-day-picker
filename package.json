@@ -21,6 +21,7 @@
   "module": "./dist/esm/index.js",
   "style": "./src/style.css",
   "type": "module",
+  "sideEffects": ["**/*.css"],
   "exports": {
     ".": {
       "import": {
