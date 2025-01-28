@@ -57,6 +57,7 @@
       "activityBar.inactiveForeground": "#d8d8d877",
       "activityBarBadge.background": "#dd006f",
       "activityBarBadge.foreground": "#e7e7e7"
-    }
+    },
+    "cSpell.words": ["ethiopic", "gregorian", "julian"]
   }
 }
