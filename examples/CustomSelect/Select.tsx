@@ -187,6 +187,7 @@ function SelectStyles() {
         .select-none { user-select: none; }
         .outline-none { outline: none; }
         .placeholder\\:text-muted-foreground::placeholder { color: #6b7280; }
+        [data-highlighted] { background-color: #d3d3d3; }
         
         /* Translations */
         .translate-y-1 { transform: translateY(0.25rem); }
