@@ -190,6 +190,7 @@
   },
   "devDependencies": {
     "@jest/types": "^29.6.3",
+    "@radix-ui/react-select": "^2.1.5",
     "@swc/core": "^1.10.8",
     "@swc/jest": "^0.2.37",
     "@testing-library/dom": "^10.4.0",
