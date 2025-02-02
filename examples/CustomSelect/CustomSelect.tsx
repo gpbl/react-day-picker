@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, createContext, use, useCallback } from "react";
 
 import { DayPicker, DropdownProps } from "react-day-picker";
 
@@ -12,8 +12,11 @@ import {
   SelectStyles
 } from "./Select";
 
+const ContainerContext = createContext<HTMLDivElement | null>(null);
+
 export function CustomDropdown(props: DropdownProps) {
   const { options, value, onChange } = props;
+  const container = use(ContainerContext);
 
   const handleValueChange = (newValue: string) => {
     if (onChange) {
@@ -32,7 +35,7 @@ export function CustomDropdown(props: DropdownProps) {
       <SelectTrigger>
         <SelectValue />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent container={container}>
         <SelectGroup>
           {options?.map((option) => (
             <SelectItem
@@ -52,21 +55,29 @@ export function CustomDropdown(props: DropdownProps) {
 export function CustomSelect() {
   const [selected, setSelected] = useState<Date | undefined>();
 
+  // Use explicit container to make the example work in the docs with shadow DOM
+  const [container, setContainer] = useState<HTMLDivElement | null>(null);
+  const handleRef = useCallback((element: HTMLDivElement | null) => {
+    setContainer(element);
+  }, []);
+
   return (
-    <>
+    <div ref={handleRef}>
       <SelectStyles />
-      <DayPicker
-        captionLayout="dropdown"
-        components={{ Dropdown: CustomDropdown }}
-        mode="single"
-        selected={selected}
-        onSelect={setSelected}
-        footer={
-          selected
-            ? `Selected: ${selected.toLocaleDateString()}`
-            : "Pick a day."
-        }
-      />
-    </>
+      <ContainerContext.Provider value={container}>
+        <DayPicker
+          captionLayout="dropdown"
+          components={{ Dropdown: CustomDropdown }}
+          mode="single"
+          selected={selected}
+          onSelect={setSelected}
+          footer={
+            selected
+              ? `Selected: ${selected.toLocaleDateString()}`
+              : "Pick a day."
+          }
+        />
+      </ContainerContext.Provider>
+    </div>
   );
 }

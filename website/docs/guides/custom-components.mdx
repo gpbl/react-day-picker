@@ -70,6 +70,39 @@ Pass the components to customize to the `components` prop. See the [list of cust
 | [`Weeks`](../api/functions/Weeks.md)                             | The weeks section in the month grid.                           |
 | [`YearsDropdown`](../api/functions/YearsDropdown.md)             | The dropdown with the years.                                   |
 
+## DayPicker Hook
+
+In a custom component, import the `useDayPicker` hook to access the DayPicker context.
+
+```ts
+import { useDayPicker } from "react-day-picker";
+```
+
+| Function                                           | Return value                                                  | Description                                                                  |
+| :------------------------------------------------- | ------------------------------------------------------------- | :--------------------------------------------------------------------------- |
+| [`useDayPicker`](../api/functions/useDayPicker.md) | [`DayPickerContext`](../api/type-aliases/DayPickerContext.md) | Return the current state of DayPicker and functions to navigate the calendar |
+
+### DayPicker Context
+
+The DayPicker context provides the current state of the calendar, including the selected days, modifiers, and navigation state.
+
+| Name             | Type                                                                          | Description                                    |
+| ---------------- | ----------------------------------------------------------------------------- | ---------------------------------------------- |
+| `classNames`     | [`ClassNames`](../api/type-aliases/ClassNames.md)                             | The class names for the UI elements.           |
+| `components`     | [`CustomComponents`](../api/type-aliases/CustomComponents.md)                 | The components used internally by DayPicker.   |
+| `formatters`     | [`Formatters`](../api/type-aliases/Formatters.md)                             | The formatters used to format the UI elements. |
+| `getModifiers`   | (`day`) => [`Modifiers`](../api/type-aliases/Modifiers.md)                    | Returns the modifiers for the given day.       |
+| `goToMonth`      | (`month`) => `void`                                                           | Navigate to the specified month.               |
+| `isSelected`     | (`date`) => `boolean` \| `undefined`                                          | Whether the given date is selected.            |
+| `labels`         | [`Labels`](../api/type-aliases/Labels.md)                                     | The labels used in the user interface.         |
+| `months`         | [`CalendarMonth`](../api/classes/CalendarMonth.md)[]                          | The months displayed in the calendar.          |
+| `nextMonth`      | `Date` \| `undefined`                                                         | The next month to display.                     |
+| `previousMonth`  | `Date` \| `undefined`                                                         | The previous month to display.                 |
+| `select`         | [`SelectHandler`](../api/type-aliases/SelectHandler.md)\<`T`\> \| `undefined` | Set a selection.                               |
+| `selected`       | [`SelectedValue`](../api/type-aliases/SelectedValue.md)\<`T`\> \| `undefined` | The selected date(s).                          |
+| `styles`         | `Partial`\<[`Styles`](../api/type-aliases/Styles.md)\> \| `undefined`         | The styles for the UI elements.                |
+| `dayPickerProps` | [`DayPickerProps`](../api/type-aliases/DayPickerProps.md)                     | The props passed to the DayPicker component.   |
+
 ## Examples
 
 ### Intercepting Click Events
@@ -122,37 +155,82 @@ export function CustomDayButton() {
   <Examples.CustomDayButton />
 </BrowserWindow>
 
-What are you using custom components for? [Let us know](https://github.com/gpbl/react-day-picker/discussions).
+### Custom Select Dropdown
 
-## DayPicker Hook
+You can use a custom [Dropdown](../api/functions/Dropdown.md) to select years and months. The example below uses a simplified version of `shadcn/ui`'s [Select](https://ui.shadcn.com/docs/components/select).
 
-In a custom component, import the `useDayPicker` hook to access the DayPicker context.
+```tsx title="./CustomSelect.tsx"
+import React from "react";
+import { DayButtonProps, DayPicker } from "react-day-picker";
 
-```ts
-import { useDayPicker } from "react-day-picker";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from "@/components/ui/select";
+
+export function CustomDropdown(props: DropdownProps) {
+  const { options, value, onChange } = props;
+
+  const handleValueChange = (newValue: string) => {
+    if (onChange) {
+      const syntheticEvent = {
+        target: {
+          value: newValue
+        }
+      } as React.ChangeEvent<HTMLSelectElement>;
+
+      onChange(syntheticEvent);
+    }
+  };
+
+  return (
+    <Select value={value?.toString()} onValueChange={handleValueChange}>
+      <SelectTrigger>
+        <SelectValue />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectGroup>
+          {options?.map((option) => (
+            <SelectItem
+              key={option.value}
+              value={option.value.toString()}
+              disabled={option.disabled}
+            >
+              {option.label}
+            </SelectItem>
+          ))}
+        </SelectGroup>
+      </SelectContent>
+    </Select>
+  );
+}
+
+export function CustomSelect() {
+  const [selected, setSelected] = useState<Date | undefined>();
+
+  return (
+    <DayPicker
+      captionLayout="dropdown"
+      components={{ Dropdown: CustomDropdown }}
+      mode="single"
+      selected={selected}
+      onSelect={setSelected}
+      footer={
+        selected
+          ? `Selected: ${selected.toLocaleDateString()}`
+          : "Pick a day."
+      }
+    />
+  );
+}
 ```
 
-| Function                                           | Return value                                                  | Description                                                                  |
-| :------------------------------------------------- | ------------------------------------------------------------- | :--------------------------------------------------------------------------- |
-| [`useDayPicker`](../api/functions/useDayPicker.md) | [`DayPickerContext`](../api/type-aliases/DayPickerContext.md) | Return the current state of DayPicker and functions to navigate the calendar |
+<BrowserWindow>
+  <Examples.CustomSelect />
+</BrowserWindow>
 
-### DayPicker Context
-
-The DayPicker context provides the current state of the calendar, including the selected days, modifiers, and navigation state.
-
-| Name             | Type                                                                          | Description                                    |
-| ---------------- | ----------------------------------------------------------------------------- | ---------------------------------------------- |
-| `classNames`     | [`ClassNames`](../api/type-aliases/ClassNames.md)                             | The class names for the UI elements.           |
-| `components`     | [`CustomComponents`](../api/type-aliases/CustomComponents.md)                 | The components used internally by DayPicker.   |
-| `formatters`     | [`Formatters`](../api/type-aliases/Formatters.md)                             | The formatters used to format the UI elements. |
-| `getModifiers`   | (`day`) => [`Modifiers`](../api/type-aliases/Modifiers.md)                    | Returns the modifiers for the given day.       |
-| `goToMonth`      | (`month`) => `void`                                                           | Navigate to the specified month.               |
-| `isSelected`     | (`date`) => `boolean` \| `undefined`                                          | Whether the given date is selected.            |
-| `labels`         | [`Labels`](../api/type-aliases/Labels.md)                                     | The labels used in the user interface.         |
-| `months`         | [`CalendarMonth`](../api/classes/CalendarMonth.md)[]                          | The months displayed in the calendar.          |
-| `nextMonth`      | `Date` \| `undefined`                                                         | The next month to display.                     |
-| `previousMonth`  | `Date` \| `undefined`                                                         | The previous month to display.                 |
-| `select`         | [`SelectHandler`](../api/type-aliases/SelectHandler.md)\<`T`\> \| `undefined` | Set a selection.                               |
-| `selected`       | [`SelectedValue`](../api/type-aliases/SelectedValue.md)\<`T`\> \| `undefined` | The selected date(s).                          |
-| `styles`         | `Partial`\<[`Styles`](../api/type-aliases/Styles.md)\> \| `undefined`         | The styles for the UI elements.                |
-| `dayPickerProps` | [`DayPickerProps`](../api/type-aliases/DayPickerProps.md)                     | The props passed to the DayPicker component.   |
+What are you using custom components for? [Let us know](https://github.com/gpbl/react-day-picker/discussions).
