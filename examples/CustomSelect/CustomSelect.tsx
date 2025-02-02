@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 
 import { DayPicker, DropdownProps } from "react-day-picker";
 
@@ -14,15 +13,13 @@ import {
 } from "./Select";
 
 export function CustomDropdown(props: DropdownProps) {
-  const { options, value, onChange, "aria-label": ariaLabel } = props;
+  const { options, value, onChange } = props;
 
   const handleValueChange = (newValue: string) => {
     if (onChange) {
-      // Create a synthetic event to match the expected onChange handler
       const syntheticEvent = {
         target: {
-          value: newValue,
-          name: props.name
+          value: newValue
         }
       } as React.ChangeEvent<HTMLSelectElement>;
 
@@ -32,7 +29,7 @@ export function CustomDropdown(props: DropdownProps) {
 
   return (
     <Select value={value?.toString()} onValueChange={handleValueChange}>
-      <SelectTrigger aria-label={ariaLabel}>
+      <SelectTrigger>
         <SelectValue />
       </SelectTrigger>
       <SelectContent>

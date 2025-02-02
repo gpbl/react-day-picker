@@ -9,12 +9,15 @@ const SelectGroup = SelectPrimitive.Group;
 
 const SelectValue = SelectPrimitive.Value;
 
-const SelectTrigger = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
->(({ children, ...props }, ref) => (
+type SelectTriggerProps = React.ComponentPropsWithoutRef<
+  typeof SelectPrimitive.Trigger
+>;
+
+const SelectTrigger: React.FC<SelectTriggerProps> = ({
+  children,
+  ...props
+}) => (
   <SelectPrimitive.Trigger
-    ref={ref}
     className={
       "flex h-7 w-full items-center justify-between whitespace-nowrap rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-muted-foreground"
     }
@@ -25,45 +28,51 @@ const SelectTrigger = React.forwardRef<
       <Chevron className="h-4 w-4 fill-current" orientation="down" />
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>
-));
+);
 SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
 
-const SelectScrollUpButton = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.ScrollUpButton>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollUpButton>
->(({ ...props }, ref) => (
+type SelectScrollUpButtonProps = React.ComponentPropsWithoutRef<
+  typeof SelectPrimitive.ScrollUpButton
+>;
+
+const SelectScrollUpButton: React.FC<SelectScrollUpButtonProps> = (props) => (
   <SelectPrimitive.ScrollUpButton
-    ref={ref}
     className="flex cursor-default items-center justify-center py-1"
     {...props}
   >
     <Chevron className="h-4 w-4 fill-current" orientation="up" />
   </SelectPrimitive.ScrollUpButton>
-));
+);
 SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName;
 
-const SelectScrollDownButton = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.ScrollDownButton>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollDownButton>
->(({ ...props }, ref) => (
+type SelectScrollDownButtonProps = React.ComponentPropsWithoutRef<
+  typeof SelectPrimitive.ScrollDownButton
+>;
+
+const SelectScrollDownButton: React.FC<SelectScrollDownButtonProps> = (
+  props
+) => (
   <SelectPrimitive.ScrollDownButton
-    ref={ref}
     className="flex cursor-default items-center justify-center py-1"
     {...props}
   >
     <Chevron className="h-4 w-4 fill-current" orientation="down" />
   </SelectPrimitive.ScrollDownButton>
-));
+);
 SelectScrollDownButton.displayName =
   SelectPrimitive.ScrollDownButton.displayName;
 
-const SelectContent = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
->(({ children, position = "popper", ...props }, ref) => (
+type SelectContentProps = React.ComponentPropsWithoutRef<
+  typeof SelectPrimitive.Content
+>;
+
+const SelectContent: React.FC<SelectContentProps> = ({
+  children,
+  position = "popper",
+  ...props
+}) => (
   <SelectPrimitive.Portal>
     <SelectPrimitive.Content
-      ref={ref}
       className={
         position === "popper"
           ? "relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-md translate-y-1"
@@ -81,27 +90,27 @@ const SelectContent = React.forwardRef<
       <SelectScrollDownButton />
     </SelectPrimitive.Content>
   </SelectPrimitive.Portal>
-));
+);
 SelectContent.displayName = SelectPrimitive.Content.displayName;
 
-const SelectLabel = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Label>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label>
->(({ ...props }, ref) => (
+type SelectLabelProps = React.ComponentPropsWithoutRef<
+  typeof SelectPrimitive.Label
+>;
+
+const SelectLabel: React.FC<SelectLabelProps> = (props) => (
   <SelectPrimitive.Label
-    ref={ref}
     className="px-2 py-1.5 text-sm font-semibold"
     {...props}
   />
-));
+);
 SelectLabel.displayName = SelectPrimitive.Label.displayName;
 
-const SelectItem = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
->(({ children, ...props }, ref) => (
+type SelectItemProps = React.ComponentPropsWithoutRef<
+  typeof SelectPrimitive.Item
+>;
+
+const SelectItem: React.FC<SelectItemProps> = ({ children, ...props }) => (
   <SelectPrimitive.Item
-    ref={ref}
     className="relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-2 pr-8 text-sm outline-none focus:bg-accent focus:text-accent-foreground"
     {...props}
   >
@@ -112,19 +121,16 @@ const SelectItem = React.forwardRef<
     </span>
     <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
   </SelectPrimitive.Item>
-));
+);
 SelectItem.displayName = SelectPrimitive.Item.displayName;
 
-const SelectSeparator = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Separator>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Separator>
->(({ ...props }, ref) => (
-  <SelectPrimitive.Separator
-    ref={ref}
-    className="-mx-1 my-1 h-px bg-muted"
-    {...props}
-  />
-));
+type SelectSeparatorProps = React.ComponentPropsWithoutRef<
+  typeof SelectPrimitive.Separator
+>;
+
+const SelectSeparator: React.FC<SelectSeparatorProps> = (props) => (
+  <SelectPrimitive.Separator className="-mx-1 my-1 h-px bg-muted" {...props} />
+);
 SelectSeparator.displayName = SelectPrimitive.Separator.displayName;
 
 function SelectStyles() {
