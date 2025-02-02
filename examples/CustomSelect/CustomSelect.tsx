@@ -15,7 +15,7 @@ import {
 const ContainerContext = createContext<HTMLDivElement | null>(null);
 
 export function CustomDropdown(props: DropdownProps) {
-  const { options, value, onChange } = props;
+  const { options, value, onChange, "aria-label": ariaLabel } = props;
   const container = use(ContainerContext);
 
   const handleValueChange = (newValue: string) => {
@@ -32,7 +32,7 @@ export function CustomDropdown(props: DropdownProps) {
 
   return (
     <Select value={value?.toString()} onValueChange={handleValueChange}>
-      <SelectTrigger>
+      <SelectTrigger aria-label={ariaLabel}>
         <SelectValue />
       </SelectTrigger>
       <SelectContent container={container}>
