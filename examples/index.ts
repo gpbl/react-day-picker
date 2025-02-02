@@ -9,7 +9,7 @@ export * from "./CssVariables";
 export * from "./CustomCaption";
 export * from "./CustomDayButton";
 export * from "./CustomMultiple";
-export * from "./CustomSelect";
+export * from "./CustomDropdown";
 export * from "./CustomSingle";
 export * from "./CustomWeek";
 export * from "./DefaultMonth";

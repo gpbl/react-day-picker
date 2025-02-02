@@ -5,7 +5,7 @@ import { render, screen } from "@testing-library/react";
 import { grid, monthDropdown, yearDropdown } from "@/test/elements";
 import { user } from "@/test/user";
 
-import { CustomSelect } from "./CustomSelect";
+import { CustomDropdown } from "./CustomDropdown";
 
 // Mocks for Radix UI
 window.PointerEvent =
@@ -20,7 +20,7 @@ beforeAll(() => jest.setSystemTime(today));
 afterAll(() => jest.useRealTimers());
 
 beforeEach(() => {
-  render(<CustomSelect />);
+  render(<CustomDropdown />);
 });
 
 test("should display the month dropdown", () => {

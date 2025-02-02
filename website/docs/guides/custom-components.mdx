@@ -159,7 +159,7 @@ export function CustomDayButton() {
 
 You can use a custom [Dropdown](../api/functions/Dropdown.md) to select years and months. The example below uses a simplified version of `shadcn/ui`'s [Select](https://ui.shadcn.com/docs/components/select).
 
-```tsx title="./CustomSelect.tsx"
+```tsx title="./CustomDropdown.tsx"
 import React from "react";
 import { DayButtonProps, DayPicker } from "react-day-picker";
 
@@ -172,7 +172,7 @@ import {
   SelectValue
 } from "@/components/ui/select";
 
-export function CustomDropdown(props: DropdownProps) {
+export function CustomSelectDropdown(props: DropdownProps) {
   const { options, value, onChange } = props;
 
   const handleValueChange = (newValue: string) => {
@@ -209,13 +209,13 @@ export function CustomDropdown(props: DropdownProps) {
   );
 }
 
-export function CustomSelect() {
+export function CustomDropdown() {
   const [selected, setSelected] = useState<Date | undefined>();
 
   return (
     <DayPicker
       captionLayout="dropdown"
-      components={{ Dropdown: CustomDropdown }}
+      components={{ Dropdown: CustomSelectDropdown }}
       mode="single"
       selected={selected}
       onSelect={setSelected}
@@ -230,7 +230,7 @@ export function CustomSelect() {
 ```
 
 <BrowserWindow>
-  <Examples.CustomSelect />
+  <Examples.CustomDropdown />
 </BrowserWindow>
 
 What are you using custom components for? [Let us know](https://github.com/gpbl/react-day-picker/discussions).

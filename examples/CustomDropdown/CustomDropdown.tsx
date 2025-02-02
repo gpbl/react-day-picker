@@ -14,7 +14,7 @@ import {
 
 const ContainerContext = createContext<HTMLDivElement | null>(null);
 
-export function CustomDropdown(props: DropdownProps) {
+export function CustomSelectDropdown(props: DropdownProps) {
   const { options, value, onChange, "aria-label": ariaLabel } = props;
   const container = use(ContainerContext);
 
@@ -52,7 +52,7 @@ export function CustomDropdown(props: DropdownProps) {
   );
 }
 
-export function CustomSelect() {
+export function CustomDropdown() {
   const [selected, setSelected] = useState<Date | undefined>();
 
   // Use explicit container to make the example work in the docs with shadow DOM
@@ -67,7 +67,7 @@ export function CustomSelect() {
       <ContainerContext.Provider value={container}>
         <DayPicker
           captionLayout="dropdown"
-          components={{ Dropdown: CustomDropdown }}
+          components={{ Dropdown: CustomSelectDropdown }}
           mode="single"
           selected={selected}
           onSelect={setSelected}
