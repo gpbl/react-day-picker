@@ -9,7 +9,8 @@ import {
   SelectGroup,
   SelectItem,
   SelectTrigger,
-  SelectValue
+  SelectValue,
+  SelectStyles
 } from "./Select";
 
 export function CustomDropdown(props: DropdownProps) {
@@ -55,15 +56,20 @@ export function CustomSelect() {
   const [selected, setSelected] = useState<Date | undefined>();
 
   return (
-    <DayPicker
-      captionLayout="dropdown"
-      components={{ Dropdown: CustomDropdown }}
-      mode="single"
-      selected={selected}
-      onSelect={setSelected}
-      footer={
-        selected ? `Selected: ${selected.toLocaleDateString()}` : "Pick a day."
-      }
-    />
+    <>
+      <SelectStyles />
+      <DayPicker
+        captionLayout="dropdown"
+        components={{ Dropdown: CustomDropdown }}
+        mode="single"
+        selected={selected}
+        onSelect={setSelected}
+        footer={
+          selected
+            ? `Selected: ${selected.toLocaleDateString()}`
+            : "Pick a day."
+        }
+      />
+    </>
   );
 }
