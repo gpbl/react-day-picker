@@ -1,8 +1,11 @@
 import React, { useCallback, useMemo } from "react";
 import type { MouseEvent, FocusEvent, KeyboardEvent, ChangeEvent } from "react";
 
+import { flushSync } from "react-dom";
+
 import { UI, DayFlag, SelectionState } from "./UI.js";
 import type { CalendarDay } from "./classes/CalendarDay.js";
+import { CalendarMonth } from "./classes/CalendarMonth.js";
 import { DateLib, defaultLocale } from "./classes/DateLib.js";
 import { getClassNamesForModifiers } from "./helpers/getClassNamesForModifiers.js";
 import { getComponents } from "./helpers/getComponents.js";
@@ -152,14 +155,22 @@ export function DayPicker(props: DayPickerProps) {
 
   const handlePreviousClick = useCallback(() => {
     if (!previousMonth) return;
-    goToMonth(previousMonth);
-    onPrevClick?.(previousMonth);
+    document.startViewTransition(() => {
+      flushSync(() => {
+        goToMonth(previousMonth);
+        onPrevClick?.(previousMonth);
+      });
+    });
   }, [previousMonth, goToMonth, onPrevClick]);
 
   const handleNextClick = useCallback(() => {
     if (!nextMonth) return;
-    goToMonth(nextMonth);
-    onNextClick?.(nextMonth);
+    document.startViewTransition(() => {
+      flushSync(() => {
+        goToMonth(nextMonth);
+        onNextClick?.(nextMonth);
+      });
+    });
   }, [goToMonth, nextMonth, onNextClick]);
 
   const handleDayClick = useCallback(
@@ -294,7 +305,7 @@ export function DayPicker(props: DayPickerProps) {
           {!props.hideNavigation && (
             <components.Nav
               className={classNames[UI.Nav]}
-              style={styles?.[UI.Nav]}
+              style={{ ...styles?.[UI.Nav], zIndex: 1 }}
               aria-label={labelNav()}
               onPreviousClick={handlePreviousClick}
               onNextClick={handleNextClick}
@@ -302,7 +313,12 @@ export function DayPicker(props: DayPickerProps) {
               nextMonth={nextMonth}
             />
           )}
-          {months.map((calendarMonth, displayIndex) => {
+          {[
+            previousMonth && new CalendarMonth(previousMonth, []),
+            ...months,
+            nextMonth && new CalendarMonth(nextMonth, [])
+          ].map((calendarMonth, displayIndex) => {
+            if (!calendarMonth) return null;
             const dropdownMonths = getMonthOptions(
               calendarMonth.date,
               navStart,
@@ -321,7 +337,23 @@ export function DayPicker(props: DayPickerProps) {
             return (
               <components.Month
                 className={classNames[UI.Month]}
-                style={styles?.[UI.Month]}
+                style={{
+                  ...styles?.[UI.Month],
+                  viewTransitionName: `month-${calendarMonth.date.getMonth()}`,
+                  opacity: displayIndex === 0 || displayIndex === 2 ? 0 : 1,
+                  position:
+                    displayIndex === 0 || displayIndex === 2
+                      ? "absolute"
+                      : undefined,
+                  width:
+                    displayIndex === 0 || displayIndex === 2 ? 300 : undefined,
+                  transform:
+                    displayIndex === 0
+                      ? "translateX(-100%)"
+                      : displayIndex === 2
+                        ? "translateX(100%)"
+                        : undefined
+                }}
                 key={displayIndex}
                 displayIndex={displayIndex}
                 calendarMonth={calendarMonth}
