@@ -59,7 +59,7 @@ export function DayPicker(
     <DayPickerComponent
       {...props}
       locale={props.locale ?? ({} as Locale)}
-      numerals={props.numerals ?? "ethio"}
+      numerals={props.numerals ?? "geez"}
       dateLib={dateLib}
     />
   );
