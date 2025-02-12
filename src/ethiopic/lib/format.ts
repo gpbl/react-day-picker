@@ -1,20 +1,9 @@
-import { Locale } from "date-fns";
+import { FormatDateOptions } from "date-fns";
 
 import { toEthiopicDate } from "../utils/index.js";
 
 /** Options for formatting dates in the Ethiopian calendar */
-export interface FormatOptions {
-  /** The locale to use for formatting */
-  locale?: Locale;
-  /** The day that starts the week (0 = Sunday, 1 = Monday, etc) */
-  weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
-  /** Which day of the first week of the year is considered part of that week */
-  firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
-  /** Whether to use additional week-year tokens */
-  useAdditionalWeekYearTokens?: boolean;
-  /** Whether to use additional day-of-year tokens */
-  useAdditionalDayOfYearTokens?: boolean;
-}
+export type FormatOptions = FormatDateOptions;
 
 function getEtDayName(day: Date, short: boolean = true): string {
   const dayOfWeek = day.getDay();
@@ -72,6 +61,7 @@ function formatEthiopianDate(
   }
 }
 
+//TODO: Implement the formaat options
 export function format(
   date: Date,
   formatStr: string,

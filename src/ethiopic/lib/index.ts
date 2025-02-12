@@ -8,6 +8,8 @@ export * from "./eachMonthOfInterval.js";
 export * from "./endOfMonth.js";
 export * from "./endOfWeek.js";
 export * from "./endOfYear.js";
+export * from "./format.js";
+export * from "./formatNumber.js";
 export * from "./getMonth.js";
 export * from "./getWeek.js";
 export * from "./getYear.js";

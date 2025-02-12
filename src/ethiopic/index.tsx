@@ -61,6 +61,7 @@ export function DayPicker(
       locale={props.locale ?? ({} as Locale)}
       numerals={props.numerals ?? "geez"}
       dateLib={dateLib}
+      // formatters={formatters}
     />
   );
 }

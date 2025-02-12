@@ -127,6 +127,65 @@ export function PersianCalendar() {
   <Examples.PersianFormatted />
 </BrowserWindow>
 
+## Ethiopic Calendar
+
+DayPicker supports the [Ethiopic calendar](https://en.wikipedia.org/wiki/Ethiopian_calendar), which is the principal calendar used in Ethiopia and Eritrea.
+
+- To use the Ethiopic calendar, import `DayPicker` from `react-day-picker/ethiopic`:
+
+```diff
+- import { DayPicker } from 'react-day-picker';
++ import { DayPicker } from 'react-day-picker/ethiopic';
+```
+
+<BrowserWindow>
+  <Examples.Ethiopic />
+</BrowserWindow>
+
+### Numerals (Latn) 
+
+By default, the Ethiopic calendar uses the geez numeral system.
+
+- To use the Latn (English) locale, import it and pass the `numerals` prop.
+
+```tsx
+import { DayPicker, enUS } from "react-day-picker/ethiopic";
+
+export function EthiopicLatn() {
+  return <DayPicker numerals="latn" />;
+}
+```
+
+<BrowserWindow>
+  <Examples.EthiopicLatn />
+</BrowserWindow>
+
+### Formatting Ethiopic Dates
+
+The calendar always returns Gregorian dates. Use the exported `getDateLib` getter to format dates to Ethiopic calendar.
+
+```tsx
+import { DayPicker, getDateLib } from "react-day-picker/ethiopic";
+
+export function EthiopicCalendar() {
+  const [selected, setSelected] = React.useState(new Date());
+  const dateLib = getDateLib();
+  return (
+    <DayPicker
+      mode="single"
+      selected={selected}
+      required
+      onSelect={setSelected}
+      footer={`Selected: ${dateLib.format(selected)}`}
+    />
+  );
+}
+```
+
+<BrowserWindow>
+  <Examples.EthiopicFormatted />
+</BrowserWindow>
+
 ## Broadcast Calendar
 
 | Prop Name           | Type      | Description                          |
