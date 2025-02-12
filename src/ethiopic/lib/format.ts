@@ -1,9 +1,12 @@
-import { FormatDateOptions } from "date-fns";
+import type { FormatOptions as DateFnsFormatOptions } from "date-fns";
 
+import type { DateLibOptions } from "../../classes/DateLib.js";
 import { toEthiopicDate } from "../utils/index.js";
 
+import { formatNumber } from "./formatNumber.js";
+
 /** Options for formatting dates in the Ethiopian calendar */
-export type FormatOptions = FormatDateOptions;
+export type FormatOptions = DateFnsFormatOptions;
 
 function getEtDayName(day: Date, short: boolean = true): string {
   const dayOfWeek = day.getDay();
@@ -61,24 +64,32 @@ function formatEthiopianDate(
   }
 }
 
-//TODO: Implement the formaat options
 export function format(
   date: Date,
   formatStr: string,
-  options?: FormatOptions
+  options?: DateFnsFormatOptions
 ): string {
-  // Handle time formats using original date-fns format
+  const extendedOptions = options as DateLibOptions;
+
   if (formatStr.includes("hh:mm") || formatStr.includes("a")) {
-    // Use regular date formatting for time components
-    return new Intl.DateTimeFormat("en-US", {
+    return new Intl.DateTimeFormat(extendedOptions?.locale?.code ?? "en-US", {
       hour: "numeric",
       minute: "numeric",
       hour12: formatStr.includes("a")
     }).format(date);
   }
 
-  return formatEthiopianDate(date, formatStr);
+  const formatted = formatEthiopianDate(date, formatStr);
+
+  if (extendedOptions?.numerals && extendedOptions.numerals === "geez") {
+    return formatted.replace(/\d+/g, (match) =>
+      formatNumber(parseInt(match), "geez")
+    );
+  }
+
+  return formatted;
 }
+
 export const ethMonths = [
   "መስከረም",
   "ጥቅምት",
