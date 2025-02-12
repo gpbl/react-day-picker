@@ -9,6 +9,8 @@ import { addDays } from "./addDays.js";
  *   week (0 - Sunday). Default is `0`
  * @returns {Date} The end of the week
  */
+
+//TODO: We can use the endOfWeek from Date-fns
 export function endOfWeek(
   date: Date,
   options?: { weekStartsOn?: number }

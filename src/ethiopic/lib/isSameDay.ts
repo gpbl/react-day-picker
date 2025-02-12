@@ -7,6 +7,7 @@ import { toEthiopicDate } from "../utils/index.js";
  * @param {Date} dateRight - The second date
  * @returns {boolean} True if the two dates are on the same day
  */
+//TODO: We can use the isSameDay from Date-fns
 export function isSameDay(dateLeft: Date, dateRight: Date): boolean {
   const left = toEthiopicDate(dateLeft);
   const right = toEthiopicDate(dateRight);

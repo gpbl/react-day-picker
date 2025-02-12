@@ -7,6 +7,7 @@ import { toEthiopicDate, isEthiopicLeapYear } from "../utils/index.js";
  * @param {Date} dateRight - The earlier date
  * @returns {number} The number of calendar days between the two dates
  */
+//TODO: We can use the differenceInCalendarDays from Date-fns
 export function differenceInCalendarDays(
   dateLeft: Date,
   dateRight: Date

@@ -88,7 +88,8 @@ export function format(
   }
 
   return formatEthiopianDate(date, formatStr);
-}export const ethMonths = [
+}
+export const ethMonths = [
   "መስከረም",
   "ጥቅምት",
   "ህዳር",
@@ -102,5 +103,6 @@ export function format(
   "ሐምሌ",
   "ነሀሴ",
   "ጳጉሜ"
-];export const shortDays = ["እ", "ሰ", "ማ", "ረ", "ሐ", "ዓ", "ቅ"];
+];
+export const shortDays = ["እ", "ሰ", "ማ", "ረ", "ሐ", "ዓ", "ቅ"];
 export const longDays = ["እሁድ", "ሰኞ", "ማክሰኞ", "ረቡዕ", "ሐሙስ", "ዓርብ", "ቅዳሜ"];
