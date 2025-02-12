@@ -1,9 +1,5 @@
-import { isEthiopicLeapYear, toGregorianDate } from "../utils/index.js";
+import { toGregorianDate } from "../utils/index.js";
 import { isEthiopicDateValid } from "../utils/isEthiopicDateValid.js";
-
-
-
-
 
 /**
  * Creates a new Ethiopic date

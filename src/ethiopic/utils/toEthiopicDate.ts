@@ -1,51 +1,26 @@
+import { differenceInCalendarDays } from "date-fns";
+
 import { EthiopicDate } from "./EthiopicDate.js";
 
-// TODO: remove. should use date-fns
-function isGregorianLeapYear(year: number): boolean {
-  return year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
-}
-
-// TODO: remove. should use date-fns
-function daysInGregorianMonth(index: number, year: number): number {
-  switch (index) {
-    case 1: // January
-    case 3: // March
-    case 5: // May
-    case 7: // July
-    case 8: // August
-    case 10: // October
-    case 12: // December
-      return 31;
-
-    case 2: // February
-      return isGregorianLeapYear(year) ? 29 : 28;
-  }
-  return 30; // April, June, September, November
-}
-
-// TODO: remove. should use date-fns
-function addGregorianMonths(m: number, y: number): number {
-  let sum = 0;
-  for (let i = 1; i < m; i++) {
-    sum += daysInGregorianMonth(i, y);
-  }
-  return sum;
-}
-
-// TODO: remove. should use date-fns
-function getDayNoGregorian(date: Date): number {
+/**
+ * Calculates the number of days between January 1, 0001 and the given date.
+ *
+ * @param date - A JavaScript Date object to calculate days from
+ * @returns The number of days since January 1, 0001. Returns 0 if the input is
+ *   not a valid Date.
+ */
+export function getDayNoGregorian(date: Date): number {
   if (!(date instanceof Date)) {
     return 0;
   }
-  const years = date.getFullYear() - 1;
-  const leap_years =
-    Math.floor(years / 4) - Math.floor(years / 100) + Math.floor(years / 400);
-  const non_leap_years = years - leap_years;
-  const days_in_previous_years = leap_years * 366 + non_leap_years * 365;
-  const days_in_current_year =
-    addGregorianMonths(date.getMonth() + 1, date.getFullYear()) +
-    date.getDate();
-  return days_in_previous_years + days_in_current_year;
+  // Create the start date as January 1, 0001.
+  // Using an ISO string avoids issues with the Date constructor and two-digit years.
+  const adStart = new Date("0001-01-01");
+
+  // Calculate the number of days between the two dates, then add 1.
+  const dayNumber = differenceInCalendarDays(date, adStart) + 1;
+
+  return dayNumber;
 }
 
 function createEthiopicDate(dn: number): EthiopicDate {
@@ -67,6 +42,7 @@ function createEthiopicDate(dn: number): EthiopicDate {
     };
   }
 }
+
 /**
  * Converts a Gregorian date to an Ethiopic date.
  *
