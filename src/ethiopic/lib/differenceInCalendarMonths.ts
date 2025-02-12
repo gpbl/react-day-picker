@@ -1,5 +1,12 @@
 import { toEth } from "../utils/ethiopicDateUtils.js";
 
+/**
+ * Calculates the number of calendar months between two Ethiopian dates.
+ *
+ * @param dateLeft - The later gregorian date
+ * @param dateRight - The earlier gregorian date
+ * @returns The number of ethiopian months between the dates
+ */
 export function differenceInCalendarMonths(
   dateLeft: Date,
   dateRight: Date

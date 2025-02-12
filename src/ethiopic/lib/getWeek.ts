@@ -5,6 +5,13 @@ export interface GetWeekOptions {
   weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
 }
 
+/**
+ * Gets the Ethiopian week number (1-52) from a given date.
+ *
+ * @param date - The gregorian date to get the Ethiopian week from
+ * @param options - Optional configuration for week calculation
+ * @returns The Ethiopian week number (1-based)
+ */
 export function getWeek(date: Date, options?: GetWeekOptions): number {
   const etDate = toEth(date);
 

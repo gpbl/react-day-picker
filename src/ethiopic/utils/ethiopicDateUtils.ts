@@ -238,7 +238,7 @@ export function formatEthiopianDate(
       return ` ${getEtMonthName(etDate.Month)} ${etDate.Day}, ${etDate.Year}`;
     case "PPPP":
       if (!dateObj) return "";
-      return `${getEtDayName(dateObj)}, ${getEtMonthName(etDate.Month)} ${
+      return `${getEtDayName(dateObj, false)}, ${getEtMonthName(etDate.Month)} ${
         etDate.Day
       }, ${etDate.Year}`;
 

@@ -4,6 +4,13 @@ import {
   ethiopianMonthLength
 } from "../utils/ethiopicDateUtils.js";
 
+/**
+ * Sets the Ethiopian year while preserving the month and day when possible.
+ *
+ * @param date - The gregorian date to modify
+ * @param year - The Ethiopian year to set
+ * @returns A new gregorian date with the Ethiopian year set
+ */
 export function setYear(date: Date, year: number): Date {
   const etDate = toEth(date);
 
