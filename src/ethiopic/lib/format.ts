@@ -1,6 +1,6 @@
 import { Locale } from "date-fns";
 
-import { formatEthiopianDate } from "../utils/ethiopicDateUtils.js";
+import { toEthiopicDate } from "../utils/index.js";
 
 /** Options for formatting dates in the Ethiopian calendar */
 export interface FormatOptions {
@@ -16,20 +16,62 @@ export interface FormatOptions {
   useAdditionalDayOfYearTokens?: boolean;
 }
 
-/**
- * Formats a date according to the Ethiopian calendar system
- *
- * @example
- *   ```ts
- *   format(new Date(), 'yyyy-MM-dd') // '2016-04-23'
- *   format(new Date(), 'hh:mm a') // '11:30 AM'
- *   ```;
- *
- * @param date - The gregorian date to format
- * @param formatStr - The format string (similar to date-fns format)
- * @param options - Additional formatting options
- * @returns The formatted date string
- */
+function getEtDayName(day: Date, short: boolean = true): string {
+  const dayOfWeek = day.getDay();
+  return short ? shortDays[dayOfWeek] : longDays[dayOfWeek];
+}
+
+function getEtMonthName(m: number): string {
+  if (m > 0 && m <= 13) {
+    return ethMonths[m - 1];
+  }
+  return "";
+}
+
+function formatEthiopianDate(
+  dateObj: Date | undefined,
+  formatStr: string
+): string {
+  const etDate = dateObj ? toEthiopicDate(dateObj) : undefined;
+
+  if (!etDate) return "";
+
+  switch (formatStr) {
+    case "LLLL yyyy":
+    case "LLLL y":
+      return `${getEtMonthName(etDate.month)} ${etDate.year}`;
+
+    case "LLLL":
+      return getEtMonthName(etDate.month);
+
+    case "yyyy-MM-dd":
+      return `${etDate.year}-${etDate.month
+        .toString()
+        .padStart(2, "0")}-${etDate.day.toString().padStart(2, "0")}`;
+
+    case "yyyy-MM":
+      return `${etDate.year}-${etDate.month.toString().padStart(2, "0")}`;
+
+    case "d":
+      return etDate.day.toString();
+    case "PPP":
+      return ` ${getEtMonthName(etDate.month)} ${etDate.day}, ${etDate.year}`;
+    case "PPPP":
+      if (!dateObj) return "";
+      return `${getEtDayName(dateObj, false)}, ${getEtMonthName(etDate.month)} ${
+        etDate.day
+      }, ${etDate.year}`;
+
+    case "cccc":
+      return dateObj ? getEtDayName(dateObj, false) : "";
+    case "cccccc":
+      return dateObj ? getEtDayName(dateObj) : "";
+
+    default:
+      return `${etDate.day}/${etDate.month}/${etDate.year}`;
+  }
+}
+
 export function format(
   date: Date,
   formatStr: string,
@@ -46,4 +88,19 @@ export function format(
   }
 
   return formatEthiopianDate(date, formatStr);
-}
+}export const ethMonths = [
+  "መስከረም",
+  "ጥቅምት",
+  "ህዳር",
+  "ታህሳስ",
+  "ጥር",
+  "የካቲት",
+  "መጋቢት",
+  "ሚያዚያ",
+  "ግንቦት",
+  "ሰኔ",
+  "ሐምሌ",
+  "ነሀሴ",
+  "ጳጉሜ"
+];export const shortDays = ["እ", "ሰ", "ማ", "ረ", "ሐ", "ዓ", "ቅ"];
+export const longDays = ["እሁድ", "ሰኞ", "ማክሰኞ", "ረቡዕ", "ሐሙስ", "ዓርብ", "ቅዳሜ"];

@@ -1,14 +1,14 @@
-import { toEth } from "../utils/ethiopicDateUtils.js";
+import { toEthiopicDate } from "../utils/index.js";
 
 /**
- * Checks if two dates fall in the same Ethiopian month.
+ * Is same month
  *
- * @param dateLeft - The first gregorian date to compare
- * @param dateRight - The second gregorian date to compare
- * @returns True if the dates are in the same Ethiopian month and year
+ * @param {Date} dateLeft - The first date
+ * @param {Date} dateRight - The second date
+ * @returns {boolean} True if the two dates are in the same month
  */
 export function isSameMonth(dateLeft: Date, dateRight: Date): boolean {
-  const etDate1 = toEth(dateLeft);
-  const etDate2 = toEth(dateRight);
-  return etDate1.Year === etDate2.Year && etDate1.Month === etDate2.Month;
+  const left = toEthiopicDate(dateLeft);
+  const right = toEthiopicDate(dateRight);
+  return left.year === right.year && left.month === right.month;
 }

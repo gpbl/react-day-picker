@@ -1,35 +1,35 @@
-import { toEth } from "../utils/ethiopicDateUtils";
+import { toEthiopicDate } from "../utils/index.js";
 
 import { newDate } from "./newDate";
 
 describe("newDate in Ethiopian calendar", () => {
   test("creates date with valid Ethiopian values", () => {
     const date = newDate(2016, 4, 15); // Tahsas 15, 2016
-    const ethDate = toEth(date);
+    const ethDate = toEthiopicDate(date);
     expect(ethDate).toEqual({
-      Year: 2016,
-      Month: 5, // Tahsas
-      Day: 15
+      year: 2016,
+      month: 5, // Tahsas
+      day: 15
     }); // Greg: Dec 25, 2023
   });
 
   test("handles Pagume (13th month)", () => {
     // Non-leap year Pagume
     const nonLeapDate = newDate(2016, 12, 5);
-    const ethNonLeapDate = toEth(nonLeapDate);
+    const ethNonLeapDate = toEthiopicDate(nonLeapDate);
     expect(ethNonLeapDate).toEqual({
-      Year: 2016,
-      Month: 13, // Pagume
-      Day: 5
+      year: 2016,
+      month: 13, // Pagume
+      day: 5
     }); // Greg: Sep 10, 2024
 
     // Leap year Pagume
     const leapDate = newDate(2015, 12, 6);
-    const ethLeapDate = toEth(leapDate);
+    const ethLeapDate = toEthiopicDate(leapDate);
     expect(ethLeapDate).toEqual({
-      Year: 2015,
-      Month: 13, // Pagume
-      Day: 6
+      year: 2015,
+      month: 13, // Pagume
+      day: 6
     }); // Greg: Sep 11, 2023
   });
 

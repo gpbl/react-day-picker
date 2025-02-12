@@ -1,17 +1,17 @@
-import { toEth, toGreg, isLeapYearEt } from "../utils/ethiopicDateUtils.js";
+import {
+  toEthiopicDate,
+  isEthiopicLeapYear,
+  toGregorianDate
+} from "../utils/index.js";
 
 /**
- * Returns the last day of the Ethiopian year for the given date.
+ * End of year
  *
- * @param date - The gregorian date to get the end of year for
- * @returns A new gregorian date representing the last day of the Ethiopian year
- *   (Pagume 5 or 6)
+ * @param {Date} date - The original date
+ * @returns {Date} The end of the year
  */
 export function endOfYear(date: Date): Date {
-  const etDate = toEth(date);
-  return toGreg({
-    Year: etDate.Year,
-    Month: 13,
-    Day: isLeapYearEt(etDate.Year) ? 6 : 5
-  });
+  const { year } = toEthiopicDate(date);
+  const day = isEthiopicLeapYear(year) ? 6 : 5;
+  return toGregorianDate({ year, month: 13, day });
 }

@@ -1,50 +1,50 @@
-import { toEth, toGreg } from "../utils/ethiopicDateUtils";
+import { toEthiopicDate, toGregorianDate } from "../utils";
 
 import { endOfMonth } from "./endOfMonth";
 
 describe("endOfMonth in Ethiopian calendar", () => {
   test("Should return the last day of a 30-day Ethiopian month", () => {
-    const date = toGreg({
-      Year: 2016,
-      Month: 4,
-      Day: 15
+    const date = toGregorianDate({
+      year: 2016,
+      month: 4,
+      day: 15
     }); // Greg: Dec 25, 2023
     const result = endOfMonth(date);
-    const ethResult = toEth(result);
+    const ethResult = toEthiopicDate(result);
     expect(ethResult).toEqual({
-      Year: 2016,
-      Month: 4,
-      Day: 30
+      year: 2016,
+      month: 4,
+      day: 30
     }); // Greg: Jan 9, 2024
   });
 
   test("Should handle Pagume (13th month) correctly in leap and non-leap years", () => {
     // Non-leap year (5 days)
-    const nonLeapDate = toGreg({
-      Year: 2016,
-      Month: 13,
-      Day: 1
+    const nonLeapDate = toGregorianDate({
+      year: 2016,
+      month: 13,
+      day: 1
     }); // Greg: Sep 6, 2024
     const nonLeapResult = endOfMonth(nonLeapDate);
-    const ethNonLeapResult = toEth(nonLeapResult);
+    const ethNonLeapResult = toEthiopicDate(nonLeapResult);
     expect(ethNonLeapResult).toEqual({
-      Year: 2016,
-      Month: 13,
-      Day: 5
+      year: 2016,
+      month: 13,
+      day: 5
     }); // Greg: Sep 10, 2024
 
     // Leap year (6 days)
-    const leapDate = toGreg({
-      Year: 2015,
-      Month: 13,
-      Day: 1
+    const leapDate = toGregorianDate({
+      year: 2015,
+      month: 13,
+      day: 1
     }); // Greg: Sep 6, 2023
     const leapResult = endOfMonth(leapDate);
-    const ethLeapResult = toEth(leapResult);
+    const ethLeapResult = toEthiopicDate(leapResult);
     expect(ethLeapResult).toEqual({
-      Year: 2015,
-      Month: 13,
-      Day: 6
+      year: 2015,
+      month: 13,
+      day: 6
     }); // Greg: Sep 11, 2023
   });
 });

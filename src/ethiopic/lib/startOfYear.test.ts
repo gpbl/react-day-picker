@@ -1,50 +1,50 @@
-import { toEth, toGreg } from "../utils/ethiopicDateUtils";
+import { toEthiopicDate, toGregorianDate } from "../utils/index.js";
 
 import { startOfYear } from "./startOfYear";
 
 describe("startOfYear in Ethiopian calendar", () => {
   test("returns first day of Ethiopian year", () => {
-    const date = toGreg({
-      Year: 2016,
-      Month: 6,
-      Day: 15
+    const date = toGregorianDate({
+      year: 2016,
+      month: 6,
+      day: 15
     }); // Greg: Feb 23, 2024
     const result = startOfYear(date);
-    const ethResult = toEth(result);
+    const ethResult = toEthiopicDate(result);
     expect(ethResult).toEqual({
-      Year: 2016,
-      Month: 1,
-      Day: 1
+      year: 2016,
+      month: 1,
+      day: 1
     }); // Greg: Sep 12, 2023
   });
 
   test("handles leap year correctly", () => {
     // From middle of leap year
-    const leapDate = toGreg({
-      Year: 2015,
-      Month: 7,
-      Day: 15
+    const leapDate = toGregorianDate({
+      year: 2015,
+      month: 7,
+      day: 15
     }); // Greg: Mar 24, 2023
     const leapResult = startOfYear(leapDate);
-    const ethLeapResult = toEth(leapResult);
+    const ethLeapResult = toEthiopicDate(leapResult);
     expect(ethLeapResult).toEqual({
-      Year: 2015,
-      Month: 1,
-      Day: 1
+      year: 2015,
+      month: 1,
+      day: 1
     }); // Greg: Sep 12, 2022
 
     // From middle of non-leap year
-    const nonLeapDate = toGreg({
-      Year: 2016,
-      Month: 7,
-      Day: 15
+    const nonLeapDate = toGregorianDate({
+      year: 2016,
+      month: 7,
+      day: 15
     }); // Greg: Mar 24, 2024
     const nonLeapResult = startOfYear(nonLeapDate);
-    const ethNonLeapResult = toEth(nonLeapResult);
+    const ethNonLeapResult = toEthiopicDate(nonLeapResult);
     expect(ethNonLeapResult).toEqual({
-      Year: 2016,
-      Month: 1,
-      Day: 1
+      year: 2016,
+      month: 1,
+      day: 1
     }); // Greg: Sep 12, 2023
   });
 });

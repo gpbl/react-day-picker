@@ -1,12 +1,12 @@
-import { toEth } from "../utils/ethiopicDateUtils.js";
+import { toEthiopicDate } from "../utils/index.js";
 
 /**
- * Gets the Ethiopian year from a given date.
+ * Get year
  *
- * @param date - The gregorian date to get the Ethiopian year from
- * @returns The Ethiopian year
+ * @param {Date} date - The original date
+ * @returns {number} The year
  */
 export function getYear(date: Date): number {
-  const etDate = toEth(date);
-  return etDate.Year;
+  const { year } = toEthiopicDate(date);
+  return year;
 }

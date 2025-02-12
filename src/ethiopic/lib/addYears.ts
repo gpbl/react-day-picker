@@ -1,4 +1,8 @@
-import { isLeapYearEt, toEth, toGreg } from "../utils/ethiopicDateUtils.js";
+import {
+  isEthiopicLeapYear,
+  toEthiopicDate,
+  toGregorianDate
+} from "../utils/index.js";
 
 /**
  * Adds the specified number of years to the given Ethiopian date. Handles leap
@@ -9,17 +13,17 @@ import { isLeapYearEt, toEth, toGreg } from "../utils/ethiopicDateUtils.js";
  * @returns A new gregorian date with the years added
  */
 export function addYears(date: Date, amount: number): Date {
-  const etDate = toEth(date);
+  const etDate = toEthiopicDate(date);
   const day =
-    isLeapYearEt(etDate.Year) &&
-    etDate.Month === 13 &&
-    etDate.Day === 6 &&
+    isEthiopicLeapYear(etDate.year) &&
+    etDate.month === 13 &&
+    etDate.day === 6 &&
     amount % 4 !== 0
       ? 5
-      : etDate.Day;
-  return toGreg({
-    Month: etDate.Month,
-    Day: day,
-    Year: etDate.Year + amount
+      : etDate.day;
+  return toGregorianDate({
+    month: etDate.month,
+    day: day,
+    year: etDate.year + amount
   });
 }

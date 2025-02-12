@@ -1,4 +1,4 @@
-import { toEth } from "../utils/ethiopicDateUtils.js";
+import { toEthiopicDate } from "../utils/index.js";
 
 /**
  * Checks if two dates fall in the same Ethiopian year.
@@ -8,7 +8,7 @@ import { toEth } from "../utils/ethiopicDateUtils.js";
  * @returns True if the dates are in the same Ethiopian year
  */
 export function isSameYear(dateLeft: Date, dateRight: Date): boolean {
-  const etDate1 = toEth(dateLeft);
-  const etDate2 = toEth(dateRight);
-  return etDate1.Year === etDate2.Year;
+  const left = toEthiopicDate(dateLeft);
+  const right = toEthiopicDate(dateRight);
+  return left.year === right.year;
 }

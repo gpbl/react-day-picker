@@ -1,26 +1,19 @@
-import {
-  toEth,
-  toGreg,
-  ethiopianMonthLength
-} from "../utils/ethiopicDateUtils.js";
+import { daysInMonth } from "../utils/daysInMonth.js";
+import { toEthiopicDate, toGregorianDate } from "../utils/index.js";
 
 /**
- * Sets the Ethiopian year while preserving the month and day when possible.
+ * Set year
  *
- * @param date - The gregorian date to modify
- * @param year - The Ethiopian year to set
- * @returns A new gregorian date with the Ethiopian year set
+ * @param {Date} date - The original date
+ * @param {number} year - The year to set
+ * @returns {Date} The new date with the year set
  */
 export function setYear(date: Date, year: number): Date {
-  const etDate = toEth(date);
+  const { month, day } = toEthiopicDate(date);
 
   // Check if the day is valid in the new year (handles leap year changes)
-  const maxDays = ethiopianMonthLength(etDate.Month, year);
-  const newDay = Math.min(etDate.Day, maxDays);
+  const maxDays = daysInMonth(month, year);
+  const newDay = Math.min(day, maxDays);
 
-  return toGreg({
-    ...etDate,
-    Year: year,
-    Day: newDay
-  });
+  return toGregorianDate({ year, month, day: newDay });
 }

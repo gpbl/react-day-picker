@@ -1,32 +1,31 @@
-import { toEth, toGreg } from "../utils/ethiopicDateUtils.js";
+import type { GetWeekOptions } from "date-fns";
 
-export interface GetWeekOptions {
-  firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
-  weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
-}
+import { toGregorianDate, toEthiopicDate } from "../utils/index.js";
 
 /**
- * Gets the Ethiopian week number (1-52) from a given date.
+ * Get week
  *
- * @param date - The gregorian date to get the Ethiopian week from
- * @param options - Optional configuration for week calculation
- * @returns The Ethiopian week number (1-based)
+ * @param {Date} date - The original date
+ * @param {Object} [options] - The options object
+ * @param {number} [options.weekStartsOn=0] - The index of the first day of the
+ *   week (0 - Sunday). Default is `0`
+ * @returns {number} The week number
  */
 export function getWeek(date: Date, options?: GetWeekOptions): number {
-  const etDate = toEth(date);
+  const { year } = toEthiopicDate(date);
 
   // Get the first day of the current year
-  const firstDayOfYear = toGreg({
-    Year: etDate.Year,
-    Month: 1,
-    Day: 1
+  const firstDayOfYear = toGregorianDate({
+    year: year,
+    month: 1,
+    day: 1
   });
 
   // Get the first day of next year
-  const firstDayOfNextYear = toGreg({
-    Year: etDate.Year + 1,
-    Month: 1,
-    Day: 1
+  const firstDayOfNextYear = toGregorianDate({
+    year: year + 1,
+    month: 1,
+    day: 1
   });
 
   // Adjust to the start of the week (Monday)
@@ -52,10 +51,10 @@ export function getWeek(date: Date, options?: GetWeekOptions): number {
 
   // If the date is before the first week of its year, it belongs to the last week of previous year
   if (date < firstWeekStart) {
-    const prevYearFirstDay = toGreg({
-      Year: etDate.Year - 1,
-      Month: 1,
-      Day: 1
+    const prevYearFirstDay = toGregorianDate({
+      year: year - 1,
+      month: 1,
+      day: 1
     });
     const prevYearFirstWeekStart = getWeekStart(prevYearFirstDay);
     const daysSincePrevStart = Math.floor(

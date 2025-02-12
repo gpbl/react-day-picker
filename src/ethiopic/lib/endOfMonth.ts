@@ -1,8 +1,5 @@
-import {
-  toEth,
-  toGreg,
-  ethiopianMonthLength
-} from "../utils/ethiopicDateUtils.js";
+import { daysInMonth } from "../utils/daysInMonth.js";
+import { toEthiopicDate, toGregorianDate } from "../utils/index.js";
 
 /**
  * Returns the last day of the Ethiopian month for the given date.
@@ -12,11 +9,7 @@ import {
  *   month
  */
 export function endOfMonth(date: Date): Date {
-  const etDate = toEth(date);
-  const lastDay = ethiopianMonthLength(etDate.Month, etDate.Year);
-
-  return toGreg({
-    ...etDate,
-    Day: lastDay
-  });
+  const { year, month } = toEthiopicDate(date);
+  const day = daysInMonth(month, year);
+  return toGregorianDate({ year, month, day: day });
 }

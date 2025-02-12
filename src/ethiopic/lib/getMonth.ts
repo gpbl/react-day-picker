@@ -1,13 +1,12 @@
-import { toEth } from "../utils/ethiopicDateUtils.js";
+import { toEthiopicDate } from "../utils/index.js";
 
 /**
- * Gets the Ethiopian month (0-12) from a given date.
+ * Get month
  *
- * @param date - The gregorian date to get the Ethiopian month from
- * @returns The Ethiopian month number (0-based, where 0 = Meskerem and 12 =
- *   Pagume)
+ * @param {Date} date - The original date
+ * @returns {number} The zero-based month index
  */
 export function getMonth(date: Date): number {
-  const etDate = toEth(date);
-  return etDate.Month - 1; // Convert to 0-based for compatibility
+  const { month } = toEthiopicDate(date);
+  return month - 1; // Return zero-based month index
 }
