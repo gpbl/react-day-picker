@@ -13,7 +13,6 @@ export * from "./formatNumber.js";
 export * from "./getMonth.js";
 export * from "./getWeek.js";
 export * from "./getYear.js";
-export * from "./isSameDay.js";
 export * from "./isSameMonth.js";
 export * from "./isSameYear.js";
 export * from "./newDate.js";
