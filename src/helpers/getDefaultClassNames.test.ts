@@ -28,6 +28,7 @@ test("should return the default classnames", () => {
     range_middle: "rdp-range_middle",
     range_start: "rdp-range_start",
     selected: "rdp-selected",
+    slide: "rdp-slide",
     today: "rdp-today",
     week_number: "rdp-week_number",
     week_number_header: "rdp-week_number_header",

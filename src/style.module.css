@@ -388,32 +388,32 @@
   transition: transform var(--rdp-transition-duration) ease-in-out;
 }
 
-.opacity-fade-next-enter {
+.fade-next-enter {
   opacity: 0;
 }
-.opacity-fade-next-enter-active {
+.fade-next-enter-active {
   opacity: 1;
   transition: opacity var(--rdp-transition-duration) ease-in-out;
 }
-.opacity-fade-next-exit {
+.fade-next-exit {
   opacity: 1;
 }
-.opacity-fade-next-exit-active {
+.fade-next-exit-active {
   opacity: 0;
   transition: opacity var(--rdp-transition-duration) ease-in-out;
 }
 
-.opacity-fade-previous-enter {
+.fade-previous-enter {
   opacity: 0;
 }
-.opacity-fade-previous-enter-active {
+.fade-previous-enter-active {
   opacity: 1;
   transition: opacity var(--rdp-transition-duration) ease-in-out;
 }
-.opacity-fade-previous-exit {
+.fade-previous-exit {
   opacity: 1;
 }
-.opacity-fade-previous-exit-active {
+.fade-previous-exit-active {
   opacity: 0;
   transition: opacity var(--rdp-transition-duration) ease-in-out;
 }

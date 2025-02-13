@@ -1,3 +1,5 @@
+import React from "react";
+
 import type { DayPickerProps } from "./props.js";
 import type { DateRange, Mode, Modifiers } from "./shared.js";
 

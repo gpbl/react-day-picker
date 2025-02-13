@@ -180,6 +180,16 @@ export function Playground() {
               Hide weekdays
             </label>
             <label>
+              <input
+                type="checkbox"
+                name="animate"
+                onChange={(e) =>
+                  setProps({ ...props, animate: e.target.checked })
+                }
+              />
+              Animate
+            </label>
+            <label>
               Accent Color:
               <input
                 value={accentColor}
