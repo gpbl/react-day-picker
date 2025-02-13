@@ -1,4 +1,4 @@
-import React from "react";
+import React, { type HTMLAttributes } from "react";
 
 /**
  * Component wrapping the footer.
@@ -6,7 +6,7 @@ import React from "react";
  * @group Components
  * @see https://daypicker.dev/guides/custom-components
  */
-export function Footer(props: JSX.IntrinsicElements["div"]) {
+export function Footer(props: HTMLAttributes<HTMLDivElement>) {
   return <div {...props} />;
 }
 

@@ -112,7 +112,10 @@ export type Formatters = {
   formatDay: typeof formatDay;
   /** Format the label in the month dropdown. */
   formatMonthDropdown: typeof formatMonthDropdown;
-  /** @deprecated Use {@link Formatters.formatCaption} instead. */
+  /**
+   * @ignore
+   * @deprecated Use {@link Formatters.formatCaption} instead.
+   */
   formatMonthCaption: typeof formatMonthCaption;
   /** Format the week number. */
   formatWeekNumber: typeof formatWeekNumber;
@@ -122,7 +125,10 @@ export type Formatters = {
   formatWeekdayName: typeof formatWeekdayName;
   /** Format the label in the year dropdown. */
   formatYearDropdown: typeof formatYearDropdown;
-  /** @deprecated Use {@link Formatters.formatYearDropdown} instead. */
+  /**
+   * @ignore
+   * @deprecated Use {@link Formatters.formatYearDropdown} instead.
+   */
   formatYearCaption: typeof formatYearCaption;
 };
 
@@ -144,7 +150,10 @@ export type Labels = {
   labelPrevious: typeof labelPrevious;
   /** The label for the day button. */
   labelDayButton: typeof labelDayButton;
-  /** @deprecated Use {@link labelDayButton} instead. */
+  /**
+   * @ignore
+   * @deprecated Use {@link labelDayButton} instead.
+   */
   labelDay: typeof labelDayButton;
   /** The label for the weekday. */
   labelWeekday: typeof labelWeekday;
@@ -400,3 +409,35 @@ export type MoveFocusBy =
   | "endOfWeek"
   | "month"
   | "year";
+
+/**
+ * The numbering system supported by DayPicker.
+ *
+ * - `latn`: Latin (Western Arabic)
+ * - `arab`: Arabic-Indic
+ * - `arabext`: Eastern Arabic-Indic (Persian)
+ * - `deva`: Devanagari
+ * - `beng`: Bengali
+ * - `guru`: Gurmukhi
+ * - `gujr`: Gujarati
+ * - `orya`: Oriya
+ * - `tamldec`: Tamil
+ * - `telu`: Telugu
+ * - `knda`: Kannada
+ * - `mlym`: Malayalam
+ *
+ * @see https://daypicker.dev/docs/translation#numeral-systems
+ */
+export type Numerals =
+  | "latn"
+  | "arab"
+  | "arabext"
+  | "deva"
+  | "beng"
+  | "guru"
+  | "gujr"
+  | "orya"
+  | "tamldec"
+  | "telu"
+  | "knda"
+  | "mlym";

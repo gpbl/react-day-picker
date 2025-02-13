@@ -126,14 +126,16 @@ To display the column with week numbers, use the `showWeekNumber` prop.
 
 ### Handling Week Numbers Click
 
-To handle clicks on the week numbers, you can set a custom `WeekNumber` [component](../guides/custom-components.mdx):
+To handle clicks on the week numbers, you can set the `WeekNumber` [custom component](../guides/custom-components.mdx):
 
 ```tsx
 <DayPicker
   showWeekNumber
   components={{
-    weekNumber: ({ weekNumber }) => (
-      <button onClick={() => alert(`Week ${weekNumber}`)}>{weekNumber}</button>
+    WeekNumber: (props) => (
+      <button onClick={() => alert(`Week ${props.weekNumber}`)}>
+        {props.weekNumber}
+      </button>
     )
   }}
 />

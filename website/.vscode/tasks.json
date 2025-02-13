@@ -5,11 +5,19 @@
       "type": "npm",
       "script": "start",
       "problemMatcher": [],
-      "label": "npm: start",
-      "detail": "PORT=2001 TYPEDOC_WATCH=false docusaurus start",
+      "label": "⏯️ npm: website/start",
+      "detail": "Run the docusaurus website",
       "runOptions": {
         "runOn": "folderOpen"
       }
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "🔨 npm: build",
+      "detail": "docusaurus build"
     }
   ]
 }

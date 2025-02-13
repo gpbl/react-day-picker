@@ -26,7 +26,7 @@ describe("when choosing a month from the first dropdown", () => {
     await user.selectOptions(firstDropDown, monthName);
   });
   test("should display the month in the first dropdown", () => {
-    expect(grid(`${monthName} 2023`)).toBeInTheDocument();
+    expect(grid(`${monthName} 2024`)).toBeInTheDocument();
   });
 });
 
@@ -39,6 +39,6 @@ describe("when choosing a month from the third dropdown", () => {
     await user.selectOptions(thirdDropDown, newMonthName);
   });
   test("should display the month selected the third dropdown", () => {
-    expect(grid(`${newMonthName} 2023`)).toBeInTheDocument();
+    expect(grid(`${newMonthName} 2024`)).toBeInTheDocument();
   });
 });

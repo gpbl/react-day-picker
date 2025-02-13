@@ -1,4 +1,4 @@
-import React from "react";
+import React, { type SelectHTMLAttributes } from "react";
 
 /**
  * Render the `select` element.
@@ -6,7 +6,7 @@ import React from "react";
  * @group Components
  * @see https://daypicker.dev/guides/custom-components
  */
-export function Select(props: JSX.IntrinsicElements["select"]) {
+export function Select(props: SelectHTMLAttributes<HTMLSelectElement>) {
   return <select {...props} />;
 }
 

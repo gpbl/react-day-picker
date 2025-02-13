@@ -1,7 +1,6 @@
 import React from "react";
 
 import { startOfDay, startOfMonth } from "date-fns";
-import { defaultLocale } from "react-day-picker";
 
 import {
   activeElement,
@@ -14,6 +13,7 @@ import { fireEvent, render, screen } from "@/test/render";
 import { user } from "@/test/user";
 
 import { DayPicker } from "./DayPicker";
+import { defaultLocale } from "./classes/DateLib";
 import { MonthProps } from "./components/Month";
 import { MonthsProps } from "./components/Months";
 
@@ -184,12 +184,16 @@ test("should render the custom components", () => {
 describe("when interactive", () => {
   test("render a valid HTML", () => {
     render(<DayPicker mode="single" />);
-    expect(document.body).toHTMLValidate();
+    expect(document.body).toHTMLValidate({
+      rules: { "no-redundant-role": "off" } // Redundant role is allowed for VoiceOver
+    });
   });
 });
 describe("when not interactive", () => {
   test("render a valid HTML", () => {
     render(<DayPicker />);
-    expect(document.body).toHTMLValidate();
+    expect(document.body).toHTMLValidate({
+      rules: { "no-redundant-role": "off" } // Redundant role is allowed for VoiceOver
+    });
   });
 });

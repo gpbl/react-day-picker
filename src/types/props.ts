@@ -16,7 +16,8 @@ import type {
   DayEventHandler,
   Modifiers,
   DateRange,
-  Mode
+  Mode,
+  Numerals
 } from "./shared.js";
 
 /**
@@ -209,7 +210,8 @@ export interface PropsBase {
    * - `year`: display only the dropdown for the years
    *
    * **Note:** showing the dropdown will set the start/end months
-   * {@link fromYear} to 100 years ago, and {@link toYear} to the current year.
+   * {@link startMonth} to 100 years ago, and {@link endMonth} to the end of the
+   * current year.
    *
    * @see https://daypicker.dev/docs/customization#caption-layouts
    */
@@ -230,15 +232,15 @@ export interface PropsBase {
   /**
    * Show the outside days (days falling in the next or the previous month).
    *
+   * **Note:** when a broadcast {@link calendar} is set, this prop defaults to
+   * true.
+   *
    * @see https://daypicker.dev/docs/customization#outside-days
    */
   showOutsideDays?: boolean;
   /**
    * Show the week numbers column. Weeks are numbered according to the local
    * week index.
-   *
-   * - To use ISO week numbering, use the `ISOWeek` prop.
-   * - To change how the week numbers are displayed, use the `formatters` prop.
    *
    * @see https://daypicker.dev/docs/customization#showweeknumber
    */
@@ -259,6 +261,16 @@ export interface PropsBase {
    */
   transitionDuration?: number;
 
+  /**
+   * Display the weeks in the month following the broadcast calendar. Setting
+   * this prop will ignore {@link weekStartsOn} (always Monday) and
+   * {@link showOutsideDays} will default to true.
+   *
+   * @since 9.4.0
+   * @see https://daypicker.dev/docs/localization#broadcast-calendar
+   * @see https://en.wikipedia.org/wiki/Broadcast_calendar
+   */
+  broadcastCalendar?: boolean;
   /**
    * Use ISO week dates instead of the locale setting. Setting this prop will
    * ignore `weekStartsOn` and `firstWeekContainsDate`.
@@ -308,6 +320,11 @@ export interface PropsBase {
    */
   autoFocus?: boolean;
   /**
+   * @private
+   * @deprecated This prop will be removed. Use {@link autoFocus} instead.
+   */
+  initialFocus?: boolean;
+  /**
    * Apply the `disabled` modifier to the matching days.
    *
    * @see https://daypicker.dev/docs/selection-modes#disabling-dates
@@ -355,6 +372,20 @@ export interface PropsBase {
    */
   dir?: HTMLDivElement["dir"];
   /**
+   * The aria-label attribute to add to the container element.
+   *
+   * @since 9.4.1
+   * @see https://daypicker.dev/guides/accessibility
+   */
+  ["aria-label"]?: string;
+  /**
+   * The role attribute to add to the container element.
+   *
+   * @since 9.4.1
+   * @see https://daypicker.dev/guides/accessibility
+   */
+  role?: "application" | "dialog" | undefined;
+  /**
    * A cryptographic nonce ("number used once") which can be used by Content
    * Security Policy for the inline `style` attributes.
    */
@@ -376,6 +407,26 @@ export interface PropsBase {
    * @see https://github.com/date-fns/date-fns/tree/main/src/locale for a list of the supported locales
    */
   locale?: Partial<Locale> | undefined;
+  /**
+   * The numeral system to use when formatting dates.
+   *
+   * - `latn`: Latin (Western Arabic)
+   * - `arab`: Arabic-Indic
+   * - `arabext`: Eastern Arabic-Indic (Persian)
+   * - `deva`: Devanagari
+   * - `beng`: Bengali
+   * - `guru`: Gurmukhi
+   * - `gujr`: Gujarati
+   * - `orya`: Oriya
+   * - `tamldec`: Tamil
+   * - `telu`: Telugu
+   * - `knda`: Kannada
+   * - `mlym`: Malayalam
+   *
+   * @defaultValue `latn` Latin (Western Arabic)
+   * @see https://daypicker.dev/docs/translation#numeral-systems
+   */
+  numerals?: Numerals | undefined;
   /**
    * The index of the first day of the week (0 - Sunday). Overrides the locale's
    * one.
@@ -506,7 +557,6 @@ export interface PropsBase {
  * @param {Date} triggerDate - The date when the event was triggered.
  * @param {Modifiers} modifiers - The modifiers associated with the event.
  * @param {React.MouseEvent | React.KeyboardEvent} e - The event object.
- * @group DayPicker
  */
 export type OnSelectHandler<T> = (
   selected: T,

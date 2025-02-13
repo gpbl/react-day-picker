@@ -1,39 +1,42 @@
 import { type DateLib } from "../classes/DateLib.js";
 import { type DayPickerProps } from "../types/props.js";
 
-/** The number of days in a month when having 6 weeks. */
-const NrOfDaysWithFixedWeeks = 42;
-
 /** Return all the dates to display in the calendar. */
 export function getDates(
   displayMonths: Date[],
   maxDate: Date | undefined,
-  props: Pick<DayPickerProps, "ISOWeek" | "fixedWeeks">,
+  props: Pick<DayPickerProps, "ISOWeek" | "fixedWeeks" | "broadcastCalendar">,
   dateLib: DateLib
 ): Date[] {
   const firstMonth = displayMonths[0];
   const lastMonth = displayMonths[displayMonths.length - 1];
 
-  const { ISOWeek, fixedWeeks } = props ?? {};
+  const { ISOWeek, fixedWeeks, broadcastCalendar } = props ?? {};
   const {
-    startOfWeek,
-    endOfWeek,
-    startOfISOWeek,
-    endOfISOWeek,
     addDays,
     differenceInCalendarDays,
     differenceInCalendarMonths,
+    endOfBroadcastWeek,
+    endOfISOWeek,
+    endOfMonth,
+    endOfWeek,
     isAfter,
-    endOfMonth
+    startOfBroadcastWeek,
+    startOfISOWeek,
+    startOfWeek
   } = dateLib;
 
-  const startWeekFirstDate = ISOWeek
-    ? startOfISOWeek(firstMonth)
-    : startOfWeek(firstMonth);
+  const startWeekFirstDate = broadcastCalendar
+    ? startOfBroadcastWeek(firstMonth, dateLib)
+    : ISOWeek
+      ? startOfISOWeek(firstMonth)
+      : startOfWeek(firstMonth);
 
-  const endWeekLastDate = ISOWeek
-    ? endOfISOWeek(endOfMonth(lastMonth))
-    : endOfWeek(endOfMonth(lastMonth));
+  const endWeekLastDate = broadcastCalendar
+    ? endOfBroadcastWeek(lastMonth, dateLib)
+    : ISOWeek
+      ? endOfISOWeek(endOfMonth(lastMonth))
+      : endOfWeek(endOfMonth(lastMonth));
 
   const nOfDays = differenceInCalendarDays(endWeekLastDate, startWeekFirstDate);
   const nOfMonths = differenceInCalendarMonths(lastMonth, firstMonth) + 1;
@@ -48,9 +51,11 @@ export function getDates(
   }
 
   // If fixed weeks is enabled, add the extra dates to the array
-  const extraDates = NrOfDaysWithFixedWeeks * nOfMonths;
+  const nrOfDaysWithFixedWeeks = broadcastCalendar ? 35 : 42;
+  const extraDates = nrOfDaysWithFixedWeeks * nOfMonths;
   if (fixedWeeks && dates.length < extraDates) {
-    for (let i = 0; i < 7; i++) {
+    const daysToAdd = extraDates - dates.length;
+    for (let i = 0; i < daysToAdd; i++) {
       const date = addDays(dates[dates.length - 1], 1);
       dates.push(date);
     }

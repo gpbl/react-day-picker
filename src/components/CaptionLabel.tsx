@@ -1,4 +1,4 @@
-import React from "react";
+import React, { type HTMLAttributes } from "react";
 
 /**
  * Render the label in the month caption.
@@ -6,7 +6,7 @@ import React from "react";
  * @group Components
  * @see https://daypicker.dev/guides/custom-components
  */
-export function CaptionLabel(props: JSX.IntrinsicElements["span"]) {
+export function CaptionLabel(props: HTMLAttributes<HTMLSpanElement>) {
   return <span {...props} />;
 }
 

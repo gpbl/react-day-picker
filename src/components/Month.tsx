@@ -1,4 +1,4 @@
-import React from "react";
+import React, { type HTMLAttributes } from "react";
 
 import type { CalendarMonth } from "../classes/CalendarMonth.js";
 
@@ -15,7 +15,7 @@ export function Month(
     calendarMonth: CalendarMonth;
     /** The index where this month is displayed. */
     displayIndex: number;
-  } & JSX.IntrinsicElements["div"]
+  } & HTMLAttributes<HTMLDivElement>
 ) {
   const { calendarMonth, displayIndex, ...divProps } = props;
   return <div {...divProps}>{props.children}</div>;

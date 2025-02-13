@@ -50,6 +50,13 @@
     "scm.diffDecorations": "none",
     "[typescriptreact]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.colorCustomizations": {
+      "activityBar.background": "#005994",
+      "activityBar.foreground": "#d8d8d8",
+      "activityBar.inactiveForeground": "#d8d8d877",
+      "activityBarBadge.background": "#dd006f",
+      "activityBarBadge.foreground": "#e7e7e7"
     }
   }
 }

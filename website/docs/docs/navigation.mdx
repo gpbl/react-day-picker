@@ -31,7 +31,18 @@ To programmatically control the month displayed when navigating, use the `month`
 | `month`         | `Date`                                                                      | The month displayed in the calendar. |
 | `onMonthChange` | [`MonthChangeEventHandler`](../api/type-aliases/MonthChangeEventHandler.md) | Callback when the month changes.     |
 
-### "Today" Button
+```tsx
+import { useState } from "react";
+
+import { DayPicker } from "react-day-picker";
+
+export function Controlled() {
+  const [month, setMonth] = useState(new Date(2024, 9)); // Start from October 2024
+  return <DayPicker month={month} onMonthChange={setMonth} />;
+}
+```
+
+### Today Button
 
 For example, to implement a <strong>Go to Today</strong> button, set `month` to the current date when the button is clicked.
 

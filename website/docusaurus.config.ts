@@ -52,11 +52,19 @@ const config: Config = {
         },
         blog: false,
         theme: {
-          customCss: [
-            "./src/css/custom.css",
-            "./src/css/docusaurus-reset.css",
-            "../src/style.css"
-          ]
+          customCss: ["./src/css/custom.css", "../src/style.css"]
+        },
+        sitemap: {
+          lastmod: "date",
+          changefreq: "weekly",
+          priority: 0.5,
+          ignorePatterns: ["/tags/**"],
+          filename: "sitemap.xml",
+          createSitemapItems: async (params) => {
+            const { defaultCreateSitemapItems, ...rest } = params;
+            const items = await defaultCreateSitemapItems(rest);
+            return items.filter((item) => !item.url.includes("/page/"));
+          }
         }
       } satisfies Preset.Options
     ]
@@ -83,14 +91,16 @@ const config: Config = {
     ]
   ],
 
+  scripts: [
+    {
+      src: "/q/p/script.js",
+      defer: true,
+      "data-domain": "daypicker.dev",
+      "data-api": "/q/a/event"
+    }
+  ],
+
   themeConfig: {
-    announcementBar: {
-      id: "v9",
-      content:
-        "🎉 Introducing DayPicker v9. See the <a href='/changelog'>full changelog</a>.",
-      backgroundColor: "rebeccapurple",
-      textColor: "white"
-    },
     image: "img/social-card.png",
     metadata: [
       {
@@ -113,7 +123,8 @@ const config: Config = {
       title: "React DayPicker",
       logo: {
         alt: "DayPicker Logo",
-        src: "img/logo.png"
+        src: "img/logo.png",
+        srcDark: "img/logo-dark.png"
       },
       items: [
         {
@@ -175,6 +186,9 @@ const config: Config = {
       defaultMode: "light",
       respectPrefersColorScheme: true
     }
+  },
+  future: {
+    experimental_faster: true
   } satisfies Preset.ThemeConfig
 };
 

@@ -9,7 +9,8 @@ DayPicker is a [React](https://react.dev) component for creating date pickers, c
 - 🛠 Extensive set of props for [customizing](https://daypicker.dev/docs/customization) the calendar.
 - 🎨 Minimal design that can be [easily styled](https://daypicker.dev/docs/styling) with CSS or any CSS framework.
 - 📅 Supports [selections](https://daypicker.dev/docs/selection-modes) of single days, multiple days, ranges of days, or [custom selections](https://daypicker.dev/guides/custom-selections).
-- 🌍 Can be [localized](https://daypicker.dev/docs/localization) into any language, supports [ISO 8601 dates](https://daypicker.dev/docs/localization#iso-week-dates), [time zones](https://daypicker.dev/docs/localization#time-zone), and the [Jalali calendar](https://daypicker.dev/docs/localization#jalali-calendar).
+- 🌍 Can be [localized](https://daypicker.dev/docs/localization) into any language and [time zones](https://daypicker.dev/docs/time-zone).
+- 🌐 Support for [ISO 8601](https://daypicker.dev/docs/localization#iso-week-dates), [Persian](https://daypicker.dev/docs/localization#persian-calendar), and [broadcast](https://daypicker.dev/docs/localization#broadcast-calendar) calendar.
 - 🦮 Complies with WCAG 2.1 AA requirements for [accessibility](https://daypicker.dev/guides/accessibility).
 - ⚙️ [Customizable components](https://daypicker.dev/guides/custom-components) to extend the rendered elements.
 - 🔤 Easy integration [with input fields](https://daypicker.dev/guides/input-fields).
