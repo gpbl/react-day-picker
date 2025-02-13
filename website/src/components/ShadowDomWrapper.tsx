@@ -2,7 +2,13 @@ import style from "!raw-loader!react-day-picker/src/style.css";
 import { useColorMode } from "@docusaurus/theme-common";
 import root from "react-shadow";
 
-export function ShadowDomWrapper({ children }: { children: React.ReactNode }) {
+export function ShadowDomWrapper({
+  children,
+  styleStr
+}: {
+  children: React.ReactNode;
+  styleStr: string | undefined;
+}) {
   const colorMode = useColorMode();
   return (
     <root.div>
@@ -18,6 +24,7 @@ export function ShadowDomWrapper({ children }: { children: React.ReactNode }) {
             }
           `}</style>
       )}
+      {styleStr && <style>{styleStr}</style>}
     </root.div>
   );
 }

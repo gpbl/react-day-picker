@@ -14,6 +14,7 @@ interface Props {
   minHeight?: number;
   url: string;
   style?: CSSProperties;
+  styleStr?: string;
   bodyStyle?: CSSProperties;
   shadow?: boolean;
 }
@@ -23,7 +24,8 @@ export function BrowserWindow({
   minHeight,
   style,
   bodyStyle,
-  shadow = true
+  shadow = true,
+  styleStr
 }: Props) {
   return (
     <div className={styles.browserWindow} style={{ ...style, minHeight }}>
@@ -36,7 +38,11 @@ export function BrowserWindow({
       </div>
 
       <div className={styles.browserWindowBody} style={bodyStyle}>
-        {shadow ? <ShadowDomWrapper>{children}</ShadowDomWrapper> : children}
+        {shadow ? (
+          <ShadowDomWrapper styleStr={styleStr}>{children}</ShadowDomWrapper>
+        ) : (
+          children
+        )}
       </div>
     </div>
   );

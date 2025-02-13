@@ -107,7 +107,8 @@ export function useCalendar(
   const initialMonth = getInitialMonth(props, dateLib);
   const [firstMonth, setFirstMonth] = useControlledValue(
     initialMonth,
-    props.month ? startOfMonth(props.month) : undefined
+    // initialMonth is always computed from props.month if provided
+    props.month ? initialMonth : undefined
   );
 
   useEffect(() => {

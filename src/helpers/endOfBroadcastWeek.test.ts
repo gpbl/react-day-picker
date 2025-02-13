@@ -1,4 +1,4 @@
-import { defaultDateLib } from "react-day-picker/classes";
+import { defaultDateLib } from "../classes";
 
 import { endOfBroadcastWeek } from "./endOfBroadcastWeek";
 
