@@ -59,6 +59,7 @@
 }
 
 .form label:has(select),
+.form label:has(input[type="text"]),
 .form label:has(input[type="number"]),
 .form label:has(input[type="color"]) {
   justify-content: space-between;

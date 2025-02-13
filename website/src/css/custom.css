@@ -41,6 +41,8 @@
   --ifm-alert-border-left-width: 2px;
 
   --ifm-menu-link-sublist-icon: url(/img/chevron.svg);
+
+  --docsearch-muted-color: var(--docsearch-text-color) !important;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */

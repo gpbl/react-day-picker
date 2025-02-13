@@ -6,19 +6,17 @@ sidebar_position: 6
 
 DayPicker provides various options to customize the calendar for different languages and regions.
 
-| Prop Name               | Type                                          | Description                                                                              |
-| ----------------------- | --------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `locale`                | [`Locale`](https://date-fns.org/docs/I18n)    | Set the locale. Default is `en-US`.                                                      |
-| `weekStartsOn`          | `1` \| `2` \| `3` \| `4` \| `5` \| `6` \| `7` | Change the first day of the week.                                                        |
-| `firstWeekContainsDate` | `1` \| `4`                                    | Configure the first date in the first week of the year.                                  |
-| `timeZone`              | `string`                                      | The time zone (IANA or UTC offset) to use in the calendar.                               |
-| `ISOWeek`               | `boolean`                                     | Switch to [ISO Week Dates](https://en.wikipedia.org/wiki/ISO_week_date).                 |
-| `broadcastCalendar`     | `boolean`                                     | Switch to the [US Broadcast Calendar](https://en.wikipedia.org/wiki/Broadcast_calendar). |
-| `jalali`                | `boolean`                                     | Switch to the Jalali calendar.                                                           |
+- For time zone support, see the [Time Zone](../docs/time-zone.mdx) guide.
 
 ## Setting the Locale
 
-To change the default `en-US` to another locale, import a locale object from `react-day-picker/locale` and pass it to the`locale` prop.
+| Prop Name | Type                                       | Description                         |
+| --------- | ------------------------------------------ | ----------------------------------- |
+| `locale`  | [`Locale`](https://date-fns.org/docs/I18n) | Set the locale. Default is `en-US`. |
+
+DayPicker supports all the locales included in the [date-fns](https://date-fns.org/docs/I18n) library.
+
+- To change the default `en-US` to another locale, import a locale object from `react-day-picker/locale` and pass it to the`locale` prop.
 
 ```tsx
 // import the locale object
@@ -53,11 +51,106 @@ import { DayPicker, defaultLocale } from "react-day-picker";
 
 :::
 
-## Changing the Time Zone {#time-zone}
+## ISO 8601 Calendar
 
-See [Time Zone docs](./time-zone.mdx) for more information.
+| Prop Name | Type      | Description                                                              |
+| --------- | --------- | ------------------------------------------------------------------------ |
+| `ISOWeek` | `boolean` | Switch to [ISO Week Dates](https://en.wikipedia.org/wiki/ISO_week_date). |
 
-## Localization Options
+Use the `ISOWeek` prop to switch to [ISO Week Dates](https://en.wikipedia.org/wiki/ISO_week_date) instead of the locale setting.
+
+```tsx
+<DayPicker ISOWeek />
+```
+
+<BrowserWindow>
+  <Examples.WeeknumberIso />
+</BrowserWindow>
+
+## Persian Calendar
+
+DayPicker supports the Persian [Solar Hijri](<https://en.wikipedia.org/wiki/Iranian_calendars#Modern_calendar:_Solar_Hijri_(SH)>) calendar through the [date-fns-jalali](https://www.npmjs.com/package/date-fns-jalali) package.
+
+- To use the Persian calendar, import `DayPicker` from `react-day-picker/persian`:
+
+```diff
+- import { DayPicker } from 'react-day-picker';
++ import { DayPicker } from 'react-day-picker/persian';
+```
+
+<BrowserWindow>
+  <Examples.Persian />
+</BrowserWindow>
+
+### English (US) Locale
+
+By default, the Persian calendar uses the Farsi (Iran) locale and the Eastern Arabic-Indic (Persian) number system.
+
+- To use the English (US) locale, import it and pass the `locale` prop.
+- To change the numerals to Western Arabic, use the `numerals` prop.
+
+```tsx
+import { DayPicker, enUS } from "react-day-picker/persian";
+
+export function PersianEn() {
+  return <DayPicker locale={enUS} numerals="latn" />;
+}
+```
+
+<BrowserWindow>
+  <Examples.PersianEn />
+</BrowserWindow>
+
+### Formatting Persian Dates
+
+The calendar always returns Gregorian dates. Use the exported `getDateLib` getter to format dates to Persian calendar.
+
+```tsx
+import { DayPicker, getDateLib } from "react-day-picker/persian";
+
+export function PersianCalendar() {
+  const [selected, setSelected] = React.useState(new Date());
+  const dateLib = getDateLib();
+  return (
+    <DayPicker
+      mode="single"
+      selected={selected}
+      required
+      onSelect={setSelected}
+      footer={`Selected: ${dateLib.format(selected)}`}
+    />
+  );
+}
+```
+
+<BrowserWindow>
+  <Examples.PersianFormatted />
+</BrowserWindow>
+
+## Broadcast Calendar
+
+| Prop Name           | Type      | Description                          |
+| ------------------- | --------- | ------------------------------------ |
+| `broadcastCalendar` | `boolean` | Switch to the US Broadcast Calendar. |
+
+Switch to the [US Broadcast Calendar](https://en.wikipedia.org/wiki/Broadcast_calendar) by setting the `broadcastCalendar` prop.
+
+In the broadcast calendar, weeks start on Monday and end on Sunday. Each month has either 28 or 35 days.
+
+```tsx
+<DayPicker broadcastCalendar />
+```
+
+<BrowserWindow>
+  <Examples.BroadcastCalendar />
+</BrowserWindow>
+
+## Advanced Localization Options
+
+| Prop Name               | Type                                          | Description                                             |
+| ----------------------- | --------------------------------------------- | ------------------------------------------------------- |
+| `firstWeekContainsDate` | `1` \| `4`                                    | Configure the first date in the first week of the year. |
+| `weekStartsOn`          | `1` \| `2` \| `3` \| `4` \| `5` \| `6` \| `7` | Change the first day of the week.                       |
 
 ### First Date of the Week
 
@@ -83,71 +176,3 @@ For more information, see [Week Numbering](https://en.wikipedia.org/wiki/Week#Nu
   firstWeekContainsDate={1} // First week must contain Monday
 />
 ```
-
-### ISO Week Dates
-
-Use the `ISOWeek` prop to switch to [ISO Week Dates](https://en.wikipedia.org/wiki/ISO_week_date) instead of the locale setting.
-
-```tsx
-<DayPicker ISOWeek />
-```
-
-<BrowserWindow>
-  <Examples.WeeknumberIso />
-</BrowserWindow>
-
-## Broadcast Calendar
-
-Switch to the [US Broadcast Calendar](https://en.wikipedia.org/wiki/Broadcast_calendar) by setting the `broadcastCalendar` prop.
-
-In the broadcast calendar, weeks start on Monday and end on Sunday. Each month has either 28 or 35 days.
-
-```tsx
-<DayPicker broadcastCalendar />
-```
-
-<BrowserWindow>
-  <Examples.BroadcastCalendar />
-</BrowserWindow>
-
-## Jalali Calendar
-
-DayPicker supports the Jalali calendar through the [date-fns-jalali](https://www.npmjs.com/package/date-fns-jalali) package. To switch to the Jalali calendar, add `date-fns-jalali` to your dependencies and import `DayPicker` from `react-day-picker/jalali`.
-
-:::warning Experimental Feature
-
-Support for the Jalali calendar is an experimental feature. [Please report](https://github.com/gpbl/react-day-picker/issues) any issues you encounter. Thank you!
-
-:::
-
-#### 1. Install the `date-fns-jalali` package
-
-```bash npm2yarn
-npm install date-fns-jalali
-```
-
-#### 2. Import `DayPicker` from `react-day-picker/jalali`
-
-```diff
-- import { DayPicker } from 'react-day-picker';
-+ import { DayPicker } from 'react-day-picker/jalali';
-```
-
-#### 3. Use DayPicker as usual
-
-You can set the right-to-left direction and change the locale as needed.
-
-```tsx title="./JalaliCalendar.jsx"
-import React from "react";
-
-import { DayPicker } from "react-day-picker/jalali";
-import { faIR } from "react-day-picker/locale";
-
-export function Jalali() {
-  return <DayPicker mode="single" locale={faIR} dir="rtl" />;
-}
-```
-
-<BrowserWindow>
-  <Examples.Jalali />
-</BrowserWindow>

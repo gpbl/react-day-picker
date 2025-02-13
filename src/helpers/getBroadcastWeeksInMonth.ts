@@ -23,7 +23,7 @@ export function getBroadcastWeeksInMonth(month: Date, dateLib: DateLib): 4 | 5 {
     FIVE_WEEKS * 7 - 1
   );
   const numberOfWeeks =
-    month.getMonth() === lastDateOfLastWeek.getMonth()
+    dateLib.getMonth(month) === dateLib.getMonth(lastDateOfLastWeek)
       ? FIVE_WEEKS
       : FOUR_WEEKS;
 

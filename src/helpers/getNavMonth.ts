@@ -1,6 +1,4 @@
-import { TZDate } from "@date-fns/tz";
-
-import type { DateLib } from "../classes/DateLib.js";
+import { type DateLib } from "../classes/DateLib.js";
 import type { DayPickerProps } from "../types/index.js";
 
 /** Return the start and end months for the calendar navigation. */
@@ -28,7 +26,9 @@ export function getNavMonths(
     startOfMonth,
     endOfMonth,
     addYears,
-    endOfYear
+    endOfYear,
+    newDate,
+    today
   } = dateLib;
 
   // Handle deprecated code
@@ -37,43 +37,31 @@ export function getNavMonths(
     startMonth = fromMonth;
   }
   if (!startMonth && fromYear) {
-    startMonth = new Date(fromYear, 0, 1);
+    startMonth = dateLib.newDate(fromYear, 0, 1);
   }
   if (!endMonth && toMonth) {
     endMonth = toMonth;
   }
   if (!endMonth && toYear) {
-    endMonth = new Date(toYear, 11, 31);
+    endMonth = newDate(toYear, 11, 31);
   }
 
-  const hasDropdowns = props.captionLayout?.startsWith("dropdown");
+  const hasYearDropdown =
+    props.captionLayout === "dropdown" ||
+    props.captionLayout === "dropdown-years";
   if (startMonth) {
     startMonth = startOfMonth(startMonth);
   } else if (fromYear) {
-    startMonth = new Date(fromYear, 0, 1);
-  } else if (!startMonth && hasDropdowns) {
-    const today =
-      props.today ??
-      (props.timeZone
-        ? TZDate.tz(props.timeZone)
-        : dateLib.Date
-          ? new dateLib.Date()
-          : new Date());
-    startMonth = startOfYear(addYears(today, -100));
+    startMonth = newDate(fromYear, 0, 1);
+  } else if (!startMonth && hasYearDropdown) {
+    startMonth = startOfYear(addYears(props.today ?? today(), -100));
   }
   if (endMonth) {
     endMonth = endOfMonth(endMonth);
   } else if (toYear) {
-    endMonth = new Date(toYear, 11, 31);
-  } else if (!endMonth && hasDropdowns) {
-    const today =
-      props.today ??
-      (props.timeZone
-        ? TZDate.tz(props.timeZone)
-        : dateLib.Date
-          ? new dateLib.Date()
-          : new Date());
-    endMonth = endOfYear(today);
+    endMonth = newDate(toYear, 11, 31);
+  } else if (!endMonth && hasYearDropdown) {
+    endMonth = endOfYear(props.today ?? today());
   }
   return [
     startMonth ? startOfDay(startMonth) : startMonth,

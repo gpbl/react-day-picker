@@ -16,7 +16,8 @@ import type {
   DayEventHandler,
   Modifiers,
   DateRange,
-  Mode
+  Mode,
+  Numerals
 } from "./shared.js";
 
 /**
@@ -231,7 +232,8 @@ export interface PropsBase {
   /**
    * Show the outside days (days falling in the next or the previous month).
    *
-   * **Note:** when {@link broadcastCalendar} is set, this prop defaults to true.
+   * **Note:** when a broadcast {@link calendar} is set, this prop defaults to
+   * true.
    *
    * @see https://daypicker.dev/docs/customization#outside-days
    */
@@ -239,9 +241,6 @@ export interface PropsBase {
   /**
    * Show the week numbers column. Weeks are numbered according to the local
    * week index.
-   *
-   * - To use ISO week numbering, use the `ISOWeek` prop.
-   * - To change how the week numbers are displayed, use the `formatters` prop.
    *
    * @see https://daypicker.dev/docs/customization#showweeknumber
    */
@@ -409,6 +408,26 @@ export interface PropsBase {
    */
   locale?: Partial<Locale> | undefined;
   /**
+   * The numeral system to use when formatting dates.
+   *
+   * - `latn`: Latin (Western Arabic)
+   * - `arab`: Arabic-Indic
+   * - `arabext`: Eastern Arabic-Indic (Persian)
+   * - `deva`: Devanagari
+   * - `beng`: Bengali
+   * - `guru`: Gurmukhi
+   * - `gujr`: Gujarati
+   * - `orya`: Oriya
+   * - `tamldec`: Tamil
+   * - `telu`: Telugu
+   * - `knda`: Kannada
+   * - `mlym`: Malayalam
+   *
+   * @defaultValue `latn` Latin (Western Arabic)
+   * @see https://daypicker.dev/docs/translation#numeral-systems
+   */
+  numerals?: Numerals | undefined;
+  /**
    * The index of the first day of the week (0 - Sunday). Overrides the locale's
    * one.
    *
@@ -538,7 +557,6 @@ export interface PropsBase {
  * @param {Date} triggerDate - The date when the event was triggered.
  * @param {Modifiers} modifiers - The modifiers associated with the event.
  * @param {React.MouseEvent | React.KeyboardEvent} e - The event object.
- * @group DayPicker
  */
 export type OnSelectHandler<T> = (
   selected: T,

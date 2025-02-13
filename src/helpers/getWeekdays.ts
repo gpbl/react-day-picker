@@ -1,5 +1,3 @@
-import { TZDate } from "@date-fns/tz";
-
 import { DateLib } from "../classes/DateLib.js";
 
 /**
@@ -11,21 +9,16 @@ export function getWeekdays(
   dateLib: DateLib,
   /** Use ISOWeek instead of locale/ */
   ISOWeek?: boolean | undefined,
-  timeZone?: string | undefined,
   /** @since 9.4.0 */
   broadcastCalendar?: boolean | undefined
 ): Date[] {
-  const date = timeZone
-    ? TZDate.tz(timeZone)
-    : dateLib.Date
-      ? new dateLib.Date()
-      : new Date();
+  const today = dateLib.today();
 
   const start = broadcastCalendar
-    ? dateLib.startOfBroadcastWeek(date, dateLib)
+    ? dateLib.startOfBroadcastWeek(today, dateLib)
     : ISOWeek
-      ? dateLib.startOfISOWeek(date)
-      : dateLib.startOfWeek(date);
+      ? dateLib.startOfISOWeek(today)
+      : dateLib.startOfWeek(today);
 
   const days: Date[] = [];
   for (let i = 0; i < 7; i++) {

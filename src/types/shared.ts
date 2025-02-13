@@ -409,3 +409,35 @@ export type MoveFocusBy =
   | "endOfWeek"
   | "month"
   | "year";
+
+/**
+ * The numbering system supported by DayPicker.
+ *
+ * - `latn`: Latin (Western Arabic)
+ * - `arab`: Arabic-Indic
+ * - `arabext`: Eastern Arabic-Indic (Persian)
+ * - `deva`: Devanagari
+ * - `beng`: Bengali
+ * - `guru`: Gurmukhi
+ * - `gujr`: Gujarati
+ * - `orya`: Oriya
+ * - `tamldec`: Tamil
+ * - `telu`: Telugu
+ * - `knda`: Kannada
+ * - `mlym`: Malayalam
+ *
+ * @see https://daypicker.dev/docs/translation#numeral-systems
+ */
+export type Numerals =
+  | "latn"
+  | "arab"
+  | "arabext"
+  | "deva"
+  | "beng"
+  | "guru"
+  | "gujr"
+  | "orya"
+  | "tamldec"
+  | "telu"
+  | "knda"
+  | "mlym";
