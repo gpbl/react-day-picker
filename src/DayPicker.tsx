@@ -268,12 +268,25 @@ export function DayPicker(props: DayPickerProps) {
   const rootRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
+    const slideLeft = dateLib.isAfter(
+      months[0].date,
+      previousMonths.current[0].date
+    );
     previousMonths.current = months;
     if (rootRef.current) {
       const weeksContainers = rootRef.current.querySelectorAll(`[data-weeks]`);
       weeksContainers.forEach((weeksContainer) => {
         const weeksContainerElement = weeksContainer as HTMLElement;
-        weeksContainerElement.style.animation = "slideInRight 0.3s forwards";
+        if (weeksContainerElement.dataset.weeks === "true") {
+          weeksContainerElement.style.animation = slideLeft
+            ? "slideInRight 0.3s forwards"
+            : "slideInLeft 0.3s forwards";
+        } else {
+          weeksContainerElement.style.opacity = "1";
+          weeksContainerElement.style.animation = slideLeft
+            ? "slideOutLeft 0.3s forwards"
+            : "slideOutRight 0.3s forwards";
+        }
       });
 
       const monthCaptions =
@@ -283,7 +296,6 @@ export function DayPicker(props: DayPickerProps) {
         if (monthCaptionElement.dataset.monthCaption === "true") {
           monthCaptionElement.style.animation = "fadeIn 0.3s forwards";
         } else {
-          monthCaptionElement.style.transform = "translateX(100%)";
           monthCaptionElement.style.animation = "fadeOut 0.3s forwards";
         }
       });
@@ -366,8 +378,7 @@ export function DayPicker(props: DayPickerProps) {
                     ...styles?.[UI.Month],
                     // overflow: "hidden",
                     position: !rootMonth ? "absolute" : undefined,
-                    pointerEvents: !rootMonth ? "none" : undefined,
-                    transform: !rootMonth ? "translateX(-100%)" : undefined
+                    pointerEvents: !rootMonth ? "none" : undefined
                   }}
                   key={displayIndex}
                   displayIndex={displayIndex}
@@ -378,12 +389,14 @@ export function DayPicker(props: DayPickerProps) {
                   <components.MonthCaption
                     data-month-caption={rootMonth ? "true" : "false"}
                     className={classNames[UI.MonthCaption]}
-                    style={styles?.[UI.MonthCaption]}
+                    style={{
+                      ...styles?.[UI.MonthCaption],
+                      opacity: !rootMonth ? 0 : undefined
+                    }}
                     calendarMonth={renderedCalendarMonth}
                     displayIndex={displayIndex}
                     onAnimationEnd={(e) => {
                       e.target.style.animation = null;
-                      e.target.style.transform = null;
                     }}
                   >
                     {captionLayout?.startsWith("dropdown") ? (
@@ -470,7 +483,10 @@ export function DayPicker(props: DayPickerProps) {
                     {!props.hideWeekdays && (
                       <components.Weekdays
                         className={classNames[UI.Weekdays]}
-                        style={styles?.[UI.Weekdays]}
+                        style={{
+                          ...styles?.[UI.Weekdays],
+                          opacity: !rootMonth ? 0 : undefined
+                        }}
                       >
                         {showWeekNumber && (
                           <components.WeekNumberHeader
@@ -504,13 +520,15 @@ export function DayPicker(props: DayPickerProps) {
                       </components.Weekdays>
                     )}
                     <components.Weeks
-                      data-weeks="true"
-                      className={classNames[UI.Weeks]}
+                      data-weeks={rootMonth ? "true" : "false"}
                       style={{
                         ...styles?.[UI.Weeks]
                       }}
                       onAnimationEnd={(e) => {
                         e.target.style.animation = null;
+                        if (!rootMonth) {
+                          e.target.style.opacity = "0";
+                        }
                       }}
                     >
                       {renderedCalendarMonth.weeks.map((week, weekIndex) => {

@@ -48,7 +48,6 @@
 .read-the-docs {
   color: #888;
 }
-
 @keyframes slideInLeft {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(0); }
@@ -58,6 +57,17 @@
   0% { transform: translateX(100%); }
   100% { transform: translateX(0); }
 }
+
+@keyframes slideOutLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes slideOutRight {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
