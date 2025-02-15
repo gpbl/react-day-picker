@@ -6,8 +6,13 @@ import React, { type HTMLAttributes } from "react";
  * @group Components
  * @see https://daypicker.dev/guides/custom-components
  */
-export function Root(props: HTMLAttributes<HTMLDivElement>) {
-  return <div {...props} />;
-}
+export const Root = React.forwardRef<
+  HTMLDivElement,
+  HTMLAttributes<HTMLDivElement>
+>((props, ref) => {
+  return <div {...props} ref={ref} />;
+});
+
+Root.displayName = "Root";
 
 export type RootProps = Parameters<typeof Root>[0];
