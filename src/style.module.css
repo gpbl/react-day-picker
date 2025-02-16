@@ -135,7 +135,9 @@
 }
 
 .button_next:disabled,
-.button_previous:disabled {
+.button_next[aria-disabled="true"],
+.button_previous:disabled,
+.button_previous[aria-disabled="true"] {
   cursor: revert;
 
   opacity: var(--rdp-nav_button-disabled-opacity);
