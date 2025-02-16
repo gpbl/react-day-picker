@@ -265,28 +265,38 @@ export function DayPicker(props: DayPickerProps) {
 
   const rootRef = useRef<HTMLDivElement>(null);
   const rootElementSnapshot = useRef<HTMLElement>(null);
-  const previousMonths = useRef(months);
-
+  const previousMonthsRef = useRef(months);
   useLayoutEffect(() => {
-    if (months.length === 0) {
+    // TODO invert for RTL calendars
+    // disable when using keyboard arrows
+    // animate multiple months
+    // test up and down animations
+    // TODO use animation class names from props
+    const previousMonths = previousMonthsRef.current;
+
+    previousMonthsRef.current = months;
+    // handle this better, check previousMonths.current also
+    if (months.length === 0 || previousMonths.length === 0) {
       return;
     }
 
     const isSameMonth = dateLib.isSameMonth(
       months[0].date,
-      previousMonths.current[0].date
+      previousMonths[0].date
     );
-    const slideLeft = dateLib.isAfter(
+
+    const isAfterPreviousMonth = dateLib.isAfter(
       months[0].date,
-      previousMonths.current[0].date
+      previousMonths[0].date
     );
-    previousMonths.current = months;
+
     if (rootRef.current) {
       const previousMonthElement =
         rootElementSnapshot.current?.querySelector(`[data-month]`);
       rootElementSnapshot.current = rootRef.current.cloneNode(
         true
       ) as HTMLElement;
+
       if (isSameMonth) {
         return;
       }
@@ -303,14 +313,16 @@ export function DayPicker(props: DayPickerProps) {
         const monthCaptionElement =
           rootRef.current.querySelector(`[data-month-caption]`);
         if (monthCaptionElement && monthCaptionElement instanceof HTMLElement) {
-          monthCaptionElement.style.animation = "fadeIn 0.3s forwards";
+          monthCaptionElement.classList.add("rdp-animation_fade-in");
         }
 
         const weeksElement = rootRef.current.querySelector(`[data-weeks]`);
         if (weeksElement && weeksElement instanceof HTMLElement) {
-          weeksElement.style.animation = slideLeft
-            ? "slideInRight 0.3s forwards"
-            : "slideInLeft 0.3s forwards";
+          weeksElement.classList.add(
+            isAfterPreviousMonth
+              ? "rdp-animation_enter-month-after"
+              : "rdp-animation_enter-month-before"
+          );
         }
         // animate new displayed month end
         const cleanUp = () => {
@@ -318,10 +330,14 @@ export function DayPicker(props: DayPickerProps) {
             monthCaptionElement &&
             monthCaptionElement instanceof HTMLElement
           ) {
-            monthCaptionElement.style.animation = "";
+            monthCaptionElement.classList.remove("rdp-animation_fade-in");
           }
           if (weeksElement && weeksElement instanceof HTMLElement) {
-            weeksElement.style.animation = "";
+            weeksElement.classList.remove(
+              isAfterPreviousMonth
+                ? "rdp-animation_enter-month-after"
+                : "rdp-animation_enter-month-before"
+            );
           }
           currentMonthElement.style.overflow = "";
           if (currentMonthElement.contains(previousMonthElement)) {
@@ -350,9 +366,11 @@ export function DayPicker(props: DayPickerProps) {
           previousWeeksElement &&
           previousWeeksElement instanceof HTMLElement
         ) {
-          previousWeeksElement.style.animation = slideLeft
-            ? "slideOutLeft 0.3s forwards"
-            : "slideOutRight 0.3s forwards";
+          previousWeeksElement.classList.add(
+            isAfterPreviousMonth
+              ? "rdp-animation_leave-month-before"
+              : "rdp-animation_leave-month-after"
+          );
         }
 
         const previousMonthCaptionElement =
@@ -361,7 +379,7 @@ export function DayPicker(props: DayPickerProps) {
           previousMonthCaptionElement &&
           previousMonthCaptionElement instanceof HTMLElement
         ) {
-          previousMonthCaptionElement.style.animation = "fadeOut 0.3s forwards";
+          previousMonthCaptionElement.classList.add("rdp-animation_fade-out");
           previousMonthCaptionElement.addEventListener("animationend", cleanUp);
         }
 
@@ -373,7 +391,8 @@ export function DayPicker(props: DayPickerProps) {
         return cleanUp;
       }
     }
-  }, [months[0]?.date.getMonth()]);
+    // TODO improve hook deps, this should use dateLib to check if the month has changed
+  }, [months[0].date.getMonth()]);
 
   const contextValue: DayPickerContext<DayPickerProps> = {
     dayPickerProps: props,

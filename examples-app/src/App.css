@@ -48,27 +48,33 @@
 .read-the-docs {
   color: #888;
 }
-@keyframes slideInLeft {
+
+.rdp-root {
+  --rdp-animation_duration: 0.3s;
+  --rdp-animation_timing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes rdp-animation_slide-in-left-keyframes {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(0); }
 }
 
-@keyframes slideInRight {
+@keyframes rdp-animation_slide-in-right-keyframes {
   0% { transform: translateX(100%); }
   100% { transform: translateX(0); }
 }
 
-@keyframes slideOutLeft {
+@keyframes rdp-animation_slide-out-left-keyframes {
   0% { transform: translateX(0); }
   100% { transform: translateX(-100%); }
 }
 
-@keyframes slideOutRight {
+@keyframes rdp-animation_slide-out-right-keyframes {
   0% { transform: translateX(0); }
   100% { transform: translateX(100%); }
 }
 
-@keyframes fadeIn {
+@keyframes rdp-animation_fade-in-keyframes {
   from {
     opacity: 0;
   }
@@ -77,11 +83,51 @@
   }
 }
 
-@keyframes fadeOut {
+@keyframes rdp-animation_fade-out-keyframes {
   from {
     opacity: 1;
   }
   to {
     opacity: 0;
   }
+}
+
+.rdp-animation_fade-in {
+  animation: rdp-animation_fade-in-keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
+}
+
+.rdp-animation_fade-out {
+  animation: rdp-animation_fade-out-keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
+}
+
+.rdp-animation_enter-month-after {
+  animation: rdp-animation_slide-in-right-keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
+}
+
+.rdp-animation_leave-month-before {
+  animation: rdp-animation_slide-out-left-keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
+}
+
+.rdp-animation_enter-month-before {
+  animation: rdp-animation_slide-in-left-keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
+}
+
+.rdp-animation_leave-month-after {
+  animation: rdp-animation_slide-out-right-keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
+}
+
+[dir="rtl"] .rdp-animation_enter-month-after {
+  animation: rdp-animation_slide-in-left-keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
+}
+
+[dir="rtl"] .rdp-animation_leave-month-before {
+  animation: rdp-animation_slide-out-right-keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
+}
+
+[dir="rtl"] .rdp-animation_enter-month-before {
+  animation: rdp-animation_slide-in-right-keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
+}
+
+[dir="rtl"] .rdp-animation_leave-month-after {
+  animation: rdp-animation_slide-out-left-keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
