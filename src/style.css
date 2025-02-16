@@ -148,10 +148,6 @@
 
 .rdp-root[dir="rtl"] .rdp-nav .rdp-chevron {
   transform: rotate(180deg);
-}
-
-.rdp-root[dir="rtl"] .rdp-nav .rdp-chevron {
-  transform: rotate(180deg);
   transform-origin: 50%;
 }
 

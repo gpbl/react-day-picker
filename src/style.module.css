@@ -148,10 +148,6 @@
 
 .root[dir="rtl"] .nav .chevron {
   transform: rotate(180deg);
-}
-
-.root[dir="rtl"] .nav .chevron {
-  transform: rotate(180deg);
   transform-origin: 50%;
 }
 
