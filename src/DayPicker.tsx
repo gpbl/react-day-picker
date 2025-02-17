@@ -1,15 +1,8 @@
-import React, {
-  useCallback,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState
-} from "react";
+import React, { useCallback, useLayoutEffect, useMemo, useRef } from "react";
 import type { MouseEvent, FocusEvent, KeyboardEvent, ChangeEvent } from "react";
 
 import { UI, DayFlag, SelectionState } from "./UI.js";
 import type { CalendarDay } from "./classes/CalendarDay.js";
-import { CalendarMonth } from "./classes/CalendarMonth.js";
 import { DateLib, defaultLocale } from "./classes/DateLib.js";
 import { getClassNamesForModifiers } from "./helpers/getClassNamesForModifiers.js";
 import { getComponents } from "./helpers/getComponents.js";
