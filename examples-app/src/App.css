@@ -100,34 +100,34 @@
   animation: rdp-animation_fade-out-keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
-.rdp-animation_enter-month-after {
+.rdp-animation_new-month_is-after {
   animation: rdp-animation_slide-in-right-keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
-.rdp-animation_leave-month-before {
+.rdp-animation_old-month_is-before {
   animation: rdp-animation_slide-out-left-keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
-.rdp-animation_enter-month-before {
+.rdp-animation_new-month_is-before {
   animation: rdp-animation_slide-in-left-keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
-.rdp-animation_leave-month-after {
+.rdp-animation_old-month_is-after {
   animation: rdp-animation_slide-out-right-keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
-[dir="rtl"] .rdp-animation_enter-month-after {
+[dir="rtl"] .rdp-animation_new-month_is-after {
   animation: rdp-animation_slide-in-left-keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
-[dir="rtl"] .rdp-animation_leave-month-before {
+[dir="rtl"] .rdp-animation_old-month_is-before {
   animation: rdp-animation_slide-out-right-keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
-[dir="rtl"] .rdp-animation_enter-month-before {
+[dir="rtl"] .rdp-animation_new-month_is-before {
   animation: rdp-animation_slide-in-right-keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
-[dir="rtl"] .rdp-animation_leave-month-after {
+[dir="rtl"] .rdp-animation_old-month_is-after {
   animation: rdp-animation_slide-out-left-keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }

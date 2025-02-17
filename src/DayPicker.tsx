@@ -320,8 +320,8 @@ export function DayPicker(props: DayPickerProps) {
         if (weeksElement && weeksElement instanceof HTMLElement) {
           weeksElement.classList.add(
             isAfterPreviousMonth
-              ? "rdp-animation_enter-month-after"
-              : "rdp-animation_enter-month-before"
+              ? "rdp-animation_new-month_is-after"
+              : "rdp-animation_new-month_is-before"
           );
         }
         // animate new displayed month end
@@ -335,8 +335,8 @@ export function DayPicker(props: DayPickerProps) {
           if (weeksElement && weeksElement instanceof HTMLElement) {
             weeksElement.classList.remove(
               isAfterPreviousMonth
-                ? "rdp-animation_enter-month-after"
-                : "rdp-animation_enter-month-before"
+                ? "rdp-animation_new-month_is-after"
+                : "rdp-animation_new-month_is-before"
             );
           }
           currentMonthElement.style.overflow = "";
@@ -368,8 +368,8 @@ export function DayPicker(props: DayPickerProps) {
         ) {
           previousWeeksElement.classList.add(
             isAfterPreviousMonth
-              ? "rdp-animation_leave-month-before"
-              : "rdp-animation_leave-month-after"
+              ? "rdp-animation_old-month_is-before"
+              : "rdp-animation_old-month_is-after"
           );
         }
 
