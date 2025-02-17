@@ -263,18 +263,25 @@ export function DayPicker(props: DayPickerProps) {
 
   const dataAttributes = getDataAttributes(props);
 
-  const rootRef = useRef<HTMLDivElement>(null);
-  const rootElementSnapshot = useRef<HTMLElement>(null);
+  const rootElementRef = useRef<HTMLDivElement>(null);
+  const previousRootElementSnapshotRef = useRef<HTMLElement>(null);
   const previousMonthsRef = useRef(months);
   useLayoutEffect(() => {
     // ignore animation when navigating with keyboard arrows
-    // animate multiple months
     // test up and down animations
     // TODO use animation class names from props
+
+    // get previous months before updating the previous months ref
     const previousMonths = previousMonthsRef.current;
+    // update previous months ref for next effect trigger
     previousMonthsRef.current = months;
 
-    if (months.length === 0 || previousMonths.length === 0) {
+    // validation required for the animation to work as expected
+    if (
+      months.length === 0 ||
+      previousMonths.length === 0 ||
+      months.length !== previousMonths.length
+    ) {
       return;
     }
 
@@ -288,24 +295,50 @@ export function DayPicker(props: DayPickerProps) {
       previousMonths[0].date
     );
 
-    if (rootRef.current) {
-      const previousMonthElement =
-        rootElementSnapshot.current?.querySelector(`[data-month]`);
-      rootElementSnapshot.current = rootRef.current.cloneNode(
-        true
-      ) as HTMLElement;
+    if (!rootElementRef.current) {
+      return;
+    }
 
-      if (isSameMonth) {
-        return;
-      }
+    // get previous month elements before updating the snapshot ref
+    const previousMonthElements = [
+      ...(previousRootElementSnapshotRef.current?.querySelectorAll(
+        `[data-month-container]`
+      ) ?? [])
+    ];
 
-      const currentMonthElement = rootRef.current.querySelector(`[data-month]`);
-      if (
-        currentMonthElement &&
-        currentMonthElement instanceof HTMLElement &&
-        previousMonthElement &&
-        previousMonthElement instanceof HTMLElement
-      ) {
+    // update snapshot for next effect trigger
+    const rootElementSnapshot = rootElementRef.current.cloneNode(true);
+    if (rootElementSnapshot instanceof HTMLElement) {
+      previousRootElementSnapshotRef.current = rootElementSnapshot;
+    } else {
+      previousRootElementSnapshotRef.current = null;
+    }
+
+    // if the displayed months are the same, skip the animation, only after updating all refs
+    if (isSameMonth) {
+      return;
+    }
+
+    const currentMonthElements = [
+      ...(rootElementRef.current.querySelectorAll(`[data-month-container]`) ??
+        [])
+    ];
+
+    if (
+      currentMonthElements &&
+      currentMonthElements.every((element) => element instanceof HTMLElement) &&
+      previousMonthElements &&
+      previousMonthElements.every((element) => element instanceof HTMLElement)
+    ) {
+      const cleanUpFunctions: (() => void)[] = [];
+
+      currentMonthElements.forEach((currentMonthElement, index) => {
+        const previousMonthElement = previousMonthElements[index];
+
+        if (!previousMonthElement) {
+          return;
+        }
+
         // animate new displayed month
         const monthCaptionAnimationClass = isAfterPreviousMonth
           ? "rdp-animation_new-month-caption_is-after"
@@ -316,13 +349,16 @@ export function DayPicker(props: DayPickerProps) {
           : "rdp-animation_new-month_is-before";
 
         currentMonthElement.style.overflow = "hidden";
-        const monthCaptionElement =
-          rootRef.current.querySelector(`[data-month-caption]`);
+        const monthCaptionElement = currentMonthElement.querySelector(
+          `[data-month-caption-container]`
+        );
         if (monthCaptionElement && monthCaptionElement instanceof HTMLElement) {
           monthCaptionElement.classList.add(monthCaptionAnimationClass);
         }
 
-        const weeksElement = rootRef.current.querySelector(`[data-weeks]`);
+        const weeksElement = currentMonthElement.querySelector(
+          `[data-weeks-container]`
+        );
         if (weeksElement && weeksElement instanceof HTMLElement) {
           weeksElement.classList.add(monthAnimationClass);
         }
@@ -342,6 +378,7 @@ export function DayPicker(props: DayPickerProps) {
             currentMonthElement.removeChild(previousMonthElement);
           }
         };
+        cleanUpFunctions.push(cleanUp);
 
         // animate old displayed month
         previousMonthElement.style.pointerEvents = "none";
@@ -349,8 +386,9 @@ export function DayPicker(props: DayPickerProps) {
         previousMonthElement.style.overflow = "hidden";
         previousMonthElement.setAttribute("aria-hidden", "true");
 
-        const previousWeekdaysElement =
-          previousMonthElement.querySelector(`[data-weekdays]`);
+        const previousWeekdaysElement = previousMonthElement.querySelector(
+          `[data-weekdays-container]`
+        );
         if (
           previousWeekdaysElement &&
           previousWeekdaysElement instanceof HTMLElement
@@ -358,8 +396,9 @@ export function DayPicker(props: DayPickerProps) {
           previousWeekdaysElement.style.opacity = "0";
         }
 
-        const previousWeeksElement =
-          previousMonthElement.querySelector(`[data-weeks]`);
+        const previousWeeksElement = previousMonthElement.querySelector(
+          `[data-weeks-container]`
+        );
         if (
           previousWeeksElement &&
           previousWeeksElement instanceof HTMLElement
@@ -371,8 +410,9 @@ export function DayPicker(props: DayPickerProps) {
           );
         }
 
-        const previousMonthCaptionElement =
-          previousMonthElement.querySelector(`[data-month-caption]`);
+        const previousMonthCaptionElement = previousMonthElement.querySelector(
+          `[data-month-caption-container]`
+        );
         if (
           previousMonthCaptionElement &&
           previousMonthCaptionElement instanceof HTMLElement
@@ -389,10 +429,13 @@ export function DayPicker(props: DayPickerProps) {
           previousMonthElement,
           currentMonthElement.firstChild
         );
+      });
 
-        return cleanUp;
-      }
+      return () => {
+        cleanUpFunctions.forEach((cleanUp) => cleanUp());
+      };
     }
+
     // TODO improve hook deps, this should use dateLib to check if the month has changed
   }, [months[0].date.getMonth()]);
 
@@ -416,7 +459,7 @@ export function DayPicker(props: DayPickerProps) {
   return (
     <dayPickerContext.Provider value={contextValue}>
       <components.Root
-        ref={rootRef}
+        ref={rootElementRef}
         className={className}
         style={style}
         dir={props.dir}
@@ -460,7 +503,7 @@ export function DayPicker(props: DayPickerProps) {
             );
             return (
               <components.Month
-                data-month
+                data-month-container
                 className={classNames[UI.Month]}
                 style={styles?.[UI.Month]}
                 key={displayIndex}
@@ -468,7 +511,7 @@ export function DayPicker(props: DayPickerProps) {
                 calendarMonth={calendarMonth}
               >
                 <components.MonthCaption
-                  data-month-caption
+                  data-month-caption-container
                   className={classNames[UI.MonthCaption]}
                   style={styles?.[UI.MonthCaption]}
                   calendarMonth={calendarMonth}
@@ -542,7 +585,7 @@ export function DayPicker(props: DayPickerProps) {
                 >
                   {!props.hideWeekdays && (
                     <components.Weekdays
-                      data-weekdays
+                      data-weekdays-container
                       className={classNames[UI.Weekdays]}
                       style={styles?.[UI.Weekdays]}
                     >
@@ -573,7 +616,10 @@ export function DayPicker(props: DayPickerProps) {
                       ))}
                     </components.Weekdays>
                   )}
-                  <components.Weeks data-weeks style={styles?.[UI.Weeks]}>
+                  <components.Weeks
+                    data-weeks-container
+                    style={styles?.[UI.Weeks]}
+                  >
                     {calendarMonth.weeks.map((week, weekIndex) => {
                       return (
                         <components.Week
