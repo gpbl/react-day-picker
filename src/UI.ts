@@ -100,6 +100,50 @@ export enum SelectionState {
   selected = "selected"
 }
 
+/** The animation classes used by DayPicker for month transitions. */
+export enum AnimationClass {
+  /**
+   * Applied to the new mounted displayed month when it is after the old
+   * displayed month.
+   */
+  animation_new_month_is_after = "animation_new_month_is_after",
+  /**
+   * Applied to the old mounted displayed month when it is before the new
+   * displayed month.
+   */
+  animation_old_month_is_before = "animation_old_month_is_before",
+  /**
+   * Applied to the new mounted displayed month when it is before the old
+   * displayed month.
+   */
+  animation_new_month_is_before = "animation_new_month_is_before",
+  /**
+   * Applied to the old mounted displayed month when it is after the new
+   * displayed month.
+   */
+  animation_old_month_is_after = "animation_old_month_is_after",
+  /**
+   * Applied to the new mounted displayed month caption when it is after the old
+   * displayed month.
+   */
+  animation_new_month_caption_is_after = "animation_new_month_caption_is_after",
+  /**
+   * Applied to the old mounted displayed month caption when it is before the
+   * new displayed month.
+   */
+  animation_old_month_caption_is_before = "animation_old_month_caption_is_before",
+  /**
+   * Applied to the new mounted displayed month caption when it is before the
+   * old displayed month.
+   */
+  animation_new_month_caption_is_before = "animation_new_month_caption_is_before",
+  /**
+   * Applied to the old mounted displayed month caption when it is after the new
+   * displayed month.
+   */
+  animation_old_month_caption_is_after = "animation_old_month_caption_is_after"
+}
+
 /**
  * Deprecated UI elements and flags.
  *
