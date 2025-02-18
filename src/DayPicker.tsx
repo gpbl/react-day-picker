@@ -259,43 +259,23 @@ export function DayPicker(props: DayPickerProps) {
   const rootElementRef = useRef<HTMLDivElement>(null);
   const previousRootElementSnapshotRef = useRef<HTMLElement>(null);
   const previousMonthsRef = useRef(months);
-  const monthKey =
-    months[0] && formatCaption(months[0].date, dateLib.options, dateLib);
+
   useLayoutEffect(() => {
     // get previous months before updating the previous months ref
     const previousMonths = previousMonthsRef.current;
     // update previous months ref for next effect trigger
     previousMonthsRef.current = months;
 
-    // validation required for the animation to work as expected
     if (
-      months.length === 0 ||
-      previousMonths.length === 0 ||
-      months.length !== previousMonths.length
+      !rootElementRef.current ||
+      // safety check because the ref can be set to anything by consumers
+      !(rootElementRef.current instanceof HTMLElement)
     ) {
       return;
     }
 
-    const isSameMonth = dateLib.isSameMonth(
-      months[0].date,
-      previousMonths[0].date
-    );
-
-    const isAfterPreviousMonth = dateLib.isAfter(
-      months[0].date,
-      previousMonths[0].date
-    );
-
-    if (!rootElementRef.current) {
-      return;
-    }
-
-    // get previous month elements before updating the snapshot ref
-    const previousMonthElements = [
-      ...(previousRootElementSnapshotRef.current?.querySelectorAll(
-        `[data-month-container]`
-      ) ?? [])
-    ];
+    // get previous root element snapshot before updating the snapshot ref
+    const previousRootElementSnapshot = previousRootElementSnapshotRef.current;
 
     // update snapshot for next effect trigger
     const rootElementSnapshot = rootElementRef.current.cloneNode(true);
@@ -305,11 +285,32 @@ export function DayPicker(props: DayPickerProps) {
       previousRootElementSnapshotRef.current = null;
     }
 
-    // if the displayed months are the same, skip the animation, only after updating all refs
-    // or skip animation if a day is focused because it can cause issues to the animation and is better for a11y
-    if (isSameMonth || focused) {
+    if (
+      !props.animate ||
+      // validation required for the animation to work as expected
+      months.length === 0 ||
+      previousMonths.length === 0 ||
+      months.length !== previousMonths.length ||
+      // skip animation if a day is focused because it can cause issues to the animation and is better for a11y
+      focused
+    ) {
       return;
     }
+
+    const isSameMonth = dateLib.isSameMonth(
+      months[0].date,
+      previousMonths[0].date
+    );
+
+    if (isSameMonth) {
+      return;
+    }
+
+    const previousMonthElements = [
+      ...(previousRootElementSnapshot?.querySelectorAll(
+        `[data-month-container]`
+      ) ?? [])
+    ];
 
     const currentMonthElements = [
       ...(rootElementRef.current.querySelectorAll(`[data-month-container]`) ??
@@ -323,6 +324,11 @@ export function DayPicker(props: DayPickerProps) {
       previousMonthElements.every((element) => element instanceof HTMLElement)
     ) {
       const cleanUpFunctions: (() => void)[] = [];
+
+      const isAfterPreviousMonth = dateLib.isAfter(
+        months[0].date,
+        previousMonths[0].date
+      );
 
       currentMonthElements.forEach((currentMonthElement, index) => {
         const previousMonthElement = previousMonthElements[index];
@@ -427,10 +433,7 @@ export function DayPicker(props: DayPickerProps) {
         cleanUpFunctions.forEach((cleanUp) => cleanUp());
       };
     }
-    // animation is only triggered when the month changes,
-    // if other deps change, they should not trigger animation
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [monthKey]);
+  });
 
   const contextValue: DayPickerContext<DayPickerProps> = {
     dayPickerProps: props,
