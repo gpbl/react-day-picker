@@ -345,6 +345,7 @@ export function DayPicker(props: DayPickerProps) {
           ? classNames[AnimationClass.animation_new_month_is_after]
           : classNames[AnimationClass.animation_new_month_is_before];
 
+        currentMonthElement.style.position = "relative";
         currentMonthElement.style.overflow = "hidden";
         const monthCaptionElement = currentMonthElement.querySelector(
           `[data-month-caption-container]`
@@ -370,6 +371,7 @@ export function DayPicker(props: DayPickerProps) {
           if (weeksElement && weeksElement instanceof HTMLElement) {
             weeksElement.classList.remove(monthAnimationClass);
           }
+          currentMonthElement.style.position = "";
           currentMonthElement.style.overflow = "";
           if (currentMonthElement.contains(previousMonthElement)) {
             currentMonthElement.removeChild(previousMonthElement);
