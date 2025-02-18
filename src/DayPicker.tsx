@@ -260,9 +260,6 @@ export function DayPicker(props: DayPickerProps) {
   const previousRootElementSnapshotRef = useRef<HTMLElement>(null);
   const previousMonthsRef = useRef(months);
   useLayoutEffect(() => {
-    // test up and down animations
-    // TODO use animation class names from props
-
     // get previous months before updating the previous months ref
     const previousMonths = previousMonthsRef.current;
     // update previous months ref for next effect trigger
