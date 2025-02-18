@@ -259,7 +259,6 @@ export function DayPicker(props: DayPickerProps) {
   const rootElementRef = useRef<HTMLDivElement>(null);
   const previousRootElementSnapshotRef = useRef<HTMLElement>(null);
   const previousMonthsRef = useRef(months);
-
   useLayoutEffect(() => {
     // get previous months before updating the previous months ref
     const previousMonths = previousMonthsRef.current;
@@ -267,6 +266,7 @@ export function DayPicker(props: DayPickerProps) {
     previousMonthsRef.current = months;
 
     if (
+      !props.animate ||
       !rootElementRef.current ||
       // safety check because the ref can be set to anything by consumers
       !(rootElementRef.current instanceof HTMLElement)
@@ -285,9 +285,8 @@ export function DayPicker(props: DayPickerProps) {
       previousRootElementSnapshotRef.current = null;
     }
 
+    // validation required for the animation to work as expected
     if (
-      !props.animate ||
-      // validation required for the animation to work as expected
       months.length === 0 ||
       previousMonths.length === 0 ||
       months.length !== previousMonths.length ||
@@ -455,7 +454,7 @@ export function DayPicker(props: DayPickerProps) {
   return (
     <dayPickerContext.Provider value={contextValue}>
       <components.Root
-        ref={rootElementRef}
+        ref={props.animate ? rootElementRef : undefined}
         className={className}
         style={style}
         dir={props.dir}
@@ -499,7 +498,7 @@ export function DayPicker(props: DayPickerProps) {
             );
             return (
               <components.Month
-                data-month-container
+                data-month-container={props.animate ? "true" : undefined}
                 className={classNames[UI.Month]}
                 style={styles?.[UI.Month]}
                 key={displayIndex}
@@ -581,7 +580,9 @@ export function DayPicker(props: DayPickerProps) {
                 >
                   {!props.hideWeekdays && (
                     <components.Weekdays
-                      data-weekdays-container
+                      data-weekdays-container={
+                        props.animate ? "true" : undefined
+                      }
                       className={classNames[UI.Weekdays]}
                       style={styles?.[UI.Weekdays]}
                     >
@@ -613,7 +614,7 @@ export function DayPicker(props: DayPickerProps) {
                     </components.Weekdays>
                   )}
                   <components.Weeks
-                    data-weeks-container
+                    data-weeks-container={props.animate ? "true" : undefined}
                     style={styles?.[UI.Weeks]}
                   >
                     {calendarMonth.weeks.map((week, weekIndex) => {
