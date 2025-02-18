@@ -259,6 +259,8 @@ export function DayPicker(props: DayPickerProps) {
   const rootElementRef = useRef<HTMLDivElement>(null);
   const previousRootElementSnapshotRef = useRef<HTMLElement>(null);
   const previousMonthsRef = useRef(months);
+  const monthKey =
+    months[0] && formatCaption(months[0].date, dateLib.options, dateLib);
   useLayoutEffect(() => {
     // get previous months before updating the previous months ref
     const previousMonths = previousMonthsRef.current;
@@ -425,9 +427,10 @@ export function DayPicker(props: DayPickerProps) {
         cleanUpFunctions.forEach((cleanUp) => cleanUp());
       };
     }
-
-    // TODO improve hook deps, this should use dateLib to check if the month has changed
-  }, [months[0].date.getMonth()]);
+    // animation is only triggered when the month changes,
+    // if other deps change, they should not trigger animation
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [monthKey]);
 
   const contextValue: DayPickerContext<DayPickerProps> = {
     dayPickerProps: props,
