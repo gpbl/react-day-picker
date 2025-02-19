@@ -100,8 +100,8 @@ export enum SelectionState {
   selected = "selected"
 }
 
-/** The animation classes used by DayPicker for month transitions. */
-export enum AnimationClass {
+/** CSS classes used for animating months and captions. */
+export enum Animation {
   /**
    * Applied to the new mounted displayed month when it is after the old
    * displayed month.

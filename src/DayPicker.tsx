@@ -1,7 +1,7 @@
 import React, { useCallback, useLayoutEffect, useMemo, useRef } from "react";
 import type { MouseEvent, FocusEvent, KeyboardEvent, ChangeEvent } from "react";
 
-import { UI, DayFlag, SelectionState, AnimationClass } from "./UI.js";
+import { UI, DayFlag, SelectionState, Animation } from "./UI.js";
 import type { CalendarDay } from "./classes/CalendarDay.js";
 import { DateLib, defaultLocale } from "./classes/DateLib.js";
 import { getClassNamesForModifiers } from "./helpers/getClassNamesForModifiers.js";
@@ -357,12 +357,12 @@ export function DayPicker(props: DayPickerProps) {
 
         // animate new displayed month
         const monthCaptionAnimationClass = isAfterPreviousMonth
-          ? classNames[AnimationClass.animation_new_month_caption_is_after]
-          : classNames[AnimationClass.animation_new_month_caption_is_before];
+          ? classNames[Animation.animation_new_month_caption_is_after]
+          : classNames[Animation.animation_new_month_caption_is_before];
 
         const monthAnimationClass = isAfterPreviousMonth
-          ? classNames[AnimationClass.animation_new_month_is_after]
-          : classNames[AnimationClass.animation_new_month_is_before];
+          ? classNames[Animation.animation_new_month_is_after]
+          : classNames[Animation.animation_new_month_is_before];
 
         currentMonthElement.style.position = "relative";
         currentMonthElement.style.overflow = "hidden";
@@ -426,8 +426,8 @@ export function DayPicker(props: DayPickerProps) {
         ) {
           previousMonthCaptionElement.classList.add(
             isAfterPreviousMonth
-              ? classNames[AnimationClass.animation_old_month_caption_is_before]
-              : classNames[AnimationClass.animation_old_month_caption_is_after]
+              ? classNames[Animation.animation_old_month_caption_is_before]
+              : classNames[Animation.animation_old_month_caption_is_after]
           );
           previousMonthCaptionElement.addEventListener("animationend", cleanUp);
         }
@@ -441,8 +441,8 @@ export function DayPicker(props: DayPickerProps) {
         ) {
           previousWeeksElement.classList.add(
             isAfterPreviousMonth
-              ? classNames[AnimationClass.animation_old_month_is_before]
-              : classNames[AnimationClass.animation_old_month_is_after]
+              ? classNames[Animation.animation_old_month_is_before]
+              : classNames[Animation.animation_old_month_is_after]
           );
         }
 
