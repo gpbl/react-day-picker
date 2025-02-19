@@ -357,12 +357,12 @@ export function DayPicker(props: DayPickerProps) {
 
         // animate new displayed month
         const monthCaptionAnimationClass = isAfterPreviousMonth
-          ? classNames[Animation.animation_new_month_caption_is_after]
-          : classNames[Animation.animation_new_month_caption_is_before];
+          ? classNames[Animation.animation_enter_month_caption_is_after]
+          : classNames[Animation.animation_enter_month_caption_is_before];
 
         const monthAnimationClass = isAfterPreviousMonth
-          ? classNames[Animation.animation_new_month_is_after]
-          : classNames[Animation.animation_new_month_is_before];
+          ? classNames[Animation.animation_enter_month_is_after]
+          : classNames[Animation.animation_enter_month_is_before];
 
         currentMonthElement.style.position = "relative";
         currentMonthElement.style.overflow = "hidden";
@@ -426,8 +426,8 @@ export function DayPicker(props: DayPickerProps) {
         ) {
           previousMonthCaptionElement.classList.add(
             isAfterPreviousMonth
-              ? classNames[Animation.animation_old_month_caption_is_before]
-              : classNames[Animation.animation_old_month_caption_is_after]
+              ? classNames[Animation.animation_exit_month_caption_is_before]
+              : classNames[Animation.animation_exit_month_caption_is_after]
           );
           previousMonthCaptionElement.addEventListener("animationend", cleanUp);
         }
@@ -441,8 +441,8 @@ export function DayPicker(props: DayPickerProps) {
         ) {
           previousWeeksElement.classList.add(
             isAfterPreviousMonth
-              ? classNames[Animation.animation_old_month_is_before]
-              : classNames[Animation.animation_old_month_is_after]
+              ? classNames[Animation.animation_exit_month_is_before]
+              : classNames[Animation.animation_exit_month_is_after]
           );
         }
 

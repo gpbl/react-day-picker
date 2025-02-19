@@ -102,46 +102,22 @@ export enum SelectionState {
 
 /** CSS classes used for animating months and captions. */
 export enum Animation {
-  /**
-   * Applied to the new mounted displayed month when it is after the old
-   * displayed month.
-   */
-  animation_new_month_is_after = "animation_new_month_is_after",
-  /**
-   * Applied to the old mounted displayed month when it is before the new
-   * displayed month.
-   */
-  animation_old_month_is_before = "animation_old_month_is_before",
-  /**
-   * Applied to the new mounted displayed month when it is before the old
-   * displayed month.
-   */
-  animation_new_month_is_before = "animation_new_month_is_before",
-  /**
-   * Applied to the old mounted displayed month when it is after the new
-   * displayed month.
-   */
-  animation_old_month_is_after = "animation_old_month_is_after",
-  /**
-   * Applied to the new mounted displayed month caption when it is after the old
-   * displayed month.
-   */
-  animation_new_month_caption_is_after = "animation_new_month_caption_is_after",
-  /**
-   * Applied to the old mounted displayed month caption when it is before the
-   * new displayed month.
-   */
-  animation_old_month_caption_is_before = "animation_old_month_caption_is_before",
-  /**
-   * Applied to the new mounted displayed month caption when it is before the
-   * old displayed month.
-   */
-  animation_new_month_caption_is_before = "animation_new_month_caption_is_before",
-  /**
-   * Applied to the old mounted displayed month caption when it is after the new
-   * displayed month.
-   */
-  animation_old_month_caption_is_after = "animation_old_month_caption_is_after"
+  /** Applied to the entering month when it is after the exiting month. */
+  animation_enter_month_is_after = "animation_enter_month_is_after",
+  /** Applied to the exiting month when it is before the entering month. */
+  animation_exit_month_is_before = "animation_exit_month_is_before",
+  /** Applied to the entering month when it is before the exiting month. */
+  animation_enter_month_is_before = "animation_enter_month_is_before",
+  /** Applied to the exiting month when it is after the entering month. */
+  animation_exit_month_is_after = "animation_exit_month_is_after",
+  /** Applied to the entering month caption when it is after the exiting month. */
+  animation_enter_month_caption_is_after = "animation_enter_month_caption_is_after",
+  /** Applied to the exiting month caption when it is before the entering month. */
+  animation_exit_month_caption_is_before = "animation_exit_month_caption_is_before",
+  /** Applied to the entering month caption when it is before the exiting month. */
+  animation_enter_month_caption_is_before = "animation_enter_month_caption_is_before",
+  /** Applied to the exiting month caption when it is after the entering month. */
+  animation_exit_month_caption_is_after = "animation_exit_month_caption_is_after"
 }
 
 /**
