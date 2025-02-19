@@ -256,8 +256,8 @@ export function DayPicker(props: DayPickerProps) {
 
   const dataAttributes = getDataAttributes(props);
 
-  const rootElementRef = useRef<HTMLDivElement>(null);
-  const previousRootElementSnapshotRef = useRef<HTMLElement>(null);
+  const rootElRef = useRef<HTMLDivElement>(null);
+  const previousRootElSnapshotRef = useRef<HTMLElement>(null);
   const previousMonthsRef = useRef(months);
   const animatingRef = useRef(false);
   useLayoutEffect(() => {
@@ -268,38 +268,38 @@ export function DayPicker(props: DayPickerProps) {
 
     if (
       !props.animate ||
-      !rootElementRef.current ||
+      !rootElRef.current ||
       // safety check because the ref can be set to anything by consumers
-      !(rootElementRef.current instanceof HTMLElement)
+      !(rootElRef.current instanceof HTMLElement)
     ) {
       return;
     }
 
     // get previous root element snapshot before updating the snapshot ref
-    const previousRootElementSnapshot = previousRootElementSnapshotRef.current;
+    const previousRootElSnapshot = previousRootElSnapshotRef.current;
 
     // update snapshot for next effect trigger
-    const rootElementSnapshot = rootElementRef.current.cloneNode(true);
-    if (rootElementSnapshot instanceof HTMLElement) {
+    const rootElSnapshot = rootElRef.current.cloneNode(true);
+    if (rootElSnapshot instanceof HTMLElement) {
       // if this effect is triggered while animating, we need to remove the old month snapshots from the new root snapshot
-      const currentMonthElementsSnapshot = [
-        ...(rootElementSnapshot.querySelectorAll(`[data-month-container]`) ??
-          [])
+      const currentMonthElsSnapshot = [
+        ...(rootElSnapshot.querySelectorAll(`[data-month-container]`) ?? [])
       ];
-      currentMonthElementsSnapshot.forEach((currentMonthElementSnapshot) => {
-        const previousMonthElementSnapshot =
-          currentMonthElementSnapshot.querySelector(`[data-month-container]`);
+      currentMonthElsSnapshot.forEach((currentMonthElSnapshot) => {
+        const previousMonthElSnapshot = currentMonthElSnapshot.querySelector(
+          `[data-month-container]`
+        );
         if (
-          previousMonthElementSnapshot &&
-          currentMonthElementSnapshot.contains(previousMonthElementSnapshot)
+          previousMonthElSnapshot &&
+          currentMonthElSnapshot.contains(previousMonthElSnapshot)
         ) {
-          currentMonthElementSnapshot.removeChild(previousMonthElementSnapshot);
+          currentMonthElSnapshot.removeChild(previousMonthElSnapshot);
         }
       });
 
-      previousRootElementSnapshotRef.current = rootElementSnapshot;
+      previousRootElSnapshotRef.current = rootElSnapshot;
     } else {
-      previousRootElementSnapshotRef.current = null;
+      previousRootElSnapshotRef.current = null;
     }
 
     // validation required for the animation to work as expected
@@ -323,22 +323,20 @@ export function DayPicker(props: DayPickerProps) {
       return;
     }
 
-    const previousMonthElements = [
-      ...(previousRootElementSnapshot?.querySelectorAll(
-        `[data-month-container]`
-      ) ?? [])
-    ];
-
-    const currentMonthElements = [
-      ...(rootElementRef.current.querySelectorAll(`[data-month-container]`) ??
+    const previousMonthEls = [
+      ...(previousRootElSnapshot?.querySelectorAll(`[data-month-container]`) ??
         [])
     ];
 
+    const currentMonthEls = [
+      ...(rootElRef.current.querySelectorAll(`[data-month-container]`) ?? [])
+    ];
+
     if (
-      currentMonthElements &&
-      currentMonthElements.every((element) => element instanceof HTMLElement) &&
-      previousMonthElements &&
-      previousMonthElements.every((element) => element instanceof HTMLElement)
+      currentMonthEls &&
+      currentMonthEls.every((el) => el instanceof HTMLElement) &&
+      previousMonthEls &&
+      previousMonthEls.every((el) => el instanceof HTMLElement)
     ) {
       animatingRef.current = true;
       const cleanUpFunctions: (() => void)[] = [];
@@ -348,15 +346,15 @@ export function DayPicker(props: DayPickerProps) {
         previousMonths[0].date
       );
 
-      currentMonthElements.forEach((currentMonthElement, index) => {
-        const previousMonthElement = previousMonthElements[index];
+      currentMonthEls.forEach((currentMonthEl, index) => {
+        const previousMonthEl = previousMonthEls[index];
 
-        if (!previousMonthElement) {
+        if (!previousMonthEl) {
           return;
         }
 
         // animate new displayed month
-        const monthCaptionAnimationClass = isAfterPreviousMonth
+        const captionAnimationClass = isAfterPreviousMonth
           ? classNames[Animation.animation_enter_month_caption_is_after]
           : classNames[Animation.animation_enter_month_caption_is_before];
 
@@ -364,92 +362,75 @@ export function DayPicker(props: DayPickerProps) {
           ? classNames[Animation.animation_enter_month_is_after]
           : classNames[Animation.animation_enter_month_is_before];
 
-        currentMonthElement.style.position = "relative";
-        currentMonthElement.style.overflow = "hidden";
-        const monthCaptionElement = currentMonthElement.querySelector(
+        currentMonthEl.style.position = "relative";
+        currentMonthEl.style.overflow = "hidden";
+        const captionEl = currentMonthEl.querySelector(
           `[data-month-caption-container]`
         );
-        if (monthCaptionElement && monthCaptionElement instanceof HTMLElement) {
-          monthCaptionElement.classList.add(monthCaptionAnimationClass);
+        if (captionEl && captionEl instanceof HTMLElement) {
+          captionEl.classList.add(captionAnimationClass);
         }
 
-        const weeksElement = currentMonthElement.querySelector(
-          `[data-weeks-container]`
-        );
-        if (weeksElement && weeksElement instanceof HTMLElement) {
-          weeksElement.classList.add(monthAnimationClass);
+        const weeksEl = currentMonthEl.querySelector(`[data-weeks-container]`);
+        if (weeksEl && weeksEl instanceof HTMLElement) {
+          weeksEl.classList.add(monthAnimationClass);
         }
         // animate new displayed month end
 
         const cleanUp = () => {
           animatingRef.current = false;
-          if (
-            monthCaptionElement &&
-            monthCaptionElement instanceof HTMLElement
-          ) {
-            monthCaptionElement.classList.remove(monthCaptionAnimationClass);
+          if (captionEl && captionEl instanceof HTMLElement) {
+            captionEl.classList.remove(captionAnimationClass);
           }
-          if (weeksElement && weeksElement instanceof HTMLElement) {
-            weeksElement.classList.remove(monthAnimationClass);
+          if (weeksEl && weeksEl instanceof HTMLElement) {
+            weeksEl.classList.remove(monthAnimationClass);
           }
-          currentMonthElement.style.position = "";
-          currentMonthElement.style.overflow = "";
-          if (currentMonthElement.contains(previousMonthElement)) {
-            currentMonthElement.removeChild(previousMonthElement);
+          currentMonthEl.style.position = "";
+          currentMonthEl.style.overflow = "";
+          if (currentMonthEl.contains(previousMonthEl)) {
+            currentMonthEl.removeChild(previousMonthEl);
           }
         };
         cleanUpFunctions.push(cleanUp);
 
         // animate old displayed month
-        previousMonthElement.style.pointerEvents = "none";
-        previousMonthElement.style.position = "absolute";
-        previousMonthElement.style.overflow = "hidden";
-        previousMonthElement.setAttribute("aria-hidden", "true");
+        previousMonthEl.style.pointerEvents = "none";
+        previousMonthEl.style.position = "absolute";
+        previousMonthEl.style.overflow = "hidden";
+        previousMonthEl.setAttribute("aria-hidden", "true");
 
         // hide the weekdays container of the old month and only the new one
-        const previousWeekdaysElement = previousMonthElement.querySelector(
+        const previousWeekdaysEl = previousMonthEl.querySelector(
           `[data-weekdays-container]`
         );
-        if (
-          previousWeekdaysElement &&
-          previousWeekdaysElement instanceof HTMLElement
-        ) {
-          previousWeekdaysElement.style.opacity = "0";
+        if (previousWeekdaysEl && previousWeekdaysEl instanceof HTMLElement) {
+          previousWeekdaysEl.style.opacity = "0";
         }
 
-        const previousMonthCaptionElement = previousMonthElement.querySelector(
+        const previousCaptionEl = previousMonthEl.querySelector(
           `[data-month-caption-container]`
         );
-        if (
-          previousMonthCaptionElement &&
-          previousMonthCaptionElement instanceof HTMLElement
-        ) {
-          previousMonthCaptionElement.classList.add(
+        if (previousCaptionEl && previousCaptionEl instanceof HTMLElement) {
+          previousCaptionEl.classList.add(
             isAfterPreviousMonth
               ? classNames[Animation.animation_exit_month_caption_is_before]
               : classNames[Animation.animation_exit_month_caption_is_after]
           );
-          previousMonthCaptionElement.addEventListener("animationend", cleanUp);
+          previousCaptionEl.addEventListener("animationend", cleanUp);
         }
 
-        const previousWeeksElement = previousMonthElement.querySelector(
+        const previousWeeksEl = previousMonthEl.querySelector(
           `[data-weeks-container]`
         );
-        if (
-          previousWeeksElement &&
-          previousWeeksElement instanceof HTMLElement
-        ) {
-          previousWeeksElement.classList.add(
+        if (previousWeeksEl && previousWeeksEl instanceof HTMLElement) {
+          previousWeeksEl.classList.add(
             isAfterPreviousMonth
               ? classNames[Animation.animation_exit_month_is_before]
               : classNames[Animation.animation_exit_month_is_after]
           );
         }
 
-        currentMonthElement.insertBefore(
-          previousMonthElement,
-          currentMonthElement.firstChild
-        );
+        currentMonthEl.insertBefore(previousMonthEl, currentMonthEl.firstChild);
       });
     }
   });
@@ -474,7 +455,7 @@ export function DayPicker(props: DayPickerProps) {
   return (
     <dayPickerContext.Provider value={contextValue}>
       <components.Root
-        ref={props.animate ? rootElementRef : undefined}
+        ref={props.animate ? rootElRef : undefined}
         className={className}
         style={style}
         dir={props.dir}
