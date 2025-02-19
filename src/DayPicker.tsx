@@ -259,6 +259,7 @@ export function DayPicker(props: DayPickerProps) {
   const rootElementRef = useRef<HTMLDivElement>(null);
   const previousRootElementSnapshotRef = useRef<HTMLElement>(null);
   const previousMonthsRef = useRef(months);
+  const animatingRef = useRef(false);
   useLayoutEffect(() => {
     // get previous months before updating the previous months ref
     const previousMonths = previousMonthsRef.current;
@@ -280,6 +281,22 @@ export function DayPicker(props: DayPickerProps) {
     // update snapshot for next effect trigger
     const rootElementSnapshot = rootElementRef.current.cloneNode(true);
     if (rootElementSnapshot instanceof HTMLElement) {
+      // if this effect is triggered while animating, we need to remove the old month snapshots from the new root snapshot
+      const currentMonthElementsSnapshot = [
+        ...(rootElementSnapshot.querySelectorAll(`[data-month-container]`) ??
+          [])
+      ];
+      currentMonthElementsSnapshot.forEach((currentMonthElementSnapshot) => {
+        const previousMonthElementSnapshot =
+          currentMonthElementSnapshot.querySelector(`[data-month-container]`);
+        if (
+          previousMonthElementSnapshot &&
+          currentMonthElementSnapshot.contains(previousMonthElementSnapshot)
+        ) {
+          currentMonthElementSnapshot.removeChild(previousMonthElementSnapshot);
+        }
+      });
+
       previousRootElementSnapshotRef.current = rootElementSnapshot;
     } else {
       previousRootElementSnapshotRef.current = null;
@@ -291,7 +308,8 @@ export function DayPicker(props: DayPickerProps) {
       previousMonths.length === 0 ||
       months.length !== previousMonths.length ||
       // skip animation if a day is focused because it can cause issues to the animation and is better for a11y
-      focused
+      focused ||
+      animatingRef.current
     ) {
       return;
     }
@@ -322,6 +340,7 @@ export function DayPicker(props: DayPickerProps) {
       previousMonthElements &&
       previousMonthElements.every((element) => element instanceof HTMLElement)
     ) {
+      animatingRef.current = true;
       const cleanUpFunctions: (() => void)[] = [];
 
       const isAfterPreviousMonth = dateLib.isAfter(
@@ -361,7 +380,9 @@ export function DayPicker(props: DayPickerProps) {
           weeksElement.classList.add(monthAnimationClass);
         }
         // animate new displayed month end
+
         const cleanUp = () => {
+          animatingRef.current = false;
           if (
             monthCaptionElement &&
             monthCaptionElement instanceof HTMLElement
@@ -385,6 +406,7 @@ export function DayPicker(props: DayPickerProps) {
         previousMonthElement.style.overflow = "hidden";
         previousMonthElement.setAttribute("aria-hidden", "true");
 
+        // hide the weekdays container of the old month and only the new one
         const previousWeekdaysElement = previousMonthElement.querySelector(
           `[data-weekdays-container]`
         );
@@ -393,20 +415,6 @@ export function DayPicker(props: DayPickerProps) {
           previousWeekdaysElement instanceof HTMLElement
         ) {
           previousWeekdaysElement.style.opacity = "0";
-        }
-
-        const previousWeeksElement = previousMonthElement.querySelector(
-          `[data-weeks-container]`
-        );
-        if (
-          previousWeeksElement &&
-          previousWeeksElement instanceof HTMLElement
-        ) {
-          previousWeeksElement.classList.add(
-            isAfterPreviousMonth
-              ? classNames[AnimationClass.animation_old_month_is_before]
-              : classNames[AnimationClass.animation_old_month_is_after]
-          );
         }
 
         const previousMonthCaptionElement = previousMonthElement.querySelector(
@@ -424,15 +432,25 @@ export function DayPicker(props: DayPickerProps) {
           previousMonthCaptionElement.addEventListener("animationend", cleanUp);
         }
 
+        const previousWeeksElement = previousMonthElement.querySelector(
+          `[data-weeks-container]`
+        );
+        if (
+          previousWeeksElement &&
+          previousWeeksElement instanceof HTMLElement
+        ) {
+          previousWeeksElement.classList.add(
+            isAfterPreviousMonth
+              ? classNames[AnimationClass.animation_old_month_is_before]
+              : classNames[AnimationClass.animation_old_month_is_after]
+          );
+        }
+
         currentMonthElement.insertBefore(
           previousMonthElement,
           currentMonthElement.firstChild
         );
       });
-
-      return () => {
-        cleanUpFunctions.forEach((cleanUp) => cleanUp());
-      };
     }
   });
 
