@@ -1,8 +1,8 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 import { renderHook } from "@testing-library/react";
 
-import { DayFlag, SelectionState, UI } from "./UI";
+import { Animation, DayFlag, SelectionState, UI } from "./UI";
 import { CalendarDay } from "./classes/CalendarDay";
 import { CalendarMonth } from "./classes/CalendarMonth";
 import { DayPickerProps } from "./types/props";
@@ -43,7 +43,7 @@ describe("useDayPicker", () => {
       Option: jest.fn(),
       PreviousMonthButton: jest.fn(),
       NextMonthButton: jest.fn(),
-      Root: jest.fn(),
+      Root: forwardRef(jest.fn()),
       Select: jest.fn(),
       Weeks: jest.fn(),
       Week: jest.fn(),
@@ -87,7 +87,15 @@ describe("useDayPicker", () => {
       [DayFlag.hidden]: "",
       [DayFlag.outside]: "",
       [DayFlag.focused]: "",
-      [DayFlag.today]: ""
+      [DayFlag.today]: "",
+      [Animation.animation_enter_month_weeks_is_after]: "",
+      [Animation.animation_exit_month_weeks_is_before]: "",
+      [Animation.animation_enter_month_weeks_is_before]: "",
+      [Animation.animation_exit_month_weeks_is_after]: "",
+      [Animation.animation_enter_month_caption_is_after]: "",
+      [Animation.animation_exit_month_caption_is_before]: "",
+      [Animation.animation_enter_month_caption_is_before]: "",
+      [Animation.animation_exit_month_caption_is_after]: ""
     },
     styles: {},
     labels: {
