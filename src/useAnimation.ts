@@ -120,9 +120,9 @@ export function useAnimation(
           ? classNames[Animation.animation_enter_month_caption_is_after]
           : classNames[Animation.animation_enter_month_caption_is_before];
 
-        const monthAnimationClass = isAfterPreviousMonth
-          ? classNames[Animation.animation_enter_month_is_after]
-          : classNames[Animation.animation_enter_month_is_before];
+        const weeksAnimationClass = isAfterPreviousMonth
+          ? classNames[Animation.animation_enter_month_weeks_is_after]
+          : classNames[Animation.animation_enter_month_weeks_is_before];
 
         currentMonthEl.style.position = "relative";
         currentMonthEl.style.overflow = "hidden";
@@ -135,7 +135,7 @@ export function useAnimation(
 
         const weeksEl = currentMonthEl.querySelector(`[data-weeks-container]`);
         if (weeksEl && weeksEl instanceof HTMLElement) {
-          weeksEl.classList.add(monthAnimationClass);
+          weeksEl.classList.add(weeksAnimationClass);
         }
         // animate new displayed month end
 
@@ -145,7 +145,7 @@ export function useAnimation(
             captionEl.classList.remove(captionAnimationClass);
           }
           if (weeksEl && weeksEl instanceof HTMLElement) {
-            weeksEl.classList.remove(monthAnimationClass);
+            weeksEl.classList.remove(weeksAnimationClass);
           }
           currentMonthEl.style.position = "";
           currentMonthEl.style.overflow = "";
@@ -187,8 +187,8 @@ export function useAnimation(
         if (previousWeeksEl && previousWeeksEl instanceof HTMLElement) {
           previousWeeksEl.classList.add(
             isAfterPreviousMonth
-              ? classNames[Animation.animation_exit_month_is_before]
-              : classNames[Animation.animation_exit_month_is_after]
+              ? classNames[Animation.animation_exit_month_weeks_is_before]
+              : classNames[Animation.animation_exit_month_weeks_is_after]
           );
         }
 

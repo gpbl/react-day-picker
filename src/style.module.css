@@ -324,35 +324,35 @@
   100% { transform: translateX(100%); }
 }
 
-.animation_enter_month_is_after {
+.animation_enter_month_weeks_is_after {
   animation: rdp-animation_slide_in_right_keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
-.animation_exit_month_is_before {
+.animation_exit_month_weeks_is_before {
   animation: rdp-animation_slide_out_left_keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
-.animation_enter_month_is_before {
+.animation_enter_month_weeks_is_before {
   animation: rdp-animation_slide_in_left_keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
-.animation_exit_month_is_after {
+.animation_exit_month_weeks_is_after {
   animation: rdp-animation_slide_out_right_keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
-[dir="rtl"] .animation_enter_month_is_after {
+[dir="rtl"] .animation_enter_month_weeks_is_after {
   animation: rdp-animation_slide_in_left_keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
-[dir="rtl"] .animation_exit_month_is_before {
+[dir="rtl"] .animation_exit_month_weeks_is_before {
   animation: rdp-animation_slide_out_right_keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
-[dir="rtl"] .animation_enter_month_is_before {
+[dir="rtl"] .animation_enter_month_weeks_is_before {
   animation: rdp-animation_slide_in_right_keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
-[dir="rtl"] .animation_exit_month_is_after {
+[dir="rtl"] .animation_exit_month_weeks_is_after {
   animation: rdp-animation_slide_out_left_keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 

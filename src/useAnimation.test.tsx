@@ -83,10 +83,10 @@ describe("useAnimation", () => {
       );
 
       expect(getMonthWeeksContainers()[0]).toHaveClass(
-        "rdp-animation_exit_month_is_before"
+        "rdp-animation_exit_month_weeks_is_before"
       );
       expect(getMonthWeeksContainers()[1]).toHaveClass(
-        "rdp-animation_enter_month_is_after"
+        "rdp-animation_enter_month_weeks_is_after"
       );
     });
 
@@ -103,10 +103,10 @@ describe("useAnimation", () => {
       );
 
       expect(getMonthWeeksContainers()[0]).toHaveClass(
-        "rdp-animation_exit_month_is_after"
+        "rdp-animation_exit_month_weeks_is_after"
       );
       expect(getMonthWeeksContainers()[1]).toHaveClass(
-        "rdp-animation_enter_month_is_before"
+        "rdp-animation_enter_month_weeks_is_before"
       );
     });
 
@@ -133,7 +133,7 @@ describe("useAnimation", () => {
       );
 
       expect(getMonthWeeksContainers()[0]).not.toHaveClass(
-        "rdp-animation_enter_month_is_after"
+        "rdp-animation_enter_month_weeks_is_after"
       );
     });
   });
