@@ -285,7 +285,7 @@ export function DayPicker(props: DayPickerProps) {
   return (
     <dayPickerContext.Provider value={contextValue}>
       <components.Root
-        ref={props.animate ? rootElRef : undefined}
+        rootRef={props.animate ? rootElRef : undefined}
         className={className}
         style={style}
         dir={props.dir}

@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React from "react";
 
 import { renderHook } from "@testing-library/react";
 
@@ -43,7 +43,7 @@ describe("useDayPicker", () => {
       Option: jest.fn(),
       PreviousMonthButton: jest.fn(),
       NextMonthButton: jest.fn(),
-      Root: forwardRef(jest.fn()),
+      Root: jest.fn(),
       Select: jest.fn(),
       Weeks: jest.fn(),
       Week: jest.fn(),
