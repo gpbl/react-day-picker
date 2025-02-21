@@ -448,6 +448,7 @@ export function DayPicker(props: DayPickerProps) {
                   )}
                   <components.Weeks
                     data-weeks-container={props.animate ? "true" : undefined}
+                    className={classNames[UI.Weeks]}
                     style={styles?.[UI.Weeks]}
                   >
                     {calendarMonth.weeks.map((week, weekIndex) => {
