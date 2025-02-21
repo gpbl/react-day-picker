@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import { DateRange, DayPicker } from "react-day-picker";
-import classNames from "react-day-picker/style.module.css";
 
 export function AnimateRange() {
   const [selected, setSelected] = useState<DateRange>();
@@ -13,7 +12,6 @@ export function AnimateRange() {
       selected={selected}
       onSelect={setSelected}
       numberOfMonths={6}
-      classNames={classNames}
     />
   );
 }
