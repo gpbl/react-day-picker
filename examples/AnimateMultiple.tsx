@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { DateRange, DayPicker } from "react-day-picker";
+import classNames from "react-day-picker/style.module.css";
 
 export function AnimateMultiple() {
   const [selected, setSelected] = useState<DateRange>();
@@ -12,6 +13,7 @@ export function AnimateMultiple() {
       selected={selected}
       onSelect={setSelected}
       numberOfMonths={6}
+      classNames={classNames}
     />
   );
 }
