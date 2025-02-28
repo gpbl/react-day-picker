@@ -329,7 +329,7 @@ export function DayPicker(props: DayPickerProps) {
             );
             return (
               <components.Month
-                data-month-container={props.animate ? "true" : undefined}
+                data-animated-month={props.animate ? "true" : undefined}
                 className={classNames[UI.Month]}
                 style={styles?.[UI.Month]}
                 key={displayIndex}
@@ -337,9 +337,7 @@ export function DayPicker(props: DayPickerProps) {
                 calendarMonth={calendarMonth}
               >
                 <components.MonthCaption
-                  data-month-caption-container={
-                    props.animate ? "true" : undefined
-                  }
+                  data-animated-caption={props.animate ? "true" : undefined}
                   className={classNames[UI.MonthCaption]}
                   style={styles?.[UI.MonthCaption]}
                   calendarMonth={calendarMonth}
@@ -413,7 +411,7 @@ export function DayPicker(props: DayPickerProps) {
                 >
                   {!props.hideWeekdays && (
                     <components.Weekdays
-                      data-weekdays-container={
+                      data-animated-weekdays={
                         props.animate ? "true" : undefined
                       }
                       className={classNames[UI.Weekdays]}
@@ -447,7 +445,7 @@ export function DayPicker(props: DayPickerProps) {
                     </components.Weekdays>
                   )}
                   <components.Weeks
-                    data-weeks-container={props.animate ? "true" : undefined}
+                    data-animated-weeks={props.animate ? "true" : undefined}
                     className={classNames[UI.Weeks]}
                     style={styles?.[UI.Weeks]}
                   >

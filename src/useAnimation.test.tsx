@@ -11,16 +11,16 @@ import { DayPicker } from "./DayPicker";
 jest.setSystemTime(new Date(2025, 1, 10));
 
 const getMonthContainers = () => [
-  ...document.querySelectorAll(`[data-month-container]`)
+  ...document.querySelectorAll(`[data-animated-month]`)
 ];
 const getMonthCaptionContainers = () => [
-  ...document.querySelectorAll(`[data-month-caption-container]`)
+  ...document.querySelectorAll(`[data-animated-caption]`)
 ];
 const getMonthWeekdaysContainers = () => [
-  ...document.querySelectorAll(`[data-weekdays-container]`)
+  ...document.querySelectorAll(`[data-animated-weekdays]`)
 ];
 const getMonthWeeksContainers = () => [
-  ...document.querySelectorAll(`[data-weeks-container]`)
+  ...document.querySelectorAll(`[data-animated-weeks]`)
 ];
 
 describe("useAnimation", () => {
