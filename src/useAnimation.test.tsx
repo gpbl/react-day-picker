@@ -25,7 +25,7 @@ const getMonthWeeksContainers = () => [
 
 describe("useAnimation", () => {
   describe("animate prop is falsy", () => {
-    it("should not change the default props", () => {
+    it("should not render elements with data-animated-* attributes", () => {
       render(<DayPicker />);
 
       expect(getMonthContainers()).toHaveLength(0);
@@ -36,7 +36,7 @@ describe("useAnimation", () => {
   });
 
   describe("animate prop is true", () => {
-    it("should add data attributes if animate is true", () => {
+    it("should render elements with data-animated-* attributes", () => {
       render(<DayPicker animate={true} numberOfMonths={2} />);
 
       expect(getMonthContainers()).toHaveLength(2);
