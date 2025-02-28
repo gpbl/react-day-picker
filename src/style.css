@@ -304,7 +304,7 @@
   cursor: pointer;
 }
 
-@keyframes rdp-animation_slide_in_left_keyframes {
+@keyframes rdp-slide_in_left {
   0% {
     transform: translateX(-100%);
   }
@@ -313,7 +313,7 @@
   }
 }
 
-@keyframes rdp-animation_slide_in_right_keyframes {
+@keyframes rdp-slide_in_right {
   0% {
     transform: translateX(100%);
   }
@@ -322,7 +322,7 @@
   }
 }
 
-@keyframes rdp-animation_slide_out_left_keyframes {
+@keyframes rdp-slide_out_left {
   0% {
     transform: translateX(0);
   }
@@ -331,7 +331,7 @@
   }
 }
 
-@keyframes rdp-animation_slide_out_right_keyframes {
+@keyframes rdp-slide_out_right {
   0% {
     transform: translateX(0);
   }
@@ -341,42 +341,42 @@
 }
 
 .rdp-weeks_next_enter {
-  animation: rdp-animation_slide_in_right_keyframes
+  animation: rdp-slide_in_right
     var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
 .rdp-weeks_prev_exit {
-  animation: rdp-animation_slide_out_left_keyframes
+  animation: rdp-slide_out_left
     var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
 .rdp-weeks_prev_enter {
-  animation: rdp-animation_slide_in_left_keyframes var(--rdp-animation_duration)
+  animation: rdp-slide_in_left var(--rdp-animation_duration)
     var(--rdp-animation_timing) forwards;
 }
 
 .rdp-weeks_next_exit {
-  animation: rdp-animation_slide_out_right_keyframes
+  animation: rdp-slide_out_right
     var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
 [dir="rtl"] .rdp-weeks_next_enter {
-  animation: rdp-animation_slide_in_left_keyframes var(--rdp-animation_duration)
+  animation: rdp-slide_in_left var(--rdp-animation_duration)
     var(--rdp-animation_timing) forwards;
 }
 
 [dir="rtl"] .rdp-weeks_prev_exit {
-  animation: rdp-animation_slide_out_right_keyframes
+  animation: rdp-slide_out_right
     var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
 [dir="rtl"] .rdp-weeks_prev_enter {
-  animation: rdp-animation_slide_in_right_keyframes
+  animation: rdp-slide_in_right
     var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
 [dir="rtl"] .rdp-weeks_next_exit {
-  animation: rdp-animation_slide_out_left_keyframes
+  animation: rdp-slide_out_left
     var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
