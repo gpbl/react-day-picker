@@ -117,12 +117,12 @@ export function useAnimation(
 
         // animate new displayed month
         const captionAnimationClass = isAfterPreviousMonth
-          ? classNames[Animation.animation_enter_month_caption_is_after]
-          : classNames[Animation.animation_enter_month_caption_is_before];
+          ? classNames[Animation.caption_next_enter]
+          : classNames[Animation.caption_prev_enter];
 
         const weeksAnimationClass = isAfterPreviousMonth
-          ? classNames[Animation.animation_enter_month_weeks_is_after]
-          : classNames[Animation.animation_enter_month_weeks_is_before];
+          ? classNames[Animation.weeks_next_enter]
+          : classNames[Animation.weeks_prev_enter];
 
         currentMonthEl.style.position = "relative";
         currentMonthEl.style.overflow = "hidden";
@@ -175,8 +175,8 @@ export function useAnimation(
         if (previousCaptionEl && previousCaptionEl instanceof HTMLElement) {
           previousCaptionEl.classList.add(
             isAfterPreviousMonth
-              ? classNames[Animation.animation_exit_month_caption_is_before]
-              : classNames[Animation.animation_exit_month_caption_is_after]
+              ? classNames[Animation.caption_prev_exit]
+              : classNames[Animation.caption_next_exit]
           );
           previousCaptionEl.addEventListener("animationend", cleanUp);
         }
@@ -187,8 +187,8 @@ export function useAnimation(
         if (previousWeeksEl && previousWeeksEl instanceof HTMLElement) {
           previousWeeksEl.classList.add(
             isAfterPreviousMonth
-              ? classNames[Animation.animation_exit_month_weeks_is_before]
-              : classNames[Animation.animation_exit_month_weeks_is_after]
+              ? classNames[Animation.weeks_prev_exit]
+              : classNames[Animation.weeks_next_exit]
           );
         }
 

@@ -88,14 +88,14 @@ describe("useDayPicker", () => {
       [DayFlag.outside]: "",
       [DayFlag.focused]: "",
       [DayFlag.today]: "",
-      [Animation.animation_enter_month_weeks_is_after]: "",
-      [Animation.animation_exit_month_weeks_is_before]: "",
-      [Animation.animation_enter_month_weeks_is_before]: "",
-      [Animation.animation_exit_month_weeks_is_after]: "",
-      [Animation.animation_enter_month_caption_is_after]: "",
-      [Animation.animation_exit_month_caption_is_before]: "",
-      [Animation.animation_enter_month_caption_is_before]: "",
-      [Animation.animation_exit_month_caption_is_after]: ""
+      [Animation.weeks_next_enter]: "",
+      [Animation.weeks_prev_exit]: "",
+      [Animation.weeks_prev_enter]: "",
+      [Animation.weeks_next_exit]: "",
+      [Animation.caption_next_enter]: "",
+      [Animation.caption_prev_exit]: "",
+      [Animation.caption_prev_enter]: "",
+      [Animation.caption_next_exit]: ""
     },
     styles: {},
     labels: {

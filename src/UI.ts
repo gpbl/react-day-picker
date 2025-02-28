@@ -103,21 +103,21 @@ export enum SelectionState {
 /** CSS classes used for animating months and captions. */
 export enum Animation {
   /** Applied to the entering month when it is after the exiting month. */
-  animation_enter_month_weeks_is_after = "animation_enter_month_weeks_is_after",
-  /** Applied to the exiting month when it is before the entering month. */
-  animation_exit_month_weeks_is_before = "animation_exit_month_weeks_is_before",
+  weeks_next_enter = "weeks_next_enter",
   /** Applied to the entering month when it is before the exiting month. */
-  animation_enter_month_weeks_is_before = "animation_enter_month_weeks_is_before",
+  weeks_prev_enter = "weeks_prev_enter",
   /** Applied to the exiting month when it is after the entering month. */
-  animation_exit_month_weeks_is_after = "animation_exit_month_weeks_is_after",
+  weeks_next_exit = "weeks_next_exit",
+  /** Applied to the exiting month when it is before the entering month. */
+  weeks_prev_exit = "weeks_prev_exit",
   /** Applied to the entering month caption when it is after the exiting month. */
-  animation_enter_month_caption_is_after = "animation_enter_month_caption_is_after",
-  /** Applied to the exiting month caption when it is before the entering month. */
-  animation_exit_month_caption_is_before = "animation_exit_month_caption_is_before",
+  caption_next_enter = "caption_next_enter",
   /** Applied to the entering month caption when it is before the exiting month. */
-  animation_enter_month_caption_is_before = "animation_enter_month_caption_is_before",
+  caption_prev_enter = "caption_prev_enter",
   /** Applied to the exiting month caption when it is after the entering month. */
-  animation_exit_month_caption_is_after = "animation_exit_month_caption_is_after"
+  caption_next_exit = "caption_next_exit",
+  /** Applied to the exiting month caption when it is before the entering month. */
+  caption_prev_exit = "caption_prev_exit"
 }
 
 /**

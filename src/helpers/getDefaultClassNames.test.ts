@@ -35,21 +35,13 @@ test("should return the default classnames", () => {
     weekday: "rdp-weekday",
     weekdays: "rdp-weekdays",
     years_dropdown: "rdp-years_dropdown",
-    animation_enter_month_caption_is_after:
-      "rdp-animation_enter_month_caption_is_after",
-    animation_enter_month_caption_is_before:
-      "rdp-animation_enter_month_caption_is_before",
-    animation_enter_month_weeks_is_after:
-      "rdp-animation_enter_month_weeks_is_after",
-    animation_enter_month_weeks_is_before:
-      "rdp-animation_enter_month_weeks_is_before",
-    animation_exit_month_caption_is_after:
-      "rdp-animation_exit_month_caption_is_after",
-    animation_exit_month_caption_is_before:
-      "rdp-animation_exit_month_caption_is_before",
-    animation_exit_month_weeks_is_after:
-      "rdp-animation_exit_month_weeks_is_after",
-    animation_exit_month_weeks_is_before:
-      "rdp-animation_exit_month_weeks_is_before"
+    caption_next_enter: "rdp-caption_next_enter",
+    caption_prev_enter: "rdp-caption_prev_enter",
+    weeks_next_enter: "rdp-weeks_next_enter",
+    weeks_prev_enter: "rdp-weeks_prev_enter",
+    caption_next_exit: "rdp-caption_next_exit",
+    caption_prev_exit: "rdp-caption_prev_exit",
+    weeks_next_exit: "rdp-weeks_next_exit",
+    weeks_prev_exit: "rdp-weeks_prev_exit"
   });
 });

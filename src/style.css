@@ -305,55 +305,79 @@
 }
 
 @keyframes rdp-animation_slide_in_left_keyframes {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 @keyframes rdp-animation_slide_in_right_keyframes {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 @keyframes rdp-animation_slide_out_left_keyframes {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 @keyframes rdp-animation_slide_out_right_keyframes {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(100%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
-.rdp-animation_enter_month_weeks_is_after {
-  animation: rdp-animation_slide_in_right_keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
+.rdp-weeks_next_enter {
+  animation: rdp-animation_slide_in_right_keyframes
+    var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
-.rdp-animation_exit_month_weeks_is_before {
-  animation: rdp-animation_slide_out_left_keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
+.rdp-weeks_prev_exit {
+  animation: rdp-animation_slide_out_left_keyframes
+    var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
-.rdp-animation_enter_month_weeks_is_before {
-  animation: rdp-animation_slide_in_left_keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
+.rdp-weeks_prev_enter {
+  animation: rdp-animation_slide_in_left_keyframes var(--rdp-animation_duration)
+    var(--rdp-animation_timing) forwards;
 }
 
-.rdp-animation_exit_month_weeks_is_after {
-  animation: rdp-animation_slide_out_right_keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
+.rdp-weeks_next_exit {
+  animation: rdp-animation_slide_out_right_keyframes
+    var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
-[dir="rtl"] .rdp-animation_enter_month_weeks_is_after {
-  animation: rdp-animation_slide_in_left_keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
+[dir="rtl"] .rdp-weeks_next_enter {
+  animation: rdp-animation_slide_in_left_keyframes var(--rdp-animation_duration)
+    var(--rdp-animation_timing) forwards;
 }
 
-[dir="rtl"] .rdp-animation_exit_month_weeks_is_before {
-  animation: rdp-animation_slide_out_right_keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
+[dir="rtl"] .rdp-weeks_prev_exit {
+  animation: rdp-animation_slide_out_right_keyframes
+    var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
-[dir="rtl"] .rdp-animation_enter_month_weeks_is_before {
-  animation: rdp-animation_slide_in_right_keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
+[dir="rtl"] .rdp-weeks_prev_enter {
+  animation: rdp-animation_slide_in_right_keyframes
+    var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
-[dir="rtl"] .rdp-animation_exit_month_weeks_is_after {
-  animation: rdp-animation_slide_out_left_keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
+[dir="rtl"] .rdp-weeks_next_exit {
+  animation: rdp-animation_slide_out_left_keyframes
+    var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
 }
 
 @keyframes rdp-animation_fade_in_keyframes {
@@ -374,18 +398,22 @@
   }
 }
 
-.rdp-animation_enter_month_caption_is_after {
-  animation: rdp-animation_fade_in_keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
+.rdp-caption_next_enter {
+  animation: rdp-animation_fade_in_keyframes var(--rdp-animation_duration)
+    var(--rdp-animation_timing) forwards;
 }
 
-.rdp-animation_exit_month_caption_is_before {
-  animation: rdp-animation_fade_out_keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
+.rdp-caption_prev_exit {
+  animation: rdp-animation_fade_out_keyframes var(--rdp-animation_duration)
+    var(--rdp-animation_timing) forwards;
 }
 
-.rdp-animation_enter_month_caption_is_before {
-  animation: rdp-animation_fade_in_keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
+.rdp-caption_prev_enter {
+  animation: rdp-animation_fade_in_keyframes var(--rdp-animation_duration)
+    var(--rdp-animation_timing) forwards;
 }
 
-.rdp-animation_exit_month_caption_is_after {
-  animation: rdp-animation_fade_out_keyframes var(--rdp-animation_duration) var(--rdp-animation_timing) forwards;
+.rdp-caption_next_exit {
+  animation: rdp-animation_fade_out_keyframes var(--rdp-animation_duration)
+    var(--rdp-animation_timing) forwards;
 }
