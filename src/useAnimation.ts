@@ -1,26 +1,30 @@
-import { useLayoutEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 
 import { Animation } from "./UI.js";
 import type { CalendarDay } from "./classes/CalendarDay.js";
 import { CalendarMonth } from "./classes/CalendarMonth.js";
 import type { DateLib } from "./classes/DateLib.js";
-import type { DayPickerProps } from "./types/props.js";
 import { ClassNames } from "./types/shared.js";
 
 /** @private */
 export function useAnimation(
-  props: Pick<DayPickerProps, "animate">,
-  classNames: ClassNames,
-  months: CalendarMonth[],
-  focused: CalendarDay | undefined,
-  dateLib: DateLib
-) {
-  const rootElRef = useRef<HTMLDivElement>(null);
+  rootElRef: React.RefObject<HTMLDivElement | null>,
+  enabled: boolean,
+  {
+    classNames,
+    months,
+    focused,
+    dateLib
+  }: {
+    classNames: ClassNames;
+    months: CalendarMonth[];
+    focused: CalendarDay | undefined;
+    dateLib: DateLib;
+  }
+): void {
   const previousRootElSnapshotRef = useRef<HTMLElement>(null);
   const previousMonthsRef = useRef(months);
   const animatingRef = useRef(false);
-
-  const { animate } = props;
 
   useLayoutEffect(() => {
     // get previous months before updating the previous months ref
@@ -29,7 +33,7 @@ export function useAnimation(
     previousMonthsRef.current = months;
 
     if (
-      !animate ||
+      !enabled ||
       !rootElRef.current ||
       // safety check because the ref can be set to anything by consumers
       !(rootElRef.current instanceof HTMLElement)
@@ -196,6 +200,4 @@ export function useAnimation(
       });
     }
   });
-
-  return { rootElRef };
 }
