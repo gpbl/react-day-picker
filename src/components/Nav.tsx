@@ -39,9 +39,6 @@ export function Nav(
     (e: React.MouseEvent<HTMLButtonElement>) => {
       if (nextMonth) {
         onNextClick?.(e);
-      } else {
-        e.preventDefault();
-        e.stopPropagation();
       }
     },
     [nextMonth, onNextClick]
@@ -51,9 +48,6 @@ export function Nav(
     (e: React.MouseEvent<HTMLButtonElement>) => {
       if (previousMonth) {
         onPreviousClick?.(e);
-      } else {
-        e.preventDefault();
-        e.stopPropagation();
       }
     },
     [previousMonth, onPreviousClick]
