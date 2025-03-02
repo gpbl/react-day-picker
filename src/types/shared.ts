@@ -416,6 +416,7 @@ export type MoveFocusBy =
  * - `arab`: Arabic-Indic
  * - `arabext`: Eastern Arabic-Indic (Persian)
  * - `deva`: Devanagari
+ * - `geez`: Ethiopic
  * - `beng`: Bengali
  * - `guru`: Gurmukhi
  * - `gujr`: Gujarati
@@ -432,6 +433,7 @@ export type Numerals =
   | "arab"
   | "arabext"
   | "deva"
+  | "geez"
   | "beng"
   | "guru"
   | "gujr"
