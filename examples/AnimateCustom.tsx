@@ -2,9 +2,9 @@ import React from "react";
 
 import { DayPicker } from "react-day-picker";
 
-import "./AnimateCaptionCustom.css";
+import "./AnimateCustom.css";
 
-export function AnimateCaptionCustom() {
+export function AnimateCustom() {
   return (
     <DayPicker
       animate
