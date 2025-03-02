@@ -1,17 +1,15 @@
-import {
-  toEthiopicDate,
-  isEthiopicLeapYear,
-  toGregorianDate
-} from "../utils/index.js";
+import { daysInMonth } from "../utils/daysInMonth.js";
+import { toEthiopicDate, toGregorianDate } from "../utils/index.js";
 
 /**
- * End of month
+ * Returns the last day of the Ethiopian month for the given date.
  *
- * @param {Date} date - The original date
- * @returns {Date} The end of the month
+ * @param date - The gregorian date to get the end of month for
+ * @returns A new gregorian date representing the last day of the Ethiopian
+ *   month
  */
 export function endOfMonth(date: Date): Date {
   const { year, month } = toEthiopicDate(date);
-  const daysInMonth = month === 13 ? (isEthiopicLeapYear(year) ? 6 : 5) : 30;
-  return toGregorianDate({ year, month, day: daysInMonth });
+  const day = daysInMonth(month, year);
+  return toGregorianDate({ year, month, day: day });
 }

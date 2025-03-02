@@ -1,26 +1,40 @@
+import {
+  differenceInDays,
+  getWeek as getWeekFns,
+  GetWeekOptions
+} from "date-fns";
+
 import { toGregorianDate, toEthiopicDate } from "../utils/index.js";
 
-import { differenceInCalendarDays } from "./differenceInCalendarDays.js";
+import { startOfWeek } from "./startOfWeek.js";
 
 /**
- * Get week
+ * Get week number for Ethiopian calendar
  *
  * @param {Date} date - The original date
- * @param {Object} [options] - The options object
- * @param {number} [options.weekStartsOn=0] - The index of the first day of the
- *   week (0 - Sunday). Default is `0`
+ * @param {GetWeekOptions} [options] - The options object
  * @returns {number} The week number
  */
-export function getWeek(
-  date: Date,
-  options?: { weekStartsOn?: number }
-): number {
-  const weekStartsOn = options?.weekStartsOn ?? 0; // Default to Sunday
-  const startOfYear = toGregorianDate({
-    year: toEthiopicDate(date).year,
+export function getWeek(date: Date, options?: GetWeekOptions): number {
+  const weekStartsOn = options?.weekStartsOn ?? 1; // Default to Tuesday for Ethiopian calendar
+  const etDate = toEthiopicDate(date);
+  const currentWeekStart = startOfWeek(date, { weekStartsOn });
+
+  // Get the first day of the current year
+  const firstDayOfYear = toGregorianDate({
+    year: etDate.year,
     month: 1,
     day: 1
   });
-  const diffInDays = differenceInCalendarDays(date, startOfYear);
-  return Math.floor((diffInDays + weekStartsOn) / 7) + 1;
+
+  const firstWeekStart = startOfWeek(firstDayOfYear, { weekStartsOn });
+
+  // If date is before the first week of its year
+  if (date < firstWeekStart) {
+    return getWeekFns(date, { weekStartsOn, firstWeekContainsDate: 1 });
+  }
+
+  // Calculate week number based on days since first week
+  const daysSinceFirstWeek = differenceInDays(currentWeekStart, firstWeekStart);
+  return Math.floor(daysSinceFirstWeek / 7) + 1;
 }

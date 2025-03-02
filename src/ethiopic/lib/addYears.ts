@@ -1,20 +1,29 @@
 import {
-  toEthiopicDate,
   isEthiopicLeapYear,
+  toEthiopicDate,
   toGregorianDate
 } from "../utils/index.js";
 
 /**
- * Adds years to an Ethiopic date
+ * Adds the specified number of years to the given Ethiopian date. Handles leap
+ * year transitions for Pagume month.
  *
- * @param {Date} date - The original date
- * @param {number} amount - The number of years to add
- * @returns {Date} The new date
+ * @param date - The starting gregorian date
+ * @param amount - The number of years to add (can be negative)
+ * @returns A new gregorian date with the years added
  */
 export function addYears(date: Date, amount: number): Date {
-  const { year, month, day } = toEthiopicDate(date);
-  const newYear = year + amount;
-  const newDay =
-    month === 13 && day === 6 && !isEthiopicLeapYear(newYear) ? 5 : day;
-  return toGregorianDate({ year: newYear, month, day: newDay });
+  const etDate = toEthiopicDate(date);
+  const day =
+    isEthiopicLeapYear(etDate.year) &&
+    etDate.month === 13 &&
+    etDate.day === 6 &&
+    amount % 4 !== 0
+      ? 5
+      : etDate.day;
+  return toGregorianDate({
+    month: etDate.month,
+    day: day,
+    year: etDate.year + amount
+  });
 }

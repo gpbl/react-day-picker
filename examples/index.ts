@@ -50,6 +50,8 @@ export * from "./PastDatesDisabled";
 export * from "./Persian";
 export * from "./PersianFormatted";
 export * from "./PersianEn";
+export * from "./Ethiopic";
+export * from "./EthiopicGeez";
 export * from "./Range";
 export * from "./RangeExcludeDisabled";
 export * from "./RangeLong";

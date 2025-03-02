@@ -1,3 +1,5 @@
+import { addDays as addDaysFns } from "date-fns";
+
 /**
  * Adds days to an Ethiopic date
  *
@@ -6,7 +8,5 @@
  * @returns {Date} The new date
  */
 export function addDays(date: Date, amount: number): Date {
-  const julianDay = Math.floor(date.getTime() / 86400000 + 2440587.5);
-  const newJulianDay = julianDay + amount;
-  return new Date((newJulianDay - 2440587.5) * 86400000);
+  return addDaysFns(date, amount);
 }

@@ -1,4 +1,5 @@
 import { toGregorianDate } from "../utils/index.js";
+import { isEthiopicDateValid } from "../utils/isEthiopicDateValid.js";
 
 /**
  * Creates a new Ethiopic date
@@ -9,5 +10,15 @@ import { toGregorianDate } from "../utils/index.js";
  * @returns {Date} The corresponding Gregorian date
  */
 export function newDate(year: number, monthIndex: number, date: number): Date {
-  return toGregorianDate({ year, month: monthIndex + 1, day: date });
+  // Convert from 0-based month index to 1-based Ethiopic month
+  const month = monthIndex + 1;
+
+  if (!isEthiopicDateValid({ year, month, day: date })) {
+    throw new Error("Invalid Ethiopic date");
+  }
+  return toGregorianDate({
+    year: year,
+    month: month,
+    day: date
+  });
 }

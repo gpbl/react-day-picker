@@ -28,7 +28,7 @@ export function eachMonthOfInterval(interval: Interval): Date[] {
     );
 
     currentMonth++;
-    if (currentMonth > 12) {
+    if (currentMonth > 13) {
       currentMonth = 1;
       currentYear++;
     }
