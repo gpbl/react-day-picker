@@ -1,4 +1,8 @@
-import React, { type MouseEventHandler, type HTMLAttributes } from "react";
+import React, {
+  type MouseEventHandler,
+  type HTMLAttributes,
+  useCallback
+} from "react";
 
 import { UI } from "../UI.js";
 import { useDayPicker } from "../useDayPicker.js";
@@ -31,15 +35,33 @@ export function Nav(
     labels: { labelPrevious, labelNext }
   } = useDayPicker();
 
+  const handleNextClick = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      if (nextMonth) {
+        onNextClick?.(e);
+      }
+    },
+    [nextMonth, onNextClick]
+  );
+
+  const handlePreviousClick = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      if (previousMonth) {
+        onPreviousClick?.(e);
+      }
+    },
+    [previousMonth, onPreviousClick]
+  );
+
   return (
     <nav {...navProps}>
       <components.PreviousMonthButton
         type="button"
         className={classNames[UI.PreviousMonthButton]}
         tabIndex={previousMonth ? undefined : -1}
-        disabled={previousMonth ? undefined : true}
+        aria-disabled={previousMonth ? undefined : true}
         aria-label={labelPrevious(previousMonth)}
-        onClick={props.onPreviousClick}
+        onClick={handlePreviousClick}
       >
         <components.Chevron
           disabled={previousMonth ? undefined : true}
@@ -51,9 +73,9 @@ export function Nav(
         type="button"
         className={classNames[UI.NextMonthButton]}
         tabIndex={nextMonth ? undefined : -1}
-        disabled={nextMonth ? undefined : true}
+        aria-disabled={nextMonth ? undefined : true}
         aria-label={labelNext(nextMonth)}
-        onClick={props.onNextClick}
+        onClick={handleNextClick}
       >
         <components.Chevron
           disabled={nextMonth ? undefined : true}

@@ -24,6 +24,7 @@ export * from "./DropdownMonths";
 export * from "./DropdownMultipleMonths";
 export * from "./Fixedweeks";
 export * from "./FocusRecursive";
+export * from "./FocusedDisabledNav";
 export * from "./Footer";
 export * from "./Formatters";
 export * from "./FromToMonth";
