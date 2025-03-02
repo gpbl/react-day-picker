@@ -2,50 +2,23 @@ import React from "react";
 
 import { DayPicker } from "react-day-picker";
 
+import "./AnimateCaptionCustom.css";
+
 export function AnimateCaptionCustom() {
   return (
-    <>
-      <style>
-        {`
-        @keyframes slide-up {
-          from {
-            transform: translateY(100%);
-          }
-          to {
-            transform: translateY(0);
-          }
-        }
-        @keyframes slide-down {
-          from {
-            transform: translateY(0);
-          }
-          to {
-            transform: translateY(-100%);
-          }
-        }
-        .custom-caption_next_enter {
-          animation: slide-up 0.3s ease-in-out forwards;
-        }
-        .custom-caption_next_exit {
-          animation: slide-down 0.3s ease-in-out forwards;
-        }
-        .custom-caption_prev_enter {
-          animation: slide-up 0.3s ease-in-out backwards;
-        }
-        .custom-caption_prev_exit {
-          animation: slide-down 0.3s ease-in-out backwards;
-        }
-        `}
-      </style>
-      <DayPicker
-        animate
-        classNames={{
-          caption_next_enter: "custom-caption_next_enter",
-          caption_next_exit: "custom-caption_next_exit",
-          caption_prev_enter: "custom-caption_prev_enter",
-          caption_prev_exit: "custom-caption_prev_exit"
-        }}
-      />
-    </>
+    <DayPicker
+      animate
+      classNames={{
+        caption_prev_enter: "animate-caption_prev_enter",
+        caption_prev_exit: "animate-caption_prev_exit",
+        caption_next_enter: "animate-caption_next_enter",
+        caption_next_exit: "animate-caption_next_exit"
+        // These animations are not working properly
+        // weeks_prev_enter: "animate-weeks_prev_enter",
+        // weeks_prev_exit: "animate-weeks_prev_exit",
+        // weeks_next_enter: "animate-weeks_next_enter",
+        // weeks_next_exit: "animate-week_next_exit"
+      }}
+    />
   );
 }
