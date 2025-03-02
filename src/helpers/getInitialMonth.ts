@@ -28,12 +28,12 @@ export function getInitialMonth(
   let initialMonth = month || defaultMonth || today;
   const { differenceInCalendarMonths, addMonths, startOfMonth } = dateLib;
 
-  // Fix the initialMonth if is after the to-date
+  // Fix the initialMonth if is after the endMonth
   if (endMonth && differenceInCalendarMonths(endMonth, initialMonth) < 0) {
     const offset = -1 * (numberOfMonths - 1);
     initialMonth = addMonths(endMonth, offset);
   }
-  // Fix the initialMonth if is before the from-date
+  // Fix the initialMonth if is before the startMonth
   if (startMonth && differenceInCalendarMonths(initialMonth, startMonth) < 0) {
     initialMonth = startMonth;
   }

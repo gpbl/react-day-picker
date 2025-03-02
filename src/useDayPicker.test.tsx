@@ -2,7 +2,7 @@ import React from "react";
 
 import { renderHook } from "@testing-library/react";
 
-import { DayFlag, SelectionState, UI } from "./UI";
+import { Animation, DayFlag, SelectionState, UI } from "./UI";
 import { CalendarDay } from "./classes/CalendarDay";
 import { CalendarMonth } from "./classes/CalendarMonth";
 import { DayPickerProps } from "./types/props";
@@ -87,7 +87,15 @@ describe("useDayPicker", () => {
       [DayFlag.hidden]: "",
       [DayFlag.outside]: "",
       [DayFlag.focused]: "",
-      [DayFlag.today]: ""
+      [DayFlag.today]: "",
+      [Animation.weeks_next_enter]: "",
+      [Animation.weeks_prev_exit]: "",
+      [Animation.weeks_prev_enter]: "",
+      [Animation.weeks_next_exit]: "",
+      [Animation.caption_next_enter]: "",
+      [Animation.caption_prev_exit]: "",
+      [Animation.caption_prev_enter]: "",
+      [Animation.caption_next_exit]: ""
     },
     styles: {},
     labels: {

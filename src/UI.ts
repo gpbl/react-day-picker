@@ -100,6 +100,26 @@ export enum SelectionState {
   selected = "selected"
 }
 
+/** CSS classes used for animating months and captions. */
+export enum Animation {
+  /** Applied to the entering month when it is after the exiting month. */
+  weeks_next_enter = "weeks_next_enter",
+  /** Applied to the entering month when it is before the exiting month. */
+  weeks_prev_enter = "weeks_prev_enter",
+  /** Applied to the exiting month when it is after the entering month. */
+  weeks_next_exit = "weeks_next_exit",
+  /** Applied to the exiting month when it is before the entering month. */
+  weeks_prev_exit = "weeks_prev_exit",
+  /** Applied to the entering month caption when it is after the exiting month. */
+  caption_next_enter = "caption_next_enter",
+  /** Applied to the entering month caption when it is before the exiting month. */
+  caption_prev_enter = "caption_prev_enter",
+  /** Applied to the exiting month caption when it is after the entering month. */
+  caption_next_exit = "caption_next_exit",
+  /** Applied to the exiting month caption when it is before the entering month. */
+  caption_prev_exit = "caption_prev_exit"
+}
+
 /**
  * Deprecated UI elements and flags.
  *
