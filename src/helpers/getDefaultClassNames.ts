@@ -1,4 +1,4 @@
-import { UI, DayFlag, SelectionState } from "../UI.js";
+import { UI, DayFlag, SelectionState, Animation } from "../UI.js";
 import type { ClassNames } from "../types/index.js";
 
 /**
@@ -22,6 +22,11 @@ export function getDefaultClassNames(): ClassNames {
   for (const key in SelectionState) {
     classNames[SelectionState[key as keyof typeof SelectionState]] =
       `rdp-${SelectionState[key as keyof typeof SelectionState]}`;
+  }
+
+  for (const key in Animation) {
+    classNames[Animation[key as keyof typeof Animation]] =
+      `rdp-${Animation[key as keyof typeof Animation]}`;
   }
 
   return classNames as Required<ClassNames>;

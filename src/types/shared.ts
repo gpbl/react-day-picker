@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 
-import { UI, DayFlag, SelectionState } from "../UI.js";
+import { UI, DayFlag, SelectionState, Animation } from "../UI.js";
 import * as components from "../components/custom-components.js";
 import {
   formatCaption,
@@ -316,7 +316,7 @@ export type MonthChangeEventHandler = (month: Date) => void;
  *   };
  */
 export type ClassNames = {
-  [key in UI | SelectionState | DayFlag]: string;
+  [key in UI | SelectionState | DayFlag | Animation]: string;
 };
 
 /**
