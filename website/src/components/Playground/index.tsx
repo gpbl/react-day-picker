@@ -270,6 +270,17 @@ export function Playground() {
             <label>
               <input
                 type="checkbox"
+                name="animate"
+                checked={props.animate}
+                onChange={(e) =>
+                  setProps({ ...props, animate: e.target.checked })
+                }
+              />
+              Animate
+            </label>
+            <label>
+              <input
+                type="checkbox"
                 name="hideNavigation"
                 checked={props.hideNavigation}
                 onChange={(e) =>

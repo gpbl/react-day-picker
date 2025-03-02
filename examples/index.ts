@@ -2,6 +2,8 @@ export * from "./AccessibleDatePicker";
 export * from "./Animate";
 export * from "./AnimateRange";
 export * from "./AnimateRtl";
+export * from "./AnimateCSSVars";
+export * from "./AnimateCustom";
 export * from "./AutoFocus";
 export * from "./BroadcastCalendar";
 export * from "./ContainerAttributes";
