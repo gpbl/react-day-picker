@@ -88,13 +88,13 @@ Limit the dates the user can navigate to by using the `startMonth` and `endMonth
   <Examples.StartEndMonths />
 </BrowserWindow>
 
-## Animation {#animate}
+## Animating Month Transitions {#animate}
 
 To animate the transition between months, set the `animate` prop to `true`:
 
-| Prop Name | Type      | Description                      |
-| --------- | --------- | -------------------------------- |
-| `animate` | `boolean` | Enable the transition animation. |
+| Prop Name | Type      | Description                                                     |
+| --------- | --------- | --------------------------------------------------------------- |
+| `animate` | `boolean` | Enable the transition animation when navigating between months. |
 
 ```tsx
 <DayPicker animate />
@@ -104,19 +104,37 @@ To animate the transition between months, set the `animate` prop to `true`:
   <Examples.Animate />
 </BrowserWindow>
 
+:::warning Experimental Feature
+
+The animation feature is experimental and may change in the future. Please report any issue you may find in the [GitHub Discussions](https://github.com/gpbl/react-day-picker/discussions).
+
+:::
+
 ### Customizing the Animation
 
 Use the supported CSS variables to customize the animation duration or timing function:
 
 ```css
 .custom-animate {
-  --rdp-animation_duration: 0.1s;
-  --rdp-animation_timing: ease-in;
+  --rdp-animation_duration: 0.1s; /* Change the duration of the transition. */
+  --rdp-animation_timing: ease-in; /* Choose a different timing function. */
 }
 ```
 
 ```tsx
 <DayPicker animate className="custom-animate" />
+```
+
+### Accessibility Note
+
+To improve accessibility for users who prefer reduced motion, you can use the `prefers-reduced-motion` media query to disable animations.
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  .custom-animate {
+    --rdp-animation_duration: 0s;
+  }
+}
 ```
 
 ## Disabling the Navigation {#disablenavigation}
