@@ -313,21 +313,21 @@
   }
 }
 
-@keyframes rdp-weeks_next_enter {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
 @keyframes rdp-weeks_prev_exit {
   0% {
     transform: translateX(0);
   }
   100% {
     transform: translateX(-100%);
+  }
+}
+
+@keyframes rdp-weeks_next_enter {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 
@@ -340,18 +340,17 @@
   }
 }
 
-.weeks_next_enter {
-  animation: rdp-weeks_next_enter var(--rdp-animation_duration)
+.weeks_prev_enter {
+  animation: rdp-weeks_prev_enter var(--rdp-animation_duration)
     var(--rdp-animation_timing);
 }
-
 .weeks_prev_exit {
   animation: rdp-weeks_prev_exit var(--rdp-animation_duration)
     var(--rdp-animation_timing);
 }
 
-.weeks_prev_enter {
-  animation: rdp-weeks_prev_enter var(--rdp-animation_duration)
+.weeks_next_enter {
+  animation: rdp-weeks_next_enter var(--rdp-animation_duration)
     var(--rdp-animation_timing);
 }
 
@@ -359,26 +358,6 @@
   animation: rdp-weeks_next_exit var(--rdp-animation_duration)
     var(--rdp-animation_timing);
 }
-/* 
-.root[dir="rtl"] .weeks_next_enter {
-  animation: rdp-weeks_next_enter var(--rdp-animation_duration)
-    var(--rdp-animation_timing);
-}
-
-.root[dir="rtl"] .weeks_prev_exit {
-  animation: rdp-weeks_prev_exit var(--rdp-animation_duration)
-    var(--rdp-animation_timing);
-}
-
-.root[dir="rtl"] .weeks_prev_enter {
-  animation: rdp-weeks_prev_enter var(--rdp-animation_duration)
-    var(--rdp-animation_timing);
-}
-
-.root[dir="rtl"] .weeks_next_exit {
-  animation: rdp-weeks_next_exit var(--rdp-animation_duration)
-    var(--rdp-animation_timing);
-} */
 
 @keyframes rdp_caption_prev_enter {
   from {
