@@ -31,7 +31,7 @@ export function DayPicker(
      * - `arab`: Arabic-Indic
      * - `arabext`: Eastern Arabic-Indic (Persian)
      * - `deva`: Devanagari
-     * - `ethio`: Ethiopic
+     * - `geez`: Ethiopic
      * - `beng`: Bengali
      * - `guru`: Gurmukhi
      * - `gujr`: Gujarati
@@ -41,7 +41,7 @@ export function DayPicker(
      * - `knda`: Kannada
      * - `mlym`: Malayalam
      *
-     * @defaultValue `ethio` Eastern Arabic-Indic (Persian)
+     * @defaultValue `latn` Latin (Western Arabic)
      * @see https://daypicker.dev/docs/translation#numeral-systems
      */
     numerals?: DayPickerProps["numerals"];
