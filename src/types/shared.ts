@@ -416,7 +416,6 @@ export type MoveFocusBy =
  * - `arab`: Arabic-Indic
  * - `arabext`: Eastern Arabic-Indic (Persian)
  * - `deva`: Devanagari
- * - `geez`: Ge'ez (Ethiopic numerals)
  * - `beng`: Bengali
  * - `guru`: Gurmukhi
  * - `gujr`: Gujarati

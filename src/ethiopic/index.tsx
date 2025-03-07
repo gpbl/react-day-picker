@@ -28,18 +28,7 @@ export function DayPicker(
      * The numeral system to use when formatting dates.
      *
      * - `latn`: Latin (Western Arabic)
-     * - `arab`: Arabic-Indic
-     * - `arabext`: Eastern Arabic-Indic (Persian)
-     * - `deva`: Devanagari
      * - `geez`: Ge'ez (Ethiopic numerals)
-     * - `beng`: Bengali
-     * - `guru`: Gurmukhi
-     * - `gujr`: Gujarati
-     * - `orya`: Oriya
-     * - `tamldec`: Tamil
-     * - `telu`: Telugu
-     * - `knda`: Kannada
-     * - `mlym`: Malayalam
      *
      * @defaultValue `latn` Latin (Western Arabic)
      * @see https://daypicker.dev/docs/translation#numeral-systems
