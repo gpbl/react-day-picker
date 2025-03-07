@@ -46,7 +46,7 @@ export function DayPicker(
      * - `arab`: Arabic-Indic
      * - `arabext`: Eastern Arabic-Indic (Persian)
      * - `deva`: Devanagari
-     * - `ethio`: Ethiopic
+     * - `geez`: Ge'ez (Ethiopic numerals)
      * - `beng`: Bengali
      * - `guru`: Gurmukhi
      * - `gujr`: Gujarati
