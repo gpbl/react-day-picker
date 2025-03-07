@@ -362,22 +362,22 @@
     var(--rdp-animation_timing) forwards;
 }
 
-[dir="rtl"] .rdp-weeks_after_enter {
+.rdp-root[dir="rtl"] .rdp-weeks_after_enter {
   animation: rdp-slide_in_left var(--rdp-animation_duration)
     var(--rdp-animation_timing) forwards;
 }
 
-[dir="rtl"] .rdp-weeks_before_exit {
+.rdp-root[dir="rtl"] .rdp-weeks_before_exit {
   animation: rdp-slide_out_right var(--rdp-animation_duration)
     var(--rdp-animation_timing) forwards;
 }
 
-[dir="rtl"] .rdp-weeks_before_enter {
+.rdp-root[dir="rtl"] .rdp-weeks_before_enter {
   animation: rdp-slide_in_right var(--rdp-animation_duration)
     var(--rdp-animation_timing) forwards;
 }
 
-[dir="rtl"] .rdp-weeks_after_exit {
+.rdp-root[dir="rtl"] .rdp-weeks_after_exit {
   animation: rdp-slide_out_left var(--rdp-animation_duration)
     var(--rdp-animation_timing) forwards;
 }
