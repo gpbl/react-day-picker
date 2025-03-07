@@ -88,7 +88,7 @@ describe("useDayPicker", () => {
       [DayFlag.outside]: "",
       [DayFlag.focused]: "",
       [DayFlag.today]: "",
-      [Animation.weeks_enter_after]: "",
+      [Animation.weeks_next_enter]: "",
       [Animation.weeks_prev_exit]: "",
       [Animation.weeks_prev_enter]: "",
       [Animation.weeks_next_exit]: "",

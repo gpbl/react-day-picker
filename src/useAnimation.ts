@@ -125,7 +125,7 @@ export function useAnimation(
           : classNames[Animation.caption_prev_enter];
 
         const weeksAnimationClass = isAfterPreviousMonth
-          ? classNames[Animation.weeks_enter_after]
+          ? classNames[Animation.weeks_next_enter]
           : classNames[Animation.weeks_prev_enter];
 
         currentMonthEl.style.position = "relative";
