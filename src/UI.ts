@@ -103,7 +103,7 @@ export enum SelectionState {
 /** CSS classes used for animating months and captions. */
 export enum Animation {
   /** Applied to the entering month when it is after the exiting month. */
-  weeks_next_enter = "weeks_next_enter",
+  weeks_enter_after = "weeks_enter_after",
   /** Applied to the entering month when it is before the exiting month. */
   weeks_prev_enter = "weeks_prev_enter",
   /** Applied to the exiting month when it is after the entering month. */
