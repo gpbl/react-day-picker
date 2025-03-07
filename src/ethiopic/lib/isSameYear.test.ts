@@ -2,8 +2,8 @@ import { toGregorianDate } from "../utils";
 
 import { isSameYear } from "./isSameYear";
 
-describe("isSameYear in Ethiopian calendar", () => {
-  test("Should return true for dates in same Ethiopian year", () => {
+describe("isSameYear", () => {
+  test("should return true for dates in same Ethiopian year", () => {
     const date1 = toGregorianDate({
       year: 2016,
       month: 1,
@@ -17,7 +17,7 @@ describe("isSameYear in Ethiopian calendar", () => {
     expect(isSameYear(date1, date2)).toBe(true);
   });
 
-  test("Should return false for dates in different Ethiopian years", () => {
+  test("should return false for dates in different Ethiopian years", () => {
     const date1 = toGregorianDate({
       year: 2015,
       month: 6,
@@ -31,7 +31,7 @@ describe("isSameYear in Ethiopian calendar", () => {
     expect(isSameYear(date1, date2)).toBe(false);
   });
 
-  test("Should handle Ethiopian year boundary correctly", () => {
+  test("should handle Ethiopian year boundary correctly", () => {
     const lastDayOf2015 = toGregorianDate({
       year: 2015,
       month: 13,

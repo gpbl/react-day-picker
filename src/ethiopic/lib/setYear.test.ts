@@ -2,7 +2,7 @@ import { toEthiopicDate, toGregorianDate } from "../utils/index.js";
 
 import { setYear } from "./setYear";
 
-describe("setYear in Ethiopian calendar", () => {
+describe("setYear", () => {
   test("sets year correctly", () => {
     const date = toGregorianDate({
       year: 2015,

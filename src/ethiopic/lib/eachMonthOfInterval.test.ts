@@ -2,7 +2,7 @@ import { toGregorianDate } from "../utils";
 
 import { eachMonthOfInterval } from "./eachMonthOfInterval";
 
-describe("eachMonthOfInterval in Ethiopian calendar", () => {
+describe("eachMonthOfInterval", () => {
   test("should return an array of dates representing the start of each month in the interval", () => {
     const start = toGregorianDate({
       year: 2016,

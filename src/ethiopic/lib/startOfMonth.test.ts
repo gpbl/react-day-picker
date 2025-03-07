@@ -2,7 +2,7 @@ import { toEthiopicDate, toGregorianDate } from "../utils/index.js";
 
 import { startOfMonth } from "./startOfMonth";
 
-describe("startOfMonth in Ethiopian calendar", () => {
+describe("startOfMonth", () => {
   test("returns first day of Ethiopian month", () => {
     const date = toGregorianDate({
       year: 2016,

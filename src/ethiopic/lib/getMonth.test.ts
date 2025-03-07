@@ -2,7 +2,7 @@ import { toGregorianDate } from "../utils";
 
 import { getMonth } from "./getMonth";
 
-describe("getMonth in Ethiopian calendar", () => {
+describe("getMonth", () => {
   test("should return 0-based month number", () => {
     const date = toGregorianDate({
       year: 2016,

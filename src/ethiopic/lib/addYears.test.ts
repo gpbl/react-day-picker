@@ -2,8 +2,8 @@ import { toEthiopicDate, toGregorianDate } from "../utils/index.js";
 
 import { addYears } from "./addYears";
 
-describe("addYears in Ethiopian calendar", () => {
-  test("should add positive years correctly in Ethiopian calendar", () => {
+describe("addYears", () => {
+  test("should add positive years correctly", () => {
     const date = toGregorianDate({
       year: 2015,
       month: 4,
@@ -18,7 +18,7 @@ describe("addYears in Ethiopian calendar", () => {
     }); // Greg: Jan 1, 2025
   });
 
-  test("should add negative years correctly in Ethiopian calendar", () => {
+  test("should add negative years correctly", () => {
     const date = toGregorianDate({
       year: 2016,
       month: 4,
@@ -33,7 +33,7 @@ describe("addYears in Ethiopian calendar", () => {
     }); // Greg: Dec 31, 2021
   });
 
-  test("should maintain month and day when adding years from leap year in Ethiopian calendar", () => {
+  test("should maintain month and day when adding years from leap year", () => {
     const date = toGregorianDate({
       year: 2015,
       month: 13, // Pagume

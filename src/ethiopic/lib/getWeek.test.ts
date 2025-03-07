@@ -2,7 +2,7 @@ import { toGregorianDate } from "../utils";
 
 import { getWeek } from "./getWeek";
 
-describe("getWeek in Ethiopian calendar", () => {
+describe("getWeek", () => {
   test("should return 1 for first week of year", () => {
     const date = toGregorianDate({
       year: 2016,

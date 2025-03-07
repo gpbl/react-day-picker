@@ -2,7 +2,7 @@ import { toGregorianDate } from "../utils";
 
 import { differenceInCalendarMonths } from "./differenceInCalendarMonths";
 
-describe("differenceInCalendarMonths in Ethiopian calendar", () => {
+describe("differenceInCalendarMonths", () => {
   test("should calculate difference in months within the same Ethiopian year", () => {
     const date1 = toGregorianDate({
       year: 2016,

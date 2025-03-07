@@ -19,7 +19,6 @@ import { toGeezNumerals } from "../utils/geezConverter.js";
  * @returns The formatted number string
  */
 export function formatNumber(value: number, numerals: string = "latn"): string {
-  console.log("numerals", value);
   if (numerals === "geez") {
     return toGeezNumerals(value);
   }

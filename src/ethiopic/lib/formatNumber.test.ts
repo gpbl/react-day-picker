@@ -1,7 +1,7 @@
 import { formatNumber } from "./formatNumber";
 
 describe("formatNumber", () => {
-  test("Should format numbers using Ethiopian numerals", () => {
+  test("should format numbers using Ethiopian numerals", () => {
     expect(formatNumber(1, "geez")).toBe("፩");
     expect(formatNumber(10, "geez")).toBe("፲");
     expect(formatNumber(12, "geez")).toBe("፲፪");
@@ -22,7 +22,7 @@ describe("formatNumber", () => {
     expect(formatNumber(38965, "geez")).toBe("፫፼፹፱፻፷፭");
   });
 
-  test("Should format numbers using latin numerals by default", () => {
+  test("should format numbers using latin numerals by default", () => {
     expect(formatNumber(123)).toBe("123");
     expect(formatNumber(1234)).toBe("1,234");
     expect(formatNumber(12345)).toBe("12,345");
@@ -33,7 +33,7 @@ describe("formatNumber", () => {
     expect(formatNumber(12345, "latn")).toBe("12,345");
   });
 
-  test("Should handle zero and negative numbers correctly", () => {
+  test("should handle zero and negative numbers correctly", () => {
     // Zero
     expect(formatNumber(0, "geez")).toBe("-"); // Special case in Geez
     expect(formatNumber(0, "latn")).toBe("0");

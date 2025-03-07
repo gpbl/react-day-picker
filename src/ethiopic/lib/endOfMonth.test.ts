@@ -2,8 +2,8 @@ import { toEthiopicDate, toGregorianDate } from "../utils";
 
 import { endOfMonth } from "./endOfMonth";
 
-describe("endOfMonth in Ethiopian calendar", () => {
-  test("Should return the last day of a 30-day Ethiopian month", () => {
+describe("endOfMonth", () => {
+  test("should return the last day of a 30-day Ethiopian month", () => {
     const date = toGregorianDate({
       year: 2016,
       month: 4,
@@ -18,7 +18,7 @@ describe("endOfMonth in Ethiopian calendar", () => {
     }); // Greg: Jan 9, 2024
   });
 
-  test("Should handle Pagume (13th month) correctly in leap and non-leap years", () => {
+  test("should handle Pagume (13th month) correctly in leap and non-leap years", () => {
     // Non-leap year (5 days)
     const nonLeapDate = toGregorianDate({
       year: 2016,

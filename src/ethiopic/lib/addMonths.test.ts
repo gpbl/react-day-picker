@@ -2,8 +2,8 @@ import { toEthiopicDate, toGregorianDate } from "../utils";
 
 import { addMonths } from "./addMonths";
 
-describe("addMonths in Ethiopian calendar", () => {
-  test("should add positive months correctly in Ethiopian calendar", () => {
+describe("addMonths", () => {
+  test("should add positive months correctly", () => {
     // Test case 1: Adding within same year
     const date1 = toGregorianDate({
       year: 2016,
@@ -33,7 +33,7 @@ describe("addMonths in Ethiopian calendar", () => {
     }); // Greg: Apr 30, 2024
   });
 
-  test("should add negative months correctly in Ethiopian calendar", () => {
+  test("should add negative months correctly", () => {
     // Test case 1: Subtracting within same year
     const date1 = toGregorianDate({
       year: 2016,

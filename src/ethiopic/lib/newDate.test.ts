@@ -2,7 +2,7 @@ import { toEthiopicDate } from "../utils/index.js";
 
 import { newDate } from "./newDate";
 
-describe("newDate in Ethiopian calendar", () => {
+describe("newDate", () => {
   test("creates date with valid Ethiopian values", () => {
     const date = newDate(2016, 4, 15); // Tahsas 15, 2016
     const ethDate = toEthiopicDate(date);

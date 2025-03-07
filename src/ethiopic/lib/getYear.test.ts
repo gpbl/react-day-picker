@@ -2,8 +2,8 @@ import { toGregorianDate } from "../utils";
 
 import { getYear } from "./getYear";
 
-describe("getYear in Ethiopian calendar", () => {
-  test("Should return correct Ethiopian year", () => {
+describe("getYear", () => {
+  test("should return correct Ethiopian year", () => {
     const date = toGregorianDate({
       year: 2016,
       month: 4,
@@ -12,7 +12,7 @@ describe("getYear in Ethiopian calendar", () => {
     expect(getYear(date)).toBe(2016);
   });
 
-  test("Should handle Ethiopian year boundary correctly", () => {
+  test("should handle Ethiopian year boundary correctly", () => {
     // Last day of Ethiopian year 2015
     const lastDay2015 = toGregorianDate({
       year: 2015,
