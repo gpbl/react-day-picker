@@ -174,8 +174,9 @@
   },
   "files": [
     "dist",
-    "style.css",
-    "style.module.css",
+    "src/style.css",
+    "src/style.module.css",
+    "src/style.css.d.ts",
     "jalali.js",
     "jalali.d.ts",
     "locale.js",
