@@ -1,6 +1,6 @@
 {
   "name": "react-day-picker",
-  "version": "9.5.1",
+  "version": "9.6.0",
   "description": "Customizable Date Picker for React",
   "author": "Giampaolo Bellavite <io@gpbl.dev>",
   "homepage": "https://daypicker.dev",
@@ -21,7 +21,9 @@
   "module": "./dist/esm/index.js",
   "style": "./src/style.css",
   "type": "module",
-  "sideEffects": ["**/*.css"],
+  "sideEffects": [
+    "**/*.css"
+  ],
   "exports": {
     ".": {
       "import": {
