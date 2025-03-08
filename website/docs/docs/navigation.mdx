@@ -104,12 +104,6 @@ To animate the transition between months, set the `animate` prop to `true`:
   <Examples.Animate />
 </BrowserWindow>
 
-:::warning Experimental Feature
-
-The `animate` prop is experimental and may change in the future. Please note that advanced animations may be limited by the table HTML structure. Please report any issues in the [GitHub Discussions](https://github.com/gpbl/react-day-picker/discussions).
-
-:::
-
 ### Customizing the Animation
 
 Use the supported CSS variables to customize the animation duration or timing function:
@@ -136,6 +130,38 @@ To improve accessibility for users who prefer reduced motion, you can use the `p
   }
 }
 ```
+
+### Changing the Animation Functions
+
+For a more advanced customization, you can change override the default style with your own animation functions:
+
+```css
+.rdp-caption_after_enter {
+  animation:; /* Your value here */
+}
+```
+
+<details>
+  <summary>Class Names Used For Animations</summary>
+
+| Class Name                  | Description                                          |
+| --------------------------- | ---------------------------------------------------- |
+| `.rdp-caption_after_enter`  | Caption animation for the month after, when enters.  |
+| `.rdp-caption_after_exit`   | Caption animation for the month after, when exits.   |
+| `.rdp-caption_before_enter` | Caption animation for the month before, when enters. |
+| `.rdp-caption_before_exit`  | Caption animation for the month before, when exits.  |
+| `.rdp-weeks_before_enter`   | Weeks animation for the month before, when enters.   |
+| `.rdp-weeks_before_exit`    | Weeks animation for the month before, when exits.    |
+| `.rdp-weeks_after_enter`    | Weeks animation for the month after, when enters.    |
+| `.rdp-weeks_after_exit`     | Weeks animation for the month after, when exits.     |
+
+</details>
+
+:::warning Advanced Feature
+
+Customizing the animation function, such as for a up/down transition, can be challenging due to the HTML table structure of the grid. We may improve this in a future version. Please leave your feedback in [DayPicker Discussions](https://github.com/gpbl/react-day-picker/discussions).
+
+:::
 
 ## Disabling the Navigation {#disablenavigation}
 

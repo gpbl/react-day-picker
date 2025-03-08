@@ -246,10 +246,9 @@ export interface PropsBase {
    */
   showWeekNumber?: boolean;
   /**
-   * Experimental. Animate navigating between months.
+   * Animate navigating between months.
    *
    * @since 9.6.0
-   * @experimental
    * @see https://daypicker.dev/docs/navigation#animate
    */
   animate?: boolean;
