@@ -480,8 +480,7 @@ export function DayPicker(props: DayPickerProps) {
                               Boolean(focused?.isEqualTo(day));
 
                             modifiers[SelectionState.selected] =
-                              !modifiers.disabled &&
-                              (isSelected?.(date) || modifiers.selected);
+                              isSelected?.(date) || modifiers.selected;
 
                             if (isDateRange(selectedValue)) {
                               // add range modifiers
