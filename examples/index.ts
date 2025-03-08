@@ -18,6 +18,7 @@ export * from "./CustomWeek";
 export * from "./DefaultMonth";
 export * from "./Dialog";
 export * from "./Disabled";
+export * from "./DisabledSelectedDate";
 export * from "./DisableNavigation";
 export * from "./Dropdown";
 export * from "./DropdownMonths";
