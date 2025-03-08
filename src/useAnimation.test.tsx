@@ -76,14 +76,14 @@ describe("useAnimation", () => {
       await user.click(nextButton());
 
       expect(getMonthCaptionContainers()[0]).toHaveClass(
-        "rdp-caption_prev_exit"
+        "rdp-caption_before_exit"
       );
       expect(getMonthCaptionContainers()[1]).toHaveClass(
-        "rdp-caption_next_enter"
+        "rdp-caption_after_enter"
       );
 
-      expect(getMonthWeeksContainers()[0]).toHaveClass("rdp-weeks_prev_exit");
-      expect(getMonthWeeksContainers()[1]).toHaveClass("rdp-weeks_next_enter");
+      expect(getMonthWeeksContainers()[0]).toHaveClass("rdp-weeks_before_exit");
+      expect(getMonthWeeksContainers()[1]).toHaveClass("rdp-weeks_after_enter");
     });
 
     it("should apply the correct animation class when entering month is before the exiting month", async () => {
@@ -92,14 +92,16 @@ describe("useAnimation", () => {
       await user.click(previousButton());
 
       expect(getMonthCaptionContainers()[0]).toHaveClass(
-        "rdp-caption_next_exit"
+        "rdp-caption_after_exit"
       );
       expect(getMonthCaptionContainers()[1]).toHaveClass(
-        "rdp-caption_prev_enter"
+        "rdp-caption_before_enter"
       );
 
-      expect(getMonthWeeksContainers()[0]).toHaveClass("rdp-weeks_next_exit");
-      expect(getMonthWeeksContainers()[1]).toHaveClass("rdp-weeks_prev_enter");
+      expect(getMonthWeeksContainers()[0]).toHaveClass("rdp-weeks_after_exit");
+      expect(getMonthWeeksContainers()[1]).toHaveClass(
+        "rdp-weeks_before_enter"
+      );
     });
 
     it("should clean up the exiting month after animation ends", async () => {
@@ -121,11 +123,11 @@ describe("useAnimation", () => {
       expect(getMonthWeeksContainers()).toHaveLength(1);
 
       expect(getMonthCaptionContainers()[0]).not.toHaveClass(
-        "rdp-caption_next_enter"
+        "rdp-caption_after_enter"
       );
 
       expect(getMonthWeeksContainers()[0]).not.toHaveClass(
-        "rdp-weeks_next_enter"
+        "rdp-weeks_after_enter"
       );
     });
   });

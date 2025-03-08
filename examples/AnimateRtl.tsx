@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import { ar } from "date-fns/locale";
 import { DayPicker } from "react-day-picker";
 import classNames from "react-day-picker/style.module.css";
 
@@ -9,14 +10,12 @@ export function AnimateRtl() {
   return (
     <DayPicker
       mode="single"
+      locale={ar}
       animate
       dir="rtl"
       selected={selected}
       onSelect={setSelected}
       classNames={classNames}
-      footer={
-        selected ? `Selected: ${selected.toLocaleDateString()}` : "Pick a day."
-      }
     />
   );
 }

@@ -101,23 +101,27 @@ export enum SelectionState {
 }
 
 /** CSS classes used for animating months and captions. */
+/**
+ * Enum representing different animation states for transitioning between
+ * months.
+ */
 export enum Animation {
-  /** Applied to the entering month when it is after the exiting month. */
-  weeks_next_enter = "weeks_next_enter",
-  /** Applied to the entering month when it is before the exiting month. */
-  weeks_prev_enter = "weeks_prev_enter",
-  /** Applied to the exiting month when it is after the entering month. */
-  weeks_next_exit = "weeks_next_exit",
-  /** Applied to the exiting month when it is before the entering month. */
-  weeks_prev_exit = "weeks_prev_exit",
-  /** Applied to the entering month caption when it is after the exiting month. */
-  caption_next_enter = "caption_next_enter",
-  /** Applied to the entering month caption when it is before the exiting month. */
-  caption_prev_enter = "caption_prev_enter",
-  /** Applied to the exiting month caption when it is after the entering month. */
-  caption_next_exit = "caption_next_exit",
-  /** Applied to the exiting month caption when it is before the entering month. */
-  caption_prev_exit = "caption_prev_exit"
+  /** The entering weeks when they appear before the exiting month. */
+  weeks_before_enter = "weeks_before_enter",
+  /** The exiting weeks when they disappear before the entering month. */
+  weeks_before_exit = "weeks_before_exit",
+  /** The entering weeks when they appear after the exiting month. */
+  weeks_after_enter = "weeks_after_enter",
+  /** The exiting weeks when they disappear after the entering month. */
+  weeks_after_exit = "weeks_after_exit",
+  /** The entering caption when it appears after the exiting month. */
+  caption_after_enter = "caption_after_enter",
+  /** The exiting caption when it disappears after the entering month. */
+  caption_after_exit = "caption_after_exit",
+  /** The entering caption when it appears before the exiting month. */
+  caption_before_enter = "caption_before_enter",
+  /** The exiting caption when it disappears before the entering month. */
+  caption_before_exit = "caption_before_exit"
 }
 
 /**

@@ -342,42 +342,42 @@
   }
 }
 
-.rdp-weeks_next_enter {
-  animation: rdp-slide_in_right var(--rdp-animation_duration)
+.rdp-weeks_before_enter {
+  animation: rdp-slide_in_left var(--rdp-animation_duration)
     var(--rdp-animation_timing) forwards;
 }
 
-.rdp-weeks_prev_exit {
+.rdp-weeks_before_exit {
   animation: rdp-slide_out_left var(--rdp-animation_duration)
     var(--rdp-animation_timing) forwards;
 }
 
-.rdp-weeks_prev_enter {
-  animation: rdp-slide_in_left var(--rdp-animation_duration)
-    var(--rdp-animation_timing) forwards;
-}
-
-.rdp-weeks_next_exit {
-  animation: rdp-slide_out_right var(--rdp-animation_duration)
-    var(--rdp-animation_timing) forwards;
-}
-
-[dir="rtl"] .rdp-weeks_next_enter {
-  animation: rdp-slide_in_left var(--rdp-animation_duration)
-    var(--rdp-animation_timing) forwards;
-}
-
-[dir="rtl"] .rdp-weeks_prev_exit {
-  animation: rdp-slide_out_right var(--rdp-animation_duration)
-    var(--rdp-animation_timing) forwards;
-}
-
-[dir="rtl"] .rdp-weeks_prev_enter {
+.rdp-weeks_after_enter {
   animation: rdp-slide_in_right var(--rdp-animation_duration)
     var(--rdp-animation_timing) forwards;
 }
 
-[dir="rtl"] .rdp-weeks_next_exit {
+.rdp-weeks_after_exit {
+  animation: rdp-slide_out_right var(--rdp-animation_duration)
+    var(--rdp-animation_timing) forwards;
+}
+
+.rdp-root[dir="rtl"] .rdp-weeks_after_enter {
+  animation: rdp-slide_in_left var(--rdp-animation_duration)
+    var(--rdp-animation_timing) forwards;
+}
+
+.rdp-root[dir="rtl"] .rdp-weeks_before_exit {
+  animation: rdp-slide_out_right var(--rdp-animation_duration)
+    var(--rdp-animation_timing) forwards;
+}
+
+.rdp-root[dir="rtl"] .rdp-weeks_before_enter {
+  animation: rdp-slide_in_right var(--rdp-animation_duration)
+    var(--rdp-animation_timing) forwards;
+}
+
+.rdp-root[dir="rtl"] .rdp-weeks_after_exit {
   animation: rdp-slide_out_left var(--rdp-animation_duration)
     var(--rdp-animation_timing) forwards;
 }
@@ -400,22 +400,22 @@
   }
 }
 
-.rdp-caption_next_enter {
+.rdp-caption_after_enter {
   animation: rdp-fade_in var(--rdp-animation_duration)
     var(--rdp-animation_timing) forwards;
 }
 
-.rdp-caption_prev_exit {
+.rdp-caption_after_exit {
   animation: rdp-fade_out var(--rdp-animation_duration)
     var(--rdp-animation_timing) forwards;
 }
 
-.rdp-caption_prev_enter {
+.rdp-caption_before_enter {
   animation: rdp-fade_in var(--rdp-animation_duration)
     var(--rdp-animation_timing) forwards;
 }
 
-.rdp-caption_next_exit {
+.rdp-caption_before_exit {
   animation: rdp-fade_out var(--rdp-animation_duration)
     var(--rdp-animation_timing) forwards;
 }
