@@ -232,7 +232,7 @@ export interface PropsBase {
   /**
    * Show the outside days (days falling in the next or the previous month).
    *
-   * **Note:** when a broadcast {@link calendar} is set, this prop defaults to
+   * **Note:** when a {@link broadcastCalendar} is set, this prop defaults to
    * true.
    *
    * @see https://daypicker.dev/docs/customization#outside-days
