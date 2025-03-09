@@ -16,7 +16,7 @@ export enum UI {
   Chevron = "chevron",
   /**
    * The grid cell with the day's date. Extended by {@link DayFlag} and
-   * {@link SelectionFlag}.
+   * {@link SelectionState}.
    */
   Day = "day",
   /** The button containing the formatted day's date, inside the grid cell. */
