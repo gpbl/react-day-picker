@@ -8,7 +8,7 @@ import type { Modifiers } from "../types/index.js";
  * the focus with they day.
  *
  * If you need to just change the content of the day cell, consider swapping the
- * `DayDate` component instead.
+ * `DayButton` component instead.
  *
  * @group Components
  * @see https://daypicker.dev/guides/custom-components
