@@ -176,7 +176,7 @@
     "dist",
     "src/style.css",
     "src/style.module.css",
-    "src/style.css.d.ts",
+    "src/style.module.css.d.ts",
     "jalali.js",
     "jalali.d.ts",
     "locale.js",
