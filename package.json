@@ -179,6 +179,8 @@
     "src/style.css.d.ts",
     "jalali.js",
     "jalali.d.ts",
+    "persian.js",
+    "persian.d.ts",
     "locale.js",
     "locale.d.ts"
   ],
