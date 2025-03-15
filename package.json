@@ -1,6 +1,6 @@
 {
   "name": "react-day-picker",
-  "version": "9.6.1",
+  "version": "9.6.2",
   "description": "Customizable Date Picker for React",
   "author": "Giampaolo Bellavite <io@gpbl.dev>",
   "homepage": "https://daypicker.dev",
@@ -176,9 +176,11 @@
     "dist",
     "src/style.css",
     "src/style.module.css",
-    "src/style.css.d.ts",
+    "src/style.module.css.d.ts",
     "jalali.js",
     "jalali.d.ts",
+    "persian.js",
+    "persian.d.ts",
     "locale.js",
     "locale.d.ts"
   ],

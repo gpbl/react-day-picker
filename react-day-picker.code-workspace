@@ -5,9 +5,7 @@
       "orta.vscode-jest",
       "andys8.jest-snippets",
       "esbenp.prettier-vscode",
-      "mike-co.import-sorter",
       "streetsidesoftware.code-spell-checker",
-      "stkb.rewrap"
     ]
   },
   "folders": [
@@ -33,24 +31,11 @@
     "editor.formatOnType": true,
     "editor.tabSize": 2,
     "npm.packageManager": "pnpm",
-    "[typescript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
     "search.exclude": {
-      "**/node_modules": true,
-      "**/versioned_docs": true
+      "node_modules": true,
+      "versioned_docs": true
     },
     "jest.runMode": "on-demand",
-    "git.showProgress": true,
-    "scm.diffDecorationsGutterVisibility": "hover",
-    "scm.diffDecorationsGutterPattern": {
-      "modified": false
-    },
-    "scm.diffDecorationsGutterWidth": 1,
-    "scm.diffDecorations": "none",
-    "[typescriptreact]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
     "workbench.colorCustomizations": {
       "activityBar.background": "#005994",
       "activityBar.foreground": "#d8d8d8",
