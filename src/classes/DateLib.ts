@@ -40,7 +40,7 @@ import type {
   Interval
 } from "date-fns";
 import type { Locale } from "date-fns/locale";
-import { enUS } from "date-fns/locale";
+import { enUS } from "date-fns/locale/en-US";
 
 import { endOfBroadcastWeek } from "../helpers/endOfBroadcastWeek.js";
 import { startOfBroadcastWeek } from "../helpers/startOfBroadcastWeek.js";
