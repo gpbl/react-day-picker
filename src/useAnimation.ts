@@ -6,6 +6,33 @@ import { CalendarMonth } from "./classes/CalendarMonth.js";
 import type { DateLib } from "./classes/DateLib.js";
 import { ClassNames } from "./types/shared.js";
 
+const ANIMATION_SELECTORS = {
+  NAV: "[data-animated-nav]",
+  MONTH: "[data-animated-month]",
+  CAPTION: "[data-animated-caption]",
+  WEEKDAYS: "[data-animated-weekdays]",
+  WEEKS: "[data-animated-weeks]"
+};
+
+const asHtmlElement = (element: Element | null): HTMLElement | null => {
+  if (element instanceof HTMLElement) return element;
+  return null;
+};
+
+const queryMonthEls = (element: HTMLElement) => [
+  ...(element.querySelectorAll(ANIMATION_SELECTORS.MONTH) ?? [])
+];
+const queryMonthEl = (element: HTMLElement) =>
+  asHtmlElement(element.querySelector(ANIMATION_SELECTORS.MONTH));
+const queryCaptionEl = (element: HTMLElement) =>
+  asHtmlElement(element.querySelector(ANIMATION_SELECTORS.CAPTION));
+const queryWeeksEl = (element: HTMLElement) =>
+  asHtmlElement(element.querySelector(ANIMATION_SELECTORS.WEEKS));
+const queryNavEl = (element: HTMLElement) =>
+  asHtmlElement(element.querySelector(ANIMATION_SELECTORS.NAV));
+const queryWeekdaysEl = (element: HTMLElement) =>
+  asHtmlElement(element.querySelector(ANIMATION_SELECTORS.WEEKDAYS));
+
 /** @private */
 export function useAnimation(
   rootElRef: React.RefObject<HTMLDivElement | null>,
@@ -36,46 +63,11 @@ export function useAnimation(
       !enabled ||
       !rootElRef.current ||
       // safety check because the ref can be set to anything by consumers
-      !(rootElRef.current instanceof HTMLElement)
-    ) {
-      return;
-    }
-
-    // get previous root element snapshot before updating the snapshot ref
-    const previousRootElSnapshot = previousRootElSnapshotRef.current;
-
-    // update snapshot for next effect trigger
-    const rootElSnapshot = rootElRef.current.cloneNode(true);
-    if (rootElSnapshot instanceof HTMLElement) {
-      // if this effect is triggered while animating, we need to remove the old month snapshots from the new root snapshot
-      const currentMonthElsSnapshot = [
-        ...(rootElSnapshot.querySelectorAll(`[data-animated-month]`) ?? [])
-      ];
-      currentMonthElsSnapshot.forEach((currentMonthElSnapshot) => {
-        const previousMonthElSnapshot = currentMonthElSnapshot.querySelector(
-          `[data-animated-month]`
-        );
-        if (
-          previousMonthElSnapshot &&
-          currentMonthElSnapshot.contains(previousMonthElSnapshot)
-        ) {
-          currentMonthElSnapshot.removeChild(previousMonthElSnapshot);
-        }
-      });
-
-      previousRootElSnapshotRef.current = rootElSnapshot;
-    } else {
-      previousRootElSnapshotRef.current = null;
-    }
-
-    // validation required for the animation to work as expected
-    if (
+      !(rootElRef.current instanceof HTMLElement) ||
+      // validation required for the animation to work as expected
       months.length === 0 ||
       previousMonths.length === 0 ||
-      months.length !== previousMonths.length ||
-      // skip animation if a day is focused because it can cause issues to the animation and is better for a11y
-      focused ||
-      animatingRef.current
+      months.length !== previousMonths.length
     ) {
       return;
     }
@@ -85,18 +77,72 @@ export function useAnimation(
       previousMonths[0].date
     );
 
-    if (isSameMonth) {
+    const isAfterPreviousMonth = dateLib.isAfter(
+      months[0].date,
+      previousMonths[0].date
+    );
+
+    const captionAnimationClass = isAfterPreviousMonth
+      ? classNames[Animation.caption_after_enter]
+      : classNames[Animation.caption_before_enter];
+
+    const weeksAnimationClass = isAfterPreviousMonth
+      ? classNames[Animation.weeks_after_enter]
+      : classNames[Animation.weeks_before_enter];
+
+    // get previous root element snapshot before updating the snapshot ref
+    const previousRootElSnapshot = previousRootElSnapshotRef.current;
+
+    // update snapshot for next effect trigger
+    const rootElSnapshot = rootElRef.current.cloneNode(true);
+    if (rootElSnapshot instanceof HTMLElement) {
+      // if this effect is triggered while animating, we need to clean up the new root snapshot
+      // to put it in the same state as when not animating, to correctly animate the next month change
+      const currentMonthElsSnapshot = queryMonthEls(rootElSnapshot);
+      currentMonthElsSnapshot.forEach((currentMonthElSnapshot) => {
+        if (!(currentMonthElSnapshot instanceof HTMLElement)) return;
+
+        // remove the old month snapshots from the new root snapshot
+        const previousMonthElSnapshot = queryMonthEl(currentMonthElSnapshot);
+        if (
+          previousMonthElSnapshot &&
+          currentMonthElSnapshot.contains(previousMonthElSnapshot)
+        ) {
+          currentMonthElSnapshot.removeChild(previousMonthElSnapshot);
+        }
+
+        // remove animation classes from the new month snapshots
+        const captionEl = queryCaptionEl(currentMonthElSnapshot);
+        if (captionEl) {
+          captionEl.classList.remove(captionAnimationClass);
+        }
+
+        const weeksEl = queryWeeksEl(currentMonthElSnapshot);
+        if (weeksEl) {
+          weeksEl.classList.remove(weeksAnimationClass);
+        }
+      });
+
+      previousRootElSnapshotRef.current = rootElSnapshot;
+    } else {
+      previousRootElSnapshotRef.current = null;
+    }
+
+    if (
+      animatingRef.current ||
+      isSameMonth ||
+      // skip animation if a day is focused because it can cause issues to the animation and is better for a11y
+      focused
+    ) {
       return;
     }
 
-    const previousMonthEls = [
-      ...(previousRootElSnapshot?.querySelectorAll(`[data-animated-month]`) ??
-        [])
-    ];
+    const previousMonthEls =
+      previousRootElSnapshot instanceof HTMLElement
+        ? queryMonthEls(previousRootElSnapshot)
+        : [];
 
-    const currentMonthEls = [
-      ...(rootElRef.current.querySelectorAll(`[data-animated-month]`) ?? [])
-    ];
+    const currentMonthEls = queryMonthEls(rootElRef.current);
 
     if (
       currentMonthEls &&
@@ -107,10 +153,13 @@ export function useAnimation(
       animatingRef.current = true;
       const cleanUpFunctions: (() => void)[] = [];
 
-      const isAfterPreviousMonth = dateLib.isAfter(
-        months[0].date,
-        previousMonths[0].date
-      );
+      // set isolation to isolate to isolate the stacking context during animation
+      rootElRef.current.style.isolation = "isolate";
+      // set z-index to 1 to ensure the nav is clickable over the other elements being animated
+      const navEl = queryNavEl(rootElRef.current);
+      if (navEl) {
+        navEl.style.zIndex = "1";
+      }
 
       currentMonthEls.forEach((currentMonthEl, index) => {
         const previousMonthEl = previousMonthEls[index];
@@ -120,35 +169,33 @@ export function useAnimation(
         }
 
         // animate new displayed month
-        const captionAnimationClass = isAfterPreviousMonth
-          ? classNames[Animation.caption_after_enter]
-          : classNames[Animation.caption_before_enter];
-
-        const weeksAnimationClass = isAfterPreviousMonth
-          ? classNames[Animation.weeks_after_enter]
-          : classNames[Animation.weeks_before_enter];
-
         currentMonthEl.style.position = "relative";
         currentMonthEl.style.overflow = "hidden";
-        const captionEl = currentMonthEl.querySelector(
-          `[data-animated-caption]`
-        );
-        if (captionEl && captionEl instanceof HTMLElement) {
+        const captionEl = queryCaptionEl(currentMonthEl);
+        if (captionEl) {
           captionEl.classList.add(captionAnimationClass);
         }
 
-        const weeksEl = currentMonthEl.querySelector(`[data-animated-weeks]`);
-        if (weeksEl && weeksEl instanceof HTMLElement) {
+        const weeksEl = queryWeeksEl(currentMonthEl);
+        if (weeksEl) {
           weeksEl.classList.add(weeksAnimationClass);
         }
         // animate new displayed month end
 
         const cleanUp = () => {
           animatingRef.current = false;
-          if (captionEl && captionEl instanceof HTMLElement) {
+
+          if (rootElRef.current) {
+            rootElRef.current.style.isolation = "";
+          }
+          if (navEl) {
+            navEl.style.zIndex = "";
+          }
+
+          if (captionEl) {
             captionEl.classList.remove(captionAnimationClass);
           }
-          if (weeksEl && weeksEl instanceof HTMLElement) {
+          if (weeksEl) {
             weeksEl.classList.remove(weeksAnimationClass);
           }
           currentMonthEl.style.position = "";
@@ -166,17 +213,13 @@ export function useAnimation(
         previousMonthEl.setAttribute("aria-hidden", "true");
 
         // hide the weekdays container of the old month and only the new one
-        const previousWeekdaysEl = previousMonthEl.querySelector(
-          `[data-animated-weekdays]`
-        );
-        if (previousWeekdaysEl && previousWeekdaysEl instanceof HTMLElement) {
+        const previousWeekdaysEl = queryWeekdaysEl(previousMonthEl);
+        if (previousWeekdaysEl) {
           previousWeekdaysEl.style.opacity = "0";
         }
 
-        const previousCaptionEl = previousMonthEl.querySelector(
-          `[data-animated-caption]`
-        );
-        if (previousCaptionEl && previousCaptionEl instanceof HTMLElement) {
+        const previousCaptionEl = queryCaptionEl(previousMonthEl);
+        if (previousCaptionEl) {
           previousCaptionEl.classList.add(
             isAfterPreviousMonth
               ? classNames[Animation.caption_before_exit]
@@ -185,10 +228,8 @@ export function useAnimation(
           previousCaptionEl.addEventListener("animationend", cleanUp);
         }
 
-        const previousWeeksEl = previousMonthEl.querySelector(
-          `[data-animated-weeks]`
-        );
-        if (previousWeeksEl && previousWeeksEl instanceof HTMLElement) {
+        const previousWeeksEl = queryWeeksEl(previousMonthEl);
+        if (previousWeeksEl) {
           previousWeeksEl.classList.add(
             isAfterPreviousMonth
               ? classNames[Animation.weeks_before_exit]
