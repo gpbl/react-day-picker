@@ -127,6 +127,40 @@ export function PersianCalendar() {
   <Examples.PersianFormatted />
 </BrowserWindow>
 
+## Ethiopic Calendar
+
+DayPicker supports the [Ethiopic calendar](https://en.wikipedia.org/wiki/Ethiopian_calendar), which is the principal calendar used in Ethiopia and Eritrea.
+
+- To use the Ethiopic calendar, import `DayPicker` from `react-day-picker/ethiopic`:
+
+```diff
+- import { DayPicker } from 'react-day-picker';
++ import { DayPicker } from 'react-day-picker/ethiopic';
+```
+
+<BrowserWindow>
+  <Examples.Ethiopic />
+</BrowserWindow>
+
+### Numerals (Geez)
+
+By default, the Ethiopic calendar uses Latin numerals (Western Arabic numbers).
+
+- To use the Geez numeral system, pass the `numerals` prop:
+
+```tsx
+import { DayPicker } from "react-day-picker/ethiopic";
+
+export function EthiopicGeez() {
+  return <DayPicker numerals="geez" />;
+}
+```
+
+<BrowserWindow>
+  <Examples.EthiopicGeez />
+</BrowserWindow>
+
+
 ## Broadcast Calendar
 
 | Prop Name           | Type      | Description                          |
