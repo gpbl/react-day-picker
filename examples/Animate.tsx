@@ -11,9 +11,7 @@ export function Animate() {
       animate
       selected={selected}
       onSelect={setSelected}
-      footer={
-        selected ? `Selected: ${selected.toLocaleDateString()}` : "Pick a day."
-      }
+      fixedWeeks
     />
   );
 }
