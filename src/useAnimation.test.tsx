@@ -11,7 +11,7 @@ import { DayPicker } from "./DayPicker";
 jest.setSystemTime(new Date(2025, 1, 10));
 
 const getRootContainer = () => document.querySelector(`.rdp-root`);
-const getNaveContainers = () => [
+const getNavContainers = () => [
   ...document.querySelectorAll(`[data-animated-nav]`)
 ];
 const getMonthContainers = () => [
@@ -137,7 +137,7 @@ describe("useAnimation", () => {
 
       await user.click(nextButton());
 
-      let navContainers = getNaveContainers();
+      let navContainers = getNavContainers();
       let monthContainers = getMonthContainers();
       let monthCaptionContainers = getMonthCaptionContainers();
       let monthWeekdaysContainers = getMonthWeekdaysContainers();
@@ -164,7 +164,7 @@ describe("useAnimation", () => {
       const animationEndEvent = new Event("animationend");
       getMonthCaptionContainers()[0].dispatchEvent(animationEndEvent);
 
-      navContainers = getNaveContainers();
+      navContainers = getNavContainers();
       monthContainers = getMonthContainers();
       monthCaptionContainers = getMonthCaptionContainers();
       monthWeekdaysContainers = getMonthWeekdaysContainers();
