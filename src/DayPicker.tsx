@@ -303,6 +303,7 @@ export function DayPicker(props: DayPickerProps) {
         >
           {!props.hideNavigation && (
             <components.Nav
+              data-animated-nav={props.animate ? "true" : undefined}
               className={classNames[UI.Nav]}
               style={styles?.[UI.Nav]}
               aria-label={labelNav()}
