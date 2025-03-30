@@ -6,32 +6,24 @@ import { CalendarMonth } from "./classes/CalendarMonth.js";
 import type { DateLib } from "./classes/DateLib.js";
 import { ClassNames } from "./types/shared.js";
 
-const ANIMATION_SELECTORS = {
-  NAV: "[data-animated-nav]",
-  MONTH: "[data-animated-month]",
-  CAPTION: "[data-animated-caption]",
-  WEEKDAYS: "[data-animated-weekdays]",
-  WEEKS: "[data-animated-weeks]"
-};
-
 const asHtmlElement = (element: Element | null): HTMLElement | null => {
   if (element instanceof HTMLElement) return element;
   return null;
 };
 
 const queryMonthEls = (element: HTMLElement) => [
-  ...(element.querySelectorAll(ANIMATION_SELECTORS.MONTH) ?? [])
+  ...(element.querySelectorAll("[data-animated-month]") ?? [])
 ];
 const queryMonthEl = (element: HTMLElement) =>
-  asHtmlElement(element.querySelector(ANIMATION_SELECTORS.MONTH));
+  asHtmlElement(element.querySelector("[data-animated-month]"));
 const queryCaptionEl = (element: HTMLElement) =>
-  asHtmlElement(element.querySelector(ANIMATION_SELECTORS.CAPTION));
+  asHtmlElement(element.querySelector("[data-animated-caption]"));
 const queryWeeksEl = (element: HTMLElement) =>
-  asHtmlElement(element.querySelector(ANIMATION_SELECTORS.WEEKS));
+  asHtmlElement(element.querySelector("[data-animated-weeks]"));
 const queryNavEl = (element: HTMLElement) =>
-  asHtmlElement(element.querySelector(ANIMATION_SELECTORS.NAV));
+  asHtmlElement(element.querySelector("[data-animated-nav]"));
 const queryWeekdaysEl = (element: HTMLElement) =>
-  asHtmlElement(element.querySelector(ANIMATION_SELECTORS.WEEKDAYS));
+  asHtmlElement(element.querySelector("[data-animated-weekdays]"));
 
 /** @private */
 export function useAnimation(
