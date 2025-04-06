@@ -36,8 +36,7 @@ import type {
   EndOfWeekOptions,
   StartOfWeekOptions,
   FormatOptions as DateFnsFormatOptions,
-  GetWeekOptions,
-  Interval
+  DateArg
 } from "date-fns";
 import type { Locale } from "date-fns/locale";
 import { enUS } from "date-fns/locale/en-US";
@@ -213,8 +212,10 @@ export class DateLib {
    * @param amount The number of days to add.
    * @returns The new date with the days added.
    */
-  addDays = (date: Date, amount: number): Date => {
-    return this.overrides?.addDays?.(date, amount) ?? addDays(date, amount);
+  addDays: typeof addDays = (date, amount) => {
+    return this.overrides?.addDays
+      ? this.overrides.addDays(date, amount)
+      : addDays(date, amount);
   };
 
   /**
@@ -224,8 +225,10 @@ export class DateLib {
    * @param amount The number of months to add.
    * @returns The new date with the months added.
    */
-  addMonths = (date: Date, amount: number): Date => {
-    return this.overrides?.addMonths?.(date, amount) ?? addMonths(date, amount);
+  addMonths: typeof addMonths = (date, amount) => {
+    return this.overrides?.addMonths
+      ? this.overrides.addMonths(date, amount)
+      : addMonths(date, amount);
   };
 
   /**
@@ -235,8 +238,10 @@ export class DateLib {
    * @param amount The number of weeks to add.
    * @returns The new date with the weeks added.
    */
-  addWeeks = (date: Date, amount: number): Date => {
-    return this.overrides?.addWeeks?.(date, amount) ?? addWeeks(date, amount);
+  addWeeks: typeof addWeeks = (date, amount) => {
+    return this.overrides?.addWeeks
+      ? this.overrides.addWeeks(date, amount)
+      : addWeeks(date, amount);
   };
 
   /**
@@ -246,8 +251,10 @@ export class DateLib {
    * @param amount The number of years to add.
    * @returns The new date with the years added.
    */
-  addYears = (date: Date, amount: number): Date => {
-    return this.overrides?.addYears?.(date, amount) ?? addYears(date, amount);
+  addYears: typeof addYears = (date, amount) => {
+    return this.overrides?.addYears
+      ? this.overrides.addYears(date, amount)
+      : addYears(date, amount);
   };
 
   /**
@@ -257,11 +264,13 @@ export class DateLib {
    * @param dateRight The earlier date.
    * @returns The number of calendar days between the dates.
    */
-  differenceInCalendarDays = (dateLeft: Date, dateRight: Date): number => {
-    return (
-      this.overrides?.differenceInCalendarDays?.(dateLeft, dateRight) ??
-      differenceInCalendarDays(dateLeft, dateRight)
-    );
+  differenceInCalendarDays: typeof differenceInCalendarDays = (
+    dateLeft,
+    dateRight
+  ) => {
+    return this.overrides?.differenceInCalendarDays
+      ? this.overrides.differenceInCalendarDays(dateLeft, dateRight)
+      : differenceInCalendarDays(dateLeft, dateRight);
   };
 
   /**
@@ -271,11 +280,13 @@ export class DateLib {
    * @param dateRight The earlier date.
    * @returns The number of calendar months between the dates.
    */
-  differenceInCalendarMonths = (dateLeft: Date, dateRight: Date): number => {
-    return (
-      this.overrides?.differenceInCalendarMonths?.(dateLeft, dateRight) ??
-      differenceInCalendarMonths(dateLeft, dateRight)
-    );
+  differenceInCalendarMonths: typeof differenceInCalendarMonths = (
+    dateLeft,
+    dateRight
+  ) => {
+    return this.overrides?.differenceInCalendarMonths
+      ? this.overrides.differenceInCalendarMonths(dateLeft, dateRight)
+      : differenceInCalendarMonths(dateLeft, dateRight);
   };
 
   /**
@@ -283,11 +294,10 @@ export class DateLib {
    *
    * @param interval The interval to get the months for.
    */
-  eachMonthOfInterval = (interval: Interval<Date>): Date[] => {
-    return (
-      this.overrides?.eachMonthOfInterval?.(interval) ??
-      eachMonthOfInterval(interval)
-    );
+  eachMonthOfInterval: typeof eachMonthOfInterval = (interval) => {
+    return this.overrides?.eachMonthOfInterval
+      ? this.overrides.eachMonthOfInterval(interval)
+      : eachMonthOfInterval(interval);
   };
 
   /**
@@ -296,11 +306,10 @@ export class DateLib {
    * @param date The original date.
    * @returns The end of the broadcast week.
    */
-  endOfBroadcastWeek = (date: Date, dateLib?: DateLib): Date => {
-    return (
-      this.overrides?.endOfBroadcastWeek?.(date, dateLib) ??
-      endOfBroadcastWeek(date, this)
-    );
+  endOfBroadcastWeek: typeof endOfBroadcastWeek = (date: Date) => {
+    return this.overrides?.endOfBroadcastWeek
+      ? this.overrides.endOfBroadcastWeek(date, this)
+      : endOfBroadcastWeek(date, this);
   };
 
   /**
@@ -309,8 +318,10 @@ export class DateLib {
    * @param date The original date.
    * @returns The end of the ISO week.
    */
-  endOfISOWeek = (date: Date): Date => {
-    return this.overrides?.endOfISOWeek?.(date) ?? endOfISOWeek(date);
+  endOfISOWeek: typeof endOfISOWeek = (date) => {
+    return this.overrides?.endOfISOWeek
+      ? this.overrides.endOfISOWeek(date)
+      : endOfISOWeek(date);
   };
 
   /**
@@ -319,8 +330,10 @@ export class DateLib {
    * @param date The original date.
    * @returns The end of the month.
    */
-  endOfMonth = (date: Date): Date => {
-    return this.overrides?.endOfMonth?.(date) ?? endOfMonth(date);
+  endOfMonth: typeof endOfMonth = (date) => {
+    return this.overrides?.endOfMonth
+      ? this.overrides.endOfMonth(date)
+      : endOfMonth(date);
   };
 
   /**
@@ -329,11 +342,18 @@ export class DateLib {
    * @param date The original date.
    * @returns The end of the week.
    */
-  endOfWeek = (date: Date, options?: EndOfWeekOptions<Date>): Date => {
-    return (
-      this.overrides?.endOfWeek?.(date, options ?? this.options) ??
-      endOfWeek(date, options ?? this.options)
-    );
+  endOfWeek: typeof endOfWeek = <
+    DateType extends Date,
+    ResultDate extends Date = DateType
+  >(
+    date: DateArg<DateType>
+  ): ResultDate => {
+    return this.overrides?.endOfWeek
+      ? this.overrides.endOfWeek(
+          date,
+          this.options as EndOfWeekOptions<ResultDate>
+        )
+      : endOfWeek(date, this.options as EndOfWeekOptions<ResultDate>);
   };
 
   /**
@@ -342,8 +362,10 @@ export class DateLib {
    * @param date The original date.
    * @returns The end of the year.
    */
-  endOfYear = (date: Date): Date => {
-    return this.overrides?.endOfYear?.(date) ?? endOfYear(date);
+  endOfYear: typeof endOfYear = (date) => {
+    return this.overrides?.endOfYear
+      ? this.overrides.endOfYear(date)
+      : endOfYear(date);
   };
 
   /**
@@ -353,15 +375,10 @@ export class DateLib {
    * @param formatStr The format string.
    * @returns The formatted date string.
    */
-  format = (
-    date: Date,
-    formatStr: string,
-    options?: DateFnsFormatOptions
-  ): string => {
-    const formatted =
-      this.overrides?.format?.(date, formatStr, options ?? this.options) ??
-      format(date, formatStr, options ?? this.options);
-
+  format: typeof format = (date, formatStr) => {
+    const formatted = this.overrides?.format
+      ? this.overrides.format(date, formatStr, this.options)
+      : format(date, formatStr, this.options);
     if (this.options.numerals && this.options.numerals !== "latn") {
       return this.replaceDigits(formatted);
     }
@@ -374,8 +391,10 @@ export class DateLib {
    * @param date The date to get the ISO week number for.
    * @returns The ISO week number.
    */
-  getISOWeek = (date: Date): number => {
-    return this.overrides?.getISOWeek?.(date) ?? getISOWeek(date);
+  getISOWeek: typeof getISOWeek = (date) => {
+    return this.overrides?.getISOWeek
+      ? this.overrides.getISOWeek(date)
+      : getISOWeek(date);
   };
 
   /**
@@ -384,8 +403,10 @@ export class DateLib {
    * @param date The date to get the month for.
    * @returns The month.
    */
-  getMonth = (date: Date): number => {
-    return this.overrides?.getMonth?.(date) ?? getMonth(date);
+  getMonth: typeof getMonth = (date) => {
+    return this.overrides?.getMonth
+      ? this.overrides.getMonth(date, this.options)
+      : getMonth(date, this.options);
   };
 
   /**
@@ -394,8 +415,10 @@ export class DateLib {
    * @param date The date to get the year for.
    * @returns The year.
    */
-  getYear = (date: Date): number => {
-    return this.overrides?.getYear?.(date) ?? getYear(date);
+  getYear: typeof getYear = (date) => {
+    return this.overrides?.getYear
+      ? this.overrides.getYear(date, this.options)
+      : getYear(date, this.options);
   };
 
   /**
@@ -404,11 +427,10 @@ export class DateLib {
    * @param date The date to get the week number for.
    * @returns The week number.
    */
-  getWeek = (date: Date, options?: GetWeekOptions): number => {
-    return (
-      this.overrides?.getWeek?.(date, options ?? this.options) ??
-      getWeek(date, options ?? this.options)
-    );
+  getWeek: typeof getWeek = (date) => {
+    return this.overrides?.getWeek
+      ? this.overrides.getWeek(date, this.options)
+      : getWeek(date, this.options);
   };
 
   /**
@@ -418,11 +440,10 @@ export class DateLib {
    * @param dateToCompare The date to compare with.
    * @returns True if the first date is after the second date.
    */
-  isAfter = (date: Date, dateToCompare: Date): boolean => {
-    return (
-      this.overrides?.isAfter?.(date, dateToCompare) ??
-      isAfter(date, dateToCompare)
-    );
+  isAfter: typeof isAfter = (date, dateToCompare) => {
+    return this.overrides?.isAfter
+      ? this.overrides.isAfter(date, dateToCompare)
+      : isAfter(date, dateToCompare);
   };
 
   /**
@@ -432,11 +453,10 @@ export class DateLib {
    * @param dateToCompare The date to compare with.
    * @returns True if the first date is before the second date.
    */
-  isBefore = (date: Date, dateToCompare: Date): boolean => {
-    return (
-      this.overrides?.isBefore?.(date, dateToCompare) ??
-      isBefore(date, dateToCompare)
-    );
+  isBefore: typeof isBefore = (date, dateToCompare) => {
+    return this.overrides?.isBefore
+      ? this.overrides.isBefore(date, dateToCompare)
+      : isBefore(date, dateToCompare);
   };
 
   /**
@@ -446,7 +466,9 @@ export class DateLib {
    * @returns True if the value is a Date object.
    */
   isDate: (value: unknown) => value is Date = (value): value is Date => {
-    return this.overrides?.isDate?.(value) ?? isDate(value);
+    return this.overrides?.isDate
+      ? this.overrides.isDate(value)
+      : isDate(value);
   };
 
   /**
@@ -456,11 +478,10 @@ export class DateLib {
    * @param dateRight The second date to compare.
    * @returns True if the dates are on the same day.
    */
-  isSameDay = (dateLeft: Date, dateRight: Date): boolean => {
-    return (
-      this.overrides?.isSameDay?.(dateLeft, dateRight) ??
-      isSameDay(dateLeft, dateRight)
-    );
+  isSameDay: typeof isSameDay = (dateLeft, dateRight) => {
+    return this.overrides?.isSameDay
+      ? this.overrides.isSameDay(dateLeft, dateRight)
+      : isSameDay(dateLeft, dateRight);
   };
 
   /**
@@ -470,11 +491,10 @@ export class DateLib {
    * @param dateRight The second date to compare.
    * @returns True if the dates are in the same month.
    */
-  isSameMonth = (dateLeft: Date, dateRight: Date): boolean => {
-    return (
-      this.overrides?.isSameMonth?.(dateLeft, dateRight) ??
-      isSameMonth(dateLeft, dateRight)
-    );
+  isSameMonth: typeof isSameMonth = (dateLeft, dateRight) => {
+    return this.overrides?.isSameMonth
+      ? this.overrides.isSameMonth(dateLeft, dateRight)
+      : isSameMonth(dateLeft, dateRight);
   };
 
   /**
@@ -484,11 +504,10 @@ export class DateLib {
    * @param dateRight The second date to compare.
    * @returns True if the dates are in the same year.
    */
-  isSameYear = (dateLeft: Date, dateRight: Date): boolean => {
-    return (
-      this.overrides?.isSameYear?.(dateLeft, dateRight) ??
-      isSameYear(dateLeft, dateRight)
-    );
+  isSameYear: typeof isSameYear = (dateLeft, dateRight) => {
+    return this.overrides?.isSameYear
+      ? this.overrides.isSameYear(dateLeft, dateRight)
+      : isSameYear(dateLeft, dateRight);
   };
 
   /**
@@ -497,8 +516,8 @@ export class DateLib {
    * @param dates The array of dates to compare.
    * @returns The latest date.
    */
-  max = (dates: Date[]): Date => {
-    return this.overrides?.max?.(dates) ?? max(dates);
+  max: typeof max = (dates) => {
+    return this.overrides?.max ? this.overrides.max(dates) : max(dates);
   };
 
   /**
@@ -507,8 +526,8 @@ export class DateLib {
    * @param dates The array of dates to compare.
    * @returns The earliest date.
    */
-  min = (dates: Date[]): Date => {
-    return this.overrides?.min?.(dates) ?? min(dates);
+  min: typeof min = (dates) => {
+    return this.overrides?.min ? this.overrides.min(dates) : min(dates);
   };
 
   /**
@@ -518,8 +537,10 @@ export class DateLib {
    * @param month The month to set (0-11).
    * @returns The new date with the month set.
    */
-  setMonth = (date: Date, month: number): Date => {
-    return this.overrides?.setMonth?.(date, month) ?? setMonth(date, month);
+  setMonth: typeof setMonth = (date, month) => {
+    return this.overrides?.setMonth
+      ? this.overrides.setMonth(date, month)
+      : setMonth(date, month);
   };
 
   /**
@@ -529,8 +550,10 @@ export class DateLib {
    * @param year The year to set.
    * @returns The new date with the year set.
    */
-  setYear = (date: Date, year: number): Date => {
-    return this.overrides?.setYear?.(date, year) ?? setYear(date, year);
+  setYear: typeof setYear = (date, year) => {
+    return this.overrides?.setYear
+      ? this.overrides.setYear(date, year)
+      : setYear(date, year);
   };
 
   /**
@@ -539,11 +562,10 @@ export class DateLib {
    * @param date The original date.
    * @returns The start of the broadcast week.
    */
-  startOfBroadcastWeek = (date: Date, dateLib?: DateLib): Date => {
-    return (
-      this.overrides?.startOfBroadcastWeek?.(date, dateLib ?? this) ??
-      startOfBroadcastWeek(date, dateLib ?? this)
-    );
+  startOfBroadcastWeek: typeof startOfBroadcastWeek = (date: Date) => {
+    return this.overrides?.startOfBroadcastWeek
+      ? this.overrides.startOfBroadcastWeek(date, this)
+      : startOfBroadcastWeek(date, this);
   };
 
   /**
@@ -552,8 +574,10 @@ export class DateLib {
    * @param date The original date.
    * @returns The start of the day.
    */
-  startOfDay = (date: Date): Date => {
-    return this.overrides?.startOfDay?.(date) ?? startOfDay(date);
+  startOfDay: typeof startOfDay = (date) => {
+    return this.overrides?.startOfDay
+      ? this.overrides.startOfDay(date)
+      : startOfDay(date);
   };
 
   /**
@@ -562,8 +586,10 @@ export class DateLib {
    * @param date The original date.
    * @returns The start of the ISO week.
    */
-  startOfISOWeek = (date: Date): Date => {
-    return this.overrides?.startOfISOWeek?.(date) ?? startOfISOWeek(date);
+  startOfISOWeek: typeof startOfISOWeek = (date) => {
+    return this.overrides?.startOfISOWeek
+      ? this.overrides.startOfISOWeek(date)
+      : startOfISOWeek(date);
   };
 
   /**
@@ -572,8 +598,10 @@ export class DateLib {
    * @param date The original date.
    * @returns The start of the month.
    */
-  startOfMonth = (date: Date): Date => {
-    return this.overrides?.startOfMonth?.(date) ?? startOfMonth(date);
+  startOfMonth: typeof startOfMonth = (date) => {
+    return this.overrides?.startOfMonth
+      ? this.overrides.startOfMonth(date)
+      : startOfMonth(date);
   };
 
   /**
@@ -582,10 +610,18 @@ export class DateLib {
    * @param date The original date.
    * @returns The start of the week.
    */
-  startOfWeek = (date: Date): Date => {
-    return (
-      this.overrides?.startOfWeek?.(date) ?? startOfWeek(date, this.options)
-    );
+  startOfWeek: typeof startOfWeek = <
+    DateType extends Date,
+    ResultDate extends Date = DateType
+  >(
+    date: DateArg<DateType>
+  ): ResultDate => {
+    return this.overrides?.startOfWeek
+      ? this.overrides.startOfWeek(
+          date,
+          this.options as StartOfWeekOptions<ResultDate>
+        )
+      : startOfWeek(date, this.options as StartOfWeekOptions<ResultDate>);
   };
 
   /**
@@ -594,8 +630,10 @@ export class DateLib {
    * @param date The original date.
    * @returns The start of the year.
    */
-  startOfYear = (date: Date): Date => {
-    return this.overrides?.startOfYear?.(date) ?? startOfYear(date);
+  startOfYear: typeof startOfYear = (date) => {
+    return this.overrides?.startOfYear
+      ? this.overrides.startOfYear(date)
+      : startOfYear(date);
   };
 }
 /** The default locale (English). */
