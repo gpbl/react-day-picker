@@ -36,8 +36,7 @@ import type {
   EndOfWeekOptions,
   StartOfWeekOptions,
   FormatOptions as DateFnsFormatOptions,
-  GetWeekOptions,
-  Interval
+  DateArg
 } from "date-fns";
 import type { Locale } from "date-fns/locale";
 import { enUS } from "date-fns/locale/en-US";
