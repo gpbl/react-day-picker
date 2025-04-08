@@ -28,7 +28,20 @@ npm remove date-fns
 
 The default design is slightly changed, so you may need to adjust DayPicker again to match your design. See the [styling docs](./docs/styling.mdx) for more information.
 
-### 3. Update the class names
+### 3. When using `selected`, make sure you add an `onSelect` props
+
+In v9, the `selected` prop is now a controlled prop. If you are using it, make sure to add an `onSelect` prop to handle the selected state and keep in sync with the component.
+
+```diff
++ const [selected, setSelected] = useState<Date | undefined>(undefined);
+  <DayPicker
+    mode="single"
+    selected={selected} // controlled prop
++   onSelect={setSelected} // update the selected date
+  />
+```
+
+### 4. Update the class names
 
 This version updates the name of the [UI elements](./api/enumerations/UI.md) to be more clear and consistent, so the class names have changed.
 
@@ -102,7 +115,7 @@ See the following list of updated class names. The [`DeprecatedUI`](./api/type-a
 
 </details>
 
-### 4. Remove use of `fromDate`, `toDate`
+### 5. Remove use of `fromDate`, `toDate`
 
 In case you are using `fromDate` or `toDate`, replace them with the `hidden` and `startMonth`, `endMonth` prop.
 
@@ -133,7 +146,7 @@ To replace `toDate`:
  />
 ```
 
-### 5. Update tests and translations
+### 6. Update tests and translations
 
 DayPicker relies on ARIA labels to make the calendar accessible, and v9 include some updates to make them more clear and descriptive. Following the upgrade, you may need to update your tests and translations.
 
@@ -159,7 +172,7 @@ You may need to update your test selectors — for example:
 
 The `labelDay` function has been renamed to `labelDayButton`. It now includes the the year and communicates the selected and today status. See [Translating DayPicker](./docs//translation.mdx) for more information.
 
-### 6. Update formatters to return a string
+### 7. Update formatters to return a string
 
 The [formatters](./docs/localization.mdx#formatters) now are functions returning a `string` instead of a `ReactNode`. In case you are using the formatters, update your code to return a string.
 
@@ -185,7 +198,7 @@ If your formatters are returning a `ReactNode`, you can use a [custom component]
 />
 ```
 
-### 7. Update your Custom Components
+### 8. Update your Custom Components
 
 In case you are using the `components` prop, you may need to update your code, as some components have been updated.
 
