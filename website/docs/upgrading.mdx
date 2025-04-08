@@ -30,7 +30,7 @@ The default design is slightly changed, so you may need to adjust DayPicker agai
 
 ### 3. When using `selected`, make sure you add an `onSelect` props
 
-In v9, the `selected` prop is now a controlled prop. If you are using it, make sure to add an `onSelect` prop to handle the selected state and keep in sync with the component.
+The `selected` prop is now a controlled prop. Make sure to add an `onSelect` prop to handle the selected state and keep it in sync with your component.
 
 ```diff
 + const [selected, setSelected] = useState<Date | undefined>(undefined);
