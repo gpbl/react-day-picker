@@ -2,6 +2,13 @@ import { DayFlag } from "../UI.js";
 import type { CalendarDay } from "../classes/index.js";
 import type { Modifiers } from "../types/index.js";
 
+enum FocusTargetPriority {
+  Today = 0,
+  Selected,
+  LastFocused,
+  FocusedModifier
+}
+
 export function calculateFocusTarget(
   days: CalendarDay[],
   getModifiers: (day: CalendarDay) => Modifiers,
@@ -10,11 +17,8 @@ export function calculateFocusTarget(
 ) {
   let focusTarget: CalendarDay | undefined;
 
-  let index = 0;
-  let found = false;
-
-  while (index < days.length && !found) {
-    const day = days[index];
+  let foundFocusTargetPriority: FocusTargetPriority | -1 = -1;
+  for (const day of days) {
     const modifiers = getModifiers(day);
 
     if (
@@ -22,22 +26,32 @@ export function calculateFocusTarget(
       !modifiers[DayFlag.hidden] &&
       !modifiers[DayFlag.outside]
     ) {
-      if (modifiers[DayFlag.focused]) {
+      if (
+        modifiers[DayFlag.focused] &&
+        foundFocusTargetPriority < FocusTargetPriority.FocusedModifier
+      ) {
         focusTarget = day;
-        found = true;
-      } else if (lastFocused?.isEqualTo(day)) {
+        foundFocusTargetPriority = FocusTargetPriority.FocusedModifier;
+      } else if (
+        lastFocused?.isEqualTo(day) &&
+        foundFocusTargetPriority < FocusTargetPriority.LastFocused
+      ) {
         focusTarget = day;
-        found = true;
-      } else if (isSelected(day.date)) {
+        foundFocusTargetPriority = FocusTargetPriority.LastFocused;
+      } else if (
+        isSelected(day.date) &&
+        foundFocusTargetPriority < FocusTargetPriority.Selected
+      ) {
         focusTarget = day;
-        found = true;
-      } else if (modifiers[DayFlag.today]) {
+        foundFocusTargetPriority = FocusTargetPriority.Selected;
+      } else if (
+        modifiers[DayFlag.today] &&
+        foundFocusTargetPriority < FocusTargetPriority.Today
+      ) {
         focusTarget = day;
-        found = true;
+        foundFocusTargetPriority = FocusTargetPriority.Today;
       }
     }
-
-    index++;
   }
 
   if (!focusTarget) {
