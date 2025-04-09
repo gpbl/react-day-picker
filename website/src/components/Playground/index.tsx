@@ -171,7 +171,7 @@ export function Playground() {
             <label>
               <input
                 type="checkbox"
-                name="hideWeekdayRow"
+                name="hideWeekdays"
                 checked={props.hideWeekdays}
                 onChange={(e) =>
                   setProps({ ...props, hideWeekdays: e.target.checked })
