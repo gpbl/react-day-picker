@@ -9,6 +9,14 @@ enum FocusTargetPriority {
   FocusedModifier
 }
 
+function isFocusableDay(modifiers: Modifiers) {
+  return (
+    !modifiers[DayFlag.disabled] &&
+    !modifiers[DayFlag.hidden] &&
+    !modifiers[DayFlag.outside]
+  );
+}
+
 export function calculateFocusTarget(
   days: CalendarDay[],
   getModifiers: (day: CalendarDay) => Modifiers,
@@ -21,11 +29,7 @@ export function calculateFocusTarget(
   for (const day of days) {
     const modifiers = getModifiers(day);
 
-    if (
-      !modifiers[DayFlag.disabled] &&
-      !modifiers[DayFlag.hidden] &&
-      !modifiers[DayFlag.outside]
-    ) {
+    if (isFocusableDay(modifiers)) {
       if (
         modifiers[DayFlag.focused] &&
         foundFocusTargetPriority < FocusTargetPriority.FocusedModifier
@@ -56,10 +60,7 @@ export function calculateFocusTarget(
 
   if (!focusTarget) {
     // return the first day that is focusable
-    focusTarget = days.find((day) => {
-      const m = getModifiers(day);
-      return !m[DayFlag.disabled] && !m[DayFlag.hidden] && !m[DayFlag.outside];
-    });
+    focusTarget = days.find((day) => isFocusableDay(getModifiers(day)));
   }
   return focusTarget;
 }
