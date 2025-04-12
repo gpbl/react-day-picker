@@ -1,4 +1,4 @@
-import { toGeezNumerals } from "../utils/geezConverter.js";
+import { toGeezNumerals } from "../utils/toGeezNumerals.js";
 
 /**
  * Formats a number using either Latin or Ethiopic (Geez) numerals
