@@ -361,7 +361,7 @@ export class DateLib {
    * Formats the given date using the specified format string.
    *
    * @param date The date to format.
-   * @param ertStr The format string.
+   * @param formatStr The format string.
    * @returns The formatted date string.
    */
   format = (
