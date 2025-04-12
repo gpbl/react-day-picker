@@ -24,7 +24,7 @@ DayPicker is built using the following tools and libraries:
 
 - [pnpm](https://pnpm.io/) - for package management
 - [TypeScript](https://www.typescriptlang.org/) with [React](https://reactjs.org/)
-- [Docusaurus](https://docusaurus.io/) - for the documentation websi
+- [Docusaurus](https://docusaurus.io/) - for the documentation website
 - [Vite](https://vitejs.dev/) - for the examples app
 - [Jest](https://jestjs.io/) - for unit tests
 
