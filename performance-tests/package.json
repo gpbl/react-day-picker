@@ -12,9 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "lighthouse": "^12.2.1",
+    "lighthouse": "^12.4.0",
     "open": "^10.1.0",
-    "wait-on": "^8.0.1",
-    "puppeteer": "^23.5.3"
+    "wait-on": "^8.0.2",
+    "puppeteer": "^24.4.0"
   }
 }
