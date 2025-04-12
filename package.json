@@ -4,7 +4,7 @@
   "description": "Customizable Date Picker for React",
   "author": "Giampaolo Bellavite <io@gpbl.dev>",
   "homepage": "https://daypicker.dev",
-  "packageManager": "pnpm",
+  "packageManager": "pnpm@9.15.9",
   "engines": {
     "node": ">=18"
   },
