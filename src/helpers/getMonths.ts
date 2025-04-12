@@ -36,7 +36,7 @@ export function getMonths(
           : startOfWeek(month);
 
       const lastDateOfLastWeek = props.broadcastCalendar
-        ? endOfBroadcastWeek(month, dateLib)
+        ? endOfBroadcastWeek(month)
         : props.ISOWeek
           ? endOfISOWeek(endOfMonth(month))
           : endOfWeek(endOfMonth(month));

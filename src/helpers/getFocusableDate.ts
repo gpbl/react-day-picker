@@ -43,7 +43,7 @@ export function getFocusableDate(
           : startOfWeek(date),
     endOfWeek: (date: Date) =>
       broadcastCalendar
-        ? endOfBroadcastWeek(date, dateLib)
+        ? endOfBroadcastWeek(date)
         : ISOWeek
           ? endOfISOWeek(date)
           : endOfWeek(date)
