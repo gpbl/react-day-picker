@@ -12,9 +12,9 @@ import type { DayPickerProps } from "../types/props.js";
 import * as ethiopicDateLib from "./lib/index.js";
 
 /**
- * Render the Persian Calendar.
+ * Render the Ethiopic Calendar.
  *
- * @see https://daypicker.dev/docs/localization#persian-calendar
+ * @see https://daypicker.dev/docs/localization#ethiopic-calendar
  */
 export function DayPicker(
   props: DayPickerProps & {
