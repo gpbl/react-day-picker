@@ -88,6 +88,81 @@ Limit the dates the user can navigate to by using the `startMonth` and `endMonth
   <Examples.StartEndMonths />
 </BrowserWindow>
 
+## Animating Month Transitions {#animate}
+
+To animate the transition between months, set the `animate` prop to `true`:
+
+| Prop Name | Type      | Description                                                     |
+| --------- | --------- | --------------------------------------------------------------- |
+| `animate` | `boolean` | Enable the transition animation when navigating between months. |
+
+```tsx
+<DayPicker animate />
+```
+
+<BrowserWindow>
+  <Examples.Animate />
+</BrowserWindow>
+
+### Customizing the Animation
+
+Use the supported CSS variables to customize the animation duration or timing function:
+
+```css
+.custom-animate {
+  --rdp-animation_duration: 0.1s; /* Change the duration of the transition. */
+  --rdp-animation_timing: ease-in; /* Choose a different timing function. */
+}
+```
+
+```tsx
+<DayPicker animate className="custom-animate" />
+```
+
+### Accessibility Note
+
+To improve accessibility for users who prefer reduced motion, you can use the `prefers-reduced-motion` media query to disable animations.
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  .custom-animate {
+    --rdp-animation_duration: 0s;
+  }
+}
+```
+
+### Changing the Animation Functions
+
+For a more advanced customization, you can change override the default style with your own animation functions:
+
+```css
+.rdp-caption_after_enter {
+  animation:; /* Your value here */
+}
+```
+
+<details>
+  <summary>Class Names Used For Animations</summary>
+
+| Class Name                  | Description                                          |
+| --------------------------- | ---------------------------------------------------- |
+| `.rdp-caption_after_enter`  | Caption animation for the month after, when enters.  |
+| `.rdp-caption_after_exit`   | Caption animation for the month after, when exits.   |
+| `.rdp-caption_before_enter` | Caption animation for the month before, when enters. |
+| `.rdp-caption_before_exit`  | Caption animation for the month before, when exits.  |
+| `.rdp-weeks_before_enter`   | Weeks animation for the month before, when enters.   |
+| `.rdp-weeks_before_exit`    | Weeks animation for the month before, when exits.    |
+| `.rdp-weeks_after_enter`    | Weeks animation for the month after, when enters.    |
+| `.rdp-weeks_after_exit`     | Weeks animation for the month after, when exits.     |
+
+</details>
+
+:::warning Advanced Feature
+
+Customizing the animation function, such as for a up/down transition, can be challenging due to the HTML table structure of the grid. We may improve this in a future version. Please leave your feedback in [DayPicker Discussions](https://github.com/gpbl/react-day-picker/discussions).
+
+:::
+
 ## Disabling the Navigation {#disablenavigation}
 
 To prevent the user from navigating between months, set the `disableNavigation` prop to `true`.

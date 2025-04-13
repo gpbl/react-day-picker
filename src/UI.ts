@@ -16,7 +16,7 @@ export enum UI {
   Chevron = "chevron",
   /**
    * The grid cell with the day's date. Extended by {@link DayFlag} and
-   * {@link SelectionFlag}.
+   * {@link SelectionState}.
    */
   Day = "day",
   /** The button containing the formatted day's date, inside the grid cell. */
@@ -98,6 +98,30 @@ export enum SelectionState {
   range_start = "range_start",
   /** The day is selected. */
   selected = "selected"
+}
+
+/** CSS classes used for animating months and captions. */
+/**
+ * Enum representing different animation states for transitioning between
+ * months.
+ */
+export enum Animation {
+  /** The entering weeks when they appear before the exiting month. */
+  weeks_before_enter = "weeks_before_enter",
+  /** The exiting weeks when they disappear before the entering month. */
+  weeks_before_exit = "weeks_before_exit",
+  /** The entering weeks when they appear after the exiting month. */
+  weeks_after_enter = "weeks_after_enter",
+  /** The exiting weeks when they disappear after the entering month. */
+  weeks_after_exit = "weeks_after_exit",
+  /** The entering caption when it appears after the exiting month. */
+  caption_after_enter = "caption_after_enter",
+  /** The exiting caption when it disappears after the entering month. */
+  caption_after_exit = "caption_after_exit",
+  /** The entering caption when it appears before the exiting month. */
+  caption_before_enter = "caption_before_enter",
+  /** The exiting caption when it disappears before the entering month. */
+  caption_before_exit = "caption_before_exit"
 }
 
 /**

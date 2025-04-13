@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback, useMemo, useRef } from "react";
 import type { MouseEvent, FocusEvent, KeyboardEvent, ChangeEvent } from "react";
 
 import { UI, DayFlag, SelectionState } from "./UI.js";
@@ -22,6 +22,7 @@ import type {
   SelectedValue,
   SelectHandler
 } from "./types/index.js";
+import { useAnimation } from "./useAnimation.js";
 import { useCalendar } from "./useCalendar.js";
 import { type DayPickerContext, dayPickerContext } from "./useDayPicker.js";
 import { useFocus } from "./useFocus.js";
@@ -256,6 +257,14 @@ export function DayPicker(props: DayPickerProps) {
 
   const dataAttributes = getDataAttributes(props);
 
+  const rootElRef = useRef<HTMLDivElement>(null);
+  useAnimation(rootElRef, Boolean(props.animate), {
+    classNames,
+    months,
+    focused,
+    dateLib
+  });
+
   const contextValue: DayPickerContext<DayPickerProps> = {
     dayPickerProps: props,
     selected: selectedValue as SelectedValue<DayPickerProps>,
@@ -276,6 +285,7 @@ export function DayPicker(props: DayPickerProps) {
   return (
     <dayPickerContext.Provider value={contextValue}>
       <components.Root
+        rootRef={props.animate ? rootElRef : undefined}
         className={className}
         style={style}
         dir={props.dir}
@@ -293,6 +303,7 @@ export function DayPicker(props: DayPickerProps) {
         >
           {!props.hideNavigation && (
             <components.Nav
+              data-animated-nav={props.animate ? "true" : undefined}
               className={classNames[UI.Nav]}
               style={styles?.[UI.Nav]}
               aria-label={labelNav()}
@@ -317,9 +328,9 @@ export function DayPicker(props: DayPickerProps) {
               formatters,
               dateLib
             );
-
             return (
               <components.Month
+                data-animated-month={props.animate ? "true" : undefined}
                 className={classNames[UI.Month]}
                 style={styles?.[UI.Month]}
                 key={displayIndex}
@@ -327,6 +338,7 @@ export function DayPicker(props: DayPickerProps) {
                 calendarMonth={calendarMonth}
               >
                 <components.MonthCaption
+                  data-animated-caption={props.animate ? "true" : undefined}
                   className={classNames[UI.MonthCaption]}
                   style={styles?.[UI.MonthCaption]}
                   calendarMonth={calendarMonth}
@@ -351,7 +363,7 @@ export function DayPicker(props: DayPickerProps) {
                           value={dateLib.getMonth(calendarMonth.date)}
                         />
                       ) : (
-                        <span role="status" aria-live="polite">
+                        <span>
                           {formatMonthDropdown(calendarMonth.date, dateLib)}
                         </span>
                       )}
@@ -369,10 +381,32 @@ export function DayPicker(props: DayPickerProps) {
                           value={dateLib.getYear(calendarMonth.date)}
                         />
                       ) : (
-                        <span role="status" aria-live="polite">
+                        <span>
                           {formatYearDropdown(calendarMonth.date, dateLib)}
                         </span>
                       )}
+                      <span
+                        role="status"
+                        aria-live="polite"
+                        style={{
+                          border: 0,
+                          clip: "rect(0 0 0 0)",
+                          height: "1px",
+                          margin: "-1px",
+                          overflow: "hidden",
+                          padding: 0,
+                          position: "absolute",
+                          width: "1px",
+                          whiteSpace: "nowrap",
+                          wordWrap: "normal"
+                        }}
+                      >
+                        {formatCaption(
+                          calendarMonth.date,
+                          dateLib.options,
+                          dateLib
+                        )}
+                      </span>
                     </components.DropdownNav>
                   ) : (
                     <components.CaptionLabel
@@ -400,6 +434,9 @@ export function DayPicker(props: DayPickerProps) {
                 >
                   {!props.hideWeekdays && (
                     <components.Weekdays
+                      data-animated-weekdays={
+                        props.animate ? "true" : undefined
+                      }
                       className={classNames[UI.Weekdays]}
                       style={styles?.[UI.Weekdays]}
                     >
@@ -431,6 +468,7 @@ export function DayPicker(props: DayPickerProps) {
                     </components.Weekdays>
                   )}
                   <components.Weeks
+                    data-animated-weeks={props.animate ? "true" : undefined}
                     className={classNames[UI.Weeks]}
                     style={styles?.[UI.Weeks]}
                   >
@@ -465,8 +503,7 @@ export function DayPicker(props: DayPickerProps) {
                               Boolean(focused?.isEqualTo(day));
 
                             modifiers[SelectionState.selected] =
-                              !modifiers.disabled &&
-                              (isSelected?.(date) || modifiers.selected);
+                              isSelected?.(date) || modifiers.selected;
 
                             if (isDateRange(selectedValue)) {
                               // add range modifiers

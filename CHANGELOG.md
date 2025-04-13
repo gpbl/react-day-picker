@@ -22,7 +22,7 @@ npm install react-day-picker@latest
 - [Simplified styles](https://daypicker.dev/docs/styling) and new CSS variables for easier customization.
 - New `excludeDisabled` prop for [range mode](https://daypicker.dev/docs/selection-modes#exclude-disabled).
 - New `dropdown-years` and `dropdown-months` caption layouts.
-- New `hideWeekdayRow` and `hideNavigation` props.
+- New `hideWeekdays` and `hideNavigation` props.
 - Updated for a complete [custom components](https://daypicker.dev/guides/custom-components) support.
 - Improved typings and props for better compatibility in TypeScript `strict` mode.
 

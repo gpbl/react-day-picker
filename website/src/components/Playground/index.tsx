@@ -171,7 +171,7 @@ export function Playground() {
             <label>
               <input
                 type="checkbox"
-                name="hideWeekdayRow"
+                name="hideWeekdays"
                 checked={props.hideWeekdays}
                 onChange={(e) =>
                   setProps({ ...props, hideWeekdays: e.target.checked })
@@ -267,6 +267,17 @@ export function Playground() {
                 Paged Navigation
               </label>
             )}
+            <label>
+              <input
+                type="checkbox"
+                name="animate"
+                checked={props.animate}
+                onChange={(e) =>
+                  setProps({ ...props, animate: e.target.checked })
+                }
+              />
+              Animate
+            </label>
             <label>
               <input
                 type="checkbox"

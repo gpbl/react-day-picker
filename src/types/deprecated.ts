@@ -116,20 +116,22 @@ export type InternalModifier =
 
 /**
  * @ignore
- * @deprecated This type will be removed. Use `SelectHandler<"single">` instead.
+ * @deprecated This type will be removed. Use `SelectHandler<{mode: "single"}>`
+ *   instead.
  */
 export type SelectSingleEventHandler = PropsSingle["onSelect"];
 
 /**
  * @ignore
- * @deprecated This type will be removed. Use `SelectHandler<"multiple">`
- *   instead.
+ * @deprecated This type will be removed. Use `SelectHandler<{mode:
+ *   "multiple"}>` instead.
  */
 export type SelectMultipleEventHandler = PropsMulti["onSelect"];
 
 /**
  * @ignore
- * @deprecated This type will be removed. Use `SelectHandler<"range">` instead.
+ * @deprecated This type will be removed. Use `SelectHandler<{mode: "range"}>`
+ *   instead.
  */
 export type SelectRangeEventHandler = PropsRange["onSelect"];
 

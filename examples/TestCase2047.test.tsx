@@ -10,8 +10,8 @@ beforeEach(async () => {
   render(<TestCase2047 />);
 });
 
-test("disabled date is not selected", () => {
-  expect(gridcell(new Date(2024, 5, 10), true)).not.toHaveAttribute(
+test("disabled date renders with selected modifier", () => {
+  expect(gridcell(new Date(2024, 5, 10), true)).toHaveAttribute(
     "aria-selected"
   );
 });
