@@ -43,7 +43,7 @@ exports[`should match the snapshot 1`] = `
               width="24"
             >
               <polygon
-                points="8 18.612 14.1888889 12.5 8 6.37733333 9.91111111 4.5 18 12.5 9.91111111 20.5"
+                points="8 18.112 14.18888889 12 8 5.87733333 9.91111111 4 18 12 9.91111111 20"
               />
             </svg>
           </button>
@@ -682,7 +682,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
               width="24"
             >
               <polygon
-                points="8 18.612 14.1888889 12.5 8 6.37733333 9.91111111 4.5 18 12.5 9.91111111 20.5"
+                points="8 18.112 14.18888889 12 8 5.87733333 9.91111111 4 18 12 9.91111111 20"
               />
             </svg>
           </button>
