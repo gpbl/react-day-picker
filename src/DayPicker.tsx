@@ -1,6 +1,8 @@
 import React, { useCallback, useMemo, useRef } from "react";
 import type { MouseEvent, FocusEvent, KeyboardEvent, ChangeEvent } from "react";
 
+import { addMonths } from "date-fns";
+
 import { UI, DayFlag, SelectionState } from "./UI.js";
 import type { CalendarDay } from "./classes/CalendarDay.js";
 import { DateLib, defaultLocale } from "./classes/DateLib.js";
@@ -228,20 +230,26 @@ export function DayPicker(props: DayPickerProps) {
   );
 
   const handleMonthChange = useCallback(
-    (date: Date) => (e: ChangeEvent<HTMLSelectElement>) => {
-      const selectedMonth = Number(e.target.value);
-      const month = dateLib.setMonth(dateLib.startOfMonth(date), selectedMonth);
-      goToMonth(month);
-    },
+    (date: Date, displayIndex: number) =>
+      (e: ChangeEvent<HTMLSelectElement>) => {
+        const selectedMonth = Number(e.target.value);
+        const month = dateLib.setMonth(
+          dateLib.startOfMonth(date),
+          selectedMonth - displayIndex
+        );
+        goToMonth(month);
+      },
     [dateLib, goToMonth]
   );
 
   const handleYearChange = useCallback(
-    (date: Date) => (e: ChangeEvent<HTMLSelectElement>) => {
-      const selectedYear = Number(e.target.value);
-      const month = dateLib.setYear(dateLib.startOfMonth(date), selectedYear);
-      goToMonth(month);
-    },
+    (date: Date, displayIndex: number) =>
+      (e: ChangeEvent<HTMLSelectElement>) => {
+        const selectedYear = Number(e.target.value);
+        let month = dateLib.setYear(dateLib.startOfMonth(date), selectedYear);
+        month = dateLib.addMonths(month, displayIndex * -1);
+        goToMonth(month);
+      },
     [dateLib, goToMonth]
   );
 
@@ -357,7 +365,10 @@ export function DayPicker(props: DayPickerProps) {
                           classNames={classNames}
                           components={components}
                           disabled={Boolean(props.disableNavigation)}
-                          onChange={handleMonthChange(calendarMonth.date)}
+                          onChange={handleMonthChange(
+                            calendarMonth.date,
+                            displayIndex
+                          )}
                           options={dropdownMonths}
                           style={styles?.[UI.Dropdown]}
                           value={dateLib.getMonth(calendarMonth.date)}
@@ -375,7 +386,10 @@ export function DayPicker(props: DayPickerProps) {
                           classNames={classNames}
                           components={components}
                           disabled={Boolean(props.disableNavigation)}
-                          onChange={handleYearChange(calendarMonth.date)}
+                          onChange={handleYearChange(
+                            calendarMonth.date,
+                            displayIndex
+                          )}
                           options={dropdownYears}
                           style={styles?.[UI.Dropdown]}
                           value={dateLib.getYear(calendarMonth.date)}
