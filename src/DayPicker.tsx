@@ -1,8 +1,6 @@
 import React, { useCallback, useMemo, useRef } from "react";
 import type { MouseEvent, FocusEvent, KeyboardEvent, ChangeEvent } from "react";
 
-import { addMonths } from "date-fns";
-
 import { UI, DayFlag, SelectionState } from "./UI.js";
 import type { CalendarDay } from "./classes/CalendarDay.js";
 import { DateLib, defaultLocale } from "./classes/DateLib.js";
