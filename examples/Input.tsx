@@ -60,6 +60,10 @@ export function Input() {
         value={inputValue}
         placeholder="MM/dd/yyyy"
         onChange={handleInputChange}
+        onKeyDown={(e) => {
+          // Fixes https://github.com/gpbl/react-day-picker/issues/2724 causing search appearing when typing '/'
+          e.stopPropagation();
+        }}
       />
       <div style={{ marginBlock: "1em" }}>
         <DayPicker
