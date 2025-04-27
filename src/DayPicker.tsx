@@ -40,9 +40,12 @@ import { isDateRange } from "./utils/typeguards.js";
  * @see https://daypicker.dev
  */
 export function DayPicker(initialProps: DayPickerProps) {
-  const props = { ...initialProps };
+  let props = initialProps;
 
   if (props.timeZone) {
+    props = {
+      ...initialProps
+    };
     if (props.today) {
       props.today = new TZDate(props.today, props.timeZone);
     }
