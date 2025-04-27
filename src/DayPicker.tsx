@@ -28,7 +28,7 @@ import { useAnimation } from "./useAnimation.js";
 import { useCalendar } from "./useCalendar.js";
 import { type DayPickerContext, dayPickerContext } from "./useDayPicker.js";
 import { useFocus } from "./useFocus.js";
-import { useGetModifiers } from "./useGetModifiers.js";
+import { createGetModifiers } from "./helpers/createGetModifiers.js";
 import { useSelection } from "./useSelection.js";
 import { rangeIncludesDate } from "./utils/rangeIncludesDate.js";
 import { isDateRange } from "./utils/typeguards.js";
@@ -156,7 +156,7 @@ export function DayPicker(initialProps: DayPickerProps) {
     goToMonth
   } = calendar;
 
-  const getModifiers = useGetModifiers(days, props, dateLib);
+  const getModifiers = createGetModifiers(days, props, dateLib);
 
   const {
     isSelected,
