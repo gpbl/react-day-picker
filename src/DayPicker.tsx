@@ -1,6 +1,8 @@
 import React, { useCallback, useMemo, useRef } from "react";
 import type { MouseEvent, FocusEvent, KeyboardEvent, ChangeEvent } from "react";
 
+import { TZDate } from "@date-fns/tz";
+
 import { UI, DayFlag, SelectionState } from "./UI.js";
 import type { CalendarDay } from "./classes/CalendarDay.js";
 import { DateLib, defaultLocale } from "./classes/DateLib.js";
@@ -37,7 +39,45 @@ import { isDateRange } from "./utils/typeguards.js";
  * @group DayPicker
  * @see https://daypicker.dev
  */
-export function DayPicker(props: DayPickerProps) {
+export function DayPicker(initialProps: DayPickerProps) {
+  let props = initialProps;
+
+  if (props.timeZone) {
+    props = {
+      ...initialProps
+    };
+    if (props.today) {
+      props.today = new TZDate(props.today, props.timeZone);
+    }
+    if (props.month) {
+      props.month = new TZDate(props.month, props.timeZone);
+    }
+    if (props.defaultMonth) {
+      props.defaultMonth = new TZDate(props.defaultMonth, props.timeZone);
+    }
+    if (props.startMonth) {
+      props.startMonth = new TZDate(props.startMonth, props.timeZone);
+    }
+    if (props.endMonth) {
+      props.endMonth = new TZDate(props.endMonth, props.timeZone);
+    }
+    if (props.mode === "single" && props.selected) {
+      props.selected = new TZDate(props.selected, props.timeZone);
+    } else if (props.mode === "multiple" && props.selected) {
+      props.selected = props.selected?.map(
+        (date) => new TZDate(date, props.timeZone)
+      );
+    } else if (props.mode === "range" && props.selected) {
+      props.selected = {
+        from: props.selected.from
+          ? new TZDate(props.selected.from, props.timeZone)
+          : undefined,
+        to: props.selected.to
+          ? new TZDate(props.selected.to, props.timeZone)
+          : undefined
+      };
+    }
+  }
   const { components, formatters, labels, dateLib, locale, classNames } =
     useMemo(() => {
       const locale = { ...defaultLocale, ...props.locale };
