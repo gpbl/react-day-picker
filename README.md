@@ -4,7 +4,7 @@ DayPicker is a [React](https://react.dev) component for creating date pickers, c
 
 ## Documentation 
 
-See **[daypicker.dev](https://daypicker.dev)** for guides, examples and API reference.
+See **[daypicker.dev](https://daypicker.dev)** for guides, examples and API reference, or read [the docs in the repository](website/docs/start.mdx).
 
 <picture>
   <source srcset="https://github.com/user-attachments/assets/46e2fcb2-9067-4568-aa3b-3624f60cdd47" media="(prefers-color-scheme: dark)">
