@@ -21,26 +21,25 @@ The UI elements are mapped to CSS classes. A complete list can be found in the [
 
 <BrowserWindow shadow={false}>
   <div style={{ overflow: "auto" }}>
-    <picture
+    <img
       style={{
         maxWidth: 600,
         width: "100%",
         margin: "2em auto",
         display: "block"
       }}
-    >
-      <source
-        media="(prefers-color-scheme: dark)"
-        srcset="../img/anatomy-dark.png"
-      />
-      <source
-        media="(prefers-color-scheme: light)"
-        srcset="../img/anatomy-light.png"
-      />
-      <img
-        src="../img/anatomy-light.png"
-        alt="Screenshot of DayPicker displaying the September 2025 calendar, with the date range from the 17th to the 20th selected."
-      />
-    </picture>
+      src="../img/anatomy-light.png#gh-light-mode-only"
+      alt="Screenshot of DayPicker displaying the September 2025 calendar, with the date range from the 17th to the 20th selected."
+    />
+    <img
+      style={{
+        maxWidth: 600,
+        width: "100%",
+        margin: "2em auto",
+        display: "block"
+      }}
+      src="../img/anatomy-dark.png#gh-dark-mode-only"
+      alt="Screenshot of DayPicker displaying the September 2025 calendar, with the date range from the 17th to the 20th selected."
+    />
   </div>
 </BrowserWindow>
