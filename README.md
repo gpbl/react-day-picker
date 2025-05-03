@@ -2,14 +2,14 @@
 
 DayPicker is a [React](https://react.dev) component for creating date pickers, calendars, and date inputs for web applications.
 
-## Documentation 
+## Documentation
 
 See **[daypicker.dev](https://daypicker.dev)** for guides, examples and API reference, or read [the docs in the repository](website/docs/start.mdx).
 
-<picture >
-  <source srcset="https://github.com/user-attachments/assets/46e2fcb2-9067-4568-aa3b-3624f60cdd47" media="(prefers-color-scheme: dark)" />
-  <source srcset="https://github.com/user-attachments/assets/d16b78ff-e794-48b5-919b-ed8ae9c260b3" media="(prefers-color-scheme: light)" />
-  <img src="https://github.com/user-attachments/assets/d16b78ff-e794-48b5-919b-ed8ae9c260b3"  alt="Screenshot of DayPicker displaying the September 2025 calendar, with the date range from the 17th to the 20th selected." />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./website/static/img/screenshot-dark.png" />
+  <source media="(prefers-color-scheme: light)" srcset="./website/static/img/screenshot-light.png" />
+  <img width="460" height="366" src="./website/static/img/screenshot.png"  alt="Screenshot of DayPicker displaying the September 2025 calendar, with the date range from the 17th to the 20th selected." />
 </picture>
 
 ## Features
