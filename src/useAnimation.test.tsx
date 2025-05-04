@@ -133,7 +133,7 @@ describe("useAnimation", () => {
     });
 
     it("should clean up the exiting month after animation ends", async () => {
-      render(<DayPicker animate={true} />);
+      render(<DayPicker animate={true} navLayout="after" />);
 
       await user.click(nextButton());
 
