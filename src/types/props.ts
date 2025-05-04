@@ -226,7 +226,7 @@ export interface PropsBase {
    *
    * If not set, the buttons default to being displayed after the caption, but
    * the tab order may not align with the visual order.
-   * 
+   *
    * @since 9.7.0
    * @see https://daypicker.dev/docs/customization#navigation-layouts
    */
