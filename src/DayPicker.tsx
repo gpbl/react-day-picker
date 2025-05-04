@@ -502,9 +502,9 @@ export function DayPicker(initialProps: DayPickerProps) {
                       />
                     </components.NextMonthButton>
                   )}
-                {displayIndex === numberOfMonths - 1 &&
-                  !props.hideNavigation &&
-                  navLayout === "after" && (
+                {navLayout === "after" &&
+                  displayIndex === numberOfMonths - 1 &&
+                  !props.hideNavigation && (
                     <components.Nav
                       data-animated-nav={props.animate ? "true" : undefined}
                       className={classNames[UI.Nav]}
