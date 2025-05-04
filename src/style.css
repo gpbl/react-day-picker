@@ -228,7 +228,6 @@
 
 .rdp-root[data-nav-layout="after"] .rdp-month_caption {
   margin-inline-end: calc(var(--rdp-nav_button-width) * 2);
-  position: relative;
 }
 
 .rdp-months {

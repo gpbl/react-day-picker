@@ -198,7 +198,7 @@
   font-size: large;
 }
 
-.root[data-nav-layout="around"] .rdp_month {
+.root[data-nav-layout="around"] .month {
   position: relative;
 }
 
@@ -228,7 +228,6 @@
 
 .root[data-nav-layout="after"] .month_caption {
   margin-inline-end: calc(var(--rdp-nav_button-width) * 2);
-  position: relative;
 }
 
 .months {
