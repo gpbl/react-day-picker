@@ -502,20 +502,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                       />
                     </components.NextMonthButton>
                   )}
-                {navLayout === "after" &&
-                  displayIndex === numberOfMonths - 1 &&
-                  !props.hideNavigation && (
-                    <components.Nav
-                      data-animated-nav={props.animate ? "true" : undefined}
-                      className={classNames[UI.Nav]}
-                      style={styles?.[UI.Nav]}
-                      aria-label={labelNav()}
-                      onPreviousClick={handlePreviousClick}
-                      onNextClick={handleNextClick}
-                      previousMonth={previousMonth}
-                      nextMonth={nextMonth}
-                    />
-                  )}
+
                 <components.MonthGrid
                   role="grid"
                   aria-multiselectable={mode === "multiple" || mode === "range"}
@@ -707,6 +694,18 @@ export function DayPicker(initialProps: DayPickerProps) {
               </components.Month>
             );
           })}
+          {navLayout === "after" && !props.hideNavigation && (
+            <components.Nav
+              data-animated-nav={props.animate ? "true" : undefined}
+              className={classNames[UI.Nav]}
+              style={styles?.[UI.Nav]}
+              aria-label={labelNav()}
+              onPreviousClick={handlePreviousClick}
+              onNextClick={handleNextClick}
+              previousMonth={previousMonth}
+              nextMonth={nextMonth}
+            />
+          )}
         </components.Months>
         {props.footer && (
           <components.Footer
