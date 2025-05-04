@@ -149,7 +149,7 @@ export function Playground() {
                   setProps(newProps);
                 }}
               >
-                <option value="">Default</option>
+                <option value=""></option>
                 <option value="around">Around</option>
                 <option value="after">After</option>
               </select>
