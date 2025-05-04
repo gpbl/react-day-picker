@@ -24,8 +24,6 @@ const queryNavEl = (element: HTMLElement) =>
   asHtmlElement(element.querySelector("[data-animated-nav]"));
 const queryWeekdaysEl = (element: HTMLElement) =>
   asHtmlElement(element.querySelector("[data-animated-weekdays]"));
-const queryAnimatedButtons = (element: HTMLElement) =>
-  asHtmlElement(element.querySelector("[data-animated-button]"));
 
 /** @private */
 export function useAnimation(
