@@ -218,14 +218,16 @@ export interface PropsBase {
   captionLayout?: "label" | "dropdown" | "dropdown-months" | "dropdown-years";
 
   /**
-   * Adjust the positioning of the navigation buttons to ensure the tab order
-   * matches the visual order.
+   * Adjust the positioning of the navigation buttons.
    *
    * - `around`: Buttons are displayed on either side of the caption.
-   * - `after`: Buttons are displayed after the caption.
+   * - `after`: Buttons are displayed after the caption. This option ensures the
+   *   tab order matches the visual order.
    *
    * If not set, the buttons default to being displayed after the caption, but
    * the tab order may not align with the visual order.
+   * 
+   * @see https://daypicker.dev/docs/customization#navigation-layouts
    */
   navLayout?: "around" | "after" | undefined;
   /**
