@@ -391,6 +391,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                       aria-disabled={previousMonth ? undefined : true}
                       aria-label={labelPrevious(previousMonth)}
                       onClick={handlePreviousClick}
+                      data-animated-button={props.animate ? "true" : undefined}
                     >
                       <components.Chevron
                         disabled={previousMonth ? undefined : true}
@@ -494,6 +495,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                       aria-disabled={nextMonth ? undefined : true}
                       aria-label={labelNext(nextMonth)}
                       onClick={handleNextClick}
+                      data-animated-button={props.animate ? "true" : undefined}
                     >
                       <components.Chevron
                         disabled={nextMonth ? undefined : true}

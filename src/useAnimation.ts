@@ -24,6 +24,8 @@ const queryNavEl = (element: HTMLElement) =>
   asHtmlElement(element.querySelector("[data-animated-nav]"));
 const queryWeekdaysEl = (element: HTMLElement) =>
   asHtmlElement(element.querySelector("[data-animated-weekdays]"));
+const queryAnimatedButtons = (element: HTMLElement) =>
+  asHtmlElement(element.querySelector("[data-animated-button]"));
 
 /** @private */
 export function useAnimation(
@@ -209,6 +211,15 @@ export function useAnimation(
         if (previousWeekdaysEl) {
           previousWeekdaysEl.style.opacity = "0";
         }
+
+        const animatedButtons = previousMonthEl.querySelectorAll(
+          "[data-animated-button]"
+        );
+        animatedButtons.forEach((button) => {
+          if (button instanceof HTMLElement) {
+            button.style.opacity = "0";
+          }
+        });
 
         const previousCaptionEl = queryCaptionEl(previousMonthEl);
         if (previousCaptionEl) {
