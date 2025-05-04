@@ -198,7 +198,7 @@
   font-size: large;
 }
 
-.rdp-root[data-nav-layout="around"] .rdp_month {
+.rdp-root[data-nav-layout="around"] .rdp-month {
   position: relative;
 }
 
