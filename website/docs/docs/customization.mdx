@@ -59,10 +59,11 @@ Without specifying the `from*` and `to*` properties, the dropdown will display t
 
 Use the `navLayout` prop to adjust the positioning of the navigation buttons.
 
-| Navigation Layout | Description                                                                               |
-| ----------------- | ----------------------------------------------------------------------------------------- |
-| `"around"`        | Buttons are displayed on either side of the caption.                                      |
-| `"end"`           | Buttons are displayed after the caption, ensuring the tab order matches the visual order. |
+| Navigation Layout | Description                                                                                |
+| ----------------- | ------------------------------------------------------------------------------------------ |
+| `"around"`        | Buttons are displayed on either side of the caption.                                       |
+| `"end"`           | Buttons are displayed after the caption, ensuring the tab order matches the visual order.  |
+| `undefined`       | Buttons are displayed after the caption, but the tab order may not match the visual order. |
 
 ```tsx
 <DayPicker navLayout="around" />
@@ -77,6 +78,8 @@ See [Navigation](./navigation.mdx) for additional ways to customize the calendar
 :::info Tab Order vs. Visual Order
 
 If not set, the navigation buttons default to being displayed after the caption. However, the tab order may not align with the visual order. To ensure the component [remains accessible](https://www.w3.org/TR/WCAG22/#focus-order), set `navLayout` to `"end"` or to `"around"` instead of leaving it undefined.
+
+In a future version, the default behavior will be changed to `"end"`.
 
 :::
 
