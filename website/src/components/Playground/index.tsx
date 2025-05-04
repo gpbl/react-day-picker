@@ -51,7 +51,8 @@ const numerals: { value: Numerals; label: string }[] = [
 export function Playground() {
   const initialProps: DayPickerProps = {
     mode: "single",
-    locale: locales.enUS
+    locale: locales.enUS,
+    navLayout: "around"
   };
   const [props, setProps] = React.useState<DayPickerProps>(initialProps);
   const [selected, setSelected] = React.useState<
@@ -133,6 +134,24 @@ export function Playground() {
                 <option value="dropdown">Dropdown</option>
                 <option value="dropdown-months">Dropdown months</option>
                 <option value="dropdown-years">Dropdown years</option>
+              </select>
+            </label>
+            <label>
+              Navigation Layout:
+              <select
+                name="navLayout"
+                value={props.navLayout}
+                onChange={(e) => {
+                  const newProps = {
+                    ...props,
+                    navLayout: e.target.value ?? undefined
+                  } as DayPickerProps;
+                  setProps(newProps);
+                }}
+              >
+                <option value="">Default</option>
+                <option value="around">Around</option>
+                <option value="after">After</option>
               </select>
             </label>
             <label>
