@@ -217,7 +217,7 @@ export function useAnimation(
         );
         animatedButtons.forEach((button) => {
           if (button instanceof HTMLElement) {
-            button.style.opacity = "0";
+            button.style.visibility = "hidden";
           }
         });
 
