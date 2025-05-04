@@ -198,6 +198,39 @@
   font-size: large;
 }
 
+.rdp-root[data-nav-layout="around"] .rdp_month {
+  position: relative;
+}
+
+.rdp-root[data-nav-layout="around"] .rdp-month_caption {
+  justify-content: center;
+  margin-inline-start: var(--rdp-nav_button-width);
+  margin-inline-end: var(--rdp-nav_button-width);
+  position: relative;
+}
+
+.rdp-root[data-nav-layout="around"] .rdp-button_previous {
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0;
+  height: var(--rdp-nav-height);
+  display: inline-flex;
+}
+
+.rdp-root[data-nav-layout="around"] .rdp-button_next {
+  position: absolute;
+  inset-inline-end: 0;
+  top: 0;
+  height: var(--rdp-nav-height);
+  display: inline-flex;
+  justify-content: center;
+}
+
+.rdp-root[data-nav-layout="after"] .rdp-month_caption {
+  margin-inline-end: calc(var(--rdp-nav_button-width) * 2);
+  position: relative;
+}
+
 .rdp-months {
   position: relative;
   display: flex;
