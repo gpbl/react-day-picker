@@ -51,8 +51,7 @@ const numerals: { value: Numerals; label: string }[] = [
 export function Playground() {
   const initialProps: DayPickerProps = {
     mode: "single",
-    locale: locales.enUS,
-    navLayout: "around"
+    locale: locales.enUS
   };
   const [props, setProps] = React.useState<DayPickerProps>(initialProps);
   const [selected, setSelected] = React.useState<
