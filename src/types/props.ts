@@ -316,9 +316,10 @@ export interface PropsBase {
    */
   initialFocus?: boolean;
   /**
-   * Apply the `disabled` modifier to the matching days.
+   * Apply the `disabled` modifier to the matching days. Disabled days cannot be
+   * selected when in a selection mode is set.
    *
-   * @see https://daypicker.dev/docs/selection-modes#disabling-dates
+   * @see https://daypicker.dev/docs/selection-modes#disabled
    */
   disabled?: Matcher | Matcher[] | undefined;
   /**
@@ -632,6 +633,12 @@ export interface PropsMulti {
 export interface PropsRangeRequired {
   mode: "range";
   required: true;
+  /**
+   * Apply the `disabled` modifier to the matching days. Disabled days cannot be
+   * selected when in a selection mode is set.
+   *
+   * @see https://daypicker.dev/docs/selection-modes#disabled
+   */
   disabled?: Matcher | Matcher[] | undefined;
   /**
    * When `true`, the range will reset when including a disabled day.
@@ -657,11 +664,18 @@ export interface PropsRangeRequired {
 export interface PropsRange {
   mode: "range";
   required?: false | undefined;
+  /**
+   * Apply the `disabled` modifier to the matching days. Disabled days cannot be
+   * selected when in a selection mode is set.
+   *
+   * @see https://daypicker.dev/docs/selection-modes#disabled
+   */
   disabled?: Matcher | Matcher[] | undefined;
   /**
    * When `true`, the range will reset when including a disabled day.
    *
    * @since V9.0.2
+   * @see https://daypicker.dev/docs/selection-modes#exclude-disabled
    */
   excludeDisabled?: boolean | undefined;
   /** The selected range. */
