@@ -136,6 +136,24 @@ export function Playground() {
               </select>
             </label>
             <label>
+              Navigation Layout:
+              <select
+                name="navLayout"
+                value={props.navLayout}
+                onChange={(e) => {
+                  const newProps = {
+                    ...props,
+                    navLayout: e.target.value ?? undefined
+                  } as DayPickerProps;
+                  setProps(newProps);
+                }}
+              >
+                <option value=""></option>
+                <option value="around">Around</option>
+                <option value="after">After</option>
+              </select>
+            </label>
+            <label>
               <input
                 type="checkbox"
                 name="showOutsideDays"

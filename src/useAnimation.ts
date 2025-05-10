@@ -210,6 +210,15 @@ export function useAnimation(
           previousWeekdaysEl.style.opacity = "0";
         }
 
+        const animatedButtons = previousMonthEl.querySelectorAll(
+          "[data-animated-button]"
+        );
+        animatedButtons.forEach((button) => {
+          if (button instanceof HTMLElement) {
+            button.style.visibility = "hidden";
+          }
+        });
+
         const previousCaptionEl = queryCaptionEl(previousMonthEl);
         if (previousCaptionEl) {
           previousCaptionEl.classList.add(
