@@ -1,6 +1,7 @@
-import { DayFlag } from "./UI";
-import { CalendarDay, defaultDateLib } from "./classes/index";
-import { useGetModifiers } from "./useGetModifiers";
+import { DayFlag } from "../UI";
+import { CalendarDay, defaultDateLib } from "../classes/index";
+
+import { createGetModifiers } from "./createGetModifiers";
 
 const dateLib = defaultDateLib;
 
@@ -37,10 +38,9 @@ const props = {
   timeZone: "UTC"
 };
 
-describe("useGetModifiers", () => {
+describe("createGetModifiers", () => {
   describe("default props", () => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const getModifiers = useGetModifiers(days, props, dateLib);
+    const getModifiers = createGetModifiers(days, props, dateLib);
 
     test("return the modifiers for a given day", () => {
       const modifiers = getModifiers(day2);
@@ -112,8 +112,7 @@ describe("useGetModifiers", () => {
     const endMonth = new Date(displayedMonth);
     endMonth.setDate(1);
 
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const getModifiers = useGetModifiers(
+    const getModifiers = createGetModifiers(
       days,
       { ...props, startMonth, endMonth },
       dateLib
