@@ -6,12 +6,12 @@ sidebar_position: 2
 
 DayPicker follows the [ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/) for date pickers, including features like keyboard navigation, focus management, and labeling.
 
-Depending on your design, you might need to add more accessibility features. For example, when using [Input Fields](../guides/input-fields), there may be some limitations based on your accessibility goals. Keep up with best practices by following the [ARIA Patterns](https://www.w3.org/WAI/ARIA/apg/patterns/).
+Depending on your design, you might need to add more accessibility features. For example, when using [Input Fields](../guides/input-fields.mdx), there may be some limitations based on your accessibility goals. Keep up with best practices by following the [ARIA Patterns](https://www.w3.org/WAI/ARIA/apg/patterns/).
 
 :::tip Accessibility Tips
 
 - Test your date picker regularly with a screen reader to ensure accessibility.
-- Use an `aria-live` region to announce when a date is selected, like using the `footer` prop.
+- Use an `aria-live` region to announce when a date is selected, such as using the `footer` prop.
 - Customize ARIA labels with the [`labels`](../api/interfaces/PropsBase.md#labels) prop for better user feedback.
 - Maintain sufficient color contrast between text and background.
 - Offer instructions for first-time users or those unfamiliar with the date picker.

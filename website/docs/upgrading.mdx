@@ -4,33 +4,33 @@ sidebar_position: 5
 
 # Upgrading to v9
 
-This release includes important updates related to accessibility, styles, internationalization and performance. See the [changelog](./changelog.mdx) for the full list of changes.
+This release includes significant updates related to accessibility, styles, internationalization, and performance. See the [changelog](./changelog.mdx) for the full list of changes.
 
-#### Upgrading from v7
+## Upgrading from v7
 
-If you are upgrading from v7, this guide is still valid for you. Read first the [migration guide from v7 to v8](../versioned_docs/version-8.10.1/upgrading.mdx) and then follow the steps below.
+If you are upgrading from v7, this guide is still valid. First, read the [migration guide from v7 to v8](../versioned_docs/version-8.10.1/upgrading.mdx), then follow the steps below.
 
 ## Checklist
 
-### 1. Upgrade to the latest version
+### 1. Upgrade to the Latest Version
 
 ```bash npm2yarn
 npm install react-day-picker@latest
 ```
 
-Remove `date-fns` from your dependencies if you are not using it directly in your code, like when using a [different locale](./docs/localization.mdx).
+If you are not using `date-fns` directly in your code (e.g., when using a [different locale](./docs/localization.mdx)), remove it from your dependencies:
 
 ```bash npm2yarn
 npm remove date-fns
 ```
 
-### 2. Update your custom styles
+### 2. Update Your Custom Styles
 
-The default design is slightly changed, so you may need to adjust DayPicker again to match your design. See the [styling docs](./docs/styling.mdx) for more information.
+The default design has changed slightly. You may need to adjust DayPicker to match your design. See the [styling docs](./docs/styling.mdx) for more information.
 
-### 3. When using `selected`, add the `onSelect` props
+### 3. Add the `onSelect` Prop When Using `selected`
 
-The `selected` prop is now a controlled prop. Make sure to add an `onSelect` prop to handle the selected state and keep it in sync with your component.
+The `selected` prop is now controlled. Add an `onSelect` prop to handle the selected state and keep it in sync with your component.
 
 ```diff
 + const [selected, setSelected] = useState<Date | undefined>(undefined);
@@ -41,11 +41,9 @@ The `selected` prop is now a controlled prop. Make sure to add an `onSelect` pro
   />
 ```
 
-### 4. Update the class names
+### 4. Update Class Names
 
-This version updates the name of the [UI elements](./api/enumerations/UI.md) to be more clear and consistent, so the class names have changed.
-
-If you are using custom styles via `classNames` or `styles` prop, you will need to update some of them.
+Class names for UI elements have been updated for clarity and consistency. If you use custom styles via the `classNames` or `styles` prop, update them accordingly.
 
 For example, `day_disabled` is now `disabled`:
 
@@ -58,7 +56,7 @@ For example, `day_disabled` is now `disabled`:
  />
 ```
 
-Please note that the `day` element is now `day_button`, and that the `cell` element is now `day`:
+Additionally, the `day` element is now `day_button`, and the `cell` element is now `day`:
 
 ```diff
  <DayPicker
@@ -71,10 +69,10 @@ Please note that the `day` element is now `day_button`, and that the `cell` elem
  />
 ```
 
-See the following list of updated class names. The [`DeprecatedUI`](./api/type-aliases/DeprecatedUI.md) type lists all the deprecated class names.
+See the full list of updated class names in the [`DeprecatedUI`](./api/type-aliases/DeprecatedUI.md) type.
 
 <details>
-  <summary>**List of updated `ClassNames`**</summary>
+  <summary>**List of Updated Class Names**</summary>
 
 | Old Name              | New Name                                                   |
 | --------------------- | ---------------------------------------------------------- |
@@ -115,18 +113,11 @@ See the following list of updated class names. The [`DeprecatedUI`](./api/type-a
 
 </details>
 
-### 5. Remove use of `fromDate`, `toDate`
+### 5. Replace `fromDate` and `toDate`
 
-In case you are using `fromDate` or `toDate`, replace them with the `hidden` and `startMonth`, `endMonth` prop.
+Replace `fromDate` and `toDate` with the `hidden`, `startMonth`, and `endMonth` props.
 
-| Removed prop | Notes                                                                                                         |
-| ------------ | ------------------------------------------------------------------------------------------------------------- |
-| ~`fromDate`~ | Replace it with `startMonth` and the `hidden` prop and the `before` [Matcher](./api/type-aliases/Matcher.md). |
-| ~`toDate`~   | Replace it with `endMonth` the `hidden` prop and the `after` [Matcher](./api/type-aliases/Matcher.md).        |
-
-#### Example
-
-To replace `fromDate`:
+#### Example: Replace `fromDate`
 
 ```diff
  <DayPicker
@@ -136,7 +127,7 @@ To replace `fromDate`:
  />
 ```
 
-To replace `toDate`:
+#### Example: Replace `toDate`
 
 ```diff
  <DayPicker
@@ -146,35 +137,33 @@ To replace `toDate`:
  />
 ```
 
-### 6. Update tests and translations
+### 6. Update Tests and Translations
 
-DayPicker relies on ARIA labels to make the calendar accessible, and v9 include some updates to make them more clear and descriptive. Following the upgrade, you may need to update your tests and translations.
+DayPicker's ARIA labels have been updated for clarity. Update your tests and translations accordingly.
 
-#### Updated ARIA labels
+#### Updated ARIA Labels
 
-The following ARIA labels have been updated:
-
-| Label                                                                    | Old label                | New label                                                                                                  |
+| Label                                                                    | Old Label                | New Label                                                                                                  |
 | ------------------------------------------------------------------------ | ------------------------ | ---------------------------------------------------------------------------------------------------------- |
 | [`labelDayButton`](./api/functions/labelDayButton)<br/>_ex_ ~`labelDay`~ | `21st November (Monday)` | `Monday, November 21st, 2024`<br/>`Monday, November 21st, 2024, selected`<br/>`Today, November 21st, 2024` |
 | [`labelPrevious`](./api/functions/labelPrevious)                         | `Go to previous month`   | `Go to the Previous Month`                                                                                 |
 | [`labelNext`](./api/functions/labelNext)                                 | `Go to next month`       | `Go to the Next Month`                                                                                     |
 | [`labelWeekNumber`](./api/functions/labelWeekNumber.md)                  | `Week nr. ##`            | `Week ##`                                                                                                  |
 
-You may need to update your test selectors — for example:
+Update test selectors as needed:
 
-```diff title="./test.js"
+```diff
 - screen.getByRole('button', 'Go to next month');
 + screen.getByRole('button', 'Go to the Next Month');
 ```
 
-#### `labelDay` changes
+#### `labelDay` Changes
 
-The `labelDay` function has been renamed to `labelDayButton`. It now includes the the year and communicates the selected and today status. See [Translating DayPicker](./docs//translation.mdx) for more information.
+The `labelDay` function has been renamed to `labelDayButton`. It now includes the year and communicates the selected and today status. See [Translating DayPicker](./docs/translation.mdx) for more information.
 
-### 7. Update formatters to return a string
+### 7. Update Formatters to Return a String
 
-The [formatters](./docs/localization.mdx#formatters) now are functions returning a `string` instead of a `ReactNode`. In case you are using the formatters, update your code to return a string.
+Formatters now return a `string` instead of a `ReactNode`. Update your code accordingly.
 
 ```diff
   <DayPicker
@@ -185,7 +174,7 @@ The [formatters](./docs/localization.mdx#formatters) now are functions returning
   />;
 ```
 
-If your formatters are returning a `ReactNode`, you can use a [custom component](./guides/custom-components.mdx) to return a `ReactElement`:
+If you need to return a `ReactElement`, use a [custom component](./guides/custom-components.mdx):
 
 ```tsx
 <DayPicker
@@ -198,11 +187,9 @@ If your formatters are returning a `ReactNode`, you can use a [custom component]
 />
 ```
 
-### 8. Update your Custom Components
+### 8. Update Custom Components
 
-In case you are using the `components` prop, you may need to update your code, as some components have been updated.
-
-- DayPicker now allows to change any of its components. See the [custom component](./guides/custom-components.mdx) guide and the updated [`CustomComponents`](./api/type-aliases/CustomComponents) type.
+If you use the `components` prop, update your code as some components have changed. See the [custom components guide](./guides/custom-components.mdx) for details.
 
 ```diff
   <DayPicker
@@ -222,31 +209,27 @@ In case you are using the `components` prop, you may need to update your code, a
 <details>
   <summary>**List of Updated Components**</summary>
 
-| Components     | Changes                                                                       |
-| -------------- | ----------------------------------------------------------------------------- |
-| `Caption`      | Renamed to [`MonthCaption`](./api/functions/MonthCaption.md).                 |
-| `Day`          | Now it renders a [`DayButton`](./api/functions/DayButton.md).                 |
-| `DayContent`   | Removed. Change its content with [`formatDay`](./api/functions/formatDay.md). |
-| `Head`         | Removed.                                                                      |
-| `HeadRow`      | Renamed to [`Weekdays`](./api/functions/Weekdays.md).                         |
-| `IconDropdown` | Removed. The icon is rendered by [`Chevron`](./api/functions/Chevron.md).     |
-| `IconLeft`     | Removed. The icon is rendered by [`Chevron`](./api/functions/Chevron.md).     |
-| `IconRight`    | Removed. The icon is rendered by [`Chevron`](./api/functions/Chevron.md).     |
-| `Row`          | Renamed to [`Week`](./api/functions/Week.md).                                 |
+| Component      | Changes                                                                     |
+| -------------- | --------------------------------------------------------------------------- |
+| `Caption`      | Renamed to [`MonthCaption`](./api/functions/MonthCaption.md).               |
+| `Day`          | Now renders a [`DayButton`](./api/functions/DayButton.md).                  |
+| `DayContent`   | Removed. Use [`formatDay`](./api/functions/formatDay.md) to change content. |
+| `Head`         | Removed.                                                                    |
+| `HeadRow`      | Renamed to [`Weekdays`](./api/functions/Weekdays.md).                       |
+| `IconDropdown` | Removed. The icon is rendered by [`Chevron`](./api/functions/Chevron.md).   |
+| `IconLeft`     | Removed. The icon is rendered by [`Chevron`](./api/functions/Chevron.md).   |
+| `IconRight`    | Removed. The icon is rendered by [`Chevron`](./api/functions/Chevron.md).   |
+| `Row`          | Renamed to [`Week`](./api/functions/Week.md).                               |
 
 </details>
 
-#### DayPicker hooks
+### Deprecations
 
-In v8, you could use the [DayPicker Hooks](../versioned_docs//version-8.10.1/advanced-guides/custom-components.mdx#daypicker-hooks) to access the DayPicker state and methods. In v9, these have been merged in the updated [`useDayPicker`](./api/functions/useDayPicker.md) hook.
+Deprecated props and types will be removed in the next major version. Update your code to avoid breaking changes.
 
-## Deprecations
+#### Deprecated Props
 
-Deprecated props and types will be removed in the next major version, and it is recommended to update your code to avoid breaking changes.
-
-### Deprecated props
-
-| Deprecated prop | Replacement  | Notes                                            |
+| Deprecated Prop | Replacement  | Notes                                            |
 | --------------- | ------------ | ------------------------------------------------ |
 | ~`fromMonth`~   | `startMonth` | Renamed. The start month for the navigation.     |
 | ~`toMonth`~     | `endMonth`   | Renamed. The end month for the navigation.       |
@@ -264,48 +247,48 @@ Deprecated props and types will be removed in the next major version, and it is 
   />
 ```
 
-### Deprecated types
+#### Deprecated Types
 
-If you are using TypeScript, some typings have been deprecated in favor of clarity and shorter names.
+If you use TypeScript, some types have been deprecated for clarity and shorter names.
 
 ```diff
 - import type { DayPickerDefaultProps } from 'react-day-picker';
 + import type { PropsBase } from 'react-day-picker';
 ```
 
-See also the source of [types/deprecated.ts](https://github.com/gpbl/react-day-picker/blob/next/src/types/deprecated.ts).
+See the source of [types/deprecated.ts](https://github.com/gpbl/react-day-picker/blob/next/src/types/deprecated.ts) for more details.
 
 <details>
   <summary>**List of Deprecated Types**</summary>
 
-| Deprecated Type                | Deprecation Reason                                                                                                              |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| ~`Caption`~                    | This component has been renamed. Use [`MonthCaption`](./api/functions/MonthCaption.md) instead.                                 |
-| ~`HeadRow`~                    | This component has been removed.                                                                                                |
-| ~`Row`~                        | This component has been renamed. Use [`Week`](./api/functions/Week.md) instead.                                                 |
-| ~`DayPickerSingleProps`~       | This type has been renamed. Use [`PropsSingle`](./api/interfaces/PropsSingle.md) instead.                                       |
-| ~`DayPickerMultipleProps`~     | This type has been renamed. Use [`PropsMulti`](./api/interfaces/PropsMulti.md) instead.                                         |
-| ~`DayPickerRangeProps`~        | This type has been renamed. Use [`PropsRange`](./api/interfaces/PropsRange.md) instead.                                         |
-| ~`DayPickerDefaultProps`~      | This type has been renamed. Use [`PropsBase`](./api/interfaces/PropsBase.md) instead.                                           |
-| ~`DaySelectionMode`~           | This type has been renamed. Use [`Mode`](./api/type-aliases/Mode.md) instead.                                                   |
-| ~`Modifier`~                   | This type will be removed. Use `string` instead.                                                                                |
-| ~`InternaModifier`~            | This type has been split into [`DayFlag`](./api/enumerations/DayFlag) and [`SelectionState`](./api/enumerations/SelectionState) |
-| ~`SelectSingleEventHandler`~   | This type will be removed. Use [`PropsSingle["onSelect]`](./api/interfaces/PropsSingle.md) instead.                             |
-| ~`SelectMultipleEventHandler`~ | This type will be removed. Use [`PropsMulti["onSelect]`](./api/interfaces/PropsMulti.md) instead.                               |
-| ~`SelectRangeEventHandler`~    | This type will be removed. Use [`PropsRange["onSelect]`](./api/interfaces/PropsRange.md) instead.                               |
-| ~`DayPickerProviderProps`~     | This type is not used anymore.                                                                                                  |
-| ~`useNavigation`~              | This type has been included in [`useDayPicker`](./api/functions/useDayPicker.md).                                               |
-| ~`useDayRender`~               | This hook has been removed. To customize the rendering of a day, use the `htmlAttributes` prop in a custom `Day` component.     |
-| ~`ContextProvidersProps`~      | This type is not used anymore.                                                                                                  |
-| ~`DayLabel`~                   | Use `typeof labelDay` instead.                                                                                                  |
-| ~`NavButtonLabel`~             | Use `typeof labelNext` or `typeof labelPrevious` instead.                                                                       |
-| ~`WeekdayLabel`~               | Use `typeof labelWeekday` instead.                                                                                              |
-| ~`WeekNumberLabel`~            | Use `typeof labelWeekNumber` instead.                                                                                           |
-| ~`DayClickEventHandler`~       | Use `DayMouseEventHandler` instead.                                                                                             |
-| ~`DayFocusEventHandler`~       | This type will be removed. Use `DayEventHandler<React.FocusEvent \| React.KeyboardEvent>` instead.                              |
-| ~`DayKeyboardEventHandler`~    | This type will be removed. Use `DayEventHandler<React.KeyboardEvent>` instead.                                                  |
-| ~`DayMouseEventHandler`~       | This type will be removed. Use `DayEventHandler<React.MouseEvent>` instead.                                                     |
-| ~`DayPointerEventHandler`~     | This type will be removed. Use `DayEventHandler<React.PointerEvent>` instead.                                                   |
-| ~`DayTouchEventHandler`~       | This type will be removed. Use `DayEventHandler<React.TouchEvent>` instead.                                                     |
+| Deprecated Type                | Deprecation Reason                                                                                            |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------- |
+| ~`Caption`~                    | Renamed to [`MonthCaption`](./api/functions/MonthCaption.md).                                                 |
+| ~`HeadRow`~                    | Removed.                                                                                                      |
+| ~`Row`~                        | Renamed to [`Week`](./api/functions/Week.md).                                                                 |
+| ~`DayPickerSingleProps`~       | Renamed to [`PropsSingle`](./api/interfaces/PropsSingle.md).                                                  |
+| ~`DayPickerMultipleProps`~     | Renamed to [`PropsMulti`](./api/interfaces/PropsMulti.md).                                                    |
+| ~`DayPickerRangeProps`~        | Renamed to [`PropsRange`](./api/interfaces/PropsRange.md).                                                    |
+| ~`DayPickerDefaultProps`~      | Renamed to [`PropsBase`](./api/interfaces/PropsBase.md).                                                      |
+| ~`DaySelectionMode`~           | Renamed to [`Mode`](./api/type-aliases/Mode.md).                                                              |
+| ~`Modifier`~                   | Will be removed. Use `string` instead.                                                                        |
+| ~`InternaModifier`~            | Split into [`DayFlag`](./api/enumerations/DayFlag) and [`SelectionState`](./api/enumerations/SelectionState). |
+| ~`SelectSingleEventHandler`~   | Will be removed. Use [`PropsSingle["onSelect]`](./api/interfaces/PropsSingle.md) instead.                     |
+| ~`SelectMultipleEventHandler`~ | Will be removed. Use [`PropsMulti["onSelect]`](./api/interfaces/PropsMulti.md) instead.                       |
+| ~`SelectRangeEventHandler`~    | Will be removed. Use [`PropsRange["onSelect]`](./api/interfaces/PropsRange.md) instead.                       |
+| ~`DayPickerProviderProps`~     | Not used anymore.                                                                                             |
+| ~`useNavigation`~              | Included in [`useDayPicker`](./api/functions/useDayPicker.md).                                                |
+| ~`useDayRender`~               | Removed. Customize day rendering with the `htmlAttributes` prop in a custom `Day` component.                  |
+| ~`ContextProvidersProps`~      | Not used anymore.                                                                                             |
+| ~`DayLabel`~                   | Use `typeof labelDay` instead.                                                                                |
+| ~`NavButtonLabel`~             | Use `typeof labelNext` or `typeof labelPrevious` instead.                                                     |
+| ~`WeekdayLabel`~               | Use `typeof labelWeekday` instead.                                                                            |
+| ~`WeekNumberLabel`~            | Use `typeof labelWeekNumber` instead.                                                                         |
+| ~`DayClickEventHandler`~       | Use `DayMouseEventHandler` instead.                                                                           |
+| ~`DayFocusEventHandler`~       | Will be removed. Use `DayEventHandler<React.FocusEvent \| React.KeyboardEvent>` instead.                      |
+| ~`DayKeyboardEventHandler`~    | Will be removed. Use `DayEventHandler<React.KeyboardEvent>` instead.                                          |
+| ~`DayMouseEventHandler`~       | Will be removed. Use `DayEventHandler<React.MouseEvent>` instead.                                             |
+| ~`DayPointerEventHandler`~     | Will be removed. Use `DayEventHandler<React.PointerEvent>` instead.                                           |
+| ~`DayTouchEventHandler`~       | Will be removed. Use `DayEventHandler<React.TouchEvent>` instead.                                             |
 
 </details>

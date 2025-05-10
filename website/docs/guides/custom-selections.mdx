@@ -10,14 +10,14 @@ This documentation is still a work in progress. If you have any questions, pleas
 
 :::
 
-If the built-in [selection modes](../docs/selection-modes.mdx) do not satisfy your app’s requirements, you can control the selection behavior using the [`onDayClick`](../api/interfaces/PropsBase.md#ondayclick) and [`modifiers`](../api
+If the built-in [selection modes](../docs/selection-modes.mdx) do not satisfy your app’s requirements, you can control the selection behavior using the [`onDayClick`](../api/interfaces/PropsBase.md#ondayclick) and [`modifiers`](../api/type-aliases/Modifiers.md) props.
 
 | Prop         | Type                                                        | Description                               |
 | ------------ | ----------------------------------------------------------- | ----------------------------------------- |
 | `onDayClick` | [`DayEventHandler`](../api/type-aliases/DayEventHandler.md) | Callback when a day is clicked.           |
 | `modifiers`  | [`Modifiers`](../api/type-aliases/Modifiers.md)             | An object with the modifiers of the days. |
 
-This prop is a function that receives the clicked day and its modifiers as arguments.
+The `onDayClick` prop is a function that receives the clicked day and its modifiers as arguments.
 
 ## Examples
 
@@ -52,7 +52,7 @@ export function CustomWeek() {
       }}
       onDayClick={(day, modifiers) => {
         if (modifiers.selected) {
-          setSelectedWeek(undefined); // clear the selection if the day is already selected
+          setSelectedWeek(undefined); // Clear the selection if the day is already selected
           return;
         }
         setSelectedWeek({
@@ -62,8 +62,7 @@ export function CustomWeek() {
       }}
       footer={
         selectedWeek &&
-        `Week from ${selectedWeek?.from?.toLocaleDateString()} to
-            ${selectedWeek?.to?.toLocaleDateString()}`
+        `Week from ${selectedWeek?.from?.toLocaleDateString()} to ${selectedWeek?.to?.toLocaleDateString()}`
       }
     />
   );
