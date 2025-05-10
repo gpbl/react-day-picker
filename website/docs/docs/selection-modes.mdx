@@ -174,17 +174,59 @@ By setting the `required` prop, DayPicker ensures that the selected range cannot
   <Examples.RangeRequired />
 </BrowserWindow>
 
-## Disabling Dates
+## Disabling Dates {#disabled}
 
-To disable specific days, use the `disabled` prop. Disabled dates cannot be selected.
+To disable specific days, use the `disabled` prop. Disabled days cannot be selected.
+
+### Matchers Types
 
 The prop accepts a [`Matcher`](../api/type-aliases/Matcher.md) or an array of matchers to specify which days should be disabled.
 
-### Disabling Specific Dates
+| Matcher Type                                          | Description                                                               |
+| ----------------------------------------------------- | ------------------------------------------------------------------------- |
+| `boolean`                                             | Disable all the dates                                                     |
+| `Date`                                                | Matches a specific date.                                                  |
+| `Date[]`                                              | Matches any date in the array of dates.                                   |
+| [`DateRange`](../api/type-aliases/DateRange.md)       | Matches a range of dates, including the start and end dates.              |
+| [`DateBefore`](../api/type-aliases/DateBefore.md)     | Matches all dates before a specific date (exclusive).                     |
+| [`DateAfter`](../api/type-aliases/DateAfter.md)       | Matches all dates after a specific date (exclusive).                      |
+| [`DateInterval`](../api/type-aliases/DateInterval.md) | Matches dates between two dates (exclusive of the start and end dates).   |
+| [`DayOfWeek`](../api/type-aliases/DayOfWeek.md)       | Matches specific days of the week (e.g., Sunday is `0`, Saturday is `6`). |
+| `(date: Date) => boolean`                             | A function that returns `true` if the given date matches the condition.   |
+| [`Matcher[]`](../api/type-aliases/Matcher.md)         | An array of the matchers listed above.                                    |
 
 ```tsx
-// disable weekends
-<DayPicker mode="range" disabled={{ dayOfWeek: [0, 6] }} />
+// Disable all days
+<DayPicker disabled />
+
+// Disable a day
+<DayPicker disabled={new Date(2023, 9, 1)} />
+
+// Disable an array of days
+<DayPicker disabled={[new Date(2023, 9, 1), new Date(2023, 9, 2)]} />
+
+// Disable a range of days
+<DayPicker disabled={{ from: new Date(2023, 9, 1), to: new Date(2023, 9, 5) }} />
+
+// Disable a specific day of the week
+<DayPicker disabled={{ dayOfWeek: [0, 6] }} /> // disable weekends
+
+// Disable days before a specific date
+<DayPicker disabled={{ before: new Date(2023, 9, 1) }} />
+
+// Disable days after a specific date
+<DayPicker disabled={{ after: new Date(2023, 9, 5) }} />
+
+// Disable days between two dates
+<DayPicker disabled={{ before: [new Date(2023, 9, 1), after: new Date(2023, 9, 5)] }} />
+```
+
+### Disabling Weekends
+
+To disable weekends, use the `dayOfWeek` matcher, where `0` is Sunday and `6` is Saturday.
+
+```tsx
+<DayPicker disabled={{ dayOfWeek: [0, 6] }} />
 ```
 
 <BrowserWindow>
@@ -192,6 +234,8 @@ The prop accepts a [`Matcher`](../api/type-aliases/Matcher.md) or an array of ma
 </BrowserWindow>
 
 ### Disabling Dates in the Past
+
+Use the `before` matcher to disable all dates before today.
 
 ```tsx
 <DayPicker mode="single" disabled={{ before: new Date() }} />
