@@ -33,10 +33,10 @@ export type SelectedRange<T extends { required?: boolean }> =
 export type SelectedValue<T> = T extends { mode: "single"; required?: boolean }
   ? SelectedSingle<T>
   : T extends { mode: "multiple"; required?: boolean }
-  ? SelectedMulti<T>
-  : T extends { mode: "range"; required?: boolean }
-  ? SelectedRange<T>
-  : undefined;
+    ? SelectedMulti<T>
+    : T extends { mode: "range"; required?: boolean }
+      ? SelectedRange<T>
+      : undefined;
 
 export type SelectHandlerSingle<T extends { required?: boolean | undefined }> =
   (
@@ -76,7 +76,7 @@ export type SelectHandler<
 }
   ? SelectHandlerSingle<T>
   : T extends { mode: "multiple" }
-  ? SelectHandlerMulti<T>
-  : T extends { mode: "range" }
-  ? SelectHandlerRange<T>
-  : undefined;
+    ? SelectHandlerMulti<T>
+    : T extends { mode: "range" }
+      ? SelectHandlerRange<T>
+      : undefined;
