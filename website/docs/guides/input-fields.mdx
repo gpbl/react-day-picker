@@ -53,7 +53,7 @@ export function Input() {
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value); // keep the input value in sync
+    setInputValue(e.target.value); // Keep the input value in sync
 
     const parsedDate = parse(e.target.value, "MM/dd/yyyy", new Date());
 
@@ -127,7 +127,7 @@ export function Dialog() {
   // Function to toggle the dialog visibility
   const toggleDialog = () => setIsDialogOpen(!isDialogOpen);
 
-  // Hook to handle the body scroll behavior and focus trapping.
+  // Hook to handle the body scroll behavior and focus trapping
   useEffect(() => {
     const handleBodyScroll = (isOpen: boolean) => {
       document.body.style.overflow = isOpen ? "hidden" : "";
@@ -145,7 +145,7 @@ export function Dialog() {
     };
   }, [isDialogOpen]);
 
-  const handleDayPickerSelect = (date: Date) => {
+  const handleDayPickerSelect = (date: Date | undefined) => {
     if (!date) {
       setInputValue("");
       setSelectedDate(undefined);
@@ -157,7 +157,7 @@ export function Dialog() {
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value); // keep the input value in sync
+    setInputValue(e.target.value); // Keep the input value in sync
 
     const parsedDate = parse(e.target.value, "MM/dd/yyyy", new Date());
 
@@ -179,7 +179,7 @@ export function Dialog() {
         id="date-input"
         type="text"
         value={inputValue}
-        placeholder={"MM/dd/yyyy"}
+        placeholder="MM/dd/yyyy"
         onChange={handleInputChange}
       />{" "}
       <button
