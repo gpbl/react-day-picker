@@ -198,7 +198,8 @@
   font-size: large;
 }
 
-.rdp-root[data-nav-layout="around"] .rdp-month {
+.rdp-root[data-nav-layout="around"] .rdp-month,
+.rdp-root[data-nav-layout="after"] .rdp-month {
   position: relative;
 }
 
@@ -226,8 +227,10 @@
   justify-content: center;
 }
 
-.rdp-root[data-nav-layout="after"] .rdp-month_caption {
-  margin-inline-end: calc(var(--rdp-nav_button-width) * 2);
+.rdp-root[data-nav-layout="around"] .rdp-nav {
+  position: absolute;
+  inset-inline-end: 0;
+  top: 0;
 }
 
 .rdp-months {

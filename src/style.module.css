@@ -198,7 +198,8 @@
   font-size: large;
 }
 
-.root[data-nav-layout="around"] .month {
+.root[data-nav-layout="around"] .month,
+.root[data-nav-layout="after"] .month {
   position: relative;
 }
 
@@ -226,8 +227,10 @@
   justify-content: center;
 }
 
-.root[data-nav-layout="after"] .month_caption {
-  margin-inline-end: calc(var(--rdp-nav_button-width) * 2);
+.root[data-nav-layout="around"] .nav {
+  position: absolute;
+  inset-inline-end: 0;
+  top: 0;
 }
 
 .months {
