@@ -531,7 +531,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                               scope="row"
                               role="rowheader"
                             >
-                              {formatWeekNumber(week.weekNumber)}
+                              {formatWeekNumber(week.weekNumber, dateLib)}
                             </components.WeekNumber>
                           )}
                           {week.days.map((day: CalendarDay) => {
