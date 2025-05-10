@@ -10,7 +10,9 @@ DayPicker does not include a built-in time picker. However, you can implement a 
   <Examples.InputTime />
 </BrowserWindow>
 
-### Code
+## Example Code
+
+The following example demonstrates how to integrate a time input field with DayPicker to create a date and time picker.
 
 ```tsx
 import React, { ChangeEventHandler, useState } from "react";
@@ -64,7 +66,9 @@ export function InputTime() {
         mode="single"
         selected={selected}
         onSelect={handleDaySelect}
-        footer={`Selected date: ${selected ? selected.toLocaleString() : "none"}`}
+        footer={`Selected date: ${
+          selected ? selected.toLocaleString() : "none"
+        }`}
       />
     </div>
   );

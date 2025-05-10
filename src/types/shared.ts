@@ -114,6 +114,8 @@ export type Formatters = {
   /**
    * @ignore
    * @deprecated Use {@link Formatters.formatCaption} instead.
+   *
+   *   **Note:** This formatter will be removed in version 10.0.0.
    */
   formatMonthCaption: typeof formatMonthCaption;
   /** Format the week number. */
@@ -170,45 +172,11 @@ export type Labels = {
  * A value or a function that matches a specific day.
  *
  * @example
- *   // will always match the day
- *   const booleanMatcher: Matcher = true;
- *
- *   // will match the today's date
- *   const dateMatcher: Matcher = new Date();
- *
- *   // will match the days in the array
- *   const arrayMatcher: Matcher = [
- *     new Date(2019, 1, 2),
- *     new Date(2019, 1, 4)
+ *   // Match weekends and specific holidays
+ *   const matcher: Matcher = [
+ *     { dayOfWeek: [0, 6] }, // Weekends
+ *     { from: new Date(2023, 11, 24), to: new Date(2023, 11, 26) } // Christmas
  *   ];
- *
- *   // will match days after the 2nd of February 2019
- *   const afterMatcher: DateAfter = { after: new Date(2019, 1, 2) };
- *
- *   // will match days before the 2nd of February 2019 }
- *   const beforeMatcher: DateBefore = { before: new Date(2019, 1, 2) };
- *
- *   // will match Sundays
- *   const dayOfWeekMatcher: DayOfWeek = {
- *     dayOfWeek: 0
- *   };
- *
- *   // will match the included days, except the two dates
- *   const intervalMatcher: DateInterval = {
- *     after: new Date(2019, 1, 2),
- *     before: new Date(2019, 1, 5)
- *   };
- *
- *   // will match the included days, including the two dates
- *   const rangeMatcher: DateRange = {
- *     from: new Date(2019, 1, 2),
- *     to: new Date(2019, 1, 5)
- *   };
- *
- *   // will match when the function return true
- *   const functionMatcher: Matcher = (day: Date) => {
- *     return day.getMonth() === 2; // match when month is March
- *   };
  */
 export type Matcher =
   | boolean
@@ -330,22 +298,11 @@ export type Styles = {
 /**
  * Represents the modifiers that match a specific day in the calendar.
  *
- * - Retrieve modifiers using the {@link OnSelectHandler} via the `onSelect` prop,
- *   or within custom components using the {@link useDayPicker} hook.
- * - Includes built-in modifiers from {@link DayFlag} and {@link SelectionState}.
- * - Add custom modifiers using the `modifiers` prop.
- *
  * @example
  *   const modifiers: Modifiers = {
- *   today: false, // the day is not today
- *   selected: true, // the day is selected
- *   disabled: false, // the day is not disabled
- *   outside: false, // the day is not outside the month
- *   focused: false, // the day is not focused
- *
- *   weekend: false // custom modifier example for matching a weekend
- *   booked: true // custom modifier example for matching a booked day
- *   available: false // custom modifier example for matching an available day
+ *     today: true, // The day is today
+ *     selected: false, // The day is not selected
+ *     weekend: true // Custom modifier for weekends
  *   };
  *
  * @see https://daypicker.dev/guides/custom-modifiers
