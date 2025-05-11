@@ -13,6 +13,7 @@ import {
 } from "react-day-picker/persian";
 
 import styles from "./styles.module.css";
+import { DayPickerPropsWithCalendar } from "./useQueryStringSync";
 
 const timeZones = [
   "UTC",
@@ -52,7 +53,7 @@ const timeZones = [
 const numerals: { value: Numerals; label: string }[] = [
   { value: "latn", label: "Latin (Western Arabic)" },
   { value: "arab", label: "Arabic-Indic" },
-  { value: "arabext", label: "Eastern Arabic-Indic (Persian)" },
+  { value: "arabext", label: "Eastern Arabic-Indic (persian)" },
   { value: "deva", label: "Devanagari" },
   { value: "beng", label: "Bengali" },
   { value: "guru", label: "Gurmukhi" },
@@ -63,22 +64,18 @@ const numerals: { value: Numerals; label: string }[] = [
   { value: "knda", label: "Kannada" },
   { value: "mlym", label: "Malayalam" }
 ];
-const calendars = ["Gregorian", "Persian"];
+const calendars: ("persian" | "gregorian")[] = ["gregorian", "persian"];
 const persianLocales = { faIR: faIRPersian, enUS: enUSPersian };
 
 interface LocalizationFieldsetProps {
-  props: DayPickerProps;
-  setProps: React.Dispatch<React.SetStateAction<DayPickerProps>>;
-  calendar: string;
-  setCalendar: React.Dispatch<React.SetStateAction<string>>;
+  props: DayPickerPropsWithCalendar;
+  setProps: React.Dispatch<React.SetStateAction<DayPickerPropsWithCalendar>>;
   currentTimeZone: string;
 }
 
 export function LocalizationFieldset({
   props,
   setProps,
-  calendar,
-  setCalendar,
   currentTimeZone
 }: LocalizationFieldsetProps) {
   return (
@@ -90,6 +87,7 @@ export function LocalizationFieldset({
           onClick={() => {
             setProps({
               ...props,
+              calendar: undefined,
               locale: undefined,
               timeZone: undefined,
               numerals: undefined,
@@ -99,7 +97,6 @@ export function LocalizationFieldset({
               dir: undefined,
               broadcastCalendar: false
             });
-            setCalendar(calendars[0]);
           }}
         >
           Reset
@@ -110,16 +107,17 @@ export function LocalizationFieldset({
           Calendar:
           <select
             name="calendar"
-            value={calendar}
+            value={props.calendar ?? ""}
             onChange={(e) => {
               setProps({
                 ...props,
-                locale: e.target.value === "Persian" ? faIRPersian : undefined,
-                dir: e.target.value === "Persian" ? "rtl" : undefined
+                calendar: e.target.value as "gregorian" | "persian",
+                locale: e.target.value === "persian" ? faIRPersian : undefined,
+                dir: e.target.value === "persian" ? "rtl" : undefined
               });
-              setCalendar(e.target.value);
             }}
           >
+            <option></option>
             {calendars.map((calendar) => (
               <option key={calendar} value={calendar}>
                 {calendar}
@@ -166,16 +164,16 @@ export function LocalizationFieldset({
             }
           >
             <option value=""></option>
-            {Object.keys(calendar === "Persian" ? persianLocales : locales).map(
-              (locale) => {
-                const code = locales[locale as keyof typeof locales].code;
-                return (
-                  <option key={locale} value={code}>
-                    {code}
-                  </option>
-                );
-              }
-            )}
+            {Object.keys(
+              props.calendar === "persian" ? persianLocales : locales
+            ).map((locale) => {
+              const code = locales[locale as keyof typeof locales].code;
+              return (
+                <option key={locale} value={code}>
+                  {code}
+                </option>
+              );
+            })}
           </select>
         </label>
 
@@ -184,21 +182,17 @@ export function LocalizationFieldset({
           <select
             style={{ maxWidth: 100 }}
             name="numerals"
-            value={
-              numerals.find((numeral) => numeral.value === props.numerals)
-                ?.value
-            }
+            value={props.numerals ?? ""}
             onChange={(e) =>
               setProps({
                 ...props,
-                numerals:
-                  e.target.value === ""
-                    ? undefined
-                    : (e.target.value as Numerals)
+                numerals: !e.target.value
+                  ? undefined
+                  : (e.target.value as Numerals)
               })
             }
           >
-            <option value=""></option>
+            <option></option>
             {numerals.map((numeral) => (
               <option key={numeral.value} value={numeral.value}>
                 {numeral.label}
@@ -212,7 +206,7 @@ export function LocalizationFieldset({
           <select
             name="weekStartsOn"
             disabled={props.broadcastCalendar || props.ISOWeek}
-            value={props.weekStartsOn}
+            value={props.weekStartsOn ?? ""}
             onChange={(e) =>
               setProps({
                 ...props,
@@ -235,7 +229,7 @@ export function LocalizationFieldset({
           <select
             disabled={props.broadcastCalendar || props.ISOWeek}
             name="firstWeekContainsDate"
-            value={props.firstWeekContainsDate}
+            value={props.firstWeekContainsDate ?? ""}
             onChange={(e) =>
               setProps({
                 ...props,

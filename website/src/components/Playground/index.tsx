@@ -11,8 +11,8 @@ import {
 } from "react-day-picker";
 import * as locales from "react-day-picker/locale";
 import {
-  DayPicker as DayPickerPersian,
-  faIR as faIRPersian,
+  DayPicker as DayPickerpersian,
+  faIR as faIRpersian,
   getDateLib
 } from "react-day-picker/persian";
 
@@ -27,15 +27,12 @@ import styles from "./styles.module.css";
 import { toJSX } from "./toJSX";
 import { useQueryStringSync } from "./useQueryStringSync";
 
-const calendars = ["Gregorian", "Persian"];
-
 export function Playground() {
   const { props, setProps } = useQueryStringSync();
   const [selected, setSelected] = React.useState<
     Date | Date[] | DateRange | undefined
   >();
 
-  const [calendar, setCalendar] = React.useState(calendars[0]);
   const [accentColor, setAccentColor] = React.useState("");
   const [backgroundAccentColor, setBackgroundAccentColor] = React.useState("");
   const [rangeMiddleColor, setRangeMiddleColor] = React.useState("");
@@ -44,10 +41,13 @@ export function Playground() {
     ...props,
     locale: undefined,
     month: undefined,
-    dir: calendar === "Persian" && props.dir === "rtl" ? undefined : props.dir
+    dir:
+      props.calendar === "persian" && props.dir === "rtl"
+        ? undefined
+        : props.dir
   })} />`;
 
-  if (calendar === "Persian") {
+  if (props.calendar === "persian") {
     formattedProps =
       `import { DayPicker } from "react-day-picker/persian";\n\n` +
       formattedProps;
@@ -58,12 +58,12 @@ export function Playground() {
   const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
   const DayPickerComponent =
-    calendar === "Persian" ? DayPickerPersian : DayPicker;
+    props.calendar === "persian" ? DayPickerpersian : DayPicker;
 
   const dateLib =
-    calendar === "Persian"
+    props.calendar === "persian"
       ? getDateLib({
-          locale: (props.locale as locales.Locale) ?? faIRPersian,
+          locale: (props.locale as locales.Locale) ?? faIRpersian,
           timeZone: props.timeZone
         })
       : new DateLib({
@@ -95,8 +95,6 @@ export function Playground() {
         <LocalizationFieldset
           props={props}
           setProps={setProps}
-          calendar={calendar}
-          setCalendar={setCalendar}
           currentTimeZone={currentTimeZone}
         />
       </form>

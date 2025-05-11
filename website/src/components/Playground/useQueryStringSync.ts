@@ -12,6 +12,7 @@ const qsProps = [
   "dir",
   "disabled",
   "disableNavigation",
+  "calendar",
   "firstDayOfWeek",
   "firstWeekContainsDate",
   "fixedWeeks",
@@ -38,17 +39,22 @@ const qsProps = [
   "weekStartsOn"
 ];
 
+export type DayPickerPropsWithCalendar = DayPickerProps & {
+  calendar?: "gregorian" | "persian";
+};
+
 export function useQueryStringSync(basePath: string = "/playground") {
   const history = useHistory();
   const location = useLocation();
 
-  const parseQueryString = (search: string): DayPickerProps => {
+  const parseQueryString = (search: string): DayPickerPropsWithCalendar => {
     const params = new URLSearchParams(search);
-    const parsedProps: DayPickerProps = {};
+    const parsedProps: DayPickerPropsWithCalendar = {};
     const typeMap: Record<string, "boolean" | "number" | "string" | "locale"> =
     {
       animate: "boolean",
       broadcastCalendar: "boolean",
+      calendar: "string",
       captionLayout: "string",
       defaultMonth: "string",
       dir: "string",
@@ -86,13 +92,15 @@ export function useQueryStringSync(basePath: string = "/playground") {
         try {
           switch (typeMap[key]) {
             case "boolean":
-              parsedProps[key as keyof DayPickerProps] = !!key;
+              parsedProps[key as keyof DayPickerPropsWithCalendar] = !!key;
               break;
             case "number":
-              parsedProps[key as keyof DayPickerProps] = Number(value);
+              parsedProps[key as keyof DayPickerPropsWithCalendar] =
+                Number(value);
               break;
             case "string":
-              parsedProps[key as keyof DayPickerProps] = value || "";
+              parsedProps[key as keyof DayPickerPropsWithCalendar] =
+                value || "";
               break;
             case "locale":
               parsedProps.locale = Object.values(locales).find(
@@ -113,7 +121,7 @@ export function useQueryStringSync(basePath: string = "/playground") {
 
   const initialProps: DayPickerProps = parseQueryString(location.search);
 
-  const [props, setProps] = useState<DayPickerProps>(initialProps);
+  const [props, setProps] = useState<DayPickerPropsWithCalendar>(initialProps);
 
   const updateQueryString = useMemo(
     () => (updatedProps: DayPickerProps) => {
@@ -125,7 +133,7 @@ export function useQueryStringSync(basePath: string = "/playground") {
             if (!value) return;
             return qs.push(`locale=${value.code}`);
           } else {
-            return qs.push(`${key}${value === true ? "" : `=${value}`} `);
+            return qs.push(`${key}${value === true ? "" : `=${value}`}`);
           }
         });
 

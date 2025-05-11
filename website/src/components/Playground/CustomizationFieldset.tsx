@@ -45,7 +45,7 @@ export function CustomizationFieldset({
           Caption Layout:
           <select
             name="captionLayout"
-            value={props.captionLayout ?? "label"}
+            value={props.captionLayout ?? ""}
             onChange={(e) => {
               const newCaptionLayout = e.target.value as
                 | "label"
@@ -69,13 +69,14 @@ export function CustomizationFieldset({
               setProps(newProps);
             }}
           >
+            <option></option>
             <option value="label">Label</option>
             <option value="dropdown">Dropdown</option>
             <option value="dropdown-months">Dropdown months</option>
             <option value="dropdown-years">Dropdown years</option>
           </select>
         </label>
-        <label>
+        {/* <label>
           Navigation Layout:
           <select
             name="navLayout"
@@ -92,7 +93,7 @@ export function CustomizationFieldset({
             <option value="around">Around</option>
             <option value="after">After</option>
           </select>
-        </label>
+        </label> */}
         <label>
           <input
             type="checkbox"
@@ -140,7 +141,7 @@ export function CustomizationFieldset({
         <label>
           Accent Color:
           <input
-            value={accentColor}
+            value={accentColor ?? ""}
             type="color"
             name="accentColor"
             onChange={(e) => setAccentColor(e.target.value)}

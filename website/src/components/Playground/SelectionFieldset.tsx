@@ -98,7 +98,7 @@ export function SelectionFieldset({
               max={12}
               size={4}
               name="min"
-              value={props.min}
+              value={props.min ?? ""}
               onChange={(e) => {
                 setProps({
                   ...props,
@@ -117,7 +117,7 @@ export function SelectionFieldset({
               max={12}
               size={4}
               name="max"
-              value={props.max}
+              value={props.max ?? ""}
               onChange={(e) => {
                 setProps({
                   ...props,
