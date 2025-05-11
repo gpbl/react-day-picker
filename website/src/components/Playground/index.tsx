@@ -39,6 +39,8 @@ export function Playground() {
 
   let formattedProps = `<DayPicker${toJSX({
     ...props,
+    // @ts-expect-error calendar is not a prop of DayPicker
+    calendar: undefined,
     locale: undefined,
     month: undefined,
     dir:
@@ -82,6 +84,11 @@ export function Playground() {
           setAccentColor={setAccentColor}
         />
         <NavigationFieldset props={props} setProps={setProps} />
+        <LocalizationFieldset
+          props={props}
+          setProps={setProps}
+          currentTimeZone={currentTimeZone}
+        />
         <SelectionFieldset
           props={props}
           setProps={setProps}
@@ -91,11 +98,6 @@ export function Playground() {
           setBackgroundAccentColor={setBackgroundAccentColor}
           rangeMiddleColor={rangeMiddleColor}
           setRangeMiddleColor={setRangeMiddleColor}
-        />
-        <LocalizationFieldset
-          props={props}
-          setProps={setProps}
-          currentTimeZone={currentTimeZone}
         />
       </form>
       <div className={styles.browserWindow}>
