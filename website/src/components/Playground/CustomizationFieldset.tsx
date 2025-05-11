@@ -28,7 +28,7 @@ export function CustomizationFieldset({
             setProps({
               ...props,
               captionLayout: undefined,
-              // navLayout: undefined,
+              navLayout: undefined,
               showOutsideDays: false,
               showWeekNumber: false,
               fixedWeeks: false,
@@ -76,7 +76,7 @@ export function CustomizationFieldset({
             <option value="dropdown-years">Dropdown years</option>
           </select>
         </label>
-        {/* <label>
+        <label>
           Navigation Layout:
           <select
             name="navLayout"
@@ -93,7 +93,7 @@ export function CustomizationFieldset({
             <option value="around">Around</option>
             <option value="after">After</option>
           </select>
-        </label> */}
+        </label>
         <label>
           <input
             type="checkbox"
