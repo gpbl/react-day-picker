@@ -9,12 +9,12 @@ export function ShadowDomWrapper({
   children: React.ReactNode;
   styleStr: string | undefined;
 }) {
-  const colorMode = useColorMode();
+  const { colorMode } = useColorMode();
   return (
     <root.div>
       {children}
       <style>{style.toString()}</style>
-      {colorMode.isDarkTheme && (
+      {colorMode === "dark" && (
         <style>{`
           .rdp-root {
               --rdp-accent-color: var(--ifm-color-primary);
