@@ -28,7 +28,7 @@ export function CustomizationFieldset({
             setProps({
               ...props,
               captionLayout: undefined,
-              navLayout: undefined,
+              // navLayout: undefined,
               showOutsideDays: false,
               showWeekNumber: false,
               fixedWeeks: false,
