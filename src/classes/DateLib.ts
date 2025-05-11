@@ -162,7 +162,7 @@ export class DateLib {
    * @param value The number to format.
    * @returns The formatted number.
    */
-  formatNumber(value: number): string {
+  formatNumber(value: number | string): string {
     return this.replaceDigits(value.toString());
   }
 

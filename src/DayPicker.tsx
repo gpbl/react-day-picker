@@ -6,6 +6,7 @@ import { TZDate } from "@date-fns/tz";
 import { UI, DayFlag, SelectionState } from "./UI.js";
 import type { CalendarDay } from "./classes/CalendarDay.js";
 import { DateLib, defaultLocale } from "./classes/DateLib.js";
+import { createGetModifiers } from "./helpers/createGetModifiers.js";
 import { getClassNamesForModifiers } from "./helpers/getClassNamesForModifiers.js";
 import { getComponents } from "./helpers/getComponents.js";
 import { getDataAttributes } from "./helpers/getDataAttributes.js";
@@ -28,7 +29,6 @@ import { useAnimation } from "./useAnimation.js";
 import { useCalendar } from "./useCalendar.js";
 import { type DayPickerContext, dayPickerContext } from "./useDayPicker.js";
 import { useFocus } from "./useFocus.js";
-import { useGetModifiers } from "./useGetModifiers.js";
 import { useSelection } from "./useSelection.js";
 import { rangeIncludesDate } from "./utils/rangeIncludesDate.js";
 import { isDateRange } from "./utils/typeguards.js";
@@ -158,7 +158,7 @@ export function DayPicker(initialProps: DayPickerProps) {
     goToMonth
   } = calendar;
 
-  const getModifiers = useGetModifiers(days, props, dateLib);
+  const getModifiers = createGetModifiers(days, props, dateLib);
 
   const {
     isSelected,
@@ -588,7 +588,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                               scope="row"
                               role="rowheader"
                             >
-                              {formatWeekNumber(week.weekNumber)}
+                              {formatWeekNumber(week.weekNumber, dateLib)}
                             </components.WeekNumber>
                           )}
                           {week.days.map((day: CalendarDay) => {
