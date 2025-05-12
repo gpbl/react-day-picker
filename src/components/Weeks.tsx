@@ -1,7 +1,7 @@
 import React, { type HTMLAttributes } from "react";
 
 /**
- * Render the weeks in the month grid.
+ * Render the container for the weeks in the month grid.
  *
  * @group Components
  * @see https://daypicker.dev/guides/custom-components

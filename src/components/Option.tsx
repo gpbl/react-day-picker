@@ -1,7 +1,7 @@
 import React, { type OptionHTMLAttributes } from "react";
 
 /**
- * Render the `option` element.
+ * Render an `option` element.
  *
  * @group Components
  * @see https://daypicker.dev/guides/custom-components

@@ -1,7 +1,7 @@
 import React, { type HTMLAttributes } from "react";
 
 /**
- * Component wrapping the footer.
+ * Render the footer of the calendar.
  *
  * @group Components
  * @see https://daypicker.dev/guides/custom-components

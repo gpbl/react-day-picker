@@ -4,11 +4,11 @@ import type { CalendarDay } from "../classes/index.js";
 import type { Modifiers } from "../types/index.js";
 
 /**
- * Render the gridcell of a day in the calendar and handle the interaction and
- * the focus with they day.
+ * Render a grid cell for a specific day in the calendar.
  *
- * If you need to just change the content of the day cell, consider swapping the
- * `DayButton` component instead.
+ * Handles interaction and focus for the day. If you only need to change the
+ * content of the day cell, consider swapping the `DayButton` component
+ * instead.
  *
  * @group Components
  * @see https://daypicker.dev/guides/custom-components
