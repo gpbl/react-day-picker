@@ -15,22 +15,13 @@ import {
 } from "./typeguards.js";
 
 /**
- * Returns whether a range contains dates that match the given modifiers.
- *
- * ```tsx
- * const range: DateRange = {
- *   from: new Date(2021, 12, 21),
- *   to: new Date(2021, 12, 30)
- * };
- * const matcher1: Date = new Date(2021, 12, 21);
- * const matcher2: DateRange = {
- *   from: new Date(2022, 5, 1),
- *   to: new Date(2022, 5, 23)
- * };
- * rangeContainsModifiers(range, [matcher1, matcher2]); // true, since matcher1 is in the date.
- * ```
+ * Checks if a date range contains dates that match the given modifiers.
  *
  * @since 9.2.2
+ * @param range - The date range to check.
+ * @param modifiers - The modifiers to match against.
+ * @param dateLib - The date utility library instance.
+ * @returns `true` if the range contains matching dates, otherwise `false`.
  * @group Utilities
  */
 export function rangeContainsModifiers(

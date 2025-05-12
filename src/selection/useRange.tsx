@@ -11,6 +11,15 @@ import type {
 import { addToRange, rangeContainsModifiers } from "../utils/index.js";
 import { rangeIncludesDate } from "../utils/rangeIncludesDate.js";
 
+/**
+ * Hook to manage range selection in the DayPicker component.
+ *
+ * @template T - The type of DayPicker props.
+ * @param props - The DayPicker props.
+ * @param dateLib - The date utility library instance.
+ * @returns An object containing the selected range, a function to select a
+ *   range, and a function to check if a date is within the range.
+ */
 export function useRange<T extends DayPickerProps>(
   props: T,
   dateLib: DateLib

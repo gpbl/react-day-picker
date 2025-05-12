@@ -18,7 +18,7 @@ export type SelectedRange<T extends { required?: boolean }> =
   T["required"] extends true ? DateRange : DateRange | undefined;
 
 /**
- * The selected value based on the selection mode.
+ * Represents the selected value based on the selection mode.
  *
  * @example
  *   // Single selection mode

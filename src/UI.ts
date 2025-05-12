@@ -3,11 +3,10 @@ import { CSSProperties } from "react";
 import type { CustomComponents, ClassNames, Styles } from "./types/index.js";
 
 /**
- * The UI elements composing DayPicker. These elements are mapped to
- * {@link CustomComponents}, the {@link ClassNames} and the {@link Styles} used by
- * DayPicker.
+ * Enum representing the UI elements composing DayPicker. These elements are
+ * mapped to {@link CustomComponents}, {@link ClassNames}, and {@link Styles}.
  *
- * Some of these elements are extended by flags and modifiers.
+ * Some elements are extended by flags and modifiers.
  */
 export enum UI {
   /** The root component displaying the months and the navigation bar. */
@@ -71,7 +70,7 @@ export enum UI {
   YearsDropdown = "years_dropdown"
 }
 
-/** The flags for the {@link UI.Day}. */
+/** Enum representing flags for the {@link UI.Day} element. */
 export enum DayFlag {
   /** The day is disabled. */
   disabled = "disabled",
@@ -86,8 +85,8 @@ export enum DayFlag {
 }
 
 /**
- * The state that can be applied to the {@link UI.Day} element when in selection
- * mode.
+ * Enum representing selection states that can be applied to the {@link UI.Day}
+ * element in selection mode.
  */
 export enum SelectionState {
   /** The day is at the end of a selected range. */
@@ -100,7 +99,6 @@ export enum SelectionState {
   selected = "selected"
 }
 
-/** CSS classes used for animating months and captions. */
 /**
  * Enum representing different animation states for transitioning between
  * months.
@@ -125,25 +123,15 @@ export enum Animation {
 }
 
 /**
- * Deprecated UI elements and flags.
+ * Deprecated UI elements and flags from previous versions of DayPicker.
  *
- * These elements were used in previous version of DayPicker and are kept here
- * to help the transition to the new {@link UI | UI elements}.
- *
- * ```diff
- *   <DayPicker classNames={{
- * -  cell: "my-cell",
- * +  day: "my-cell",
- * -  day: "my-day",
- * +  day_button: "my-day",
- * -  day_disabled: "my-day_disabled",
- * +  disabled: "my-day_disabled",
- *    // etc.
- *   }}/>
- * ```
+ * These elements are kept for backward compatibility and to assist in
+ * transitioning to the new {@link UI} elements.
  *
  * @deprecated
  * @since 9.0.1
+ * @template T - The type of the deprecated UI element (e.g., CSS class or
+ *   style).
  * @see https://daypicker.dev/upgrading
  * @see https://daypicker.dev/docs/styling
  */
