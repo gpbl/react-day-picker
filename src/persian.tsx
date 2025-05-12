@@ -15,8 +15,16 @@ export const faIR = locales.faIR;
 export const enUS = locales.enUS;
 
 /**
- * Render the Persian Calendar.
+ * Renders the Persian calendar using the DayPicker component.
  *
+ * @defaultValue
+ * - `locale`: `faIR`
+ * - `dir`: `rtl`
+ * - `dateLib`: `jalaliDateLib` from `date-fns-jalali`
+ * - `numerals`: `arabext` (Eastern Arabic-Indic)
+ * @param props - The props for the Persian calendar, including locale, text
+ *   direction, date library, and numeral system.
+ * @returns The Persian calendar component.
  * @see https://daypicker.dev/docs/localization#persian-calendar
  */
 export function DayPicker(
@@ -80,7 +88,12 @@ export function DayPicker(
   );
 }
 
-/** Returns the date library used in the calendar. */
+/**
+ * Returns the date library used in the Persian calendar.
+ *
+ * @param options - Optional configuration for the date library.
+ * @returns The date library instance.
+ */
 export const getDateLib = (options?: DateLibOptions) => {
   return new DateLib(options, dateFnsJalali);
 };

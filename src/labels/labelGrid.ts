@@ -1,10 +1,14 @@
 import { DateLib, type DateLibOptions } from "../classes/DateLib.js";
 
 /**
- * The ARIA label for the month grid, that will be announced when entering the
- * grid.
+ * Generates the ARIA label for the month grid, which is announced when entering
+ * the grid.
  *
- * @defaultValue `LLLL y` (e.g. "November 2022")
+ * @defaultValue `LLLL y` (e.g., "November 2022").
+ * @param date - The date representing the month.
+ * @param options - Optional configuration for the date formatting library.
+ * @param dateLib - An optional instance of the date formatting library.
+ * @returns The ARIA label for the month grid.
  * @group Labels
  * @see https://daypicker.dev/docs/translation#aria-labels
  */

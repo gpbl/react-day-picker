@@ -34,8 +34,10 @@ import { rangeIncludesDate } from "./utils/rangeIncludesDate.js";
 import { isDateRange } from "./utils/typeguards.js";
 
 /**
- * Render the date picker calendar.
+ * Renders the DayPicker calendar component.
  *
+ * @param initialProps - The props for the DayPicker component.
+ * @returns The rendered DayPicker component.
  * @group DayPicker
  * @see https://daypicker.dev
  */

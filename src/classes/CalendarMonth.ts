@@ -1,15 +1,20 @@
 import { CalendarWeek } from "./CalendarWeek.js";
 
-/** Represent a month in a calendar year. Contains the weeks within the month. */
+/**
+ * Represents a month in a calendar year.
+ *
+ * A `CalendarMonth` contains the weeks within the month and the date of the
+ * month.
+ */
 export class CalendarMonth {
   constructor(month: Date, weeks: CalendarWeek[]) {
     this.date = month;
     this.weeks = weeks;
   }
 
-  /** The date of the month. */
+  /** The date representing the first day of the month. */
   date: Date;
 
-  /** The weeks within the month. */
+  /** The weeks that belong to this month. */
   weeks: CalendarWeek[];
 }

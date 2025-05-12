@@ -30,16 +30,16 @@ import {
 /**
  * Selection modes supported by DayPicker.
  *
- * - `single`: use DayPicker to select single days.
- * - `multiple`: allow selecting multiple days.
- * - `range`: use DayPicker to select a range of days.
+ * - `single`: Select a single day.
+ * - `multiple`: Select multiple days.
+ * - `range`: Select a range of days.
  *
  * @see https://daypicker.dev/docs/selection-modes
  */
 export type Mode = "single" | "multiple" | "range";
 
 /**
- * The components that can be changed using the `components` prop.
+ * The components that can be customized using the `components` prop.
  *
  * @see https://daypicker.dev/guides/custom-components
  */
@@ -97,13 +97,13 @@ export type CustomComponents = {
   WeekNumber: typeof components.WeekNumber;
   /** Render the header of the week number column. */
   WeekNumberHeader: typeof components.WeekNumberHeader;
-  /** Render the dropdown with the months. */
+  /** Render the dropdown for selecting months. */
   MonthsDropdown: typeof components.MonthsDropdown;
-  /** Render the dropdown with the years. */
+  /** Render the dropdown for selecting years. */
   YearsDropdown: typeof components.YearsDropdown;
 };
 
-/** Represent a map of formatters used to render localized content. */
+/** Represents a map of formatters used to render localized content. */
 export type Formatters = {
   /** Format the caption of a month grid. */
   formatCaption: typeof formatCaption;
@@ -133,7 +133,7 @@ export type Formatters = {
   formatYearCaption: typeof formatYearCaption;
 };
 
-/** Map of functions to translate ARIA labels for the relative elements. */
+/** A map of functions to translate ARIA labels for various elements. */
 export type Labels = {
   /** The label for the navigation toolbar. */
   labelNav: typeof labelNav;
@@ -160,16 +160,12 @@ export type Labels = {
   labelWeekday: typeof labelWeekday;
   /** The label for the week number. */
   labelWeekNumber: typeof labelWeekNumber;
-  /**
-   * Return the label for the column of the week number.
-   *
-   * @since 9.0.0
-   */
+  /** The label for the column of week numbers. */
   labelWeekNumberHeader: typeof labelWeekNumberHeader;
 };
 
 /**
- * A value or a function that matches a specific day.
+ * A value or a function that matches specific days.
  *
  * @example
  *   // Match weekends and specific holidays
@@ -190,29 +186,29 @@ export type Matcher =
   | DayOfWeek;
 
 /**
- * Match a day falling after the specified date, with the date not included.
+ * Match a day falling after the specified date (exclusive).
  *
  * @example
- *   // Match days after the 2nd of February 2019
+ *   // Match days after February 2, 2019
  *   const matcher: DateAfter = { after: new Date(2019, 1, 2) };
  */
 export type DateAfter = { after: Date };
 
 /**
- * Match a day falling before the specified date, with the date not included.
+ * Match a day falling before the specified date (exclusive).
  *
  * @example
- *   // Match days before the 2nd of February 2019
+ *   // Match days before February 2, 2019
  *   const matcher: DateBefore = { before: new Date(2019, 1, 2) };
  */
 export type DateBefore = { before: Date };
 
 /**
- * An interval of dates. Differently from {@link DateRange}, the range ends here
- * are not included.
+ * An interval of dates. Unlike {@link DateRange}, the range ends are not
+ * included.
  *
  * @example
- *   // Match the days between the 2nd and the 5th of February 2019
+ *   // Match days between February 2 and February 5, 2019
  *   const matcher: DateInterval = {
  *     after: new Date(2019, 1, 2),
  *     before: new Date(2019, 1, 5)
@@ -221,11 +217,10 @@ export type DateBefore = { before: Date };
 export type DateInterval = { before: Date; after: Date };
 
 /**
- * A range of dates. The range can be open. Differently from
- * {@link DateInterval}, the range ends here are included.
+ * A range of dates. Unlike {@link DateInterval}, the range ends are included.
  *
  * @example
- *   // Match the days between the 2nd and the 5th of February 2019
+ *   // Match days between February 2 and February 5, 2019
  *   const matcher: DateRange = {
  *     from: new Date(2019, 1, 2),
  *     to: new Date(2019, 1, 5)
@@ -234,8 +229,7 @@ export type DateInterval = { before: Date; after: Date };
 export type DateRange = { from: Date | undefined; to?: Date | undefined };
 
 /**
- * Match dates being one of the specified days of the week (`0-6`, where `0` is
- * Sunday).
+ * Match days of the week (`0-6`, where `0` is Sunday).
  *
  * @example
  *   // Match Sundays

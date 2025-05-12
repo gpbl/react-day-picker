@@ -1,7 +1,7 @@
 import React, { type SelectHTMLAttributes } from "react";
 
 /**
- * Render the `select` element.
+ * Render a `select` element.
  *
  * @group Components
  * @see https://daypicker.dev/guides/custom-components

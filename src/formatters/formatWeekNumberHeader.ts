@@ -1,7 +1,8 @@
 /**
- * Format the week number header.
+ * Formats the header for the week number column.
  *
- * @defaultValue `""`
+ * @defaultValue An empty string `""`.
+ * @returns The formatted week number header as a string.
  * @group Formatters
  * @see https://daypicker.dev/docs/translation#custom-formatters
  */

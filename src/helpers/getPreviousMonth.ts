@@ -2,14 +2,22 @@ import type { DateLib } from "../classes/DateLib.js";
 import type { DayPickerProps } from "../types/index.js";
 
 /**
- * Return the next previous the user can navigate to, according to the given
+ * Returns the previous month the user can navigate to, based on the given
  * options.
  *
- * Please note that the previous month is not always the previous calendar
- * month:
+ * The previous month is not always the previous calendar month:
  *
- * - If before the `calendarStartMonth` date, is `undefined`;
- * - If the navigation is paged, is the number of months displayed before.
+ * - If it is before the `calendarStartMonth`, it returns `undefined`.
+ * - If paged navigation is enabled, it skips back by the number of displayed
+ *   months.
+ *
+ * @param firstDisplayedMonth The first month currently displayed in the
+ *   calendar.
+ * @param calendarStartMonth The earliest month the user can navigate to.
+ * @param options Navigation options, including `numberOfMonths` and
+ *   `pagedNavigation`.
+ * @param dateLib The date library to use for date manipulation.
+ * @returns The previous month, or `undefined` if navigation is not possible.
  */
 export function getPreviousMonth(
   firstDisplayedMonth: Date,

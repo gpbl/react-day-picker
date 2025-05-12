@@ -65,7 +65,15 @@ export interface Calendar {
   goToDay: (day: CalendarDay) => void;
 }
 
-/** @private */
+/**
+ * Provides the calendar object to work with the calendar in custom components.
+ *
+ * @private
+ * @param props - The DayPicker props related to calendar configuration.
+ * @param dateLib - The date utility library instance.
+ * @returns The calendar object containing displayed days, weeks, months, and
+ *   navigation methods.
+ */
 export function useCalendar(
   props: Pick<
     DayPickerProps,

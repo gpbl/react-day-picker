@@ -1,7 +1,7 @@
 import React, { type ThHTMLAttributes } from "react";
 
 /**
- * Render the column header for the week numbers.
+ * Render the header cell for the week numbers column.
  *
  * @group Components
  * @see https://daypicker.dev/guides/custom-components

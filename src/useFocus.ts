@@ -28,7 +28,20 @@ export type UseFocus = {
   moveFocus: (moveBy: MoveFocusBy, moveDir: MoveFocusDir) => void;
 };
 
-/** @private */
+/**
+ * Manages focus behavior for the DayPicker component, including setting,
+ * moving, and blurring focus on calendar days.
+ *
+ * @template T - The type of DayPicker props.
+ * @param props - The DayPicker props.
+ * @param calendar - The calendar object containing the displayed days and
+ *   months.
+ * @param getModifiers - A function to retrieve modifiers for a given day.
+ * @param isSelected - A function to check if a date is selected.
+ * @param dateLib - The date utility library instance.
+ * @returns An object containing focus-related methods and the currently focused
+ *   day.
+ */
 export function useFocus<T extends DayPickerProps>(
   props: T,
   calendar: Calendar,

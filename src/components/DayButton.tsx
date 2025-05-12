@@ -4,7 +4,7 @@ import type { CalendarDay } from "../classes/index.js";
 import type { Modifiers } from "../types/index.js";
 
 /**
- * Render the button for a day in the calendar.
+ * Render a button for a specific day in the calendar.
  *
  * @group Components
  * @see https://daypicker.dev/guides/custom-components
@@ -13,7 +13,7 @@ export function DayButton(
   props: {
     /** The day to render. */
     day: CalendarDay;
-    /** The modifiers for the day. */
+    /** The modifiers to apply to the day. */
     modifiers: Modifiers;
   } & ButtonHTMLAttributes<HTMLButtonElement>
 ) {
