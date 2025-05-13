@@ -227,12 +227,6 @@
   justify-content: center;
 }
 
-.rdp-root[data-nav-layout="around"] .rdp-nav {
-  position: absolute;
-  inset-inline-end: 0;
-  top: 0;
-}
-
 .rdp-months {
   position: relative;
   display: flex;

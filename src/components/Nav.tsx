@@ -19,7 +19,6 @@ export function Nav(
     onNextClick?: MouseEventHandler<HTMLButtonElement>;
     previousMonth?: Date | undefined;
     nextMonth?: Date | undefined;
-    /** The component to render the previous month button. */
   } & HTMLAttributes<HTMLElement>
 ) {
   const {

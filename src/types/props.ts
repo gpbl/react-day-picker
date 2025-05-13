@@ -221,9 +221,9 @@ export interface PropsBase {
   /**
    * Adjust the positioning of the navigation buttons.
    *
-   * - `around`: Buttons are displayed on either side of the caption.
-   * - `after`: Buttons are displayed after the caption. This option ensures the
-   *   tab order matches the visual order.
+   * - `around`: Displays the buttons on either side of the caption.
+   * - `after`: Displays the buttons after the caption. This ensures the tab order
+   *   matches the visual order.
    *
    * If not set, the buttons default to being displayed after the caption, but
    * the tab order may not align with the visual order.

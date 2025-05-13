@@ -227,12 +227,6 @@
   justify-content: center;
 }
 
-.root[data-nav-layout="around"] .nav {
-  position: absolute;
-  inset-inline-end: 0;
-  top: 0;
-}
-
 .months {
   position: relative;
   display: flex;
