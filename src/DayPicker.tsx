@@ -124,6 +124,8 @@ export function DayPicker(initialProps: DayPickerProps) {
   const {
     captionLayout,
     mode,
+    navLayout,
+    numberOfMonths = 1,
     onDayBlur,
     onDayClick,
     onDayFocus,
@@ -180,6 +182,8 @@ export function DayPicker(initialProps: DayPickerProps) {
     labelGrid,
     labelMonthDropdown,
     labelNav,
+    labelPrevious,
+    labelNext,
     labelWeekday,
     labelWeekNumber,
     labelWeekNumberHeader,
@@ -343,7 +347,7 @@ export function DayPicker(initialProps: DayPickerProps) {
           className={classNames[UI.Months]}
           style={styles?.[UI.Months]}
         >
-          {!props.hideNavigation && (
+          {!props.hideNavigation && !navLayout && (
             <components.Nav
               data-animated-nav={props.animate ? "true" : undefined}
               className={classNames[UI.Nav]}
@@ -379,6 +383,25 @@ export function DayPicker(initialProps: DayPickerProps) {
                 displayIndex={displayIndex}
                 calendarMonth={calendarMonth}
               >
+                {navLayout === "around" &&
+                  !props.hideNavigation &&
+                  displayIndex === 0 && (
+                    <components.PreviousMonthButton
+                      type="button"
+                      className={classNames[UI.PreviousMonthButton]}
+                      tabIndex={previousMonth ? undefined : -1}
+                      aria-disabled={previousMonth ? undefined : true}
+                      aria-label={labelPrevious(previousMonth)}
+                      onClick={handlePreviousClick}
+                      data-animated-button={props.animate ? "true" : undefined}
+                    >
+                      <components.Chevron
+                        disabled={previousMonth ? undefined : true}
+                        className={classNames[UI.Chevron]}
+                        orientation={props.dir === "rtl" ? "right" : "left"}
+                      />
+                    </components.PreviousMonthButton>
+                  )}
                 <components.MonthCaption
                   data-animated-caption={props.animate ? "true" : undefined}
                   className={classNames[UI.MonthCaption]}
@@ -464,6 +487,40 @@ export function DayPicker(initialProps: DayPickerProps) {
                     </components.CaptionLabel>
                   )}
                 </components.MonthCaption>
+                {navLayout === "around" &&
+                  !props.hideNavigation &&
+                  displayIndex === numberOfMonths - 1 && (
+                    <components.NextMonthButton
+                      type="button"
+                      className={classNames[UI.NextMonthButton]}
+                      tabIndex={nextMonth ? undefined : -1}
+                      aria-disabled={nextMonth ? undefined : true}
+                      aria-label={labelNext(nextMonth)}
+                      onClick={handleNextClick}
+                      data-animated-button={props.animate ? "true" : undefined}
+                    >
+                      <components.Chevron
+                        disabled={nextMonth ? undefined : true}
+                        className={classNames[UI.Chevron]}
+                        orientation={props.dir === "rtl" ? "left" : "right"}
+                      />
+                    </components.NextMonthButton>
+                  )}
+                {displayIndex === numberOfMonths - 1 &&
+                  navLayout === "after" &&
+                  !props.hideNavigation && (
+                    <components.Nav
+                      data-animated-nav={props.animate ? "true" : undefined}
+                      className={classNames[UI.Nav]}
+                      style={styles?.[UI.Nav]}
+                      aria-label={labelNav()}
+                      onPreviousClick={handlePreviousClick}
+                      onNextClick={handleNextClick}
+                      previousMonth={previousMonth}
+                      nextMonth={nextMonth}
+                    />
+                  )}
+
                 <components.MonthGrid
                   role="grid"
                   aria-multiselectable={mode === "multiple" || mode === "range"}

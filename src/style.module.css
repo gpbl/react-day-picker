@@ -198,6 +198,35 @@
   font-size: large;
 }
 
+.root[data-nav-layout="around"] .month,
+.root[data-nav-layout="after"] .month {
+  position: relative;
+}
+
+.root[data-nav-layout="around"] .month_caption {
+  justify-content: center;
+  margin-inline-start: var(--rdp-nav_button-width);
+  margin-inline-end: var(--rdp-nav_button-width);
+  position: relative;
+}
+
+.root[data-nav-layout="around"] .button_previous {
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0;
+  height: var(--rdp-nav-height);
+  display: inline-flex;
+}
+
+.root[data-nav-layout="around"] .button_next {
+  position: absolute;
+  inset-inline-end: 0;
+  top: 0;
+  height: var(--rdp-nav-height);
+  display: inline-flex;
+  justify-content: center;
+}
+
 .months {
   position: relative;
   display: flex;

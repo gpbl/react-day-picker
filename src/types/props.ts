@@ -217,6 +217,21 @@ export interface PropsBase {
    * @see https://daypicker.dev/docs/customization#caption-layouts
    */
   captionLayout?: "label" | "dropdown" | "dropdown-months" | "dropdown-years";
+
+  /**
+   * Adjust the positioning of the navigation buttons.
+   *
+   * - `around`: Displays the buttons on either side of the caption.
+   * - `after`: Displays the buttons after the caption. This ensures the tab order
+   *   matches the visual order.
+   *
+   * If not set, the buttons default to being displayed after the caption, but
+   * the tab order may not align with the visual order.
+   *
+   * @since 9.7.0
+   * @see https://daypicker.dev/docs/customization#navigation-layouts
+   */
+  navLayout?: "around" | "after" | undefined;
   /**
    * Display always 6 weeks per each month, regardless of the month’s number of
    * weeks. Weeks will be filled with the days from the next month.

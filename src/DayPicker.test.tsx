@@ -7,6 +7,7 @@ import {
   dateButton,
   grid,
   nav,
+  nextButton,
   previousButton
 } from "@/test/elements";
 import { fireEvent, render, screen } from "@/test/render";
@@ -194,6 +195,39 @@ describe("when not interactive", () => {
     render(<DayPicker />);
     expect(document.body).toHTMLValidate({
       rules: { "no-redundant-role": "off" } // Redundant role is allowed for VoiceOver
+    });
+  });
+});
+
+describe("when navLayout is set", () => {
+  const today = new Date(2024, 1, 4);
+  describe("when navLayout is set to 'around'", () => {
+    beforeEach(() => {
+      render(
+        <DayPicker today={today} navLayout="around" data-testid={testId} />
+      );
+    });
+    test("renders navigation layout as 'around'", () => {
+      expect(dayPicker()).toHaveAttribute("data-nav-layout", "around");
+    });
+    test('render the "previous" button before the month caption', () => {
+      expect(previousButton().nextSibling).toHaveTextContent("February 2024");
+    });
+    test('render the "next" button before the month caption', () => {
+      expect(nextButton().previousSibling).toHaveTextContent("February 2024");
+    });
+  });
+  describe("when navLayout is set to 'aft er'", () => {
+    beforeEach(() => {
+      render(
+        <DayPicker today={today} navLayout="after" data-testid={testId} />
+      );
+    });
+    test("renders navigation layout as 'after'", () => {
+      expect(dayPicker()).toHaveAttribute("data-nav-layout", "after");
+    });
+    test("render the navigation after the month caption", () => {
+      expect(nav().previousSibling).toHaveTextContent("February 2024");
     });
   });
 });

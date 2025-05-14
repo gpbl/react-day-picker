@@ -51,6 +51,8 @@ export * from "./MultipleMinMax";
 export * from "./MultipleRequired";
 export * from "./MultipleMonths";
 export * from "./MultipleMonthsPaged";
+export * from "./NavLayout";
+export * from "./NavLayoutAfter";
 export * from "./Numerals";
 export * from "./OutsideDays";
 export * from "./PastDatesDisabled";
