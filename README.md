@@ -9,7 +9,7 @@ See **[daypicker.dev](https://daypicker.dev)** for guides, examples and API refe
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./website/static/img/screenshot-dark.png" />
   <source media="(prefers-color-scheme: light)" srcset="./website/static/img/screenshot-light.png" />
-  <img width="460" height="366" src="./website/static/img/screenshot.png"  alt="Screenshot of DayPicker displaying the September 2025 calendar, with the date range from the 17th to the 20th selected." />
+  <img width="460" src="./website/static/img/screenshot.png"  alt="Screenshot of DayPicker displaying the September 2025 calendar, with the date range from the 17th to the 20th selected." />
 </picture>
 
 ## Features
