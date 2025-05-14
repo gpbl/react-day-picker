@@ -1,7 +1,7 @@
 import React, { type HTMLAttributes } from "react";
 
 /**
- * Render the row with the weekday names.
+ * Render the table row containing the weekday names.
  *
  * @group Components
  * @see https://daypicker.dev/guides/custom-components

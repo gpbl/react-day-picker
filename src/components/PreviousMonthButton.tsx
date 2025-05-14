@@ -3,7 +3,7 @@ import React, { type ButtonHTMLAttributes } from "react";
 import { useDayPicker } from "../useDayPicker.js";
 
 /**
- * Render the previous month button element in the calendar.
+ * Render the button to navigate to the previous month in the calendar.
  *
  * @group Components
  * @see https://daypicker.dev/guides/custom-components

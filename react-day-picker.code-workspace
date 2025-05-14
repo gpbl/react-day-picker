@@ -5,7 +5,7 @@
       "orta.vscode-jest",
       "andys8.jest-snippets",
       "esbenp.prettier-vscode",
-      "streetsidesoftware.code-spell-checker",
+      "streetsidesoftware.code-spell-checker"
     ]
   },
   "folders": [
@@ -42,6 +42,9 @@
       "activityBar.inactiveForeground": "#d8d8d877",
       "activityBarBadge.background": "#dd006f",
       "activityBarBadge.foreground": "#e7e7e7"
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
   }
 }

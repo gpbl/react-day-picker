@@ -84,7 +84,7 @@ export type DayPickerRangeProps = PropsRange;
 
 /**
  * @ignore
- * @deprecated This type will be removed. Use `NonNullable<unknown>` instead
+ * @deprecated This type will be removed. Use `NonNullable<unknown>` instead.
  */
 export type DayPickerDefaultProps = NonNullable<unknown>;
 
@@ -96,7 +96,7 @@ export type DaySelectionMode = Mode;
 
 /**
  * @ignore
- * @deprecated This type will be removed. Use `string` instead;
+ * @deprecated This type will be removed. Use `string` instead.
  */
 export type Modifier = string;
 
@@ -116,21 +116,21 @@ export type InternalModifier =
 
 /**
  * @ignore
- * @deprecated This type will be removed. Use `SelectHandler<{mode: "single"}>`
- *   instead.
+ * @deprecated This type will be removed. Use `SelectHandler<{ mode: "single"
+ *   }>` instead.
  */
 export type SelectSingleEventHandler = PropsSingle["onSelect"];
 
 /**
  * @ignore
- * @deprecated This type will be removed. Use `SelectHandler<{mode:
- *   "multiple"}>` instead.
+ * @deprecated This type will be removed. Use `SelectHandler<{ mode: "multiple"
+ *   }>` instead.
  */
 export type SelectMultipleEventHandler = PropsMulti["onSelect"];
 
 /**
  * @ignore
- * @deprecated This type will be removed. Use `SelectHandler<{mode: "range"}>`
+ * @deprecated This type will be removed. Use `SelectHandler<{ mode: "range" }>`
  *   instead.
  */
 export type SelectRangeEventHandler = PropsRange["onSelect"];
@@ -143,7 +143,7 @@ export type DayPickerProviderProps = any;
 
 /**
  * @ignore
- * @deprecated This type has been removed to `useDayPicker`.
+ * @deprecated This type has been moved to `useDayPicker`.
  * @group Hooks
  */
 export const useNavigation = useDayPicker;

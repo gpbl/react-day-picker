@@ -1,7 +1,7 @@
 import React, { type HTMLAttributes } from "react";
 
 /**
- * Component wrapping the month grids.
+ * Render a container wrapping the month grids.
  *
  * @group Components
  * @see https://daypicker.dev/guides/custom-components

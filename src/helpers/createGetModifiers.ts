@@ -4,9 +4,17 @@ import type { DayPickerProps, Modifiers } from "../types/index.js";
 import { dateMatchModifiers } from "../utils/dateMatchModifiers.js";
 
 /**
- * Return a function to get the modifiers for a given day.
+ * Creates a function to retrieve the modifiers for a given day.
+ *
+ * This function calculates both internal and custom modifiers for each day
+ * based on the provided calendar days and DayPicker props.
  *
  * @private
+ * @param days The array of `CalendarDay` objects to process.
+ * @param props The DayPicker props, including modifiers and configuration
+ *   options.
+ * @param dateLib The date library to use for date manipulation.
+ * @returns A function that retrieves the modifiers for a given `CalendarDay`.
  */
 export function createGetModifiers(
   days: CalendarDay[],

@@ -9,10 +9,26 @@ import { dateMatchModifiers } from "../utils/dateMatchModifiers.js";
 
 import { getFocusableDate } from "./getFocusableDate.js";
 
+/**
+ * Determines the next focusable day in the calendar.
+ *
+ * This function recursively calculates the next focusable day based on the
+ * movement direction and modifiers applied to the days.
+ *
+ * @param moveBy The unit of movement (e.g., "day", "week").
+ * @param moveDir The direction of movement ("before" or "after").
+ * @param refDay The currently focused day.
+ * @param calendarStartMonth The earliest month the user can navigate to.
+ * @param calendarEndMonth The latest month the user can navigate to.
+ * @param props The DayPicker props, including modifiers and configuration
+ *   options.
+ * @param dateLib The date library to use for date manipulation.
+ * @param attempt The current recursion attempt (used to limit recursion depth).
+ * @returns The next focusable day, or `undefined` if no focusable day is found.
+ */
 export function getNextFocus(
   moveBy: MoveFocusBy,
   moveDir: MoveFocusDir,
-  /** The date that is currently focused. */
   refDay: CalendarDay,
   calendarStartMonth: Date | undefined,
   calendarEndMonth: Date | undefined,
@@ -31,7 +47,7 @@ export function getNextFocus(
   const focusableDate = getFocusableDate(
     moveBy,
     moveDir,
-    refDay.date, // should be refDay? or refDay.date?
+    refDay.date,
     calendarStartMonth,
     calendarEndMonth,
     props,

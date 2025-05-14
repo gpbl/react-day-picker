@@ -25,7 +25,17 @@ const queryNavEl = (element: HTMLElement) =>
 const queryWeekdaysEl = (element: HTMLElement) =>
   asHtmlElement(element.querySelector("[data-animated-weekdays]"));
 
-/** @private */
+/**
+ * Handles animations for transitioning between months in the DayPicker
+ * component.
+ *
+ * @private
+ * @param rootElRef - A reference to the root element of the DayPicker
+ *   component.
+ * @param enabled - Whether animations are enabled.
+ * @param options - Configuration options for the animation, including class
+ *   names, months, focused day, and the date utility library.
+ */
 export function useAnimation(
   rootElRef: React.RefObject<HTMLDivElement | null>,
   enabled: boolean,

@@ -440,13 +440,13 @@ export interface PropsBase {
   numerals?: Numerals | undefined;
   /**
    * The index of the first day of the week (0 - Sunday). Overrides the locale's
-   * one.
+   * default.
    *
    * @see https://daypicker.dev/docs/localization#first-date-of-the-week
    */
   weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
   /**
-   * The day of January, which is always in the first week of the year.
+   * The day of January that is always in the first week of the year.
    *
    * @see https://daypicker.dev/docs/localization#first-week-contains-date
    */

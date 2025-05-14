@@ -2,13 +2,21 @@ import type { DateLib } from "../classes/DateLib.js";
 import type { DayPickerProps } from "../types/index.js";
 
 /**
- * Return the next month the user can navigate to according to the given
- * options.
+ * Returns the next month the user can navigate to, based on the given options.
  *
- * Please note that the next month is not always the next calendar month:
+ * The next month is not always the next calendar month:
  *
- * - If after the `calendarEndMonth` range, is `undefined`;
- * - If the navigation is paged , is the number of months displayed ahead.
+ * - If it is after the `calendarEndMonth`, it returns `undefined`.
+ * - If paged navigation is enabled, it skips forward by the number of displayed
+ *   months.
+ *
+ * @param firstDisplayedMonth The first month currently displayed in the
+ *   calendar.
+ * @param calendarEndMonth The latest month the user can navigate to.
+ * @param options Navigation options, including `numberOfMonths` and
+ *   `pagedNavigation`.
+ * @param dateLib The date library to use for date manipulation.
+ * @returns The next month, or `undefined` if navigation is not possible.
  */
 export function getNextMonth(
   firstDisplayedMonth: Date,
@@ -40,6 +48,5 @@ export function getNextMonth(
     return undefined;
   }
 
-  // Jump forward as the number of months when paged navigation
   return addMonths(month, offset);
 }
