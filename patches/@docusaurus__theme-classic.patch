@@ -1,0 +1,76 @@
+diff --git a/lib/index.js b/lib/index.js
+index 276d880a584af3fc7fd25c12442e794b7d8901ed..fc8388c8ddd2d19029e036a0a09f2f5b2af6298d 100644
+--- a/lib/index.js
++++ b/lib/index.js
+@@ -64,24 +64,54 @@ function themeClassic(context, options) {
+                 ],
+             };
+         },
+-        configurePostCss(postCssOptions) {
+-            if (direction === 'rtl') {
+-                const resolvedInfimaFile = require.resolve(getInfimaCSSFile(direction));
+-                const plugin = {
+-                    postcssPlugin: 'RtlCssPlugin',
+-                    prepare: (result) => {
+-                        const file = result.root.source?.input.file;
+-                        // Skip Infima as we are using the its RTL version.
+-                        if (file === resolvedInfimaFile) {
+-                            return {};
+-                        }
+-                        return (0, rtlcss_1.default)(result.root);
+-                    },
+-                };
+-                postCssOptions.plugins.push(plugin);
++      configurePostCss(postCssOptions) {
++        const resolvedInfimaFile = require.resolve(getInfimaCSSFile(direction));
++        if (direction === 'rtl') {
++          const plugin = {
++            postcssPlugin: 'RtlCssPlugin',
++            prepare: (result) => {
++              const file = result.root.source?.input.file;
++              // Skip Infima as we are using its RTL version.
++              if (file === resolvedInfimaFile) {
++                return {};
++              }
++              return (0, rtlcss_1.default)(result.root);
++            },
++          };
++          postCssOptions.plugins.push(plugin);
++        }
++        function wrapRootInLayer(root, layer) {
++          const rootBefore = root.clone();
++          root.removeAll();
++          root.append({
++            type: 'atrule',
++            name: 'layer',
++            params: layer,
++            nodes: rootBefore.nodes,
++          });
++        }
++        const wrapInLayerPlugin = {
++          postcssPlugin: 'postcss-wrap-in-layer',
++          Once(root) {
++            const file = root.source?.input.file;
++            if (!file) {
++              return;
+             }
+-            return postCssOptions;
+-        },
++            if (file === resolvedInfimaFile) {
++              wrapRootInLayer(root, 'docusaurus-infima');
++            }
++            else if (file.includes('docusaurus-theme-common/lib')) {
++              wrapRootInLayer(root, 'docusaurus-theme-common');
++            }
++            else if (file.includes('docusaurus-theme-classic/lib') &&
++              !file.endsWith('docusaurus-theme-classic/lib/layers.css')) {
++              wrapRootInLayer(root, 'docusaurus-theme-classic');
++            }
++          },
++        };
++        postCssOptions.plugins.push(wrapInLayerPlugin);
++        return postCssOptions;
++      },
+         injectHtmlTags() {
+             return {
+                 preBodyTags: [
