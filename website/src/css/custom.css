@@ -463,8 +463,11 @@
 }
 
 
-/* Increase specificity on purpose, allows revert-layer to have more weight */
-.rdp-demo.rdp-demo.rdp-demo.rdp-demo.rdp-demo {
+/*
+Increase specificity on purpose with the "impossible id selector", allows revert-layer to overrides everything
+See https://mayank.co/blog/revert-layer/
+*/
+.rdp-demo:not(#a#b) {
     &,
     * {
         @layer docusaurus-infima {
