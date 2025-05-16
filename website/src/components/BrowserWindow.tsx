@@ -24,7 +24,7 @@ export function BrowserWindow({
   minHeight,
   style,
   bodyStyle,
-  shadow = true,
+  shadow = false,
   styleStr
 }: Props) {
   return (
@@ -41,7 +41,7 @@ export function BrowserWindow({
         {shadow ? (
           <ShadowDomWrapper styleStr={styleStr}>{children}</ShadowDomWrapper>
         ) : (
-          children
+          <div className="rdp-demo">{children}</div>
         )}
       </div>
     </div>
