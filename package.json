@@ -233,10 +233,5 @@
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/gpbl"
-  },
-  "pnpm": {
-    "patchedDependencies": {
-      "@docusaurus/theme-classic": "patches/@docusaurus__theme-classic.patch"
-    }
   }
 }

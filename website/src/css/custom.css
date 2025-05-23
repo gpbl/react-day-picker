@@ -1,5 +1,5 @@
 
-@layer docusaurus-website {
+@layer docusaurus.website {
     /**
      * Any CSS included here will be global. The classic template
      * bundles Infima by default. Infima is a CSS framework designed to
@@ -470,11 +470,11 @@ See https://mayank.co/blog/revert-layer/
 .rdp-demo:not(#a#b) {
     &,
     * {
-        @layer docusaurus-infima {
+        @layer docusaurus.infima {
             all: revert-layer;
         }
 
-        @layer docusaurus-website {
+        @layer docusaurus.website {
             all: revert-layer;
         }
     }
