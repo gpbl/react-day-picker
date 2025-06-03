@@ -239,10 +239,22 @@ export function DayPicker(initialProps: DayPickerProps) {
   const handleDayKeyDown = useCallback(
     (day: CalendarDay, modifiers: Modifiers) => (e: KeyboardEvent) => {
       const keyMap: Record<string, [MoveFocusBy, MoveFocusDir]> = {
-        ArrowLeft: [e.shiftKey ? "month" : "day", props.dir === "rtl" ? "after" : "before"],
-        ArrowRight: [e.shiftKey ? "month" : "day", props.dir === "rtl" ? "before" : "after"],
-        ArrowUp: [e.shiftKey ? "year" : "week", props.dir === "rtl" ? "after" : "before"],
-        ArrowDown: [e.shiftKey ? "year" : "week", props.dir === "rtl" ? "before" : "after"],
+        ArrowLeft: [
+          e.shiftKey ? "month" : "day",
+          props.dir === "rtl" ? "after" : "before"
+        ],
+        ArrowRight: [
+          e.shiftKey ? "month" : "day",
+          props.dir === "rtl" ? "before" : "after"
+        ],
+        ArrowUp: [
+          e.shiftKey ? "year" : "week",
+          props.dir === "rtl" ? "after" : "before"
+        ],
+        ArrowDown: [
+          e.shiftKey ? "year" : "week",
+          props.dir === "rtl" ? "before" : "after"
+        ],
         PageUp: [e.shiftKey ? "year" : "month", "before"],
         PageDown: [e.shiftKey ? "year" : "month", "after"],
         Home: ["startOfWeek", "before"],
