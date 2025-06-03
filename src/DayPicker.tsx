@@ -247,14 +247,8 @@ export function DayPicker(initialProps: DayPickerProps) {
           e.shiftKey ? "month" : "day",
           props.dir === "rtl" ? "before" : "after"
         ],
-        ArrowUp: [
-          e.shiftKey ? "year" : "week",
-          props.dir === "rtl" ? "after" : "before"
-        ],
-        ArrowDown: [
-          e.shiftKey ? "year" : "week",
-          props.dir === "rtl" ? "before" : "after"
-        ],
+        ArrowDown: [e.shiftKey ? "year" : "week", "after"],
+        ArrowUp: [e.shiftKey ? "year" : "week", "before"],
         PageUp: [e.shiftKey ? "year" : "month", "before"],
         PageDown: [e.shiftKey ? "year" : "month", "after"],
         Home: ["startOfWeek", "before"],
