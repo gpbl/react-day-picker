@@ -68,6 +68,7 @@ export * from "./RangeShiftKey";
 export * from "./RangeLong";
 export * from "./RangeLongExcludeDisabled";
 export * from "./Rtl";
+export * from "./SelectWeek";
 export * from "./Single";
 export * from "./SingleControlled";
 export * from "./SingleRequired";
