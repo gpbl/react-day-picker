@@ -1,5 +1,9 @@
 import { useState } from "react";
 
+/**
+ * @deprecated Use `React.Dispatch<React.SetStateAction<T>>` instead. Deprecated
+ *   in v9.8.
+ */
 export type DispatchStateAction<T> = React.Dispatch<React.SetStateAction<T>>;
 
 /**
@@ -27,11 +31,11 @@ export type DispatchStateAction<T> = React.Dispatch<React.SetStateAction<T>>;
 export function useControlledValue<T>(
   defaultValue: T,
   controlledValue: T | undefined
-): [T, DispatchStateAction<T>] {
+): [T, React.Dispatch<React.SetStateAction<T>>] {
   const [uncontrolledValue, setValue] = useState(defaultValue);
 
   const value =
     controlledValue === undefined ? uncontrolledValue : controlledValue;
 
-  return [value, setValue] as [T, DispatchStateAction<T>];
+  return [value, setValue] as [T, React.Dispatch<React.SetStateAction<T>>];
 }
