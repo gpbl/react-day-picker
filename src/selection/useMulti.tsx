@@ -1,11 +1,9 @@
-import React from "react";
-
 import type { DateLib } from "../classes/DateLib.js";
 import { useControlledValue } from "../helpers/useControlledValue.js";
 import type {
   DayPickerProps,
-  Modifiers,
   PropsMulti,
+  SelectHandler,
   Selection
 } from "../types/index.js";
 
@@ -43,11 +41,7 @@ export function useMulti<T extends DayPickerProps>(
 
   const { min, max } = props as PropsMulti;
 
-  const select = (
-    triggerDate: Date,
-    modifiers: Modifiers,
-    e: React.MouseEvent | React.KeyboardEvent
-  ) => {
+  const select = ((triggerDate, modifiers, e) => {
     let newDates: Date[] | undefined = [...(selected ?? [])];
     if (isSelected(triggerDate)) {
       if (selected?.length === min) {
@@ -73,11 +67,12 @@ export function useMulti<T extends DayPickerProps>(
     }
     onSelect?.(newDates, triggerDate, modifiers, e);
     return newDates;
-  };
+  }) as SelectHandler<T>;
 
   return {
     selected,
     select,
-    isSelected
+    isSelected,
+    setSelected
   } as Selection<T>;
 }

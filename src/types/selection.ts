@@ -4,10 +4,15 @@ import type { DateRange, Mode, Modifiers } from "./shared.js";
 export type Selection<T extends DayPickerProps> = {
   /** The selected date(s). */
   selected: SelectedValue<T> | undefined;
-  /** Set a selection. */
+  /**
+   * Select a date from a keyboard/mouse event and returns the updated selection
+   * in state.
+   */
   select: SelectHandler<T> | undefined;
-  /** Whether the given date is selected. */
-  isSelected: (date: Date) => boolean;
+  /** Controls the selection in the DayPicker state. */
+  setSelected: (selected: SelectedValue<T>) => void | undefined;
+  /** Checks if a date is selected. */
+  isSelected: ((date: Date) => boolean) | undefined;
 };
 
 export type SelectedSingle<T extends { required?: boolean }> =

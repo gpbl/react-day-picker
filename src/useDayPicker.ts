@@ -3,24 +3,19 @@ import { createContext, useContext } from "react";
 import { CalendarDay } from "./classes/CalendarDay.js";
 import { CalendarMonth } from "./classes/CalendarMonth.js";
 import { DayPickerProps } from "./types/props.js";
-import type { SelectedValue, SelectHandler } from "./types/selection.js";
+import type { Selection } from "./types/selection.js";
 import {
   ClassNames,
   CustomComponents,
   Formatters,
   Labels,
-  Mode,
   Modifiers,
   Styles
 } from "./types/shared.js";
 
 /** @ignore */
 export const dayPickerContext = createContext<
-  | DayPickerContext<{
-      mode?: Mode | undefined;
-      required?: boolean | undefined;
-    }>
-  | undefined
+  DayPickerContext<DayPickerProps> | undefined
 >(undefined);
 
 /**
@@ -31,9 +26,7 @@ export const dayPickerContext = createContext<
  *   `mode` and `required` properties. This type can be used to refine the type
  *   returned by the hook.
  */
-export type DayPickerContext<
-  T extends { mode?: Mode | undefined; required?: boolean | undefined }
-> = {
+export type DayPickerContext<T extends DayPickerProps> = {
   /** The months displayed in the calendar. */
   months: CalendarMonth[];
   /** The next month to display. */
@@ -44,10 +37,6 @@ export type DayPickerContext<
   goToMonth: (month: Date) => void;
   /** Returns the modifiers for the given day. */
   getModifiers: (day: CalendarDay) => Modifiers;
-  /** The selected date(s). */
-  selected: SelectedValue<T> | undefined;
-  /** Set a selection. */
-  select: SelectHandler<T> | undefined;
   /** Whether the given date is selected. */
   isSelected: ((date: Date) => boolean) | undefined;
   /** The components used internally by DayPicker. */
@@ -66,7 +55,7 @@ export type DayPickerContext<
    * @since 9.3.0
    */
   dayPickerProps: DayPickerProps;
-};
+} & Selection<T>;
 
 /**
  * Provides access to the DayPicker context, which includes properties and
@@ -80,12 +69,10 @@ export type DayPickerContext<
  * @group Hooks
  * @see https://daypicker.dev/guides/custom-components
  */
-export function useDayPicker<
-  T extends { mode?: Mode | undefined; required?: boolean | undefined }
->(): DayPickerContext<T> {
+export function useDayPicker<T extends DayPickerProps>(): DayPickerContext<T> {
   const context = useContext(dayPickerContext);
   if (context === undefined) {
     throw new Error("useDayPicker() must be used within a custom component.");
   }
-  return context;
+  return context as DayPickerContext<T>;
 }

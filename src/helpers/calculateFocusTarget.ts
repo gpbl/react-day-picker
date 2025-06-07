@@ -43,7 +43,7 @@ function isFocusableDay(modifiers: Modifiers) {
 export function calculateFocusTarget(
   days: CalendarDay[],
   getModifiers: (day: CalendarDay) => Modifiers,
-  isSelected: (date: Date) => boolean,
+  isSelected: ((date: Date) => boolean) | undefined,
   lastFocused: CalendarDay | undefined
 ): CalendarDay | undefined {
   let focusTarget: CalendarDay | undefined;
@@ -66,7 +66,7 @@ export function calculateFocusTarget(
         focusTarget = day;
         foundFocusTargetPriority = FocusTargetPriority.LastFocused;
       } else if (
-        isSelected(day.date) &&
+        isSelected?.(day.date) &&
         foundFocusTargetPriority < FocusTargetPriority.Selected
       ) {
         focusTarget = day;

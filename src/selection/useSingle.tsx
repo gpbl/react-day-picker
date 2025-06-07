@@ -49,7 +49,7 @@ export function useSingle<T extends DayPickerProps>(
     return selected ? isSameDay(selected, compareDate) : false;
   };
 
-  const select = (
+  const select = ((
     triggerDate: Date,
     modifiers: Modifiers,
     e: React.MouseEvent | React.KeyboardEvent
@@ -68,11 +68,12 @@ export function useSingle<T extends DayPickerProps>(
       onSelect?.(newDate, triggerDate, modifiers, e);
     }
     return newDate;
-  };
+  }) as SelectHandler<T>;
 
   return {
     selected,
     select,
-    isSelected
+    isSelected,
+    setSelected
   } as Selection<T>;
 }

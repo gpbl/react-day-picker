@@ -6,6 +6,7 @@ import type {
   DayPickerProps,
   Modifiers,
   PropsRange,
+  SelectHandler,
   Selection
 } from "../types/index.js";
 import { addToRange, rangeContainsModifiers } from "../utils/index.js";
@@ -42,7 +43,7 @@ export function useRange<T extends DayPickerProps>(
   const isSelected = (date: Date) =>
     selected && rangeIncludesDate(selected, date, false, dateLib);
 
-  const select = (
+  const select = ((
     triggerDate: Date,
     modifiers: Modifiers,
     e: React.MouseEvent | React.KeyboardEvent
@@ -72,11 +73,12 @@ export function useRange<T extends DayPickerProps>(
     onSelect?.(newRange, triggerDate, modifiers, e);
 
     return newRange;
-  };
+  }) as SelectHandler<T>;
 
   return {
     selected,
     select,
-    isSelected
+    isSelected,
+    setSelected
   } as Selection<T>;
 }

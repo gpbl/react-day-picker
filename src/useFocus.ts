@@ -46,7 +46,7 @@ export function useFocus<T extends DayPickerProps>(
   props: T,
   calendar: Calendar,
   getModifiers: (day: CalendarDay) => Modifiers,
-  isSelected: (date: Date) => boolean,
+  isSelected: ((date: Date) => boolean) | undefined,
   dateLib: DateLib
 ): UseFocus {
   const { autoFocus } = props;
@@ -55,7 +55,7 @@ export function useFocus<T extends DayPickerProps>(
   const focusTarget = calculateFocusTarget(
     calendar.days,
     getModifiers,
-    isSelected || (() => false),
+    isSelected,
     lastFocused
   );
   const [focusedDay, setFocused] = useState<CalendarDay | undefined>(

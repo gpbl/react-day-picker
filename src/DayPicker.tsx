@@ -22,8 +22,7 @@ import type {
   Modifiers,
   MoveFocusBy,
   MoveFocusDir,
-  SelectedValue,
-  SelectHandler
+  SelectedValue
 } from "./types/index.js";
 import { useAnimation } from "./useAnimation.js";
 import { useCalendar } from "./useCalendar.js";
@@ -165,14 +164,15 @@ export function DayPicker(initialProps: DayPickerProps) {
   const {
     isSelected,
     select,
-    selected: selectedValue
+    selected: selectedValue,
+    setSelected
   } = useSelection(props, dateLib) ?? {};
 
   const { blur, focused, isFocusTarget, moveFocus, setFocused } = useFocus(
     props,
     calendar,
     getModifiers,
-    isSelected ?? (() => false),
+    isSelected,
     dateLib
   );
 
@@ -313,9 +313,9 @@ export function DayPicker(initialProps: DayPickerProps) {
 
   const contextValue: DayPickerContext<DayPickerProps> = {
     dayPickerProps: props,
-    selected: selectedValue as SelectedValue<DayPickerProps>,
-    select: select as SelectHandler<DayPickerProps>,
-    isSelected,
+    selected: selectedValue,
+    select,
+    isSelected: (isSelected as (date: Date) => boolean) ?? undefined,
     months,
     nextMonth,
     previousMonth,
@@ -325,7 +325,10 @@ export function DayPicker(initialProps: DayPickerProps) {
     classNames,
     styles,
     labels,
-    formatters
+    formatters,
+    setSelected:
+      (setSelected as (selected: SelectedValue<DayPickerProps>) => void) ??
+      undefined
   };
 
   return (

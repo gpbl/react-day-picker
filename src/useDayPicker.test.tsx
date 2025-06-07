@@ -14,10 +14,7 @@ import {
 } from "./useDayPicker";
 
 describe("useDayPicker", () => {
-  const mockContextValue: DayPickerContext<{
-    required: false;
-    mode: "single";
-  }> = {
+  const mockContextValue: DayPickerContext<DayPickerProps> = {
     months: [new CalendarMonth(new Date(), [])],
     nextMonth: new Date(),
     previousMonth: new Date(),
@@ -126,7 +123,14 @@ describe("useDayPicker", () => {
     dayPickerProps: {
       mode: "single",
       required: false
-    } as DayPickerProps
+    },
+    setSelected: jest.fn() as (
+      selected:
+        | Date
+        | Date[]
+        | { from: Date | undefined; to?: Date }
+        | undefined
+    ) => void
   };
 
   it("should return the context value when used within a DayPicker provider", () => {
