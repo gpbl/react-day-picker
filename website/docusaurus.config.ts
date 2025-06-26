@@ -75,7 +75,9 @@ const config: Config = {
       "docusaurus-plugin-typedoc",
       {
         entryPoints: ["../src/index.ts"],
-        tsconfig: "../tsconfig-docs.json"
+        tsconfig: "../tsconfig-docs.json",
+        sidebar: false,
+        numberPrefixParser: false
       }
     ],
     [
@@ -188,7 +190,8 @@ const config: Config = {
     }
   },
   future: {
-    experimental_faster: true
+    experimental_faster: true,
+    v4: true
   } satisfies Preset.ThemeConfig
 };
 
