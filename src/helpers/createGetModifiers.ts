@@ -59,7 +59,7 @@ export function createGetModifiers(
 
     const isOutside = Boolean(displayMonth && !isSameMonth(date, displayMonth));
 
-    const isBeforeNadStart = Boolean(
+    const isBeforeNavStart = Boolean(
       computedNavStart && isBefore(date, computedNavStart)
     );
 
@@ -73,7 +73,7 @@ export function createGetModifiers(
 
     const isHidden =
       Boolean(hidden && dateMatchModifiers(date, hidden, dateLib)) ||
-      isBeforeNadStart ||
+      isBeforeNavStart ||
       isAfterNavEnd ||
       // Broadcast calendar will show outside days as default
       (!broadcastCalendar && !showOutsideDays && isOutside) ||
