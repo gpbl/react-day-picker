@@ -17,35 +17,33 @@ export function getInitialMonth(
     DayPickerProps,
     | "fromYear"
     | "toYear"
-    | "startMonth"
-    | "endMonth"
     | "month"
     | "defaultMonth"
     | "today"
     | "numberOfMonths"
     | "timeZone"
   >,
+  navStart: Date | undefined,
+  navEnd: Date | undefined,
   dateLib: DateLib
 ): Date {
   const {
     month,
     defaultMonth,
     today = dateLib.today(),
-    numberOfMonths = 1,
-    endMonth,
-    startMonth
+    numberOfMonths = 1
   } = props;
   let initialMonth = month || defaultMonth || today;
   const { differenceInCalendarMonths, addMonths, startOfMonth } = dateLib;
 
-  // Adjust the initial month if it is after the endMonth
-  if (endMonth && differenceInCalendarMonths(endMonth, initialMonth) < 0) {
+  // Adjust the initial month if it is after the navEnd
+  if (navEnd && differenceInCalendarMonths(navEnd, initialMonth) < 0) {
     const offset = -1 * (numberOfMonths - 1);
-    initialMonth = addMonths(endMonth, offset);
+    initialMonth = addMonths(navEnd, offset);
   }
-  // Adjust the initial month if it is before the startMonth
-  if (startMonth && differenceInCalendarMonths(initialMonth, startMonth) < 0) {
-    initialMonth = startMonth;
+  // Adjust the initial month if it is before the navStart
+  if (navStart && differenceInCalendarMonths(initialMonth, navStart) < 0) {
+    initialMonth = navStart;
   }
 
   return startOfMonth(initialMonth);

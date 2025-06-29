@@ -101,7 +101,7 @@ export function useCalendar(
   const [navStart, navEnd] = getNavMonths(props, dateLib);
 
   const { startOfMonth, endOfMonth } = dateLib;
-  const initialMonth = getInitialMonth(props, dateLib);
+  const initialMonth = getInitialMonth(props, navStart, navEnd, dateLib);
   const [firstMonth, setFirstMonth] = useControlledValue(
     initialMonth,
     // initialMonth is always computed from props.month if provided
@@ -109,7 +109,7 @@ export function useCalendar(
   );
 
   useEffect(() => {
-    const newInitialMonth = getInitialMonth(props, dateLib);
+    const newInitialMonth = getInitialMonth(props, navStart, navEnd, dateLib);
     setFirstMonth(newInitialMonth);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.timeZone]);

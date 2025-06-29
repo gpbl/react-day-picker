@@ -40,7 +40,13 @@ const props = {
 
 describe("createGetModifiers", () => {
   describe("default props", () => {
-    const getModifiers = createGetModifiers(days, props, dateLib);
+    const getModifiers = createGetModifiers(
+      days,
+      props,
+      undefined,
+      undefined,
+      dateLib
+    );
 
     test("return the modifiers for a given day", () => {
       const modifiers = getModifiers(day2);
@@ -114,7 +120,9 @@ describe("createGetModifiers", () => {
 
     const getModifiers = createGetModifiers(
       days,
-      { ...props, startMonth, endMonth },
+      props,
+      startMonth,
+      endMonth,
       dateLib
     );
     test("return the modifiers for a given day", () => {
