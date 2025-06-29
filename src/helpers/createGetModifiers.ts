@@ -41,8 +41,8 @@ export function createGetModifiers(
     isAfter
   } = dateLib;
 
-  navStart = navStart && startOfMonth(navStart);
-  navEnd = navEnd && endOfMonth(navEnd);
+  const computedNavStart = navStart && startOfMonth(navStart);
+  const computedNavEnd = navEnd && endOfMonth(navEnd);
 
   const internalModifiersMap: Record<DayFlag, CalendarDay[]> = {
     [DayFlag.focused]: [],
@@ -59,9 +59,13 @@ export function createGetModifiers(
 
     const isOutside = Boolean(displayMonth && !isSameMonth(date, displayMonth));
 
-    const isBeforeNadStart = Boolean(navStart && isBefore(date, navStart));
+    const isBeforeNadStart = Boolean(
+      computedNavStart && isBefore(date, computedNavStart)
+    );
 
-    const isAfterNavEnd = Boolean(navEnd && isAfter(date, navEnd));
+    const isAfterNavEnd = Boolean(
+      computedNavEnd && isAfter(date, computedNavEnd)
+    );
 
     const isDisabled = Boolean(
       disabled && dateMatchModifiers(date, disabled, dateLib)
