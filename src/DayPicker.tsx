@@ -160,7 +160,13 @@ export function DayPicker(initialProps: DayPickerProps) {
     goToMonth
   } = calendar;
 
-  const getModifiers = createGetModifiers(days, props, dateLib);
+  const getModifiers = createGetModifiers(
+    days,
+    props,
+    navStart,
+    navEnd,
+    dateLib
+  );
 
   const {
     isSelected,

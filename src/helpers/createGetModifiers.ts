@@ -19,6 +19,8 @@ import { dateMatchModifiers } from "../utils/dateMatchModifiers.js";
 export function createGetModifiers(
   days: CalendarDay[],
   props: DayPickerProps,
+  navStart: Date | undefined,
+  navEnd: Date | undefined,
   dateLib: DateLib
 ) {
   const {
@@ -39,8 +41,8 @@ export function createGetModifiers(
     isAfter
   } = dateLib;
 
-  const startMonth = props.startMonth && startOfMonth(props.startMonth);
-  const endMonth = props.endMonth && endOfMonth(props.endMonth);
+  navStart = navStart && startOfMonth(navStart);
+  navEnd = navEnd && endOfMonth(navEnd);
 
   const internalModifiersMap: Record<DayFlag, CalendarDay[]> = {
     [DayFlag.focused]: [],
@@ -57,11 +59,9 @@ export function createGetModifiers(
 
     const isOutside = Boolean(displayMonth && !isSameMonth(date, displayMonth));
 
-    const isBeforeStartMonth = Boolean(
-      startMonth && isBefore(date, startMonth)
-    );
+    const isBeforeNadStart = Boolean(navStart && isBefore(date, navStart));
 
-    const isAfterEndMonth = Boolean(endMonth && isAfter(date, endMonth));
+    const isAfterNavEnd = Boolean(navEnd && isAfter(date, navEnd));
 
     const isDisabled = Boolean(
       disabled && dateMatchModifiers(date, disabled, dateLib)
@@ -69,8 +69,8 @@ export function createGetModifiers(
 
     const isHidden =
       Boolean(hidden && dateMatchModifiers(date, hidden, dateLib)) ||
-      isBeforeStartMonth ||
-      isAfterEndMonth ||
+      isBeforeNadStart ||
+      isAfterNavEnd ||
       // Broadcast calendar will show outside days as default
       (!broadcastCalendar && !showOutsideDays && isOutside) ||
       (broadcastCalendar && showOutsideDays === false && isOutside);
