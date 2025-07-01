@@ -14,7 +14,8 @@ beforeEach(() => {
   render(<MultipleWithEndMonth />);
 });
 
-test("should display two months", () => {
-  expect(grid("July 2025")).toBeInTheDocument();
+test("should display three months", () => {
   expect(grid("June 2025")).toBeInTheDocument();
+  expect(grid("July 2025")).toBeInTheDocument();
+  expect(grid("August 2025")).toBeInTheDocument();
 });
