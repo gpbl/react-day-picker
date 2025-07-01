@@ -73,7 +73,7 @@ describe("when endMonth is given", () => {
     const month = new Date(2010, 11, 12);
     const endMonth = addMonths(month, -2);
     describe("when the number of month is 1", () => {
-      it("return the endMonth", () => {
+      it("returns the endMonth as the initial month so the last displayed month does not exceed endMonth", () => {
         const initialMonth = getInitialMonth(
           { month },
           undefined,
@@ -84,14 +84,15 @@ describe("when endMonth is given", () => {
       });
     });
     describe("when the number of month is 3", () => {
-      it("return the endMonth plus the number of months", () => {
+      it("returns the initial month so that initialMonth + 2 months = endMonth (last displayed month is endMonth)", () => {
         const initialMonth = getInitialMonth(
           { month, numberOfMonths: 3 },
           undefined,
           endMonth,
           defaultDateLib
         );
-        const expectedMonth = addMonths(endMonth, -1 * (3 - 1));
+        // The last displayed month should be endMonth, so initialMonth = endMonth - 2 months
+        const expectedMonth = addMonths(endMonth, -2);
         expect(isSameMonth(initialMonth, expectedMonth)).toBe(true);
       });
     });
