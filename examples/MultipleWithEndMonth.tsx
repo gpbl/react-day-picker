@@ -7,7 +7,6 @@ export function MultipleWithEndMonth() {
     <DayPicker
       numberOfMonths={3}
       endMonth={new Date()}
-      startMonth={new Date()}
       pagedNavigation={false}
     />
   );
