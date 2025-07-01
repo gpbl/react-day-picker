@@ -15,7 +15,7 @@ beforeEach(() => {
 });
 
 test("should display three months", () => {
+  expect(grid("May 2025")).toBeInTheDocument();
   expect(grid("June 2025")).toBeInTheDocument();
   expect(grid("July 2025")).toBeInTheDocument();
-  expect(grid("August 2025")).toBeInTheDocument();
 });
