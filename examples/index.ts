@@ -52,6 +52,7 @@ export * from "./MultipleMinMax";
 export * from "./MultipleRequired";
 export * from "./MultipleMonths";
 export * from "./MultipleMonthsPaged";
+export * from "./MultipleWithEndMonth";
 export * from "./NavLayout";
 export * from "./NavLayoutAfter";
 export * from "./Numerals";
