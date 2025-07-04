@@ -2,7 +2,7 @@ import React from "react";
 
 import { DayPicker } from "react-day-picker";
 
-export function MultipleWithEndMonth() {
+export function MultipleMonthsWithEndMonth() {
   return (
     <DayPicker
       numberOfMonths={3}
