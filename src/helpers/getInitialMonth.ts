@@ -37,12 +37,12 @@ export function getInitialMonth(
   const { differenceInCalendarMonths, addMonths, startOfMonth } = dateLib;
 
   // Adjust the initial month if it is after the navEnd, considering numberOfMonths
-  if (navEnd) {
-    const lastMonthToShow = addMonths(initialMonth, numberOfMonths - 1);
-    if (differenceInCalendarMonths(lastMonthToShow, navEnd) > 0) {
-      const offset = -1 * (numberOfMonths - 1);
-      initialMonth = addMonths(navEnd, offset);
-    }
+  if (
+    navEnd &&
+    differenceInCalendarMonths(navEnd, initialMonth) < numberOfMonths - 1
+  ) {
+    const offset = -1 * (numberOfMonths - 1);
+    initialMonth = addMonths(navEnd, offset);
   }
   // Adjust the initial month if it is before the navStart
   if (navStart && differenceInCalendarMonths(initialMonth, navStart) < 0) {
