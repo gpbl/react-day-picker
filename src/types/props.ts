@@ -203,11 +203,10 @@ export interface PropsBase {
   /**
    * Show dropdowns to navigate between months or years.
    *
-   * - `label`: display the month and the year as a label. Change the label with
-   *   the `formatCaption` formatter.
-   * - `dropdown`: display the dropdowns for both month and year
-   * - `dropdown-months`: display only the dropdown for the months
-   * - `dropdown-years`: display only the dropdown for the years
+   * - `label`: Displays the month and year as a label. Default value.
+   * - `dropdown`: Displays dropdowns for both month and year navigation.
+   * - `dropdown-months`: Displays a dropdown only for the month navigation.
+   * - `dropdown-years`: Displays a dropdown only for the year navigation.
    *
    * **Note:** By default, showing the dropdown will set the {@link startMonth}
    * to 100 years ago and {@link endMonth} to the end of the current year. You
