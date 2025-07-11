@@ -9,13 +9,13 @@ importers:
   .:
     dependencies:
       '@date-fns/tz':
-        specifier: 1.2.0
+        specifier: ^1.2.0
         version: 1.2.0
       date-fns:
-        specifier: 4.1.0
+        specifier: ^4.1.0
         version: 4.1.0
       date-fns-jalali:
-        specifier: 4.1.0-0
+        specifier: ^4.1.0-0
         version: 4.1.0-0
     devDependencies:
       '@jest/types':
@@ -8172,8 +8172,8 @@ packages:
   third-party-web@0.26.5:
     resolution: {integrity: sha512-tDuKQJUTfjvi9Fcrs1s6YAQAB9mzhTSbBZMfNgtWNmJlHuoFeXO6dzBFdGeCWRvYL50jQGK0jPsBZYxqZQJ2SA==}
 
-  third-party-web@0.26.6:
-    resolution: {integrity: sha512-GsjP92xycMK8qLTcQCacgzvffYzEqe29wyz3zdKVXlfRD5Kz1NatCTOZEeDaSd6uCZXvGd2CNVtQ89RNIhJWvA==}
+  third-party-web@0.27.0:
+    resolution: {integrity: sha512-h0JYX+dO2Zr3abCQpS6/uFjujaOjA1DyDzGQ41+oFn9VW/ARiq9g5ln7qEP9+BTzDpOMyIfsfj4OvfgXAsMUSA==}
 
   thunky@1.1.0:
     resolution: {integrity: sha512-eHY7nBftgThBqOyHGVN+l8gF0BucP09fMo0oO/Lb0w1OF80dJv+lDVpXG60WMQvkcxAkNybKsrEIE3ZtKGmPrA==}
@@ -11484,7 +11484,7 @@ snapshots:
 
   '@paulirish/trace_engine@0.0.44':
     dependencies:
-      third-party-web: 0.26.6
+      third-party-web: 0.27.0
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
@@ -18758,7 +18758,7 @@ snapshots:
 
   third-party-web@0.26.5: {}
 
-  third-party-web@0.26.6: {}
+  third-party-web@0.27.0: {}
 
   thunky@1.1.0: {}
 
