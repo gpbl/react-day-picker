@@ -5,3 +5,4 @@ dist
 /performance-tests/reports/report.html
 /performance-tests/reports/markdown-report.md
 /coverage
+.idea
