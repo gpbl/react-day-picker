@@ -46,7 +46,7 @@ test("apply classnames and style according to props", () => {
 
   expect(dayPicker()).toHaveClass("rdp-root");
   expect(dayPicker()).toHaveClass("custom-class");
-  expect(dayPicker()).toHaveStyle({ color: "red" });
+  expect(dayPicker()).toHaveStyle({ color: "rgb(255, 0, 0)" });
 });
 
 test("use custom components", () => {
