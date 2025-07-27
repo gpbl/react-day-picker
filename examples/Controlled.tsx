@@ -1,6 +1,5 @@
-import React from "react";
-
 import { addMonths, isSameMonth } from "date-fns";
+import React from "react";
 import { DayPicker } from "react-day-picker";
 
 export function Controlled() {
@@ -12,6 +11,7 @@ export function Controlled() {
     <div>
       <DayPicker month={month} onMonthChange={setMonth} />
       <button
+        type="button"
         style={{ all: "unset", cursor: "pointer", color: "blue" }}
         disabled={isSameMonth(today, month)}
         onClick={() => setMonth(today)}

@@ -15,10 +15,10 @@ describe("startOfBroadcastWeek", () => {
     [new Date(2023, 8, 1), new Date(2023, 7, 28)], // September, Friday
     [new Date(2023, 9, 1), new Date(2023, 8, 25)], // October, Sunday
     [new Date(2023, 10, 1), new Date(2023, 9, 30)], // November, Wednesday
-    [new Date(2023, 11, 1), new Date(2023, 10, 27)] // December, Friday
+    [new Date(2023, 11, 1), new Date(2023, 10, 27)], // December, Friday
   ])("startOfBroadcastWeek(%s) should return %s", (inputDate, expectedDate) => {
     expect(startOfBroadcastWeek(inputDate, defaultDateLib)).toEqual(
-      expectedDate
+      expectedDate,
     );
   });
 });

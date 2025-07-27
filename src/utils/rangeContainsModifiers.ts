@@ -1,4 +1,4 @@
-import { defaultDateLib, type DateLib } from "../classes/DateLib.js";
+import { type DateLib, defaultDateLib } from "../classes/DateLib.js";
 import type { Matcher } from "../types/index.js";
 
 import { dateMatchModifiers } from "./dateMatchModifiers.js";
@@ -11,7 +11,7 @@ import {
   isDateInterval,
   isDateRange,
   isDatesArray,
-  isDayOfWeekType
+  isDayOfWeekType,
 } from "./typeguards.js";
 
 /**
@@ -27,13 +27,13 @@ import {
 export function rangeContainsModifiers(
   range: { from: Date; to: Date },
   modifiers: Matcher | Matcher[],
-  dateLib: DateLib = defaultDateLib
+  dateLib: DateLib = defaultDateLib,
 ): boolean {
   const matchers = Array.isArray(modifiers) ? modifiers : [modifiers];
 
   // Defer function matchers evaluation as they are the least performant.
   const nonFunctionMatchers = matchers.filter(
-    (matcher) => typeof matcher !== "function"
+    (matcher) => typeof matcher !== "function",
   );
 
   const nonFunctionMatchersResult = nonFunctionMatchers.some((matcher) => {
@@ -45,7 +45,7 @@ export function rangeContainsModifiers(
 
     if (isDatesArray(matcher, dateLib)) {
       return matcher.some((date) =>
-        rangeIncludesDate(range, date, false, dateLib)
+        rangeIncludesDate(range, date, false, dateLib),
       );
     }
 
@@ -54,7 +54,7 @@ export function rangeContainsModifiers(
         return rangeOverlaps(
           range,
           { from: matcher.from, to: matcher.to },
-          dateLib
+          dateLib,
         );
       }
       return false;
@@ -71,9 +71,9 @@ export function rangeContainsModifiers(
           range,
           {
             from: dateLib.addDays(matcher.after, 1),
-            to: dateLib.addDays(matcher.before, -1)
+            to: dateLib.addDays(matcher.before, -1),
           },
-          dateLib
+          dateLib,
         );
       }
       return (
@@ -97,7 +97,7 @@ export function rangeContainsModifiers(
   }
 
   const functionMatchers = matchers.filter(
-    (matcher) => typeof matcher === "function"
+    (matcher) => typeof matcher === "function",
   );
 
   if (functionMatchers.length) {

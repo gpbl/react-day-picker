@@ -4,7 +4,7 @@ import { getFormatters } from "./getFormatters";
 
 const customFormattersMock = {
   formatMonthCaption: jest.fn(),
-  formatYearCaption: jest.fn()
+  formatYearCaption: jest.fn(),
 };
 
 test("returns default formatters when custom formatters are not provided", () => {
@@ -26,7 +26,7 @@ test("assigns `formatMonthCaption` to `formatCaption` if `formatCaption` is not 
 test("does not overwrite `formatCaption` if already defined", () => {
   const result = getFormatters({
     formatMonthCaption: () => "customMonth",
-    formatCaption: () => "customCaption"
+    formatCaption: () => "customCaption",
   });
   expect(result.formatCaption(new Date(), {})).toBe("customCaption");
   expect(result.formatMonthCaption(new Date(), {})).toBe("customMonth");
@@ -41,7 +41,7 @@ test("assigns `formatYearCaption` to `formatYearDropdown` if `formatYearDropdown
 test("does not overwrite `formatYearDropdown` if already defined", () => {
   const result = getFormatters({
     formatYearCaption: () => "customYear",
-    formatYearDropdown: () => "customDropdown"
+    formatYearDropdown: () => "customDropdown",
   });
   expect(result.formatYearDropdown(new Date())).toBe("customDropdown");
   expect(result.formatYearCaption(new Date())).toBe("customYear");

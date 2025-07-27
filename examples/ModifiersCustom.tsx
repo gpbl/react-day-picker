@@ -1,12 +1,12 @@
 import React from "react";
 
-import { DayMouseEventHandler, DayPicker } from "react-day-picker";
+import { type DayMouseEventHandler, DayPicker } from "react-day-picker";
 
 const bookedDays = [
   new Date(2024, 5, 8),
   new Date(2024, 5, 9),
   new Date(2024, 5, 10),
-  { from: new Date(2024, 5, 15), to: new Date(2024, 5, 20) }
+  { from: new Date(2024, 5, 15), to: new Date(2024, 5, 20) },
 ];
 
 const css = `
@@ -28,7 +28,7 @@ const css = `
 
 export function ModifiersCustom() {
   const handleDayClick: DayMouseEventHandler = (day, { booked }) => {
-    alert(`Day ${day.toLocaleDateString()} is booked? ` + booked);
+    alert(`Day ${day.toLocaleDateString()} is booked? ${booked}`);
   };
 
   return (

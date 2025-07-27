@@ -1,6 +1,5 @@
-import React, { useEffect, useId, useRef, useState } from "react";
-
 import { format, isValid, parse } from "date-fns";
+import React, { useEffect, useId, useRef, useState } from "react";
 import { DayPicker } from "react-day-picker";
 
 export function Dialog() {
@@ -80,6 +79,7 @@ export function Dialog() {
         onChange={handleInputChange}
       />{" "}
       <button
+        type="button"
         style={{ fontSize: "inherit" }}
         onClick={toggleDialog}
         aria-controls="dialog"
@@ -95,7 +95,6 @@ export function Dialog() {
           : "Please type or pick a date"}
       </p>
       <dialog
-        role="dialog"
         ref={dialogRef}
         id={dialogId}
         aria-modal

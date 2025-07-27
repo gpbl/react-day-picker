@@ -9,7 +9,7 @@ import { useDayPicker } from "../useDayPicker.js";
  * @see https://daypicker.dev/guides/custom-components
  */
 export function PreviousMonthButton(
-  props: ButtonHTMLAttributes<HTMLButtonElement>
+  props: ButtonHTMLAttributes<HTMLButtonElement>,
 ) {
   const { components } = useDayPicker();
   return <components.Button {...props} />;

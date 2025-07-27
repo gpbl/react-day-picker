@@ -1,6 +1,5 @@
-import React from "react";
-
 import { addMonths } from "date-fns";
+import React from "react";
 import { DayPicker } from "react-day-picker";
 
 /** Example for bug #2630. */

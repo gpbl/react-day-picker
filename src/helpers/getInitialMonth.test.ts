@@ -10,7 +10,7 @@ it("return start of month", () => {
     { month },
     undefined,
     undefined,
-    defaultDateLib
+    defaultDateLib,
   );
   expect(isSameDay(initialMonth, startOfMonth(month))).toBe(true);
 });
@@ -25,7 +25,7 @@ describe("when no startMonth or endMonth is given", () => {
         { month, defaultMonth, today },
         undefined,
         undefined,
-        defaultDateLib
+        defaultDateLib,
       );
       expect(isSameMonth(initialMonth, month)).toBe(true);
     });
@@ -36,7 +36,7 @@ describe("when no startMonth or endMonth is given", () => {
         { defaultMonth, today },
         undefined,
         undefined,
-        defaultDateLib
+        defaultDateLib,
       );
       expect(isSameMonth(initialMonth, defaultMonth)).toBe(true);
     });
@@ -47,7 +47,7 @@ describe("when no startMonth or endMonth is given", () => {
         { today },
         undefined,
         undefined,
-        defaultDateLib
+        defaultDateLib,
       );
       expect(isSameMonth(initialMonth, today)).toBe(true);
     });
@@ -62,7 +62,7 @@ describe("when startMonth is given and is after the default initial month", () =
       { month, numberOfMonths: 3 },
       startMonth,
       undefined,
-      defaultDateLib
+      defaultDateLib,
     );
     expect(isSameMonth(initialMonth, startMonth)).toBe(true);
   });
@@ -78,7 +78,7 @@ describe("when endMonth is given", () => {
           { month },
           undefined,
           endMonth,
-          defaultDateLib
+          defaultDateLib,
         );
         expect(isSameMonth(initialMonth, endMonth)).toBe(true);
       });
@@ -89,7 +89,7 @@ describe("when endMonth is given", () => {
           { month, numberOfMonths: 3 },
           undefined,
           endMonth,
-          defaultDateLib
+          defaultDateLib,
         );
         // The last displayed month should be endMonth, so initialMonth = endMonth - 2 months
         const expectedMonth = addMonths(endMonth, -2);

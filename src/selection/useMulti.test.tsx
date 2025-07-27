@@ -1,7 +1,7 @@
 import { act, renderHook } from "@/test/render";
 
 import { defaultDateLib } from "../classes/DateLib";
-import { DayPickerProps } from "../types";
+import type { DayPickerProps } from "../types";
 
 import { useMulti } from "./useMulti";
 
@@ -12,7 +12,7 @@ describe("useMulti", () => {
     const props: DayPickerProps = {
       mode: "multiple",
       selected: selectedDates,
-      onSelect: mockOnSelect
+      onSelect: mockOnSelect,
     };
 
     const { result } = renderHook(() => useMulti(props, defaultDateLib));
@@ -24,7 +24,7 @@ describe("useMulti", () => {
     const initialSelectedDates = [new Date(2023, 9, 1), new Date(2023, 9, 2)];
     const props: DayPickerProps = {
       mode: "multiple",
-      selected: initialSelectedDates
+      selected: initialSelectedDates,
     };
 
     const { result } = renderHook(() => useMulti(props, defaultDateLib));
@@ -35,7 +35,7 @@ describe("useMulti", () => {
 
     expect(result.current.selected).toEqual([
       ...initialSelectedDates,
-      new Date(2023, 9, 3)
+      new Date(2023, 9, 3),
     ]);
   });
 });

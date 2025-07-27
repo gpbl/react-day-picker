@@ -1,4 +1,4 @@
-import { CalendarWeek } from "./CalendarWeek.js";
+import type { CalendarWeek } from "./CalendarWeek.js";
 
 /**
  * Represents a month in a calendar year.

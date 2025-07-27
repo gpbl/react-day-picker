@@ -1,4 +1,4 @@
-import { defaultDateLib, type DateLib } from "../classes/DateLib.js";
+import { type DateLib, defaultDateLib } from "../classes/DateLib.js";
 
 /**
  * Formats the year for the dropdown option label.
@@ -12,7 +12,7 @@ import { defaultDateLib, type DateLib } from "../classes/DateLib.js";
  */
 export function formatYearDropdown(
   year: Date,
-  dateLib: DateLib = defaultDateLib
+  dateLib: DateLib = defaultDateLib,
 ): string {
   return dateLib.format(year, "yyyy");
 }

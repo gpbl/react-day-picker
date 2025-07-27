@@ -2,7 +2,7 @@ import React from "react";
 
 import {
   DayPicker as DayPickerComponent,
-  type DayPickerProps
+  type DayPickerProps,
 } from "./index.js";
 
 /**

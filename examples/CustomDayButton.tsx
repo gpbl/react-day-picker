@@ -1,6 +1,6 @@
 import React from "react";
 
-import { DayButtonProps, DayPicker } from "react-day-picker";
+import { type DayButtonProps, DayPicker } from "react-day-picker";
 
 const SelectedDateContext = React.createContext<{
   selected?: Date;
@@ -30,7 +30,7 @@ export function CustomDayButton() {
         selected={selected}
         onSelect={setSelected}
         components={{
-          DayButton
+          DayButton,
         }}
         footer={selected?.toDateString() || "Double click to select a date"}
       />

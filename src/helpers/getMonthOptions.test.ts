@@ -13,7 +13,7 @@ describe("return correct dropdown options", () => {
       startMonth,
       endMonth,
       formatters,
-      defaultDateLib
+      defaultDateLib,
     );
 
     expect(result).toEqual([
@@ -28,7 +28,7 @@ describe("return correct dropdown options", () => {
       { value: 8, label: "September", disabled: false },
       { value: 9, label: "October", disabled: false },
       { value: 10, label: "November", disabled: false },
-      { value: 11, label: "December", disabled: false }
+      { value: 11, label: "December", disabled: false },
     ]);
   });
 
@@ -39,7 +39,7 @@ describe("return correct dropdown options", () => {
       undefined,
       undefined,
       formatters,
-      defaultDateLib
+      defaultDateLib,
     );
 
     expect(result).toEqual([
@@ -54,7 +54,7 @@ describe("return correct dropdown options", () => {
       { value: 8, label: "September", disabled: false },
       { value: 9, label: "October", disabled: false },
       { value: 10, label: "November", disabled: false },
-      { value: 11, label: "December", disabled: false }
+      { value: 11, label: "December", disabled: false },
     ]);
   });
 
@@ -67,7 +67,7 @@ describe("return correct dropdown options", () => {
       startMonth,
       endMonth,
       formatters,
-      defaultDateLib
+      defaultDateLib,
     );
 
     expect(result).toEqual([
@@ -82,7 +82,7 @@ describe("return correct dropdown options", () => {
       { value: 8, label: "September", disabled: true },
       { value: 9, label: "October", disabled: false },
       { value: 10, label: "November", disabled: false },
-      { value: 11, label: "December", disabled: false }
+      { value: 11, label: "December", disabled: false },
     ]);
   });
 
@@ -94,7 +94,7 @@ describe("return correct dropdown options", () => {
       undefined,
       endMonth,
       formatters,
-      defaultDateLib
+      defaultDateLib,
     );
 
     expect(result).toEqual([
@@ -109,7 +109,7 @@ describe("return correct dropdown options", () => {
       { value: 8, label: "September", disabled: true },
       { value: 9, label: "October", disabled: true },
       { value: 10, label: "November", disabled: true },
-      { value: 11, label: "December", disabled: true }
+      { value: 11, label: "December", disabled: true },
     ]);
   });
 
@@ -121,7 +121,7 @@ describe("return correct dropdown options", () => {
       startMonth,
       undefined,
       formatters,
-      defaultDateLib
+      defaultDateLib,
     );
 
     expect(result).toEqual([
@@ -136,7 +136,7 @@ describe("return correct dropdown options", () => {
       { value: 8, label: "September", disabled: false },
       { value: 9, label: "October", disabled: false },
       { value: 10, label: "November", disabled: false },
-      { value: 11, label: "December", disabled: false }
+      { value: 11, label: "December", disabled: false },
     ]);
   });
 
@@ -149,7 +149,7 @@ describe("return correct dropdown options", () => {
       startMonth,
       endMonth,
       formatters,
-      defaultDateLib
+      defaultDateLib,
     );
 
     expect(result).toEqual([
@@ -164,7 +164,7 @@ describe("return correct dropdown options", () => {
       { value: 8, label: "September", disabled: false },
       { value: 9, label: "October", disabled: false },
       { value: 10, label: "November", disabled: false },
-      { value: 11, label: "December", disabled: false }
+      { value: 11, label: "December", disabled: false },
     ]);
   });
 
@@ -177,7 +177,7 @@ describe("return correct dropdown options", () => {
       startMonth,
       endMonth,
       formatters,
-      defaultDateLib
+      defaultDateLib,
     );
 
     expect(result).toEqual([
@@ -192,7 +192,7 @@ describe("return correct dropdown options", () => {
       { value: 8, label: "September", disabled: true },
       { value: 9, label: "October", disabled: true },
       { value: 10, label: "November", disabled: true },
-      { value: 11, label: "December", disabled: true }
+      { value: 11, label: "December", disabled: true },
     ]);
   });
 
@@ -205,7 +205,7 @@ describe("return correct dropdown options", () => {
       startMonth,
       endMonth,
       formatters,
-      defaultDateLib
+      defaultDateLib,
     );
 
     expect(result).toEqual([
@@ -220,7 +220,7 @@ describe("return correct dropdown options", () => {
       { value: 8, label: "September", disabled: false },
       { value: 9, label: "October", disabled: true },
       { value: 10, label: "November", disabled: true },
-      { value: 11, label: "December", disabled: true }
+      { value: 11, label: "December", disabled: true },
     ]);
   });
 });

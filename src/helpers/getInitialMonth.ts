@@ -1,5 +1,5 @@
-import { type DateLib } from "../classes/DateLib.js";
-import { type DayPickerProps } from "../types/props.js";
+import type { DateLib } from "../classes/DateLib.js";
+import type { DayPickerProps } from "../types/props.js";
 
 /**
  * Determines the initial month to display in the calendar based on the provided
@@ -25,13 +25,13 @@ export function getInitialMonth(
   >,
   navStart: Date | undefined,
   navEnd: Date | undefined,
-  dateLib: DateLib
+  dateLib: DateLib,
 ): Date {
   const {
     month,
     defaultMonth,
     today = dateLib.today(),
-    numberOfMonths = 1
+    numberOfMonths = 1,
   } = props;
   let initialMonth = month || defaultMonth || today;
   const { differenceInCalendarMonths, addMonths, startOfMonth } = dateLib;

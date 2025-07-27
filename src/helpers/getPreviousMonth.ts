@@ -26,7 +26,7 @@ export function getPreviousMonth(
     DayPickerProps,
     "numberOfMonths" | "pagedNavigation" | "disableNavigation"
   >,
-  dateLib: DateLib
+  dateLib: DateLib,
 ): Date | undefined {
   if (options.disableNavigation) {
     return undefined;

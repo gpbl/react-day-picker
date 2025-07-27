@@ -20,6 +20,6 @@ export function getFormatters(customFormatters: DayPickerProps["formatters"]) {
   }
   return {
     ...defaultFormatters,
-    ...customFormatters
+    ...customFormatters,
   };
 }

@@ -1,31 +1,32 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { DayFlag, SelectionState } from "../UI.js";
 import {
   MonthCaption,
-  type MonthCaptionProps
+  type MonthCaptionProps,
 } from "../components/MonthCaption.js";
 import { Week, type WeekProps } from "../components/Week.js";
-import {
+import type {
   labelDayButton,
   labelNext,
   labelWeekday,
-  labelWeekNumber
+  labelWeekNumber,
 } from "../labels/index.js";
+import type { DayFlag, SelectionState } from "../UI.js";
 import { useDayPicker } from "../useDayPicker.js";
 
 import type { PropsMulti, PropsRange, PropsSingle } from "./props.js";
-import type { Mode, DayEventHandler } from "./shared.js";
+import type { DayEventHandler, Mode } from "./shared.js";
 
 /**
  * @ignore
  * @deprecated This type will be removed.
  */
+// biome-ignore lint/suspicious/noExplicitAny: will be removed
 export type RootProvider = any;
 
 /**
  * @ignore
  * @deprecated This type will be removed.
  */
+// biome-ignore lint/suspicious/noExplicitAny: will be removed
 export type RootProviderProps = any;
 
 /**
@@ -48,6 +49,7 @@ export type CaptionProps = MonthCaptionProps;
  * @group Components
  * @see https://daypicker.dev/guides/custom-components
  */
+// biome-ignore lint/suspicious/noExplicitAny: will be removed
 export type HeadRow = any;
 
 /**
@@ -139,6 +141,7 @@ export type SelectRangeEventHandler = PropsRange["onSelect"];
  * @ignore
  * @deprecated This type is not used anymore.
  */
+// biome-ignore lint/suspicious/noExplicitAny: will be removed
 export type DayPickerProviderProps = any;
 
 /**
@@ -154,12 +157,14 @@ export const useNavigation = useDayPicker;
  * @group Hooks
  * @see https://daypicker.dev/guides/custom-components
  */
+// biome-ignore lint/suspicious/noExplicitAny: will be removed
 export type useDayRender = any;
 
 /**
  * @ignore
  * @deprecated This type is not used anymore.
  */
+// biome-ignore lint/suspicious/noExplicitAny: will be removed
 export type ContextProvidersProps = any;
 
 /**

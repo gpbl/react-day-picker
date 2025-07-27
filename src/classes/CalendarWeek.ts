@@ -1,4 +1,4 @@
-import { CalendarDay } from "./CalendarDay.js";
+import type { CalendarDay } from "./CalendarDay.js";
 
 /**
  * Represents a week in a calendar month.

@@ -15,7 +15,7 @@ export function StylingCss() {
       <style>{style}</style>
       <DayPicker
         classNames={{
-          month_caption: "caption_aqua"
+          month_caption: "caption_aqua",
         }}
       />
     </>

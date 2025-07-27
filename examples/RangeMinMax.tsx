@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-
 import { format } from "date-fns";
-import { DateRange, DayPicker } from "react-day-picker";
+import React, { useState } from "react";
+import { type DateRange, DayPicker } from "react-day-picker";
 
 export function RangeMinMax() {
   const [range, setRange] = useState<DateRange | undefined>();

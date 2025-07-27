@@ -1,5 +1,5 @@
-import { type DateLib } from "../classes/DateLib.js";
-import { type DayPickerProps } from "../types/props.js";
+import type { DateLib } from "../classes/DateLib.js";
+import type { DayPickerProps } from "../types/props.js";
 
 /**
  * Returns all the dates to display in the calendar.
@@ -17,7 +17,7 @@ export function getDates(
   displayMonths: Date[],
   maxDate: Date | undefined,
   props: Pick<DayPickerProps, "ISOWeek" | "fixedWeeks" | "broadcastCalendar">,
-  dateLib: DateLib
+  dateLib: DateLib,
 ): Date[] {
   const firstMonth = displayMonths[0];
   const lastMonth = displayMonths[displayMonths.length - 1];
@@ -34,7 +34,7 @@ export function getDates(
     isAfter,
     startOfBroadcastWeek,
     startOfISOWeek,
-    startOfWeek
+    startOfWeek,
   } = dateLib;
 
   const startWeekFirstDate = broadcastCalendar

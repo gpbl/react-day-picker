@@ -14,7 +14,7 @@ import { DateLib, type DateLibOptions } from "../classes/DateLib.js";
 export function labelWeekday(
   date: Date,
   options?: DateLibOptions,
-  dateLib?: DateLib
+  dateLib?: DateLib,
 ): string {
   return (dateLib ?? new DateLib(options)).format(date, "cccc");
 }

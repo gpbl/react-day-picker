@@ -9,6 +9,6 @@ import type { DateLibOptions } from "../classes/DateLib.js";
  * @group Labels
  * @see https://daypicker.dev/docs/translation#aria-labels
  */
-export function labelYearDropdown(options?: DateLibOptions) {
+export function labelYearDropdown(_options?: DateLibOptions) {
   return "Choose the Year";
 }

@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-
 import { ar } from "date-fns/locale";
+import React, { useState } from "react";
 import { DayPicker } from "react-day-picker";
 import classNames from "react-day-picker/style.module.css";
 

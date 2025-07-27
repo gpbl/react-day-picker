@@ -13,7 +13,7 @@ test("should return the formatted month dropdown label", () => {
 describe("when a locale is passed in", () => {
   test("should format using the locale", () => {
     expect(formatMonthDropdown(date, new DateLib({ locale: es }))).toEqual(
-      "noviembre"
+      "noviembre",
     );
   });
 });

@@ -15,14 +15,14 @@ beforeEach(() => {
   render(
     <div role="application">
       <Disabled />
-    </div>
+    </div>,
   );
   // return act(() => dateButton(firstOfMonth).focus());
 });
 
 test("should not display the previous button", () => {
   expect(
-    screen.queryByRole("button", { name: "Previous month" })
+    screen.queryByRole("button", { name: "Previous month" }),
   ).not.toBeInTheDocument();
 });
 

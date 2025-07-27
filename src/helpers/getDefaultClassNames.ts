@@ -1,5 +1,5 @@
-import { UI, DayFlag, SelectionState, Animation } from "../UI.js";
 import type { ClassNames } from "../types/index.js";
+import { Animation, DayFlag, SelectionState, UI } from "../UI.js";
 
 /**
  * Returns the default class names for the UI elements.

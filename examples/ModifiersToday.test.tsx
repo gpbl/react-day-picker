@@ -1,8 +1,7 @@
+import { addDays } from "date-fns";
 import React from "react";
 
-import { addDays } from "date-fns";
-
-import { dateButton, app, gridcell } from "@/test/elements";
+import { app, dateButton, gridcell } from "@/test/elements";
 import { renderApp } from "@/test/renderApp";
 import { user } from "@/test/user";
 

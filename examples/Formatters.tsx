@@ -1,13 +1,12 @@
-import React from "react";
-
 import { format } from "date-fns";
-import { DayPicker, type DateLibOptions } from "react-day-picker";
+import React from "react";
+import { type DateLibOptions, DayPicker } from "react-day-picker";
 
 const seasonEmoji: Record<string, string> = {
   winter: "⛄️",
   spring: "🌸",
   summer: "🌻",
-  autumn: "🍂"
+  autumn: "🍂",
 };
 
 const getSeason = (month: Date): string => {

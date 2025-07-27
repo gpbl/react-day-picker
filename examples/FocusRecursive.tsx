@@ -7,8 +7,8 @@ export function FocusRecursive() {
   const disabledDays = [
     new Date(2022, 5, 4),
     {
-      after: new Date(2022, 5, 26)
-    }
+      after: new Date(2022, 5, 26),
+    },
   ];
 
   return (

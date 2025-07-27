@@ -4,7 +4,7 @@ import { CalendarWeek } from "./CalendarWeek";
 let week: CalendarWeek;
 const days = [
   new CalendarDay(new Date(2023, 1, 12), new Date(2023, 1, 1)),
-  new CalendarDay(new Date(2023, 1, 2023), new Date(2023, 1, 1))
+  new CalendarDay(new Date(2023, 1, 2023), new Date(2023, 1, 1)),
 ];
 
 beforeEach(() => {

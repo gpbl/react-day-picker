@@ -8,14 +8,14 @@ it("should return undefined if navigation is disabled", () => {
   const props = {
     disableNavigation: true,
     pagedNavigation: false,
-    numberOfMonths: 1
+    numberOfMonths: 1,
   };
 
   const result = getPreviousMonth(
     firstDisplayedMonth,
     calendarStartMonth,
     props,
-    defaultDateLib
+    defaultDateLib,
   );
 
   expect(result).toBeUndefined();
@@ -26,14 +26,14 @@ it("should return the previous month if startMonth is not provided", () => {
   const props = {
     disableNavigation: false,
     pagedNavigation: false,
-    numberOfMonths: 1
+    numberOfMonths: 1,
   };
 
   const result = getPreviousMonth(
     firstDisplayedMonth,
     undefined,
     props,
-    defaultDateLib
+    defaultDateLib,
   );
 
   expect(result).toEqual(new Date(2022, 0, 1)); // January 2022
@@ -45,13 +45,13 @@ it("should return undefined if the previous month is before the startMonth", () 
   const props = {
     disableNavigation: false,
     pagedNavigation: false,
-    numberOfMonths: 1
+    numberOfMonths: 1,
   };
   const result = getPreviousMonth(
     firstDisplayedMonth,
     calendarStartMonth,
     props,
-    defaultDateLib
+    defaultDateLib,
   );
   expect(result).toBeUndefined();
 });
@@ -63,14 +63,14 @@ it("should return the correct previous month when pagedNavigation is true", () =
     disableNavigation: false,
     pagedNavigation: true,
     numberOfMonths: 2,
-    startMonth: new Date(2022, 0, 1)
+    startMonth: new Date(2022, 0, 1),
   };
 
   const result = getPreviousMonth(
     firstDisplayedMonth,
     calendarStartMonth,
     props,
-    defaultDateLib
+    defaultDateLib,
   );
 
   expect(result).toEqual(new Date(2022, 0, 1)); // January 2022

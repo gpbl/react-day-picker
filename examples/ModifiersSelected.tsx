@@ -1,11 +1,10 @@
-import React from "react";
-
 import { subDays } from "date-fns";
-import { DayPicker, SelectSingleEventHandler } from "react-day-picker";
+import React from "react";
+import { DayPicker, type SelectSingleEventHandler } from "react-day-picker";
 
 export function ModifiersSelected() {
   const yesterday = subDays(new Date(), 1);
-  const handleSelect: SelectSingleEventHandler = (value, date, modifiers) => {
+  const handleSelect: SelectSingleEventHandler = (_value, _date, modifiers) => {
     if (modifiers.selected) {
       alert("You clicked a selected day.");
     }

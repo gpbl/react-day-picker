@@ -16,7 +16,7 @@ export function rangeIncludesDate(
   range: DateRange,
   date: Date,
   excludeEnds = false,
-  dateLib = defaultDateLib
+  dateLib = defaultDateLib,
 ): boolean {
   let { from, to } = range;
   const { differenceInCalendarDays, isSameDay } = dateLib;

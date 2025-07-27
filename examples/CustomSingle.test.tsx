@@ -21,7 +21,7 @@ describe("when a day is clicked", () => {
   });
   test("should update the footer", () => {
     expect(
-      screen.getByText("You selected " + today.toDateString())
+      screen.getByText(`You selected ${today.toDateString()}`),
     ).toBeInTheDocument();
   });
   describe("when clicking the day again", () => {
@@ -31,12 +31,12 @@ describe("when a day is clicked", () => {
     test("should not appear as selected", () => {
       expect(gridcell(today, true)).not.toHaveAttribute(
         "aria-selected",
-        "true"
+        "true",
       );
     });
     test("should update the footer", () => {
       expect(
-        screen.queryByText("You selected Thu Nov 25 2021")
+        screen.queryByText("You selected Thu Nov 25 2021"),
       ).not.toBeInTheDocument();
     });
   });

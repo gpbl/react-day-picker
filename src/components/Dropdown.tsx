@@ -1,7 +1,6 @@
 import React, { type SelectHTMLAttributes } from "react";
-
-import { UI } from "../UI.js";
 import type { ClassNames, CustomComponents } from "../types/index.js";
+import { UI } from "../UI.js";
 
 /** An option to use in the dropdown. Maps to the `<option>` HTML element. */
 export type DropdownOption = {
@@ -33,14 +32,14 @@ export function Dropdown(
     classNames: ClassNames;
     /** The options to display in the dropdown. */
     options?: DropdownOption[] | undefined;
-  } & Omit<SelectHTMLAttributes<HTMLSelectElement>, "children">
+  } & Omit<SelectHTMLAttributes<HTMLSelectElement>, "children">,
 ) {
   const { options, className, components, classNames, ...selectProps } = props;
 
   const cssClassSelect = [classNames[UI.Dropdown], className].join(" ");
 
   const selectedOption = options?.find(
-    ({ value }) => value === selectProps.value
+    ({ value }) => value === selectProps.value,
   );
   return (
     <span

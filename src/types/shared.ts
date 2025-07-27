@@ -1,8 +1,6 @@
 import type { CSSProperties } from "react";
-
-import { UI, DayFlag, SelectionState, Animation } from "../UI.js";
-import * as components from "../components/custom-components.js";
-import {
+import type * as components from "../components/custom-components.js";
+import type {
   formatCaption,
   formatDay,
   formatMonthCaption,
@@ -11,21 +9,22 @@ import {
   formatWeekNumber,
   formatWeekNumberHeader,
   formatYearCaption,
-  formatYearDropdown
+  formatYearDropdown,
 } from "../formatters/index.js";
-import {
+import type {
   labelDayButton,
-  labelNav,
   labelGrid,
   labelGridcell,
   labelMonthDropdown,
+  labelNav,
   labelNext,
   labelPrevious,
   labelWeekday,
   labelWeekNumber,
   labelWeekNumberHeader,
-  labelYearDropdown
+  labelYearDropdown,
 } from "../labels/index.js";
+import type { Animation, DayFlag, SelectionState, UI } from "../UI.js";
 
 /**
  * Selection modes supported by DayPicker.
@@ -251,7 +250,7 @@ export type DayOfWeek = { dayOfWeek: number | number[] };
 export type DayEventHandler<EventType> = (
   date: Date,
   modifiers: Modifiers,
-  e: EventType
+  e: EventType,
 ) => void;
 
 /**

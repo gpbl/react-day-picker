@@ -9,6 +9,6 @@ import type { CalendarMonth, CalendarWeek } from "../classes/index.js";
 export function getWeeks(months: CalendarMonth[]) {
   const initialWeeks: CalendarWeek[] = [];
   return months.reduce((weeks, month) => {
-    return [...weeks, ...month.weeks];
-  }, initialWeeks);
+    return weeks.concat(month.weeks.slice());
+  }, initialWeeks.slice());
 }

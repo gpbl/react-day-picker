@@ -22,6 +22,7 @@ export function Chevron(props: {
   const { size = 24, orientation = "left", className } = props;
 
   return (
+    // biome-ignore lint/a11y/noSvgWithoutTitle: handled by the parent component
     <svg className={className} width={size} height={size} viewBox="0 0 24 24">
       {orientation === "up" && (
         <polygon points="6.77 17 12.5 11.43 18.24 17 20 15.28 12.5 8 5 15.28" />

@@ -1,6 +1,6 @@
-import { CSSProperties } from "react";
+import type { CSSProperties } from "react";
 
-import type { CustomComponents, ClassNames, Styles } from "./types/index.js";
+import type { ClassNames, CustomComponents, Styles } from "./types/index.js";
 
 /**
  * Enum representing the UI elements composing DayPicker. These elements are
@@ -67,7 +67,7 @@ export enum UI {
   /** The cell header of the week numbers column. */
   WeekNumberHeader = "week_number_header",
   /** The dropdown with the years. */
-  YearsDropdown = "years_dropdown"
+  YearsDropdown = "years_dropdown",
 }
 
 /** Enum representing flags for the {@link UI.Day} element. */
@@ -81,7 +81,7 @@ export enum DayFlag {
   /** The day is focused. */
   focused = "focused",
   /** The day is today. */
-  today = "today"
+  today = "today",
 }
 
 /**
@@ -96,7 +96,7 @@ export enum SelectionState {
   /** The day is at the start of a selected range. */
   range_start = "range_start",
   /** The day is selected. */
-  selected = "selected"
+  selected = "selected",
 }
 
 /**
@@ -119,7 +119,7 @@ export enum Animation {
   /** The entering caption when it appears before the exiting month. */
   caption_before_enter = "caption_before_enter",
   /** The exiting caption when it disappears before the entering month. */
-  caption_before_exit = "caption_before_exit"
+  caption_before_exit = "caption_before_exit",
 }
 
 /**

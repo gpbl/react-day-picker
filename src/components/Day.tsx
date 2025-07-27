@@ -19,7 +19,7 @@ export function Day(
     day: CalendarDay;
     /** The modifiers to apply to the day. */
     modifiers: Modifiers;
-  } & HTMLAttributes<HTMLDivElement>
+  } & HTMLAttributes<HTMLDivElement>,
 ) {
   const { day, modifiers, ...tdProps } = props;
   return <td {...tdProps} />;

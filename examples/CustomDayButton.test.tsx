@@ -1,9 +1,8 @@
+import { startOfMonth } from "date-fns";
 import React from "react";
 
-import { startOfMonth } from "date-fns";
-
 import { dateButton } from "@/test/elements";
-import { render, screen, fireEvent } from "@/test/render";
+import { fireEvent, render, screen } from "@/test/render";
 
 import { CustomDayButton } from "./CustomDayButton";
 

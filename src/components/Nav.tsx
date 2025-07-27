@@ -1,7 +1,7 @@
 import React, {
-  type MouseEventHandler,
   type HTMLAttributes,
-  useCallback
+  type MouseEventHandler,
+  useCallback,
 } from "react";
 
 import { UI } from "../UI.js";
@@ -23,7 +23,7 @@ export function Nav(
     previousMonth?: Date | undefined;
     /** The date of the next month, if available. */
     nextMonth?: Date | undefined;
-  } & HTMLAttributes<HTMLElement>
+  } & HTMLAttributes<HTMLElement>,
 ) {
   const {
     onPreviousClick,
@@ -36,7 +36,7 @@ export function Nav(
   const {
     components,
     classNames,
-    labels: { labelPrevious, labelNext }
+    labels: { labelPrevious, labelNext },
   } = useDayPicker();
 
   const handleNextClick = useCallback(
@@ -45,7 +45,7 @@ export function Nav(
         onNextClick?.(e);
       }
     },
-    [nextMonth, onNextClick]
+    [nextMonth, onNextClick],
   );
 
   const handlePreviousClick = useCallback(
@@ -54,7 +54,7 @@ export function Nav(
         onPreviousClick?.(e);
       }
     },
-    [previousMonth, onPreviousClick]
+    [previousMonth, onPreviousClick],
   );
 
   return (

@@ -1,12 +1,12 @@
-import { DayFlag } from "../UI.js";
 import type { CalendarDay } from "../classes/index.js";
 import type { Modifiers } from "../types/index.js";
+import { DayFlag } from "../UI.js";
 
 enum FocusTargetPriority {
   Today = 0,
   Selected,
   LastFocused,
-  FocusedModifier
+  FocusedModifier,
 }
 
 /**
@@ -44,7 +44,7 @@ export function calculateFocusTarget(
   days: CalendarDay[],
   getModifiers: (day: CalendarDay) => Modifiers,
   isSelected: (date: Date) => boolean,
-  lastFocused: CalendarDay | undefined
+  lastFocused: CalendarDay | undefined,
 ): CalendarDay | undefined {
   let focusTarget: CalendarDay | undefined;
 

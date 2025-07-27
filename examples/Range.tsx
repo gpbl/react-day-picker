@@ -1,14 +1,13 @@
-import React, { useState } from "react";
-
 import { addDays, format } from "date-fns";
-import { DateRange, DayPicker } from "react-day-picker";
+import React, { useState } from "react";
+import { type DateRange, DayPicker } from "react-day-picker";
 
 export function Range() {
   const defaultMonth = new Date(2020, 5, 15);
 
   const defaultSelected: DateRange = {
     from: defaultMonth,
-    to: addDays(defaultMonth, 4)
+    to: addDays(defaultMonth, 4),
   };
   const [range, setRange] = useState<DateRange | undefined>(defaultSelected);
 

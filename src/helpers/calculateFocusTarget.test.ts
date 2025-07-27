@@ -1,37 +1,37 @@
-import { DayFlag } from "../UI.js";
 import { CalendarDay } from "../classes/index.js";
 import type { Modifiers } from "../types/index.js";
+import { DayFlag } from "../UI.js";
 
 import { calculateFocusTarget } from "./calculateFocusTarget";
 
 const todayModifiers = {
-  [DayFlag.today]: true
+  [DayFlag.today]: true,
 };
 
 const todayHiddenModifiers = {
   [DayFlag.today]: true,
-  [DayFlag.hidden]: true
+  [DayFlag.hidden]: true,
 };
 
 const focusedModifiers = {
-  [DayFlag.focused]: true
+  [DayFlag.focused]: true,
 };
 
 const focusedDisabledModifiers = {
   [DayFlag.focused]: true,
-  [DayFlag.disabled]: true
+  [DayFlag.disabled]: true,
 };
 
 const outsideModifiers = {
-  [DayFlag.outside]: true
+  [DayFlag.outside]: true,
 };
 
 const hiddenModifiers = {
-  [DayFlag.hidden]: true
+  [DayFlag.hidden]: true,
 };
 
 const disabledModifiers = {
-  [DayFlag.disabled]: true
+  [DayFlag.disabled]: true,
 };
 
 const month = new Date(2021, 0, 1);
@@ -48,7 +48,7 @@ const days: CalendarDay[] = [
   daySelected,
   dayLastFocused,
   dayFocusedModifier,
-  day6
+  day6,
 ];
 
 const isSelected = (date: Date) => {
@@ -56,7 +56,7 @@ const isSelected = (date: Date) => {
 };
 
 function getModifiersFactory(
-  entries: [CalendarDay, Modifiers][]
+  entries: [CalendarDay, Modifiers][],
 ): (day: CalendarDay) => Modifiers {
   const map = new Map(entries);
   return (day) => map.get(day) ?? {};
@@ -71,14 +71,14 @@ describe("calculateFocusTarget", () => {
         [daySelected, {}],
         [dayLastFocused, {}],
         [dayFocusedModifier, focusedModifiers],
-        [day6, {}]
+        [day6, {}],
       ]);
 
       const focusTarget = calculateFocusTarget(
         days,
         getModifiers,
         isSelected,
-        dayLastFocused
+        dayLastFocused,
       );
 
       expect(focusTarget).toBe(dayFocusedModifier);
@@ -91,14 +91,14 @@ describe("calculateFocusTarget", () => {
         [daySelected, {}],
         [dayLastFocused, {}],
         [dayFocusedModifier, focusedDisabledModifiers],
-        [day6, {}]
+        [day6, {}],
       ]);
 
       const focusTarget = calculateFocusTarget(
         days,
         getModifiers,
         isSelected,
-        dayLastFocused
+        dayLastFocused,
       );
 
       expect(focusTarget).toBe(dayLastFocused);
@@ -111,14 +111,14 @@ describe("calculateFocusTarget", () => {
         [daySelected, {}],
         [dayLastFocused, disabledModifiers],
         [dayFocusedModifier, focusedDisabledModifiers],
-        [day6, {}]
+        [day6, {}],
       ]);
 
       const focusTarget = calculateFocusTarget(
         days,
         getModifiers,
         isSelected,
-        dayLastFocused
+        dayLastFocused,
       );
 
       expect(focusTarget).toBe(daySelected);
@@ -131,14 +131,14 @@ describe("calculateFocusTarget", () => {
         [daySelected, hiddenModifiers],
         [dayLastFocused, disabledModifiers],
         [dayFocusedModifier, focusedDisabledModifiers],
-        [day6, {}]
+        [day6, {}],
       ]);
 
       const focusTarget = calculateFocusTarget(
         days,
         getModifiers,
         isSelected,
-        dayLastFocused
+        dayLastFocused,
       );
 
       expect(focusTarget).toBe(dayToday);
@@ -151,14 +151,14 @@ describe("calculateFocusTarget", () => {
         [daySelected, hiddenModifiers],
         [dayLastFocused, disabledModifiers],
         [dayFocusedModifier, focusedDisabledModifiers],
-        [day6, {}]
+        [day6, {}],
       ]);
 
       const focusTarget = calculateFocusTarget(
         days,
         getModifiers,
         isSelected,
-        dayLastFocused
+        dayLastFocused,
       );
 
       expect(focusTarget).toBe(day6);

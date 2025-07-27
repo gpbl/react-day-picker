@@ -11,7 +11,7 @@ const mockDates = [
   new Date(2023, 5, 15), // June 15, 2023
   new Date(2023, 5, 22), // June 22, 2023
   new Date(2023, 5, 30), // June 30, 2023
-  new Date(2023, 6, 6) // June 30, 2023
+  new Date(2023, 6, 6), // June 30, 2023
 ];
 
 const mockProps: Pick<
@@ -20,12 +20,12 @@ const mockProps: Pick<
 > = {
   fixedWeeks: false,
   ISOWeek: false,
-  reverseMonths: false
+  reverseMonths: false,
 };
 
 const dateLib = new DateLib({
   weekStartsOn: 0, // Sunday
-  firstWeekContainsDate: 1
+  firstWeekContainsDate: 1,
 });
 
 it("should return the correct months without ISO weeks and reverse months", () => {
@@ -53,7 +53,7 @@ it("should handle ISO weeks", () => {
 it("should handle reverse months", () => {
   const displayMonths = [
     new Date(2023, 4, 1), // May 2023
-    new Date(2023, 5, 1) // June 2023
+    new Date(2023, 5, 1), // June 2023
   ];
 
   const reverseProps = { ...mockProps, reverseMonths: true };

@@ -1,4 +1,4 @@
-import { defaultDateLib, type DateLib } from "../classes/DateLib.js";
+import { type DateLib, defaultDateLib } from "../classes/DateLib.js";
 
 /**
  * Formats the month for the dropdown option label.
@@ -13,7 +13,7 @@ import { defaultDateLib, type DateLib } from "../classes/DateLib.js";
  */
 export function formatMonthDropdown(
   month: Date,
-  dateLib: DateLib = defaultDateLib
+  dateLib: DateLib = defaultDateLib,
 ): string {
   return dateLib.format(month, "LLLL");
 }

@@ -1,5 +1,5 @@
-import { type DateLib } from "../classes/DateLib.js";
-import { DropdownOption } from "../components/Dropdown.js";
+import type { DateLib } from "../classes/DateLib.js";
+import type { DropdownOption } from "../components/Dropdown.js";
 import type { Formatters } from "../types/index.js";
 
 /**
@@ -22,19 +22,19 @@ export function getMonthOptions(
   navStart: Date | undefined,
   navEnd: Date | undefined,
   formatters: Pick<Formatters, "formatMonthDropdown">,
-  dateLib: DateLib
+  dateLib: DateLib,
 ): DropdownOption[] | undefined {
   const {
     startOfMonth,
     startOfYear,
     endOfYear,
     eachMonthOfInterval,
-    getMonth
+    getMonth,
   } = dateLib;
 
   const months = eachMonthOfInterval({
     start: startOfYear(displayMonth),
-    end: endOfYear(displayMonth)
+    end: endOfYear(displayMonth),
   });
 
   const options = months.map((month) => {

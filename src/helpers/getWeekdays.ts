@@ -1,4 +1,4 @@
-import { DateLib } from "../classes/DateLib.js";
+import type { DateLib } from "../classes/DateLib.js";
 
 /**
  * Generates a series of 7 days, starting from the beginning of the week, to use
@@ -13,7 +13,7 @@ import { DateLib } from "../classes/DateLib.js";
 export function getWeekdays(
   dateLib: DateLib,
   ISOWeek?: boolean | undefined,
-  broadcastCalendar?: boolean | undefined
+  broadcastCalendar?: boolean | undefined,
 ): Date[] {
   const today = dateLib.today();
 

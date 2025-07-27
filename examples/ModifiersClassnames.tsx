@@ -5,7 +5,7 @@ import { DayPicker } from "react-day-picker";
 const bookedDays = [
   new Date(2021, 5, 8),
   new Date(2021, 5, 9),
-  new Date(2021, 5, 11)
+  new Date(2021, 5, 11),
 ];
 
 const style = `
@@ -23,10 +23,10 @@ export function ModifiersClassnames() {
       <DayPicker
         defaultMonth={bookedDays[0]}
         modifiers={{
-          booked: bookedDays
+          booked: bookedDays,
         }}
         modifiersClassNames={{
-          booked: "my-booked-class"
+          booked: "my-booked-class",
         }}
       />
     </>
