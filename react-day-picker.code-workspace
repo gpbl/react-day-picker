@@ -1,11 +1,10 @@
 {
   "extensions": {
     "recommendations": [
-      "dbaeumer.vscode-eslint",
       "orta.vscode-jest",
       "andys8.jest-snippets",
-      "esbenp.prettier-vscode",
-      "streetsidesoftware.code-spell-checker"
+      "streetsidesoftware.code-spell-checker",
+      "biomejs.biome"
     ]
   },
   "folders": [
@@ -26,7 +25,7 @@
   ],
   "settings": {
     "cSpell.enabled": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "biomejs.biome",
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.tabSize": 2,
@@ -44,7 +43,13 @@
       "activityBarBadge.foreground": "#e7e7e7"
     },
     "[typescript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
+      "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "biomejs.biome"
     }
   }
 }
