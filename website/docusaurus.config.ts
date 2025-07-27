@@ -187,6 +187,7 @@ const config: Config = {
     }
   },
   future: {
+    v4: true,
     experimental_faster: true
   } satisfies Preset.ThemeConfig
 };
