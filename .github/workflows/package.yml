@@ -40,7 +40,7 @@ jobs:
           node-version: 20.16
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm lint ci --reporter=github
+      - run: pnpm lint ci . --reporter=github
 
   test:
     needs: [lint, typecheck]
