@@ -389,7 +389,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                 data-animated-month={props.animate ? "true" : undefined}
                 className={classNames[UI.Month]}
                 style={styles?.[UI.Month]}
-                key={String(calendarMonth.date)}
+                key={displayIndex}
                 displayIndex={displayIndex}
                 calendarMonth={calendarMonth}
               >
@@ -461,6 +461,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                         </span>
                       )}
                       <span
+                        role="status"
                         aria-live="polite"
                         style={{
                           border: 0,
