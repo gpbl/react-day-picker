@@ -389,6 +389,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                 data-animated-month={props.animate ? "true" : undefined}
                 className={classNames[UI.Month]}
                 style={styles?.[UI.Month]}
+                // biome-ignore lint/suspicious/noArrayIndexKey: breaks animation
                 key={displayIndex}
                 displayIndex={displayIndex}
                 calendarMonth={calendarMonth}

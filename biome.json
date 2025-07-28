@@ -32,11 +32,7 @@
           "options": {
             "ignoreRestSiblings": true
           }
-        },
-        "noUnusedFunctionParameters": "info"
-      },
-      "suspicious": {
-        "noArrayIndexKey": "off"
+        }
       }
     }
   },
