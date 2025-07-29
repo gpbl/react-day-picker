@@ -13,9 +13,9 @@ describe("when number of months is 1", () => {
         startingMonth,
         undefined,
         {
-          disableNavigation: true
+          disableNavigation: true,
         },
-        defaultDateLib
+        defaultDateLib,
       );
       expect(result).toBe(undefined);
     });
@@ -46,9 +46,9 @@ describe("when displaying 3 months", () => {
         undefined,
         {
           numberOfMonths,
-          pagedNavigation
+          pagedNavigation,
         },
-        defaultDateLib
+        defaultDateLib,
       );
       const expectedNextMonth = addMonths(startingMonth, 3);
       expect(result && isSameMonth(result, expectedNextMonth)).toBeTruthy();
@@ -60,9 +60,9 @@ describe("when displaying 3 months", () => {
           addMonths(startingMonth, 1),
           {
             numberOfMonths,
-            pagedNavigation
+            pagedNavigation,
           },
-          defaultDateLib
+          defaultDateLib,
         );
         expect(result).toBe(undefined);
       });
@@ -76,9 +76,9 @@ describe("when displaying 3 months", () => {
         undefined,
         {
           numberOfMonths,
-          pagedNavigation
+          pagedNavigation,
         },
-        defaultDateLib
+        defaultDateLib,
       );
       const expectedNextMonth = addMonths(startingMonth, 1);
       expect(result && isSameMonth(result, expectedNextMonth)).toBeTruthy();
@@ -90,9 +90,9 @@ describe("when displaying 3 months", () => {
           addMonths(startingMonth, 2),
           {
             numberOfMonths,
-            pagedNavigation
+            pagedNavigation,
           },
-          defaultDateLib
+          defaultDateLib,
         );
         expect(result).toBe(undefined);
       });

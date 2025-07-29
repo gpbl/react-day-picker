@@ -1,9 +1,6 @@
-import React, { useCallback, useMemo, useRef } from "react";
-import type { MouseEvent, FocusEvent, KeyboardEvent, ChangeEvent } from "react";
-
 import { TZDate } from "@date-fns/tz";
-
-import { UI, DayFlag, SelectionState } from "./UI.js";
+import type { ChangeEvent, FocusEvent, KeyboardEvent, MouseEvent } from "react";
+import React, { useCallback, useMemo, useRef } from "react";
 import type { CalendarDay } from "./classes/CalendarDay.js";
 import { DateLib, defaultLocale } from "./classes/DateLib.js";
 import { createGetModifiers } from "./helpers/createGetModifiers.js";
@@ -23,8 +20,9 @@ import type {
   MoveFocusBy,
   MoveFocusDir,
   SelectedValue,
-  SelectHandler
+  SelectHandler,
 } from "./types/index.js";
+import { DayFlag, SelectionState, UI } from "./UI.js";
 import { useAnimation } from "./useAnimation.js";
 import { useCalendar } from "./useCalendar.js";
 import { type DayPickerContext, dayPickerContext } from "./useDayPicker.js";
@@ -46,7 +44,7 @@ export function DayPicker(initialProps: DayPickerProps) {
 
   if (props.timeZone) {
     props = {
-      ...initialProps
+      ...initialProps,
     };
     if (props.today) {
       props.today = new TZDate(props.today, props.timeZone);
@@ -67,7 +65,7 @@ export function DayPicker(initialProps: DayPickerProps) {
       props.selected = new TZDate(props.selected, props.timeZone);
     } else if (props.mode === "multiple" && props.selected) {
       props.selected = props.selected?.map(
-        (date) => new TZDate(date, props.timeZone)
+        (date) => new TZDate(date, props.timeZone),
       );
     } else if (props.mode === "range" && props.selected) {
       props.selected = {
@@ -76,7 +74,7 @@ export function DayPicker(initialProps: DayPickerProps) {
           : undefined,
         to: props.selected.to
           ? new TZDate(props.selected.to, props.timeZone)
-          : undefined
+          : undefined,
       };
     }
   }
@@ -92,9 +90,9 @@ export function DayPicker(initialProps: DayPickerProps) {
           useAdditionalWeekYearTokens: props.useAdditionalWeekYearTokens,
           useAdditionalDayOfYearTokens: props.useAdditionalDayOfYearTokens,
           timeZone: props.timeZone,
-          numerals: props.numerals
+          numerals: props.numerals,
         },
-        props.dateLib
+        props.dateLib,
       );
 
       return {
@@ -103,7 +101,7 @@ export function DayPicker(initialProps: DayPickerProps) {
         formatters: getFormatters(props.formatters),
         labels: { ...defaultLabels, ...props.labels },
         locale,
-        classNames: { ...getDefaultClassNames(), ...props.classNames }
+        classNames: { ...getDefaultClassNames(), ...props.classNames },
       };
     }, [
       props.locale,
@@ -118,7 +116,7 @@ export function DayPicker(initialProps: DayPickerProps) {
       props.components,
       props.formatters,
       props.labels,
-      props.classNames
+      props.classNames,
     ]);
 
   const {
@@ -135,7 +133,7 @@ export function DayPicker(initialProps: DayPickerProps) {
     onNextClick,
     onPrevClick,
     showWeekNumber,
-    styles
+    styles,
   } = props;
 
   const {
@@ -145,7 +143,7 @@ export function DayPicker(initialProps: DayPickerProps) {
     formatWeekNumber,
     formatWeekNumberHeader,
     formatWeekdayName,
-    formatYearDropdown
+    formatYearDropdown,
   } = formatters;
 
   const calendar = useCalendar(props, dateLib);
@@ -157,7 +155,7 @@ export function DayPicker(initialProps: DayPickerProps) {
     navEnd,
     previousMonth,
     nextMonth,
-    goToMonth
+    goToMonth,
   } = calendar;
 
   const getModifiers = createGetModifiers(
@@ -165,13 +163,13 @@ export function DayPicker(initialProps: DayPickerProps) {
     props,
     navStart,
     navEnd,
-    dateLib
+    dateLib,
   );
 
   const {
     isSelected,
     select,
-    selected: selectedValue
+    selected: selectedValue,
   } = useSelection(props, dateLib) ?? {};
 
   const { blur, focused, isFocusTarget, moveFocus, setFocused } = useFocus(
@@ -179,7 +177,7 @@ export function DayPicker(initialProps: DayPickerProps) {
     calendar,
     getModifiers,
     isSelected ?? (() => false),
-    dateLib
+    dateLib,
   );
 
   const {
@@ -193,12 +191,12 @@ export function DayPicker(initialProps: DayPickerProps) {
     labelWeekday,
     labelWeekNumber,
     labelWeekNumberHeader,
-    labelYearDropdown
+    labelYearDropdown,
   } = labels;
 
   const weekdays = useMemo(
     () => getWeekdays(dateLib, props.ISOWeek),
-    [dateLib, props.ISOWeek]
+    [dateLib, props.ISOWeek],
   );
 
   const isInteractive = mode !== undefined || onDayClick !== undefined;
@@ -223,7 +221,7 @@ export function DayPicker(initialProps: DayPickerProps) {
       select?.(day.date, m, e);
       onDayClick?.(day.date, m, e);
     },
-    [select, onDayClick, setFocused]
+    [select, onDayClick, setFocused],
   );
 
   const handleDayFocus = useCallback(
@@ -231,7 +229,7 @@ export function DayPicker(initialProps: DayPickerProps) {
       setFocused(day);
       onDayFocus?.(day.date, m, e);
     },
-    [onDayFocus, setFocused]
+    [onDayFocus, setFocused],
   );
 
   const handleDayBlur = useCallback(
@@ -239,7 +237,7 @@ export function DayPicker(initialProps: DayPickerProps) {
       blur();
       onDayBlur?.(day.date, m, e);
     },
-    [blur, onDayBlur]
+    [blur, onDayBlur],
   );
 
   const handleDayKeyDown = useCallback(
@@ -247,18 +245,18 @@ export function DayPicker(initialProps: DayPickerProps) {
       const keyMap: Record<string, [MoveFocusBy, MoveFocusDir]> = {
         ArrowLeft: [
           e.shiftKey ? "month" : "day",
-          props.dir === "rtl" ? "after" : "before"
+          props.dir === "rtl" ? "after" : "before",
         ],
         ArrowRight: [
           e.shiftKey ? "month" : "day",
-          props.dir === "rtl" ? "before" : "after"
+          props.dir === "rtl" ? "before" : "after",
         ],
         ArrowDown: [e.shiftKey ? "year" : "week", "after"],
         ArrowUp: [e.shiftKey ? "year" : "week", "before"],
         PageUp: [e.shiftKey ? "year" : "month", "before"],
         PageDown: [e.shiftKey ? "year" : "month", "after"],
         Home: ["startOfWeek", "before"],
-        End: ["endOfWeek", "after"]
+        End: ["endOfWeek", "after"],
       };
       if (keyMap[e.key]) {
         e.preventDefault();
@@ -268,21 +266,21 @@ export function DayPicker(initialProps: DayPickerProps) {
       }
       onDayKeyDown?.(day.date, modifiers, e);
     },
-    [moveFocus, onDayKeyDown, props.dir]
+    [moveFocus, onDayKeyDown, props.dir],
   );
 
   const handleDayMouseEnter = useCallback(
     (day: CalendarDay, modifiers: Modifiers) => (e: MouseEvent) => {
       onDayMouseEnter?.(day.date, modifiers, e);
     },
-    [onDayMouseEnter]
+    [onDayMouseEnter],
   );
 
   const handleDayMouseLeave = useCallback(
     (day: CalendarDay, modifiers: Modifiers) => (e: MouseEvent) => {
       onDayMouseLeave?.(day.date, modifiers, e);
     },
-    [onDayMouseLeave]
+    [onDayMouseLeave],
   );
 
   const handleMonthChange = useCallback(
@@ -291,7 +289,7 @@ export function DayPicker(initialProps: DayPickerProps) {
       const month = dateLib.setMonth(dateLib.startOfMonth(date), selectedMonth);
       goToMonth(month);
     },
-    [dateLib, goToMonth]
+    [dateLib, goToMonth],
   );
 
   const handleYearChange = useCallback(
@@ -300,7 +298,7 @@ export function DayPicker(initialProps: DayPickerProps) {
       const month = dateLib.setYear(dateLib.startOfMonth(date), selectedYear);
       goToMonth(month);
     },
-    [dateLib, goToMonth]
+    [dateLib, goToMonth],
   );
 
   const { className, style } = useMemo(
@@ -308,9 +306,9 @@ export function DayPicker(initialProps: DayPickerProps) {
       className: [classNames[UI.Root], props.className]
         .filter(Boolean)
         .join(" "),
-      style: { ...styles?.[UI.Root], ...props.style }
+      style: { ...styles?.[UI.Root], ...props.style },
     }),
-    [classNames, props.className, props.style, styles]
+    [classNames, props.className, props.style, styles],
   );
 
   const dataAttributes = getDataAttributes(props);
@@ -320,7 +318,7 @@ export function DayPicker(initialProps: DayPickerProps) {
     classNames,
     months,
     focused,
-    dateLib
+    dateLib,
   });
 
   const contextValue: DayPickerContext<DayPickerProps> = {
@@ -337,7 +335,7 @@ export function DayPicker(initialProps: DayPickerProps) {
     classNames,
     styles,
     labels,
-    formatters
+    formatters,
   };
 
   return (
@@ -377,20 +375,21 @@ export function DayPicker(initialProps: DayPickerProps) {
               navStart,
               navEnd,
               formatters,
-              dateLib
+              dateLib,
             );
 
             const dropdownYears = getYearOptions(
               navStart,
               navEnd,
               formatters,
-              dateLib
+              dateLib,
             );
             return (
               <components.Month
                 data-animated-month={props.animate ? "true" : undefined}
                 className={classNames[UI.Month]}
                 style={styles?.[UI.Month]}
+                // biome-ignore lint/suspicious/noArrayIndexKey: breaks animation
                 key={displayIndex}
                 displayIndex={displayIndex}
                 calendarMonth={calendarMonth}
@@ -462,6 +461,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                           {formatYearDropdown(calendarMonth.date, dateLib)}
                         </span>
                       )}
+                      {/** biome-ignore lint/a11y/useSemanticElements: breaking change */}
                       <span
                         role="status"
                         aria-live="polite"
@@ -475,17 +475,18 @@ export function DayPicker(initialProps: DayPickerProps) {
                           position: "absolute",
                           width: "1px",
                           whiteSpace: "nowrap",
-                          wordWrap: "normal"
+                          wordWrap: "normal",
                         }}
                       >
                         {formatCaption(
                           calendarMonth.date,
                           dateLib.options,
-                          dateLib
+                          dateLib,
                         )}
                       </span>
                     </components.DropdownNav>
                   ) : (
+                    // biome-ignore lint/a11y/useSemanticElements: breaking change
                     <components.CaptionLabel
                       className={classNames[UI.CaptionLabel]}
                       role="status"
@@ -494,7 +495,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                       {formatCaption(
                         calendarMonth.date,
                         dateLib.options,
-                        dateLib
+                        dateLib,
                       )}
                     </components.CaptionLabel>
                   )}
@@ -533,6 +534,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                     />
                   )}
 
+                {/* biome-ignore lint/a11y/useSemanticElements: react component */}
                 <components.MonthGrid
                   role="grid"
                   aria-multiselectable={mode === "multiple" || mode === "range"}
@@ -561,15 +563,15 @@ export function DayPicker(initialProps: DayPickerProps) {
                           {formatWeekNumberHeader()}
                         </components.WeekNumberHeader>
                       )}
-                      {weekdays.map((weekday, i) => (
+                      {weekdays.map((weekday) => (
                         <components.Weekday
                           aria-label={labelWeekday(
                             weekday,
                             dateLib.options,
-                            dateLib
+                            dateLib,
                           )}
                           className={classNames[UI.Weekday]}
-                          key={i}
+                          key={String(weekday)}
                           style={styles?.[UI.Weekday]}
                           scope="col"
                         >
@@ -583,7 +585,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                     className={classNames[UI.Weeks]}
                     style={styles?.[UI.Weeks]}
                   >
-                    {calendarMonth.weeks.map((week, weekIndex) => {
+                    {calendarMonth.weeks.map((week) => {
                       return (
                         <components.Week
                           className={classNames[UI.Week]}
@@ -592,11 +594,12 @@ export function DayPicker(initialProps: DayPickerProps) {
                           week={week}
                         >
                           {showWeekNumber && (
+                            // biome-ignore lint/a11y/useSemanticElements: react component
                             <components.WeekNumber
                               week={week}
                               style={styles?.[UI.WeekNumber]}
                               aria-label={labelWeekNumber(week.weekNumber, {
-                                locale
+                                locale,
                               })}
                               className={classNames[UI.WeekNumber]}
                               scope="row"
@@ -620,30 +623,30 @@ export function DayPicker(initialProps: DayPickerProps) {
                               // add range modifiers
                               const { from, to } = selectedValue;
                               modifiers[SelectionState.range_start] = Boolean(
-                                from && to && dateLib.isSameDay(date, from)
+                                from && to && dateLib.isSameDay(date, from),
                               );
                               modifiers[SelectionState.range_end] = Boolean(
-                                from && to && dateLib.isSameDay(date, to)
+                                from && to && dateLib.isSameDay(date, to),
                               );
                               modifiers[SelectionState.range_middle] =
                                 rangeIncludesDate(
                                   selectedValue,
                                   date,
                                   true,
-                                  dateLib
+                                  dateLib,
                                 );
                             }
 
                             const style = getStyleForModifiers(
                               modifiers,
                               styles,
-                              props.modifiersStyles
+                              props.modifiersStyles,
                             );
 
                             const className = getClassNamesForModifiers(
                               modifiers,
                               classNames,
-                              props.modifiersClassNames
+                              props.modifiersClassNames,
                             );
 
                             const ariaLabel =
@@ -652,11 +655,12 @@ export function DayPicker(initialProps: DayPickerProps) {
                                     date,
                                     modifiers,
                                     dateLib.options,
-                                    dateLib
+                                    dateLib,
                                   )
                                 : undefined;
 
                             return (
+                              // biome-ignore lint/a11y/useSemanticElements: react component
                               <components.Day
                                 key={`${dateLib.format(date, "yyyy-MM-dd")}_${dateLib.format(day.displayMonth, "yyyy-MM")}`}
                                 day={day}
@@ -692,7 +696,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                                       date,
                                       modifiers,
                                       dateLib.options,
-                                      dateLib
+                                      dateLib,
                                     )}
                                     onClick={handleDayClick(day, modifiers)}
                                     onBlur={handleDayBlur(day, modifiers)}
@@ -700,11 +704,11 @@ export function DayPicker(initialProps: DayPickerProps) {
                                     onKeyDown={handleDayKeyDown(day, modifiers)}
                                     onMouseEnter={handleDayMouseEnter(
                                       day,
-                                      modifiers
+                                      modifiers,
                                     )}
                                     onMouseLeave={handleDayMouseLeave(
                                       day,
-                                      modifiers
+                                      modifiers,
                                     )}
                                   >
                                     {formatDay(date, dateLib.options, dateLib)}
@@ -726,6 +730,7 @@ export function DayPicker(initialProps: DayPickerProps) {
           })}
         </components.Months>
         {props.footer && (
+          // biome-ignore lint/a11y/useSemanticElements: react component
           <components.Footer
             className={classNames[UI.Footer]}
             style={styles?.[UI.Footer]}

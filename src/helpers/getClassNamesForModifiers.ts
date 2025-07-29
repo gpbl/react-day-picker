@@ -1,5 +1,5 @@
+import type { ClassNames, ModifiersClassNames } from "../types/index.js";
 import { DayFlag, SelectionState, UI } from "../UI.js";
-import type { ModifiersClassNames, ClassNames } from "../types/index.js";
 
 /**
  * Returns the class names for a day based on its modifiers.
@@ -16,7 +16,7 @@ import type { ModifiersClassNames, ClassNames } from "../types/index.js";
 export function getClassNamesForModifiers(
   modifiers: Record<string, boolean>,
   classNames: ClassNames,
-  modifiersClassNames: ModifiersClassNames = {}
+  modifiersClassNames: ModifiersClassNames = {},
 ): string[] {
   const modifierClassNames = Object.entries(modifiers)
     .filter(([, active]) => active === true)
@@ -31,7 +31,7 @@ export function getClassNamesForModifiers(
         }
         return previousValue;
       },
-      [classNames[UI.Day]] as string[]
+      [classNames[UI.Day]] as string[],
     );
 
   return modifierClassNames;

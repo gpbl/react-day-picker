@@ -1,5 +1,5 @@
 import type { DateLib } from "../classes/DateLib.js";
-import { CalendarWeek, CalendarDay, CalendarMonth } from "../classes/index.js";
+import { CalendarDay, CalendarMonth, CalendarWeek } from "../classes/index.js";
 import type { DayPickerProps } from "../types/index.js";
 
 /**
@@ -23,7 +23,7 @@ export function getMonths(
     DayPickerProps,
     "broadcastCalendar" | "fixedWeeks" | "ISOWeek" | "reverseMonths"
   >,
-  dateLib: DateLib
+  dateLib: DateLib,
 ): CalendarMonth[] {
   const {
     addDays,
@@ -35,7 +35,7 @@ export function getMonths(
     getWeek,
     startOfBroadcastWeek,
     startOfISOWeek,
-    startOfWeek
+    startOfWeek,
   } = dateLib;
 
   const dayPickerMonths = displayMonths.reduce<CalendarMonth[]>(
@@ -83,14 +83,14 @@ export function getMonths(
           }
           return weeks;
         },
-        []
+        [],
       );
 
       const dayPickerMonth = new CalendarMonth(month, weeks);
       months.push(dayPickerMonth);
       return months;
     },
-    []
+    [],
   );
 
   if (!props.reverseMonths) {

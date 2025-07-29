@@ -42,19 +42,19 @@ export type SelectHandlerSingle<T extends { required?: boolean | undefined }> =
   (
     triggerDate: Date,
     modifiers: Modifiers,
-    e: React.MouseEvent | React.KeyboardEvent
+    e: React.MouseEvent | React.KeyboardEvent,
   ) => T["required"] extends true ? Date : Date | undefined;
 
 export type SelectHandlerMulti<T extends { required?: boolean | undefined }> = (
   triggerDate: Date,
   modifiers: Modifiers,
-  e: React.MouseEvent | React.KeyboardEvent
+  e: React.MouseEvent | React.KeyboardEvent,
 ) => T["required"] extends true ? Date[] : Date[] | undefined;
 
 export type SelectHandlerRange<T extends { required?: boolean | undefined }> = (
   triggerDate: Date,
   modifiers: Modifiers,
-  e: React.MouseEvent | React.KeyboardEvent
+  e: React.MouseEvent | React.KeyboardEvent,
 ) => T["required"] extends true ? DateRange : DateRange | undefined;
 
 /**
@@ -70,7 +70,7 @@ export type SelectHandlerRange<T extends { required?: boolean | undefined }> = (
  *   };
  */
 export type SelectHandler<
-  T extends { mode?: Mode | undefined; required?: boolean | undefined }
+  T extends { mode?: Mode | undefined; required?: boolean | undefined },
 > = T extends {
   mode: "single";
 }

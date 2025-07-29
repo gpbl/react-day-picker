@@ -12,8 +12,8 @@ export function getDays(calendarMonths: CalendarMonth[]) {
   const initialDays: CalendarDay[] = [];
   return calendarMonths.reduce((days, month) => {
     const weekDays: CalendarDay[] = month.weeks.reduce((weekDays, week) => {
-      return [...weekDays, ...week.days];
-    }, initialDays);
-    return [...days, ...weekDays];
-  }, initialDays);
+      return weekDays.concat(week.days.slice());
+    }, initialDays.slice());
+    return days.concat(weekDays.slice());
+  }, initialDays.slice());
 }

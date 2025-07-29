@@ -9,7 +9,7 @@ beforeEach(() => {
   render(
     <div role="application">
       <ContainerAttributes />
-    </div>
+    </div>,
   );
 });
 

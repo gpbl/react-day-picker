@@ -15,7 +15,7 @@ export function getDisplayMonths(
   firstDisplayedMonth: Date,
   calendarEndMonth: Date | undefined,
   props: Pick<DayPickerProps, "numberOfMonths">,
-  dateLib: DateLib
+  dateLib: DateLib,
 ): Date[] {
   const { numberOfMonths = 1 } = props;
   const months: Date[] = [];

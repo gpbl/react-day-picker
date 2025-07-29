@@ -20,7 +20,7 @@ export function labelDayButton(
   date: Date,
   modifiers: Modifiers,
   options?: DateLibOptions,
-  dateLib?: DateLib
+  dateLib?: DateLib,
 ) {
   let label = (dateLib ?? new DateLib(options)).format(date, "PPPP");
   if (modifiers.today) label = `Today, ${label}`;

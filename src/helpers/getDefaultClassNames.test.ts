@@ -42,6 +42,6 @@ test("should return the default classnames", () => {
     weeks_after_enter: "rdp-weeks_after_enter",
     weeks_after_exit: "rdp-weeks_after_exit",
     weeks_before_enter: "rdp-weeks_before_enter",
-    weeks_before_exit: "rdp-weeks_before_exit"
+    weeks_before_exit: "rdp-weeks_before_exit",
   });
 });

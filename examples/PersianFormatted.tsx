@@ -6,7 +6,7 @@ export function PersianFormatted() {
   const [selected, setSelected] = React.useState(new Date());
   const dateLib = getDateLib({
     locale: faIR,
-    numerals: "arabext"
+    numerals: "arabext",
   });
   return (
     <DayPicker

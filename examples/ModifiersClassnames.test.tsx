@@ -8,7 +8,7 @@ import { ModifiersClassnames } from "./ModifiersClassnames";
 const days = [
   new Date(2021, 5, 8),
   new Date(2021, 5, 9),
-  new Date(2021, 5, 11)
+  new Date(2021, 5, 11),
 ];
 
 const today = new Date(2021, 10, 25);

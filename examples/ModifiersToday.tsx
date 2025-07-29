@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
-import { DayEventHandler, DayPicker } from "react-day-picker";
+import { type DayEventHandler, DayPicker } from "react-day-picker";
 
 export function ModifiersToday() {
   const initialFooter = "Try clicking the today’s date.";
   const [footer, setFooter] = useState(initialFooter);
 
   const handleDayClick: DayEventHandler<React.MouseEvent> = (
-    day,
-    modifiers
+    _day,
+    modifiers,
   ) => {
     if (modifiers.today) {
       setFooter("You clicked the today’s date.");

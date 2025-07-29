@@ -1,6 +1,5 @@
-import React from "react";
-
 import { startOfDay, startOfMonth } from "date-fns";
+import React from "react";
 
 import {
   activeElement,
@@ -8,15 +7,14 @@ import {
   grid,
   nav,
   nextButton,
-  previousButton
+  previousButton,
 } from "@/test/elements";
 import { fireEvent, render, screen } from "@/test/render";
 import { user } from "@/test/user";
-
-import { DayPicker } from "./DayPicker";
 import { defaultLocale } from "./classes/DateLib";
-import { MonthProps } from "./components/Month";
-import { MonthsProps } from "./components/Months";
+import type { MonthProps } from "./components/Month";
+import type { MonthsProps } from "./components/Months";
+import { DayPicker } from "./DayPicker";
 
 const testId = "test";
 const dayPicker = () => screen.getByTestId(testId);
@@ -41,7 +39,7 @@ test("apply classnames and style according to props", () => {
       numberOfMonths={2}
       showWeekNumber
       style={{ color: "red" }}
-    />
+    />,
   );
 
   expect(dayPicker()).toHaveClass("rdp-root");
@@ -55,16 +53,16 @@ test("use custom components", () => {
       data-testid={testId}
       components={{
         Nav: () => <div>Custom Navigation</div>,
-        Month: (props: MonthProps) => <div>Custom Month</div>,
+        Month: (_props: MonthProps) => <div>Custom Month</div>,
         Months: (props: MonthsProps) => (
           <div {...props}>
             Custom Months<div>{props.children}</div>
           </div>
         ),
-        Footer: () => <div>Custom Footer</div>
+        Footer: () => <div>Custom Footer</div>,
       }}
       footer="Footer"
-    />
+    />,
   );
 
   expect(dayPicker()).toHaveTextContent("Custom Navigation");
@@ -123,7 +121,7 @@ describe("when a day is mouse entered", () => {
         mode="single"
         onDayMouseEnter={handleDayMouseEnter}
         onDayMouseLeave={handleDayMouseLeave}
-      />
+      />,
     );
     fireEvent.mouseEnter(dateButton(today));
     fireEvent.mouseLeave(dateButton(today));
@@ -139,7 +137,7 @@ describe("when the `month` is changed programmatically", () => {
     const initialMonth = new Date(2023, 0, 1); // January 2023
     const newMonth = new Date(2023, 1, 1); // February 2023
     const { rerender } = render(
-      <DayPicker month={initialMonth} mode="single" />
+      <DayPicker month={initialMonth} mode="single" />,
     );
     expect(grid("January 2023")).toBeInTheDocument();
     rerender(<DayPicker month={newMonth} mode="single" />);
@@ -154,10 +152,10 @@ test("extends the default locale", () => {
       locale={{
         localize: {
           ...defaultLocale.localize,
-          month: () => "bar"
-        }
+          month: () => "bar",
+        },
       }}
-    />
+    />,
   );
   // Check if the custom month name is rendered
   expect(grid("bar 2024")).toBeInTheDocument();
@@ -172,9 +170,9 @@ test("should render the custom components", () => {
         Nav: () => <div>Custom Nav</div>,
         YearsDropdown: () => <div>Custom YearsDropdown</div>,
         MonthsDropdown: () => <div>Custom MonthsDropdown</div>,
-        Footer: () => <div>Custom Footer</div>
+        Footer: () => <div>Custom Footer</div>,
       }}
-    />
+    />,
   );
   expect(screen.getByText("Custom Nav")).toBeInTheDocument();
   expect(screen.getByText("Custom Footer")).toBeInTheDocument();
@@ -186,7 +184,7 @@ describe("when interactive", () => {
   test("render a valid HTML", () => {
     render(<DayPicker mode="single" />);
     expect(document.body).toHTMLValidate({
-      rules: { "no-redundant-role": "off" } // Redundant role is allowed for VoiceOver
+      rules: { "no-redundant-role": "off" }, // Redundant role is allowed for VoiceOver
     });
   });
 });
@@ -194,7 +192,7 @@ describe("when not interactive", () => {
   test("render a valid HTML", () => {
     render(<DayPicker />);
     expect(document.body).toHTMLValidate({
-      rules: { "no-redundant-role": "off" } // Redundant role is allowed for VoiceOver
+      rules: { "no-redundant-role": "off" }, // Redundant role is allowed for VoiceOver
     });
   });
 });
@@ -204,7 +202,7 @@ describe("when navLayout is set", () => {
   describe("when navLayout is set to 'around'", () => {
     beforeEach(() => {
       render(
-        <DayPicker today={today} navLayout="around" data-testid={testId} />
+        <DayPicker today={today} navLayout="around" data-testid={testId} />,
       );
     });
     test("renders navigation layout as 'around'", () => {
@@ -220,7 +218,7 @@ describe("when navLayout is set", () => {
   describe("when navLayout is set to 'aft er'", () => {
     beforeEach(() => {
       render(
-        <DayPicker today={today} navLayout="after" data-testid={testId} />
+        <DayPicker today={today} navLayout="after" data-testid={testId} />,
       );
     });
     test("renders navigation layout as 'after'", () => {

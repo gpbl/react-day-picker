@@ -15,15 +15,15 @@ describe("getDisplayMonths", () => {
     const expectedResult = [
       new Date(2020, 0),
       new Date(2020, 1),
-      new Date(2020, 2)
+      new Date(2020, 2),
     ];
     const result = getDisplayMonths(
       firstMonth,
       undefined,
       {
-        numberOfMonths: 3
+        numberOfMonths: 3,
       },
-      defaultDateLib
+      defaultDateLib,
     );
     expect(result).toEqual(expectedResult);
   });
@@ -35,9 +35,9 @@ describe("getDisplayMonths", () => {
       firstMonth,
       new Date(2020, 1, 10),
       {
-        numberOfMonths: 3
+        numberOfMonths: 3,
       },
-      defaultDateLib
+      defaultDateLib,
     );
     expect(result).toEqual(expectedResult);
   });

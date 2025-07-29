@@ -10,6 +10,6 @@ import type { DayPickerProps, Labels } from "../types/index.js";
 export function getLabels(customLabels: DayPickerProps["labels"]): Labels {
   return {
     ...defaultLabels,
-    ...customLabels
+    ...customLabels,
   };
 }

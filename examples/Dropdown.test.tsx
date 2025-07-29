@@ -30,11 +30,11 @@ test("should disable the months before startMonth", () => {
     "March",
     "April",
     "May",
-    "June"
+    "June",
   ];
   for (const month of disabledMonth) {
     expect(
-      within(monthDropdown()).getByRole("option", { name: month })
+      within(monthDropdown()).getByRole("option", { name: month }),
     ).toBeDisabled();
   }
 });
@@ -44,7 +44,7 @@ test("should disable the months after endMonth", async () => {
   const disabledMonth = ["November", "December"];
   for (const month of disabledMonth) {
     expect(
-      within(monthDropdown()).getByRole("option", { name: month })
+      within(monthDropdown()).getByRole("option", { name: month }),
     ).toBeDisabled();
   }
 });

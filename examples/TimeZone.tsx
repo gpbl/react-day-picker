@@ -5,7 +5,7 @@ import { DayPicker, TZDate } from "react-day-picker";
 export function TimeZone() {
   const timeZone = "Pacific/Kiritimati";
   const [selected, setSelected] = useState<Date | undefined>(
-    TZDate.tz(timeZone)
+    TZDate.tz(timeZone),
   );
   return (
     <DayPicker

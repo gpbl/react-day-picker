@@ -2,7 +2,7 @@ import React from "react";
 
 import { useDayPicker } from "../useDayPicker.js";
 
-import { DropdownProps } from "./Dropdown.js";
+import type { DropdownProps } from "./Dropdown.js";
 
 /**
  * Render a dropdown to navigate between years in the calendar.

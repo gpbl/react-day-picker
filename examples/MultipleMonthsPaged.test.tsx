@@ -25,7 +25,7 @@ describe("when rendering November 2021", () => {
   });
   test("the second grid should be December", () => {
     expect(screen.getAllByRole("grid")[1]).toHaveAccessibleName(
-      "December 2021"
+      "December 2021",
     );
   });
   // Test pagination
@@ -33,12 +33,12 @@ describe("when rendering November 2021", () => {
     beforeEach(async () => user.click(previousButton()));
     test("the first month should be September", () => {
       expect(screen.getAllByRole("grid")[0]).toHaveAccessibleName(
-        "September 2021"
+        "September 2021",
       );
     });
     test("the last month should be October", () => {
       expect(screen.getAllByRole("grid")[1]).toHaveAccessibleName(
-        "October 2021"
+        "October 2021",
       );
     });
   });

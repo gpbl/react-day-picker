@@ -14,7 +14,7 @@ export function MonthCaption(
     calendarMonth: CalendarMonth;
     /** The index of the month being displayed. */
     displayIndex: number;
-  } & HTMLAttributes<HTMLDivElement>
+  } & HTMLAttributes<HTMLDivElement>,
 ) {
   const { calendarMonth, displayIndex, ...divProps } = props;
   return <div {...divProps} />;

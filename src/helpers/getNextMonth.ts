@@ -25,7 +25,7 @@ export function getNextMonth(
     DayPickerProps,
     "numberOfMonths" | "pagedNavigation" | "disableNavigation"
   >,
-  dateLib: DateLib
+  dateLib: DateLib,
 ): Date | undefined {
   if (options.disableNavigation) {
     return undefined;
@@ -41,7 +41,7 @@ export function getNextMonth(
 
   const monthsDiff = differenceInCalendarMonths(
     calendarEndMonth,
-    firstDisplayedMonth
+    firstDisplayedMonth,
   );
 
   if (monthsDiff < numberOfMonths) {

@@ -1,5 +1,5 @@
 import { defaultDateLib } from "../classes/DateLib";
-import { DayOfWeek } from "../types";
+import type { DayOfWeek } from "../types";
 
 import { rangeContainsModifiers } from "./rangeContainsModifiers";
 
@@ -106,14 +106,14 @@ describe("when matching date range", () => {
 describe("when matching the day of week", () => {
   test("should return true", () => {
     const matcher: DayOfWeek = {
-      dayOfWeek: [monday.getDay()]
+      dayOfWeek: [monday.getDay()],
     };
     const result = rangeContainsModifiers(testRange, [matcher], defaultDateLib);
     expect(result).toBe(true);
   });
   test("should return false", () => {
     const matcher: DayOfWeek = {
-      dayOfWeek: [sunday.getDay()]
+      dayOfWeek: [sunday.getDay()],
     };
     const result = rangeContainsModifiers(testRange, [matcher], defaultDateLib);
     expect(result).toBe(false);

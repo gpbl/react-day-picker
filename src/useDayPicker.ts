@@ -1,17 +1,17 @@
 import { createContext, useContext } from "react";
 
-import { CalendarDay } from "./classes/CalendarDay.js";
-import { CalendarMonth } from "./classes/CalendarMonth.js";
-import { DayPickerProps } from "./types/props.js";
+import type { CalendarDay } from "./classes/CalendarDay.js";
+import type { CalendarMonth } from "./classes/CalendarMonth.js";
+import type { DayPickerProps } from "./types/props.js";
 import type { SelectedValue, SelectHandler } from "./types/selection.js";
-import {
+import type {
   ClassNames,
   CustomComponents,
   Formatters,
   Labels,
   Mode,
   Modifiers,
-  Styles
+  Styles,
 } from "./types/shared.js";
 
 /** @ignore */
@@ -32,7 +32,7 @@ export const dayPickerContext = createContext<
  *   returned by the hook.
  */
 export type DayPickerContext<
-  T extends { mode?: Mode | undefined; required?: boolean | undefined }
+  T extends { mode?: Mode | undefined; required?: boolean | undefined },
 > = {
   /** The months displayed in the calendar. */
   months: CalendarMonth[];
@@ -81,7 +81,7 @@ export type DayPickerContext<
  * @see https://daypicker.dev/guides/custom-components
  */
 export function useDayPicker<
-  T extends { mode?: Mode | undefined; required?: boolean | undefined }
+  T extends { mode?: Mode | undefined; required?: boolean | undefined },
 >(): DayPickerContext<T> {
   const context = useContext(dayPickerContext);
   if (context === undefined) {

@@ -2,13 +2,13 @@ import type { Locale } from "date-fns";
 // Adjust the import path
 import {
   addDays,
-  addWeeks,
   addMonths,
+  addWeeks,
   addYears,
-  startOfISOWeek,
   endOfISOWeek,
+  endOfWeek,
+  startOfISOWeek,
   startOfWeek,
-  endOfWeek
 } from "date-fns";
 
 import { DateLib } from "../classes/DateLib";
@@ -18,10 +18,10 @@ import { getFocusableDate } from "./getFocusableDate";
 
 const focusedDate = new Date(2023, 0, 1); // Jan 1, 2023
 const options: Pick<DayPickerProps, "ISOWeek"> = {
-  ISOWeek: false
+  ISOWeek: false,
 };
 const dateLib = new DateLib({
-  weekStartsOn: 0 // Sunday
+  weekStartsOn: 0, // Sunday
 });
 
 const calendarStartMonth = new Date(2022, 0, 1); // Jan 1, 2022
@@ -39,7 +39,7 @@ const testCases: {
   { moveBy: "week", moveDir: "after", expectedFn: addWeeks },
   { moveBy: "week", moveDir: "before", expectedFn: addWeeks },
   { moveBy: "year", moveDir: "after", expectedFn: addYears },
-  { moveBy: "year", moveDir: "before", expectedFn: addYears }
+  { moveBy: "year", moveDir: "before", expectedFn: addYears },
 ];
 
 testCases.forEach(({ moveBy, moveDir, expectedFn }) => {
@@ -52,7 +52,7 @@ testCases.forEach(({ moveBy, moveDir, expectedFn }) => {
       calendarStartMonth,
       calendarEndMonth,
       options,
-      dateLib
+      dateLib,
     );
     expect(result).toEqual(expectedDate);
   });
@@ -68,11 +68,11 @@ const weekTestCases: {
           locale?: Locale | undefined;
           weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
         }
-      | undefined
+      | undefined,
   ) => Date;
 }[] = [
   { moveBy: "endOfWeek", moveDir: "after", expectedFn: endOfWeek },
-  { moveBy: "startOfWeek", moveDir: "after", expectedFn: startOfWeek }
+  { moveBy: "startOfWeek", moveDir: "after", expectedFn: startOfWeek },
 ];
 
 weekTestCases.forEach(({ moveBy, moveDir, expectedFn }) => {
@@ -85,7 +85,7 @@ weekTestCases.forEach(({ moveBy, moveDir, expectedFn }) => {
       calendarStartMonth,
       calendarEndMonth,
       options,
-      dateLib
+      dateLib,
     );
 
     expect(result).toEqual(expectedDate);
@@ -98,7 +98,7 @@ const ISOWeekTestCases: {
   expectedFn: (date: Date | number) => Date;
 }[] = [
   { moveBy: "endOfWeek", moveDir: "after", expectedFn: endOfISOWeek },
-  { moveBy: "startOfWeek", moveDir: "after", expectedFn: startOfISOWeek }
+  { moveBy: "startOfWeek", moveDir: "after", expectedFn: startOfISOWeek },
 ];
 
 ISOWeekTestCases.forEach(({ moveBy, moveDir, expectedFn }) => {
@@ -111,7 +111,7 @@ ISOWeekTestCases.forEach(({ moveBy, moveDir, expectedFn }) => {
       calendarStartMonth,
       calendarEndMonth,
       { ...options, ISOWeek: true },
-      dateLib
+      dateLib,
     );
     expect(result).toEqual(expectedDate);
   });
@@ -125,7 +125,7 @@ test("should not move before startMonth", () => {
     calendarStartMonth,
     calendarEndMonth,
     options,
-    dateLib
+    dateLib,
   );
   expect(result).toEqual(calendarStartMonth);
 });
@@ -138,7 +138,7 @@ test("should not move after endMonth", () => {
     calendarStartMonth,
     calendarEndMonth,
     options,
-    dateLib
+    dateLib,
   );
   expect(result).toEqual(calendarEndMonth);
 });

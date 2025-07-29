@@ -7,13 +7,13 @@ import {
   type DayPickerProps,
   DateLib,
   DayPicker,
-  isDateRange
+  isDateRange,
 } from "react-day-picker";
 import * as locales from "react-day-picker/locale";
 import {
   DayPicker as DayPickerpersian,
   faIR as faIRpersian,
-  getDateLib
+  getDateLib,
 } from "react-day-picker/persian";
 
 import { BrowserWindow } from "../BrowserWindow";
@@ -46,7 +46,7 @@ export function Playground() {
     dir:
       props.calendar === "persian" && props.dir === "rtl"
         ? undefined
-        : props.dir
+        : props.dir,
   })} />`;
 
   if (props.calendar === "persian") {
@@ -66,11 +66,11 @@ export function Playground() {
     props.calendar === "persian"
       ? getDateLib({
           locale: (props.locale as locales.Locale) ?? faIRpersian,
-          timeZone: props.timeZone
+          timeZone: props.timeZone,
         })
       : new DateLib({
           locale: (props.locale as locales.Locale) ?? locales.enUS,
-          timeZone: props.timeZone
+          timeZone: props.timeZone,
         });
 
   return (

@@ -15,7 +15,7 @@ import { DateLib, type DateLibOptions } from "../classes/DateLib.js";
 export function formatDay(
   date: Date,
   options?: DateLibOptions,
-  dateLib?: DateLib
+  dateLib?: DateLib,
 ) {
   return (dateLib ?? new DateLib(options)).format(date, "d");
 }

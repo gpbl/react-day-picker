@@ -14,7 +14,7 @@ const days = [
   new Date(2024, 6, 6),
   new Date(2024, 6, 13),
   new Date(2024, 6, 20),
-  new Date(2024, 6, 27)
+  new Date(2024, 6, 27),
 ];
 
 test.each(days)("the day %s should be disabled", (day) => {

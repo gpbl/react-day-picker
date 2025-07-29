@@ -15,7 +15,7 @@ export function DayButton(
     day: CalendarDay;
     /** The modifiers to apply to the day. */
     modifiers: Modifiers;
-  } & ButtonHTMLAttributes<HTMLButtonElement>
+  } & ButtonHTMLAttributes<HTMLButtonElement>,
 ) {
   const { day, modifiers, ...buttonProps } = props;
 

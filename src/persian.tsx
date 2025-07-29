@@ -1,13 +1,12 @@
-import React from "react";
-
+import type { Locale } from "date-fns-jalali";
 import * as dateFnsJalali from "date-fns-jalali";
-import { Locale } from "date-fns-jalali";
 import * as locales from "date-fns-jalali/locale";
+import React from "react";
 
 import {
   DateLib,
-  DateLibOptions,
-  DayPicker as DayPickerComponent
+  type DateLibOptions,
+  DayPicker as DayPickerComponent,
 } from "./index.js";
 import type { DayPickerProps } from "./types/props.js";
 
@@ -67,7 +66,7 @@ export function DayPicker(
      * @see https://daypicker.dev/docs/translation#numeral-systems
      */
     numerals?: DayPickerProps["numerals"];
-  }
+  },
 ) {
   const dateLib = getDateLib({
     locale: props.locale,
@@ -75,7 +74,7 @@ export function DayPicker(
     firstWeekContainsDate: props.firstWeekContainsDate,
     useAdditionalWeekYearTokens: props.useAdditionalWeekYearTokens,
     useAdditionalDayOfYearTokens: props.useAdditionalDayOfYearTokens,
-    timeZone: props.timeZone
+    timeZone: props.timeZone,
   });
   return (
     <DayPickerComponent

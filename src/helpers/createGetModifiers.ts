@@ -1,6 +1,6 @@
-import { DayFlag } from "../UI.js";
 import type { CalendarDay, DateLib } from "../classes/index.js";
 import type { DayPickerProps, Modifiers } from "../types/index.js";
+import { DayFlag } from "../UI.js";
 import { dateMatchModifiers } from "../utils/dateMatchModifiers.js";
 
 /**
@@ -21,7 +21,7 @@ export function createGetModifiers(
   props: DayPickerProps,
   navStart: Date | undefined,
   navEnd: Date | undefined,
-  dateLib: DateLib
+  dateLib: DateLib,
 ) {
   const {
     disabled,
@@ -29,7 +29,7 @@ export function createGetModifiers(
     modifiers,
     showOutsideDays,
     broadcastCalendar,
-    today
+    today,
   } = props;
 
   const {
@@ -38,7 +38,7 @@ export function createGetModifiers(
     startOfMonth,
     isBefore,
     endOfMonth,
-    isAfter
+    isAfter,
   } = dateLib;
 
   const computedNavStart = navStart && startOfMonth(navStart);
@@ -49,7 +49,7 @@ export function createGetModifiers(
     [DayFlag.outside]: [],
     [DayFlag.disabled]: [],
     [DayFlag.hidden]: [],
-    [DayFlag.today]: []
+    [DayFlag.today]: [],
   };
 
   const customModifiersMap: Record<string, CalendarDay[]> = {};
@@ -60,15 +60,15 @@ export function createGetModifiers(
     const isOutside = Boolean(displayMonth && !isSameMonth(date, displayMonth));
 
     const isBeforeNavStart = Boolean(
-      computedNavStart && isBefore(date, computedNavStart)
+      computedNavStart && isBefore(date, computedNavStart),
     );
 
     const isAfterNavEnd = Boolean(
-      computedNavEnd && isAfter(date, computedNavEnd)
+      computedNavEnd && isAfter(date, computedNavEnd),
     );
 
     const isDisabled = Boolean(
-      disabled && dateMatchModifiers(date, disabled, dateLib)
+      disabled && dateMatchModifiers(date, disabled, dateLib),
     );
 
     const isHidden =
@@ -110,7 +110,7 @@ export function createGetModifiers(
       [DayFlag.disabled]: false,
       [DayFlag.hidden]: false,
       [DayFlag.outside]: false,
-      [DayFlag.today]: false
+      [DayFlag.today]: false,
     };
     const customModifiers: Modifiers = {};
 
@@ -126,7 +126,7 @@ export function createGetModifiers(
     return {
       ...dayFlags,
       // custom modifiers should override all the previous ones
-      ...customModifiers
+      ...customModifiers,
     };
   };
 }

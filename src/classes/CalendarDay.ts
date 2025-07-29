@@ -11,12 +11,12 @@ export class CalendarDay {
   constructor(
     date: Date,
     displayMonth: Date,
-    dateLib: DateLib = defaultDateLib
+    dateLib: DateLib = defaultDateLib,
   ) {
     this.date = date;
     this.displayMonth = displayMonth;
     this.outside = Boolean(
-      displayMonth && !dateLib.isSameMonth(date, displayMonth)
+      displayMonth && !dateLib.isSameMonth(date, displayMonth),
     );
     this.dateLib = dateLib;
   }

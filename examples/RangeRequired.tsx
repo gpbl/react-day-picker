@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-
 import { addDays, format, startOfMonth } from "date-fns";
-import { DateRange, DayPicker } from "react-day-picker";
+import React, { useState } from "react";
+import { type DateRange, DayPicker } from "react-day-picker";
 
 export function RangeRequired() {
   const [range, setRange] = useState<DateRange>({
     from: startOfMonth(new Date()),
-    to: addDays(startOfMonth(new Date()), 4)
+    to: addDays(startOfMonth(new Date()), 4),
   });
 
   let footer = `Please pick the first day.`;

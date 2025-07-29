@@ -1,4 +1,4 @@
-import { DateLib } from "../classes/index.js";
+import type { DateLib } from "../classes/index.js";
 
 const FIVE_WEEKS = 5;
 const FOUR_WEEKS = 4;
@@ -27,7 +27,7 @@ export function getBroadcastWeeksInMonth(month: Date, dateLib: DateLib): 4 | 5 {
 
   const lastDateOfLastWeek = dateLib.addDays(
     broadcastStartDate,
-    FIVE_WEEKS * 7 - 1
+    FIVE_WEEKS * 7 - 1,
   );
   const numberOfWeeks =
     dateLib.getMonth(month) === dateLib.getMonth(lastDateOfLastWeek)

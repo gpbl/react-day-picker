@@ -10,7 +10,7 @@ import type { DayPickerProps } from "../types/index.js";
  * @returns An object containing the `data-` attributes.
  */
 export function getDataAttributes(
-  props: DayPickerProps
+  props: DayPickerProps,
 ): Record<string, unknown> {
   const dataAttributes: Record<string, unknown> = {
     "data-mode": props.mode ?? undefined,
@@ -19,7 +19,7 @@ export function getDataAttributes(
       (props.numberOfMonths && props.numberOfMonths > 1) || undefined,
     "data-week-numbers": props.showWeekNumber || undefined,
     "data-broadcast-calendar": props.broadcastCalendar || undefined,
-    "data-nav-layout": props.navLayout || undefined
+    "data-nav-layout": props.navLayout || undefined,
   };
   Object.entries(props).forEach(([key, val]) => {
     if (key.startsWith("data-")) {

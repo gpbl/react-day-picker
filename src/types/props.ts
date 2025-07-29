@@ -1,23 +1,22 @@
-import React from "react";
-
+import type React from "react";
+import type { DateLib, Locale } from "../classes/DateLib.js";
 import type { DeprecatedUI } from "../UI.js";
-import type { Locale, DateLib } from "../classes/DateLib.js";
 
 import type {
   ClassNames,
-  ModifiersClassNames,
-  Styles,
-  ModifiersStyles,
   CustomComponents,
-  Matcher,
-  Labels,
-  Formatters,
-  MonthChangeEventHandler,
-  DayEventHandler,
-  Modifiers,
   DateRange,
+  DayEventHandler,
+  Formatters,
+  Labels,
+  Matcher,
   Mode,
-  Numerals
+  Modifiers,
+  ModifiersClassNames,
+  ModifiersStyles,
+  MonthChangeEventHandler,
+  Numerals,
+  Styles,
 } from "./shared.js";
 
 /**
@@ -387,7 +386,7 @@ export interface PropsBase {
    * @since 9.4.1
    * @see https://daypicker.dev/guides/accessibility
    */
-  ["aria-label"]?: string;
+  "aria-label"?: string;
   /**
    * The role attribute to add to the container element.
    *
@@ -491,7 +490,7 @@ export interface PropsBase {
    * @deprecated Use a custom `WeekNumber` component instead.
    * @see https://daypicker.dev/docs/customization#showweeknumber
    */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: deprecated will be removed
   onWeekNumberClick?: any;
 
   /** Event handler when a day is clicked. */
@@ -584,7 +583,7 @@ export type OnSelectHandler<T> = (
   selected: T,
   triggerDate: Date,
   modifiers: Modifiers,
-  e: React.MouseEvent | React.KeyboardEvent
+  e: React.MouseEvent | React.KeyboardEvent,
 ) => void;
 
 /**

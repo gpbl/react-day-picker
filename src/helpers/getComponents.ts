@@ -12,10 +12,10 @@ import type { CustomComponents, DayPickerProps } from "../types/index.js";
  * @returns An object containing the merged components.
  */
 export function getComponents(
-  customComponents: DayPickerProps["components"]
+  customComponents: DayPickerProps["components"],
 ): CustomComponents {
   return {
     ...components,
-    ...customComponents
+    ...customComponents,
   };
 }

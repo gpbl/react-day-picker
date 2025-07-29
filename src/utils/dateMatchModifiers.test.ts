@@ -1,12 +1,12 @@
 import { addDays, subDays } from "date-fns";
 
 import { defaultDateLib } from "../classes/DateLib";
-import {
+import type {
   DateAfter,
   DateBefore,
   DateInterval,
   DateRange,
-  DayOfWeek
+  DayOfWeek,
 } from "../types";
 
 import { dateMatchModifiers } from "./dateMatchModifiers";
@@ -39,7 +39,7 @@ describe("when matching an array of dates including the day", () => {
 describe("when matching date range", () => {
   const matcher: DateRange = {
     from: testDay,
-    to: addDays(testDay, 1)
+    to: addDays(testDay, 1),
   };
   const result = dateMatchModifiers(testDay, [matcher], defaultDateLib);
   test("should return true", () => {
@@ -49,7 +49,7 @@ describe("when matching date range", () => {
 
 describe("when matching the day of week", () => {
   const matcher: DayOfWeek = {
-    dayOfWeek: [testDay.getDay()]
+    dayOfWeek: [testDay.getDay()],
   };
   const result = dateMatchModifiers(testDay, [matcher], defaultDateLib);
   test("should return true", () => {
@@ -60,7 +60,7 @@ describe("when matching the day of week", () => {
 describe("when matching date interval (closed)", () => {
   const matcher: DateInterval = {
     before: addDays(testDay, 5),
-    after: subDays(testDay, 3)
+    after: subDays(testDay, 3),
   };
   const result = dateMatchModifiers(testDay, [matcher], defaultDateLib);
   test("should return true for the included day", () => {
@@ -71,7 +71,7 @@ describe("when matching date interval (closed)", () => {
 describe("when matching date interval (open)", () => {
   const matcher: DateInterval = {
     before: subDays(testDay, 4),
-    after: addDays(testDay, 5)
+    after: addDays(testDay, 5),
   };
   test("should return false", () => {
     const result = dateMatchModifiers(testDay, [matcher], defaultDateLib);
@@ -81,7 +81,7 @@ describe("when matching date interval (open)", () => {
     const result = dateMatchModifiers(
       subDays(testDay, 8),
       [matcher],
-      defaultDateLib
+      defaultDateLib,
     );
     expect(result).toBe(true);
   });
@@ -89,7 +89,7 @@ describe("when matching date interval (open)", () => {
     const result = dateMatchModifiers(
       addDays(testDay, 8),
       [matcher],
-      defaultDateLib
+      defaultDateLib,
     );
     expect(result).toBe(true);
   });

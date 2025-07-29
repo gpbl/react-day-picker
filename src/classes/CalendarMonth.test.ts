@@ -7,11 +7,11 @@ let date: Date;
 let weeks: CalendarWeek[];
 const days1 = [
   new CalendarDay(new Date(2023, 1, 12), new Date(2023, 1, 1)),
-  new CalendarDay(new Date(2023, 1, 2023), new Date(2023, 1, 1))
+  new CalendarDay(new Date(2023, 1, 2023), new Date(2023, 1, 1)),
 ];
 const days2 = [
   new CalendarDay(new Date(2023, 1, 12), new Date(2023, 1, 1)),
-  new CalendarDay(new Date(2023, 1, 2023), new Date(2023, 1, 1))
+  new CalendarDay(new Date(2023, 1, 2023), new Date(2023, 1, 1)),
 ];
 beforeEach(() => {
   date = new Date();

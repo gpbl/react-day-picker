@@ -6,7 +6,7 @@ const availableDays = [new Date(2021, 5, 23), new Date(2021, 5, 24)];
 
 const availableStyle = {
   fontWeight: 900,
-  color: "lightgreen"
+  color: "lightgreen",
 };
 
 export function ModifiersStyle() {
@@ -15,10 +15,10 @@ export function ModifiersStyle() {
       mode="single"
       defaultMonth={availableDays[0]}
       modifiers={{
-        available: availableDays
+        available: availableDays,
       }}
       modifiersStyles={{
-        available: availableStyle
+        available: availableStyle,
       }}
     />
   );

@@ -1,5 +1,5 @@
 import type { DateLib } from "../classes/DateLib.js";
-import { DropdownOption } from "../components/Dropdown.js";
+import type { DropdownOption } from "../components/Dropdown.js";
 import type { Formatters } from "../types/index.js";
 
 /**
@@ -19,7 +19,7 @@ export function getYearOptions(
   navStart: Date | undefined,
   navEnd: Date | undefined,
   formatters: Pick<Formatters, "formatYearDropdown">,
-  dateLib: DateLib
+  dateLib: DateLib,
 ): DropdownOption[] | undefined {
   if (!navStart) return undefined;
   if (!navEnd) return undefined;
@@ -40,7 +40,7 @@ export function getYearOptions(
     return {
       value: getYear(year),
       label,
-      disabled: false
+      disabled: false,
     };
   });
 }

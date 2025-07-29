@@ -111,7 +111,6 @@ export function useQueryStringSync(basePath: string = "/playground") {
               break;
           }
         } catch (error) {
-          // eslint-disable-next-line no-console
           console.error(`Error parsing query string key "${key}":`, error);
         }
       }

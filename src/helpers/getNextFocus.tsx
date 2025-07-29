@@ -3,7 +3,7 @@ import { CalendarDay } from "../classes/index.js";
 import type {
   DayPickerProps,
   MoveFocusBy,
-  MoveFocusDir
+  MoveFocusDir,
 } from "../types/index.js";
 import { dateMatchModifiers } from "../utils/dateMatchModifiers.js";
 
@@ -37,7 +37,7 @@ export function getNextFocus(
     "disabled" | "hidden" | "modifiers" | "ISOWeek" | "timeZone"
   >,
   dateLib: DateLib,
-  attempt: number = 0
+  attempt: number = 0,
 ): CalendarDay | undefined {
   if (attempt > 365) {
     // Limit the recursion to 365 attempts
@@ -51,15 +51,16 @@ export function getNextFocus(
     calendarStartMonth,
     calendarEndMonth,
     props,
-    dateLib
+    dateLib,
   );
 
   const isDisabled = Boolean(
-    props.disabled && dateMatchModifiers(focusableDate, props.disabled, dateLib)
+    props.disabled &&
+      dateMatchModifiers(focusableDate, props.disabled, dateLib),
   );
 
   const isHidden = Boolean(
-    props.hidden && dateMatchModifiers(focusableDate, props.hidden, dateLib)
+    props.hidden && dateMatchModifiers(focusableDate, props.hidden, dateLib),
   );
 
   const targetMonth = focusableDate;
@@ -78,6 +79,6 @@ export function getNextFocus(
     calendarEndMonth,
     props,
     dateLib,
-    attempt + 1
+    attempt + 1,
   );
 }

@@ -4,7 +4,7 @@ import type {
   DateBefore,
   DateInterval,
   DateRange,
-  DayOfWeek
+  DayOfWeek,
 } from "../types/index.js";
 
 /**
@@ -19,7 +19,7 @@ export function isDateInterval(matcher: unknown): matcher is DateInterval {
     matcher &&
       typeof matcher === "object" &&
       "before" in matcher &&
-      "after" in matcher
+      "after" in matcher,
   );
 }
 
@@ -77,7 +77,7 @@ export function isDayOfWeekType(value: unknown): value is DayOfWeek {
  */
 export function isDatesArray(
   value: unknown,
-  dateLib: DateLib
+  dateLib: DateLib,
 ): value is Date[] {
   return Array.isArray(value) && value.every(dateLib.isDate);
 }

@@ -7,7 +7,7 @@ import React, { type ThHTMLAttributes } from "react";
  * @see https://daypicker.dev/guides/custom-components
  */
 export function WeekNumberHeader(
-  props: ThHTMLAttributes<HTMLTableCellElement>
+  props: ThHTMLAttributes<HTMLTableCellElement>,
 ) {
   return <th {...props} />;
 }

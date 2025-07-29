@@ -1,4 +1,13 @@
 import { TZDate } from "@date-fns/tz";
+import type {
+  FormatOptions as DateFnsFormatOptions,
+  EndOfWeekOptions,
+  GetMonthOptions,
+  GetWeekOptions,
+  GetYearOptions,
+  Interval,
+  StartOfWeekOptions,
+} from "date-fns";
 import {
   addDays,
   addMonths,
@@ -30,26 +39,17 @@ import {
   startOfISOWeek,
   startOfMonth,
   startOfWeek,
-  startOfYear
-} from "date-fns";
-import type {
-  EndOfWeekOptions,
-  StartOfWeekOptions,
-  FormatOptions as DateFnsFormatOptions,
-  Interval,
-  GetMonthOptions,
-  GetYearOptions,
-  GetWeekOptions
+  startOfYear,
 } from "date-fns";
 import type { Locale } from "date-fns/locale";
 import { enUS } from "date-fns/locale/en-US";
 
 import { endOfBroadcastWeek } from "../helpers/endOfBroadcastWeek.js";
 import { startOfBroadcastWeek } from "../helpers/startOfBroadcastWeek.js";
-import { Numerals } from "../types/shared.js";
+import type { Numerals } from "../types/shared.js";
 
-export type { Locale } from "date-fns/locale";
 export type { Month as DateFnsMonth } from "date-fns";
+export type { Locale } from "date-fns/locale";
 
 /**
  * @ignore
@@ -117,7 +117,7 @@ export class DateLib {
    */
   constructor(
     options?: DateLibOptions,
-    overrides?: Partial<typeof DateLib.prototype>
+    overrides?: Partial<typeof DateLib.prototype>,
   ) {
     this.options = { locale: enUS, ...options };
     this.overrides = overrides;
@@ -135,7 +135,7 @@ export class DateLib {
 
     // Use Intl.NumberFormat to create a formatter with the specified numbering system
     const formatter = new Intl.NumberFormat("en-US", {
-      numberingSystem: numerals
+      numberingSystem: numerals,
     });
 
     // Map Arabic digits (0-9) to the target numerals
@@ -371,7 +371,7 @@ export class DateLib {
   format = (
     date: Date,
     formatStr: string,
-    options?: DateFnsFormatOptions
+    _options?: DateFnsFormatOptions,
   ): string => {
     const formatted = this.overrides?.format
       ? this.overrides.format(date, formatStr, this.options)
@@ -400,7 +400,7 @@ export class DateLib {
    * @param date The date to get the month for.
    * @returns The month.
    */
-  getMonth = (date: Date, options?: GetMonthOptions): number => {
+  getMonth = (date: Date, _options?: GetMonthOptions): number => {
     return this.overrides?.getMonth
       ? this.overrides.getMonth(date, this.options)
       : getMonth(date, this.options);
@@ -412,7 +412,7 @@ export class DateLib {
    * @param date The date to get the year for.
    * @returns The year.
    */
-  getYear = (date: Date, options?: GetYearOptions): number => {
+  getYear = (date: Date, _options?: GetYearOptions): number => {
     return this.overrides?.getYear
       ? this.overrides.getYear(date, this.options)
       : getYear(date, this.options);
@@ -424,7 +424,7 @@ export class DateLib {
    * @param date The date to get the week number for.
    * @returns The week number.
    */
-  getWeek = (date: Date, options?: GetWeekOptions): number => {
+  getWeek = (date: Date, _options?: GetWeekOptions): number => {
     return this.overrides?.getWeek
       ? this.overrides.getWeek(date, this.options)
       : getWeek(date, this.options);
@@ -559,7 +559,7 @@ export class DateLib {
    * @param date The original date.
    * @returns The start of the broadcast week.
    */
-  startOfBroadcastWeek = (date: Date, dateLib: DateLib): Date => {
+  startOfBroadcastWeek = (date: Date, _dateLib: DateLib): Date => {
     return this.overrides?.startOfBroadcastWeek
       ? this.overrides.startOfBroadcastWeek(date, this)
       : startOfBroadcastWeek(date, this);
@@ -607,7 +607,7 @@ export class DateLib {
    * @param date The original date.
    * @returns The start of the week.
    */
-  startOfWeek = (date: Date, options?: StartOfWeekOptions): Date => {
+  startOfWeek = (date: Date, _options?: StartOfWeekOptions): Date => {
     return this.overrides?.startOfWeek
       ? this.overrides.startOfWeek(date, this.options)
       : startOfWeek(date, this.options);

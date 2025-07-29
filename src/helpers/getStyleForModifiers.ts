@@ -1,7 +1,6 @@
 import type { CSSProperties } from "react";
-
-import { UI } from "../UI.js";
 import type { Modifiers, ModifiersStyles, Styles } from "../types/index.js";
+import { UI } from "../UI.js";
 
 /**
  * Returns the computed style for a day based on its modifiers.
@@ -17,7 +16,7 @@ import type { Modifiers, ModifiersStyles, Styles } from "../types/index.js";
 export function getStyleForModifiers(
   dayModifiers: Modifiers,
   styles: Partial<Styles> = {},
-  modifiersStyles: Partial<ModifiersStyles> = {}
+  modifiersStyles: Partial<ModifiersStyles> = {},
 ): CSSProperties {
   let style: CSSProperties = { ...styles?.[UI.Day] };
   Object.entries(dayModifiers)
@@ -25,7 +24,7 @@ export function getStyleForModifiers(
     .forEach(([modifier]) => {
       style = {
         ...style,
-        ...modifiersStyles?.[modifier]
+        ...modifiersStyles?.[modifier],
       };
     });
   return style;

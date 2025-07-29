@@ -1,5 +1,5 @@
-import { DayFlag } from "../UI";
 import { CalendarDay, defaultDateLib } from "../classes/index";
+import { DayFlag } from "../UI";
 
 import { createGetModifiers } from "./createGetModifiers";
 
@@ -30,12 +30,12 @@ const props = {
   hidden: [date3],
   modifiers: {
     custom: [date4],
-    selected: [date6]
+    selected: [date6],
   },
   selected: date7,
   showOutsideDays: true,
   today: date5,
-  timeZone: "UTC"
+  timeZone: "UTC",
 };
 
 describe("createGetModifiers", () => {
@@ -45,7 +45,7 @@ describe("createGetModifiers", () => {
       props,
       undefined,
       undefined,
-      dateLib
+      dateLib,
     );
 
     test("return the modifiers for a given day", () => {
@@ -123,7 +123,7 @@ describe("createGetModifiers", () => {
       props,
       startMonth,
       endMonth,
-      dateLib
+      dateLib,
     );
     test("return the modifiers for a given day", () => {
       const modifiers = getModifiers(day2);

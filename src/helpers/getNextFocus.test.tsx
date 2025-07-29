@@ -9,14 +9,14 @@ const props: Pick<
   "disabled" | "hidden" | "startMonth" | "endMonth"
 > = {
   disabled: [],
-  hidden: []
+  hidden: [],
 };
 
 it("should return `undefined` if `attempt` exceeds 365", () => {
   const focusedDay = new CalendarDay(
     new Date(2020, 0, 1),
     new Date(2020, 0, 1),
-    defaultDateLib
+    defaultDateLib,
   );
   const moveBy: MoveFocusBy = "day";
   const moveDir: MoveFocusDir = "after";
@@ -28,7 +28,7 @@ it("should return `undefined` if `attempt` exceeds 365", () => {
     undefined,
     props,
     defaultDateLib,
-    366
+    366,
   );
   expect(result).toBeUndefined();
 });
@@ -37,7 +37,7 @@ it("should return the focus date if it is not disabled or hidden", () => {
   const focusedDay = new CalendarDay(
     new Date(2020, 0, 1),
     new Date(2020, 0, 1),
-    defaultDateLib
+    defaultDateLib,
   );
   const expectedDate = new Date(2020, 0, 2);
   const result = getNextFocus(
@@ -47,7 +47,7 @@ it("should return the focus date if it is not disabled or hidden", () => {
     undefined,
     undefined,
     props,
-    defaultDateLib
+    defaultDateLib,
   );
   expect(result?.date).toEqual(expectedDate);
 });
@@ -56,7 +56,7 @@ it("should return the next focus date if it is disabled", () => {
   const focusedDay = new CalendarDay(
     new Date(2020, 0, 1),
     new Date(2020, 0, 1),
-    defaultDateLib
+    defaultDateLib,
   );
   const disabledDate = new Date(2020, 0, 2);
   const expectedDate = new Date(2020, 0, 3);
@@ -68,9 +68,9 @@ it("should return the next focus date if it is disabled", () => {
     undefined,
     {
       ...props,
-      disabled: [disabledDate]
+      disabled: [disabledDate],
     },
-    defaultDateLib
+    defaultDateLib,
   );
   expect(result?.date).toEqual(expectedDate);
 });
@@ -79,7 +79,7 @@ it("should return the next focus date if it is hidden", () => {
   const focusedDay = new CalendarDay(
     new Date(2020, 0, 1),
     new Date(2020, 0, 1),
-    defaultDateLib
+    defaultDateLib,
   );
   const hiddenDate = new Date(2020, 0, 2);
   const expectedDate = new Date(2020, 0, 3);
@@ -91,9 +91,9 @@ it("should return the next focus date if it is hidden", () => {
     undefined,
     {
       ...props,
-      hidden: [hiddenDate]
+      hidden: [hiddenDate],
     },
-    defaultDateLib
+    defaultDateLib,
   );
   expect(result?.date).toEqual(expectedDate);
 });

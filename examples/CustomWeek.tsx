@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-
 import { endOfWeek, startOfWeek } from "date-fns";
-import { DateRange, DayPicker, rangeIncludesDate } from "react-day-picker";
+import React, { useState } from "react";
+import { type DateRange, DayPicker, rangeIncludesDate } from "react-day-picker";
 
 /** Select the whole week when the day is clicked. */
 export function CustomWeek() {
@@ -16,7 +15,7 @@ export function CustomWeek() {
         range_start: selectedWeek?.from,
         range_end: selectedWeek?.to,
         range_middle: (date: Date) =>
-          selectedWeek ? rangeIncludesDate(selectedWeek, date, true) : false
+          selectedWeek ? rangeIncludesDate(selectedWeek, date, true) : false,
       }}
       onDayClick={(day, modifiers) => {
         if (modifiers.selected) {
@@ -25,7 +24,7 @@ export function CustomWeek() {
         }
         setSelectedWeek({
           from: startOfWeek(day),
-          to: endOfWeek(day)
+          to: endOfWeek(day),
         });
       }}
       footer={

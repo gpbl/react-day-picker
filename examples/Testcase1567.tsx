@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { DateRange, DayPicker } from "react-day-picker";
+import { type DateRange, DayPicker } from "react-day-picker";
 
 /**
  * Test case for issue #1567
@@ -10,7 +10,7 @@ import { DateRange, DayPicker } from "react-day-picker";
 export function TestCase1567() {
   const [selected, setSelected] = useState<DateRange | undefined>({
     from: new Date(2022, 8, 25),
-    to: new Date(2022, 9, 1)
+    to: new Date(2022, 9, 1),
   });
 
   const handleChange = (range: DateRange | undefined) => {
@@ -26,7 +26,7 @@ export function TestCase1567() {
         selected={selected}
         fromMonth={new Date(2020, 5)}
       />
-      <button>I should be focusable</button>
+      <button type="button">I should be focusable</button>
     </div>
   );
 }

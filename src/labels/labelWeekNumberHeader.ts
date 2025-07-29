@@ -9,6 +9,6 @@ import type { DateLibOptions } from "../classes/DateLib.js";
  * @group Labels
  * @see https://daypicker.dev/docs/translation#aria-labels
  */
-export function labelWeekNumberHeader(options?: DateLibOptions): string {
+export function labelWeekNumberHeader(_options?: DateLibOptions): string {
   return "Week Number";
 }

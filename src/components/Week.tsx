@@ -12,7 +12,7 @@ export function Week(
   props: {
     /** The week to render. */
     week: CalendarWeek;
-  } & HTMLAttributes<HTMLTableRowElement>
+  } & HTMLAttributes<HTMLTableRowElement>,
 ) {
   const { week, ...trProps } = props;
   return <tr {...trProps} />;

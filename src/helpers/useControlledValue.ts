@@ -26,7 +26,7 @@ export type DispatchStateAction<T> = React.Dispatch<React.SetStateAction<T>>;
  */
 export function useControlledValue<T>(
   defaultValue: T,
-  controlledValue: T | undefined
+  controlledValue: T | undefined,
 ): [T, DispatchStateAction<T>] {
   const [uncontrolledValue, setValue] = useState(defaultValue);
 

@@ -1,19 +1,19 @@
 import { defaultDateLib } from "../classes/DateLib.js";
 import type {
-  DateInterval,
-  DateRange,
   DateAfter,
   DateBefore,
-  DayOfWeek
+  DateInterval,
+  DateRange,
+  DayOfWeek,
 } from "../types/index.js";
 
 import {
-  isDateInterval,
-  isDateRange,
   isDateAfterType,
   isDateBeforeType,
+  isDateInterval,
+  isDateRange,
+  isDatesArray,
   isDayOfWeekType,
-  isDatesArray
 } from "./typeguards.js";
 
 test("isDateInterval return true for valid DateInterval", () => {

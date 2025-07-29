@@ -15,6 +15,6 @@ beforeEach(() => {
 
 test("the caption should apply the custom style", () => {
   expect(screen.getByRole("status").parentElement).toHaveStyle({
-    color: "rgb(255, 0, 0)"
+    color: "rgb(255, 0, 0)",
   });
 });

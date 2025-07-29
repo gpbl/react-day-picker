@@ -1,6 +1,5 @@
-import React from "react";
-
 import { addDays } from "date-fns";
+import React from "react";
 
 import { dateButton, gridcell } from "@/test/elements";
 import { render } from "@/test/render";
@@ -32,15 +31,15 @@ describe("when a day is clicked", () => {
       expect(gridcell(firstDay, true)).toHaveAttribute("aria-selected", "true");
       expect(gridcell(addDays(firstDay, 1), true)).toHaveAttribute(
         "aria-selected",
-        "true"
+        "true",
       );
       expect(gridcell(addDays(firstDay, 2), true)).toHaveAttribute(
         "aria-selected",
-        "true"
+        "true",
       );
       expect(gridcell(addDays(firstDay, 3), true)).toHaveAttribute(
         "aria-selected",
-        "true"
+        "true",
       );
     });
   });

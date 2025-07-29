@@ -1,4 +1,4 @@
-import { type DateLib } from "../classes/DateLib.js";
+import type { DateLib } from "../classes/DateLib.js";
 import type { DayPickerProps } from "../types/index.js";
 
 /**
@@ -22,7 +22,7 @@ export function getNavMonths(
     | "toMonth"
     | "toYear"
   >,
-  dateLib: DateLib
+  dateLib: DateLib,
 ): [start: Date | undefined, end: Date | undefined] {
   let { startMonth, endMonth } = props;
 
@@ -34,7 +34,7 @@ export function getNavMonths(
     addYears,
     endOfYear,
     newDate,
-    today
+    today,
   } = dateLib;
 
   // Handle deprecated code
@@ -71,6 +71,6 @@ export function getNavMonths(
   }
   return [
     startMonth ? startOfDay(startMonth) : startMonth,
-    endMonth ? startOfDay(endMonth) : endMonth
+    endMonth ? startOfDay(endMonth) : endMonth,
   ];
 }

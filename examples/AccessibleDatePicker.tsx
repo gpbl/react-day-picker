@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-
 import { format } from "date-fns";
+import React, { useState } from "react";
 import { DayPicker } from "react-day-picker";
 
 export function AccessibleDatePicker() {
@@ -15,7 +14,7 @@ export function AccessibleDatePicker() {
           return modifiers.selected
             ? `Selected Meeting Date: ${format(date, "PPP")}`
             : "";
-        }
+        },
       }}
       footer={
         meetingDate

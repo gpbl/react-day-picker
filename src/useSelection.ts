@@ -1,9 +1,9 @@
-import { type DateLib } from "./classes/DateLib.js";
+import type { DateLib } from "./classes/DateLib.js";
 import { useMulti } from "./selection/useMulti.js";
 import { useRange } from "./selection/useRange.js";
 import { useSingle } from "./selection/useSingle.js";
 import type { DayPickerProps } from "./types/index.js";
-import { Selection } from "./types/selection.js";
+import type { Selection } from "./types/selection.js";
 
 /**
  * Determines the appropriate selection hook to use based on the selection mode
@@ -17,7 +17,7 @@ import { Selection } from "./types/selection.js";
  */
 export function useSelection<T extends DayPickerProps>(
   props: T,
-  dateLib: DateLib
+  dateLib: DateLib,
 ): Selection<T> | undefined {
   const single = useSingle(props, dateLib);
   const multi = useMulti(props, dateLib);

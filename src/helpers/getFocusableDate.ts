@@ -2,7 +2,7 @@ import type { DateLib } from "../classes/DateLib.js";
 import type {
   DayPickerProps,
   MoveFocusBy,
-  MoveFocusDir
+  MoveFocusDir,
 } from "../types/index.js";
 
 /**
@@ -28,7 +28,7 @@ export function getFocusableDate(
   navStart: Date | undefined,
   navEnd: Date | undefined,
   props: Pick<DayPickerProps, "ISOWeek" | "broadcastCalendar">,
-  dateLib: DateLib
+  dateLib: DateLib,
 ): Date {
   const { ISOWeek, broadcastCalendar } = props;
   const {
@@ -43,7 +43,7 @@ export function getFocusableDate(
     min,
     startOfBroadcastWeek,
     startOfISOWeek,
-    startOfWeek
+    startOfWeek,
   } = dateLib;
   const moveFns = {
     day: addDays,
@@ -61,7 +61,7 @@ export function getFocusableDate(
         ? endOfBroadcastWeek(date)
         : ISOWeek
           ? endOfISOWeek(date)
-          : endOfWeek(date)
+          : endOfWeek(date),
   };
 
   let focusableDate = moveFns[moveBy](refDate, moveDir === "after" ? 1 : -1);

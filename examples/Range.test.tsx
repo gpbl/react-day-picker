@@ -1,6 +1,5 @@
-import React from "react";
-
 import { addDays } from "date-fns";
+import React from "react";
 
 import { dateButton, gridcell } from "@/test/elements";
 import { render, screen } from "@/test/render";
@@ -16,10 +15,12 @@ const days = [
   addDays(defaultMonth, 1),
   addDays(defaultMonth, 2),
   addDays(defaultMonth, 3),
-  addDays(defaultMonth, 4)
+  addDays(defaultMonth, 4),
 ];
 
-beforeEach(() => (container = render(<Range />).container));
+beforeEach(() => {
+  container = render(<Range />).container;
+});
 
 test("should match the snapshot", () => {
   expect(container).toMatchSnapshot();
@@ -39,7 +40,7 @@ describe("when a day in the range is clicked", () => {
   });
   describe("when the reset button is clicked", () => {
     beforeEach(async () =>
-      user.click(screen.getByRole("button", { name: "Reset" }))
+      user.click(screen.getByRole("button", { name: "Reset" })),
     );
     test("no day should be selected", () => {
       expect(getAllSelected()).toHaveLength(0);
@@ -72,6 +73,6 @@ function getAllSelected() {
   const gridcells = screen.getAllByRole("gridcell");
 
   return Array.from(gridcells).filter(
-    (gridcell) => gridcell.getAttribute("aria-selected") === "true"
+    (gridcell) => gridcell.getAttribute("aria-selected") === "true",
   );
 }

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import {
   DayPicker,
   type DayPickerProps,
-  type PropsSingle
+  type PropsSingle,
 } from "react-day-picker";
 
 export function Keyboard(props: DayPickerProps & PropsSingle) {

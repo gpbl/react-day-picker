@@ -1,16 +1,14 @@
-import React from "react";
-
 import { renderHook } from "@testing-library/react";
-
-import { Animation, DayFlag, SelectionState, UI } from "./UI";
-import { CalendarDay } from "./classes/CalendarDay";
+import React from "react";
+import type { CalendarDay } from "./classes/CalendarDay";
 import { CalendarMonth } from "./classes/CalendarMonth";
-import { DayPickerProps } from "./types/props";
-import { Modifiers } from "./types/shared";
+import type { DayPickerProps } from "./types/props";
+import type { Modifiers } from "./types/shared";
+import { Animation, DayFlag, SelectionState, UI } from "./UI";
 import {
-  DayPickerContext,
+  type DayPickerContext,
   dayPickerContext,
-  useDayPicker
+  useDayPicker,
 } from "./useDayPicker";
 
 describe("useDayPicker", () => {
@@ -22,10 +20,10 @@ describe("useDayPicker", () => {
     nextMonth: new Date(),
     previousMonth: new Date(),
     goToMonth: jest.fn(),
-    getModifiers: jest.fn((day: CalendarDay) => ({}) as Modifiers),
+    getModifiers: jest.fn((_day: CalendarDay) => ({}) as Modifiers),
     selected: undefined,
     select: jest.fn(),
-    isSelected: jest.fn((date: Date) => false),
+    isSelected: jest.fn((_date: Date) => false),
     components: {
       Button: jest.fn(),
       Chevron: jest.fn(),
@@ -52,7 +50,7 @@ describe("useDayPicker", () => {
       WeekNumber: jest.fn(),
       WeekNumberHeader: jest.fn(),
       MonthsDropdown: jest.fn(),
-      YearsDropdown: jest.fn()
+      YearsDropdown: jest.fn(),
     },
     classNames: {
       [UI.Root]: "",
@@ -95,7 +93,7 @@ describe("useDayPicker", () => {
       [Animation.caption_after_enter]: "",
       [Animation.caption_before_exit]: "",
       [Animation.caption_before_enter]: "",
-      [Animation.caption_after_exit]: ""
+      [Animation.caption_after_exit]: "",
     },
     styles: {},
     labels: {
@@ -110,7 +108,7 @@ describe("useDayPicker", () => {
       labelDay: jest.fn(),
       labelWeekday: jest.fn(),
       labelWeekNumber: jest.fn(),
-      labelWeekNumberHeader: jest.fn()
+      labelWeekNumberHeader: jest.fn(),
     },
     formatters: {
       formatCaption: jest.fn(),
@@ -121,12 +119,12 @@ describe("useDayPicker", () => {
       formatWeekNumberHeader: jest.fn(),
       formatWeekdayName: jest.fn(),
       formatYearDropdown: jest.fn(),
-      formatYearCaption: jest.fn()
+      formatYearCaption: jest.fn(),
     },
     dayPickerProps: {
       mode: "single",
-      required: false
-    } as DayPickerProps
+      required: false,
+    } as DayPickerProps,
   };
 
   it("should return the context value when used within a DayPicker provider", () => {

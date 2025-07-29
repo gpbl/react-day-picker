@@ -8,6 +8,6 @@
  * @group Labels
  * @see https://daypicker.dev/docs/translation#aria-labels
  */
-export function labelPrevious(month: Date | undefined) {
+export function labelPrevious(_month: Date | undefined) {
   return "Go to the Previous Month";
 }

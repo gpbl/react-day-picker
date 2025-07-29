@@ -1,6 +1,5 @@
-import React from "react";
-
 import { addDays } from "date-fns";
+import React from "react";
 import { DayPicker } from "react-day-picker";
 
 export function MultipleMinMax() {

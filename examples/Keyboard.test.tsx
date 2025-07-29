@@ -1,5 +1,3 @@
-import React, { act } from "react";
-
 import {
   addDays,
   addMonths,
@@ -8,15 +6,16 @@ import {
   endOfWeek,
   lastDayOfMonth,
   setDate,
-  startOfWeek
+  startOfWeek,
 } from "date-fns";
+import React, { act } from "react";
 
 import {
+  activeElement,
+  dateButton,
   grid,
   nextButton,
-  dateButton,
-  activeElement,
-  previousButton
+  previousButton,
 } from "@/test/elements";
 import { render } from "@/test/render";
 import { user } from "@/test/user";

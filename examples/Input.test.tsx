@@ -1,7 +1,5 @@
-/* eslint-disable jest/no-disabled-tests */
-import React from "react";
-
 import { format } from "date-fns";
+import React from "react";
 
 import { render, screen } from "@/test/render";
 import { user } from "@/test/user";
@@ -30,7 +28,7 @@ test("updates the calendar when a date is typed in", async () => {
   const testDate = new Date(2022, 11, 31); // Dec 31, 2022
   await user.type(textbox(), format(testDate, "MM/dd/yyyy"));
   expect(
-    screen.getByText(`Selected: ${testDate.toDateString()}`)
+    screen.getByText(`Selected: ${testDate.toDateString()}`),
   ).toBeInTheDocument();
 
   expect(selectedCells()).toHaveLength(1);
@@ -43,7 +41,7 @@ test("updates the input when a day is picked from the calendar", async () => {
   await user.type(textbox(), format(testDate, "MM/dd/yyyy"));
 
   expect(
-    screen.getByText(`Selected: ${testDate.toDateString()}`)
+    screen.getByText(`Selected: ${testDate.toDateString()}`),
   ).toBeInTheDocument();
 
   expect(selectedCells()).toHaveLength(1);

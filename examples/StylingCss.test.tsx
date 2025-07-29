@@ -16,6 +16,6 @@ beforeEach(() => {
 
 test("the caption should use the custom class name", () => {
   expect(app().getElementsByClassName("caption_aqua")[0]).toHaveTextContent(
-    "November 2021"
+    "November 2021",
   );
 });

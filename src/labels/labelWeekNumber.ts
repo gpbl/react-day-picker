@@ -12,7 +12,7 @@ import type { DateLibOptions } from "../classes/DateLib.js";
  */
 export function labelWeekNumber(
   weekNumber: number,
-  options?: DateLibOptions
+  _options?: DateLibOptions,
 ): string {
   return `Week ${weekNumber}`;
 }
