@@ -1,7 +1,6 @@
-import React from "react";
-
 import { startOfMonth } from "date-fns";
-import { DayPickerProps } from "react-day-picker";
+import React from "react";
+import type { DayPickerProps } from "react-day-picker";
 
 import styles from "./styles.module.css";
 
@@ -12,7 +11,7 @@ interface NavigationFieldsetProps {
 
 export function NavigationFieldset({
   props,
-  setProps
+  setProps,
 }: NavigationFieldsetProps) {
   return (
     <fieldset>
@@ -31,7 +30,7 @@ export function NavigationFieldset({
               disableNavigation: false,
               numberOfMonths: undefined,
               reverseMonths: false,
-              pagedNavigation: false
+              pagedNavigation: false,
             })
           }
         >
@@ -54,7 +53,7 @@ export function NavigationFieldset({
               setProps({
                 ...props,
                 numberOfMonths:
-                  value === "" ? undefined : Math.max(1, Number(value))
+                  value === "" ? undefined : Math.max(1, Number(value)),
               });
             }}
           />
@@ -69,7 +68,7 @@ export function NavigationFieldset({
               onChange={(e) =>
                 setProps({
                   ...props,
-                  reverseMonths: e.target.checked
+                  reverseMonths: e.target.checked,
                 })
               }
             />
@@ -85,7 +84,7 @@ export function NavigationFieldset({
               onChange={(e) =>
                 setProps({
                   ...props,
-                  pagedNavigation: e.target.checked
+                  pagedNavigation: e.target.checked,
                 })
               }
             />
@@ -127,7 +126,7 @@ export function NavigationFieldset({
           style={{
             borderTop: "1px solid var(--ifm-color-emphasis-200)",
             marginBottom: "1rem",
-            marginTop: "1rem"
+            marginTop: "1rem",
           }}
         />
         <label>
@@ -145,7 +144,7 @@ export function NavigationFieldset({
                     ...props,
                     month: undefined,
                     startMonth: undefined,
-                    endMonth: undefined
+                    endMonth: undefined,
                   });
                   return;
                 }
@@ -159,7 +158,7 @@ export function NavigationFieldset({
                   ...props,
                   month: newMonthDate,
                   startMonth: undefined,
-                  endMonth: undefined
+                  endMonth: undefined,
                 });
               }}
             />
@@ -176,7 +175,7 @@ export function NavigationFieldset({
                     ...props,
                     month: undefined,
                     startMonth: undefined,
-                    endMonth: undefined
+                    endMonth: undefined,
                   });
                   return;
                 }
@@ -190,7 +189,7 @@ export function NavigationFieldset({
                   ...props,
                   month: newMonthDate,
                   startMonth: undefined,
-                  endMonth: undefined
+                  endMonth: undefined,
                 });
               }}
             />
@@ -214,7 +213,7 @@ export function NavigationFieldset({
                   setProps({
                     ...props,
                     startMonth: undefined,
-                    month: props.month
+                    month: props.month,
                   });
                   return;
                 }
@@ -234,7 +233,7 @@ export function NavigationFieldset({
                   month:
                     props.month && new Date(props.month) < newStartMonth
                       ? newStartMonth
-                      : (props.month ?? newStartMonth)
+                      : (props.month ?? newStartMonth),
                 });
               }}
             />
@@ -252,7 +251,7 @@ export function NavigationFieldset({
                   setProps({
                     ...props,
                     startMonth: undefined,
-                    month: props.month
+                    month: props.month,
                   });
                   return;
                 }
@@ -272,7 +271,7 @@ export function NavigationFieldset({
                   month:
                     props.month && new Date(props.month) < newStartMonth
                       ? newStartMonth
-                      : (props.month ?? newStartMonth)
+                      : (props.month ?? newStartMonth),
                 });
               }}
             />
@@ -294,7 +293,7 @@ export function NavigationFieldset({
                   setProps({
                     ...props,
                     endMonth: undefined,
-                    month: props.month
+                    month: props.month,
                   });
                   return;
                 }
@@ -314,7 +313,7 @@ export function NavigationFieldset({
                   month:
                     props.month && new Date(props.month) > newEndMonth
                       ? newEndMonth
-                      : props.month
+                      : props.month,
                 });
               }}
             />
@@ -332,7 +331,7 @@ export function NavigationFieldset({
                   setProps({
                     ...props,
                     endMonth: undefined,
-                    month: props.month
+                    month: props.month,
                   });
                   return;
                 }
@@ -352,7 +351,7 @@ export function NavigationFieldset({
                   month:
                     props.month && new Date(props.month) > newEndMonth
                       ? newEndMonth
-                      : props.month
+                      : props.month,
                 });
               }}
             />

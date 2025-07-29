@@ -1,7 +1,6 @@
-import { useEffect, useMemo, useState } from "react";
-
 import { useHistory, useLocation } from "@docusaurus/router";
-import { type DayPickerProps } from "react-day-picker";
+import { useEffect, useMemo, useState } from "react";
+import type { DayPickerProps } from "react-day-picker";
 import * as locales from "react-day-picker/locale";
 
 const qsProps = [
@@ -36,7 +35,7 @@ const qsProps = [
   "timeZone",
   "toMonth",
   "weeksStartOn",
-  "weekStartsOn"
+  "weekStartsOn",
 ];
 
 export type DayPickerPropsWithCalendar = DayPickerProps & {
@@ -83,7 +82,7 @@ export function useQueryStringSync(basePath: string = "/playground") {
         timeZone: "string",
         toMonth: "string",
         weeksStartOn: "number",
-        weekStartsOn: "number"
+        weekStartsOn: "number",
       };
 
     qsProps.forEach((key) => {
@@ -104,7 +103,7 @@ export function useQueryStringSync(basePath: string = "/playground") {
               break;
             case "locale":
               parsedProps.locale = Object.values(locales).find(
-                (locale) => locale.code === value
+                (locale) => locale.code === value,
               );
               break;
             default:
@@ -136,12 +135,12 @@ export function useQueryStringSync(basePath: string = "/playground") {
           }
         });
 
-      const newQueryString = qs.length === 0 ? "" : "?" + qs.join("&");
+      const newQueryString = qs.length === 0 ? "" : `?${qs.join("&")}`;
       if (location.search !== newQueryString) {
         history.replace(basePath + newQueryString);
       }
     },
-    [history, location.search, basePath]
+    [history, location.search, basePath],
   );
 
   useEffect(() => {

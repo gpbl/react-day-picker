@@ -8,14 +8,18 @@
   "files": {
     "ignoreUnknown": false,
     "includes": [
-      "*.md",
       "*.ts",
       "*.tsx",
       "*.js",
       "src/**/*.ts",
       "src/**/*.tsx",
       "examples/**/*.ts",
-      "examples/**/*.tsx"
+      "examples/**/*.tsx",
+      "website/*.ts",
+      "website/src/**/*.ts",
+      "website/src/**/*.tsx",
+      "examples-app/src/**/*.ts",
+      "examples-app/src/**/*.tsx"
     ]
   },
   "formatter": {

@@ -25,9 +25,10 @@
   ],
   "settings": {
     "cSpell.enabled": true,
-    "editor.defaultFormatter": "biomejs.biome",
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports.biome": "explicit",
+      "source.fixAll.biome": "explicit"
+    },
     "editor.tabSize": 2,
     "npm.packageManager": "pnpm",
     "search.exclude": {
@@ -35,21 +36,5 @@
       "versioned_docs": true
     },
     "jest.runMode": "on-demand",
-    "workbench.colorCustomizations": {
-      "activityBar.background": "#005994",
-      "activityBar.foreground": "#d8d8d8",
-      "activityBar.inactiveForeground": "#d8d8d877",
-      "activityBarBadge.background": "#dd006f",
-      "activityBarBadge.foreground": "#e7e7e7"
-    },
-    "[typescript]": {
-      "editor.defaultFormatter": "biomejs.biome"
-    },
-    "[typescriptreact]": {
-      "editor.defaultFormatter": "biomejs.biome"
-    },
-    "[json]": {
-      "editor.defaultFormatter": "biomejs.biome"
-    }
   }
 }

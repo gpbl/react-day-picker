@@ -4,7 +4,7 @@ import root from "react-shadow";
 
 export function ShadowDomWrapper({
   children,
-  styleStr
+  styleStr,
 }: {
   children: React.ReactNode;
   styleStr: string | undefined;

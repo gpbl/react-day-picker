@@ -1,7 +1,6 @@
-import React from "react";
-
+/** biome-ignore-all lint/suspicious/noArrayIndexKey: not a concern */
 import { usePrismTheme } from "@docusaurus/theme-common";
-import { Highlight, HighlightProps } from "prism-react-renderer";
+import { Highlight, type HighlightProps } from "prism-react-renderer";
 
 export function HighlightWithTheme(props: Partial<HighlightProps>) {
   const prismTheme = usePrismTheme();
@@ -13,11 +12,7 @@ export function HighlightWithTheme(props: Partial<HighlightProps>) {
             return (
               <div key={i}>
                 {line.map((token, key) => {
-                  return (
-                    <>
-                      <span key={key} {...getTokenProps({ token })} />
-                    </>
-                  );
+                  return <span key={key} {...getTokenProps({ token })} />;
                 })}
               </div>
             );

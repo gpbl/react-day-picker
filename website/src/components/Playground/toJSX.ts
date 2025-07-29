@@ -1,4 +1,4 @@
-import { DayPickerProps } from "react-day-picker";
+import type { DayPickerProps } from "react-day-picker";
 
 /**
  * Function to format a json object of props to a jsx source displaying the

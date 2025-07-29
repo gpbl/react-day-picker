@@ -23,6 +23,7 @@ function App() {
     }
   }, []);
 
+  // biome-ignore lint: suspicious/noDynamicNamespaceImportAccess: not a concern
   const Component: React.ComponentType = Examples[
     example as keyof typeof Examples
   ] as React.ComponentType;
