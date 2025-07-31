@@ -5,7 +5,9 @@
       "type": "typescript",
       "tsconfig": "tsconfig-esm.json",
       "option": "watch",
-      "problemMatcher": ["$tsc-watch"],
+      "problemMatcher": [
+        "$tsc-watch"
+      ],
       "group": "build",
       "label": "👀 tsc: watch - tsconfig-esm.json",
       "detail": "Watch the project in ESM format",
@@ -25,13 +27,22 @@
       "type": "typescript",
       "tsconfig": "tsconfig-esm.json",
       "option": "watch",
-      "problemMatcher": ["$tsc-watch"],
+      "problemMatcher": [
+        "$tsc-watch"
+      ],
       "group": "build",
       "label": "⏯️ tsc: watch",
       "detail": "Watch the project in ESM format",
       "runOptions": {
         "runOn": "folderOpen"
       }
+    },
+    {
+      "label": "🧹 lint fix and format",
+      "detail": "Run linting and formatting",
+      "type": "shell",
+      "command": "pnpm lint --fix && pnpm format",
+      "problemMatcher": []
     }
   ]
 }
