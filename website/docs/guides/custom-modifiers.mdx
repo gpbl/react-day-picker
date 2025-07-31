@@ -17,8 +17,8 @@ For example, you can use a custom modifier to mark days as already booked in a b
       new Date(2022, 5, 8),
       new Date(2022, 5, 9),
       new Date(2022, 5, 10),
-      { from: new Date(2022, 5, 15), to: new Date(2022, 5, 20) }
-    ]
+      { from: new Date(2022, 5, 15), to: new Date(2022, 5, 20) },
+    ],
   }}
   onDayClick={(date, modifiers) => {
     if (modifiers.booked) {
@@ -65,7 +65,7 @@ The `hidden` modifier removes a day from the calendar. Use the `hidden` prop to 
 const hiddenDays = [
   new Date(2022, 5, 10),
   new Date(2022, 5, 20),
-  new Date(2022, 5, 11)
+  new Date(2022, 5, 11),
 ];
 
 <DayPicker defaultMonth={hiddenDays[0]} hidden={hiddenDays} />;
@@ -104,17 +104,17 @@ A day can be styled based on its modifiers using CSS or inline styles. For more 
 const bookedDays = [
   new Date(2021, 5, 8),
   new Date(2021, 5, 9),
-  new Date(2021, 5, 11)
+  new Date(2021, 5, 11),
 ];
 export function ModifiersWithClassnames() {
   return (
     <DayPicker
       defaultMonth={bookedDays[0]}
       modifiers={{
-        booked: bookedDays
+        booked: bookedDays,
       }}
       modifiersClassNames={{
-        booked: "my-booked-class"
+        booked: "my-booked-class",
       }}
     />
   );

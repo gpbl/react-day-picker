@@ -3,8 +3,7 @@ name: 🐛 Bug Report
 about: Create a reproducible bug report
 ---
 
-Thanks for reporting a bug for DayPicker. Please provide here a brief description of the issue you’ve encountered. 
-
+Thanks for reporting a bug for DayPicker. Please provide here a brief description of the issue you’ve encountered.
 
 ## To reproduce
 

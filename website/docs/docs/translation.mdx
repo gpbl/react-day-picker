@@ -47,7 +47,7 @@ function ItalianLabels() {
         labelNext: () => "Prossimo mese",
         labelPrevious: () => "Mese precedente",
         labelMonthDropdown: () => "Seleziona il mese",
-        labelYearDropdown: () => "Seleziona l'anno"
+        labelYearDropdown: () => "Seleziona l'anno",
       }}
     />
   );
@@ -124,7 +124,7 @@ import { format } from "date-fns";
 
 <DayPicker
   formatters={{
-    formatCaption: (date, options) => format(date, "LLLL yyyy", options)
+    formatCaption: (date, options) => format(date, "LLLL yyyy", options),
   }}
 />;
 ```

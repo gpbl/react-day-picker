@@ -24,7 +24,7 @@ const options = {
     "Utilities",
     "Hooks",
     "Contexts",
-    "*"
+    "*",
   ],
   readme: "none",
 
@@ -56,9 +56,9 @@ const options = {
     hideOverrides: false,
     hideSources: true,
     hideValues: false,
-    leftAlignHeaders: false
+    leftAlignHeaders: false,
   },
-  plugin: ["typedoc-plugin-markdown", "typedoc-plugin-frontmatter"]
+  plugin: ["typedoc-plugin-markdown", "typedoc-plugin-frontmatter"],
 };
 
 export default options;

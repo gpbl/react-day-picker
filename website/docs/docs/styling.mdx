@@ -158,7 +158,7 @@ export function MyCalendar() {
         today: `border-amber-500`, // Add a border to today's date
         selected: `bg-amber-500 border-amber-500 text-white`, // Highlight the selected day
         root: `${defaultClassNames.root} shadow-lg p-5`, // Add a shadow to the root element
-        chevron: `${defaultClassNames.chevron} fill-amber-500` // Change the color of the chevron
+        chevron: `${defaultClassNames.chevron} fill-amber-500`, // Change the color of the chevron
       }}
     />
   );
@@ -182,12 +182,12 @@ To change the appearance of any DayPicker element using inline styles, use the `
 ```tsx
 const monthCaptionStyle = {
   borderBottom: "1px solid currentColor",
-  paddingBottom: "0.5em"
+  paddingBottom: "0.5em",
 };
 // ...
 <DayPicker
   styles={{
-    month_caption: monthCaptionStyle
+    month_caption: monthCaptionStyle,
   }}
 />;
 ```

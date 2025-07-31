@@ -461,7 +461,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                           {formatYearDropdown(calendarMonth.date, dateLib)}
                         </span>
                       )}
-                      {/** biome-ignore lint/a11y/useSemanticElements: breaking change */}
+                      {/* biome-ignore lint/a11y/useSemanticElements: breaking change */}
                       <span
                         role="status"
                         aria-live="polite"

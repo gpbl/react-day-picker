@@ -48,7 +48,7 @@ export function CustomWeek() {
         range_middle: (date: Date) =>
           selectedWeek
             ? isDateInRange(date, selectedWeek, { excludeEnds: true })
-            : false
+            : false,
       }}
       onDayClick={(day, modifiers) => {
         if (modifiers.selected) {
@@ -57,7 +57,7 @@ export function CustomWeek() {
         }
         setSelectedWeek({
           from: startOfWeek(day),
-          to: endOfWeek(day)
+          to: endOfWeek(day),
         });
       }}
       footer={

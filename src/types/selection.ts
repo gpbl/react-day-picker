@@ -25,10 +25,16 @@ export type SelectedRange<T extends { required?: boolean }> =
  *   const selected: SelectedValue<{ mode: "single" }> = new Date();
  *
  *   // Multiple selection mode
- *   const selected: SelectedValue<{ mode: "multiple" }> = [new Date(), new Date()];
+ *   const selected: SelectedValue<{ mode: "multiple" }> = [
+ *     new Date(),
+ *     new Date(),
+ *   ];
  *
  *   // Range selection mode
- *   const selected: SelectedValue<{ mode: "range" }> = { from: new Date(), to: new Date() };
+ *   const selected: SelectedValue<{ mode: "range" }> = {
+ *     from: new Date(),
+ *     to: new Date(),
+ *   };
  */
 export type SelectedValue<T> = T extends { mode: "single"; required?: boolean }
   ? SelectedSingle<T>
@@ -64,7 +70,7 @@ export type SelectHandlerRange<T extends { required?: boolean | undefined }> = (
  *   const handleSelect: SelectHandler<{ mode: "single" }> = (
  *     triggerDate,
  *     modifiers,
- *     e
+ *     e,
  *   ) => {
  *     console.log("Selected date:", triggerDate);
  *   };

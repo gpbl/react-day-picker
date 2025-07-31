@@ -1,12 +1,12 @@
-import { ByRoleOptions, screen } from "@testing-library/react";
+import { type ByRoleOptions, screen } from "@testing-library/react";
 
 import {
   DayFlag,
-  SelectionState,
   labelDayButton,
   labelGridcell,
   labelMonthDropdown,
-  labelYearDropdown
+  labelYearDropdown,
+  SelectionState,
 } from "../src";
 
 /** Return the application element from the screen. */
@@ -17,14 +17,14 @@ export function app() {
 /** Return the previous button element from the screen. */
 export function previousButton() {
   return screen.getByRole("button", {
-    name: "Go to the Previous Month"
+    name: "Go to the Previous Month",
   });
 }
 
 /** Return the next button element from the screen. */
 export function nextButton() {
   return screen.getByRole("button", {
-    name: "Go to the Next Month"
+    name: "Go to the Next Month",
   });
 }
 
@@ -68,10 +68,10 @@ export function dateButton(date: Date) {
         [SelectionState.range_end]: false,
         [SelectionState.range_middle]: false,
         [SelectionState.range_start]: false,
-        [SelectionState.selected]: false
+        [SelectionState.selected]: false,
       }),
-      "s"
-    )
+      "s",
+    ),
   });
 }
 
@@ -85,10 +85,10 @@ export function dateButton(date: Date) {
 export function gridcell(date: Date, interactive?: boolean) {
   if (interactive)
     return screen.getByRole("gridcell", {
-      name: date.getDate().toString()
+      name: date.getDate().toString(),
     });
   return screen.getByRole("gridcell", {
-    name: labelGridcell(date)
+    name: labelGridcell(date),
   });
 }
 
