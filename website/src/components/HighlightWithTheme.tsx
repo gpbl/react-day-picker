@@ -1,4 +1,4 @@
-/** biome-ignore-all lint/suspicious/noArrayIndexKey: not a concern */
+/** Biome-ignore-all lint/suspicious/noArrayIndexKey: not a concern */
 import { usePrismTheme } from "@docusaurus/theme-common";
 import { Highlight, type HighlightProps } from "prism-react-renderer";
 

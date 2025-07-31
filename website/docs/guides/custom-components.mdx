@@ -34,7 +34,7 @@ Pass the components you want to customize to the `components` prop. See the [lis
 <DayPicker
   components={{
     Day: CustomDaycell,
-    MonthGrid: CustomMonthGrid
+    MonthGrid: CustomMonthGrid,
     // etc.
   }}
 />
@@ -142,7 +142,7 @@ export function CustomDayButton() {
         selected={selected}
         onSelect={setSelected}
         components={{
-          DayButton
+          DayButton,
         }}
         footer={selected?.toDateString() || "Double click to select a date"}
       />
@@ -170,7 +170,7 @@ import {
   SelectGroup,
   SelectItem,
   SelectTrigger,
-  SelectValue
+  SelectValue,
 } from "@/components/ui/select";
 
 export function CustomSelectDropdown(props: DropdownProps) {
@@ -180,8 +180,8 @@ export function CustomSelectDropdown(props: DropdownProps) {
     if (onChange) {
       const syntheticEvent = {
         target: {
-          value: newValue
-        }
+          value: newValue,
+        },
       } as React.ChangeEvent<HTMLSelectElement>;
 
       onChange(syntheticEvent);

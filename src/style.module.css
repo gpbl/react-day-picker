@@ -14,7 +14,9 @@
   --rdp-selected-border: 2px solid var(--rdp-accent-color); /* The border of the selected days. */
   --rdp-disabled-opacity: 0.5; /* The opacity of the disabled days. */
   --rdp-outside-opacity: 0.75; /* The opacity of the days outside the current month. */
-  --rdp-today-color: var(--rdp-accent-color); /* The color of the today's date. */
+  --rdp-today-color: var(
+    --rdp-accent-color
+  ); /* The color of the today's date. */
 
   --rdp-dropdown-gap: 0.5rem; /* The gap between the dropdowns used in the month captons. */
 
@@ -25,7 +27,9 @@
   --rdp-nav_button-width: 2.25rem; /* The width of the navigation buttons. */
   --rdp-nav-height: 2.75rem; /* The height of the navigation bar. */
 
-  --rdp-range_middle-background-color: var(--rdp-accent-background-color); /* The color of the background for days in the middle of a range. */
+  --rdp-range_middle-background-color: var(
+    --rdp-accent-background-color
+  ); /* The color of the background for days in the middle of a range. */
   --rdp-range_middle-color: inherit; /* The color of the range text. */
 
   --rdp-range_start-color: white; /* The color of the range text. */
@@ -34,7 +38,9 @@
     transparent 50%,
     var(--rdp-range_middle-background-color) 50%
   ); /* Used for the background of the start of the selected range. */
-  --rdp-range_start-date-background-color: var(--rdp-accent-color); /* The background color of the date when at the start of the selected range. */
+  --rdp-range_start-date-background-color: var(
+    --rdp-accent-color
+  ); /* The background color of the date when at the start of the selected range. */
 
   --rdp-range_end-background: linear-gradient(
     var(--rdp-gradient-direction),
@@ -42,14 +48,20 @@
     transparent 50%
   ); /* Used for the background of the end of the selected range. */
   --rdp-range_end-color: white; /* The color of the range text. */
-  --rdp-range_end-date-background-color: var(--rdp-accent-color); /* The background color of the date when at the end of the selected range. */
+  --rdp-range_end-date-background-color: var(
+    --rdp-accent-color
+  ); /* The background color of the date when at the end of the selected range. */
 
   --rdp-week_number-border-radius: 100%; /* The border radius of the week number. */
   --rdp-week_number-border: 2px solid transparent; /* The border of the week number. */
 
-  --rdp-week_number-height: var(--rdp-day-height); /* The height of the week number cells. */
+  --rdp-week_number-height: var(
+    --rdp-day-height
+  ); /* The height of the week number cells. */
   --rdp-week_number-opacity: 0.75; /* The opacity of the week number. */
-  --rdp-week_number-width: var(--rdp-day-width); /* The width of the week number cells. */
+  --rdp-week_number-width: var(
+    --rdp-day-width
+  ); /* The width of the week number cells. */
   --rdp-weeknumber-text-align: center; /* The text alignment of the weekday cells. */
 
   --rdp-weekday-opacity: 0.75; /* The opacity of the weekday. */

@@ -179,10 +179,10 @@ If you need to return a `ReactElement`, use a [custom component](./guides/custom
 ```tsx
 <DayPicker
   formatters={{
-    formatCaption: (month) => format(month, "LLLL y") // ✅ return a string
+    formatCaption: (month) => format(month, "LLLL y"), // ✅ return a string
   }}
   components={{
-    Caption: ({ children }) => <strong>{children}</strong> // ✅ return a ReactElement
+    Caption: ({ children }) => <strong>{children}</strong>, // ✅ return a ReactElement
   }}
 />
 ```

@@ -170,7 +170,7 @@ export type Labels = {
  *   // Match weekends and specific holidays
  *   const matcher: Matcher = [
  *     { dayOfWeek: [0, 6] }, // Weekends
- *     { from: new Date(2023, 11, 24), to: new Date(2023, 11, 26) } // Christmas
+ *     { from: new Date(2023, 11, 24), to: new Date(2023, 11, 26) }, // Christmas
  *   ];
  */
 export type Matcher =
@@ -210,7 +210,7 @@ export type DateBefore = { before: Date };
  *   // Match days between February 2 and February 5, 2019
  *   const matcher: DateInterval = {
  *     after: new Date(2019, 1, 2),
- *     before: new Date(2019, 1, 5)
+ *     before: new Date(2019, 1, 5),
  *   };
  */
 export type DateInterval = { before: Date; after: Date };
@@ -222,7 +222,7 @@ export type DateInterval = { before: Date; after: Date };
  *   // Match days between February 2 and February 5, 2019
  *   const matcher: DateRange = {
  *     from: new Date(2019, 1, 2),
- *     to: new Date(2019, 1, 5)
+ *     to: new Date(2019, 1, 5),
  *   };
  */
 export type DateRange = { from: Date | undefined; to?: Date | undefined };
@@ -272,7 +272,7 @@ export type MonthChangeEventHandler = (month: Date) => void;
  *   const classNames: ClassNames = {
  *     [UI.Root]: "root",
  *     [UI.Outside]: "outside",
- *     [UI.Nav]: "nav"
+ *     [UI.Nav]: "nav",
  *     // etc.
  *   };
  */
@@ -295,7 +295,7 @@ export type Styles = {
  *   const modifiers: Modifiers = {
  *     today: true, // The day is today
  *     selected: false, // The day is not selected
- *     weekend: true // Custom modifier for weekends
+ *     weekend: true, // Custom modifier for weekends
  *   };
  *
  * @see https://daypicker.dev/guides/custom-modifiers
@@ -309,7 +309,7 @@ export type Modifiers = Record<string, boolean>;
  *   const modifiersStyles: ModifiersStyles = {
  *     today: { color: "red" },
  *     selected: { backgroundColor: "blue" },
- *     weekend: { color: "green" }
+ *     weekend: { color: "green" },
  *   };
  */
 export type ModifiersStyles = Record<string, CSSProperties>;
@@ -321,7 +321,7 @@ export type ModifiersStyles = Record<string, CSSProperties>;
  *   const modifiersClassNames: ModifiersClassNames = {
  *     today: "today", // Use the "today" class for the today's day
  *     selected: "highlight", // Use the "highlight" class for the selected day
- *     weekend: "weekend" // Use the "weekend" class for the weekend days
+ *     weekend: "weekend", // Use the "weekend" class for the weekend days
  *   };
  */
 export type ModifiersClassNames = Record<string, string>;

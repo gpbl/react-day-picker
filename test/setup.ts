@@ -5,10 +5,10 @@ import "html-validate/jest";
 import "./dateMatchers";
 
 configure({
-  getElementError: (message, container) => {
+  getElementError: (message, _container) => {
     const error = new Error(message as string | undefined);
     error.name = "TestingLibraryElementError";
     error.stack = undefined;
     return error;
-  }
+  },
 });

@@ -565,7 +565,7 @@ export interface PropsBase {
  *     selected,
  *     triggerDate,
  *     modifiers,
- *     e
+ *     e,
  *   ) => {
  *     console.log("Selected:", selected);
  *     console.log("Triggered by:", triggerDate);

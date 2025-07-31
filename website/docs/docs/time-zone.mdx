@@ -32,7 +32,7 @@ import { DayPicker, TZDate } from "react-day-picker";
 export function TimeZone() {
   const timeZone = "America/New_York";
   const [selected, setSelected] = useState<Date | undefined>(
-    new TZDate(2024, 12, 10, timeZone) // Use `TZDate` instead of `Date`
+    new TZDate(2024, 12, 10, timeZone), // Use `TZDate` instead of `Date`
   );
   return (
     <DayPicker
