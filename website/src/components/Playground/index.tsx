@@ -1,17 +1,13 @@
-import React, { useEffect, useMemo } from "react";
-
-import { useHistory, useLocation } from "@docusaurus/router";
-import { Locale } from "date-fns-jalali";
+import React from "react";
 import {
-  type DateRange,
-  type DayPickerProps,
   DateLib,
+  type DateRange,
   DayPicker,
   isDateRange,
 } from "react-day-picker";
 import * as locales from "react-day-picker/locale";
 import {
-  DayPicker as DayPickerpersian,
+  DayPicker as DayPickerPersian,
   faIR as faIRpersian,
   getDateLib,
 } from "react-day-picker/persian";
@@ -54,13 +50,12 @@ export function Playground() {
       `import { DayPicker } from "react-day-picker/persian";\n\n` +
       formattedProps;
   } else {
-    formattedProps =
-      `import { DayPicker } from "react-day-picker";\n\n` + formattedProps;
+    formattedProps = `import { DayPicker } from "react-day-picker";\n\n${formattedProps}`;
   }
   const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
   const DayPickerComponent =
-    props.calendar === "persian" ? DayPickerpersian : DayPicker;
+    props.calendar === "persian" ? DayPickerPersian : DayPicker;
 
   const dateLib =
     props.calendar === "persian"
@@ -125,7 +120,7 @@ export function Playground() {
       </div>
       <div className={styles.props}>
         <h2>Selection</h2>
-        <p role="status" aria-live="polite">
+        <output aria-live="polite">
           {selected ? (
             <div>
               <pre>
@@ -171,7 +166,7 @@ export function Playground() {
           ) : (
             "Choose a selection mode to display the selected days."
           )}
-        </p>
+        </output>
         <h2>Code</h2>
         <HighlightWithTheme code={formattedProps} language="tsx" />
       </div>

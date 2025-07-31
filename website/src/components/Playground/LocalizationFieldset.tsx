@@ -1,19 +1,19 @@
 import React from "react";
 
 import {
+  type DayPickerProps,
   dateLib,
-  DayPickerProps,
   defaultDateLib,
-  Numerals
+  type Numerals,
 } from "react-day-picker";
 import * as locales from "react-day-picker/locale";
 import {
   enUS as enUSPersian,
-  faIR as faIRPersian
+  faIR as faIRPersian,
 } from "react-day-picker/persian";
 
 import styles from "./styles.module.css";
-import { DayPickerPropsWithCalendar } from "./useQueryStringSync";
+import type { DayPickerPropsWithCalendar } from "./useQueryStringSync";
 
 const timeZones = [
   "UTC",
@@ -47,7 +47,7 @@ const timeZones = [
   "Europe/Paris",
   "Europe/Rome",
   "Pacific/Auckland",
-  "Pacific/Honolulu"
+  "Pacific/Honolulu",
 ];
 
 const numerals: { value: Numerals; label: string }[] = [
@@ -62,7 +62,7 @@ const numerals: { value: Numerals; label: string }[] = [
   { value: "tamldec", label: "Tamil" },
   { value: "telu", label: "Telugu" },
   { value: "knda", label: "Kannada" },
-  { value: "mlym", label: "Malayalam" }
+  { value: "mlym", label: "Malayalam" },
 ];
 const calendars: ("persian" | "gregorian")[] = ["gregorian", "persian"];
 const persianLocales = { faIR: faIRPersian, enUS: enUSPersian };
@@ -72,11 +72,10 @@ interface LocalizationFieldsetProps {
   setProps: React.Dispatch<React.SetStateAction<DayPickerPropsWithCalendar>>;
   currentTimeZone: string;
 }
-
 export function LocalizationFieldset({
   props,
   setProps,
-  currentTimeZone
+  currentTimeZone,
 }: LocalizationFieldsetProps) {
   return (
     <fieldset>
@@ -95,7 +94,7 @@ export function LocalizationFieldset({
               firstWeekContainsDate: undefined,
               ISOWeek: false,
               dir: undefined,
-              broadcastCalendar: false
+              broadcastCalendar: false,
             });
           }}
         >
@@ -113,7 +112,7 @@ export function LocalizationFieldset({
                 ...props,
                 calendar: e.target.value as "gregorian" | "persian",
                 locale: e.target.value === "persian" ? faIRPersian : undefined,
-                dir: e.target.value === "persian" ? "rtl" : undefined
+                dir: e.target.value === "persian" ? "rtl" : undefined,
               });
             }}
           >
@@ -133,7 +132,7 @@ export function LocalizationFieldset({
             onChange={(e) =>
               setProps({
                 ...props,
-                timeZone: e.target.value
+                timeZone: e.target.value,
               })
             }
           >
@@ -158,15 +157,16 @@ export function LocalizationFieldset({
                   e.target.value === ""
                     ? undefined
                     : Object.values(locales).find(
-                        (locale) => locale.code === e.target.value
-                      )
+                        (locale) => locale.code === e.target.value,
+                      ),
               })
             }
           >
             <option value=""></option>
             {Object.keys(
-              props.calendar === "persian" ? persianLocales : locales
+              props.calendar === "persian" ? persianLocales : locales,
             ).map((locale) => {
+              // biome-ignore lint/performance/noDynamicNamespaceImportAccess: not a concern
               const code = locales[locale as keyof typeof locales].code;
               return (
                 <option key={locale} value={code}>
@@ -188,7 +188,7 @@ export function LocalizationFieldset({
                 ...props,
                 numerals: !e.target.value
                   ? undefined
-                  : (e.target.value as Numerals)
+                  : (e.target.value as Numerals),
               })
             }
           >
@@ -212,7 +212,7 @@ export function LocalizationFieldset({
                 ...props,
                 weekStartsOn: (e.target.value
                   ? Number(e.target.value)
-                  : undefined) as DayPickerProps["weekStartsOn"] | undefined
+                  : undefined) as DayPickerProps["weekStartsOn"] | undefined,
               })
             }
           >
@@ -234,8 +234,8 @@ export function LocalizationFieldset({
               setProps({
                 ...props,
                 firstWeekContainsDate: Number(
-                  e.target.value
-                ) as DayPickerProps["firstWeekContainsDate"]
+                  e.target.value,
+                ) as DayPickerProps["firstWeekContainsDate"],
               })
             }
           >
@@ -265,7 +265,7 @@ export function LocalizationFieldset({
             onChange={(e) =>
               setProps({
                 ...props,
-                dir: e.target.checked ? "rtl" : undefined
+                dir: e.target.checked ? "rtl" : undefined,
               })
             }
           />
@@ -281,7 +281,9 @@ export function LocalizationFieldset({
               setProps({
                 ...props,
                 broadcastCalendar: e.target.checked,
-                showOutsideDays: e.target.checked ? true : props.showOutsideDays
+                showOutsideDays: e.target.checked
+                  ? true
+                  : props.showOutsideDays,
               })
             }
           />

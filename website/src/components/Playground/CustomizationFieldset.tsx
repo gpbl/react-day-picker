@@ -1,7 +1,6 @@
-import React from "react";
-
 import { startOfMonth } from "date-fns";
-import { DayPickerProps } from "react-day-picker";
+import React from "react";
+import type { DayPickerProps } from "react-day-picker";
 
 import styles from "./styles.module.css";
 
@@ -16,7 +15,7 @@ export function CustomizationFieldset({
   props,
   setProps,
   accentColor,
-  setAccentColor
+  setAccentColor,
 }: CustomizationFieldsetProps) {
   return (
     <fieldset>
@@ -32,7 +31,7 @@ export function CustomizationFieldset({
               showOutsideDays: false,
               showWeekNumber: false,
               fixedWeeks: false,
-              hideWeekdays: false
+              hideWeekdays: false,
             });
             setAccentColor("");
           }}
@@ -54,7 +53,7 @@ export function CustomizationFieldset({
                 | "dropdown-years";
               const newProps = {
                 ...props,
-                captionLayout: newCaptionLayout
+                captionLayout: newCaptionLayout,
               } as DayPickerProps;
               if (newCaptionLayout === "dropdown") {
                 const today = new Date();
@@ -84,7 +83,7 @@ export function CustomizationFieldset({
             onChange={(e) => {
               const newProps = {
                 ...props,
-                navLayout: e.target.value ?? undefined
+                navLayout: e.target.value ?? undefined,
               } as DayPickerProps;
               setProps(newProps);
             }}

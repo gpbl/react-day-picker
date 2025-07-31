@@ -1,6 +1,6 @@
 import React from "react";
 
-import { DayPickerProps, DateRange } from "react-day-picker";
+import type { DateRange, DayPickerProps } from "react-day-picker";
 
 import styles from "./styles.module.css";
 
@@ -24,7 +24,7 @@ export function SelectionFieldset({
   backgroundAccentColor,
   setBackgroundAccentColor,
   rangeMiddleColor,
-  setRangeMiddleColor
+  setRangeMiddleColor,
 }: SelectionFieldsetProps) {
   return (
     <fieldset>
@@ -42,7 +42,7 @@ export function SelectionFieldset({
               required: undefined,
               min: undefined,
               max: undefined,
-              selected: undefined
+              selected: undefined,
             });
             setBackgroundAccentColor("");
             setRangeMiddleColor("");
@@ -61,7 +61,7 @@ export function SelectionFieldset({
               const mode = e.target.value || undefined;
               const newProps = {
                 ...props,
-                mode
+                mode,
               };
               setSelected(undefined);
               // @ts-expect-error Not working well with the union type
@@ -102,7 +102,7 @@ export function SelectionFieldset({
               onChange={(e) => {
                 setProps({
                   ...props,
-                  min: Number(e.target.value)
+                  min: Number(e.target.value),
                 });
               }}
             />
@@ -121,7 +121,7 @@ export function SelectionFieldset({
               onChange={(e) => {
                 setProps({
                   ...props,
-                  max: Number(e.target.value)
+                  max: Number(e.target.value),
                 });
               }}
             />
