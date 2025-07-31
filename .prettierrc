@@ -1,0 +1,11 @@
+{
+  "plugins": ["prettier-plugin-jsdoc"],
+  "overrides": [
+    {
+      "files": ["*.md", "*.mdx"]
+    },
+    {
+      "files": ["*.ts", "*.tsx"]
+    }
+  ]
+}

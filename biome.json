@@ -8,18 +8,13 @@
   "files": {
     "ignoreUnknown": false,
     "includes": [
-      "*.ts",
-      "*.tsx",
-      "*.js",
-      "src/**/*.ts",
-      "src/**/*.tsx",
-      "examples/**/*.ts",
-      "examples/**/*.tsx",
-      "website/*.ts",
-      "website/src/**/*.ts",
-      "website/src/**/*.tsx",
-      "examples-app/src/**/*.ts",
-      "examples-app/src/**/*.tsx"
+      "**/*.ts",
+      "**/*.tsx",
+      "!**/dist/**",
+      "!**/build/**",
+      "!**/versioned_docs/**",
+      "!website/.docusaurus/**",
+      "!website/examples-v8/**"
     ]
   },
   "formatter": {

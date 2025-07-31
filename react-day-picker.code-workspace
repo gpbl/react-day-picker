@@ -4,7 +4,8 @@
       "orta.vscode-jest",
       "andys8.jest-snippets",
       "streetsidesoftware.code-spell-checker",
-      "biomejs.biome"
+      "biomejs.biome",
+      "esbenp.prettier-vscode"
     ]
   },
   "folders": [
