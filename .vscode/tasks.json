@@ -38,10 +38,10 @@
       }
     },
     {
-      "label": "🧹 lint fix and format",
-      "detail": "Run linting and formatting",
+      "label": "🧹 format and lint",
+      "detail": "Run formatting and linting",
       "type": "shell",
-      "command": "pnpm lint --fix && pnpm format",
+      "command": "pnpm format && pnpm lint --fix",
       "problemMatcher": []
     }
   ]
