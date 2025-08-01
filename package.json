@@ -175,7 +175,6 @@
   },
   "files": [
     "dist",
-    "src",
     "jalali.js",
     "jalali.d.ts",
     "persian.js",
