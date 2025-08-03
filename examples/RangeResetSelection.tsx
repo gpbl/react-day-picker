@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { format } from "date-fns";
+
 import {
   type DateRange,
   type DayEventHandler,
@@ -32,6 +34,12 @@ export function RangeResetSelection() {
       selected={selected}
       onSelect={handleSelect}
       onDayClick={handleDayClick}
+      footer={
+        <div>
+          <p data-testid="from">from: {selected?.from && format(selected?.from, "yyyy-MM-dd")}</p>
+          <p data-testid="to">to: {selected?.to && format(selected?.to, "yyyy-MM-dd")}</p>
+        </div>
+      }
     />
   );
 }
