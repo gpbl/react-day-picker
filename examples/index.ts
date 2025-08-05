@@ -68,6 +68,7 @@ export * from "./RangeLong";
 export * from "./RangeLongExcludeDisabled";
 export * from "./RangeMinMax";
 export * from "./RangeRequired";
+export * from "./RangeResetSelection";
 export * from "./RangeShiftKey";
 export * from "./Rtl";
 export * from "./Single";
