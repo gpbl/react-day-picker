@@ -1,12 +1,10 @@
+import { screen } from "@testing-library/react";
 import { addDays } from "date-fns";
 import React from "react";
-
 import { dateButton } from "@/test/elements";
 import { render } from "@/test/render";
 import { user } from "@/test/user";
-
 import { RangeResetSelection } from "./RangeResetSelection";
-import { screen } from "@testing-library/react";
 
 const today = new Date(2022, 8, 12);
 
