@@ -43,5 +43,6 @@
       "versioned_docs": true
     },
     "jest.runMode": "on-demand",
+    "editor.defaultFormatter": "biomejs.biome",
   }
 }
