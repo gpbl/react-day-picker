@@ -1,6 +1,6 @@
 import { TZDate } from "@date-fns/tz";
 import type { ChangeEvent, FocusEvent, KeyboardEvent, MouseEvent } from "react";
-import React, { useCallback, useMemo, useRef } from "react";
+import React, { Fragment, useCallback, useMemo, useRef } from "react";
 import type { CalendarDay } from "./classes/CalendarDay.js";
 import { DateLib, defaultLocale } from "./classes/DateLib.js";
 import { createGetModifiers } from "./helpers/createGetModifiers.js";
@@ -311,6 +311,18 @@ export function DayPicker(initialProps: DayPickerProps) {
     [classNames, props.className, props.style, styles],
   );
 
+  const dropdownTypes = useMemo(() => {
+    const format = new Intl.DateTimeFormat(locale.code, {
+      year: "numeric",
+      month: "numeric",
+    });
+    return format
+      .formatToParts()
+      .flatMap((part) =>
+        part.type === "year" || part.type === "month" ? [part.type] : [],
+      );
+  }, [locale.code]);
+
   const dataAttributes = getDataAttributes(props);
 
   const rootElRef = useRef<HTMLDivElement>(null);
@@ -425,42 +437,52 @@ export function DayPicker(initialProps: DayPickerProps) {
                       className={classNames[UI.Dropdowns]}
                       style={styles?.[UI.Dropdowns]}
                     >
-                      {captionLayout === "dropdown" ||
-                      captionLayout === "dropdown-months" ? (
-                        <components.MonthsDropdown
-                          className={classNames[UI.MonthsDropdown]}
-                          aria-label={labelMonthDropdown()}
-                          classNames={classNames}
-                          components={components}
-                          disabled={Boolean(props.disableNavigation)}
-                          onChange={handleMonthChange(calendarMonth.date)}
-                          options={dropdownMonths}
-                          style={styles?.[UI.Dropdown]}
-                          value={dateLib.getMonth(calendarMonth.date)}
-                        />
-                      ) : (
-                        <span>
-                          {formatMonthDropdown(calendarMonth.date, dateLib)}
-                        </span>
-                      )}
-                      {captionLayout === "dropdown" ||
-                      captionLayout === "dropdown-years" ? (
-                        <components.YearsDropdown
-                          className={classNames[UI.YearsDropdown]}
-                          aria-label={labelYearDropdown(dateLib.options)}
-                          classNames={classNames}
-                          components={components}
-                          disabled={Boolean(props.disableNavigation)}
-                          onChange={handleYearChange(calendarMonth.date)}
-                          options={dropdownYears}
-                          style={styles?.[UI.Dropdown]}
-                          value={dateLib.getYear(calendarMonth.date)}
-                        />
-                      ) : (
-                        <span>
-                          {formatYearDropdown(calendarMonth.date, dateLib)}
-                        </span>
-                      )}
+                      {dropdownTypes.map((type) => {
+                        const uiKey =
+                          type === "month" ? "MonthsDropdown" : "YearsDropdown";
+                        const Dropdown = components[uiKey];
+                        const dropdownLabelGetter =
+                          type === "month"
+                            ? labelMonthDropdown
+                            : labelYearDropdown;
+                        const handleChange =
+                          type === "month"
+                            ? handleMonthChange
+                            : handleYearChange;
+                        const options =
+                          type === "month" ? dropdownMonths : dropdownYears;
+                        const valueGetter =
+                          type === "month" ? dateLib.getMonth : dateLib.getYear;
+                        const formatLabel =
+                          type === "month"
+                            ? formatMonthDropdown
+                            : formatYearDropdown;
+
+                        return (
+                          <Fragment key={type}>
+                            {captionLayout === "dropdown" ||
+                            captionLayout === `dropdown-${type}s` ? (
+                              <Dropdown
+                                className={classNames[UI[uiKey]]}
+                                aria-label={dropdownLabelGetter(
+                                  dateLib.options,
+                                )}
+                                classNames={classNames}
+                                components={components}
+                                disabled={Boolean(props.disableNavigation)}
+                                onChange={handleChange(calendarMonth.date)}
+                                options={options}
+                                style={styles?.[UI.Dropdown]}
+                                value={valueGetter(calendarMonth.date)}
+                              />
+                            ) : (
+                              <span>
+                                {formatLabel(calendarMonth.date, dateLib)}
+                              </span>
+                            )}
+                          </Fragment>
+                        );
+                      })}
                       {/* biome-ignore lint/a11y/useSemanticElements: breaking change */}
                       <span
                         role="status"
