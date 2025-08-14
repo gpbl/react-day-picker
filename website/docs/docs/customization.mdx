@@ -9,11 +9,14 @@ Use the customization props to tailor the calendar's appearance.
 | Prop Name         | Type                                                                         | Description                                                                                                                                 |
 | ----------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | `captionLayout`   | `"label"`<br/> `"dropdown"`<br/> `"dropdown-months"`<br/> `"dropdown-years"` | Choose the layout of the month caption. Default is `label`.                                                                                 |
+| `reverseYears`    | `boolean`                                                                    | Reverse the order of the years in the dropdown.                                                                                             |
 | `navLayout`       | `"around"` \| `"after"`                                                      | Adjust the positioning of the navigation buttons.                                                                                           |
 | `fixedWeeks`      | `boolean`                                                                    | Display 6 weeks per month.                                                                                                                  |
 | `footer`          | `ReactNode` \| `string`                                                      | Add a footer to the calendar, acting as a [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions). |
 | `hideWeekdays`    | `boolean`                                                                    | Hide the row displaying the weekday names.                                                                                                  |
 | `numberOfMonths`  | `number`                                                                     | The number of displayed months. Default is `1`.                                                                                             |
+| `reverseMonths`   | `boolean`                                                                    | When displaying multiple months, reverse the order of the months.                                                                           |
+| `pagedNavigation` | `boolean`                                                                    | Enable paginated navigation when displaying multiple months.                                                                                |
 | `showOutsideDays` | `boolean`                                                                    | Display the days falling into other months.                                                                                                 |
 | `showWeekNumber`  | `boolean`                                                                    | Display the column with the [week numbers](#showweeknumber).                                                                                |
 
@@ -34,7 +37,18 @@ Use the `captionLayout` prop to customize the layout of the month caption.
 
 ### Caption Dropdown
 
-To enable a navigation dropdown, set `captionLayout="dropdown"`. Use the `startMonth` and `endMonth` properties to define the start and end dates for the calendar navigation.
+To enable a navigation dropdown, set `captionLayout` to `dropdown`, `dropdown-months`, or `dropdown-years`.
+
+- When displaying the dropdown for the years, use the `reverseYears` prop to reverse the order of the years.
+- Use the `startMonth` and `endMonth` properties to define the start and end dates for the calendar navigation.
+
+:::info Default Range
+
+Without specifying the `startMonth` and `endMonth` properties, the dropdown will display the last 100 years.
+
+:::
+
+#### Example
 
 ```tsx
 <DayPicker
@@ -48,12 +62,6 @@ To enable a navigation dropdown, set `captionLayout="dropdown"`. Use the `startM
 <BrowserWindow>
   <Examples.Dropdown />
 </BrowserWindow>
-
-:::info Default Range
-
-Without specifying the `startMonth` and `endMonth` properties, the dropdown will display the last 100 years.
-
-:::
 
 ## Navigation Layouts
 
