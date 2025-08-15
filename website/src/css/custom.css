@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
@@ -15,8 +17,7 @@
   --ifm-color-primary-lightest: #4d4dff;
   --ifm-global-shadow-lw: 1px 1px 1px 0px rgba(0, 0, 0, 0.1);
   --ifm-menu-color: var(--ifm-color-emphasis-200);
-
-  /* --ifm-code-font-size: 80%; */
+  --ifm-font-family-monospace: 'JetBrains Mono', monospace;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 
   --ifm-menu-color: unset;
@@ -119,7 +120,7 @@ html[data-theme="dark"] {
   margin-right: 0.75em;
 }
 .markdown a[href^="http"]:after {
-  content: "↗"; /* Example: Unicode character for an external link icon */
+  content: "↗";
   font-size: 0.75em;
   padding-left: 1px;
   top: 0.3em;
@@ -129,7 +130,6 @@ html[data-theme="dark"] {
 
 .markdown h1:first-child {
   font-size: 2.25rem;
-  /* margin-block: 1em; */
   letter-spacing: -0.015em;
 }
 @media (max-width: 996px) {
@@ -161,15 +161,6 @@ html[data-theme="dark"] {
   letter-spacing: -0.015em;
 }
 
-code {
-  padding: 0.2em 0.4em;
-  margin: 0;
-  font-size: 85%;
-  white-space: break-spaces;
-  border-radius: 6px;
-  border: 0;
-}
-
 a > code {
   padding: unset;
   background: unset;
@@ -191,10 +182,6 @@ a.menu__link--active {
 }
 a.menu__link[aria-expanded] {
   font-weight: 600;
-}
-
-.menu__list-item-collapsible {
-  /* margin-block-start: 1rem; */
 }
 
 a.menu__link[aria-expanded]:hover {
@@ -406,7 +393,6 @@ div.theme-admonition {
   border-left-width: 2px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  /* border-radius: 0; */
 }
 
 .theme-admonition p {
