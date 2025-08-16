@@ -44,3 +44,25 @@ test("return correct dropdown options", () => {
     { value: 2024, label: "2024", disabled: false },
   ]);
 });
+
+test("return reversed dropdown options when reverse is true", () => {
+  const startMonth = new Date(2022, 0, 1); // January 2022
+  const endMonth = new Date(2024, 11, 31); // December 2024
+  const formatters = getFormatters({
+    formatYearDropdown: (date: Date) => `${date.getFullYear()}`,
+  });
+
+  const result = getYearOptions(
+    startMonth,
+    endMonth,
+    formatters,
+    defaultDateLib,
+    true,
+  );
+
+  expect(result).toEqual([
+    { value: 2024, label: "2024", disabled: false },
+    { value: 2023, label: "2023", disabled: false },
+    { value: 2022, label: "2022", disabled: false },
+  ]);
+});

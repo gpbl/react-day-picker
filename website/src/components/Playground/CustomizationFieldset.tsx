@@ -41,6 +41,24 @@ export function CustomizationFieldset({
       </legend>
       <div className={styles.fields}>
         <label>
+          Navigation Layout:
+          <select
+            name="navLayout"
+            value={props.navLayout ?? ""}
+            onChange={(e) => {
+              const newProps = {
+                ...props,
+                navLayout: e.target.value ?? undefined,
+              } as DayPickerProps;
+              setProps(newProps);
+            }}
+          >
+            <option value=""></option>
+            <option value="around">Around</option>
+            <option value="after">After</option>
+          </select>
+        </label>
+        <label>
           Caption Layout:
           <select
             name="captionLayout"
@@ -71,28 +89,30 @@ export function CustomizationFieldset({
             <option></option>
             <option value="label">Label</option>
             <option value="dropdown">Dropdown</option>
-            <option value="dropdown-months">Dropdown months</option>
-            <option value="dropdown-years">Dropdown years</option>
+            <option value="dropdown-months">Dropdown Months</option>
+            <option value="dropdown-years">Dropdown Years</option>
           </select>
         </label>
-        <label>
-          Navigation Layout:
-          <select
-            name="navLayout"
-            value={props.navLayout ?? ""}
-            onChange={(e) => {
-              const newProps = {
-                ...props,
-                navLayout: e.target.value ?? undefined,
-              } as DayPickerProps;
-              setProps(newProps);
-            }}
-          >
-            <option value=""></option>
-            <option value="around">Around</option>
-            <option value="after">After</option>
-          </select>
-        </label>
+        {(props.captionLayout === "dropdown" ||
+          props.captionLayout === "dropdown-years") && (
+          <label>
+            <input
+              type="checkbox"
+              name="reverseYears"
+              checked={!!props.reverseYears}
+              onChange={(e) =>
+                setProps({ ...props, reverseYears: e.target.checked })
+              }
+              disabled={
+                !(
+                  props.captionLayout === "dropdown" ||
+                  props.captionLayout === "dropdown-years"
+                )
+              }
+            />
+            Reverse Dropdown Years
+          </label>
+        )}
         <label>
           <input
             type="checkbox"

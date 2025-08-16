@@ -12,6 +12,7 @@ import type { Formatters } from "../types/index.js";
  * @param navEnd The end date for navigation.
  * @param formatters The formatters to use for formatting the year labels.
  * @param dateLib The date library to use for date manipulation.
+ * @param reverse If true, reverses the order of the years (descending).
  * @returns An array of dropdown options representing the years, or `undefined`
  *   if `navStart` or `navEnd` is not provided.
  */
@@ -20,6 +21,7 @@ export function getYearOptions(
   navEnd: Date | undefined,
   formatters: Pick<Formatters, "formatYearDropdown">,
   dateLib: DateLib,
+  reverse: boolean = false,
 ): DropdownOption[] | undefined {
   if (!navStart) return undefined;
   if (!navEnd) return undefined;
@@ -34,6 +36,8 @@ export function getYearOptions(
     years.push(year);
     year = addYears(year, 1);
   }
+
+  if (reverse) years.reverse();
 
   return years.map((year) => {
     const label = formatters.formatYearDropdown(year, dateLib);

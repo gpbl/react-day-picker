@@ -383,6 +383,9 @@ export function DayPicker(initialProps: DayPickerProps) {
               navEnd,
               formatters,
               dateLib,
+              captionLayout === "dropdown" || captionLayout === "dropdown-years"
+                ? Boolean(props.reverseYears)
+                : false,
             );
             return (
               <components.Month
