@@ -5,7 +5,9 @@ import { Playground } from "../components/Playground";
 
 export default function playground() {
   return (
+    // @ts-expect-error Docusaurus types
     <Layout>
+      {/* @ts-expect-error Docusaurus types */}
       <Head>
         <title>DayPicker Playground</title>
         <meta
