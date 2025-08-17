@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.1.2/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.2.0/schema.json",
   "vcs": {
     "enabled": false,
     "clientKind": "git",
@@ -10,11 +10,11 @@
     "includes": [
       "**/*.ts",
       "**/*.tsx",
-      "!**/dist/**",
-      "!**/build/**",
-      "!**/versioned_docs/**",
-      "!website/.docusaurus/**",
-      "!website/examples-v8/**"
+      "!**/dist",
+      "!**/build",
+      "!**/versioned_docs",
+      "!website/.docusaurus",
+      "!website/examples-v8"
     ]
   },
   "formatter": {

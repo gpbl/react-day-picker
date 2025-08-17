@@ -44,5 +44,8 @@
     },
     "jest.runMode": "on-demand",
     "editor.defaultFormatter": "biomejs.biome",
+    "[typescript]": {
+      "editor.defaultFormatter": "biomejs.biome"
+    },
   }
 }
