@@ -129,9 +129,9 @@ export function useQueryStringSync(basePath: string = "/playground") {
         .forEach(([key, value]) => {
           if (key === "locale") {
             if (!value) return;
-            return qs.push(`locale=${value.code}`);
+            qs.push(`locale=${value.code}`);
           } else {
-            return qs.push(`${key}${value === true ? "" : `=${value}`}`);
+            qs.push(`${key}${value === true ? "" : `=${value}`}`);
           }
         });
 
