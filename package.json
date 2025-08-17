@@ -205,7 +205,6 @@
     "@types/node": "^24.3.0",
     "@types/react": "^19.1.1",
     "@types/react-dom": "^19.1.7",
-    "html-validate": "^10.0.0",
     "jest": "^30.0.5",
     "jest-environment-jsdom": "^30.0.5",
     "jest-transform-css": "^6.0.3",
