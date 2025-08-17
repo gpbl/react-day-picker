@@ -26,6 +26,7 @@
     "rules": {
       "recommended": true,
       "correctness": {
+        "useUniqueElementIds": "off",
         "noUnusedVariables": {
           "level": "error",
           "options": {
