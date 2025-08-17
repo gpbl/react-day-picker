@@ -370,20 +370,6 @@ export function DayPicker(initialProps: DayPickerProps) {
             />
           )}
           {months.map((calendarMonth, displayIndex) => {
-            const dropdownMonths = getMonthOptions(
-              calendarMonth.date,
-              navStart,
-              navEnd,
-              formatters,
-              dateLib,
-            );
-
-            const dropdownYears = getYearOptions(
-              navStart,
-              navEnd,
-              formatters,
-              dateLib,
-            );
             return (
               <components.Month
                 data-animated-month={props.animate ? "true" : undefined}
@@ -434,7 +420,13 @@ export function DayPicker(initialProps: DayPickerProps) {
                           components={components}
                           disabled={Boolean(props.disableNavigation)}
                           onChange={handleMonthChange(calendarMonth.date)}
-                          options={dropdownMonths}
+                          options={getMonthOptions(
+                            calendarMonth.date,
+                            navStart,
+                            navEnd,
+                            formatters,
+                            dateLib,
+                          )}
                           style={styles?.[UI.Dropdown]}
                           value={dateLib.getMonth(calendarMonth.date)}
                         />
@@ -452,7 +444,13 @@ export function DayPicker(initialProps: DayPickerProps) {
                           components={components}
                           disabled={Boolean(props.disableNavigation)}
                           onChange={handleYearChange(calendarMonth.date)}
-                          options={dropdownYears}
+                          options={getYearOptions(
+                            navStart,
+                            navEnd,
+                            formatters,
+                            dateLib,
+                            Boolean(props.reverseYears),
+                          )}
                           style={styles?.[UI.Dropdown]}
                           value={dateLib.getYear(calendarMonth.date)}
                         />
