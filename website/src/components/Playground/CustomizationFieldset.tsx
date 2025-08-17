@@ -32,6 +32,7 @@ export function CustomizationFieldset({
               showWeekNumber: false,
               fixedWeeks: false,
               hideWeekdays: false,
+              reverseYears: false,
             });
             setAccentColor("");
           }}
