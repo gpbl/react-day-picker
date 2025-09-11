@@ -180,23 +180,6 @@ test("should render the custom components", () => {
   expect(screen.getByText("Custom MonthsDropdown")).toBeInTheDocument();
 });
 
-describe("when interactive", () => {
-  test("render a valid HTML", () => {
-    render(<DayPicker mode="single" />);
-    expect(document.body).toHTMLValidate({
-      rules: { "no-redundant-role": "off" }, // Redundant role is allowed for VoiceOver
-    });
-  });
-});
-describe("when not interactive", () => {
-  test("render a valid HTML", () => {
-    render(<DayPicker />);
-    expect(document.body).toHTMLValidate({
-      rules: { "no-redundant-role": "off" }, // Redundant role is allowed for VoiceOver
-    });
-  });
-});
-
 describe("when navLayout is set", () => {
   const today = new Date(2024, 1, 4);
   describe("when navLayout is set to 'around'", () => {

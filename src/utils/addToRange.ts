@@ -34,7 +34,9 @@ export function addToRange(
     // adding date to an incomplete range
     if (isSameDay(from, date)) {
       // adding a date equal to the start of the range
-      if (required) {
+      if (min === 0) {
+        range = { from, to: date };
+      } else if (required) {
         range = { from, to: undefined };
       } else {
         range = undefined;

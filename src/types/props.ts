@@ -217,6 +217,15 @@ export interface PropsBase {
   captionLayout?: "label" | "dropdown" | "dropdown-months" | "dropdown-years";
 
   /**
+   * Reverse the order of years in the dropdown when using
+   * `captionLayout="dropdown"` or `captionLayout="dropdown-years"`.
+   *
+   * @since 9.9.0
+   * @see https://daypicker.dev/docs/customization#caption-layouts
+   */
+  reverseYears?: boolean;
+
+  /**
    * Adjust the positioning of the navigation buttons.
    *
    * - `around`: Displays the buttons on either side of the caption.

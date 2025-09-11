@@ -7,7 +7,7 @@
  *   >}
  */
 const options = {
-  watch: process.env.TYPEDOC_WATCH === "truex",
+  watch: process.env.TYPEDOC_WATCH === "true",
   name: "API",
   includeVersion: true,
   basePath: "../",
@@ -58,7 +58,6 @@ const options = {
     hideValues: false,
     leftAlignHeaders: false,
   },
-  plugin: ["typedoc-plugin-markdown", "typedoc-plugin-frontmatter"],
 };
 
 export default options;
