@@ -16,7 +16,7 @@ import { startOfWeek } from "./startOfWeek.js";
  * @returns {number} The week number
  */
 export function getWeek(date: Date, options?: GetWeekOptions): number {
-  const weekStartsOn = options?.weekStartsOn ?? 1; // Default to Tuesday for Ethiopian calendar
+  const weekStartsOn = options?.weekStartsOn ?? 1; // Default to Monday (1)
   const etDate = toEthiopicDate(date);
   const currentWeekStart = startOfWeek(date, { weekStartsOn });
 
@@ -32,6 +32,17 @@ export function getWeek(date: Date, options?: GetWeekOptions): number {
   // If date is before the first week of its year
   if (date < firstWeekStart) {
     return getWeekFns(date, { weekStartsOn, firstWeekContainsDate: 1 });
+  }
+
+  // If date falls into the first week of the NEXT Ethiopic year, return 1
+  const nextYearFirstDay = toGregorianDate({
+    year: etDate.year + 1,
+    month: 1,
+    day: 1,
+  });
+  const nextYearFirstWeekStart = startOfWeek(nextYearFirstDay, { weekStartsOn });
+  if (date >= nextYearFirstWeekStart) {
+    return 1;
   }
 
   // Calculate week number based on days since first week
