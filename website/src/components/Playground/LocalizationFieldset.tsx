@@ -68,7 +68,6 @@ const numerals: { value: Numerals; label: string }[] = [
   { value: "knda", label: "Kannada" },
   { value: "mlym", label: "Malayalam" },
   // Ethiopic digits
-  // @ts-expect-error "geez" is allowed by DayPicker (numberingSystem)
   { value: "geez" as Numerals, label: "Ge'ez (Ethiopic)" },
 ];
 const calendars: ("persian" | "ethiopic" | "gregorian")[] = [
@@ -136,7 +135,6 @@ export function LocalizationFieldset({
                 numerals:
                   e.target.value === "ethiopic"
                     ? // default to Ethiopic numerals
-                      // @ts-expect-error allowable in DayPicker
                       ("geez" as Numerals)
                     : props.numerals,
               });
