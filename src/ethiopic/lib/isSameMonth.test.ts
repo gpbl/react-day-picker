@@ -7,12 +7,12 @@ describe("isSameMonth", () => {
     const date1 = toGregorianDate({
       year: 2016,
       month: 4,
-      day: 1
+      day: 1,
     }); // Greg: Dec 11, 2023
     const date2 = toGregorianDate({
       year: 2016,
       month: 4,
-      day: 30
+      day: 30,
     }); // Greg: Jan 9, 2024
     expect(isSameMonth(date1, date2)).toBe(true);
   });
@@ -21,12 +21,12 @@ describe("isSameMonth", () => {
     const date1 = toGregorianDate({
       year: 2016,
       month: 4,
-      day: 30
+      day: 30,
     }); // Greg: Jan 9, 2024
     const date2 = toGregorianDate({
       year: 2016,
       month: 5,
-      day: 1
+      day: 1,
     }); // Greg: Jan 10, 2024
     expect(isSameMonth(date1, date2)).toBe(false);
   });
@@ -36,12 +36,12 @@ describe("isSameMonth", () => {
     const date1 = toGregorianDate({
       year: 2015,
       month: 13,
-      day: 6
+      day: 6,
     }); // Greg: Sep 11, 2023
     const date2 = toGregorianDate({
       year: 2016,
       month: 13,
-      day: 5
+      day: 5,
     }); // Greg: Sep 10, 2024
     expect(isSameMonth(date1, date2)).toBe(false);
   });

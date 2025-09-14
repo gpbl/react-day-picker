@@ -1,5 +1,5 @@
-import { EthiopicDate } from "./EthiopicDate.js";
 import { daysInMonth } from "./daysInMonth.js";
+import type { EthiopicDate } from "./EthiopicDate.js";
 
 export function isEthiopicDateValid(date: EthiopicDate): boolean {
   if (date.month < 1) return false;

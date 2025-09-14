@@ -9,7 +9,7 @@ describe("newDate", () => {
     expect(ethDate).toEqual({
       year: 2016,
       month: 5, // Tahsas
-      day: 15
+      day: 15,
     }); // Greg: Dec 25, 2023
   });
 
@@ -20,7 +20,7 @@ describe("newDate", () => {
     expect(ethNonLeapDate).toEqual({
       year: 2016,
       month: 13, // Pagume
-      day: 5
+      day: 5,
     }); // Greg: Sep 10, 2024
 
     // Leap year Pagume
@@ -29,7 +29,7 @@ describe("newDate", () => {
     expect(ethLeapDate).toEqual({
       year: 2015,
       month: 13, // Pagume
-      day: 6
+      day: 6,
     }); // Greg: Sep 11, 2023
   });
 

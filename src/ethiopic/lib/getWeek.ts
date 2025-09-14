@@ -1,10 +1,10 @@
 import {
   differenceInDays,
+  type GetWeekOptions,
   getWeek as getWeekFns,
-  GetWeekOptions
 } from "date-fns";
 
-import { toGregorianDate, toEthiopicDate } from "../utils/index.js";
+import { toEthiopicDate, toGregorianDate } from "../utils/index.js";
 
 import { startOfWeek } from "./startOfWeek.js";
 
@@ -24,7 +24,7 @@ export function getWeek(date: Date, options?: GetWeekOptions): number {
   const firstDayOfYear = toGregorianDate({
     year: etDate.year,
     month: 1,
-    day: 1
+    day: 1,
   });
 
   const firstWeekStart = startOfWeek(firstDayOfYear, { weekStartsOn });
@@ -40,7 +40,9 @@ export function getWeek(date: Date, options?: GetWeekOptions): number {
     month: 1,
     day: 1,
   });
-  const nextYearFirstWeekStart = startOfWeek(nextYearFirstDay, { weekStartsOn });
+  const nextYearFirstWeekStart = startOfWeek(nextYearFirstDay, {
+    weekStartsOn,
+  });
   if (date >= nextYearFirstWeekStart) {
     return 1;
   }

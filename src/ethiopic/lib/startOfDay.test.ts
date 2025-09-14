@@ -7,7 +7,7 @@ describe("startOfDay", () => {
     const date = toGregorianDate({
       year: 2016,
       month: 1,
-      day: 1
+      day: 1,
     }); // Greg: Sep 12, 2023
     date.setHours(12, 34, 56, 789); // Add time components
 
@@ -18,8 +18,8 @@ describe("startOfDay", () => {
       toGregorianDate({
         year: 2016,
         month: 1,
-        day: 1
-      })
+        day: 1,
+      }),
     );
     expect(result.getHours()).toBe(0);
     expect(result.getMinutes()).toBe(0);
@@ -31,7 +31,7 @@ describe("startOfDay", () => {
     const date = toGregorianDate({
       year: 2016,
       month: 1,
-      day: 1
+      day: 1,
     });
     date.setHours(23, 59, 59, 999);
 
@@ -41,8 +41,8 @@ describe("startOfDay", () => {
       toGregorianDate({
         year: 2016,
         month: 1,
-        day: 1
-      })
+        day: 1,
+      }),
     );
     expect(result.getHours()).toBe(0);
     expect(result.getMinutes()).toBe(0);
@@ -54,7 +54,7 @@ describe("startOfDay", () => {
     const date = toGregorianDate({
       year: 2016,
       month: 13, // Pagume
-      day: 5
+      day: 5,
     }); // Greg: Sep 10, 2024
     date.setHours(15, 30, 45, 500);
 
@@ -64,8 +64,8 @@ describe("startOfDay", () => {
       toGregorianDate({
         year: 2016,
         month: 13,
-        day: 5
-      })
+        day: 5,
+      }),
     );
   });
 });

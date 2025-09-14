@@ -1,7 +1,7 @@
 import {
   isEthiopicLeapYear,
   toEthiopicDate,
-  toGregorianDate
+  toGregorianDate,
 } from "../utils/index.js";
 
 /**
@@ -24,6 +24,6 @@ export function addYears(date: Date, amount: number): Date {
   return toGregorianDate({
     month: etDate.month,
     day: day,
-    year: etDate.year + amount
+    year: etDate.year + amount,
   });
 }

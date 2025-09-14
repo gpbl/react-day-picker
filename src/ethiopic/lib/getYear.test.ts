@@ -7,7 +7,7 @@ describe("getYear", () => {
     const date = toGregorianDate({
       year: 2016,
       month: 4,
-      day: 15
+      day: 15,
     }); // Greg: Dec 25, 2023
     expect(getYear(date)).toBe(2016);
   });
@@ -17,7 +17,7 @@ describe("getYear", () => {
     const lastDay2015 = toGregorianDate({
       year: 2015,
       month: 13,
-      day: 6
+      day: 6,
     }); // Greg: Sep 11, 2023
     expect(getYear(lastDay2015)).toBe(2015);
 
@@ -25,7 +25,7 @@ describe("getYear", () => {
     const firstDay2016 = toGregorianDate({
       year: 2016,
       month: 1,
-      day: 1
+      day: 1,
     }); // Greg: Sep 12, 2023
     expect(getYear(firstDay2016)).toBe(2016);
   });

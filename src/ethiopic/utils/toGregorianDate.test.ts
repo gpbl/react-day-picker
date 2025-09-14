@@ -1,4 +1,4 @@
-import { EthiopicDate } from "./EthiopicDate";
+import type { EthiopicDate } from "./EthiopicDate";
 import { toGregorianDate } from "./toGregorianDate";
 
 describe("toGregorianDate", () => {

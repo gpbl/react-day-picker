@@ -1,5 +1,5 @@
+import { enUS } from "date-fns/locale/en-US";
 import { toGregorianDate } from "../utils";
-
 import { format } from "./format";
 
 describe("format", () => {
@@ -32,5 +32,29 @@ describe("format", () => {
     expect(format(date, "PPPP")).toBe("ዓርብ, መጋቢት 6, 2016");
     expect(format(date, "cccc")).toBe("ዓርብ");
     expect(format(date, "cccccc")).toBe("ዓ");
+  });
+
+  test("should format in English when enUS locale is passed", () => {
+    // Ethiopian date: 06 መጋቢት 2016 (Friday)
+    const date = toGregorianDate({ year: 2016, month: 7, day: 6 });
+    expect(format(date, "LLLL yyyy", { locale: enUS })).toBe("Megabit 2016");
+    expect(format(date, "PPPP", { locale: enUS })).toBe(
+      "Friday, Megabit 6, 2016",
+    );
+    expect(format(date, "cccccc", { locale: enUS })).toBe("F");
+  });
+
+  test("should Latinize month with numerals=latn even with amET locale", () => {
+    const date = toGregorianDate({ year: 2016, month: 7, day: 6 });
+    expect(format(date, "LLLL yyyy", { numerals: "latn" } as any)).toBe(
+      "Megabit 2016",
+    );
+  });
+
+  test("should format with Geez digits when numerals=geez and enUS locale", () => {
+    const date = toGregorianDate({ year: 2016, month: 7, day: 6 });
+    expect(
+      format(date, "LLLL yyyy", { locale: enUS, numerals: "geez" } as any),
+    ).toBe("Megabit ፳፻፲፮");
   });
 });

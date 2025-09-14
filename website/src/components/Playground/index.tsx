@@ -5,6 +5,11 @@ import {
   DayPicker,
   isDateRange,
 } from "react-day-picker";
+import {
+  amET as amETEthiopic,
+  DayPicker as DayPickerEthiopic,
+  getDateLib as getDateLibEthiopic,
+} from "react-day-picker/ethiopic";
 import * as locales from "react-day-picker/locale";
 import {
   DayPicker as DayPickerPersian,
@@ -49,13 +54,21 @@ export function Playground() {
     formattedProps =
       `import { DayPicker } from "react-day-picker/persian";\n\n` +
       formattedProps;
+  } else if (props.calendar === "ethiopic") {
+    formattedProps =
+      `import { DayPicker } from "react-day-picker/ethiopic";\n\n` +
+      formattedProps;
   } else {
     formattedProps = `import { DayPicker } from "react-day-picker";\n\n${formattedProps}`;
   }
   const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
   const DayPickerComponent =
-    props.calendar === "persian" ? DayPickerPersian : DayPicker;
+    props.calendar === "persian"
+      ? DayPickerPersian
+      : props.calendar === "ethiopic"
+        ? DayPickerEthiopic
+        : DayPicker;
 
   const dateLib =
     props.calendar === "persian"
@@ -63,10 +76,16 @@ export function Playground() {
           locale: (props.locale as locales.Locale) ?? faIRpersian,
           timeZone: props.timeZone,
         })
-      : new DateLib({
-          locale: (props.locale as locales.Locale) ?? locales.enUS,
-          timeZone: props.timeZone,
-        });
+      : props.calendar === "ethiopic"
+        ? getDateLibEthiopic({
+            locale: (props.locale as locales.Locale) ?? (amETEthiopic as any),
+            timeZone: props.timeZone,
+            numerals: props.numerals,
+          })
+        : new DateLib({
+            locale: (props.locale as locales.Locale) ?? locales.enUS,
+            timeZone: props.timeZone,
+          });
 
   return (
     <div className={styles.playground}>

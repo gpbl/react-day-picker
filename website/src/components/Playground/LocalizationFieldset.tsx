@@ -6,6 +6,10 @@ import {
   defaultDateLib,
   type Numerals,
 } from "react-day-picker";
+import {
+  amET as amETEthiopic,
+  enUS as enUSEthiopic,
+} from "react-day-picker/ethiopic";
 import * as locales from "react-day-picker/locale";
 import {
   enUS as enUSPersian,
@@ -63,9 +67,17 @@ const numerals: { value: Numerals; label: string }[] = [
   { value: "telu", label: "Telugu" },
   { value: "knda", label: "Kannada" },
   { value: "mlym", label: "Malayalam" },
+  // Ethiopic digits
+  // @ts-expect-error "geez" is allowed by DayPicker (numberingSystem)
+  { value: "geez" as Numerals, label: "Ge'ez (Ethiopic)" },
 ];
-const calendars: ("persian" | "gregorian")[] = ["gregorian", "persian"];
+const calendars: ("persian" | "ethiopic" | "gregorian")[] = [
+  "gregorian",
+  "persian",
+  "ethiopic",
+];
 const persianLocales = { faIR: faIRPersian, enUS: enUSPersian };
+const ethiopicLocales = { amET: amETEthiopic, enUS: enUSEthiopic };
 
 interface LocalizationFieldsetProps {
   props: DayPickerPropsWithCalendar;
@@ -110,9 +122,23 @@ export function LocalizationFieldset({
             onChange={(e) => {
               setProps({
                 ...props,
-                calendar: e.target.value as "gregorian" | "persian",
-                locale: e.target.value === "persian" ? faIRPersian : undefined,
+                calendar: e.target.value as
+                  | "gregorian"
+                  | "persian"
+                  | "ethiopic",
+                locale:
+                  e.target.value === "persian"
+                    ? faIRPersian
+                    : e.target.value === "ethiopic"
+                      ? (amETEthiopic as any)
+                      : undefined,
                 dir: e.target.value === "persian" ? "rtl" : undefined,
+                numerals:
+                  e.target.value === "ethiopic"
+                    ? // default to Ethiopic numerals
+                      // @ts-expect-error allowable in DayPicker
+                      ("geez" as Numerals)
+                    : props.numerals,
               });
             }}
           >
@@ -156,24 +182,26 @@ export function LocalizationFieldset({
                 locale:
                   e.target.value === ""
                     ? undefined
-                    : Object.values(locales).find(
-                        (locale) => locale.code === e.target.value,
-                      ),
+                    : (props.calendar === "persian"
+                        ? Object.values(persianLocales)
+                        : props.calendar === "ethiopic"
+                          ? Object.values(ethiopicLocales)
+                          : Object.values(locales)
+                      ).find((locale) => locale.code === e.target.value),
               })
             }
           >
             <option value=""></option>
-            {Object.keys(
-              props.calendar === "persian" ? persianLocales : locales,
-            ).map((locale) => {
-              // biome-ignore lint/performance/noDynamicNamespaceImportAccess: not a concern
-              const code = locales[locale as keyof typeof locales].code;
-              return (
-                <option key={locale} value={code}>
-                  {code}
-                </option>
-              );
-            })}
+            {(props.calendar === "persian"
+              ? Object.values(persianLocales)
+              : props.calendar === "ethiopic"
+                ? Object.values(ethiopicLocales)
+                : Object.values(locales)
+            ).map((locale) => (
+              <option key={locale.code} value={locale.code}>
+                {locale.code}
+              </option>
+            ))}
           </select>
         </label>
 

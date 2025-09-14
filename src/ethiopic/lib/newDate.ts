@@ -19,6 +19,6 @@ export function newDate(year: number, monthIndex: number, date: number): Date {
   return toGregorianDate({
     year: year,
     month: month,
-    day: date
+    day: date,
   });
 }

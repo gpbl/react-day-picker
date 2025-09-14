@@ -1,7 +1,7 @@
 import {
-  toEthiopicDate,
   isEthiopicLeapYear,
-  toGregorianDate
+  toEthiopicDate,
+  toGregorianDate,
 } from "../utils/index.js";
 
 /**

@@ -1,4 +1,7 @@
-import { StartOfWeekOptions, startOfWeek as startOfWeekFns } from "date-fns";
+import {
+  type StartOfWeekOptions,
+  startOfWeek as startOfWeekFns,
+} from "date-fns";
 
 /**
  * Start of week

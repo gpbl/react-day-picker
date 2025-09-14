@@ -12,7 +12,7 @@ export function getDayNoEthiopian(etDate: EthiopicDate): number {
 function gregorianDateFromDayNo(dayNum: number): Date {
   let year = 1,
     month = 1,
-    day;
+    day: number | undefined;
 
   const num400 = Math.floor(dayNum / 146097); // number of full 400-year periods
   dayNum %= 146097;
