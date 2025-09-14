@@ -1,6 +1,6 @@
 import { addDays } from "date-fns/addDays";
 
-import { DateRange } from "../types";
+import type { DateRange } from "../types";
 
 import { rangeIncludesDate } from "./rangeIncludesDate";
 

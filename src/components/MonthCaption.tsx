@@ -3,18 +3,18 @@ import React, { type HTMLAttributes } from "react";
 import type { CalendarMonth } from "../classes/index.js";
 
 /**
- * Render the caption of a month in the calendar.
+ * Render the caption for a month in the calendar.
  *
  * @group Components
  * @see https://daypicker.dev/guides/custom-components
  */
 export function MonthCaption(
   props: {
-    /** The month where the grid is displayed. */
+    /** The month to display in the caption. */
     calendarMonth: CalendarMonth;
-    /** The index where this month is displayed. */
+    /** The index of the month being displayed. */
     displayIndex: number;
-  } & HTMLAttributes<HTMLDivElement>
+  } & HTMLAttributes<HTMLDivElement>,
 ) {
   const { calendarMonth, displayIndex, ...divProps } = props;
   return <div {...divProps} />;

@@ -1,7 +1,6 @@
 import React, { type SelectHTMLAttributes } from "react";
-
-import { UI } from "../UI.js";
 import type { ClassNames, CustomComponents } from "../types/index.js";
+import { UI } from "../UI.js";
 
 /** An option to use in the dropdown. Maps to the `<option>` HTML element. */
 export type DropdownOption = {
@@ -9,15 +8,12 @@ export type DropdownOption = {
   value: number;
   /** The label of the option. */
   label: string;
-  /**
-   * The dropdown option is disabled when it cannot be selected because out of
-   * the calendar range.
-   */
+  /** Whether the dropdown option is disabled (e.g., out of the calendar range). */
   disabled: boolean;
 };
 
 /**
- * Render a dropdown component to use in the navigation bar.
+ * Render a dropdown component for navigation in the calendar.
  *
  * @group Components
  * @see https://daypicker.dev/guides/custom-components
@@ -25,7 +21,7 @@ export type DropdownOption = {
 export function Dropdown(
   props: {
     /**
-     * @deprecated Use{@link useDayPicker} hook to get the list of internal
+     * @deprecated Use {@link useDayPicker} hook to get the list of internal
      *   components.
      */
     components: CustomComponents;
@@ -34,15 +30,16 @@ export function Dropdown(
      *   class names.
      */
     classNames: ClassNames;
+    /** The options to display in the dropdown. */
     options?: DropdownOption[] | undefined;
-  } & Omit<SelectHTMLAttributes<HTMLSelectElement>, "children">
+  } & Omit<SelectHTMLAttributes<HTMLSelectElement>, "children">,
 ) {
   const { options, className, components, classNames, ...selectProps } = props;
 
   const cssClassSelect = [classNames[UI.Dropdown], className].join(" ");
 
   const selectedOption = options?.find(
-    ({ value }) => value === selectProps.value
+    ({ value }) => value === selectProps.value,
   );
   return (
     <span

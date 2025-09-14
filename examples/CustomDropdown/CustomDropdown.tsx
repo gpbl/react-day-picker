@@ -1,15 +1,15 @@
-import React, { useState, createContext, use, useCallback } from "react";
+import React, { createContext, use, useCallback, useState } from "react";
 
-import { DayPicker, DropdownProps } from "react-day-picker";
+import { DayPicker, type DropdownProps } from "react-day-picker";
 
 import {
   Select,
   SelectContent,
   SelectGroup,
   SelectItem,
+  SelectStyles,
   SelectTrigger,
   SelectValue,
-  SelectStyles
 } from "./Select";
 
 const ContainerContext = createContext<HTMLDivElement | null>(null);
@@ -22,8 +22,8 @@ export function CustomSelectDropdown(props: DropdownProps) {
     if (onChange) {
       const syntheticEvent = {
         target: {
-          value: newValue
-        }
+          value: newValue,
+        },
       } as React.ChangeEvent<HTMLSelectElement>;
 
       onChange(syntheticEvent);

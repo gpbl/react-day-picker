@@ -1,16 +1,21 @@
 import { DateLib, type DateLibOptions } from "../classes/DateLib.js";
 
 /**
- * Format the day date shown in the day cell.
+ * Formats the day date shown in the day cell.
  *
- * @defaultValue `d` (e.g. "1")
+ * @defaultValue `d` (e.g., "1").
+ * @param date The date to format.
+ * @param options Configuration options for the date library.
+ * @param dateLib The date library to use for formatting. If not provided, a new
+ *   instance is created.
+ * @returns The formatted day as a string.
  * @group Formatters
  * @see https://daypicker.dev/docs/translation#custom-formatters
  */
 export function formatDay(
   date: Date,
   options?: DateLibOptions,
-  dateLib?: DateLib
+  dateLib?: DateLib,
 ) {
   return (dateLib ?? new DateLib(options)).format(date, "d");
 }

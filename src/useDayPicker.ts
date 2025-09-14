@@ -1,17 +1,17 @@
 import { createContext, useContext } from "react";
 
-import { CalendarDay } from "./classes/CalendarDay.js";
-import { CalendarMonth } from "./classes/CalendarMonth.js";
-import { DayPickerProps } from "./types/props.js";
+import type { CalendarDay } from "./classes/CalendarDay.js";
+import type { CalendarMonth } from "./classes/CalendarMonth.js";
+import type { DayPickerProps } from "./types/props.js";
 import type { SelectedValue, SelectHandler } from "./types/selection.js";
-import {
+import type {
   ClassNames,
   CustomComponents,
   Formatters,
   Labels,
   Mode,
   Modifiers,
-  Styles
+  Styles,
 } from "./types/shared.js";
 
 /** @ignore */
@@ -32,7 +32,7 @@ export const dayPickerContext = createContext<
  *   returned by the hook.
  */
 export type DayPickerContext<
-  T extends { mode?: Mode | undefined; required?: boolean | undefined }
+  T extends { mode?: Mode | undefined; required?: boolean | undefined },
 > = {
   /** The months displayed in the calendar. */
   months: CalendarMonth[];
@@ -69,21 +69,19 @@ export type DayPickerContext<
 };
 
 /**
- * Returns the context to work with `<DayPicker />` inside custom components.
- *
- * This hook provides access to the DayPicker context, which includes various
- * properties and methods to interact with the DayPicker component. It must be
- * used within a custom component.
+ * Provides access to the DayPicker context, which includes properties and
+ * methods to interact with the DayPicker component. This hook must be used
+ * within a custom component.
  *
  * @template T - Use this type to refine the returned context type with a
  *   specific selection mode.
- * @returns {DayPickerContext<T>} The context to work with DayPicker.
+ * @returns The context to work with DayPicker.
  * @throws {Error} If the hook is used outside of a DayPicker provider.
  * @group Hooks
  * @see https://daypicker.dev/guides/custom-components
  */
 export function useDayPicker<
-  T extends { mode?: Mode | undefined; required?: boolean | undefined }
+  T extends { mode?: Mode | undefined; required?: boolean | undefined },
 >(): DayPickerContext<T> {
   const context = useContext(dayPickerContext);
   if (context === undefined) {

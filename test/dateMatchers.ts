@@ -4,7 +4,7 @@ expect.extend({
     return {
       pass,
       message: () =>
-        `expected ${received.toString()} ${pass ? "not " : ""}to be a Sunday`
+        `expected ${received.toString()} ${pass ? "not " : ""}to be a Sunday`,
     };
   },
   toBeMonday(received: Date) {
@@ -12,7 +12,7 @@ expect.extend({
     return {
       pass,
       message: () =>
-        `expected ${received.toString()} ${pass ? "not " : ""}to be a Monday`
+        `expected ${received.toString()} ${pass ? "not " : ""}to be a Monday`,
     };
   },
   toBeTuesday(received: Date) {
@@ -20,7 +20,7 @@ expect.extend({
     return {
       pass,
       message: () =>
-        `expected ${received.toString()} ${pass ? "not " : ""}to be a Tuesday`
+        `expected ${received.toString()} ${pass ? "not " : ""}to be a Tuesday`,
     };
   },
   toBeWednesday(received: Date) {
@@ -28,7 +28,7 @@ expect.extend({
     return {
       pass,
       message: () =>
-        `expected ${received.toString()} ${pass ? "not " : ""}to be a Wednesday`
+        `expected ${received.toString()} ${pass ? "not " : ""}to be a Wednesday`,
     };
   },
   toBeThursday(received: Date) {
@@ -36,7 +36,7 @@ expect.extend({
     return {
       pass,
       message: () =>
-        `expected ${received.toString()} ${pass ? "not " : ""}to be a Thursday`
+        `expected ${received.toString()} ${pass ? "not " : ""}to be a Thursday`,
     };
   },
   toBeFriday(received: Date) {
@@ -44,7 +44,7 @@ expect.extend({
     return {
       pass,
       message: () =>
-        `expected ${received.toString()} ${pass ? "not " : ""}to be a Friday`
+        `expected ${received.toString()} ${pass ? "not " : ""}to be a Friday`,
     };
   },
   toBeSaturday(received: Date) {
@@ -52,7 +52,7 @@ expect.extend({
     return {
       pass,
       message: () =>
-        `expected ${received.toString()} ${pass ? "not " : ""}to be a Saturday`
+        `expected ${received.toString()} ${pass ? "not " : ""}to be a Saturday`,
     };
   },
   toHaveDate(received: Date, expected: number) {
@@ -60,7 +60,7 @@ expect.extend({
     return {
       pass,
       message: () =>
-        `expected ${received.toString()} ${pass ? "not " : ""}to have the date ${expected}`
+        `expected ${received.toString()} ${pass ? "not " : ""}to have the date ${expected}`,
     };
-  }
+  },
 });

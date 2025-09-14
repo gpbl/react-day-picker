@@ -19,12 +19,12 @@ export function DisabledSelectedDate() {
       today={today}
       modifiersStyles={{
         selected: {
-          backgroundColor: "red"
-        }
+          backgroundColor: "red",
+        },
       }}
       selected={{
         from: today,
-        to: toDate
+        to: toDate,
       }}
     />
   );

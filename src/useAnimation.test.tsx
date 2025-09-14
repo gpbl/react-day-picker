@@ -1,6 +1,5 @@
-import React from "react";
-
 import { render } from "@testing-library/react";
+import React from "react";
 
 import { user } from "@/test/user";
 
@@ -12,19 +11,19 @@ jest.setSystemTime(new Date(2025, 1, 10));
 
 const getRootContainer = () => document.querySelector(`.rdp-root`);
 const getNavContainers = () => [
-  ...document.querySelectorAll(`[data-animated-nav]`)
+  ...document.querySelectorAll(`[data-animated-nav]`),
 ];
 const getMonthContainers = () => [
-  ...document.querySelectorAll(`[data-animated-month]`)
+  ...document.querySelectorAll(`[data-animated-month]`),
 ];
 const getMonthCaptionContainers = () => [
-  ...document.querySelectorAll(`[data-animated-caption]`)
+  ...document.querySelectorAll(`[data-animated-caption]`),
 ];
 const getMonthWeekdaysContainers = () => [
-  ...document.querySelectorAll(`[data-animated-weekdays]`)
+  ...document.querySelectorAll(`[data-animated-weekdays]`),
 ];
 const getMonthWeeksContainers = () => [
-  ...document.querySelectorAll(`[data-animated-weeks]`)
+  ...document.querySelectorAll(`[data-animated-weeks]`),
 ];
 
 describe("useAnimation", () => {
@@ -91,10 +90,10 @@ describe("useAnimation", () => {
       expect(getMonthWeekdaysContainers()).toHaveLength(2);
       expect(getMonthWeeksContainers()).toHaveLength(2);
       expect(getMonthCaptionContainers()[0]).not.toHaveClass(
-        "rdp-caption_after_enter"
+        "rdp-caption_after_enter",
       );
       expect(getMonthWeeksContainers()[0]).not.toHaveClass(
-        "rdp-weeks_after_enter"
+        "rdp-weeks_after_enter",
       );
     });
 
@@ -104,10 +103,10 @@ describe("useAnimation", () => {
       await user.click(nextButton());
 
       expect(getMonthCaptionContainers()[0]).toHaveClass(
-        "rdp-caption_before_exit"
+        "rdp-caption_before_exit",
       );
       expect(getMonthCaptionContainers()[1]).toHaveClass(
-        "rdp-caption_after_enter"
+        "rdp-caption_after_enter",
       );
 
       expect(getMonthWeeksContainers()[0]).toHaveClass("rdp-weeks_before_exit");
@@ -120,15 +119,15 @@ describe("useAnimation", () => {
       await user.click(previousButton());
 
       expect(getMonthCaptionContainers()[0]).toHaveClass(
-        "rdp-caption_after_exit"
+        "rdp-caption_after_exit",
       );
       expect(getMonthCaptionContainers()[1]).toHaveClass(
-        "rdp-caption_before_enter"
+        "rdp-caption_before_enter",
       );
 
       expect(getMonthWeeksContainers()[0]).toHaveClass("rdp-weeks_after_exit");
       expect(getMonthWeeksContainers()[1]).toHaveClass(
-        "rdp-weeks_before_enter"
+        "rdp-weeks_before_enter",
       );
     });
 
@@ -182,7 +181,7 @@ describe("useAnimation", () => {
       expect(monthContainers[0]).not.toHaveStyle("position: relative");
       expect(monthContainers[0]).not.toHaveStyle("overflow: hidden");
       expect(monthCaptionContainers[0]).not.toHaveClass(
-        "rdp-caption_after_enter"
+        "rdp-caption_after_enter",
       );
       expect(monthWeeksContainers[0]).not.toHaveClass("rdp-weeks_after_enter");
     });

@@ -1,23 +1,22 @@
-import React from "react";
-
+import type React from "react";
+import type { DateLib, Locale } from "../classes/DateLib.js";
 import type { DeprecatedUI } from "../UI.js";
-import type { Locale, DateLib } from "../classes/DateLib.js";
 
 import type {
   ClassNames,
-  ModifiersClassNames,
-  Styles,
-  ModifiersStyles,
   CustomComponents,
-  Matcher,
-  Labels,
-  Formatters,
-  MonthChangeEventHandler,
-  DayEventHandler,
-  Modifiers,
   DateRange,
+  DayEventHandler,
+  Formatters,
+  Labels,
+  Matcher,
   Mode,
-  Numerals
+  Modifiers,
+  ModifiersClassNames,
+  ModifiersStyles,
+  MonthChangeEventHandler,
+  Numerals,
+  Styles,
 } from "./shared.js";
 
 /**
@@ -203,19 +202,43 @@ export interface PropsBase {
   /**
    * Show dropdowns to navigate between months or years.
    *
-   * - `true`: display the dropdowns for both month and year
-   * - `label`: display the month and the year as a label. Change the label with
-   *   the `formatCaption` formatter.
-   * - `month`: display only the dropdown for the months
-   * - `year`: display only the dropdown for the years
+   * - `label`: Displays the month and year as a label. Default value.
+   * - `dropdown`: Displays dropdowns for both month and year navigation.
+   * - `dropdown-months`: Displays a dropdown only for the month navigation.
+   * - `dropdown-years`: Displays a dropdown only for the year navigation.
    *
-   * **Note:** showing the dropdown will set the start/end months
-   * {@link startMonth} to 100 years ago, and {@link endMonth} to the end of the
-   * current year.
+   * **Note:** By default, showing the dropdown will set the {@link startMonth}
+   * to 100 years ago and {@link endMonth} to the end of the current year. You
+   * can override this behavior by explicitly setting `startMonth` and
+   * `endMonth`.
    *
    * @see https://daypicker.dev/docs/customization#caption-layouts
    */
   captionLayout?: "label" | "dropdown" | "dropdown-months" | "dropdown-years";
+
+  /**
+   * Reverse the order of years in the dropdown when using
+   * `captionLayout="dropdown"` or `captionLayout="dropdown-years"`.
+   *
+   * @since 9.9.0
+   * @see https://daypicker.dev/docs/customization#caption-layouts
+   */
+  reverseYears?: boolean;
+
+  /**
+   * Adjust the positioning of the navigation buttons.
+   *
+   * - `around`: Displays the buttons on either side of the caption.
+   * - `after`: Displays the buttons after the caption. This ensures the tab order
+   *   matches the visual order.
+   *
+   * If not set, the buttons default to being displayed after the caption, but
+   * the tab order may not align with the visual order.
+   *
+   * @since 9.7.0
+   * @see https://daypicker.dev/docs/customization#navigation-layouts
+   */
+  navLayout?: "around" | "after" | undefined;
   /**
    * Display always 6 weeks per each month, regardless of the month’s number of
    * weeks. Weeks will be filled with the days from the next month.
@@ -272,16 +295,12 @@ export interface PropsBase {
   ISOWeek?: boolean;
   /**
    * The time zone (IANA or UTC offset) to use in the calendar (experimental).
+   *
    * See
    * [Wikipedia](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
    * for the possible values.
    *
-   * Time zones are supported by the `TZDate` object by the
-   * [@date-fns/tz](https://github.com/date-fns/tz) package. Please refer to the
-   * package documentation for more information.
-   *
    * @since 9.1.1
-   * @experimental
    * @see https://daypicker.dev/docs/time-zone
    */
   timeZone?: string | undefined;
@@ -316,9 +335,10 @@ export interface PropsBase {
    */
   initialFocus?: boolean;
   /**
-   * Apply the `disabled` modifier to the matching days.
+   * Apply the `disabled` modifier to the matching days. Disabled days cannot be
+   * selected when in a selection mode is set.
    *
-   * @see https://daypicker.dev/docs/selection-modes#disabling-dates
+   * @see https://daypicker.dev/docs/selection-modes#disabled
    */
   disabled?: Matcher | Matcher[] | undefined;
   /**
@@ -337,6 +357,13 @@ export interface PropsBase {
   today?: Date;
   /**
    * Add modifiers to the matching days.
+   *
+   * @example
+   *   const modifiers = {
+   *   weekend: { dayOfWeek: [0, 6] }, // Match weekends
+   *   holiday: [new Date(2023, 11, 25)] // Match Christmas
+   *   };
+   *   <DayPicker modifiers={modifiers} />
    *
    * @see https://daypicker.dev/guides/custom-modifiers
    */
@@ -368,7 +395,7 @@ export interface PropsBase {
    * @since 9.4.1
    * @see https://daypicker.dev/guides/accessibility
    */
-  ["aria-label"]?: string;
+  "aria-label"?: string;
   /**
    * The role attribute to add to the container element.
    *
@@ -420,13 +447,13 @@ export interface PropsBase {
   numerals?: Numerals | undefined;
   /**
    * The index of the first day of the week (0 - Sunday). Overrides the locale's
-   * one.
+   * default.
    *
    * @see https://daypicker.dev/docs/localization#first-date-of-the-week
    */
   weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined;
   /**
-   * The day of January, which is always in the first week of the year.
+   * The day of January that is always in the first week of the year.
    *
    * @see https://daypicker.dev/docs/localization#first-week-contains-date
    */
@@ -472,7 +499,7 @@ export interface PropsBase {
    * @deprecated Use a custom `WeekNumber` component instead.
    * @see https://daypicker.dev/docs/customization#showweeknumber
    */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: deprecated will be removed
   onWeekNumberClick?: any;
 
   /** Event handler when a day is clicked. */
@@ -542,10 +569,22 @@ export interface PropsBase {
 /**
  * Shared handler type for `onSelect` callback when a selection mode is set.
  *
+ * @example
+ *   const handleSelect: OnSelectHandler<Date> = (
+ *     selected,
+ *     triggerDate,
+ *     modifiers,
+ *     e,
+ *   ) => {
+ *     console.log("Selected:", selected);
+ *     console.log("Triggered by:", triggerDate);
+ *   };
+ *
  * @template T - The type of the selected item.
  * @callback OnSelectHandler
  * @param {T} selected - The selected item after the event.
- * @param {Date} triggerDate - The date when the event was triggered.
+ * @param {Date} triggerDate - The date when the event was triggered. This is
+ *   typically the day clicked or interacted with.
  * @param {Modifiers} modifiers - The modifiers associated with the event.
  * @param {React.MouseEvent | React.KeyboardEvent} e - The event object.
  */
@@ -553,7 +592,7 @@ export type OnSelectHandler<T> = (
   selected: T,
   triggerDate: Date,
   modifiers: Modifiers,
-  e: React.MouseEvent | React.KeyboardEvent
+  e: React.MouseEvent | React.KeyboardEvent,
 ) => void;
 
 /**
@@ -632,6 +671,12 @@ export interface PropsMulti {
 export interface PropsRangeRequired {
   mode: "range";
   required: true;
+  /**
+   * Apply the `disabled` modifier to the matching days. Disabled days cannot be
+   * selected when in a selection mode is set.
+   *
+   * @see https://daypicker.dev/docs/selection-modes#disabled
+   */
   disabled?: Matcher | Matcher[] | undefined;
   /**
    * When `true`, the range will reset when including a disabled day.
@@ -657,11 +702,18 @@ export interface PropsRangeRequired {
 export interface PropsRange {
   mode: "range";
   required?: false | undefined;
+  /**
+   * Apply the `disabled` modifier to the matching days. Disabled days cannot be
+   * selected when in a selection mode is set.
+   *
+   * @see https://daypicker.dev/docs/selection-modes#disabled
+   */
   disabled?: Matcher | Matcher[] | undefined;
   /**
    * When `true`, the range will reset when including a disabled day.
    *
    * @since V9.0.2
+   * @see https://daypicker.dev/docs/selection-modes#exclude-disabled
    */
   excludeDisabled?: boolean | undefined;
   /** The selected range. */

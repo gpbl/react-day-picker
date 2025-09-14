@@ -1,6 +1,5 @@
-import React, { useId, useState } from "react";
-
 import { format, isValid, parse } from "date-fns";
+import React, { useId, useState } from "react";
 import { DayPicker } from "react-day-picker";
 
 /** Render an input field bound to a DayPicker calendar. */
@@ -60,6 +59,10 @@ export function Input() {
         value={inputValue}
         placeholder="MM/dd/yyyy"
         onChange={handleInputChange}
+        onKeyDown={(e) => {
+          // Fixes https://github.com/gpbl/react-day-picker/issues/2724 causing search appearing when typing '/'
+          e.stopPropagation();
+        }}
       />
       <div style={{ marginBlock: "1em" }}>
         <DayPicker

@@ -1,7 +1,7 @@
 import { act, renderHook } from "@/test/render";
 
 import { defaultDateLib } from "../classes/DateLib";
-import { DayPickerProps } from "../types";
+import type { DayPickerProps } from "../types";
 
 import { useSingle } from "./useSingle";
 
@@ -12,7 +12,7 @@ describe("useSingle", () => {
     const props: DayPickerProps = {
       mode: "single",
       selected: selectedDate,
-      onSelect: mockOnSelect
+      onSelect: mockOnSelect,
     };
 
     const { result } = renderHook(() => useSingle(props, defaultDateLib));
@@ -24,7 +24,7 @@ describe("useSingle", () => {
     const initialSelectedDate = new Date(2023, 9, 1);
     const props: DayPickerProps = {
       mode: "single",
-      selected: initialSelectedDate
+      selected: initialSelectedDate,
     };
 
     const { result } = renderHook(() => useSingle(props, defaultDateLib));

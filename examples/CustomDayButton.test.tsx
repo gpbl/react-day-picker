@@ -1,9 +1,8 @@
+import { startOfMonth } from "date-fns";
 import React from "react";
 
-import { startOfMonth } from "date-fns";
-
 import { dateButton } from "@/test/elements";
-import { render, screen, fireEvent } from "@/test/render";
+import { fireEvent, render, screen } from "@/test/render";
 
 import { CustomDayButton } from "./CustomDayButton";
 
@@ -22,5 +21,5 @@ test("update the footer when a day is double clicked", () => {
 
 test("update the footer when a day is single clicked", () => {
   fireEvent.click(dateButton(startOfMonth(today)));
-  expect(screen.getByText("Double click to select a date")).toBeInTheDocument();
+  expect(screen.getByText(/Double click to select a date/)).toBeInTheDocument();
 });

@@ -4,9 +4,9 @@ import {
   endOfYear,
   startOfDay,
   startOfMonth,
-  startOfYear
+  startOfYear,
 } from "date-fns";
-import { DayPickerProps } from "react-day-picker/types";
+import type { DayPickerProps } from "react-day-picker/types";
 
 import { defaultDateLib } from "../classes/DateLib";
 
@@ -31,7 +31,7 @@ describe('when "startMonth" is set', () => {
     test('"startMonth" should be the start of that month', () => {
       const [navStartMonth] = getNavMonths(
         { ...props, fromYear },
-        defaultDateLib
+        defaultDateLib,
       );
       const startOfThatMonth = startOfMonth(startMonth);
       expect(navStartMonth).toEqual(startOfThatMonth);
@@ -60,7 +60,7 @@ describe('when "endMonth" is set', () => {
     test('"endMonth" should be the end of that month', () => {
       const [, navEndMonth] = getNavMonths(
         { ...props, fromYear },
-        defaultDateLib
+        defaultDateLib,
       );
       const endOfThatMonth = startOfDay(endOfMonth(endMonth));
       expect(navEndMonth).toEqual(endOfThatMonth);
@@ -157,14 +157,14 @@ describe.each([["dropdown" as const], ["dropdown-years" as const]])(
         expect(navEndMonth).toEqual(new Date(toYear, 11, 31));
       });
     });
-  }
+  },
 );
 
 describe('when "captionLayout" is "dropdown-months"', () => {
   const today = new Date(2024, 4, 3);
   const props: DayPickerProps = {
     captionLayout: "dropdown-months",
-    today
+    today,
   };
   test('"startMonth" should be undefined', () => {
     const [navStartMonth] = getNavMonths(props, defaultDateLib);
@@ -181,7 +181,7 @@ describe('when "captionLayout" is "dropdown-months"', () => {
     const props: DayPickerProps = {
       captionLayout: "dropdown-months",
       startMonth,
-      today
+      today,
     };
     test('"startMonth" should be the start of that month', () => {
       const [navStartMonth] = getNavMonths(props, defaultDateLib);
@@ -200,7 +200,7 @@ describe('when "captionLayout" is "dropdown-months"', () => {
     const props: DayPickerProps = {
       captionLayout: "dropdown-months",
       endMonth,
-      today
+      today,
     };
     test('"startMonth" should be undefined', () => {
       const [navStartMonth] = getNavMonths(props, defaultDateLib);
@@ -219,7 +219,7 @@ describe('when "captionLayout" is "dropdown-months"', () => {
     const props: DayPickerProps = {
       captionLayout: "dropdown-months",
       fromYear,
-      today
+      today,
     };
     test('"startMonth" should be equal to the start of that year', () => {
       const [navStartMonth] = getNavMonths(props, defaultDateLib);
@@ -238,7 +238,7 @@ describe('when "captionLayout" is "dropdown-months"', () => {
     const props: DayPickerProps = {
       captionLayout: "dropdown-months",
       toYear,
-      today
+      today,
     };
     test('"startMonth" should be undefined', () => {
       const [navStartMonth] = getNavMonths(props, defaultDateLib);

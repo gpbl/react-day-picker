@@ -13,10 +13,22 @@ describe("addToRange", () => {
     expect(range).toEqual({ from: date, to: date });
   });
 
-  test("add a date to an incomplete range with same start date", () => {
+  test("add a date to an incomplete range with same start date and min = 0", () => {
     const date = new Date(2022, 0, 1);
     const range = addToRange(date, { from: date, to: undefined });
+    expect(range).toEqual({ from: date, to: date });
+  });
+
+  test("add a date to an incomplete range with same start date and min > 0", () => {
+    const date = new Date(2022, 0, 1);
+    const range = addToRange(date, { from: date, to: undefined }, 1, 0, false);
     expect(range).toEqual(undefined);
+  });
+
+  test("add a date to an incomplete range with same start date and min > 0 and required", () => {
+    const date = new Date(2022, 0, 1);
+    const range = addToRange(date, { from: date, to: undefined }, 1, 0, true);
+    expect(range).toEqual({ from: date, to: undefined });
   });
 
   test("add a date to an incomplete range with earlier date", () => {

@@ -1,8 +1,8 @@
 /* This test uses mockdate to ensure date mocking works as it should. */
-import React from "react";
 
 import { render } from "@testing-library/react";
 import MockDate from "mockdate";
+import React from "react";
 
 import { dateButton, gridcell } from "@/test/elements";
 import { user } from "@/test/user";

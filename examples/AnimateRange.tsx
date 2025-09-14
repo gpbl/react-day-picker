@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { DateRange, DayPicker } from "react-day-picker";
+import { type DateRange, DayPicker } from "react-day-picker";
 
 export function AnimateRange() {
   const [selected, setSelected] = useState<DateRange>();

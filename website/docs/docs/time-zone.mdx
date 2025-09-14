@@ -22,9 +22,9 @@ The time zone can be specified as either an [IANA time zone](https://en.wikipedi
   <Examples.TimeZone />
 </BrowserWindow>
 
-### Working with Time-Zoned Dates
+## Working with Time-Zoned Dates
 
-When working with time zones, make sure to use the `TZDate` object exported by `react-day-picker` instead of the native `Date` object. For more information, refer to the [date-fns doc](https://date-fns.org/v4.1.0/docs/Time-Zones).
+When working with time zones, use the `TZDate` object exported by `react-day-picker` instead of the native `Date` object. This ensures proper handling of time zones. For more information, refer to the [date-fns documentation](https://date-fns.org/v4.1.0/docs/Time-Zones).
 
 ```tsx
 import { DayPicker, TZDate } from "react-day-picker";
@@ -32,7 +32,7 @@ import { DayPicker, TZDate } from "react-day-picker";
 export function TimeZone() {
   const timeZone = "America/New_York";
   const [selected, setSelected] = useState<Date | undefined>(
-    new TZDate(2024, 12, 10, timeZone) // Make sure you use `TZDate` instead of `Date`
+    new TZDate(2024, 12, 10, timeZone), // Use `TZDate` instead of `Date`
   );
   return (
     <DayPicker

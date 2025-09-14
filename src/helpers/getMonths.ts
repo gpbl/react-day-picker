@@ -1,19 +1,29 @@
 import type { DateLib } from "../classes/DateLib.js";
-import { CalendarWeek, CalendarDay, CalendarMonth } from "../classes/index.js";
+import { CalendarDay, CalendarMonth, CalendarWeek } from "../classes/index.js";
 import type { DayPickerProps } from "../types/index.js";
 
-/** Return the months to display in the calendar. */
+/**
+ * Returns the months to display in the calendar.
+ *
+ * This function generates `CalendarMonth` objects for each month to be
+ * displayed, including their weeks and days, based on the provided display
+ * months and dates.
+ *
+ * @param displayMonths The months (as dates) to display in the calendar.
+ * @param dates The dates to display in the calendar.
+ * @param props Options from the DayPicker props context.
+ * @param dateLib The date library to use for date manipulation.
+ * @returns An array of `CalendarMonth` objects representing the months to
+ *   display.
+ */
 export function getMonths(
-  /** The months (as dates) to display in the calendar. */
   displayMonths: Date[],
-  /** The dates to display in the calendar. */
   dates: Date[],
-  /** Options from the props context. */
   props: Pick<
     DayPickerProps,
     "broadcastCalendar" | "fixedWeeks" | "ISOWeek" | "reverseMonths"
   >,
-  dateLib: DateLib
+  dateLib: DateLib,
 ): CalendarMonth[] {
   const {
     addDays,
@@ -25,8 +35,9 @@ export function getMonths(
     getWeek,
     startOfBroadcastWeek,
     startOfISOWeek,
-    startOfWeek
+    startOfWeek,
   } = dateLib;
+
   const dayPickerMonths = displayMonths.reduce<CalendarMonth[]>(
     (months, month) => {
       const firstDateOfFirstWeek = props.broadcastCalendar
@@ -72,14 +83,14 @@ export function getMonths(
           }
           return weeks;
         },
-        []
+        [],
       );
 
       const dayPickerMonth = new CalendarMonth(month, weeks);
       months.push(dayPickerMonth);
       return months;
     },
-    []
+    [],
   );
 
   if (!props.reverseMonths) {

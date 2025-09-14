@@ -1,11 +1,10 @@
-import React, { MouseEventHandler } from "react";
-
 import { isSameDay } from "date-fns";
+import React, { type MouseEventHandler } from "react";
 import {
-  DateRange,
-  DayButtonProps,
+  type DateRange,
+  type DayButtonProps,
   DayPicker,
-  useDayPicker
+  useDayPicker,
 } from "react-day-picker";
 
 function DayWithShiftKey(props: DayButtonProps) {
@@ -29,7 +28,7 @@ function DayWithShiftKey(props: DayButtonProps) {
 
 export function RangeShiftKey() {
   const [range, setRange] = React.useState<DateRange | undefined>({
-    from: undefined
+    from: undefined,
   });
 
   let footer = "Please pick a day.";
@@ -44,7 +43,7 @@ export function RangeShiftKey() {
   return (
     <DayPicker
       components={{
-        DayButton: DayWithShiftKey
+        DayButton: DayWithShiftKey,
       }}
       mode="range"
       selected={range}

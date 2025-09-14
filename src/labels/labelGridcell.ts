@@ -2,17 +2,21 @@ import { DateLib, type DateLibOptions } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
 /**
- * The label for the day gridcell when the calendar is not interactive.
+ * Generates the label for a day grid cell when the calendar is not interactive.
  *
+ * @param date - The date to format.
+ * @param modifiers - Optional modifiers providing context for the day.
+ * @param options - Optional configuration for the date formatting library.
+ * @param dateLib - An optional instance of the date formatting library.
+ * @returns The label for the day grid cell.
  * @group Labels
  * @see https://daypicker.dev/docs/translation#aria-labels
  */
 export function labelGridcell(
   date: Date,
-  /** The modifiers for the day. */
   modifiers?: Modifiers,
   options?: DateLibOptions,
-  dateLib?: DateLib
+  dateLib?: DateLib,
 ) {
   let label = (dateLib ?? new DateLib(options)).format(date, "PPPP");
   if (modifiers?.today) {

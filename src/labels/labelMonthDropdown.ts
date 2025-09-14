@@ -1,12 +1,14 @@
 import type { DateLibOptions } from "../classes/DateLib.js";
 
 /**
- * The ARIA label for the months dropdown.
+ * Generates the ARIA label for the months dropdown.
  *
  * @defaultValue `"Choose the Month"`
+ * @param options - Optional configuration for the date formatting library.
+ * @returns The ARIA label for the months dropdown.
  * @group Labels
  * @see https://daypicker.dev/docs/translation#aria-labels
  */
-export function labelMonthDropdown(options?: DateLibOptions) {
+export function labelMonthDropdown(_options?: DateLibOptions) {
   return "Choose the Month";
 }

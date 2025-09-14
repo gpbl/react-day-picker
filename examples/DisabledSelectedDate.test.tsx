@@ -11,27 +11,35 @@ test("selected days should render with 'selected' modifier when disabled", () =>
   const dayBeforeRangeStart = new Date(2025, 2, 7);
   expect(gridcell(dayBeforeRangeStart, true)).not.toHaveClass("rdp-selected");
   expect(gridcell(dayBeforeRangeStart, true)).not.toHaveStyle(
-    "background-color: red"
+    "background-color: rgb(255, 0, 0)",
   );
   const rangeStart = new Date(2025, 2, 8);
   expect(gridcell(rangeStart, true)).toHaveClass("rdp-selected");
-  expect(gridcell(rangeStart, true)).toHaveStyle("background-color: red");
+  expect(gridcell(rangeStart, true)).toHaveStyle(
+    "background-color: rgb(255, 0, 0)",
+  );
 
   rangeStart.setDate(rangeStart.getDate() + 1);
   expect(gridcell(rangeStart, true)).toHaveClass("rdp-selected");
-  expect(gridcell(rangeStart, true)).toHaveStyle("background-color: red");
+  expect(gridcell(rangeStart, true)).toHaveStyle(
+    "background-color: rgb(255, 0, 0)",
+  );
 
   rangeStart.setDate(rangeStart.getDate() + 1);
   expect(gridcell(rangeStart, true)).toHaveClass("rdp-selected");
-  expect(gridcell(rangeStart, true)).toHaveStyle("background-color: red");
+  expect(gridcell(rangeStart, true)).toHaveStyle(
+    "background-color: rgb(255, 0, 0)",
+  );
 
   rangeStart.setDate(rangeStart.getDate() + 1);
   expect(gridcell(rangeStart, true)).toHaveClass("rdp-selected");
-  expect(gridcell(rangeStart, true)).toHaveStyle("background-color: red");
+  expect(gridcell(rangeStart, true)).toHaveStyle(
+    "background-color: rgb(255, 0, 0)",
+  );
 
   rangeStart.setDate(rangeStart.getDate() + 1);
   expect(gridcell(rangeStart, true)).not.toHaveClass("rdp-selected");
   expect(gridcell(dayBeforeRangeStart, true)).not.toHaveStyle(
-    "background-color: red"
+    "background-color: rgb(255, 0, 0)",
   );
 });

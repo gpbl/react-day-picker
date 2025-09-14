@@ -8,6 +8,6 @@ render(<TestCase2585 />);
 
 test("should render 42*12 days", () => {
   expect(screen.getAllByRole("gridcell", { hidden: true })).toHaveLength(
-    42 * 12
+    42 * 12,
   );
 });

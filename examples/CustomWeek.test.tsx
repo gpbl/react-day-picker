@@ -27,7 +27,7 @@ describe("when a day is clicked", () => {
       gridcell(new Date(2021, 10, 24), true),
       gridcell(new Date(2021, 10, 25), true),
       gridcell(new Date(2021, 10, 26), true),
-      gridcell(new Date(2021, 10, 27), true)
+      gridcell(new Date(2021, 10, 27), true),
     ];
     week.forEach((day) => {
       expect(day).toHaveAttribute("aria-selected", "true");
@@ -45,7 +45,7 @@ describe("when a day is clicked", () => {
         dateButton(new Date(2021, 10, 24)),
         dateButton(new Date(2021, 10, 25)),
         dateButton(new Date(2021, 10, 26)),
-        dateButton(new Date(2021, 10, 27))
+        dateButton(new Date(2021, 10, 27)),
       ];
       week.forEach((day) => {
         expect(day).not.toHaveAttribute("aria-selected", "true");

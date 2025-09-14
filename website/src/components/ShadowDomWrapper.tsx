@@ -4,17 +4,17 @@ import root from "react-shadow";
 
 export function ShadowDomWrapper({
   children,
-  styleStr
+  styleStr,
 }: {
   children: React.ReactNode;
   styleStr: string | undefined;
 }) {
-  const colorMode = useColorMode();
+  const { colorMode } = useColorMode();
   return (
     <root.div>
       {children}
       <style>{style.toString()}</style>
-      {colorMode.isDarkTheme && (
+      {colorMode === "dark" && (
         <style>{`
           .rdp-root {
               --rdp-accent-color: var(--ifm-color-primary);

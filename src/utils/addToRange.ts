@@ -1,24 +1,26 @@
-import { defaultDateLib, type DateLib } from "../classes/DateLib.js";
+import { type DateLib, defaultDateLib } from "../classes/DateLib.js";
 import type { DateRange } from "../types/index.js";
 
 /**
- * Add a day to an existing range.
+ * Adds a date to an existing range, considering constraints like minimum and
+ * maximum range size.
  *
- * The returned range takes in account the `undefined` values and if the added
- * day is already present in the range.
- *
+ * @param date - The date to add to the range.
+ * @param initialRange - The initial range to which the date will be added.
+ * @param min - The minimum number of days in the range.
+ * @param max - The maximum number of days in the range.
+ * @param required - Whether the range must always include at least one date.
+ * @param dateLib - The date utility library instance.
+ * @returns The updated date range, or `undefined` if the range is cleared.
  * @group Utilities
  */
 export function addToRange(
-  /** The date to add to the range. */
   date: Date,
-  /** The range where to add `date`. */
   initialRange: DateRange | undefined,
   min = 0,
   max = 0,
   required = false,
-  /** @ignore */
-  dateLib: DateLib = defaultDateLib
+  dateLib: DateLib = defaultDateLib,
 ): DateRange | undefined {
   const { from, to } = initialRange || {};
   const { isSameDay, isAfter, isBefore } = dateLib;
@@ -32,7 +34,9 @@ export function addToRange(
     // adding date to an incomplete range
     if (isSameDay(from, date)) {
       // adding a date equal to the start of the range
-      if (required) {
+      if (min === 0) {
+        range = { from, to: date };
+      } else if (required) {
         range = { from, to: undefined };
       } else {
         range = undefined;

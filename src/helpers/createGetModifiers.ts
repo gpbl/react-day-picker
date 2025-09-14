@@ -1,19 +1,27 @@
-import { DayFlag } from "./UI.js";
-import type { CalendarDay, DateLib } from "./classes/index.js";
-import type { DayPickerProps, Modifiers } from "./types/index.js";
-import { dateMatchModifiers } from "./utils/dateMatchModifiers.js";
+import type { CalendarDay, DateLib } from "../classes/index.js";
+import type { DayPickerProps, Modifiers } from "../types/index.js";
+import { DayFlag } from "../UI.js";
+import { dateMatchModifiers } from "../utils/dateMatchModifiers.js";
 
 /**
- * Return a function to get the modifiers for a given day.
+ * Creates a function to retrieve the modifiers for a given day.
  *
- * NOTE: this is not an hook, but a factory for `getModifiers`.
+ * This function calculates both internal and custom modifiers for each day
+ * based on the provided calendar days and DayPicker props.
  *
  * @private
+ * @param days The array of `CalendarDay` objects to process.
+ * @param props The DayPicker props, including modifiers and configuration
+ *   options.
+ * @param dateLib The date library to use for date manipulation.
+ * @returns A function that retrieves the modifiers for a given `CalendarDay`.
  */
-export function useGetModifiers(
+export function createGetModifiers(
   days: CalendarDay[],
   props: DayPickerProps,
-  dateLib: DateLib
+  navStart: Date | undefined,
+  navEnd: Date | undefined,
+  dateLib: DateLib,
 ) {
   const {
     disabled,
@@ -21,7 +29,7 @@ export function useGetModifiers(
     modifiers,
     showOutsideDays,
     broadcastCalendar,
-    today
+    today,
   } = props;
 
   const {
@@ -30,18 +38,18 @@ export function useGetModifiers(
     startOfMonth,
     isBefore,
     endOfMonth,
-    isAfter
+    isAfter,
   } = dateLib;
 
-  const startMonth = props.startMonth && startOfMonth(props.startMonth);
-  const endMonth = props.endMonth && endOfMonth(props.endMonth);
+  const computedNavStart = navStart && startOfMonth(navStart);
+  const computedNavEnd = navEnd && endOfMonth(navEnd);
 
   const internalModifiersMap: Record<DayFlag, CalendarDay[]> = {
     [DayFlag.focused]: [],
     [DayFlag.outside]: [],
     [DayFlag.disabled]: [],
     [DayFlag.hidden]: [],
-    [DayFlag.today]: []
+    [DayFlag.today]: [],
   };
 
   const customModifiersMap: Record<string, CalendarDay[]> = {};
@@ -51,20 +59,22 @@ export function useGetModifiers(
 
     const isOutside = Boolean(displayMonth && !isSameMonth(date, displayMonth));
 
-    const isBeforeStartMonth = Boolean(
-      startMonth && isBefore(date, startMonth)
+    const isBeforeNavStart = Boolean(
+      computedNavStart && isBefore(date, computedNavStart),
     );
 
-    const isAfterEndMonth = Boolean(endMonth && isAfter(date, endMonth));
+    const isAfterNavEnd = Boolean(
+      computedNavEnd && isAfter(date, computedNavEnd),
+    );
 
     const isDisabled = Boolean(
-      disabled && dateMatchModifiers(date, disabled, dateLib)
+      disabled && dateMatchModifiers(date, disabled, dateLib),
     );
 
     const isHidden =
       Boolean(hidden && dateMatchModifiers(date, hidden, dateLib)) ||
-      isBeforeStartMonth ||
-      isAfterEndMonth ||
+      isBeforeNavStart ||
+      isAfterNavEnd ||
       // Broadcast calendar will show outside days as default
       (!broadcastCalendar && !showOutsideDays && isOutside) ||
       (broadcastCalendar && showOutsideDays === false && isOutside);
@@ -100,7 +110,7 @@ export function useGetModifiers(
       [DayFlag.disabled]: false,
       [DayFlag.hidden]: false,
       [DayFlag.outside]: false,
-      [DayFlag.today]: false
+      [DayFlag.today]: false,
     };
     const customModifiers: Modifiers = {};
 
@@ -116,7 +126,7 @@ export function useGetModifiers(
     return {
       ...dayFlags,
       // custom modifiers should override all the previous ones
-      ...customModifiers
+      ...customModifiers,
     };
   };
 }

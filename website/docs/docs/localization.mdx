@@ -16,13 +16,13 @@ DayPicker provides various options to customize the calendar for different langu
 
 DayPicker supports all the locales included in the [date-fns](https://date-fns.org/docs/I18n) library.
 
-- To change the default `en-US` to another locale, import a locale object from `react-day-picker/locale` and pass it to the`locale` prop.
+To change the default `en-US` to another locale, import a locale object from `react-day-picker/locale` and pass it to the `locale` prop.
 
 ```tsx
-// import the locale object
+// Import the locale object
 import { es } from "react-day-picker/locale";
 
-// use the locale object
+// Use the locale object
 <DayPicker locale={es} />;
 ```
 
@@ -41,8 +41,8 @@ import { DayPicker, defaultLocale } from "react-day-picker";
   locale={{
     localize: {
       ...defaultLocale.localize,
-      day: (day) => "custom-localized-day"
-    }
+      day: (day) => "custom-localized-day",
+    },
   }}
   month={new Date(2023, 0, 1)}
   mode="single"
@@ -71,7 +71,7 @@ Use the `ISOWeek` prop to switch to [ISO Week Dates](https://en.wikipedia.org/wi
 
 DayPicker supports the Persian [Solar Hijri](<https://en.wikipedia.org/wiki/Iranian_calendars#Modern_calendar:_Solar_Hijri_(SH)>) calendar through the [date-fns-jalali](https://www.npmjs.com/package/date-fns-jalali) package.
 
-- To use the Persian calendar, import `DayPicker` from `react-day-picker/persian`:
+To use the Persian calendar, import `DayPicker` from `react-day-picker/persian`:
 
 ```diff
 - import { DayPicker } from 'react-day-picker';
@@ -86,8 +86,7 @@ DayPicker supports the Persian [Solar Hijri](<https://en.wikipedia.org/wiki/Iran
 
 By default, the Persian calendar uses the Farsi (Iran) locale and the Eastern Arabic-Indic (Persian) number system.
 
-- To use the English (US) locale, import it and pass the `locale` prop.
-- To change the numerals to Western Arabic, use the `numerals` prop.
+To use the English (US) locale, import it and pass the `locale` prop. To change the numerals to Western Arabic, use the `numerals` prop.
 
 ```tsx
 import { DayPicker, enUS } from "react-day-picker/persian";
@@ -103,7 +102,7 @@ export function PersianEn() {
 
 ### Formatting Persian Dates
 
-The calendar always returns Gregorian dates. Use the exported `getDateLib` getter to format dates to Persian calendar.
+The calendar always returns Gregorian dates. Use the exported `getDateLib` getter to format dates to the Persian calendar.
 
 ```tsx
 import { DayPicker, getDateLib } from "react-day-picker/persian";

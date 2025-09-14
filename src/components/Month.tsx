@@ -3,7 +3,7 @@ import React, { type HTMLAttributes } from "react";
 import type { CalendarMonth } from "../classes/CalendarMonth.js";
 
 /**
- * Render the grid with the weekday header row and the weeks for the given
+ * Render the grid with the weekday header row and the weeks for a specific
  * month.
  *
  * @group Components
@@ -11,11 +11,11 @@ import type { CalendarMonth } from "../classes/CalendarMonth.js";
  */
 export function Month(
   props: {
-    /** The month where the grid is displayed. */
+    /** The month to display in the grid. */
     calendarMonth: CalendarMonth;
-    /** The index where this month is displayed. */
+    /** The index of the month being displayed. */
     displayIndex: number;
-  } & HTMLAttributes<HTMLDivElement>
+  } & HTMLAttributes<HTMLDivElement>,
 ) {
   const { calendarMonth, displayIndex, ...divProps } = props;
   return <div {...divProps}>{props.children}</div>;

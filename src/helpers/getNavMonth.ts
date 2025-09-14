@@ -1,7 +1,13 @@
-import { type DateLib } from "../classes/DateLib.js";
+import type { DateLib } from "../classes/DateLib.js";
 import type { DayPickerProps } from "../types/index.js";
 
-/** Return the start and end months for the calendar navigation. */
+/**
+ * Returns the start and end months for calendar navigation.
+ *
+ * @param props The DayPicker props, including navigation and layout options.
+ * @param dateLib The date library to use for date manipulation.
+ * @returns A tuple containing the start and end months for navigation.
+ */
 export function getNavMonths(
   props: Pick<
     DayPickerProps,
@@ -16,7 +22,7 @@ export function getNavMonths(
     | "toMonth"
     | "toYear"
   >,
-  dateLib: DateLib
+  dateLib: DateLib,
 ): [start: Date | undefined, end: Date | undefined] {
   let { startMonth, endMonth } = props;
 
@@ -28,7 +34,7 @@ export function getNavMonths(
     addYears,
     endOfYear,
     newDate,
-    today
+    today,
   } = dateLib;
 
   // Handle deprecated code
@@ -65,6 +71,6 @@ export function getNavMonths(
   }
   return [
     startMonth ? startOfDay(startMonth) : startMonth,
-    endMonth ? startOfDay(endMonth) : endMonth
+    endMonth ? startOfDay(endMonth) : endMonth,
   ];
 }

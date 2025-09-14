@@ -17,7 +17,7 @@ beforeEach(() => {
 const days = [new Date(2021, 5, 23), new Date(2021, 5, 24)];
 const style = {
   fontWeight: 900,
-  color: "lightgreen"
+  color: "rgb(144, 238, 144)",
 };
 test.each(days)("The day %s should have the proper inline style", (day) => {
   expect(gridcell(day, true)).toHaveStyle(style);

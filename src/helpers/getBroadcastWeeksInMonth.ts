@@ -1,12 +1,19 @@
-import { DateLib } from "../classes/index.js";
+import type { DateLib } from "../classes/index.js";
 
 const FIVE_WEEKS = 5;
 const FOUR_WEEKS = 4;
 
 /**
- * Return the number of weeks to display in the broadcast calendar.
+ * Returns the number of weeks to display in the broadcast calendar for a given
+ * month.
+ *
+ * The broadcast calendar may have either 4 or 5 weeks in a month, depending on
+ * the start and end dates of the broadcast weeks.
  *
  * @since 9.4.0
+ * @param month The month for which to calculate the number of weeks.
+ * @param dateLib The date library to use for date manipulation.
+ * @returns The number of weeks in the broadcast calendar (4 or 5).
  */
 export function getBroadcastWeeksInMonth(month: Date, dateLib: DateLib): 4 | 5 {
   // Get the first day of the month
@@ -20,7 +27,7 @@ export function getBroadcastWeeksInMonth(month: Date, dateLib: DateLib): 4 | 5 {
 
   const lastDateOfLastWeek = dateLib.addDays(
     broadcastStartDate,
-    FIVE_WEEKS * 7 - 1
+    FIVE_WEEKS * 7 - 1,
   );
   const numberOfWeeks =
     dateLib.getMonth(month) === dateLib.getMonth(lastDateOfLastWeek)

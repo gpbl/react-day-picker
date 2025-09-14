@@ -1,10 +1,10 @@
-import React, { useLayoutEffect, useRef } from "react";
-
-import { Animation } from "./UI.js";
+import type React from "react";
+import { useLayoutEffect, useRef } from "react";
 import type { CalendarDay } from "./classes/CalendarDay.js";
-import { CalendarMonth } from "./classes/CalendarMonth.js";
+import type { CalendarMonth } from "./classes/CalendarMonth.js";
 import type { DateLib } from "./classes/DateLib.js";
-import { ClassNames } from "./types/shared.js";
+import type { ClassNames } from "./types/shared.js";
+import { Animation } from "./UI.js";
 
 const asHtmlElement = (element: Element | null): HTMLElement | null => {
   if (element instanceof HTMLElement) return element;
@@ -12,7 +12,7 @@ const asHtmlElement = (element: Element | null): HTMLElement | null => {
 };
 
 const queryMonthEls = (element: HTMLElement) => [
-  ...(element.querySelectorAll("[data-animated-month]") ?? [])
+  ...(element.querySelectorAll("[data-animated-month]") ?? []),
 ];
 const queryMonthEl = (element: HTMLElement) =>
   asHtmlElement(element.querySelector("[data-animated-month]"));
@@ -25,7 +25,17 @@ const queryNavEl = (element: HTMLElement) =>
 const queryWeekdaysEl = (element: HTMLElement) =>
   asHtmlElement(element.querySelector("[data-animated-weekdays]"));
 
-/** @private */
+/**
+ * Handles animations for transitioning between months in the DayPicker
+ * component.
+ *
+ * @private
+ * @param rootElRef - A reference to the root element of the DayPicker
+ *   component.
+ * @param enabled - Whether animations are enabled.
+ * @param options - Configuration options for the animation, including class
+ *   names, months, focused day, and the date utility library.
+ */
 export function useAnimation(
   rootElRef: React.RefObject<HTMLDivElement | null>,
   enabled: boolean,
@@ -33,13 +43,13 @@ export function useAnimation(
     classNames,
     months,
     focused,
-    dateLib
+    dateLib,
   }: {
     classNames: ClassNames;
     months: CalendarMonth[];
     focused: CalendarDay | undefined;
     dateLib: DateLib;
-  }
+  },
 ): void {
   const previousRootElSnapshotRef = useRef<HTMLElement>(null);
   const previousMonthsRef = useRef(months);
@@ -66,12 +76,12 @@ export function useAnimation(
 
     const isSameMonth = dateLib.isSameMonth(
       months[0].date,
-      previousMonths[0].date
+      previousMonths[0].date,
     );
 
     const isAfterPreviousMonth = dateLib.isAfter(
       months[0].date,
-      previousMonths[0].date
+      previousMonths[0].date,
     );
 
     const captionAnimationClass = isAfterPreviousMonth
@@ -137,8 +147,7 @@ export function useAnimation(
     const currentMonthEls = queryMonthEls(rootElRef.current);
 
     if (
-      currentMonthEls &&
-      currentMonthEls.every((el) => el instanceof HTMLElement) &&
+      currentMonthEls?.every((el) => el instanceof HTMLElement) &&
       previousMonthEls &&
       previousMonthEls.every((el) => el instanceof HTMLElement)
     ) {
@@ -215,7 +224,7 @@ export function useAnimation(
           previousCaptionEl.classList.add(
             isAfterPreviousMonth
               ? classNames[Animation.caption_before_exit]
-              : classNames[Animation.caption_after_exit]
+              : classNames[Animation.caption_after_exit],
           );
           previousCaptionEl.addEventListener("animationend", cleanUp);
         }
@@ -225,7 +234,7 @@ export function useAnimation(
           previousWeeksEl.classList.add(
             isAfterPreviousMonth
               ? classNames[Animation.weeks_before_exit]
-              : classNames[Animation.weeks_after_exit]
+              : classNames[Animation.weeks_after_exit],
           );
         }
 

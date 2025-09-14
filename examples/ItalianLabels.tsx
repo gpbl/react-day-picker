@@ -1,6 +1,5 @@
-import React from "react";
-
 import { format } from "date-fns";
+import React from "react";
 import { DayPicker } from "react-day-picker";
 import { it } from "react-day-picker/locale";
 
@@ -19,7 +18,7 @@ export function ItalianLabels() {
         labelNext: () => "Prossimo mese",
         labelPrevious: () => "Mese precedente",
         labelMonthDropdown: () => "Seleziona il mese",
-        labelYearDropdown: () => "Seleziona l'anno"
+        labelYearDropdown: () => "Seleziona l'anno",
       }}
     />
   );

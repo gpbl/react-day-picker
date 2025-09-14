@@ -1,45 +1,52 @@
 /* Variables declaration */
-/* prettier-ignore */
 .rdp-root {
   --rdp-accent-color: blue; /* The accent color used for selected days and UI elements. */
   --rdp-accent-background-color: #f0f0ff; /* The accent background color used for selected days and UI elements. */
 
   --rdp-day-height: 44px; /* The height of the day cells. */
   --rdp-day-width: 44px; /* The width of the day cells. */
-  
+
   --rdp-day_button-border-radius: 100%; /* The border radius of the day cells. */
   --rdp-day_button-border: 2px solid transparent; /* The border of the day cells. */
   --rdp-day_button-height: 42px; /* The height of the day cells. */
   --rdp-day_button-width: 42px; /* The width of the day cells. */
-  
+
   --rdp-selected-border: 2px solid var(--rdp-accent-color); /* The border of the selected days. */
   --rdp-disabled-opacity: 0.5; /* The opacity of the disabled days. */
   --rdp-outside-opacity: 0.75; /* The opacity of the days outside the current month. */
   --rdp-today-color: var(--rdp-accent-color); /* The color of the today's date. */
-  
-  --rdp-dropdown-gap: 0.5rem;/* The gap between the dropdowns used in the month captons. */
-  
+
+  --rdp-dropdown-gap: 0.5rem; /* The gap between the dropdowns used in the month captons. */
+
   --rdp-months-gap: 2rem; /* The gap between the months in the multi-month view. */
-  
+
   --rdp-nav_button-disabled-opacity: 0.5; /* The opacity of the disabled navigation buttons. */
   --rdp-nav_button-height: 2.25rem; /* The height of the navigation buttons. */
   --rdp-nav_button-width: 2.25rem; /* The width of the navigation buttons. */
   --rdp-nav-height: 2.75rem; /* The height of the navigation bar. */
-  
+
   --rdp-range_middle-background-color: var(--rdp-accent-background-color); /* The color of the background for days in the middle of a range. */
-  --rdp-range_middle-color: inherit;/* The color of the range text. */
-  
+  --rdp-range_middle-color: inherit; /* The color of the range text. */
+
   --rdp-range_start-color: white; /* The color of the range text. */
-  --rdp-range_start-background: linear-gradient(var(--rdp-gradient-direction), transparent 50%, var(--rdp-range_middle-background-color) 50%); /* Used for the background of the start of the selected range. */
+  --rdp-range_start-background: linear-gradient(
+    var(--rdp-gradient-direction),
+    transparent 50%,
+    var(--rdp-range_middle-background-color) 50%
+  ); /* Used for the background of the start of the selected range. */
   --rdp-range_start-date-background-color: var(--rdp-accent-color); /* The background color of the date when at the start of the selected range. */
-  
-  --rdp-range_end-background: linear-gradient(var(--rdp-gradient-direction), var(--rdp-range_middle-background-color) 50%, transparent 50%); /* Used for the background of the end of the selected range. */
-  --rdp-range_end-color: white;/* The color of the range text. */
+
+  --rdp-range_end-background: linear-gradient(
+    var(--rdp-gradient-direction),
+    var(--rdp-range_middle-background-color) 50%,
+    transparent 50%
+  ); /* Used for the background of the end of the selected range. */
+  --rdp-range_end-color: white; /* The color of the range text. */
   --rdp-range_end-date-background-color: var(--rdp-accent-color); /* The background color of the date when at the end of the selected range. */
-  
+
   --rdp-week_number-border-radius: 100%; /* The border radius of the week number. */
   --rdp-week_number-border: 2px solid transparent; /* The border of the week number. */
-  
+
   --rdp-week_number-height: var(--rdp-day-height); /* The height of the week number cells. */
   --rdp-week_number-opacity: 0.75; /* The opacity of the week number. */
   --rdp-week_number-width: var(--rdp-day-width); /* The width of the week number cells. */
@@ -113,6 +120,7 @@
 
 .rdp-dropdown:focus-visible ~ .rdp-caption_label {
   outline: 5px auto Highlight;
+  /* biome-ignore lint/suspicious/noDuplicateProperties: backward compatibility */
   outline: 5px auto -webkit-focus-ring-color;
 }
 
@@ -196,6 +204,35 @@
   height: var(--rdp-nav-height);
   font-weight: bold;
   font-size: large;
+}
+
+.rdp-root[data-nav-layout="around"] .rdp-month,
+.rdp-root[data-nav-layout="after"] .rdp-month {
+  position: relative;
+}
+
+.rdp-root[data-nav-layout="around"] .rdp-month_caption {
+  justify-content: center;
+  margin-inline-start: var(--rdp-nav_button-width);
+  margin-inline-end: var(--rdp-nav_button-width);
+  position: relative;
+}
+
+.rdp-root[data-nav-layout="around"] .rdp-button_previous {
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0;
+  height: var(--rdp-nav-height);
+  display: inline-flex;
+}
+
+.rdp-root[data-nav-layout="around"] .rdp-button_next {
+  position: absolute;
+  inset-inline-end: 0;
+  top: 0;
+  height: var(--rdp-nav-height);
+  display: inline-flex;
+  justify-content: center;
 }
 
 .rdp-months {
@@ -282,7 +319,6 @@
 }
 
 .rdp-range_middle .rdp-day_button {
-  border-color: transparent;
   border: unset;
   border-radius: unset;
   color: var(--rdp-range_middle-color);

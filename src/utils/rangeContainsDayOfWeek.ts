@@ -1,23 +1,21 @@
-import { defaultDateLib, type DateLib } from "../classes/DateLib.js";
+import { type DateLib, defaultDateLib } from "../classes/DateLib.js";
 
 /**
- * Returns whether a date range contains one or more days of the week.
- *
- * ```tsx
- * const range: DateRange = {
- *   from: new Date(2024, 8, 1), //  Sunday
- *   to: new Date(2024, 8, 6) //  Thursday
- * };
- * rangeContainsDayOfWeek(date, 1); // true: contains range contains Monday
- * ```
+ * Checks if a date range contains one or more specified days of the week.
  *
  * @since 9.2.2
+ * @param range - The date range to check.
+ * @param dayOfWeek - The day(s) of the week to check for (`0-6`, where `0` is
+ *   Sunday).
+ * @param dateLib - The date utility library instance.
+ * @returns `true` if the range contains the specified day(s) of the week,
+ *   otherwise `false`.
  * @group Utilities
  */
 export function rangeContainsDayOfWeek(
   range: { from: Date; to: Date },
   dayOfWeek: number | number[],
-  dateLib: DateLib = defaultDateLib
+  dateLib: DateLib = defaultDateLib,
 ) {
   const dayOfWeekArr = !Array.isArray(dayOfWeek) ? [dayOfWeek] : dayOfWeek;
   let date = range.from;

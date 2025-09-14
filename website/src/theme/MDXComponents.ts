@@ -9,5 +9,5 @@ export default {
   ...MDXComponents,
   BrowserWindow,
   Examples,
-  ExamplesV8
+  ExamplesV8,
 };

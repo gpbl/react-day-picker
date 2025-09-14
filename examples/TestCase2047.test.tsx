@@ -12,7 +12,7 @@ beforeEach(async () => {
 
 test("disabled date renders with selected modifier", () => {
   expect(gridcell(new Date(2024, 5, 10), true)).toHaveAttribute(
-    "aria-selected"
+    "aria-selected",
   );
 });
 
@@ -22,7 +22,7 @@ describe("when the calendar is focused", () => {
   });
   test("the disabled day should not have focused modifier", () => {
     expect(gridcell(new Date(2024, 5, 10), true)).not.toHaveClass(
-      "rdp-focused"
+      "rdp-focused",
     );
   });
 });

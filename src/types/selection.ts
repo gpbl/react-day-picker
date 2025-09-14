@@ -17,6 +17,25 @@ export type SelectedMulti<T extends { required?: boolean }> =
 export type SelectedRange<T extends { required?: boolean }> =
   T["required"] extends true ? DateRange : DateRange | undefined;
 
+/**
+ * Represents the selected value based on the selection mode.
+ *
+ * @example
+ *   // Single selection mode
+ *   const selected: SelectedValue<{ mode: "single" }> = new Date();
+ *
+ *   // Multiple selection mode
+ *   const selected: SelectedValue<{ mode: "multiple" }> = [
+ *     new Date(),
+ *     new Date(),
+ *   ];
+ *
+ *   // Range selection mode
+ *   const selected: SelectedValue<{ mode: "range" }> = {
+ *     from: new Date(),
+ *     to: new Date(),
+ *   };
+ */
 export type SelectedValue<T> = T extends { mode: "single"; required?: boolean }
   ? SelectedSingle<T>
   : T extends { mode: "multiple"; required?: boolean }
@@ -29,23 +48,35 @@ export type SelectHandlerSingle<T extends { required?: boolean | undefined }> =
   (
     triggerDate: Date,
     modifiers: Modifiers,
-    e: React.MouseEvent | React.KeyboardEvent
+    e: React.MouseEvent | React.KeyboardEvent,
   ) => T["required"] extends true ? Date : Date | undefined;
 
 export type SelectHandlerMulti<T extends { required?: boolean | undefined }> = (
   triggerDate: Date,
   modifiers: Modifiers,
-  e: React.MouseEvent | React.KeyboardEvent
+  e: React.MouseEvent | React.KeyboardEvent,
 ) => T["required"] extends true ? Date[] : Date[] | undefined;
 
 export type SelectHandlerRange<T extends { required?: boolean | undefined }> = (
   triggerDate: Date,
   modifiers: Modifiers,
-  e: React.MouseEvent | React.KeyboardEvent
+  e: React.MouseEvent | React.KeyboardEvent,
 ) => T["required"] extends true ? DateRange : DateRange | undefined;
 
+/**
+ * The handler to set a selection based on the mode.
+ *
+ * @example
+ *   const handleSelect: SelectHandler<{ mode: "single" }> = (
+ *     triggerDate,
+ *     modifiers,
+ *     e,
+ *   ) => {
+ *     console.log("Selected date:", triggerDate);
+ *   };
+ */
 export type SelectHandler<
-  T extends { mode?: Mode | undefined; required?: boolean | undefined }
+  T extends { mode?: Mode | undefined; required?: boolean | undefined },
 > = T extends {
   mode: "single";
 }

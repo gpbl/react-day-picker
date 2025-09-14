@@ -22,7 +22,7 @@ export function TailwindCSS() {
           today: `border-amber-500`,
           selected: `bg-amber-500 border-amber-500 text-white`,
           root: `${defaultClassNames.root} bg-white shadow-lg p-5`,
-          chevron: `${defaultClassNames.chevron} fill-amber-500`
+          chevron: `${defaultClassNames.chevron} fill-amber-500`,
         }}
       />
     </>

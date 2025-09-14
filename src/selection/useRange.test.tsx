@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { act, renderHook } from "@/test/render";
 
 import { defaultDateLib } from "../classes/DateLib";
@@ -10,13 +9,13 @@ describe("useRange", () => {
   test("initialize with initiallySelected date range", () => {
     const initiallySelected = {
       from: new Date(2023, 6, 1),
-      to: new Date(2023, 6, 5)
+      to: new Date(2023, 6, 5),
     };
     const { result } = renderHook(() =>
       useRange(
         { mode: "range", selected: initiallySelected, required: false },
-        defaultDateLib
-      )
+        defaultDateLib,
+      ),
     );
 
     expect(result.current.selected).toEqual(initiallySelected);
@@ -25,22 +24,26 @@ describe("useRange", () => {
   test("update the selected range on select", () => {
     const initiallySelected = {
       from: new Date(2023, 6, 1),
-      to: new Date(2023, 6, 5)
+      to: new Date(2023, 6, 5),
     };
     const { result } = renderHook(() =>
       useRange(
         { mode: "range", selected: initiallySelected, required: false },
-        defaultDateLib
-      )
+        defaultDateLib,
+      ),
     );
 
     act(() => {
-      result.current.select?.(new Date(2023, 6, 10), {}, {} as any);
+      result.current.select?.(
+        new Date(2023, 6, 10),
+        {},
+        {} as React.MouseEvent,
+      );
     });
 
     expect(result.current.selected).toEqual({
       from: new Date(2023, 6, 1),
-      to: new Date(2023, 6, 10)
+      to: new Date(2023, 6, 10),
     });
   });
 
@@ -51,20 +54,24 @@ describe("useRange", () => {
           mode: "range",
           selected: undefined,
           required: false,
-          max: 5
+          max: 5,
         },
-        defaultDateLib
-      )
+        defaultDateLib,
+      ),
     );
 
     act(() => {
-      result.current.select?.(new Date(2023, 6, 1), {}, {} as any);
-      result.current.select?.(new Date(2023, 6, 10), {}, {} as any);
+      result.current.select?.(new Date(2023, 6, 1), {}, {} as React.MouseEvent);
+      result.current.select?.(
+        new Date(2023, 6, 10),
+        {},
+        {} as React.MouseEvent,
+      );
     });
 
     expect(result.current.selected).toEqual({
       from: new Date(2023, 6, 10),
-      to: new Date(2023, 6, 10)
+      to: new Date(2023, 6, 10),
     });
   });
 
@@ -72,18 +79,18 @@ describe("useRange", () => {
     const { result } = renderHook(() =>
       useRange(
         { mode: "range", selected: undefined, required: false, min: 5 },
-        defaultDateLib
-      )
+        defaultDateLib,
+      ),
     );
 
     act(() => {
-      result.current.select?.(new Date(2023, 6, 1), {}, {} as any);
-      result.current.select?.(new Date(2023, 6, 3), {}, {} as any);
+      result.current.select?.(new Date(2023, 6, 1), {}, {} as React.MouseEvent);
+      result.current.select?.(new Date(2023, 6, 3), {}, {} as React.MouseEvent);
     });
 
     expect(result.current.selected).toEqual({
       from: new Date(2023, 6, 3),
-      to: undefined
+      to: undefined,
     });
   });
 
@@ -96,33 +103,37 @@ describe("useRange", () => {
           selected: undefined,
           required: false,
           excludeDisabled: true,
-          disabled
+          disabled,
         },
-        defaultDateLib
-      )
+        defaultDateLib,
+      ),
     );
 
     act(() => {
-      result.current.select?.(new Date(2023, 6, 1), {}, {} as any);
-      result.current.select?.(new Date(2023, 6, 10), {}, {} as any);
+      result.current.select?.(new Date(2023, 6, 1), {}, {} as React.MouseEvent);
+      result.current.select?.(
+        new Date(2023, 6, 10),
+        {},
+        {} as React.MouseEvent,
+      );
     });
 
     expect(result.current.selected).toEqual({
       from: new Date(2023, 6, 10),
-      to: new Date(2023, 6, 10)
+      to: new Date(2023, 6, 10),
     });
   });
   it("uses the selected value from props when onSelect is provided", () => {
     const mockOnSelect = jest.fn();
     const selectedRange = {
       from: new Date(2023, 9, 1),
-      to: new Date(2023, 9, 5)
+      to: new Date(2023, 9, 5),
     };
     const props: DayPickerProps = {
       mode: "range",
 
       selected: selectedRange,
-      onSelect: mockOnSelect
+      onSelect: mockOnSelect,
     };
 
     const { result } = renderHook(() => useRange(props, defaultDateLib));
@@ -133,11 +144,11 @@ describe("useRange", () => {
   it("uses the internally selected value when onSelect is not provided", () => {
     const initialSelectedRange = {
       from: new Date(2023, 9, 1),
-      to: new Date(2023, 9, 5)
+      to: new Date(2023, 9, 5),
     };
     const props: DayPickerProps = {
       mode: "range",
-      selected: initialSelectedRange
+      selected: initialSelectedRange,
     };
 
     const { result } = renderHook(() => useRange(props, defaultDateLib));
@@ -148,7 +159,7 @@ describe("useRange", () => {
 
     expect(result.current.selected).toEqual({
       from: new Date(2023, 9, 1),
-      to: new Date(2023, 9, 6)
+      to: new Date(2023, 9, 6),
     });
   });
 });

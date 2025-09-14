@@ -1,7 +1,7 @@
 import React, { type HTMLAttributes } from "react";
 
 /**
- * Render the the navigation dropdowns.
+ * Render the navigation dropdowns for the calendar.
  *
  * @group Components
  * @see https://daypicker.dev/guides/custom-components

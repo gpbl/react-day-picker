@@ -1,6 +1,5 @@
-import React, { ChangeEventHandler, useState } from "react";
-
 import { setHours, setMinutes } from "date-fns";
+import React, { type ChangeEventHandler, useState } from "react";
 import { DayPicker } from "react-day-picker";
 
 export function InputTime() {
@@ -32,7 +31,7 @@ export function InputTime() {
       date.getMonth(),
       date.getDate(),
       hours,
-      minutes
+      minutes,
     );
     setSelected(newDate);
   };

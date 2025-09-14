@@ -1,10 +1,9 @@
-import React from "react";
-
 import { format } from "date-fns";
+import React from "react";
 import {
-  type MonthCaptionProps,
   DayPicker,
-  useDayPicker
+  type MonthCaptionProps,
+  useDayPicker,
 } from "react-day-picker";
 
 function CustomMonthCaption(props: MonthCaptionProps) {
@@ -14,6 +13,7 @@ function CustomMonthCaption(props: MonthCaptionProps) {
       <h2>{format(props.calendarMonth.date, "MMM yyy")}</h2>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <button
+          type="button"
           style={{ all: "revert", cursor: "pointer" }}
           disabled={!previousMonth}
           onClick={() => previousMonth && goToMonth(previousMonth)}
@@ -21,6 +21,7 @@ function CustomMonthCaption(props: MonthCaptionProps) {
           Previous
         </button>
         <button
+          type="button"
           style={{ all: "revert", cursor: "pointer" }}
           disabled={!nextMonth}
           onClick={() => nextMonth && goToMonth(nextMonth)}
@@ -37,7 +38,7 @@ export function CustomCaption() {
     <DayPicker
       hideNavigation
       components={{
-        MonthCaption: CustomMonthCaption
+        MonthCaption: CustomMonthCaption,
       }}
     />
   );

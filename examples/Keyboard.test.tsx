@@ -1,5 +1,3 @@
-import React, { act } from "react";
-
 import {
   addDays,
   addMonths,
@@ -8,15 +6,16 @@ import {
   endOfWeek,
   lastDayOfMonth,
   setDate,
-  startOfWeek
+  startOfWeek,
 } from "date-fns";
+import React, { act } from "react";
 
 import {
+  activeElement,
+  dateButton,
   grid,
   nextButton,
-  dateButton,
-  activeElement,
-  previousButton
+  previousButton,
 } from "@/test/elements";
 import { render } from "@/test/render";
 import { user } from "@/test/user";
@@ -78,6 +77,24 @@ describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
         });
       }
     });
+    describe("when the Shift + Arrow Left is pressed", () => {
+      beforeEach(() => user.type(activeElement(), "{shift>}{arrowleft}"));
+      if (dir === "rtl") {
+        test("should display the next month", () => {
+          expect(grid("July 2022")).toBeInTheDocument();
+        });
+        test("should focus the first day in the next month", () => {
+          expect(dateButton(nextMonth)).toHaveFocus();
+        });
+      } else {
+        test("should display the previous month", () => {
+          expect(grid("May 2022")).toBeInTheDocument();
+        });
+        test("should focus the last day in the previous month", () => {
+          expect(dateButton(prevMonth)).toHaveFocus();
+        });
+      }
+    });
     describe("when the Arrow Right is pressed", () => {
       beforeEach(() => user.type(activeElement(), "{arrowright}"));
       if (dir === "rtl") {
@@ -93,6 +110,24 @@ describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
         });
       }
     });
+    describe("when the Shift + Arrow Right is pressed", () => {
+      beforeEach(() => user.type(activeElement(), "{shift>}{arrowright}"));
+      if (dir === "rtl") {
+        test("should display the previous month", () => {
+          expect(grid("May 2022")).toBeInTheDocument();
+        });
+        test("should focus the last day in the previous month", () => {
+          expect(dateButton(prevMonth)).toHaveFocus();
+        });
+      } else {
+        test("should display the next month", () => {
+          expect(grid("July 2022")).toBeInTheDocument();
+        });
+        test("should focus the first day in the next month", () => {
+          expect(dateButton(nextMonth)).toHaveFocus();
+        });
+      }
+    });
     describe("when the Arrow Up is pressed", () => {
       beforeEach(() => user.type(activeElement(), "{arrowup}"));
       test("should display the previous month", () => {
@@ -102,6 +137,15 @@ describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
         expect(dateButton(prevWeekDay)).toHaveFocus();
       });
     });
+    describe("when the Shift + Arrow Up is pressed", () => {
+      beforeEach(() => user.type(activeElement(), "{shift>}{arrowup}"));
+      test("should display the previous year", () => {
+        expect(grid("June 2021")).toBeInTheDocument();
+      });
+      test("should focus the day in the previous year", () => {
+        expect(dateButton(prevYear)).toHaveFocus();
+      });
+    });
     describe("when the Arrow Down is pressed", () => {
       beforeEach(() => user.type(activeElement(), "{arrowdown}"));
       test("should display the same month", () => {
@@ -109,6 +153,15 @@ describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
       });
       test("should focus the day in the next week", () => {
         expect(dateButton(nextWeekDay)).toHaveFocus();
+      });
+    });
+    describe("when the Shift + Arrow Down is pressed", () => {
+      beforeEach(() => user.type(activeElement(), "{shift>}{arrowdown}"));
+      test("should display the next year", () => {
+        expect(grid("June 2023")).toBeInTheDocument();
+      });
+      test("should focus the day in the next year", () => {
+        expect(dateButton(nextYear)).toHaveFocus();
       });
     });
     describe("when Page Up is pressed", () => {

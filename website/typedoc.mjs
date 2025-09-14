@@ -7,8 +7,7 @@
  *   >}
  */
 const options = {
-  // eslint-disable-next-line no-undef
-  watch: process.env.TYPEDOC_WATCH === "truex",
+  watch: process.env.TYPEDOC_WATCH === "true",
   name: "API",
   includeVersion: true,
   basePath: "../",
@@ -25,7 +24,7 @@ const options = {
     "Utilities",
     "Hooks",
     "Contexts",
-    "*"
+    "*",
   ],
   readme: "none",
 
@@ -57,9 +56,8 @@ const options = {
     hideOverrides: false,
     hideSources: true,
     hideValues: false,
-    leftAlignHeaders: false
+    leftAlignHeaders: false,
   },
-  plugin: ["typedoc-plugin-markdown", "typedoc-plugin-frontmatter"]
 };
 
 export default options;

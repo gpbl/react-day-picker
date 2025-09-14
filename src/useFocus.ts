@@ -4,12 +4,12 @@ import type { CalendarDay, DateLib } from "./classes/index.js";
 import { calculateFocusTarget } from "./helpers/calculateFocusTarget.js";
 import { getNextFocus } from "./helpers/getNextFocus.js";
 import type {
+  DayPickerProps,
+  Modifiers,
   MoveFocusBy,
   MoveFocusDir,
-  DayPickerProps,
-  Modifiers
 } from "./types/index.js";
-import { Calendar } from "./useCalendar.js";
+import type { Calendar } from "./useCalendar.js";
 
 export type UseFocus = {
   /** The date that is currently focused. */
@@ -28,13 +28,26 @@ export type UseFocus = {
   moveFocus: (moveBy: MoveFocusBy, moveDir: MoveFocusDir) => void;
 };
 
-/** @private */
+/**
+ * Manages focus behavior for the DayPicker component, including setting,
+ * moving, and blurring focus on calendar days.
+ *
+ * @template T - The type of DayPicker props.
+ * @param props - The DayPicker props.
+ * @param calendar - The calendar object containing the displayed days and
+ *   months.
+ * @param getModifiers - A function to retrieve modifiers for a given day.
+ * @param isSelected - A function to check if a date is selected.
+ * @param dateLib - The date utility library instance.
+ * @returns An object containing focus-related methods and the currently focused
+ *   day.
+ */
 export function useFocus<T extends DayPickerProps>(
   props: T,
   calendar: Calendar,
   getModifiers: (day: CalendarDay) => Modifiers,
   isSelected: (date: Date) => boolean,
-  dateLib: DateLib
+  dateLib: DateLib,
 ): UseFocus {
   const { autoFocus } = props;
   const [lastFocused, setLastFocused] = useState<CalendarDay | undefined>();
@@ -43,10 +56,10 @@ export function useFocus<T extends DayPickerProps>(
     calendar.days,
     getModifiers,
     isSelected || (() => false),
-    lastFocused
+    lastFocused,
   );
   const [focusedDay, setFocused] = useState<CalendarDay | undefined>(
-    autoFocus ? focusTarget : undefined
+    autoFocus ? focusTarget : undefined,
   );
 
   const blur = () => {
@@ -63,7 +76,7 @@ export function useFocus<T extends DayPickerProps>(
       calendar.navStart,
       calendar.navEnd,
       props,
-      dateLib
+      dateLib,
     );
     if (!nextFocus) return;
 
@@ -80,7 +93,7 @@ export function useFocus<T extends DayPickerProps>(
     setFocused,
     focused: focusedDay,
     blur,
-    moveFocus
+    moveFocus,
   };
 
   return useFocus;

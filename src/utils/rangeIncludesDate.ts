@@ -2,17 +2,21 @@ import { defaultDateLib } from "../classes/index.js";
 import type { DateRange } from "../types/index.js";
 
 /**
- * Determines whether a given date is inside a specified date range.
+ * Checks if a given date is within a specified date range.
  *
  * @since 9.0.0
+ * @param range - The date range to check against.
+ * @param date - The date to check.
+ * @param excludeEnds - If `true`, the range's start and end dates are excluded.
+ * @param dateLib - The date utility library instance.
+ * @returns `true` if the date is within the range, otherwise `false`.
  * @group Utilities
  */
 export function rangeIncludesDate(
   range: DateRange,
   date: Date,
-  /** If `true`, the ends of the range are excluded. */
   excludeEnds = false,
-  dateLib = defaultDateLib
+  dateLib = defaultDateLib,
 ): boolean {
   let { from, to } = range;
   const { differenceInCalendarDays, isSameDay } = dateLib;

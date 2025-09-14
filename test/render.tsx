@@ -1,8 +1,8 @@
 export {
-  screen,
   act,
-  within,
+  fireEvent,
   render,
   renderHook,
-  fireEvent
+  screen,
+  within,
 } from "@testing-library/react";

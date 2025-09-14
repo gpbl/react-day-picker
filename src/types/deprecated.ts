@@ -1,31 +1,32 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { DayFlag, SelectionState } from "../UI.js";
 import {
   MonthCaption,
-  type MonthCaptionProps
+  type MonthCaptionProps,
 } from "../components/MonthCaption.js";
 import { Week, type WeekProps } from "../components/Week.js";
-import {
+import type {
   labelDayButton,
   labelNext,
   labelWeekday,
-  labelWeekNumber
+  labelWeekNumber,
 } from "../labels/index.js";
+import type { DayFlag, SelectionState } from "../UI.js";
 import { useDayPicker } from "../useDayPicker.js";
 
 import type { PropsMulti, PropsRange, PropsSingle } from "./props.js";
-import type { Mode, DayEventHandler } from "./shared.js";
+import type { DayEventHandler, Mode } from "./shared.js";
 
 /**
  * @ignore
  * @deprecated This type will be removed.
  */
+// biome-ignore lint/suspicious/noExplicitAny: will be removed
 export type RootProvider = any;
 
 /**
  * @ignore
  * @deprecated This type will be removed.
  */
+// biome-ignore lint/suspicious/noExplicitAny: will be removed
 export type RootProviderProps = any;
 
 /**
@@ -48,6 +49,7 @@ export type CaptionProps = MonthCaptionProps;
  * @group Components
  * @see https://daypicker.dev/guides/custom-components
  */
+// biome-ignore lint/suspicious/noExplicitAny: will be removed
 export type HeadRow = any;
 
 /**
@@ -84,7 +86,7 @@ export type DayPickerRangeProps = PropsRange;
 
 /**
  * @ignore
- * @deprecated This type will be removed. Use `NonNullable<unknown>` instead
+ * @deprecated This type will be removed. Use `NonNullable<unknown>` instead.
  */
 export type DayPickerDefaultProps = NonNullable<unknown>;
 
@@ -96,7 +98,7 @@ export type DaySelectionMode = Mode;
 
 /**
  * @ignore
- * @deprecated This type will be removed. Use `string` instead;
+ * @deprecated This type will be removed. Use `string` instead.
  */
 export type Modifier = string;
 
@@ -116,21 +118,21 @@ export type InternalModifier =
 
 /**
  * @ignore
- * @deprecated This type will be removed. Use `SelectHandler<{mode: "single"}>`
- *   instead.
+ * @deprecated This type will be removed. Use `SelectHandler<{ mode: "single"
+ *   }>` instead.
  */
 export type SelectSingleEventHandler = PropsSingle["onSelect"];
 
 /**
  * @ignore
- * @deprecated This type will be removed. Use `SelectHandler<{mode:
- *   "multiple"}>` instead.
+ * @deprecated This type will be removed. Use `SelectHandler<{ mode: "multiple"
+ *   }>` instead.
  */
 export type SelectMultipleEventHandler = PropsMulti["onSelect"];
 
 /**
  * @ignore
- * @deprecated This type will be removed. Use `SelectHandler<{mode: "range"}>`
+ * @deprecated This type will be removed. Use `SelectHandler<{ mode: "range" }>`
  *   instead.
  */
 export type SelectRangeEventHandler = PropsRange["onSelect"];
@@ -139,11 +141,12 @@ export type SelectRangeEventHandler = PropsRange["onSelect"];
  * @ignore
  * @deprecated This type is not used anymore.
  */
+// biome-ignore lint/suspicious/noExplicitAny: will be removed
 export type DayPickerProviderProps = any;
 
 /**
  * @ignore
- * @deprecated This type has been removed to `useDayPicker`.
+ * @deprecated This type has been moved to `useDayPicker`.
  * @group Hooks
  */
 export const useNavigation = useDayPicker;
@@ -154,12 +157,14 @@ export const useNavigation = useDayPicker;
  * @group Hooks
  * @see https://daypicker.dev/guides/custom-components
  */
+// biome-ignore lint/suspicious/noExplicitAny: will be removed
 export type useDayRender = any;
 
 /**
  * @ignore
  * @deprecated This type is not used anymore.
  */
+// biome-ignore lint/suspicious/noExplicitAny: will be removed
 export type ContextProvidersProps = any;
 
 /**

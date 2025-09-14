@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 
 import type {
-  CalendarWeek,
   CalendarDay,
   CalendarMonth,
-  DateLib
+  CalendarWeek,
+  DateLib,
 } from "./classes/index.js";
 import { getDates } from "./helpers/getDates.js";
 import { getDays } from "./helpers/getDays.js";
@@ -65,7 +65,15 @@ export interface Calendar {
   goToDay: (day: CalendarDay) => void;
 }
 
-/** @private */
+/**
+ * Provides the calendar object to work with the calendar in custom components.
+ *
+ * @private
+ * @param props - The DayPicker props related to calendar configuration.
+ * @param dateLib - The date utility library instance.
+ * @returns The calendar object containing displayed days, weeks, months, and
+ *   navigation methods.
+ */
 export function useCalendar(
   props: Pick<
     DayPickerProps,
@@ -88,22 +96,22 @@ export function useCalendar(
     | "toMonth"
     | "toYear"
   >,
-  dateLib: DateLib
+  dateLib: DateLib,
 ): Calendar {
   const [navStart, navEnd] = getNavMonths(props, dateLib);
 
   const { startOfMonth, endOfMonth } = dateLib;
-  const initialMonth = getInitialMonth(props, dateLib);
+  const initialMonth = getInitialMonth(props, navStart, navEnd, dateLib);
   const [firstMonth, setFirstMonth] = useControlledValue(
     initialMonth,
     // initialMonth is always computed from props.month if provided
-    props.month ? initialMonth : undefined
+    props.month ? initialMonth : undefined,
   );
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: change the initial month when the time zone changes.
   useEffect(() => {
-    const newInitialMonth = getInitialMonth(props, dateLib);
+    const newInitialMonth = getInitialMonth(props, navStart, navEnd, dateLib);
     setFirstMonth(newInitialMonth);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.timeZone]);
 
   /** The months displayed in the calendar. */
@@ -114,7 +122,7 @@ export function useCalendar(
     displayMonths,
     props.endMonth ? endOfMonth(props.endMonth) : undefined,
     props,
-    dateLib
+    dateLib,
   );
 
   /** The Months displayed in the calendar. */
@@ -171,7 +179,7 @@ export function useCalendar(
     nextMonth,
 
     goToMonth,
-    goToDay
+    goToDay,
   };
 
   return calendar;

@@ -1,17 +1,11 @@
 {
-  "$schema": "https://json.schemastore.org/prettierrc",
-  "tabWidth": 2,
-  "useTabs": false,
-  "semi": true,
-  "singleQuote": false,
-  "trailingComma": "none",
-  "plugins": ["@trivago/prettier-plugin-sort-imports", "prettier-plugin-jsdoc"],
-  "importOrder": [
-    "^react$",
-    "<THIRD_PARTY_MODULES>",
-    "^@/(.*)$",
-    "^../",
-    "^[./]"
-  ],
-  "importOrderSeparation": true
+  "plugins": ["prettier-plugin-jsdoc"],
+  "overrides": [
+    {
+      "files": ["*.md", "*.mdx"]
+    },
+    {
+      "files": ["*.ts", "*.tsx"]
+    }
+  ]
 }

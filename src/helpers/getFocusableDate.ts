@@ -2,10 +2,25 @@ import type { DateLib } from "../classes/DateLib.js";
 import type {
   DayPickerProps,
   MoveFocusBy,
-  MoveFocusDir
+  MoveFocusDir,
 } from "../types/index.js";
 
-/** Return the next date that should be focused. */
+/**
+ * Calculates the next date that should be focused in the calendar.
+ *
+ * This function determines the next focusable date based on the movement
+ * direction, constraints, and calendar configuration.
+ *
+ * @param moveBy The unit of movement (e.g., "day", "week").
+ * @param moveDir The direction of movement ("before" or "after").
+ * @param refDate The reference date from which to calculate the next focusable
+ *   date.
+ * @param navStart The earliest date the user can navigate to.
+ * @param navEnd The latest date the user can navigate to.
+ * @param props The DayPicker props, including calendar configuration options.
+ * @param dateLib The date library to use for date manipulation.
+ * @returns The next focusable date.
+ */
 export function getFocusableDate(
   moveBy: MoveFocusBy,
   moveDir: MoveFocusDir,
@@ -13,7 +28,7 @@ export function getFocusableDate(
   navStart: Date | undefined,
   navEnd: Date | undefined,
   props: Pick<DayPickerProps, "ISOWeek" | "broadcastCalendar">,
-  dateLib: DateLib
+  dateLib: DateLib,
 ): Date {
   const { ISOWeek, broadcastCalendar } = props;
   const {
@@ -28,7 +43,7 @@ export function getFocusableDate(
     min,
     startOfBroadcastWeek,
     startOfISOWeek,
-    startOfWeek
+    startOfWeek,
   } = dateLib;
   const moveFns = {
     day: addDays,
@@ -46,7 +61,7 @@ export function getFocusableDate(
         ? endOfBroadcastWeek(date)
         : ISOWeek
           ? endOfISOWeek(date)
-          : endOfWeek(date)
+          : endOfWeek(date),
   };
 
   let focusableDate = moveFns[moveBy](refDate, moveDir === "after" ? 1 : -1);

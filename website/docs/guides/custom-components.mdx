@@ -12,11 +12,11 @@ Use the `components` prop to extend each rendered HTML element with your own cus
 
 You may need to use custom components in advanced applications to:
 
-- Prevent default events from occurring
-- Add new event listeners, such as touch events
-- Display extra content, such as a calendar entry in the day cell
-- Implement buttons or dropdowns using your own design system components
-- Wrap an element with another element, like adding a tooltip to a day cell
+- Prevent default events from occurring.
+- Add new event listeners, such as touch events.
+- Display extra content, such as a calendar entry in the day cell.
+- Implement buttons or dropdowns using your own design system components.
+- Wrap an element with another element, like adding a tooltip to a day cell.
 
 When customizing components, familiarize yourself with the [API Reference](../api#components) and the [DayPicker Anatomy](../docs/anatomy.mdx). Ensure you maintain [accessibility](../guides/accessibility.mdx).
 
@@ -28,14 +28,16 @@ Custom components allow you to extend DayPicker beyond just using [formatters](.
 
 ## Implementing a Custom Component
 
-Pass the components to customize to the `components` prop. See the [list of custom components](#list-of-custom-components) below.
+- Pass the components you want to customize to the `components` prop (see the [list of custom components](#list-of-custom-components) below).
+- Consider reusing the core components and composing your customizations on top of them.
+- Use a custom React Context to share state between your custom components and your application.
 
 ```tsx
 <DayPicker
   components={{
     Day: CustomDaycell,
-    MonthGrid: CustomMonthGrid
-    // etc
+    MonthGrid: CustomMonthGrid,
+    // etc.
   }}
 />
 ```
@@ -78,9 +80,9 @@ In a custom component, import the `useDayPicker` hook to access the DayPicker co
 import { useDayPicker } from "react-day-picker";
 ```
 
-| Function                                           | Return value                                                  | Description                                                                  |
-| :------------------------------------------------- | ------------------------------------------------------------- | :--------------------------------------------------------------------------- |
-| [`useDayPicker`](../api/functions/useDayPicker.md) | [`DayPickerContext`](../api/type-aliases/DayPickerContext.md) | Return the current state of DayPicker and functions to navigate the calendar |
+| Function                                           | Return value                                                  | Description                                                                    |
+| -------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| [`useDayPicker`](../api/functions/useDayPicker.md) | [`DayPickerContext`](../api/type-aliases/DayPickerContext.md) | Returns the current state of DayPicker and functions to navigate the calendar. |
 
 ### DayPicker Context
 
@@ -92,13 +94,13 @@ The DayPicker context provides the current state of the calendar, including the 
 | `components`     | [`CustomComponents`](../api/type-aliases/CustomComponents.md)                 | The components used internally by DayPicker.   |
 | `formatters`     | [`Formatters`](../api/type-aliases/Formatters.md)                             | The formatters used to format the UI elements. |
 | `getModifiers`   | (`day`) => [`Modifiers`](../api/type-aliases/Modifiers.md)                    | Returns the modifiers for the given day.       |
-| `goToMonth`      | (`month`) => `void`                                                           | Navigate to the specified month.               |
+| `goToMonth`      | (`month`) => `void`                                                           | Navigates to the specified month.              |
 | `isSelected`     | (`date`) => `boolean` \| `undefined`                                          | Whether the given date is selected.            |
 | `labels`         | [`Labels`](../api/type-aliases/Labels.md)                                     | The labels used in the user interface.         |
 | `months`         | [`CalendarMonth`](../api/classes/CalendarMonth.md)[]                          | The months displayed in the calendar.          |
 | `nextMonth`      | `Date` \| `undefined`                                                         | The next month to display.                     |
 | `previousMonth`  | `Date` \| `undefined`                                                         | The previous month to display.                 |
-| `select`         | [`SelectHandler`](../api/type-aliases/SelectHandler.md)\<`T`\> \| `undefined` | Set a selection.                               |
+| `select`         | [`SelectHandler`](../api/type-aliases/SelectHandler.md)\<`T`\> \| `undefined` | Sets a selection.                              |
 | `selected`       | [`SelectedValue`](../api/type-aliases/SelectedValue.md)\<`T`\> \| `undefined` | The selected date(s).                          |
 | `styles`         | `Partial`\<[`Styles`](../api/type-aliases/Styles.md)\> \| `undefined`         | The styles for the UI elements.                |
 | `dayPickerProps` | [`DayPickerProps`](../api/type-aliases/DayPickerProps.md)                     | The props passed to the DayPicker component.   |
@@ -107,32 +109,36 @@ The DayPicker context provides the current state of the calendar, including the 
 
 ### Intercepting Click Events
 
-For example, you can use a custom [DayButton](../api/functions/DayButton.md) to select days with a double-click event.
+For example, you can use a custom [DayButton](../api/functions/DayButton.md) to select days with a double-click event. This approach uses a custom React context to share the selected date state between the custom `DayButton` and the main component.
 
 ```tsx title="./MyDatePicker.tsx"
 import React from "react";
 
-import { DayButtonProps, DayPicker } from "react-day-picker";
+import { DayButton, type DayButtonProps, DayPicker } from "react-day-picker";
 
+// Create a context to share the selected date state between the custom DayButton and the main component.
 const SelectedDateContext = React.createContext<{
   selected?: Date;
   setSelected?: React.Dispatch<React.SetStateAction<Date | undefined>>;
 }>({});
 
-function DayButton(props: DayButtonProps) {
+// Custom DayButton that uses the context to set the selected date on double-click and clear it on single click.
+function DayButtonWithContext(props: DayButtonProps) {
   const { day, modifiers, ...buttonProps } = props;
 
   const { setSelected } = React.use(SelectedDateContext);
   return (
-    <button
+    <DayButton
       {...buttonProps}
+      day={day}
+      modifiers={modifiers}
       onClick={() => setSelected?.(undefined)}
       onDoubleClick={() => setSelected?.(day.date)}
     />
   );
 }
 
-export function CustomDayButton() {
+export function MyDatePicker() {
   const [selected, setSelected] = React.useState<Date>();
 
   return (
@@ -142,9 +148,8 @@ export function CustomDayButton() {
         selected={selected}
         onSelect={setSelected}
         components={{
-          DayButton
+          DayButton: DayButtonWithContext,
         }}
-        footer={selected?.toDateString() || "Double click to select a date"}
       />
     </SelectedDateContext.Provider>
   );
@@ -161,6 +166,7 @@ You can use a custom [Dropdown](../api/functions/Dropdown.md) to select years an
 
 ```tsx title="./CustomDropdown.tsx"
 import React, { useState } from "react";
+
 import { DayButtonProps, DayPicker } from "react-day-picker";
 
 import {
@@ -169,7 +175,7 @@ import {
   SelectGroup,
   SelectItem,
   SelectTrigger,
-  SelectValue
+  SelectValue,
 } from "@/components/ui/select";
 
 export function CustomSelectDropdown(props: DropdownProps) {
@@ -179,8 +185,8 @@ export function CustomSelectDropdown(props: DropdownProps) {
     if (onChange) {
       const syntheticEvent = {
         target: {
-          value: newValue
-        }
+          value: newValue,
+        },
       } as React.ChangeEvent<HTMLSelectElement>;
 
       onChange(syntheticEvent);
@@ -220,9 +226,7 @@ export function CustomDropdown() {
       selected={selected}
       onSelect={setSelected}
       footer={
-        selected
-          ? `Selected: ${selected.toLocaleDateString()}`
-          : "Pick a day."
+        selected ? `Selected: ${selected.toLocaleDateString()}` : "Pick a day."
       }
     />
   );

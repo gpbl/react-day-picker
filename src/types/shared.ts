@@ -1,8 +1,6 @@
 import type { CSSProperties } from "react";
-
-import { UI, DayFlag, SelectionState, Animation } from "../UI.js";
-import * as components from "../components/custom-components.js";
-import {
+import type * as components from "../components/custom-components.js";
+import type {
   formatCaption,
   formatDay,
   formatMonthCaption,
@@ -11,35 +9,36 @@ import {
   formatWeekNumber,
   formatWeekNumberHeader,
   formatYearCaption,
-  formatYearDropdown
+  formatYearDropdown,
 } from "../formatters/index.js";
-import {
+import type {
   labelDayButton,
-  labelNav,
   labelGrid,
   labelGridcell,
   labelMonthDropdown,
+  labelNav,
   labelNext,
   labelPrevious,
   labelWeekday,
   labelWeekNumber,
   labelWeekNumberHeader,
-  labelYearDropdown
+  labelYearDropdown,
 } from "../labels/index.js";
+import type { Animation, DayFlag, SelectionState, UI } from "../UI.js";
 
 /**
  * Selection modes supported by DayPicker.
  *
- * - `single`: use DayPicker to select single days.
- * - `multiple`: allow selecting multiple days.
- * - `range`: use DayPicker to select a range of days.
+ * - `single`: Select a single day.
+ * - `multiple`: Select multiple days.
+ * - `range`: Select a range of days.
  *
  * @see https://daypicker.dev/docs/selection-modes
  */
 export type Mode = "single" | "multiple" | "range";
 
 /**
- * The components that can be changed using the `components` prop.
+ * The components that can be customized using the `components` prop.
  *
  * @see https://daypicker.dev/guides/custom-components
  */
@@ -97,13 +96,13 @@ export type CustomComponents = {
   WeekNumber: typeof components.WeekNumber;
   /** Render the header of the week number column. */
   WeekNumberHeader: typeof components.WeekNumberHeader;
-  /** Render the dropdown with the months. */
+  /** Render the dropdown for selecting months. */
   MonthsDropdown: typeof components.MonthsDropdown;
-  /** Render the dropdown with the years. */
+  /** Render the dropdown for selecting years. */
   YearsDropdown: typeof components.YearsDropdown;
 };
 
-/** Represent a map of formatters used to render localized content. */
+/** Represents a map of formatters used to render localized content. */
 export type Formatters = {
   /** Format the caption of a month grid. */
   formatCaption: typeof formatCaption;
@@ -114,6 +113,8 @@ export type Formatters = {
   /**
    * @ignore
    * @deprecated Use {@link Formatters.formatCaption} instead.
+   *
+   *   **Note:** This formatter will be removed in version 10.0.0.
    */
   formatMonthCaption: typeof formatMonthCaption;
   /** Format the week number. */
@@ -131,7 +132,7 @@ export type Formatters = {
   formatYearCaption: typeof formatYearCaption;
 };
 
-/** Map of functions to translate ARIA labels for the relative elements. */
+/** A map of functions to translate ARIA labels for various elements. */
 export type Labels = {
   /** The label for the navigation toolbar. */
   labelNav: typeof labelNav;
@@ -158,57 +159,19 @@ export type Labels = {
   labelWeekday: typeof labelWeekday;
   /** The label for the week number. */
   labelWeekNumber: typeof labelWeekNumber;
-  /**
-   * Return the label for the column of the week number.
-   *
-   * @since 9.0.0
-   */
+  /** The label for the column of week numbers. */
   labelWeekNumberHeader: typeof labelWeekNumberHeader;
 };
 
 /**
- * A value or a function that matches a specific day.
+ * A value or a function that matches specific days.
  *
  * @example
- *   // will always match the day
- *   const booleanMatcher: Matcher = true;
- *
- *   // will match the today's date
- *   const dateMatcher: Matcher = new Date();
- *
- *   // will match the days in the array
- *   const arrayMatcher: Matcher = [
- *     new Date(2019, 1, 2),
- *     new Date(2019, 1, 4)
+ *   // Match weekends and specific holidays
+ *   const matcher: Matcher = [
+ *     { dayOfWeek: [0, 6] }, // Weekends
+ *     { from: new Date(2023, 11, 24), to: new Date(2023, 11, 26) }, // Christmas
  *   ];
- *
- *   // will match days after the 2nd of February 2019
- *   const afterMatcher: DateAfter = { after: new Date(2019, 1, 2) };
- *
- *   // will match days before the 2nd of February 2019 }
- *   const beforeMatcher: DateBefore = { before: new Date(2019, 1, 2) };
- *
- *   // will match Sundays
- *   const dayOfWeekMatcher: DayOfWeek = {
- *     dayOfWeek: 0
- *   };
- *
- *   // will match the included days, except the two dates
- *   const intervalMatcher: DateInterval = {
- *     after: new Date(2019, 1, 2),
- *     before: new Date(2019, 1, 5)
- *   };
- *
- *   // will match the included days, including the two dates
- *   const rangeMatcher: DateRange = {
- *     from: new Date(2019, 1, 2),
- *     to: new Date(2019, 1, 5)
- *   };
- *
- *   // will match when the function return true
- *   const functionMatcher: Matcher = (day: Date) => {
- *     return day.getMonth() === 2; // match when month is March
- *   };
  */
 export type Matcher =
   | boolean
@@ -222,52 +185,50 @@ export type Matcher =
   | DayOfWeek;
 
 /**
- * Match a day falling after the specified date, with the date not included.
+ * Match a day falling after the specified date (exclusive).
  *
  * @example
- *   // Match days after the 2nd of February 2019
+ *   // Match days after February 2, 2019
  *   const matcher: DateAfter = { after: new Date(2019, 1, 2) };
  */
 export type DateAfter = { after: Date };
 
 /**
- * Match a day falling before the specified date, with the date not included.
+ * Match a day falling before the specified date (exclusive).
  *
  * @example
- *   // Match days before the 2nd of February 2019
+ *   // Match days before February 2, 2019
  *   const matcher: DateBefore = { before: new Date(2019, 1, 2) };
  */
 export type DateBefore = { before: Date };
 
 /**
- * An interval of dates. Differently from {@link DateRange}, the range ends here
- * are not included.
+ * An interval of dates. Unlike {@link DateRange}, the range ends are not
+ * included.
  *
  * @example
- *   // Match the days between the 2nd and the 5th of February 2019
+ *   // Match days between February 2 and February 5, 2019
  *   const matcher: DateInterval = {
  *     after: new Date(2019, 1, 2),
- *     before: new Date(2019, 1, 5)
+ *     before: new Date(2019, 1, 5),
  *   };
  */
 export type DateInterval = { before: Date; after: Date };
 
 /**
- * A range of dates. The range can be open. Differently from
- * {@link DateInterval}, the range ends here are included.
+ * A range of dates. Unlike {@link DateInterval}, the range ends are included.
  *
  * @example
- *   // Match the days between the 2nd and the 5th of February 2019
+ *   // Match days between February 2 and February 5, 2019
  *   const matcher: DateRange = {
  *     from: new Date(2019, 1, 2),
- *     to: new Date(2019, 1, 5)
+ *     to: new Date(2019, 1, 5),
  *   };
  */
 export type DateRange = { from: Date | undefined; to?: Date | undefined };
 
 /**
- * Match dates being one of the specified days of the week (`0-6`, where `0` is
- * Sunday).
+ * Match days of the week (`0-6`, where `0` is Sunday).
  *
  * @example
  *   // Match Sundays
@@ -289,7 +250,7 @@ export type DayOfWeek = { dayOfWeek: number | number[] };
 export type DayEventHandler<EventType> = (
   date: Date,
   modifiers: Modifiers,
-  e: EventType
+  e: EventType,
 ) => void;
 
 /**
@@ -311,7 +272,7 @@ export type MonthChangeEventHandler = (month: Date) => void;
  *   const classNames: ClassNames = {
  *     [UI.Root]: "root",
  *     [UI.Outside]: "outside",
- *     [UI.Nav]: "nav"
+ *     [UI.Nav]: "nav",
  *     // etc.
  *   };
  */
@@ -330,22 +291,11 @@ export type Styles = {
 /**
  * Represents the modifiers that match a specific day in the calendar.
  *
- * - Retrieve modifiers using the {@link OnSelectHandler} via the `onSelect` prop,
- *   or within custom components using the {@link useDayPicker} hook.
- * - Includes built-in modifiers from {@link DayFlag} and {@link SelectionState}.
- * - Add custom modifiers using the `modifiers` prop.
- *
  * @example
  *   const modifiers: Modifiers = {
- *   today: false, // the day is not today
- *   selected: true, // the day is selected
- *   disabled: false, // the day is not disabled
- *   outside: false, // the day is not outside the month
- *   focused: false, // the day is not focused
- *
- *   weekend: false // custom modifier example for matching a weekend
- *   booked: true // custom modifier example for matching a booked day
- *   available: false // custom modifier example for matching an available day
+ *     today: true, // The day is today
+ *     selected: false, // The day is not selected
+ *     weekend: true, // Custom modifier for weekends
  *   };
  *
  * @see https://daypicker.dev/guides/custom-modifiers
@@ -359,7 +309,7 @@ export type Modifiers = Record<string, boolean>;
  *   const modifiersStyles: ModifiersStyles = {
  *     today: { color: "red" },
  *     selected: { backgroundColor: "blue" },
- *     weekend: { color: "green" }
+ *     weekend: { color: "green" },
  *   };
  */
 export type ModifiersStyles = Record<string, CSSProperties>;
@@ -371,7 +321,7 @@ export type ModifiersStyles = Record<string, CSSProperties>;
  *   const modifiersClassNames: ModifiersClassNames = {
  *     today: "today", // Use the "today" class for the today's day
  *     selected: "highlight", // Use the "highlight" class for the selected day
- *     weekend: "weekend" // Use the "weekend" class for the weekend days
+ *     weekend: "weekend", // Use the "weekend" class for the weekend days
  *   };
  */
 export type ModifiersClassNames = Record<string, string>;

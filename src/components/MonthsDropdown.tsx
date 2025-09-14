@@ -2,10 +2,10 @@ import React from "react";
 
 import { useDayPicker } from "../useDayPicker.js";
 
-import { DropdownProps } from "./Dropdown.js";
+import type { DropdownProps } from "./Dropdown.js";
 
 /**
- * Render the dropdown to navigate between months.
+ * Render a dropdown to navigate between months in the calendar.
  *
  * @group Components
  * @see https://daypicker.dev/guides/custom-components

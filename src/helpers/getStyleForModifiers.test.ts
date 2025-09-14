@@ -15,20 +15,20 @@ const defaultModifiers: Modifiers = {
   selected: false,
   focusable: false,
   focused: false,
-  today: false
+  today: false,
 };
 
 test("applies modifier styles to the base style", () => {
   const dayModifiers: Modifiers = {
     ...defaultModifiers,
     selected: true,
-    disabled: false
+    disabled: false,
   };
   const modifiersStyles: Partial<ModifiersStyles> = {
-    selected: { backgroundColor: "blue", color: "white" }
+    selected: { backgroundColor: "blue", color: "white" },
   };
   const expectedStyle: CSSProperties = {
-    ...modifiersStyles.selected
+    ...modifiersStyles.selected,
   };
 
   const style = getStyleForModifiers(dayModifiers, {}, modifiersStyles);
@@ -40,10 +40,10 @@ test("ignores modifiers that are not active", () => {
   const dayModifiers: Modifiers = {
     ...defaultModifiers,
     selected: false,
-    disabled: true
+    disabled: true,
   };
   const modifiersStyles: Partial<ModifiersStyles> = {
-    disabled: { opacity: 0.5 }
+    disabled: { opacity: 0.5 },
   };
 
   const style = getStyleForModifiers(dayModifiers, {}, modifiersStyles);
@@ -55,15 +55,15 @@ test("combines multiple active modifier styles", () => {
   const dayModifiers: Modifiers = {
     ...defaultModifiers,
     selected: true,
-    highlighted: true
+    highlighted: true,
   };
   const modifiersStyles: Partial<ModifiersStyles> = {
     selected: { backgroundColor: "blue" },
-    highlighted: { borderColor: "yellow" }
+    highlighted: { borderColor: "yellow" },
   };
   const expectedStyle: CSSProperties = {
     ...modifiersStyles.selected,
-    ...modifiersStyles.highlighted
+    ...modifiersStyles.highlighted,
   };
 
   const style = getStyleForModifiers(dayModifiers, {}, modifiersStyles);
@@ -75,15 +75,15 @@ test("applies the most recent modifier style when there are conflicts", () => {
   const dayModifiers: Modifiers = {
     ...defaultModifiers,
     selected: true,
-    highlighted: true
+    highlighted: true,
   };
   const modifiersStyles: Partial<ModifiersStyles> = {
     selected: { backgroundColor: "blue", color: "red" }, // 'color' should be overridden.
-    highlighted: { backgroundColor: "yellow", color: "green" }
+    highlighted: { backgroundColor: "yellow", color: "green" },
   };
   const expectedStyle: CSSProperties = {
     backgroundColor: "yellow", // from 'highlighted'
-    color: "green" // from 'highlighted', overriding 'selected'
+    color: "green", // from 'highlighted', overriding 'selected'
   };
 
   const style = getStyleForModifiers(dayModifiers, {}, modifiersStyles);

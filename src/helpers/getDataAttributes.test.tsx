@@ -10,21 +10,21 @@ test("return all data- attributes from the props", () => {
   const props: PropsBase = {
     "data-test-id": "123",
     "data-role": "button",
-    "aria-label": "test element"
+    "aria-label": "test element",
   };
 
   const result = getDataAttributes(props);
 
   expect(result).toEqual({
     "data-test-id": "123",
-    "data-role": "button"
+    "data-role": "button",
   });
 });
 
 test("return an empty object if there are no data- attributes", () => {
   const props: PropsBase = {
     "aria-label": "test element",
-    class: "example-class"
+    class: "example-class",
   };
 
   const result = getDataAttributes(props);
@@ -36,13 +36,13 @@ test("handle props with undefined or null values", () => {
   const props: PropsBase = {
     "data-test-id": undefined,
     "data-role": null,
-    "aria-hidden": "true"
+    "aria-hidden": "true",
   };
 
   const result = getDataAttributes(props);
 
   expect(result).toEqual({
     "data-test-id": undefined,
-    "data-role": null
+    "data-role": null,
   });
 });

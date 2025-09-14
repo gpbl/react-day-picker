@@ -1,13 +1,12 @@
-import React from "react";
-
+import type { Locale } from "date-fns-jalali";
 import * as dateFnsJalali from "date-fns-jalali";
-import { Locale } from "date-fns-jalali";
 import * as locales from "date-fns-jalali/locale";
+import React from "react";
 
 import {
   DateLib,
-  DateLibOptions,
-  DayPicker as DayPickerComponent
+  type DateLibOptions,
+  DayPicker as DayPickerComponent,
 } from "./index.js";
 import type { DayPickerProps } from "./types/props.js";
 
@@ -15,8 +14,16 @@ export const faIR = locales.faIR;
 export const enUS = locales.enUS;
 
 /**
- * Render the Persian Calendar.
+ * Renders the Persian calendar using the DayPicker component.
  *
+ * @defaultValue
+ * - `locale`: `faIR`
+ * - `dir`: `rtl`
+ * - `dateLib`: `jalaliDateLib` from `date-fns-jalali`
+ * - `numerals`: `arabext` (Eastern Arabic-Indic)
+ * @param props - The props for the Persian calendar, including locale, text
+ *   direction, date library, and numeral system.
+ * @returns The Persian calendar component.
  * @see https://daypicker.dev/docs/localization#persian-calendar
  */
 export function DayPicker(
@@ -59,7 +66,7 @@ export function DayPicker(
      * @see https://daypicker.dev/docs/translation#numeral-systems
      */
     numerals?: DayPickerProps["numerals"];
-  }
+  },
 ) {
   const dateLib = getDateLib({
     locale: props.locale,
@@ -67,7 +74,7 @@ export function DayPicker(
     firstWeekContainsDate: props.firstWeekContainsDate,
     useAdditionalWeekYearTokens: props.useAdditionalWeekYearTokens,
     useAdditionalDayOfYearTokens: props.useAdditionalDayOfYearTokens,
-    timeZone: props.timeZone
+    timeZone: props.timeZone,
   });
   return (
     <DayPickerComponent
@@ -80,7 +87,12 @@ export function DayPicker(
   );
 }
 
-/** Returns the date library used in the calendar. */
+/**
+ * Returns the date library used in the Persian calendar.
+ *
+ * @param options - Optional configuration for the date library.
+ * @returns The date library instance.
+ */
 export const getDateLib = (options?: DateLibOptions) => {
   return new DateLib(options, dateFnsJalali);
 };

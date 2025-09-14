@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
 import { themes as prismThemes } from "prism-react-renderer";
@@ -20,7 +19,7 @@ const config: Config = {
 
   i18n: {
     defaultLocale: "en",
-    locales: ["en"]
+    locales: ["en"],
   },
 
   presets: [
@@ -34,25 +33,25 @@ const config: Config = {
           editUrl: "https://github.com/gpbl/react-day-picker/tree/main/website",
           remarkPlugins: [
             require("@docusaurus/remark-plugin-npm2yarn"),
-            [require("remark-github"), { repository: "gpbl/react-day-picker" }]
+            [require("remark-github"), { repository: "gpbl/react-day-picker" }],
           ],
           lastVersion: "current",
           versions: {
             "8.10.1": {
               label: "8.10.1",
               badge: true,
-              path: "/v8"
+              path: "/v8",
             },
             current: {
               label: `${pkg.version}`,
               path: "/",
-              badge: false
-            }
-          }
+              badge: false,
+            },
+          },
         },
         blog: false,
         theme: {
-          customCss: ["./src/css/custom.css", "../src/style.css"]
+          customCss: ["./src/css/custom.css", "../src/style.css"],
         },
         sitemap: {
           lastmod: "date",
@@ -64,10 +63,10 @@ const config: Config = {
             const { defaultCreateSitemapItems, ...rest } = params;
             const items = await defaultCreateSitemapItems(rest);
             return items.filter((item) => !item.url.includes("/page/"));
-          }
-        }
-      } satisfies Preset.Options
-    ]
+          },
+        },
+      } satisfies Preset.Options,
+    ],
   ],
 
   plugins: [
@@ -75,8 +74,8 @@ const config: Config = {
       "docusaurus-plugin-typedoc",
       {
         entryPoints: ["../src/index.ts"],
-        tsconfig: "../tsconfig-docs.json"
-      }
+        tsconfig: "../tsconfig-docs.json",
+      },
     ],
     [
       "@docusaurus/plugin-client-redirects",
@@ -84,11 +83,11 @@ const config: Config = {
         redirects: [
           {
             to: "/guides/accessibility",
-            from: ["/docs/accessibility"]
-          }
-        ]
-      }
-    ]
+            from: ["/docs/accessibility"],
+          },
+        ],
+      },
+    ],
   ],
 
   scripts: [
@@ -96,8 +95,8 @@ const config: Config = {
       src: "/q/p/script.js",
       defer: true,
       "data-domain": "daypicker.dev",
-      "data-api": "/q/a/event"
-    }
+      "data-api": "/q/a/event",
+    },
   ],
 
   themeConfig: {
@@ -106,25 +105,25 @@ const config: Config = {
       {
         name: "og:description",
         content:
-          "Date picker component for React. Add date pickers, calendars, and date inputs to your web applications."
+          "Date picker component for React. Add date pickers, calendars, and date inputs to your web applications.",
       },
       {
         name: "description",
         content:
-          "Date picker component for React. Add date pickers, calendars, and date inputs to your web applications."
+          "Date picker component for React. Add date pickers, calendars, and date inputs to your web applications.",
       },
       {
         name: "keywords",
         content:
-          "date picker, react component, calendar component, react datepicker, daypicker, react day picker, date-fns date picker, typescript date picker"
-      }
+          "date picker, react component, calendar component, react datepicker, daypicker, react day picker, date-fns date picker, typescript date picker",
+      },
     ],
     navbar: {
       title: "React DayPicker",
       logo: {
         alt: "DayPicker Logo",
         src: "img/logo.png",
-        srcDark: "img/logo-dark.png"
+        srcDark: "img/logo-dark.png",
       },
       items: [
         {
@@ -135,61 +134,62 @@ const config: Config = {
           dropdownItemsAfter: [
             {
               href: "https://react-day-picker-v7.netlify.app",
-              label: "7.4.10"
-            }
-          ]
+              label: "7.4.10",
+            },
+          ],
         },
         {
           type: "docSidebar",
           sidebarId: "docs",
           position: "left",
-          label: "Documentation"
+          label: "Documentation",
         },
         {
           href: "/playground",
           label: "Playground",
-          position: "left"
+          position: "left",
         },
         {
           type: "docSidebar",
           sidebarId: "api",
           position: "left",
-          label: "API Reference"
+          label: "API Reference",
         },
 
         {
           href: "https://github.com/gpbl/react-day-picker/discussions",
           label: "Support",
-          position: "right"
+          position: "right",
         },
         {
           href: "https://github.com/gpbl/react-day-picker",
           label: "GitHub",
-          position: "right"
-        }
-      ]
+          position: "right",
+        },
+      ],
     },
     footer: undefined,
     prism: {
       additionalLanguages: ["bash", "diff", "json", "css"],
       theme: prismThemes.vsLight,
-      darkTheme: prismThemes.dracula
+      darkTheme: prismThemes.dracula,
     },
     algolia: {
       appId: "N44150BS2A",
       apiKey: "263c558c76fc0b83a5def5fb818391d7",
       indexName: "react-day-picker-js",
       contextualSearch: true,
-      searchPagePath: "search"
+      searchPagePath: "search",
     },
     colorMode: {
       defaultMode: "light",
-      respectPrefersColorScheme: true
-    }
+      respectPrefersColorScheme: true,
+    },
   },
   future: {
-    experimental_faster: true
-  } satisfies Preset.ThemeConfig
+    v4: true,
+    experimental_faster: true,
+  } satisfies Preset.ThemeConfig,
 };
 
 export default config;

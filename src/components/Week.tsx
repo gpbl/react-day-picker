@@ -3,15 +3,16 @@ import React, { type HTMLAttributes } from "react";
 import type { CalendarWeek } from "../classes/index.js";
 
 /**
- * Render a row in the calendar, with the days and the week number.
+ * Render a table row representing a week in the calendar.
  *
  * @group Components
  * @see https://daypicker.dev/guides/custom-components
  */
 export function Week(
   props: {
+    /** The week to render. */
     week: CalendarWeek;
-  } & HTMLAttributes<HTMLTableRowElement>
+  } & HTMLAttributes<HTMLTableRowElement>,
 ) {
   const { week, ...trProps } = props;
   return <tr {...trProps} />;

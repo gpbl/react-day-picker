@@ -14,7 +14,7 @@ const testCases = [
   [new Date(2023, 8, 1), new Date(2023, 8, 24)], // September
   [new Date(2023, 9, 1), new Date(2023, 9, 29)], // October
   [new Date(2023, 10, 1), new Date(2023, 10, 26)], // November
-  [new Date(2023, 11, 1), new Date(2023, 11, 31)] // December
+  [new Date(2023, 11, 1), new Date(2023, 11, 31)], // December
 ];
 
 describe("endOfBroadcastWeek", () => {

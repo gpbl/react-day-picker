@@ -1,6 +1,5 @@
-import * as React from "react";
-
 import * as SelectPrimitive from "@radix-ui/react-select";
+import * as React from "react";
 import { Chevron } from "react-day-picker";
 
 const Select = SelectPrimitive.Root;
@@ -36,7 +35,7 @@ const SelectScrollUpButton = (props: SelectPrimitive.SelectProps) => (
 );
 
 const SelectScrollDownButton = (
-  props: SelectPrimitive.SelectScrollDownButtonProps
+  props: SelectPrimitive.SelectScrollDownButtonProps,
 ) => (
   <SelectPrimitive.ScrollDownButton
     className="flex cursor-default items-center justify-center py-1 color-current"
@@ -149,5 +148,5 @@ export {
   SelectItem,
   SelectScrollUpButton,
   SelectScrollDownButton,
-  SelectStyles
+  SelectStyles,
 };

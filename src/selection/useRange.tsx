@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 
 import type { DateLib } from "../classes/DateLib.js";
 import { useControlledValue } from "../helpers/useControlledValue.js";
@@ -6,26 +6,35 @@ import type {
   DayPickerProps,
   Modifiers,
   PropsRange,
-  Selection
+  Selection,
 } from "../types/index.js";
 import { addToRange, rangeContainsModifiers } from "../utils/index.js";
 import { rangeIncludesDate } from "../utils/rangeIncludesDate.js";
 
+/**
+ * Hook to manage range selection in the DayPicker component.
+ *
+ * @template T - The type of DayPicker props.
+ * @param props - The DayPicker props.
+ * @param dateLib - The date utility library instance.
+ * @returns An object containing the selected range, a function to select a
+ *   range, and a function to check if a date is within the range.
+ */
 export function useRange<T extends DayPickerProps>(
   props: T,
-  dateLib: DateLib
+  dateLib: DateLib,
 ): Selection<T> {
   const {
     disabled,
     excludeDisabled,
     selected: initiallySelected,
     required,
-    onSelect
+    onSelect,
   } = props as PropsRange;
 
   const [internallySelected, setSelected] = useControlledValue(
     initiallySelected,
-    onSelect ? initiallySelected : undefined
+    onSelect ? initiallySelected : undefined,
   );
 
   const selected = !onSelect ? internallySelected : initiallySelected;
@@ -36,7 +45,7 @@ export function useRange<T extends DayPickerProps>(
   const select = (
     triggerDate: Date,
     modifiers: Modifiers,
-    e: React.MouseEvent | React.KeyboardEvent
+    e: React.MouseEvent | React.KeyboardEvent,
   ) => {
     const { min, max } = props as PropsRange;
     const newRange = triggerDate
@@ -48,7 +57,7 @@ export function useRange<T extends DayPickerProps>(
         rangeContainsModifiers(
           { from: newRange.from, to: newRange.to },
           disabled,
-          dateLib
+          dateLib,
         )
       ) {
         // if a disabled days is found, the range is reset
@@ -68,6 +77,6 @@ export function useRange<T extends DayPickerProps>(
   return {
     selected,
     select,
-    isSelected
+    isSelected,
   } as Selection<T>;
 }

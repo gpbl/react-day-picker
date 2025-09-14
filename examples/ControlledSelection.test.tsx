@@ -19,23 +19,23 @@ test("a range is selected after clicking two dates", async () => {
 
   expect(gridcell(new Date(2024, 8, 1), true)).toHaveAttribute(
     "aria-selected",
-    "true"
+    "true",
   );
   expect(gridcell(new Date(2024, 8, 2), true)).toHaveAttribute(
     "aria-selected",
-    "true"
+    "true",
   );
   expect(gridcell(new Date(2024, 8, 3), true)).toHaveAttribute(
     "aria-selected",
-    "true"
+    "true",
   );
   expect(gridcell(new Date(2024, 8, 4), true)).toHaveAttribute(
     "aria-selected",
-    "true"
+    "true",
   );
   expect(gridcell(new Date(2024, 8, 5), true)).not.toHaveAttribute(
     "aria-selected",
-    "true"
+    "true",
   );
 });
 
@@ -45,31 +45,30 @@ test("a range is reset after clicking a third date", async () => {
   await user.click(dateButton(new Date(2024, 8, 1)));
   await user.click(dateButton(new Date(2024, 8, 4)));
   await user.click(dateButton(new Date(2024, 8, 5)));
-  // eslint-disable-next-line no-console
   expect(console.log).toHaveBeenCalledWith("reset range");
   expect(gridcell(new Date(2024, 8, 1), true)).not.toHaveAttribute(
     "aria-selected",
-    "true"
+    "true",
   );
   expect(gridcell(new Date(2024, 8, 2), true)).not.toHaveAttribute(
     "aria-selected",
-    "true"
+    "true",
   );
   expect(gridcell(new Date(2024, 8, 3), true)).not.toHaveAttribute(
     "aria-selected",
-    "true"
+    "true",
   );
   expect(gridcell(new Date(2024, 8, 4), true)).not.toHaveAttribute(
     "aria-selected",
-    "true"
+    "true",
   );
   expect(gridcell(new Date(2024, 8, 5), true)).toHaveAttribute(
     "aria-selected",
-    "true"
+    "true",
   );
   expect(gridcell(new Date(2024, 8, 6), true)).not.toHaveAttribute(
     "aria-selected",
-    "true"
+    "true",
   );
 
   consoleSpy.mockRestore();
