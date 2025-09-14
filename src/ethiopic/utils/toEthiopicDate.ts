@@ -1,6 +1,6 @@
 import { differenceInCalendarDays } from "date-fns";
 
-import { EthiopicDate } from "./EthiopicDate.js";
+import type { EthiopicDate } from "./EthiopicDate.js";
 
 /**
  * Calculates the number of days between January 1, 0001 and the given date.
@@ -13,9 +13,10 @@ export function getDayNoGregorian(date: Date): number {
   if (!(date instanceof Date)) {
     return 0;
   }
-  // Create the start date as January 1, 0001.
-  // Using an ISO string avoids issues with the Date constructor and two-digit years.
-  const adStart = new Date("0001-01-01");
+  // Create the start date as January 1, 0001 in the LOCAL timezone.
+  const adStart = new Date(0);
+  adStart.setFullYear(1, 0, 1);
+  adStart.setHours(0, 0, 0, 0);
 
   // Calculate the number of days between the two dates, then add 1.
   const dayNumber = differenceInCalendarDays(date, adStart) + 1;
@@ -32,13 +33,13 @@ function createEthiopicDate(dn: number): EthiopicDate {
     return {
       year: num * 4 + num3,
       month: Math.floor(num4 / 30) + 1,
-      day: (num4 % 30) + 1
+      day: (num4 % 30) + 1,
     };
   } else {
     return {
       year: num * 4 + num3 - 1,
       month: 13,
-      day: 6
+      day: 6,
     };
   }
 }
