@@ -382,6 +382,7 @@ export type Numerals =
   | "arab"
   | "arabext"
   | "deva"
+  | "geez"
   | "beng"
   | "guru"
   | "gujr"

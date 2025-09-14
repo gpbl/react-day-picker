@@ -24,6 +24,8 @@ export * from "./DisableNavigation";
 export * from "./Dropdown";
 export * from "./DropdownMonths";
 export * from "./DropdownMultipleMonths";
+export * from "./Ethiopic";
+export * from "./EthiopicLatin";
 export * from "./Fixedweeks";
 export * from "./FocusedDisabledNav";
 export * from "./FocusRecursive";

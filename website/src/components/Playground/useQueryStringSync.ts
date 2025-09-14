@@ -40,7 +40,7 @@ const qsProps = [
 ];
 
 export type DayPickerPropsWithCalendar = DayPickerProps & {
-  calendar?: "gregorian" | "persian";
+  calendar?: "gregorian" | "persian" | "ethiopic";
 };
 
 export function useQueryStringSync(basePath: string = "/playground") {

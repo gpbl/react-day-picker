@@ -31,6 +31,7 @@ const config: Config.InitialOptions = {
       roots: ["<rootDir>/examples"],
       moduleNameMapper: {
         "@/test/(.*)": ["<rootDir>/test/$1"],
+        "react-day-picker/ethiopic": ["<rootDir>/src/ethiopic/index.tsx"],
         "react-day-picker/persian": ["<rootDir>/src/persian.tsx"],
         "react-day-picker": ["<rootDir>/src/index.ts"],
         "^(\\.\\.?\\/.+)\\.jsx?$": "$1", // see https://github.com/kulshekhar/ts-jest/issues/1057
@@ -42,6 +43,7 @@ const config: Config.InitialOptions = {
       roots: ["<rootDir>/examples"],
       moduleNameMapper: {
         "@/test/(.*)": ["<rootDir>/test/$1"],
+        "react-day-picker/ethiopic": ["<rootDir>/dist/cjs/ethiopic/index.js"],
         "react-day-picker/persian": ["<rootDir>/dist/cjs/persian.js"],
         "react-day-picker": ["<rootDir>/dist/cjs/index.js"],
         "../src": ["<rootDir>/dist/cjs"], // allow using same @/test/elements in both env
