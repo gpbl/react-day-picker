@@ -32,4 +32,3 @@ export function format(
       return dfFormat(date, formatStr, options);
   }
 }
-

@@ -6,6 +6,11 @@ import {
   isDateRange,
 } from "react-day-picker";
 import {
+  DayPicker as DayPickerBuddhist,
+  getDateLib as getDateLibBuddhist,
+  th as thBuddhist,
+} from "react-day-picker/buddhist";
+import {
   amET as amETEthiopic,
   DayPicker as DayPickerEthiopic,
   getDateLib as getDateLibEthiopic,
@@ -16,10 +21,8 @@ import {
   faIR as faIRpersian,
   getDateLib,
 } from "react-day-picker/persian";
-
 import { BrowserWindow } from "../BrowserWindow";
 import { HighlightWithTheme } from "../HighlightWithTheme";
-
 import { CustomizationFieldset } from "./CustomizationFieldset";
 import { LocalizationFieldset } from "./LocalizationFieldset";
 import { NavigationFieldset } from "./NavigationFieldset";
@@ -27,11 +30,6 @@ import { SelectionFieldset } from "./SelectionFieldset";
 import styles from "./styles.module.css";
 import { toJSX } from "./toJSX";
 import { useQueryStringSync } from "./useQueryStringSync";
-import {
-  DayPicker as DayPickerBuddhist,
-  getDateLib as getDateLibBuddhist,
-  th as thBuddhist,
-} from "react-day-picker/buddhist";
 
 export function Playground() {
   const { props, setProps } = useQueryStringSync();
@@ -89,20 +87,20 @@ export function Playground() {
         })
       : props.calendar === "ethiopic"
         ? getDateLibEthiopic({
-            locale: (props.locale as locales.Locale) ?? (amETEthiopic as any),
+            locale: (props.locale as locales.Locale) ?? amETEthiopic,
             timeZone: props.timeZone,
             numerals: props.numerals,
           })
         : props.calendar === "buddhist"
           ? getDateLibBuddhist({
-              locale: (props.locale as locales.Locale) ?? (thBuddhist as any),
+              locale: (props.locale as locales.Locale) ?? thBuddhist,
               timeZone: props.timeZone,
               numerals: props.numerals,
             })
           : new DateLib({
-            locale: (props.locale as locales.Locale) ?? locales.enUS,
-            timeZone: props.timeZone,
-          });
+              locale: (props.locale as locales.Locale) ?? locales.enUS,
+              timeZone: props.timeZone,
+            });
 
   return (
     <div className={styles.playground}>

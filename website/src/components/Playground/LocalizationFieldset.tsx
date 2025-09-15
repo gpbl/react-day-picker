@@ -7,6 +7,10 @@ import {
   type Numerals,
 } from "react-day-picker";
 import {
+  enUS as enUSBuddhist,
+  th as thBuddhist,
+} from "react-day-picker/buddhist";
+import {
   amET as amETEthiopic,
   enUS as enUSEthiopic,
 } from "react-day-picker/ethiopic";
@@ -15,7 +19,6 @@ import {
   enUS as enUSPersian,
   faIR as faIRPersian,
 } from "react-day-picker/persian";
-import { enUS as enUSBuddhist, th as thBuddhist } from "react-day-picker/buddhist";
 
 import styles from "./styles.module.css";
 import type { DayPickerPropsWithCalendar } from "./useQueryStringSync";
@@ -135,9 +138,9 @@ export function LocalizationFieldset({
                   e.target.value === "persian"
                     ? faIRPersian
                     : e.target.value === "ethiopic"
-                      ? (amETEthiopic as any)
+                      ? amETEthiopic
                       : e.target.value === "buddhist"
-                        ? (thBuddhist as any)
+                        ? thBuddhist
                         : undefined,
                 dir: e.target.value === "persian" ? "rtl" : undefined,
                 numerals:
@@ -146,7 +149,7 @@ export function LocalizationFieldset({
                       ("geez" as Numerals)
                     : e.target.value === "buddhist"
                       ? ("thai" as Numerals)
-                    : props.numerals,
+                      : props.numerals,
               });
             }}
           >

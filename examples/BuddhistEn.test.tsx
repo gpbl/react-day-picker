@@ -15,4 +15,3 @@ test("should render December 2567 (BE) with latin digits", () => {
   const g = grid();
   expect(g).toHaveAccessibleName(expect.stringMatching(/December .*2567$/));
 });
-

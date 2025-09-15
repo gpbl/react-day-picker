@@ -46,9 +46,11 @@ describe("format", () => {
 
   test("should Latinize month with numerals=latn even with amET locale", () => {
     const date = toGregorianDate({ year: 2016, month: 7, day: 6 });
-    expect(format(date, "LLLL yyyy", { numerals: "latn" } as any)).toBe(
-      "Megabit 2016",
-    );
+    expect(
+      format(date, "LLLL yyyy", { numerals: "latn" } as Parameters<
+        typeof format
+      >[2]),
+    ).toBe("Megabit 2016");
   });
 
   test("should format with Geez digits when numerals=geez and enUS locale", () => {

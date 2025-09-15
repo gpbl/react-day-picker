@@ -21,6 +21,7 @@ export const enUS = locales.enUS;
  * Thai digits are used by default.
  *
  * Defaults:
+ *
  * - `locale`: `th`
  * - `dir`: `ltr`
  * - `numerals`: `thai`
@@ -58,4 +59,3 @@ export const getDateLib = (options?: DateLibOptions) => {
     format: buddhistFormat as any,
   });
 };
-
