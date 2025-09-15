@@ -119,7 +119,7 @@ export function format(
 
   if (extendedOptions?.numerals && extendedOptions.numerals === "geez") {
     return formatted.replace(/\d+/g, (match) =>
-      formatNumber(parseInt(match), "geez"),
+      formatNumber(parseInt(match, 10), "geez"),
     );
   }
 

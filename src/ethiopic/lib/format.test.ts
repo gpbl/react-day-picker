@@ -56,7 +56,10 @@ describe("format", () => {
   test("should format with Geez digits when numerals=geez and enUS locale", () => {
     const date = toGregorianDate({ year: 2016, month: 7, day: 6 });
     expect(
-      format(date, "LLLL yyyy", { locale: enUS, numerals: "geez" } as any),
+      format(date, "LLLL yyyy", {
+        locale: enUS,
+        numerals: "geez",
+      } as Parameters<typeof format>[2]),
     ).toBe("Megabit ፳፻፲፮");
   });
 });

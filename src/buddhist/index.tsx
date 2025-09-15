@@ -9,7 +9,16 @@ import {
 } from "../index.js";
 import type { DayPickerProps } from "../types/props.js";
 
-import { format as buddhistFormat } from "./lib/format.js";
+import { format as originalBuddhistFormat } from "./lib/format.js";
+
+// Adapter to match DateLib's format signature without using `any`.
+const buddhistFormat: typeof DateLib.prototype.format = (
+  date,
+  formatStr,
+  options,
+) => {
+  return originalBuddhistFormat(date, formatStr, options as DateLibOptions);
+};
 
 export const th = locales.th;
 export const enUS = locales.enUS;
@@ -56,6 +65,6 @@ export function DayPicker(
 /** Returns the date library used in the Buddhist calendar. */
 export const getDateLib = (options?: DateLibOptions) => {
   return new DateLib(options, {
-    format: buddhistFormat as any,
+    format: buddhistFormat,
   });
 };
