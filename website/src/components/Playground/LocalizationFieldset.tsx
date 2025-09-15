@@ -15,6 +15,7 @@ import {
   enUS as enUSPersian,
   faIR as faIRPersian,
 } from "react-day-picker/persian";
+import { enUS as enUSBuddhist, th as thBuddhist } from "react-day-picker/buddhist";
 
 import styles from "./styles.module.css";
 import type { DayPickerPropsWithCalendar } from "./useQueryStringSync";
@@ -69,14 +70,18 @@ const numerals: { value: Numerals; label: string }[] = [
   { value: "mlym", label: "Malayalam" },
   // Ethiopic digits
   { value: "geez" as Numerals, label: "Ge'ez (Ethiopic)" },
+  // Thai digits
+  { value: "thai" as Numerals, label: "Thai" },
 ];
-const calendars: ("persian" | "ethiopic" | "gregorian")[] = [
+const calendars: ("persian" | "ethiopic" | "buddhist" | "gregorian")[] = [
   "gregorian",
   "persian",
   "ethiopic",
+  "buddhist",
 ];
 const persianLocales = { faIR: faIRPersian, enUS: enUSPersian };
 const ethiopicLocales = { amET: amETEthiopic, enUS: enUSEthiopic };
+const buddhistLocales = { th: thBuddhist, enUS: enUSBuddhist };
 
 interface LocalizationFieldsetProps {
   props: DayPickerPropsWithCalendar;
@@ -124,18 +129,23 @@ export function LocalizationFieldset({
                 calendar: e.target.value as
                   | "gregorian"
                   | "persian"
-                  | "ethiopic",
+                  | "ethiopic"
+                  | "buddhist",
                 locale:
                   e.target.value === "persian"
                     ? faIRPersian
                     : e.target.value === "ethiopic"
                       ? (amETEthiopic as any)
-                      : undefined,
+                      : e.target.value === "buddhist"
+                        ? (thBuddhist as any)
+                        : undefined,
                 dir: e.target.value === "persian" ? "rtl" : undefined,
                 numerals:
                   e.target.value === "ethiopic"
                     ? // default to Ethiopic numerals
                       ("geez" as Numerals)
+                    : e.target.value === "buddhist"
+                      ? ("thai" as Numerals)
                     : props.numerals,
               });
             }}
@@ -194,7 +204,9 @@ export function LocalizationFieldset({
               ? Object.values(persianLocales)
               : props.calendar === "ethiopic"
                 ? Object.values(ethiopicLocales)
-                : Object.values(locales)
+                : props.calendar === "buddhist"
+                  ? Object.values(buddhistLocales)
+                  : Object.values(locales)
             ).map((locale) => (
               <option key={locale.code} value={locale.code}>
                 {locale.code}

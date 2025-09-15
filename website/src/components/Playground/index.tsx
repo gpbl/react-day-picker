@@ -27,6 +27,11 @@ import { SelectionFieldset } from "./SelectionFieldset";
 import styles from "./styles.module.css";
 import { toJSX } from "./toJSX";
 import { useQueryStringSync } from "./useQueryStringSync";
+import {
+  DayPicker as DayPickerBuddhist,
+  getDateLib as getDateLibBuddhist,
+  th as thBuddhist,
+} from "react-day-picker/buddhist";
 
 export function Playground() {
   const { props, setProps } = useQueryStringSync();
@@ -58,6 +63,10 @@ export function Playground() {
     formattedProps =
       `import { DayPicker } from "react-day-picker/ethiopic";\n\n` +
       formattedProps;
+  } else if (props.calendar === "buddhist") {
+    formattedProps =
+      `import { DayPicker } from "react-day-picker/buddhist";\n\n` +
+      formattedProps;
   } else {
     formattedProps = `import { DayPicker } from "react-day-picker";\n\n${formattedProps}`;
   }
@@ -68,7 +77,9 @@ export function Playground() {
       ? DayPickerPersian
       : props.calendar === "ethiopic"
         ? DayPickerEthiopic
-        : DayPicker;
+        : props.calendar === "buddhist"
+          ? DayPickerBuddhist
+          : DayPicker;
 
   const dateLib =
     props.calendar === "persian"
@@ -82,7 +93,13 @@ export function Playground() {
             timeZone: props.timeZone,
             numerals: props.numerals,
           })
-        : new DateLib({
+        : props.calendar === "buddhist"
+          ? getDateLibBuddhist({
+              locale: (props.locale as locales.Locale) ?? (thBuddhist as any),
+              timeZone: props.timeZone,
+              numerals: props.numerals,
+            })
+          : new DateLib({
             locale: (props.locale as locales.Locale) ?? locales.enUS,
             timeZone: props.timeZone,
           });
