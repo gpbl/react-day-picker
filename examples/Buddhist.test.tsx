@@ -13,6 +13,5 @@ afterAll(() => jest.useRealTimers());
 
 test("should render BE year with Thai digits in caption", () => {
   render(<Buddhist />);
-  const g = grid();
-  expect(g).toHaveAccessibleName(expect.stringMatching(/๒๕๖๗$/));
+  expect(grid()).toHaveAccessibleName("ธันวาคม ๒๕๖๗");
 });
