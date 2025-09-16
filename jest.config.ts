@@ -32,6 +32,7 @@ const config: Config.InitialOptions = {
       moduleNameMapper: {
         "@/test/(.*)": ["<rootDir>/test/$1"],
         "react-day-picker/buddhist": ["<rootDir>/src/buddhist/index.tsx"],
+        "react-day-picker/hebrew": ["<rootDir>/src/hebrew/index.tsx"],
         "react-day-picker/ethiopic": ["<rootDir>/src/ethiopic/index.tsx"],
         "react-day-picker/persian": ["<rootDir>/src/persian.tsx"],
         "react-day-picker": ["<rootDir>/src/index.ts"],
@@ -45,6 +46,7 @@ const config: Config.InitialOptions = {
       moduleNameMapper: {
         "@/test/(.*)": ["<rootDir>/test/$1"],
         "react-day-picker/buddhist": ["<rootDir>/dist/cjs/buddhist/index.js"],
+        "react-day-picker/hebrew": ["<rootDir>/dist/cjs/hebrew/index.js"],
         "react-day-picker/ethiopic": ["<rootDir>/dist/cjs/ethiopic/index.js"],
         "react-day-picker/persian": ["<rootDir>/dist/cjs/persian.js"],
         "react-day-picker": ["<rootDir>/dist/cjs/index.js"],

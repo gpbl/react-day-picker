@@ -8,13 +8,19 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #0000ff;
-  --ifm-color-primary-dark: #0000e6;
-  --ifm-color-primary-darker: #0000d9;
-  --ifm-color-primary-darkest: #0000b3;
-  --ifm-color-primary-light: #1a1aff;
-  --ifm-color-primary-lighter: #2626ff;
-  --ifm-color-primary-lightest: #4d4dff;
+  /* Brand colors — softened for a more modern aesthetic */
+  --ifm-color-primary: #3b82f6; /* blue-500 */
+  --ifm-color-primary-dark: #2563eb; /* blue-600 */
+  --ifm-color-primary-darker: #1d4ed8; /* blue-700 */
+  --ifm-color-primary-darkest: #1e40af; /* blue-800 */
+  --ifm-color-primary-light: #60a5fa; /* blue-400 */
+  --ifm-color-primary-lighter: #93c5fd; /* blue-300 */
+  --ifm-color-primary-lightest: #bfdbfe; /* blue-200 */
+
+  /* Modern typography: prefer system fonts, fall back to Inter */
+  --ifm-font-family-base: ui-sans-serif, system-ui, -apple-system, Segoe UI,
+    Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, 'Inter',
+    'Apple Color Emoji', 'Segoe UI Emoji';
   --ifm-global-shadow-lw: 1px 1px 1px 0px rgba(0, 0, 0, 0.1);
   --ifm-menu-color: var(--ifm-color-emphasis-200);
   --ifm-font-family-monospace: 'JetBrains Mono', monospace;
@@ -48,19 +54,19 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 html[data-theme="dark"] {
-  --ifm-color-primary: #4a8cf8;
-  --ifm-color-primary-dark: #2681f7;
-  --ifm-color-primary-darker: #1679f6;
-  --ifm-color-primary-darkest: #0862d5;
-  --ifm-color-primary-light: #62a5f9;
-  --ifm-color-primary-lighter: #72adfa;
-  --ifm-color-primary-lightest: #9fc8fb;
+  --ifm-color-primary: #60a5fa; /* blue-400 */
+  --ifm-color-primary-dark: #3b82f6; /* blue-500 */
+  --ifm-color-primary-darker: #2563eb; /* blue-600 */
+  --ifm-color-primary-darkest: #1d4ed8; /* blue-700 */
+  --ifm-color-primary-light: #93c5fd; /* blue-300 */
+  --ifm-color-primary-lighter: #bfdbfe; /* blue-200 */
+  --ifm-color-primary-lightest: #dbeafe; /* blue-100 */
 
   --ifm-table-background: rgba(0, 0, 0, 0.1);
   --ifm-table-border-color: var(--ifm-color-emphasis-100);
 
   --ifm-background-color: #000;
-  --ifm-navbar-background-color: rgba(20, 20, 20);
+  --ifm-navbar-background-color: rgba(20, 20, 20, 0.6);
 
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 
@@ -130,7 +136,7 @@ html[data-theme="dark"] {
 
 .markdown h1:first-child {
   font-size: 2.25rem;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
 }
 @media (max-width: 996px) {
   .markdown h1:first-child {
@@ -139,8 +145,8 @@ html[data-theme="dark"] {
 }
 
 .markdown > h2 {
-  font-size: 1.75rem;
-  letter-spacing: -0.015em;
+  font-size: 1.6rem;
+  letter-spacing: -0.02em;
   padding-top: 1em;
   border-top: 1px solid var(--ifm-color-emphasis-200);
 }
@@ -150,7 +156,7 @@ html[data-theme="dark"] {
 }
 
 .markdown > h3 {
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 600;
   letter-spacing: -0.015em;
 }
@@ -256,6 +262,9 @@ a.theme-edit-this-page > svg {
 pre {
   --ifm-code-font-size: 85%;
   background-color: var(--ifm-color-emphasis-100) !important;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 10px;
+  box-shadow: 0 1px 0 rgba(0,0,0,.02), 0 8px 24px rgba(0,0,0,.06);
 }
 
 .tabs__item {
@@ -295,12 +304,14 @@ pre {
 
 @media (min-width: 997px) {
   .navbar {
-    background: rgba(255, 255, 255, 0.6); /* Black with 60% opacity */
+    background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--ifm-color-emphasis-200);
   }
 
   html[data-theme="dark"] .navbar {
-    background: rgba(1, 1, 1, 0.6); /* Black with 60% opacity */
+    background: rgba(1, 1, 1, 0.6);
+    border-bottom-color: var(--ifm-color-emphasis-300);
   }
 }
 
@@ -315,6 +326,7 @@ div[class^="docRoot"],
 }
 .navbar__title {
   text-transform: uppercase;
+  font-weight: 600;
 }
 
 .navbar__brand {
@@ -454,4 +466,29 @@ div[class^="tocCollapsible"] > button {
 
 div[class^="tocCollapsibleContent"] > ul {
   border-bottom: 1px solid var(--ifm-color-emphasis-300);
+}
+
+/* Markdown typography refinements */
+.markdown :not(pre) > code {
+  background: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 4px;
+  padding: 0.1rem 0.3rem;
+}
+html[data-theme="dark"] .markdown :not(pre) > code {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.markdown blockquote {
+  border-left: 3px solid var(--ifm-color-primary);
+  background: var(--ifm-table-background);
+  padding: 0.5rem 1rem;
+}
+
+.markdown ul,
+.markdown ol {
+  margin-block: 0.5rem 1rem;
+}
+.markdown li {
+  margin-block: 0.15rem;
 }

@@ -69,6 +69,11 @@ const config: Config = {
     ],
   ],
 
+  // Modern font
+  stylesheets: [
+    "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+  ],
+
   plugins: [
     [
       "docusaurus-plugin-typedoc",

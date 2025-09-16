@@ -35,6 +35,8 @@ export * from "./Footer";
 export * from "./Formatters";
 export * from "./FromToMonth";
 export * from "./FromToYear";
+export * from "./Hebrew";
+export * from "./HebrewEn";
 export * from "./HideNavigation";
 export * from "./Input";
 export * from "./InputRange";

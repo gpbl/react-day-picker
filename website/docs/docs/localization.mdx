@@ -184,6 +184,35 @@ export function EthiopicLatin() {
 }
 ```
 
+## Hebrew Calendar
+
+DayPicker supports the [Hebrew calendar](https://en.wikipedia.org/wiki/Hebrew_calendar), a lunisolar calendar used for Jewish religious observances and holidays.
+
+- To use the Hebrew calendar, import `DayPicker` from `react-day-picker/hebrew`:
+
+```diff
+- import { DayPicker } from 'react-day-picker';
++ import { DayPicker } from 'react-day-picker/hebrew';
+```
+
+<BrowserWindow>
+  <Examples.Hebrew />
+</BrowserWindow>
+
+By default, the Hebrew calendar uses the Hebrew locale, renders right-to-left, and keeps Western Arabic numerals for clarity. You can switch to English labels by passing the `enUS` locale and `dir="ltr"`:
+
+```tsx
+import { DayPicker, enUS } from "react-day-picker/hebrew";
+
+export function HebrewEn() {
+  return <DayPicker locale={enUS} dir="ltr" numerals="latn" />;
+}
+```
+
+<BrowserWindow>
+  <Examples.HebrewEn />
+</BrowserWindow>
+
 ## Broadcast Calendar
 
 | Prop Name           | Type      | Description                          |
