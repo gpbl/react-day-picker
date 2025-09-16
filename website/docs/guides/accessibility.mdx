@@ -20,13 +20,14 @@ Depending on your design, you might need to add more accessibility features. For
 
 ## Accessibility Props
 
-| Prop Name    | Type                                      | Description                                                                                                                                                            |
-| ------------ | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `labels`     | [`Labels`](../api/type-aliases/Labels.md) | Map of the ARIA labels used within DayPicker for better accessibility.                                                                                                 |
-| `footer`     | `ReactNode` \| `string`                   | Add a footer to the calendar, which can act as a [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) to announce updates. |
-| `role`       | `application` \| `dialog`                 | Set the ARIA role for the container. Use `application` for a more interactive widget or `dialog` for a modal-like date picker.                                         |
-| `aria-label` | `string`                                  | The label to use for the container when a `role` is set, providing a descriptive text for screen readers.                                                              |
-| `autoFocus`  | `boolean`                                 | Autofocus the calendar when it opens, improving keyboard navigation.                                                                                                   |
+| Prop Name         | Type                                      | Description                                                                                                                                                            |
+| ----------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `labels`          | [`Labels`](../api/type-aliases/Labels.md) | Map of the ARIA labels used within DayPicker for better accessibility.                                                                                                 |
+| `footer`          | `ReactNode` \| `string`                   | Add a footer to the calendar, which can act as a [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) to announce updates. |
+| `role`            | `application` \| `dialog`                 | Set the ARIA role for the container. Use `application` for a more interactive widget or `dialog` for a modal-like date picker.                                         |
+| `aria-label`      | `string`                                  | The label to use for the container when a `role` is set, providing a descriptive text for screen readers.                                                              |
+| `aria-labelledby` | `string`                                  | Reference another element that describes the calendar, such as a heading or external label, allowing assistive tech to announce that element as the calendar title.    |
+| `autoFocus`       | `boolean`                                 | Autofocus the calendar when it opens, improving keyboard navigation.                                                                                                   |
 
 ### Autofocusing the Calendar {#autofocus}
 
