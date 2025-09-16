@@ -213,6 +213,35 @@ export function HebrewEn() {
   <Examples.HebrewEn />
 </BrowserWindow>
 
+## Hijri (Umm al-Qura) Calendar
+
+DayPicker supports the [Islamic Umm al-Qura calendar](https://en.wikipedia.org/wiki/Umm_al-Qura_calendar), the civil calendar used in Saudi Arabia and many other regions.
+
+- To use the Hijri calendar, import `DayPicker` from `react-day-picker/hijri`:
+
+```diff
+- import { DayPicker } from 'react-day-picker';
++ import { DayPicker } from 'react-day-picker/hijri';
+```
+
+<BrowserWindow>
+  <Examples.Hijri />
+</BrowserWindow>
+
+By default, the Hijri calendar uses the Arabic (Saudi Arabia) locale, renders right-to-left, and formats numbers with Arabic-Indic digits. Switch to English labels with `enUS` and Latin numerals:
+
+```tsx
+import { DayPicker, enUS } from "react-day-picker/hijri";
+
+export function HijriEn() {
+  return <DayPicker locale={enUS} dir="ltr" numerals="latn" />;
+}
+```
+
+<BrowserWindow>
+  <Examples.HijriEn />
+</BrowserWindow>
+
 ## Broadcast Calendar
 
 | Prop Name           | Type      | Description                          |

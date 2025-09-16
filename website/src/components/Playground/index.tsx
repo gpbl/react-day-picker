@@ -20,6 +20,11 @@ import {
   getDateLib as getDateLibHebrew,
   he as heHebrew,
 } from "react-day-picker/hebrew";
+import {
+  DayPicker as DayPickerHijri,
+  getDateLib as getDateLibHijri,
+  arSA as arSAHijri,
+} from "react-day-picker/hijri";
 import * as locales from "react-day-picker/locale";
 import {
   DayPicker as DayPickerPersian,
@@ -75,6 +80,10 @@ export function Playground() {
     formattedProps =
       `import { DayPicker } from "react-day-picker/hebrew";\n\n` +
       formattedProps;
+  } else if (props.calendar === "hijri") {
+    formattedProps =
+      `import { DayPicker } from "react-day-picker/hijri";\n\n` +
+      formattedProps;
   } else {
     formattedProps = `import { DayPicker } from "react-day-picker";\n\n${formattedProps}`;
   }
@@ -89,7 +98,9 @@ export function Playground() {
           ? DayPickerBuddhist
           : props.calendar === "hebrew"
             ? DayPickerHebrew
-            : DayPicker;
+            : props.calendar === "hijri"
+              ? DayPickerHijri
+              : DayPicker;
 
   const dateLib =
     props.calendar === "persian"
@@ -105,20 +116,26 @@ export function Playground() {
           })
         : props.calendar === "buddhist"
           ? getDateLibBuddhist({
-              locale: (props.locale as locales.Locale) ?? thBuddhist,
-              timeZone: props.timeZone,
-              numerals: props.numerals,
-            })
+            locale: (props.locale as locales.Locale) ?? thBuddhist,
+            timeZone: props.timeZone,
+            numerals: props.numerals,
+          })
           : props.calendar === "hebrew"
             ? getDateLibHebrew({
                 locale: (props.locale as locales.Locale) ?? heHebrew,
                 timeZone: props.timeZone,
                 numerals: props.numerals,
               })
-            : new DateLib({
-                locale: (props.locale as locales.Locale) ?? locales.enUS,
-                timeZone: props.timeZone,
-              });
+            : props.calendar === "hijri"
+              ? getDateLibHijri({
+                  locale: (props.locale as locales.Locale) ?? arSAHijri,
+                  timeZone: props.timeZone,
+                  numerals: props.numerals,
+                })
+              : new DateLib({
+                  locale: (props.locale as locales.Locale) ?? locales.enUS,
+                  timeZone: props.timeZone,
+                });
 
   return (
     <div className={styles.playground}>
