@@ -351,6 +351,7 @@ export function DayPicker(initialProps: DayPickerProps) {
         title={props.title}
         role={props.role}
         aria-label={props["aria-label"]}
+        aria-labelledby={props["aria-labelledby"]}
         {...dataAttributes}
       >
         <components.Months

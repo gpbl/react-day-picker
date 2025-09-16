@@ -47,6 +47,19 @@ test("apply classnames and style according to props", () => {
   expect(dayPicker()).toHaveStyle({ color: "rgb(255, 0, 0)" });
 });
 
+test("forward aria attributes to the root element", () => {
+  render(
+    <DayPicker
+      data-testid={testId}
+      aria-label="Calendar"
+      aria-labelledby="calendar-heading"
+    />,
+  );
+
+  expect(dayPicker()).toHaveAttribute("aria-label", "Calendar");
+  expect(dayPicker()).toHaveAttribute("aria-labelledby", "calendar-heading");
+});
+
 test("use custom components", () => {
   render(
     <DayPicker

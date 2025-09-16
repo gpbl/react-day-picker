@@ -397,6 +397,13 @@ export interface PropsBase {
    */
   "aria-label"?: string;
   /**
+   * The aria-labelledby attribute to add to the container element.
+   *
+   * @since 9.10.1
+   * @see https://daypicker.dev/guides/accessibility
+   */
+  "aria-labelledby"?: string;
+  /**
    * The role attribute to add to the container element.
    *
    * @since 9.4.1
