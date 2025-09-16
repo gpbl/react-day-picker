@@ -65,6 +65,16 @@
         "default": "./dist/cjs/buddhist/index.js"
       }
     },
+    "./hebrew": {
+      "import": {
+        "types": "./dist/esm/hebrew/index.d.ts",
+        "default": "./dist/esm/hebrew/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/hebrew/index.d.ts",
+        "default": "./dist/cjs/hebrew/index.js"
+      }
+    },
     "./ethiopic": {
       "import": {
         "types": "./dist/esm/ethiopic/index.d.ts",
@@ -205,6 +215,8 @@
     "persian.d.ts",
     "buddhist.js",
     "buddhist.d.ts",
+    "hebrew.js",
+    "hebrew.d.ts",
     "locale.js",
     "locale.d.ts"
   ],

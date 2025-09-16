@@ -18,7 +18,7 @@ See **[daypicker.dev](https://daypicker.dev)** for guides, examples and API refe
 - 🎨 Minimal design that can be [easily styled](https://daypicker.dev/docs/styling) with CSS or any CSS framework.
 - 📅 Supports [selections](https://daypicker.dev/docs/selection-modes) of single days, multiple days, ranges of days, or [custom selections](https://daypicker.dev/guides/custom-selections).
 - 🌍 Can be [localized](https://daypicker.dev/docs/localization) into any language and [time zones](https://daypicker.dev/docs/time-zone).
-- 🌐 Support for [ISO 8601](https://daypicker.dev/docs/localization#iso-week-dates), [Persian](https://daypicker.dev/docs/localization#persian-calendar), [Ethiopic](https://daypicker.dev/docs/localization#ethiopic-calendar) and [broadcast](https://daypicker.dev/docs/localization#broadcast-calendar) calendar.
+- 🌐 Support for [ISO 8601](https://daypicker.dev/docs/localization#iso-week-dates), [Persian](https://daypicker.dev/docs/localization#persian-calendar), [Buddhist (Thai)](https://daypicker.dev/docs/localization#buddhist-thai-calendar), [Ethiopic](https://daypicker.dev/docs/localization#ethiopic-calendar), [Hebrew](https://daypicker.dev/docs/localization#hebrew-calendar) and [broadcast](https://daypicker.dev/docs/localization#broadcast-calendar) calendar.
 - 🦮 Complies with WCAG 2.1 AA requirements for [accessibility](https://daypicker.dev/guides/accessibility).
 - ⚙️ [Customizable components](https://daypicker.dev/guides/custom-components) to extend the rendered elements.
 - 🔤 Easy integration [with input fields](https://daypicker.dev/guides/input-fields).
