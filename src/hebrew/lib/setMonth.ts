@@ -1,10 +1,10 @@
 import { toGregorianDate, toHebrewDate } from "../utils/dateConversion.js";
 import { monthIndexToHebrewDate, monthsSinceEpoch } from "../utils/serial.js";
 
-export const setMonth = (date: Date, month: number): Date => {
+export function setMonth(date: Date, month: number): Date {
   const hebrew = toHebrewDate(date);
   const baseIndex = monthsSinceEpoch({ year: hebrew.year, monthIndex: 0 });
   const targetIndex = baseIndex + month;
   const target = monthIndexToHebrewDate(targetIndex, hebrew.day);
   return toGregorianDate(target);
-};
+}

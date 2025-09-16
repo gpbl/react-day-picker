@@ -128,11 +128,11 @@ const buildTimeFormat = (
 };
 
 /** Hebrew calendar formatting override. */
-export const format = (
+export function format(
   date: Date,
   formatStr: string,
   options?: DateFnsFormatOptions,
-): string => {
+): string {
   const extendedOptions = options as DateLibOptions | undefined;
   const localeCode = getLocaleCode(extendedOptions);
   const hebrew = toHebrewDate(date);
@@ -173,4 +173,4 @@ export const format = (
       }
       return `${formatNumber(hebrew.day)}/${formatNumber(monthNumber)}/${formatNumber(hebrew.year)}`;
   }
-};
+}

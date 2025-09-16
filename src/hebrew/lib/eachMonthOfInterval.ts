@@ -2,7 +2,7 @@ import { type Interval, toDate } from "date-fns";
 import { toGregorianDate, toHebrewDate } from "../utils/dateConversion.js";
 import { monthIndexToHebrewDate, monthsSinceEpoch } from "../utils/serial.js";
 
-export const eachMonthOfInterval = (interval: Interval): Date[] => {
+export function eachMonthOfInterval(interval: Interval): Date[] {
   const startDate = toDate(interval.start);
   const endDate = toDate(interval.end);
   if (endDate.getTime() < startDate.getTime()) {
@@ -19,4 +19,4 @@ export const eachMonthOfInterval = (interval: Interval): Date[] => {
     months.push(toGregorianDate(hebrew));
   }
   return months;
-};
+}

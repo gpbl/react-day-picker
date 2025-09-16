@@ -5,7 +5,7 @@ import {
   monthsSinceEpoch,
 } from "../utils/serial.js";
 
-export const addMonths = (date: Date, amount: number): Date => {
+export function addMonths(date: Date, amount: number): Date {
   if (amount === 0) {
     return new Date(date.getTime());
   }
@@ -14,4 +14,4 @@ export const addMonths = (date: Date, amount: number): Date => {
   const target = monthIndexToHebrewDate(targetIndex, hebrew.day);
   const day = clampHebrewDay(target.year, target.monthIndex, target.day);
   return toGregorianDate({ ...target, day });
-};
+}

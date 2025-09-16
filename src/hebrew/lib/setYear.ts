@@ -8,7 +8,7 @@ import { clampHebrewDay } from "../utils/serial.js";
 
 import { findMonthIndexByCode } from "./findMonthIndexByCode.js";
 
-export const setYear = (date: Date, year: number): Date => {
+export function setYear(date: Date, year: number): Date {
   const hebrew = toHebrewDate(date);
   const targetYear = year;
   const originalCode = getMonthCode(hebrew.year, hebrew.monthIndex);
@@ -31,4 +31,4 @@ export const setYear = (date: Date, year: number): Date => {
     monthIndex: targetMonthIndex,
     day,
   });
-};
+}

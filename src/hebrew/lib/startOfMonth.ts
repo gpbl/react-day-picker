@@ -1,6 +1,6 @@
 import { toGregorianDate, toHebrewDate } from "../utils/dateConversion.js";
 
-export const startOfMonth = (date: Date): Date => {
+export function startOfMonth(date: Date): Date {
   const hebrew = toHebrewDate(date);
   return toGregorianDate({ ...hebrew, day: 1 });
-};
+}

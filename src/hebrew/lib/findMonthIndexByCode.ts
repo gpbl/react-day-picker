@@ -1,9 +1,9 @@
 import { getMonthCode, monthsInHebrewYear } from "../utils/calendarMath.js";
 
-export const findMonthIndexByCode = (
+export function findMonthIndexByCode(
   year: number,
   preferredCode: string,
-): number => {
+): number {
   const monthsCount = monthsInHebrewYear(year);
   for (let index = 0; index < monthsCount; index += 1) {
     if (getMonthCode(year, index) === preferredCode) {
@@ -11,4 +11,4 @@ export const findMonthIndexByCode = (
     }
   }
   return -1;
-};
+}
