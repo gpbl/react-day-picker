@@ -5,6 +5,8 @@ export * from "./AnimateRange";
 export * from "./AnimateRtl";
 export * from "./AutoFocus";
 export * from "./BroadcastCalendar";
+export * from "./Buddhist";
+export * from "./BuddhistEn";
 export * from "./ContainerAttributes";
 export * from "./Controlled";
 export * from "./ControlledSelection";

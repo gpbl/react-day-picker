@@ -55,6 +55,16 @@
         "default": "./dist/cjs/persian.js"
       }
     },
+    "./buddhist": {
+      "import": {
+        "types": "./dist/esm/buddhist/index.d.ts",
+        "default": "./dist/esm/buddhist/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/buddhist/index.d.ts",
+        "default": "./dist/cjs/buddhist/index.js"
+      }
+    },
     "./ethiopic": {
       "import": {
         "types": "./dist/esm/ethiopic/index.d.ts",
@@ -193,6 +203,8 @@
     "jalali.d.ts",
     "persian.js",
     "persian.d.ts",
+    "buddhist.js",
+    "buddhist.d.ts",
     "locale.js",
     "locale.d.ts"
   ],
