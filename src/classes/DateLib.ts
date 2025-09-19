@@ -215,6 +215,7 @@ export class DateLib {
       for (let index = 0; index < pattern.length; index++) {
         const char = pattern[index];
         if (char === "'") {
+          // Toggle literal sections (text wrapped in single quotes is printed verbatim).
           if (pattern[index + 1] === "'") {
             index += 1;
             continue;
