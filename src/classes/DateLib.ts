@@ -62,6 +62,9 @@ export type FormatOptions = DateLibOptions;
  */
 export type LabelOptions = DateLibOptions;
 
+/** Indicates the preferred ordering of month and year for localized labels. */
+export type MonthYearOrder = "month-first" | "year-first";
+
 /**
  * The options for the `DateLib` class.
  *
@@ -168,6 +171,72 @@ export class DateLib {
    */
   formatNumber(value: number | string): string {
     return this.replaceDigits(value.toString());
+  }
+
+  /**
+   * Returns the preferred ordering for month and year labels for the current locale.
+   */
+  getMonthYearOrder(): MonthYearOrder {
+    // Pull the locale attached to this DateLib instance. Fall back to
+    // month-first if we do not know the locale or it does not expose
+    // `formatLong` (older `date-fns` locales may omit it).
+    const locale = this.options.locale;
+    const formatLong = locale?.formatLong?.date;
+    if (!formatLong) {
+      return "month-first";
+    }
+
+    // Try the common pattern "width"s in preferred order. We stop at the first
+    // pattern that succeeds so we minimize the amount of work.
+    const widths: Array<"long" | "full" | "medium" | "short"> = [
+      "long",
+      "full",
+      "medium",
+      "short",
+    ];
+
+    const pattern = widths.reduce<string | undefined>((result, width) => {
+      if (result) return result;
+      try {
+        return formatLong({ width }) || undefined;
+      } catch {
+        return undefined;
+      }
+    }, undefined);
+
+    if (!pattern) {
+      return "month-first";
+    }
+
+    // Walk the format string skipping literals to find the first occurrences
+    // of month and year tokens.
+    const findTokenIndex = (tokens: string[]): number => {
+      let inLiteral = false;
+      for (let index = 0; index < pattern.length; index++) {
+        const char = pattern[index];
+        if (char === "'") {
+          if (pattern[index + 1] === "'") {
+            index += 1;
+            continue;
+          }
+          inLiteral = !inLiteral;
+          continue;
+        }
+        if (inLiteral) continue;
+        if (tokens.includes(char)) return index;
+      }
+      return -1;
+    };
+
+    const monthIndex = findTokenIndex(["L", "M"]);
+    const yearIndex = findTokenIndex(["y"]);
+
+    if (monthIndex === -1 || yearIndex === -1) {
+      return "month-first";
+    }
+
+    // Month-first means month index appears before or together with year.
+    return monthIndex <= yearIndex ? "month-first" : "year-first";
   }
 
   /**
