@@ -76,6 +76,10 @@ const numerals: { value: Numerals; label: string }[] = [
   { value: "geez" as Numerals, label: "Ge'ez (Ethiopic)" },
   // Thai digits
   { value: "thai" as Numerals, label: "Thai" },
+  { value: "mymr", label: "Myanmar" },
+  { value: "khmr", label: "Khmer" },
+  { value: "laoo", label: "Lao" },
+  { value: "tibt", label: "Tibetan" },
 ];
 const calendars: (
   | "persian"
