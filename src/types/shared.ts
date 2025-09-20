@@ -375,6 +375,10 @@ export type MoveFocusBy =
  * - `knda`: Kannada
  * - `mlym`: Malayalam
  * - `thai`: Thai
+ * - `mymr`: Myanmar
+ * - `khmr`: Khmer
+ * - `laoo`: Lao
+ * - `tibt`: Tibetan
  *
  * @see https://daypicker.dev/docs/translation#numeral-systems
  */
@@ -392,4 +396,8 @@ export type Numerals =
   | "telu"
   | "knda"
   | "mlym"
-  | "thai";
+  | "thai"
+  | "mymr"
+  | "khmr"
+  | "laoo"
+  | "tibt";
