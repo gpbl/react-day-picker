@@ -6,6 +6,11 @@ import {
   isDateRange,
 } from "react-day-picker";
 import {
+  DayPicker as DayPickerBuddhist,
+  getDateLib as getDateLibBuddhist,
+  th as thBuddhist,
+} from "react-day-picker/buddhist";
+import {
   amET as amETEthiopic,
   DayPicker as DayPickerEthiopic,
   getDateLib as getDateLibEthiopic,
@@ -16,10 +21,8 @@ import {
   faIR as faIRpersian,
   getDateLib,
 } from "react-day-picker/persian";
-
 import { BrowserWindow } from "../BrowserWindow";
 import { HighlightWithTheme } from "../HighlightWithTheme";
-
 import { CustomizationFieldset } from "./CustomizationFieldset";
 import { LocalizationFieldset } from "./LocalizationFieldset";
 import { NavigationFieldset } from "./NavigationFieldset";
@@ -58,6 +61,10 @@ export function Playground() {
     formattedProps =
       `import { DayPicker } from "react-day-picker/ethiopic";\n\n` +
       formattedProps;
+  } else if (props.calendar === "buddhist") {
+    formattedProps =
+      `import { DayPicker } from "react-day-picker/buddhist";\n\n` +
+      formattedProps;
   } else {
     formattedProps = `import { DayPicker } from "react-day-picker";\n\n${formattedProps}`;
   }
@@ -68,7 +75,9 @@ export function Playground() {
       ? DayPickerPersian
       : props.calendar === "ethiopic"
         ? DayPickerEthiopic
-        : DayPicker;
+        : props.calendar === "buddhist"
+          ? DayPickerBuddhist
+          : DayPicker;
 
   const dateLib =
     props.calendar === "persian"
@@ -78,14 +87,20 @@ export function Playground() {
         })
       : props.calendar === "ethiopic"
         ? getDateLibEthiopic({
-            locale: (props.locale as locales.Locale) ?? (amETEthiopic as any),
+            locale: (props.locale as locales.Locale) ?? amETEthiopic,
             timeZone: props.timeZone,
             numerals: props.numerals,
           })
-        : new DateLib({
-            locale: (props.locale as locales.Locale) ?? locales.enUS,
-            timeZone: props.timeZone,
-          });
+        : props.calendar === "buddhist"
+          ? getDateLibBuddhist({
+              locale: (props.locale as locales.Locale) ?? thBuddhist,
+              timeZone: props.timeZone,
+              numerals: props.numerals,
+            })
+          : new DateLib({
+              locale: (props.locale as locales.Locale) ?? locales.enUS,
+              timeZone: props.timeZone,
+            });
 
   return (
     <div className={styles.playground}>

@@ -17,7 +17,7 @@ describe("Ethiopic DayPicker", () => {
   });
 
   test("renders English month with Latin digits and English weekdays when locale=enUS, numerals=latn", () => {
-    render(<DayPicker locale={enUS as any} numerals="latn" />);
+    render(<DayPicker locale={enUS} numerals="latn" />);
     expect(grid("Tahsas 2017")).toBeInTheDocument();
     // ARIA labels should contain English weekday names
     const fridayCells = screen.getAllByRole("gridcell", { name: /Friday,/ });
