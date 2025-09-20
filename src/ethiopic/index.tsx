@@ -17,15 +17,17 @@ export { enUS } from "date-fns/locale/en-US";
  * Render the Ethiopic calendar.
  *
  * Defaults:
+ *
  * - `locale`: `am-ET` (Amharic) via an Intl-backed date-fns locale
  * - `numerals`: `geez` (Ethiopic digits)
  *
  * Notes:
+ *
  * - Weekday names are taken from `Intl.DateTimeFormat(locale.code)`.
- * - Month names are Amharic by default; they switch to Latin transliteration
- *   when `locale.code` starts with `en` or when `numerals` is `latn`.
- * - Time tokens like `hh:mm a` are formatted via `Intl.DateTimeFormat` using
- *   the provided `locale`.
+ * - Month names are Amharic by default; they switch to Latin transliteration when
+ *   `locale.code` starts with `en` or when `numerals` is `latn`.
+ * - Time tokens like `hh:mm a` are formatted via `Intl.DateTimeFormat` using the
+ *   provided `locale`.
  *
  * @see https://daypicker.dev/docs/localization#ethiopic-calendar
  */

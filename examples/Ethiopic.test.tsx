@@ -14,3 +14,8 @@ test("should render ታህሳስ ፳፻፲፯", () => {
   render(<Ethiopic />);
   expect(grid("ታህሳስ ፳፻፲፯")).toBeInTheDocument();
 });
+
+test("dropdown layout renders without crashing", () => {
+  render(<Ethiopic captionLayout="dropdown" />);
+  expect(grid()).toBeInTheDocument();
+});

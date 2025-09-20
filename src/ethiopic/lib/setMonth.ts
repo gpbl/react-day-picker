@@ -1,4 +1,8 @@
-import { toEthiopicDate, toGregorianDate } from "../utils/index.js";
+import {
+  daysInMonth,
+  toEthiopicDate,
+  toGregorianDate,
+} from "../utils/index.js";
 
 /**
  * Set month
@@ -9,5 +13,7 @@ import { toEthiopicDate, toGregorianDate } from "../utils/index.js";
  */
 export function setMonth(date: Date, month: number): Date {
   const { year, day } = toEthiopicDate(date);
-  return toGregorianDate({ year, month: month + 1, day }); // Add 1 to month as it's zero-based
+  const targetMonth = month + 1; // Convert from zero-based index
+  const safeDay = Math.min(day, daysInMonth(targetMonth, year));
+  return toGregorianDate({ year, month: targetMonth, day: safeDay });
 }
