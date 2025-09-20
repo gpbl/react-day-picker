@@ -1,7 +1,6 @@
 import React from "react";
-import type { DayPickerProps } from "react-day-picker";
 import { DayPicker } from "react-day-picker/ethiopic";
 
-export function Ethiopic(props: DayPickerProps) {
+export function Ethiopic(props: React.ComponentProps<typeof DayPicker>) {
   return <DayPicker {...props} />;
 }
