@@ -185,7 +185,11 @@ export class DateLib {
     return DateLib.yearFirstLocales.has(code) ? "year-first" : "month-first";
   }
 
-  /** Formats the month/year pair respecting locale conventions. */
+  /**
+   * Formats the month/year pair respecting locale conventions.
+   *
+   * @since 9.11.0
+   */
   formatMonthYear(date: Date): string {
     const { locale, timeZone, numerals } = this.options;
     const localeCode = locale?.code;
