@@ -62,6 +62,9 @@ export type FormatOptions = DateLibOptions;
  */
 export type LabelOptions = DateLibOptions;
 
+/** Indicates the preferred ordering of month and year for localized labels. */
+export type MonthYearOrder = "month-first" | "year-first";
+
 /**
  * The options for the `DateLib` class.
  *
@@ -169,6 +172,62 @@ export class DateLib {
   formatNumber(value: number | string): string {
     return this.replaceDigits(value.toString());
   }
+
+  /**
+   * Returns the preferred ordering for month and year labels for the current
+   * locale.
+   */
+  getMonthYearOrder(): MonthYearOrder {
+    const code = this.options.locale?.code;
+    if (!code) {
+      return "month-first";
+    }
+    return DateLib.yearFirstLocales.has(code) ? "year-first" : "month-first";
+  }
+
+  /** Formats the month/year pair respecting locale conventions. */
+  formatMonthYear(date: Date): string {
+    const { locale, timeZone, numerals } = this.options;
+    const localeCode = locale?.code;
+    if (localeCode && DateLib.yearFirstLocales.has(localeCode)) {
+      try {
+        const intl = new Intl.DateTimeFormat(localeCode, {
+          month: "long",
+          year: "numeric",
+          timeZone,
+          numberingSystem: numerals,
+        });
+        const formatted = intl.format(date);
+        return formatted;
+      } catch {
+        // Fallback to date-fns formatting below.
+      }
+    }
+
+    const pattern =
+      this.getMonthYearOrder() === "year-first" ? "y LLLL" : "LLLL y";
+    return this.format(date, pattern);
+  }
+
+  private static readonly yearFirstLocales = new Set([
+    "eu",
+    "hu",
+    "ja",
+    "ja-Hira",
+    "ja-JP",
+    "ko",
+    "ko-KR",
+    "lt",
+    "lt-LT",
+    "lv",
+    "lv-LV",
+    "mn",
+    "mn-MN",
+    "zh",
+    "zh-CN",
+    "zh-HK",
+    "zh-TW",
+  ]);
 
   /**
    * Reference to the built-in Date constructor.
