@@ -45,6 +45,21 @@ function formatEthiopianDate(
   const useLatin =
     (localeCode?.startsWith("en") ?? false) || numerals === "latn";
 
+  const yearTokenMatch = formatStr.match(/^(\s*)(y+)(\s*)$/);
+  if (yearTokenMatch) {
+    const [, leading = "", yearToken, trailing = ""] = yearTokenMatch;
+    const year = etDate.year.toString();
+    let formattedYear: string;
+    if (yearToken.length === 1) {
+      formattedYear = year;
+    } else if (yearToken.length === 2) {
+      formattedYear = year.slice(-2).padStart(2, "0");
+    } else {
+      formattedYear = year.padStart(yearToken.length, "0");
+    }
+    return `${leading}${formattedYear}${trailing}`;
+  }
+
   switch (formatStr) {
     case "LLLL yyyy":
     case "LLLL y":
@@ -85,13 +100,14 @@ function formatEthiopianDate(
  * Format an Ethiopic calendar date using a subset of date-fns tokens.
  *
  * Behavior specifics for Ethiopic mode:
+ *
  * - Weekday names ("cccc", "cccccc") come from `Intl.DateTimeFormat` using
  *   `options.locale?.code` (default: `am-ET`). Narrow form is a single letter.
  * - Month names ("LLLL") are Amharic by default and switch to Latin
  *   transliteration when the locale code starts with `en` or when
  *   `options.numerals === 'latn'`.
- * - Time parts such as `hh:mm a` are delegated to `Intl.DateTimeFormat` with
- *   the given locale.
+ * - Time parts such as `hh:mm a` are delegated to `Intl.DateTimeFormat` with the
+ *   given locale.
  * - Digits are converted to Ethiopic (Geez) when `options.numerals === 'geez'`.
  */
 export function format(

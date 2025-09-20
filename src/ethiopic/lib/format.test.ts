@@ -34,6 +34,21 @@ describe("format", () => {
     expect(format(date, "cccccc")).toBe("ዓ");
   });
 
+  test("should format year tokens without month/day", () => {
+    const date = toGregorianDate({ year: 2016, month: 7, day: 6 });
+    expect(format(date, "y")).toBe("2016");
+    expect(format(date, "yy")).toBe("16");
+    expect(format(date, "yyyy")).toBe("2016");
+    expect(format(date, "yyyy", { numerals: "geez" } as any)).toBe("፳፻፲፮");
+  });
+
+  test("should preserve whitespace around year tokens", () => {
+    const date = toGregorianDate({ year: 2016, month: 7, day: 6 });
+    expect(format(date, "yyyy ")).toBe("2016 ");
+    expect(format(date, " yy")).toBe(" 16");
+    expect(format(date, " y ")).toBe(" 2016 ");
+  });
+
   test("should format in English when enUS locale is passed", () => {
     // Ethiopian date: 06 መጋቢት 2016 (Friday)
     const date = toGregorianDate({ year: 2016, month: 7, day: 6 });
