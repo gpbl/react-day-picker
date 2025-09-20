@@ -100,13 +100,14 @@ function formatEthiopianDate(
  * Format an Ethiopic calendar date using a subset of date-fns tokens.
  *
  * Behavior specifics for Ethiopic mode:
+ *
  * - Weekday names ("cccc", "cccccc") come from `Intl.DateTimeFormat` using
  *   `options.locale?.code` (default: `am-ET`). Narrow form is a single letter.
  * - Month names ("LLLL") are Amharic by default and switch to Latin
  *   transliteration when the locale code starts with `en` or when
  *   `options.numerals === 'latn'`.
- * - Time parts such as `hh:mm a` are delegated to `Intl.DateTimeFormat` with
- *   the given locale.
+ * - Time parts such as `hh:mm a` are delegated to `Intl.DateTimeFormat` with the
+ *   given locale.
  * - Digits are converted to Ethiopic (Geez) when `options.numerals === 'geez'`.
  */
 export function format(

@@ -25,15 +25,17 @@ describe("Ethiopic DayPicker", () => {
   });
 
   test("dropdown caption shows year without day/month parts", () => {
-    render(<DayPicker captionLayout="dropdown" month={new Date(2024, 8, 10)} />);
+    render(
+      <DayPicker captionLayout="dropdown" month={new Date(2024, 8, 10)} />,
+    );
 
     const dropdowns = screen.getAllByRole("combobox");
     expect(dropdowns.length).toBeGreaterThan(1);
 
     const yearDropdown = dropdowns[1];
-    const optionLabels = Array.from(yearDropdown.querySelectorAll("option")).map(
-      (option) => option.textContent ?? "",
-    );
+    const optionLabels = Array.from(
+      yearDropdown.querySelectorAll("option"),
+    ).map((option) => option.textContent ?? "");
 
     expect(optionLabels.length).toBeGreaterThan(0);
     for (const label of optionLabels) {
@@ -41,7 +43,10 @@ describe("Ethiopic DayPicker", () => {
     }
 
     const dropdownMonths = render(
-      <DayPicker captionLayout="dropdown-months" month={new Date(2024, 8, 10)} />,
+      <DayPicker
+        captionLayout="dropdown-months"
+        month={new Date(2024, 8, 10)}
+      />,
     );
     const yearText = Array.from(
       dropdownMonths.container.querySelectorAll("span"),

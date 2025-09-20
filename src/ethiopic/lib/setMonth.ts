@@ -1,7 +1,7 @@
 import {
+  daysInMonth,
   toEthiopicDate,
   toGregorianDate,
-  daysInMonth,
 } from "../utils/index.js";
 
 /**

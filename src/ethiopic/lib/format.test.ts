@@ -39,9 +39,7 @@ describe("format", () => {
     expect(format(date, "y")).toBe("2016");
     expect(format(date, "yy")).toBe("16");
     expect(format(date, "yyyy")).toBe("2016");
-    expect(format(date, "yyyy", { numerals: "geez" } as any)).toBe(
-      "፳፻፲፮",
-    );
+    expect(format(date, "yyyy", { numerals: "geez" } as any)).toBe("፳፻፲፮");
   });
 
   test("should preserve whitespace around year tokens", () => {
