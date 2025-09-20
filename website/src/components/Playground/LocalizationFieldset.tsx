@@ -77,13 +77,13 @@ const numerals: { value: Numerals; label: string }[] = [
   // Thai digits
   { value: "thai" as Numerals, label: "Thai" },
 ];
-const calendars: ("persian" | "ethiopic" | "buddhist" | "gregorian" | "hebrew")[] = [
-  "gregorian",
-  "persian",
-  "ethiopic",
-  "buddhist",
-  "hebrew",
-];
+const calendars: (
+  | "persian"
+  | "ethiopic"
+  | "buddhist"
+  | "gregorian"
+  | "hebrew"
+)[] = ["gregorian", "persian", "ethiopic", "buddhist", "hebrew"];
 const persianLocales = { faIR: faIRPersian, enUS: enUSPersian };
 const ethiopicLocales = { amET: amETEthiopic, enUS: enUSEthiopic };
 const buddhistLocales = { th: thBuddhist, enUS: enUSBuddhist };
@@ -145,7 +145,9 @@ export function LocalizationFieldset({
     event: React.ChangeEvent<HTMLSelectElement>,
   ) => {
     const rawValue = event.target.value as CalendarType | "";
-    const calendar = (rawValue === "" ? undefined : rawValue) as DayPickerPropsWithCalendar["calendar"];
+    const calendar = (
+      rawValue === "" ? undefined : rawValue
+    ) as DayPickerPropsWithCalendar["calendar"];
     const defaults = calendar
       ? calendarDefaults[calendar as CalendarType]
       : undefined;
@@ -153,8 +155,8 @@ export function LocalizationFieldset({
     const nextProps: DayPickerPropsWithCalendar = {
       ...props,
       calendar,
-      locale: calendar ? defaults?.locale ?? undefined : undefined,
-      dir: calendar ? defaults?.dir ?? undefined : undefined,
+      locale: calendar ? (defaults?.locale ?? undefined) : undefined,
+      dir: calendar ? (defaults?.dir ?? undefined) : undefined,
     };
 
     if (defaults?.numerals) {
@@ -321,11 +323,15 @@ export function LocalizationFieldset({
             onChange={handleLocaleChange}
           >
             <option value=""></option>
-            {availableLocales.map((locale) => (
-              <option key={locale.code} value={locale.code}>
-                {locale.code}
-              </option>
-            ))}
+            {availableLocales
+              .filter((locale) => locale && typeof locale.code === "string")
+              .map((locale) =>
+                locale ? (
+                  <option key={locale.code} value={locale.code}>
+                    {locale.code}
+                  </option>
+                ) : null,
+              )}
           </select>
         </label>
 
