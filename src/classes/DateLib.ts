@@ -174,71 +174,63 @@ export class DateLib {
   }
 
   /**
-   * Returns the preferred ordering for month and year labels for the current locale.
+   * Returns the preferred ordering for month and year labels for the current
+   * locale.
    */
   getMonthYearOrder(): MonthYearOrder {
-    // Pull the locale attached to this DateLib instance. Fall back to
-    // month-first if we do not know the locale or it does not expose
-    // `formatLong` (older `date-fns` locales may omit it).
-    const locale = this.options.locale;
-    const formatLong = locale?.formatLong?.date;
-    if (!formatLong) {
+    const code = this.options.locale?.code;
+    if (!code) {
       return "month-first";
     }
-
-    // Try the common pattern "width"s in preferred order. We stop at the first
-    // pattern that succeeds so we minimize the amount of work.
-    const widths: Array<"long" | "full" | "medium" | "short"> = [
-      "long",
-      "full",
-      "medium",
-      "short",
-    ];
-
-    const pattern = widths.reduce<string | undefined>((result, width) => {
-      if (result) return result;
-      try {
-        return formatLong({ width }) || undefined;
-      } catch {
-        return undefined;
-      }
-    }, undefined);
-
-    if (!pattern) {
-      return "month-first";
-    }
-
-    // Walk the format string skipping literals to find the first occurrences
-    // of month and year tokens.
-    const findTokenIndex = (tokens: string[]): number => {
-      let inLiteral = false;
-      for (let index = 0; index < pattern.length; index++) {
-        const char = pattern[index];
-        if (char === "'") {
-          // Toggle literal sections (text wrapped in single quotes is printed verbatim).
-          if (pattern[index + 1] === "'") {
-            index += 1;
-            continue;
-          }
-          inLiteral = !inLiteral;
-          continue;
-        }
-        if (inLiteral) continue;
-        if (tokens.includes(char)) return index;
-      }
-      return -1;
-    };
-
-    const monthIndex = findTokenIndex(["L", "M"]);
-    const yearIndex = findTokenIndex(["y"]);
-
-    if (monthIndex === -1 || yearIndex === -1) {
-      return "month-first";
-    }
-
-    // Month-first means month index appears before or together with year.
-    return monthIndex <= yearIndex ? "month-first" : "year-first";
+    return DateLib.yearFirstLocales.has(code) ? "year-first" : "month-first";
   }
+
+  /** Formats the month/year pair respecting locale-specific connectors. */
+  formatMonthYear(date: Date): string {
+    const { locale, timeZone, numerals } = this.options;
+    const localeCode = locale?.code;
+    if (localeCode && DateLib.yearFirstLocales.has(localeCode)) {
+      try {
+        const intl = new Intl.DateTimeFormat(localeCode, {
+          month: "long",
+          year: "numeric",
+          timeZone,
+          numberingSystem: numerals,
+        });
+        const formatted = intl.format(date);
+        if (numerals && numerals !== "latn") {
+          return this.replaceDigits(formatted);
+        }
+        return formatted;
+      } catch {
+        // Fallback to date-fns formatting below.
+      }
+    }
+
+    const pattern =
+      this.getMonthYearOrder() === "year-first" ? "y LLLL" : "LLLL y";
+    return this.format(date, pattern);
+  }
+
+  private static readonly yearFirstLocales = new Set([
+    "eu",
+    "hu",
+    "ja",
+    "ja-Hira",
+    "ja-JP",
+    "ko",
+    "ko-KR",
+    "lt",
+    "lt-LT",
+    "lv",
+    "lv-LV",
+    "mn",
+    "mn-MN",
+    "zh",
+    "zh-CN",
+    "zh-HK",
+    "zh-TW",
+  ]);
 
   /**
    * Reference to the built-in Date constructor.

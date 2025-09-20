@@ -1,6 +1,6 @@
 import { startOfDay, startOfMonth } from "date-fns";
+import { ja } from "date-fns/locale/ja";
 import React from "react";
-
 import {
   activeElement,
   dateButton,
@@ -172,6 +172,20 @@ test("extends the default locale", () => {
   );
   // Check if the custom month name is rendered
   expect(grid("bar 2024")).toBeInTheDocument();
+});
+
+test("places the month dropdown before the year dropdown by default", () => {
+  render(<DayPicker captionLayout="dropdown" />);
+  const combos = screen.getAllByRole("combobox");
+  expect(combos[0]).toHaveAttribute("aria-label", "Choose the Month");
+  expect(combos[1]).toHaveAttribute("aria-label", "Choose the Year");
+});
+
+test("places the year dropdown before the month dropdown for year-first locales", () => {
+  render(<DayPicker captionLayout="dropdown" locale={ja} />);
+  const combos = screen.getAllByRole("combobox");
+  expect(combos[0]).toHaveAttribute("aria-label", "Choose the Year");
+  expect(combos[1]).toHaveAttribute("aria-label", "Choose the Month");
 });
 
 test("should render the custom components", () => {
