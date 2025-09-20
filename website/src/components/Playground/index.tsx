@@ -162,10 +162,9 @@ export function Playground() {
           <DayPickerComponent
             {...props}
             onSelect={setSelected}
-            onMonthChange={(month) => {
+            onMonthChange={(month: Date) => {
               setProps({ ...props, month });
             }}
-            // @ts-expect-error Not working well with the union type
             selected={selected}
           />
         </BrowserWindow>
