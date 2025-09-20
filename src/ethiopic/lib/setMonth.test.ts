@@ -53,4 +53,38 @@ describe("setMonth", () => {
       }),
     );
   });
+
+  test("should clamp the day when switching to Pagume", () => {
+    const date = toGregorianDate({
+      year: 2016,
+      month: 2,
+      day: 30,
+    });
+
+    const result = setMonth(date, 12);
+    expect(result).toEqual(
+      toGregorianDate({
+        year: 2016,
+        month: 13,
+        day: 5,
+      }),
+    );
+  });
+
+  test("should clamp to six days in leap year Pagume", () => {
+    const date = toGregorianDate({
+      year: 2015,
+      month: 2,
+      day: 30,
+    });
+
+    const result = setMonth(date, 12);
+    expect(result).toEqual(
+      toGregorianDate({
+        year: 2015,
+        month: 13,
+        day: 6,
+      }),
+    );
+  });
 });
