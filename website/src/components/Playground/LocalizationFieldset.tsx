@@ -87,6 +87,7 @@ const calendars: ("persian" | "ethiopic" | "buddhist" | "gregorian" | "hebrew")[
 const persianLocales = { faIR: faIRPersian, enUS: enUSPersian };
 const ethiopicLocales = { amET: amETEthiopic, enUS: enUSEthiopic };
 const buddhistLocales = { th: thBuddhist, enUS: enUSBuddhist };
+const hebrewLocales = { he: heHebrew, enUS: enUSHebrew };
 
 interface LocalizationFieldsetProps {
   props: DayPickerPropsWithCalendar;
