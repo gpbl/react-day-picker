@@ -126,6 +126,35 @@ export function PersianCalendar() {
   <Examples.PersianFormatted />
 </BrowserWindow>
 
+## Buddhist (Thai) Calendar
+
+DayPicker supports the Buddhist (Thai) calendar, which follows Gregorian months and weeks but displays years in the Buddhist Era (BE = CE + 543).
+
+- To use the Buddhist calendar, import `DayPicker` from `react-day-picker/buddhist`:
+
+```diff
+- import { DayPicker } from 'react-day-picker';
++ import { DayPicker } from 'react-day-picker/buddhist';
+```
+
+<BrowserWindow>
+  <Examples.Buddhist />
+</BrowserWindow>
+
+By default, the Buddhist calendar uses the Thai locale and Thai numerals. You can switch numerals to Western Arabic with `numerals="latn"` and use another locale such as English (US):
+
+```tsx
+import { DayPicker, enUS } from "react-day-picker/buddhist";
+
+export function BuddhistEn() {
+  return <DayPicker locale={enUS} numerals="latn" />;
+}
+```
+
+<BrowserWindow>
+  <Examples.BuddhistEn />
+</BrowserWindow>
+
 ## Ethiopic Calendar
 
 DayPicker supports the [Ethiopic calendar](https://en.wikipedia.org/wiki/Ethiopian_calendar), which is the principal calendar used in Ethiopia and Eritrea.
@@ -154,6 +183,35 @@ export function EthiopicLatin() {
   return <DayPicker numerals="latn" />;
 }
 ```
+
+## Hebrew Calendar
+
+DayPicker supports the [Hebrew calendar](https://en.wikipedia.org/wiki/Hebrew_calendar), a lunisolar calendar used for Jewish religious observances and holidays.
+
+- To use the Hebrew calendar, import `DayPicker` from `react-day-picker/hebrew`:
+
+```diff
+- import { DayPicker } from 'react-day-picker';
++ import { DayPicker } from 'react-day-picker/hebrew';
+```
+
+<BrowserWindow>
+  <Examples.Hebrew />
+</BrowserWindow>
+
+By default, the Hebrew calendar uses the Hebrew locale, renders right-to-left, and keeps Western Arabic numerals for clarity. You can switch to English labels by passing the `enUS` locale and `dir="ltr"`:
+
+```tsx
+import { DayPicker, enUS } from "react-day-picker/hebrew";
+
+export function HebrewEn() {
+  return <DayPicker locale={enUS} dir="ltr" numerals="latn" />;
+}
+```
+
+<BrowserWindow>
+  <Examples.HebrewEn />
+</BrowserWindow>
 
 ## Broadcast Calendar
 
