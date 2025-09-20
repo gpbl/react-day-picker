@@ -15,6 +15,11 @@ import {
   DayPicker as DayPickerEthiopic,
   getDateLib as getDateLibEthiopic,
 } from "react-day-picker/ethiopic";
+import {
+  DayPicker as DayPickerHebrew,
+  getDateLib as getDateLibHebrew,
+  he as heHebrew,
+} from "react-day-picker/hebrew";
 import * as locales from "react-day-picker/locale";
 import {
   DayPicker as DayPickerPersian,
@@ -48,7 +53,8 @@ export function Playground() {
     locale: undefined,
     month: undefined,
     dir:
-      props.calendar === "persian" && props.dir === "rtl"
+      (props.calendar === "persian" || props.calendar === "hebrew") &&
+      props.dir === "rtl"
         ? undefined
         : props.dir,
   })} />`;
@@ -65,6 +71,10 @@ export function Playground() {
     formattedProps =
       `import { DayPicker } from "react-day-picker/buddhist";\n\n` +
       formattedProps;
+  } else if (props.calendar === "hebrew") {
+    formattedProps =
+      `import { DayPicker } from "react-day-picker/hebrew";\n\n` +
+      formattedProps;
   } else {
     formattedProps = `import { DayPicker } from "react-day-picker";\n\n${formattedProps}`;
   }
@@ -77,7 +87,9 @@ export function Playground() {
         ? DayPickerEthiopic
         : props.calendar === "buddhist"
           ? DayPickerBuddhist
-          : DayPicker;
+          : props.calendar === "hebrew"
+            ? DayPickerHebrew
+            : DayPicker;
 
   const dateLib =
     props.calendar === "persian"
@@ -97,10 +109,16 @@ export function Playground() {
               timeZone: props.timeZone,
               numerals: props.numerals,
             })
-          : new DateLib({
-              locale: (props.locale as locales.Locale) ?? locales.enUS,
-              timeZone: props.timeZone,
-            });
+          : props.calendar === "hebrew"
+            ? getDateLibHebrew({
+                locale: (props.locale as locales.Locale) ?? heHebrew,
+                timeZone: props.timeZone,
+                numerals: props.numerals,
+              })
+            : new DateLib({
+                locale: (props.locale as locales.Locale) ?? locales.enUS,
+                timeZone: props.timeZone,
+              });
 
   return (
     <div className={styles.playground}>
@@ -144,10 +162,10 @@ export function Playground() {
           <DayPickerComponent
             {...props}
             onSelect={setSelected}
-            onMonthChange={(month) => {
+            onMonthChange={(month: Date) => {
               setProps({ ...props, month });
             }}
-            // @ts-expect-error Not working well with the union type
+            // @ts-expect-error Mixing DayPicker modes
             selected={selected}
           />
         </BrowserWindow>

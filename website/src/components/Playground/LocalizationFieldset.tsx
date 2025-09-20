@@ -14,6 +14,7 @@ import {
   amET as amETEthiopic,
   enUS as enUSEthiopic,
 } from "react-day-picker/ethiopic";
+import { enUS as enUSHebrew, he as heHebrew } from "react-day-picker/hebrew";
 import * as locales from "react-day-picker/locale";
 import {
   enUS as enUSPersian,
@@ -76,15 +77,54 @@ const numerals: { value: Numerals; label: string }[] = [
   // Thai digits
   { value: "thai" as Numerals, label: "Thai" },
 ];
-const calendars: ("persian" | "ethiopic" | "buddhist" | "gregorian")[] = [
-  "gregorian",
-  "persian",
-  "ethiopic",
-  "buddhist",
-];
+const calendars: (
+  | "persian"
+  | "ethiopic"
+  | "buddhist"
+  | "gregorian"
+  | "hebrew"
+)[] = ["gregorian", "persian", "ethiopic", "buddhist", "hebrew"];
 const persianLocales = { faIR: faIRPersian, enUS: enUSPersian };
 const ethiopicLocales = { amET: amETEthiopic, enUS: enUSEthiopic };
 const buddhistLocales = { th: thBuddhist, enUS: enUSBuddhist };
+const hebrewLocales = { he: heHebrew, enUS: enUSHebrew };
+
+type CalendarType = NonNullable<DayPickerPropsWithCalendar["calendar"]>;
+
+const allLocales = Object.values(locales) as DayPickerProps["locale"][];
+
+const calendarLocales: Record<CalendarType, DayPickerProps["locale"][]> = {
+  gregorian: allLocales,
+  persian: Object.values(persianLocales),
+  ethiopic: Object.values(ethiopicLocales),
+  buddhist: Object.values(buddhistLocales),
+  hebrew: Object.values(hebrewLocales),
+};
+
+const calendarDefaults: Partial<
+  Record<
+    CalendarType,
+    {
+      locale?: DayPickerProps["locale"];
+      dir?: DayPickerPropsWithCalendar["dir"];
+      numerals?: Numerals;
+    }
+  >
+> = {
+  persian: { locale: faIRPersian, dir: "rtl" },
+  ethiopic: { locale: amETEthiopic, numerals: "geez" as Numerals },
+  buddhist: { locale: thBuddhist, numerals: "thai" as Numerals },
+  hebrew: { numerals: "latn" as Numerals },
+};
+
+function getLocalesForCalendar(
+  calendar?: DayPickerPropsWithCalendar["calendar"],
+) {
+  if (!calendar) {
+    return allLocales;
+  }
+  return calendarLocales[calendar as CalendarType] ?? allLocales;
+}
 
 interface LocalizationFieldsetProps {
   props: DayPickerPropsWithCalendar;
@@ -96,6 +136,124 @@ export function LocalizationFieldset({
   setProps,
   currentTimeZone,
 }: LocalizationFieldsetProps) {
+  const availableLocales = React.useMemo(
+    () => getLocalesForCalendar(props.calendar),
+    [props.calendar],
+  );
+
+  const handleCalendarChange = (
+    event: React.ChangeEvent<HTMLSelectElement>,
+  ) => {
+    const rawValue = event.target.value as CalendarType | "";
+    const calendar = (
+      rawValue === "" ? undefined : rawValue
+    ) as DayPickerPropsWithCalendar["calendar"];
+    const defaults = calendar
+      ? calendarDefaults[calendar as CalendarType]
+      : undefined;
+
+    const nextProps: DayPickerPropsWithCalendar = {
+      ...props,
+      calendar,
+      locale: calendar ? (defaults?.locale ?? undefined) : undefined,
+      dir: calendar ? (defaults?.dir ?? undefined) : undefined,
+    };
+
+    if (defaults?.numerals) {
+      nextProps.numerals = defaults.numerals;
+    }
+
+    setProps(nextProps);
+  };
+
+  const handleLocaleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const { value } = event.target;
+
+    if (!value) {
+      setProps({ ...props, locale: undefined });
+      return;
+    }
+
+    const locale = availableLocales.find((item) => item?.code === value);
+    setProps({ ...props, locale });
+  };
+
+  const handleNumeralsChange = (
+    event: React.ChangeEvent<HTMLSelectElement>,
+  ) => {
+    const { value } = event.target;
+
+    if (!value) {
+      setProps({ ...props, numerals: undefined });
+      return;
+    }
+
+    setProps({ ...props, numerals: value as Numerals });
+  };
+
+  const handleWeekStartsOnChange = (
+    event: React.ChangeEvent<HTMLSelectElement>,
+  ) => {
+    const { value } = event.target;
+    const nextProps: DayPickerPropsWithCalendar = { ...props };
+
+    if (!value) {
+      nextProps.weekStartsOn = undefined;
+    } else {
+      nextProps.weekStartsOn = Number(value) as DayPickerProps["weekStartsOn"];
+    }
+
+    setProps(nextProps);
+  };
+
+  const handleFirstWeekContainsDateChange = (
+    event: React.ChangeEvent<HTMLSelectElement>,
+  ) => {
+    const { value } = event.target;
+    const nextProps: DayPickerPropsWithCalendar = { ...props };
+
+    if (!value) {
+      nextProps.firstWeekContainsDate = undefined;
+    } else {
+      nextProps.firstWeekContainsDate = Number(
+        value,
+      ) as DayPickerProps["firstWeekContainsDate"];
+    }
+
+    setProps(nextProps);
+  };
+
+  const handleDirectionChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const { checked } = event.target;
+    const nextProps: DayPickerPropsWithCalendar = { ...props };
+
+    if (checked) {
+      nextProps.dir = "rtl";
+    } else {
+      nextProps.dir = undefined;
+    }
+
+    setProps(nextProps);
+  };
+
+  const handleBroadcastCalendarChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const { checked } = event.target;
+    const nextProps: DayPickerPropsWithCalendar = {
+      ...props,
+      broadcastCalendar: checked,
+    };
+
+    if (checked) {
+      nextProps.showOutsideDays = true;
+    }
+
+    setProps(nextProps);
+  };
+
   return (
     <fieldset>
       <legend>
@@ -126,32 +284,7 @@ export function LocalizationFieldset({
           <select
             name="calendar"
             value={props.calendar ?? ""}
-            onChange={(e) => {
-              setProps({
-                ...props,
-                calendar: e.target.value as
-                  | "gregorian"
-                  | "persian"
-                  | "ethiopic"
-                  | "buddhist",
-                locale:
-                  e.target.value === "persian"
-                    ? faIRPersian
-                    : e.target.value === "ethiopic"
-                      ? amETEthiopic
-                      : e.target.value === "buddhist"
-                        ? thBuddhist
-                        : undefined,
-                dir: e.target.value === "persian" ? "rtl" : undefined,
-                numerals:
-                  e.target.value === "ethiopic"
-                    ? // default to Ethiopic numerals
-                      ("geez" as Numerals)
-                    : e.target.value === "buddhist"
-                      ? ("thai" as Numerals)
-                      : props.numerals,
-              });
-            }}
+            onChange={handleCalendarChange}
           >
             <option></option>
             {calendars.map((calendar) => (
@@ -187,34 +320,18 @@ export function LocalizationFieldset({
           <select
             name="locale"
             value={props.locale?.code ?? ""}
-            onChange={(e) =>
-              setProps({
-                ...props,
-                locale:
-                  e.target.value === ""
-                    ? undefined
-                    : (props.calendar === "persian"
-                        ? Object.values(persianLocales)
-                        : props.calendar === "ethiopic"
-                          ? Object.values(ethiopicLocales)
-                          : Object.values(locales)
-                      ).find((locale) => locale.code === e.target.value),
-              })
-            }
+            onChange={handleLocaleChange}
           >
             <option value=""></option>
-            {(props.calendar === "persian"
-              ? Object.values(persianLocales)
-              : props.calendar === "ethiopic"
-                ? Object.values(ethiopicLocales)
-                : props.calendar === "buddhist"
-                  ? Object.values(buddhistLocales)
-                  : Object.values(locales)
-            ).map((locale) => (
-              <option key={locale.code} value={locale.code}>
-                {locale.code}
-              </option>
-            ))}
+            {availableLocales
+              .filter((locale) => locale && typeof locale.code === "string")
+              .map((locale) =>
+                locale ? (
+                  <option key={locale.code} value={locale.code}>
+                    {locale.code}
+                  </option>
+                ) : null,
+              )}
           </select>
         </label>
 
@@ -224,14 +341,7 @@ export function LocalizationFieldset({
             style={{ maxWidth: 100 }}
             name="numerals"
             value={props.numerals ?? ""}
-            onChange={(e) =>
-              setProps({
-                ...props,
-                numerals: !e.target.value
-                  ? undefined
-                  : (e.target.value as Numerals),
-              })
-            }
+            onChange={handleNumeralsChange}
           >
             <option></option>
             {numerals.map((numeral) => (
@@ -248,14 +358,7 @@ export function LocalizationFieldset({
             name="weekStartsOn"
             disabled={props.broadcastCalendar || props.ISOWeek}
             value={props.weekStartsOn ?? ""}
-            onChange={(e) =>
-              setProps({
-                ...props,
-                weekStartsOn: (e.target.value
-                  ? Number(e.target.value)
-                  : undefined) as DayPickerProps["weekStartsOn"] | undefined,
-              })
-            }
+            onChange={handleWeekStartsOnChange}
           >
             <option></option>
             {[...Array(7).keys()].map((day) => (
@@ -271,14 +374,7 @@ export function LocalizationFieldset({
             disabled={props.broadcastCalendar || props.ISOWeek}
             name="firstWeekContainsDate"
             value={props.firstWeekContainsDate ?? ""}
-            onChange={(e) =>
-              setProps({
-                ...props,
-                firstWeekContainsDate: Number(
-                  e.target.value,
-                ) as DayPickerProps["firstWeekContainsDate"],
-              })
-            }
+            onChange={handleFirstWeekContainsDateChange}
           >
             <option></option>
             {[1, 4].map((day) => (
@@ -303,12 +399,7 @@ export function LocalizationFieldset({
             type="checkbox"
             name="rtl"
             checked={props.dir === "rtl"}
-            onChange={(e) =>
-              setProps({
-                ...props,
-                dir: e.target.checked ? "rtl" : undefined,
-              })
-            }
+            onChange={handleDirectionChange}
           />
           Right-to-left Direction
         </label>
@@ -318,15 +409,7 @@ export function LocalizationFieldset({
             type="checkbox"
             name="broadcastCalendar"
             checked={props.broadcastCalendar}
-            onChange={(e) =>
-              setProps({
-                ...props,
-                broadcastCalendar: e.target.checked,
-                showOutsideDays: e.target.checked
-                  ? true
-                  : props.showOutsideDays,
-              })
-            }
+            onChange={handleBroadcastCalendarChange}
           />
           Broadcast Weeks
         </label>
