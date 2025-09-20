@@ -185,7 +185,7 @@ export class DateLib {
     return DateLib.yearFirstLocales.has(code) ? "year-first" : "month-first";
   }
 
-  /** Formats the month/year pair respecting locale-specific connectors. */
+  /** Formats the month/year pair respecting locale conventions. */
   formatMonthYear(date: Date): string {
     const { locale, timeZone, numerals } = this.options;
     const localeCode = locale?.code;
@@ -198,9 +198,6 @@ export class DateLib {
           numberingSystem: numerals,
         });
         const formatted = intl.format(date);
-        if (numerals && numerals !== "latn") {
-          return this.replaceDigits(formatted);
-        }
         return formatted;
       } catch {
         // Fallback to date-fns formatting below.
