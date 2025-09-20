@@ -45,6 +45,17 @@ function formatEthiopianDate(
   const useLatin =
     (localeCode?.startsWith("en") ?? false) || numerals === "latn";
 
+  if (/^y+$/.test(formatStr)) {
+    const year = etDate.year.toString();
+    if (formatStr.length === 1) {
+      return year;
+    }
+    if (formatStr.length === 2) {
+      return year.slice(-2).padStart(2, "0");
+    }
+    return year.padStart(formatStr.length, "0");
+  }
+
   switch (formatStr) {
     case "LLLL yyyy":
     case "LLLL y":
