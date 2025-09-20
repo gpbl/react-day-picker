@@ -165,6 +165,7 @@ export function Playground() {
             onMonthChange={(month: Date) => {
               setProps({ ...props, month });
             }}
+            // @ts-expect-error Mixing DayPicker modes
             selected={selected}
           />
         </BrowserWindow>

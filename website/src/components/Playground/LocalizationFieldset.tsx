@@ -174,7 +174,7 @@ export function LocalizationFieldset({
       return;
     }
 
-    const locale = availableLocales.find((item) => item.code === value);
+    const locale = availableLocales.find((item) => item?.code === value);
     setProps({ ...props, locale });
   };
 
