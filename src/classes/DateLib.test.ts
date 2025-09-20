@@ -1,6 +1,5 @@
-import { DateLib } from "./DateLib.js";
-
 import type { Numerals } from "../types/shared.js";
+import { DateLib } from "./DateLib.js";
 
 const numeralCases: Array<[Numerals, string]> = [
   ["latn", "123"],
