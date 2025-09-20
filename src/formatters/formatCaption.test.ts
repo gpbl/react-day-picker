@@ -1,4 +1,5 @@
 import { es } from "date-fns/locale/es";
+import { ja } from "date-fns/locale/ja";
 
 import { DateLib, defaultLocale } from "../classes/DateLib.js";
 
@@ -24,4 +25,8 @@ describe("when a locale is passed in from options", () => {
   test("should format using the locale", () => {
     expect(formatCaption(date, { locale: es })).toEqual("noviembre 2022");
   });
+});
+
+test("places the year before the month when required", () => {
+  expect(formatCaption(date, { locale: ja })).toEqual("2022年11月");
 });

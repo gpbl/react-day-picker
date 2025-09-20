@@ -4,7 +4,7 @@ import { DateLib, type DateLibOptions } from "../classes/DateLib.js";
  * Generates the ARIA label for the month grid, which is announced when entering
  * the grid.
  *
- * @defaultValue `LLLL y` (e.g., "November 2022").
+ * @defaultValue Locale-specific month/year order (e.g., "November 2022").
  * @param date - The date representing the month.
  * @param options - Optional configuration for the date formatting library.
  * @param dateLib - An optional instance of the date formatting library.
@@ -17,7 +17,8 @@ export function labelGrid(
   options?: DateLibOptions,
   dateLib?: DateLib,
 ) {
-  return (dateLib ?? new DateLib(options)).format(date, "LLLL y");
+  const lib = dateLib ?? new DateLib(options);
+  return lib.formatMonthYear(date);
 }
 
 /**
