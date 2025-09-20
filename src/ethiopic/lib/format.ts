@@ -45,15 +45,19 @@ function formatEthiopianDate(
   const useLatin =
     (localeCode?.startsWith("en") ?? false) || numerals === "latn";
 
-  if (/^y+$/.test(formatStr)) {
+  const yearTokenMatch = formatStr.match(/^(\s*)(y+)(\s*)$/);
+  if (yearTokenMatch) {
+    const [, leading = "", yearToken, trailing = ""] = yearTokenMatch;
     const year = etDate.year.toString();
-    if (formatStr.length === 1) {
-      return year;
+    let formattedYear: string;
+    if (yearToken.length === 1) {
+      formattedYear = year;
+    } else if (yearToken.length === 2) {
+      formattedYear = year.slice(-2).padStart(2, "0");
+    } else {
+      formattedYear = year.padStart(yearToken.length, "0");
     }
-    if (formatStr.length === 2) {
-      return year.slice(-2).padStart(2, "0");
-    }
-    return year.padStart(formatStr.length, "0");
+    return `${leading}${formattedYear}${trailing}`;
   }
 
   switch (formatStr) {
