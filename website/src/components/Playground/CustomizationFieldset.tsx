@@ -93,7 +93,10 @@ export function CustomizationFieldset({
             onChange={(e) => {
               const newProps: DayPickerPropsWithCalendar = {
                 ...props,
-                navLayout: (e.target.value ?? undefined) as "around" | "after" | undefined,
+                navLayout: (e.target.value ?? undefined) as
+                  | "around"
+                  | "after"
+                  | undefined,
               };
               setProps(newProps);
             }}
