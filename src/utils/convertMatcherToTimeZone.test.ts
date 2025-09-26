@@ -11,8 +11,8 @@ import type {
 } from "../types/index.js";
 
 import {
-  convertMatcherToTimeZone,
   convertMatchersToTimeZone,
+  convertMatcherToTimeZone,
 } from "./convertMatcherToTimeZone.js";
 
 const testDate = new Date(2023, 5, 15, 12, 0, 0); // June 15, 2023, 12:00
@@ -81,10 +81,10 @@ describe("convertMatcherToTimeZone", () => {
       expect(result.from).toBeInstanceOf(TZDate);
       expect(result.to).toBeInstanceOf(TZDate);
       expect((result.from as TZDate).withTimeZone(timeZone).getTime()).toBe(
-        dateRange.from!.getTime(),
+        dateRange.from?.getTime(),
       );
       expect((result.to as TZDate).withTimeZone(timeZone).getTime()).toBe(
-        dateRange.to!.getTime(),
+        dateRange.to?.getTime(),
       );
     });
 
@@ -194,7 +194,7 @@ describe("convertMatcherToTimeZone", () => {
     test("should return the matcher unchanged", () => {
       const unknownMatcher = { unknown: "property" };
       const result = convertMatcherToTimeZone(
-        unknownMatcher as any,
+        unknownMatcher as unknown as Matcher,
         timeZone,
         dateLib,
       );

@@ -28,9 +28,9 @@ import { useCalendar } from "./useCalendar.js";
 import { type DayPickerContext, dayPickerContext } from "./useDayPicker.js";
 import { useFocus } from "./useFocus.js";
 import { useSelection } from "./useSelection.js";
+import { convertMatchersToTimeZone } from "./utils/convertMatcherToTimeZone.js";
 import { rangeIncludesDate } from "./utils/rangeIncludesDate.js";
 import { isDateRange } from "./utils/typeguards.js";
-import { convertMatchersToTimeZone } from "./utils/convertMatcherToTimeZone.js";
 
 /**
  * Renders the DayPicker calendar component.
