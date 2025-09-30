@@ -11,7 +11,8 @@ export function TestCase2835() {
   return (
     <DayPicker
       mode="single"
-      startMonth={new Date(1900, 1, 1)}
+      startMonth={new Date(1910, 1, 1)}
+      endMonth={new Date(1915, 1, 1)}
       captionLayout="dropdown-years"
       timeZone="America/Sao_Paulo"
     />
