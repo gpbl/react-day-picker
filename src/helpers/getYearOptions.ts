@@ -25,17 +25,10 @@ export function getYearOptions(
 ): DropdownOption[] | undefined {
   if (!navStart) return undefined;
   if (!navEnd) return undefined;
-  const { startOfYear, endOfYear, addYears, getYear, isBefore, isSameYear } =
-    dateLib;
+  const { startOfYear, endOfYear, eachYearOfInterval, getYear } = dateLib;
   const firstNavYear = startOfYear(navStart);
   const lastNavYear = endOfYear(navEnd);
-  const years: Date[] = [];
-
-  let year = firstNavYear;
-  while (isBefore(year, lastNavYear) || isSameYear(year, lastNavYear)) {
-    years.push(year);
-    year = addYears(year, 1);
-  }
+  const years = eachYearOfInterval({ start: firstNavYear, end: lastNavYear });
 
   if (reverse) years.reverse();
 
