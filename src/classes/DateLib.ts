@@ -373,7 +373,9 @@ export class DateLib {
    * @since 9.11.1
    */
   eachYearOfInterval = (interval: Interval): Date[] => {
-    const years = eachYearOfInterval(interval);
+    const years = this.overrides?.eachYearOfInterval
+      ? this.overrides.eachYearOfInterval(interval)
+      : eachYearOfInterval(interval);
     // Remove duplicates that may happen across DST transitions (e.g., "America/Sao_Paulo")
     const uniqueYears = new Set(years.map((d) => this.getYear(d)));
     if (uniqueYears.size === years.length) {
