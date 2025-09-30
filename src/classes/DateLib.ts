@@ -16,6 +16,7 @@ import {
   differenceInCalendarDays,
   differenceInCalendarMonths,
   eachMonthOfInterval,
+  eachYearOfInterval,
   endOfISOWeek,
   endOfMonth,
   endOfWeek,
@@ -362,6 +363,19 @@ export class DateLib {
     return this.overrides?.eachMonthOfInterval
       ? this.overrides.eachMonthOfInterval(interval)
       : eachMonthOfInterval(interval);
+  };
+
+  /**
+   * Returns the years between the given dates.
+   *
+   * @param interval The interval to get the years for.
+   * @returns The array of years in the interval.
+   * @since 9.11.1
+   */
+  eachYearOfInterval = (interval: Interval): Date[] => {
+    return this.overrides?.eachYearOfInterval
+      ? this.overrides.eachYearOfInterval(interval)
+      : eachYearOfInterval(interval);
   };
 
   /**
