@@ -373,9 +373,19 @@ export class DateLib {
    * @since 9.11.1
    */
   eachYearOfInterval = (interval: Interval): Date[] => {
-    return this.overrides?.eachYearOfInterval
-      ? this.overrides.eachYearOfInterval(interval)
-      : eachYearOfInterval(interval);
+    const years = eachYearOfInterval(interval);
+    // Remove duplicates that may happen across DST transitions (e.g., "America/Sao_Paulo")
+    const uniqueYears = new Set(years.map((d) => this.getYear(d)));
+    if (uniqueYears.size === years.length) {
+      // No duplicates, return as is
+      return years;
+    }
+    // Rebuild the array to ensure one date per year
+    const yearsArray: Date[] = [];
+    uniqueYears.forEach((y) => {
+      yearsArray.push(new Date(y, 0, 1));
+    });
+    return yearsArray;
   };
 
   /**
