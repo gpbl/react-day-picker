@@ -1,5 +1,5 @@
-import { eachYearOfInterval } from "./eachYearOfInterval";
 import { toGregorianDate, toHebrewDate } from "../utils/dateConversion.js";
+import { eachYearOfInterval } from "./eachYearOfInterval";
 
 describe("eachYearOfInterval (Hebrew)", () => {
   test("returns the Hebrew years within the interval", () => {

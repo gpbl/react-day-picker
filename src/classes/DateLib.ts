@@ -368,9 +368,9 @@ export class DateLib {
   /**
    * Returns the years between the given dates.
    *
+   * @since 9.11.1
    * @param interval The interval to get the years for.
    * @returns The array of years in the interval.
-   * @since 9.11.1
    */
   eachYearOfInterval = (interval: Interval): Date[] => {
     const years = this.overrides?.eachYearOfInterval
