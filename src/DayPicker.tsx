@@ -28,6 +28,7 @@ import { useCalendar } from "./useCalendar.js";
 import { type DayPickerContext, dayPickerContext } from "./useDayPicker.js";
 import { useFocus } from "./useFocus.js";
 import { useSelection } from "./useSelection.js";
+import { matchersWithTimeZone } from "./utils/matcherWithTimeZone.js";
 import { rangeIncludesDate } from "./utils/rangeIncludesDate.js";
 import { isDateRange } from "./utils/typeguards.js";
 
@@ -76,6 +77,36 @@ export function DayPicker(initialProps: DayPickerProps) {
           ? new TZDate(props.selected.to, props.timeZone)
           : undefined,
       };
+    }
+
+    // Convert disabled and hidden matchers to use timezone-aware dates
+    const dateLibInstance = new DateLib({ timeZone: props.timeZone });
+    if (props.disabled && props.timeZone) {
+      props.disabled = matchersWithTimeZone(
+        props.disabled,
+        props.timeZone,
+        dateLibInstance,
+      );
+    }
+    if (props.hidden && props.timeZone) {
+      props.hidden = matchersWithTimeZone(
+        props.hidden,
+        props.timeZone,
+        dateLibInstance,
+      );
+    }
+
+    // Convert custom modifiers to use timezone-aware dates
+    if (props.modifiers && props.timeZone) {
+      const convertedModifiers: typeof props.modifiers = {};
+      for (const [key, value] of Object.entries(props.modifiers)) {
+        convertedModifiers[key] = matchersWithTimeZone(
+          value,
+          props.timeZone,
+          dateLibInstance,
+        );
+      }
+      props.modifiers = convertedModifiers;
     }
   }
   const { components, formatters, labels, dateLib, locale, classNames } =
