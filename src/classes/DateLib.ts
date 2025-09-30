@@ -377,6 +377,7 @@ export class DateLib {
       ? this.overrides.eachYearOfInterval(interval)
       : eachYearOfInterval(interval);
     // Remove duplicates that may happen across DST transitions (e.g., "America/Sao_Paulo")
+    // See https://github.com/date-fns/tz/issues/72
     const uniqueYears = new Set(years.map((d) => this.getYear(d)));
     if (uniqueYears.size === years.length) {
       // No duplicates, return as is
