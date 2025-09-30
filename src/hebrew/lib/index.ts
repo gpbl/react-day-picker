@@ -2,6 +2,7 @@ export * from "./addMonths.js";
 export * from "./addYears.js";
 export * from "./differenceInCalendarMonths.js";
 export * from "./eachMonthOfInterval.js";
+export * from "./eachYearOfInterval.js";
 export * from "./endOfMonth.js";
 export * from "./endOfYear.js";
 export * from "./format.js";

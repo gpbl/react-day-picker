@@ -16,6 +16,7 @@ import {
   differenceInCalendarDays,
   differenceInCalendarMonths,
   eachMonthOfInterval,
+  eachYearOfInterval,
   endOfISOWeek,
   endOfMonth,
   endOfWeek,
@@ -362,6 +363,32 @@ export class DateLib {
     return this.overrides?.eachMonthOfInterval
       ? this.overrides.eachMonthOfInterval(interval)
       : eachMonthOfInterval(interval);
+  };
+
+  /**
+   * Returns the years between the given dates.
+   *
+   * @since 9.11.1
+   * @param interval The interval to get the years for.
+   * @returns The array of years in the interval.
+   */
+  eachYearOfInterval = (interval: Interval): Date[] => {
+    const years = this.overrides?.eachYearOfInterval
+      ? this.overrides.eachYearOfInterval(interval)
+      : eachYearOfInterval(interval);
+    // Remove duplicates that may happen across DST transitions (e.g., "America/Sao_Paulo")
+    // See https://github.com/date-fns/tz/issues/72
+    const uniqueYears = new Set(years.map((d) => this.getYear(d)));
+    if (uniqueYears.size === years.length) {
+      // No duplicates, return as is
+      return years;
+    }
+    // Rebuild the array to ensure one date per year
+    const yearsArray: Date[] = [];
+    uniqueYears.forEach((y) => {
+      yearsArray.push(new Date(y, 0, 1));
+    });
+    return yearsArray;
   };
 
   /**
