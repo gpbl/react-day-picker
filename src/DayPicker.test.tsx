@@ -122,6 +122,46 @@ describe("when the grid is focused", () => {
   });
 });
 
+describe("when navigation is disabled", () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+
+  test("keyboard navigation stays within the visible month", async () => {
+    const defaultMonth = new Date(2025, 6, 1);
+    const lastDay = new Date(2025, 6, 31);
+    const previousDay = new Date(2025, 6, 30);
+
+    render(
+      <DayPicker
+        disableNavigation
+        defaultMonth={defaultMonth}
+        selected={lastDay}
+        mode="single"
+      />,
+    );
+
+    await user.tab();
+    await user.tab();
+    await user.tab();
+
+    const lastDayButton = dateButton(lastDay);
+    const previousDayButton = dateButton(previousDay);
+
+    expect(activeElement()).toBe(lastDayButton);
+
+    await user.keyboard("{ArrowRight}");
+    expect(activeElement()).toBe(lastDayButton);
+
+    await user.keyboard("{ArrowLeft}");
+    expect(activeElement()).toBe(previousDayButton);
+  });
+});
+
 describe("when a day is mouse entered", () => {
   const handleDayMouseEnter = jest.fn();
   const handleDayMouseLeave = jest.fn();

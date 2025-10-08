@@ -80,6 +80,15 @@ export function useFocus<T extends DayPickerProps>(
     );
     if (!nextFocus) return;
 
+    if (props.disableNavigation) {
+      const isNextInCalendar = calendar.days.some((day) =>
+        day.isEqualTo(nextFocus),
+      );
+      if (!isNextInCalendar) {
+        return;
+      }
+    }
+
     calendar.goToDay(nextFocus);
     setFocused(nextFocus);
   };
