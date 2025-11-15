@@ -29,7 +29,7 @@ export function createGetModifiers(
     modifiers,
     showOutsideDays,
     broadcastCalendar,
-    today,
+    today = dateLib.today(),
   } = props;
 
   const {
@@ -79,7 +79,7 @@ export function createGetModifiers(
       (!broadcastCalendar && !showOutsideDays && isOutside) ||
       (broadcastCalendar && showOutsideDays === false && isOutside);
 
-    const isToday = isSameDay(date, today ?? dateLib.today());
+    const isToday = isSameDay(date, today);
 
     if (isOutside) internalModifiersMap.outside.push(day);
     if (isDisabled) internalModifiersMap.disabled.push(day);
