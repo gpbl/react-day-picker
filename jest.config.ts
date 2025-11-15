@@ -1,3 +1,5 @@
+process.env.TZ = "UTC";
+
 import type { Config } from "@jest/types";
 
 const sharedConfig: Config.InitialOptions = {
