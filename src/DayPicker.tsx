@@ -204,12 +204,7 @@ export function DayPicker(initialProps: DayPickerProps) {
 
   const weekdays = useMemo(
     () =>
-      getWeekdays(
-        dateLib,
-        props.ISOWeek,
-        props.broadcastCalendar,
-        props.today,
-      ),
+      getWeekdays(dateLib, props.ISOWeek, props.broadcastCalendar, props.today),
     [dateLib, props.ISOWeek, props.broadcastCalendar, props.today],
   );
 
