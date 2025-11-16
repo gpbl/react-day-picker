@@ -251,11 +251,10 @@ export class DateLib {
     if (this.overrides?.today) {
       return this.overrides.today();
     }
-    return this.newDate(
-      new Date().getFullYear(),
-      new Date().getMonth(),
-      new Date().getDate(),
-    );
+    if (this.options.timeZone) {
+      return TZDate.tz(this.options.timeZone);
+    }
+    return new this.Date();
   };
 
   /**
