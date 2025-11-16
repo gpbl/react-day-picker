@@ -119,12 +119,8 @@ export function DayPicker(initialProps: DayPickerProps) {
       props.classNames,
     ]);
 
-  const resolvedToday = useMemo(
-    () => props.today ?? dateLib.today(),
-    [props.today, dateLib],
-  );
   if (!props.today) {
-    props = { ...props, today: resolvedToday };
+    props = { ...props, today: dateLib.today() };
   }
 
   const {
