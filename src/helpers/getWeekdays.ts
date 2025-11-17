@@ -14,14 +14,15 @@ export function getWeekdays(
   dateLib: DateLib,
   ISOWeek?: boolean | undefined,
   broadcastCalendar?: boolean | undefined,
+  today?: Date,
 ): Date[] {
-  const today = dateLib.today();
+  const referenceToday = today ?? dateLib.today();
 
   const start = broadcastCalendar
-    ? dateLib.startOfBroadcastWeek(today, dateLib)
+    ? dateLib.startOfBroadcastWeek(referenceToday, dateLib)
     : ISOWeek
-      ? dateLib.startOfISOWeek(today)
-      : dateLib.startOfWeek(today);
+      ? dateLib.startOfISOWeek(referenceToday)
+      : dateLib.startOfWeek(referenceToday);
 
   const days: Date[] = [];
   for (let i = 0; i < 7; i++) {

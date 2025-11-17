@@ -119,6 +119,10 @@ export function DayPicker(initialProps: DayPickerProps) {
       props.classNames,
     ]);
 
+  if (!props.today) {
+    props = { ...props, today: dateLib.today() };
+  }
+
   const {
     captionLayout,
     mode,
@@ -195,8 +199,9 @@ export function DayPicker(initialProps: DayPickerProps) {
   } = labels;
 
   const weekdays = useMemo(
-    () => getWeekdays(dateLib, props.ISOWeek),
-    [dateLib, props.ISOWeek],
+    () =>
+      getWeekdays(dateLib, props.ISOWeek, props.broadcastCalendar, props.today),
+    [dateLib, props.ISOWeek, props.broadcastCalendar, props.today],
   );
 
   const isInteractive = mode !== undefined || onDayClick !== undefined;
