@@ -44,15 +44,15 @@ export function createGetModifiers(
   const computedNavStart = navStart && startOfMonth(navStart);
   const computedNavEnd = navEnd && endOfMonth(navEnd);
 
-  const internalModifiersMap: Record<DayFlag, CalendarDay[]> = {
-    [DayFlag.focused]: [],
-    [DayFlag.outside]: [],
-    [DayFlag.disabled]: [],
-    [DayFlag.hidden]: [],
-    [DayFlag.today]: [],
+  const internalModifiersMap: Record<DayFlag, Set<CalendarDay>> = {
+    [DayFlag.focused]: new Set(),
+    [DayFlag.outside]: new Set(),
+    [DayFlag.disabled]: new Set(),
+    [DayFlag.hidden]: new Set(),
+    [DayFlag.today]: new Set(),
   };
 
-  const customModifiersMap: Record<string, CalendarDay[]> = {};
+  const customModifiersMap: Record<string, Set<CalendarDay>> = {};
 
   for (const day of days) {
     const { date, displayMonth } = day;
@@ -81,10 +81,10 @@ export function createGetModifiers(
 
     const isToday = isSameDay(date, today);
 
-    if (isOutside) internalModifiersMap.outside.push(day);
-    if (isDisabled) internalModifiersMap.disabled.push(day);
-    if (isHidden) internalModifiersMap.hidden.push(day);
-    if (isToday) internalModifiersMap.today.push(day);
+    if (isOutside) internalModifiersMap.outside.add(day);
+    if (isDisabled) internalModifiersMap.disabled.add(day);
+    if (isHidden) internalModifiersMap.hidden.add(day);
+    if (isToday) internalModifiersMap.today.add(day);
 
     // Add custom modifiers
     if (modifiers) {
@@ -93,12 +93,13 @@ export function createGetModifiers(
         const isMatch = modifierValue
           ? dateMatchModifiers(date, modifierValue, dateLib)
           : false;
-        if (!isMatch) return;
-        if (customModifiersMap[name]) {
-          customModifiersMap[name].push(day);
-        } else {
-          customModifiersMap[name] = [day];
+        if (!isMatch) {
+          return;
         }
+        if (!customModifiersMap[name]) {
+          customModifiersMap[name] = new Set();
+        }
+        customModifiersMap[name]?.add(day);
       });
     }
   }
@@ -117,10 +118,10 @@ export function createGetModifiers(
     // Find the modifiers for the given day
     for (const name in internalModifiersMap) {
       const days = internalModifiersMap[name as DayFlag];
-      dayFlags[name as DayFlag] = days.some((d) => d === day);
+      dayFlags[name as DayFlag] = days.has(day);
     }
     for (const name in customModifiersMap) {
-      customModifiers[name] = customModifiersMap[name].some((d) => d === day);
+      customModifiers[name] = customModifiersMap[name]?.has(day) ?? false;
     }
 
     return {
