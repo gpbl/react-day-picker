@@ -1,4 +1,6 @@
-process.env.TZ = "UTC";
+process.env.TZ = process.env.TEST_TZ ?? "UTC";
+
+console.log(`Running tests in ${process.env.TZ} timezone`);
 
 import type { Config } from "@jest/types";
 
@@ -31,12 +33,25 @@ const config: Config.InitialOptions = {
       ...sharedConfig,
       displayName: "examples",
       roots: ["<rootDir>/examples"],
+      testPathIgnorePatterns: ["<rootDir>/examples/timezone/"],
       moduleNameMapper: {
         "@/test/(.*)": ["<rootDir>/test/$1"],
         "react-day-picker/buddhist": ["<rootDir>/src/buddhist/index.tsx"],
         "react-day-picker/hebrew": ["<rootDir>/src/hebrew/index.tsx"],
         "react-day-picker/ethiopic": ["<rootDir>/src/ethiopic/index.tsx"],
         "react-day-picker/persian": ["<rootDir>/src/persian.tsx"],
+        "react-day-picker": ["<rootDir>/src/index.ts"],
+        "^(\\.\\.?\\/.+)\\.jsx?$": "$1", // see https://github.com/kulshekhar/ts-jest/issues/1057
+      },
+    },
+    {
+      ...sharedConfig,
+      setupFilesAfterEnv: ["<rootDir>/test/setup.ts"],
+      displayName: "examples/timezone",
+      roots: ["<rootDir>/examples/timezone"],
+      fakeTimers: { enableGlobally: false }, // disable fake timers for timezone tests because they interfere with Intl API
+      moduleNameMapper: {
+        "@/test/(.*)": ["<rootDir>/test/$1"],
         "react-day-picker": ["<rootDir>/src/index.ts"],
         "^(\\.\\.?\\/.+)\\.jsx?$": "$1", // see https://github.com/kulshekhar/ts-jest/issues/1057
       },
