@@ -42,13 +42,9 @@ import { isDateRange } from "./utils/typeguards.js";
  */
 export function DayPicker(initialProps: DayPickerProps) {
   let props = initialProps;
-  const timeZone = props.timeZone;
 
-  if (timeZone) {
-    props = {
-      ...initialProps,
-      timeZone,
-    };
+  if (props.timeZone !== undefined) {
+    const { timeZone } = props;
     if (props.today) {
       props.today = toTimeZone(props.today, timeZone);
     }
@@ -97,6 +93,7 @@ export function DayPicker(initialProps: DayPickerProps) {
       props.modifiers = nextModifiers;
     }
   }
+
   const { components, formatters, labels, dateLib, locale, classNames } =
     useMemo(() => {
       const locale = { ...defaultLocale, ...props.locale };
