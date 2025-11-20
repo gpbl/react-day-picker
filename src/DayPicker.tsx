@@ -1,4 +1,3 @@
-import { TZDate } from "@date-fns/tz";
 import type { ChangeEvent, FocusEvent, KeyboardEvent, MouseEvent } from "react";
 import React, { useCallback, useMemo, useRef } from "react";
 import type { CalendarDay } from "./classes/CalendarDay.js";
@@ -29,6 +28,8 @@ import { type DayPickerContext, dayPickerContext } from "./useDayPicker.js";
 import { useFocus } from "./useFocus.js";
 import { useSelection } from "./useSelection.js";
 import { rangeIncludesDate } from "./utils/rangeIncludesDate.js";
+import { convertMatchersToTimeZone } from "./utils/convertMatchersToTimeZone.js";
+import { toTimeZone } from "./utils/toTimeZone.js";
 import { isDateRange } from "./utils/typeguards.js";
 
 /**
@@ -41,41 +42,59 @@ import { isDateRange } from "./utils/typeguards.js";
  */
 export function DayPicker(initialProps: DayPickerProps) {
   let props = initialProps;
+  const timeZone = props.timeZone;
 
-  if (props.timeZone) {
+  if (timeZone) {
     props = {
       ...initialProps,
+      timeZone,
     };
     if (props.today) {
-      props.today = new TZDate(props.today, props.timeZone);
+      props.today = toTimeZone(props.today, timeZone);
     }
     if (props.month) {
-      props.month = new TZDate(props.month, props.timeZone);
+      props.month = toTimeZone(props.month, timeZone);
     }
     if (props.defaultMonth) {
-      props.defaultMonth = new TZDate(props.defaultMonth, props.timeZone);
+      props.defaultMonth = toTimeZone(props.defaultMonth, timeZone);
     }
     if (props.startMonth) {
-      props.startMonth = new TZDate(props.startMonth, props.timeZone);
+      props.startMonth = toTimeZone(props.startMonth, timeZone);
     }
     if (props.endMonth) {
-      props.endMonth = new TZDate(props.endMonth, props.timeZone);
+      props.endMonth = toTimeZone(props.endMonth, timeZone);
     }
     if (props.mode === "single" && props.selected) {
-      props.selected = new TZDate(props.selected, props.timeZone);
+      props.selected = toTimeZone(props.selected, timeZone);
     } else if (props.mode === "multiple" && props.selected) {
       props.selected = props.selected?.map(
-        (date) => new TZDate(date, props.timeZone),
+        (date) => toTimeZone(date, timeZone),
       );
     } else if (props.mode === "range" && props.selected) {
       props.selected = {
         from: props.selected.from
-          ? new TZDate(props.selected.from, props.timeZone)
-          : undefined,
+          ? toTimeZone(props.selected.from, timeZone)
+          : props.selected.from,
         to: props.selected.to
-          ? new TZDate(props.selected.to, props.timeZone)
-          : undefined,
+          ? toTimeZone(props.selected.to, timeZone)
+          : props.selected.to,
       };
+    }
+    if (props.disabled !== undefined) {
+      props.disabled = convertMatchersToTimeZone(props.disabled, timeZone);
+    }
+    if (props.hidden !== undefined) {
+      props.hidden = convertMatchersToTimeZone(props.hidden, timeZone);
+    }
+    if (props.modifiers) {
+      const nextModifiers: NonNullable<typeof props.modifiers> = {};
+      Object.keys(props.modifiers).forEach((key) => {
+        nextModifiers[key] = convertMatchersToTimeZone(
+          props.modifiers?.[key],
+          timeZone,
+        );
+      });
+      props.modifiers = nextModifiers;
     }
   }
   const { components, formatters, labels, dateLib, locale, classNames } =
