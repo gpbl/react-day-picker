@@ -1,12 +1,11 @@
 import type { Matcher } from "../types/index.js";
-
+import { toTimeZone } from "./toTimeZone.js";
 import {
   isDateAfterType,
   isDateBeforeType,
   isDateInterval,
   isDateRange,
 } from "./typeguards.js";
-import { toTimeZone } from "./toTimeZone.js";
 
 function convertMatcher(matcher: Matcher, timeZone: string): Matcher {
   if (typeof matcher === "boolean" || typeof matcher === "function") {

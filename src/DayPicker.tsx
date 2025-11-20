@@ -27,8 +27,8 @@ import { useCalendar } from "./useCalendar.js";
 import { type DayPickerContext, dayPickerContext } from "./useDayPicker.js";
 import { useFocus } from "./useFocus.js";
 import { useSelection } from "./useSelection.js";
-import { rangeIncludesDate } from "./utils/rangeIncludesDate.js";
 import { convertMatchersToTimeZone } from "./utils/convertMatchersToTimeZone.js";
+import { rangeIncludesDate } from "./utils/rangeIncludesDate.js";
 import { toTimeZone } from "./utils/toTimeZone.js";
 import { isDateRange } from "./utils/typeguards.js";
 
@@ -67,8 +67,8 @@ export function DayPicker(initialProps: DayPickerProps) {
     if (props.mode === "single" && props.selected) {
       props.selected = toTimeZone(props.selected, timeZone);
     } else if (props.mode === "multiple" && props.selected) {
-      props.selected = props.selected?.map(
-        (date) => toTimeZone(date, timeZone),
+      props.selected = props.selected?.map((date) =>
+        toTimeZone(date, timeZone),
       );
     } else if (props.mode === "range" && props.selected) {
       props.selected = {
