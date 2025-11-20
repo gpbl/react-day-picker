@@ -198,7 +198,7 @@
     "format": "prettier -w \"**/*.{md,mdx,ts,tsx}\"",
     "lint": "biome check",
     "test": "jest --selectProjects examples --selectProjects src",
-    "test:tz": "TEST_TZ=Australia/Sydney jest --selectProjects examples/timezone",
+    "test:tz": "TEST_TZ=Australia/Adelaide jest --selectProjects examples/timezone",
     "test:build": "jest --selectProjects examples/built",
     "test-watch": "jest --watch",
     "typecheck": "tsc --project ./tsconfig.json --noEmit",

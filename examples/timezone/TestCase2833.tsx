@@ -5,7 +5,7 @@ import { DayPicker, TZDate } from "react-day-picker";
 const now = new Date();
 
 export function TestCase2833() {
-  const timeZone = "Pacific/Honolulu";
+  const timeZone = "Etc/GMT+12";
   return (
     <div>
       <p data-testid="now">now: {now.toString()}</p>
