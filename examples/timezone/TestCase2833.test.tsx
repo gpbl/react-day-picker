@@ -1,4 +1,5 @@
 import React from "react";
+
 import { render, screen } from "@/test/render";
 import { TestCase2833 } from "./TestCase2833";
 
@@ -18,11 +19,13 @@ test("current date should be different than the date in Etc/GMT+12 timezone", ()
 });
 
 test("today's date should not be disabled", () => {
+  const timeZone = "Etc/GMT+12";
+  const today = new Date().toISOString().slice(0, 10); // yyyy-MM-dd in current zone
   const { container } = render(<TestCase2833 />);
-  const day = container.querySelector('[data-day="2025-11-19"]');
+  const day = container.querySelector(`[data-day="${today}"]`);
   expect(screen.getByTestId("now")).toHaveTextContent(
     `Australian Central Daylight Time`,
   );
-  expect(screen.getByTestId("timezone")).toHaveTextContent(`Etc/GMT+12`);
+  expect(screen.getByTestId("timezone")).toHaveTextContent(timeZone);
   expect(day).not.toHaveAttribute("data-disabled", "true");
 });
