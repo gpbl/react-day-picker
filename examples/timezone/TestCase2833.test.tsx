@@ -19,6 +19,5 @@ test('the "now" paragraph should show the correct timezone', () => {
 test("today's date should not be disabled", () => {
   const { container } = render(<TestCase2833 />);
   const day = container.querySelector('[data-day="2025-11-19"]');
-  console.log(container.innerHTML);
   expect(day).not.toHaveAttribute("data-disabled", "true");
 });

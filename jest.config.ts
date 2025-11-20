@@ -60,6 +60,7 @@ const config: Config.InitialOptions = {
       ...sharedConfig,
       displayName: "examples/built",
       roots: ["<rootDir>/examples"],
+      testPathIgnorePatterns: ["<rootDir>/examples/timezone/"],
       moduleNameMapper: {
         "@/test/(.*)": ["<rootDir>/test/$1"],
         "react-day-picker/buddhist": ["<rootDir>/dist/cjs/buddhist/index.js"],
