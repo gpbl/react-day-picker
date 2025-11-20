@@ -9,6 +9,7 @@ test("test should run in Australia/Adelaide timezone", () => {
 });
 
 test("current date should be different than the date in Etc/GMT+12 timezone", () => {
+  // This test ensures that the test is running in a timezone with a shifted date
   const today = new Date();
   const todayInTimezone = new Date(
     today.toLocaleString("en-US", { timeZone: "Etc/GMT+12" }),
