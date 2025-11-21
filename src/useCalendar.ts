@@ -84,6 +84,8 @@ export function useCalendar(
     | "fixedWeeks"
     | "ISOWeek"
     | "numberOfMonths"
+    | "pagedNavigation"
+    | "reverseMonths"
     | "disableNavigation"
     | "onMonthChange"
     | "month"
@@ -115,6 +117,7 @@ export function useCalendar(
   }, [props.timeZone]);
 
   /** The months displayed in the calendar. */
+  // biome-ignore lint/correctness/useExhaustiveDependencies: We want to recompute only when specific props change.
   const { months, weeks, days, previousMonth, nextMonth } = useMemo(() => {
     const displayMonths = getDisplayMonths(
       firstMonth,
