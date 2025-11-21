@@ -96,6 +96,7 @@ export * from "./TestCase2585";
 export * from "./TestCase2835";
 export * from "./Testcase1567";
 export * from "./TimeZone";
+export * from "./timezone/TestCase2833";
 export * from "./Utc";
 export * from "./WeekIso";
 export * from "./Weeknumber";
