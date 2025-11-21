@@ -9,7 +9,7 @@ export function TestCase2843() {
     ...(selected?.from ? [{ before: selected.from }] : []),
     ...(selected?.from ? [selected.from] : []),
   ];
-  
+
   return (
     <DayPicker
       animate
