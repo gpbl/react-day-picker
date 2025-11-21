@@ -699,7 +699,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                             return (
                               // biome-ignore lint/a11y/useSemanticElements: react component
                               <components.Day
-                                key={`${day.isoDate}_${day.dateMonthId}`}
+                                key={`${day.isoDate}_${day.displayMonthId}`}
                                 day={day}
                                 modifiers={modifiers}
                                 className={className.join(" ")}

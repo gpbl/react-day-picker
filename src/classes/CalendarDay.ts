@@ -20,6 +20,7 @@ export class CalendarDay {
     );
     this.dateLib = dateLib;
     this.isoDate = dateLib.format(date, "yyyy-MM-dd");
+    this.displayMonthId = dateLib.format(displayMonth, "yyyy-MM");
     this.dateMonthId = dateLib.format(date, "yyyy-MM");
   }
 
@@ -56,6 +57,13 @@ export class CalendarDay {
    * @since V9.11.2
    */
   readonly isoDate: string;
+
+  /**
+   * Stable `yyyy-MM` representation of the displayed month.
+   *
+   * @since V9.11.2
+   */
+  readonly displayMonthId: string;
 
   /**
    * Stable `yyyy-MM` representation of the date's actual month.
