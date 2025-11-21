@@ -19,6 +19,8 @@ export class CalendarDay {
       displayMonth && !dateLib.isSameMonth(date, displayMonth),
     );
     this.dateLib = dateLib;
+    this.isoDate = dateLib.format(date, "yyyy-MM-dd");
+    this.dateMonthId = dateLib.format(date, "yyyy-MM");
   }
 
   /**
@@ -47,6 +49,20 @@ export class CalendarDay {
 
   /** The date represented by this day. */
   readonly date: Date;
+
+  /**
+   * Stable `yyyy-MM-dd` representation for reuse in keys/data attrs.
+   *
+   * @since V9.11.2
+   */
+  readonly isoDate: string;
+
+  /**
+   * Stable `yyyy-MM` representation of the date's actual month.
+   *
+   * @since V9.11.2
+   */
+  readonly dateMonthId: string;
 
   /**
    * Checks if this day is equal to another `CalendarDay`, considering both the

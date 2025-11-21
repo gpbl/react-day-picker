@@ -699,7 +699,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                             return (
                               // biome-ignore lint/a11y/useSemanticElements: react component
                               <components.Day
-                                key={`${dateLib.format(date, "yyyy-MM-dd")}_${dateLib.format(day.displayMonth, "yyyy-MM")}`}
+                                key={`${day.isoDate}_${day.dateMonthId}`}
                                 day={day}
                                 modifiers={modifiers}
                                 className={className.join(" ")}
@@ -707,11 +707,9 @@ export function DayPicker(initialProps: DayPickerProps) {
                                 role="gridcell"
                                 aria-selected={modifiers.selected || undefined}
                                 aria-label={ariaLabel}
-                                data-day={dateLib.format(date, "yyyy-MM-dd")}
+                                data-day={day.isoDate}
                                 data-month={
-                                  day.outside
-                                    ? dateLib.format(date, "yyyy-MM")
-                                    : undefined
+                                  day.outside ? day.dateMonthId : undefined
                                 }
                                 data-selected={modifiers.selected || undefined}
                                 data-disabled={modifiers.disabled || undefined}
