@@ -1,13 +1,11 @@
 import { render } from "@testing-library/react";
 import React from "react";
-
+import { setTestTime } from "@/test/setTestTime";
 import { user } from "@/test/user";
-
 import { nextButton, previousButton } from "../test/elements";
-
 import { DayPicker } from "./DayPicker";
 
-jest.setSystemTime(new Date(2025, 1, 10));
+setTestTime(new Date(2025, 1, 10));
 
 const getRootContainer = () => document.querySelector(`.rdp-root`);
 const getNavContainers = () => [

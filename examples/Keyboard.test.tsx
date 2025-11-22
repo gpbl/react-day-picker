@@ -18,15 +18,13 @@ import {
   previousButton,
 } from "@/test/elements";
 import { render } from "@/test/render";
+import { setTestTime } from "@/test/setTestTime";
 import { user } from "@/test/user";
-
 import { Keyboard } from "./Keyboard";
 
 const today = new Date(2022, 5, 10);
 
-beforeAll(() => jest.setSystemTime(today));
-afterAll(() => jest.useRealTimers());
-
+setTestTime(today);
 describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
   beforeEach(() => {
     render(<Keyboard mode="single" dir={dir} />);

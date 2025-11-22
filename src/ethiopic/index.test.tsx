@@ -2,13 +2,12 @@ import { enUS } from "date-fns/locale/en-US";
 import React from "react";
 import { grid } from "@/test/elements";
 import { render, screen } from "@/test/render";
+import { setTestTime } from "@/test/setTestTime";
 import { DayPicker } from "./index";
 
 const today = new Date(2024, 11, 22);
 
-beforeAll(() => jest.setSystemTime(today));
-afterAll(() => jest.useRealTimers());
-
+setTestTime(today);
 describe("Ethiopic DayPicker", () => {
   test("renders Amharic month with Geez numerals by default", () => {
     render(<DayPicker />);

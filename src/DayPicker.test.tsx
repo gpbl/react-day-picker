@@ -10,6 +10,7 @@ import {
   previousButton,
 } from "@/test/elements";
 import { fireEvent, render, screen } from "@/test/render";
+import { setTestTime } from "@/test/setTestTime";
 import { user } from "@/test/user";
 import { defaultLocale } from "./classes/DateLib";
 import type { MonthProps } from "./components/Month";
@@ -101,8 +102,7 @@ describe("when the date picker is focused", () => {
 describe("when the grid is focused", () => {
   const today = new Date(2024, 1, 4);
 
-  beforeAll(() => jest.setSystemTime(today));
-  afterAll(() => jest.useRealTimers());
+  setTestTime(today);
 
   test("should focus the today's date", async () => {
     render(<DayPicker mode="single" today={today} />);

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { render, screen } from "@/test/render";
-
+import { setTestTime } from "@/test/setTestTime";
 import { ModifiersHidden } from "./ModifiersHidden";
 
 const days = [
@@ -12,9 +12,7 @@ const days = [
 
 const today = new Date(2021, 10, 25);
 
-beforeAll(() => jest.setSystemTime(today));
-afterAll(() => jest.useRealTimers());
-
+setTestTime(today);
 test.each(days)("the day %s should be hidden", (day) => {
   render(<ModifiersHidden />);
   expect(

@@ -2,15 +2,13 @@ import React from "react";
 
 import { app, grid, nextButton, previousButton } from "@/test/elements";
 import { renderApp } from "@/test/renderApp";
+import { setTestTime } from "@/test/setTestTime";
 import { user } from "@/test/user";
-
 import { Rtl } from "./Rtl";
 
 const today = new Date(2021, 10, 25);
 
-beforeAll(() => jest.setSystemTime(today));
-afterAll(() => jest.useRealTimers());
-
+setTestTime(today);
 beforeEach(() => {
   renderApp(<Rtl />);
 });
