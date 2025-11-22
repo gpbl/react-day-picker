@@ -2,15 +2,13 @@ import React from "react";
 
 import { app, grid } from "@/test/elements";
 import { render, screen } from "@/test/render";
+import { setTestTime } from "@/test/setTestTime";
 import { user } from "@/test/user";
-
 import { Disabled } from "./Disabled";
 
 const today = new Date(2022, 5, 10);
 
-beforeAll(() => jest.setSystemTime(today));
-afterAll(() => jest.useRealTimers());
-
+setTestTime(today);
 beforeEach(() => {
   render(
     <div role="application">

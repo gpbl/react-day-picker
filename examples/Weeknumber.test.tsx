@@ -1,14 +1,12 @@
 import React from "react";
 
 import { render, screen } from "@/test/render";
-
+import { setTestTime } from "@/test/setTestTime";
 import { Weeknumber } from "./Weeknumber";
 
 const today = new Date(2021, 10, 25);
 
-beforeAll(() => jest.setSystemTime(today));
-afterAll(() => jest.useRealTimers());
-
+setTestTime(today);
 function getWeek(week: number) {
   return screen.getByRole("rowheader", {
     name: `Week ${week}`,

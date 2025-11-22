@@ -2,15 +2,13 @@ import React from "react";
 
 import { grid, monthDropdown, nextButton } from "@/test/elements";
 import { render } from "@/test/render";
+import { setTestTime } from "@/test/setTestTime";
 import { user } from "@/test/user";
-
 import { DropdownMonths } from "./DropdownMonths";
 
 const today = new Date(2015, 11, 1);
 
-beforeAll(() => jest.setSystemTime(today));
-afterAll(() => jest.useRealTimers());
-
+setTestTime(today);
 beforeEach(() => {
   render(<DropdownMonths />);
 });

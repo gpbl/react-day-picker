@@ -3,15 +3,13 @@ import React from "react";
 
 import { dateButton, gridcell } from "@/test/elements";
 import { render } from "@/test/render";
+import { setTestTime } from "@/test/setTestTime";
 import { user } from "@/test/user";
-
 import { RangeMinMax } from "./RangeMinMax";
 
 const today = new Date(2022, 8, 12);
 
-beforeAll(() => jest.setSystemTime(today));
-afterAll(() => jest.useRealTimers());
-
+setTestTime(today);
 beforeEach(() => render(<RangeMinMax />));
 
 describe("when a day is clicked", () => {

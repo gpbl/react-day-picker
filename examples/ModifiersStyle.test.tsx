@@ -2,14 +2,12 @@ import React from "react";
 
 import { gridcell } from "@/test/elements";
 import { render } from "@/test/render";
-
+import { setTestTime } from "@/test/setTestTime";
 import { ModifiersStyle } from "./ModifiersStyle";
 
 const today = new Date(2021, 10, 25);
 
-beforeAll(() => jest.setSystemTime(today));
-afterAll(() => jest.useRealTimers());
-
+setTestTime(today);
 beforeEach(() => {
   render(<ModifiersStyle />);
 });

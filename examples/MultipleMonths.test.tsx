@@ -2,15 +2,13 @@ import React from "react";
 
 import { previousButton } from "@/test/elements";
 import { render, screen } from "@/test/render";
+import { setTestTime } from "@/test/setTestTime";
 import { user } from "@/test/user";
-
 import { MultipleMonths } from "./MultipleMonths";
 
 const today = new Date(2023, 11, 3);
 
-beforeAll(() => jest.setSystemTime(today));
-afterAll(() => jest.useRealTimers());
-
+setTestTime(today);
 beforeEach(() => {
   render(<MultipleMonths />);
 });
