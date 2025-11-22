@@ -7,7 +7,7 @@ import type { Config } from "@jest/types";
 const sharedConfig: Config.InitialOptions = {
   testEnvironment: "jsdom",
   setupFilesAfterEnv: ["<rootDir>/test/setup.ts"],
-  fakeTimers: { enableGlobally: true },
+  // fakeTimers: { enableGlobally: true },
   transform: {
     "^.+\\.tsx?$": [
       "@swc/jest",

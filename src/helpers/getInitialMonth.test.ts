@@ -1,7 +1,6 @@
+import { TZDate } from "@date-fns/tz";
 import { addMonths, isSameDay, isSameMonth, startOfMonth } from "date-fns";
-
-import { defaultDateLib } from "../classes/DateLib";
-
+import { DateLib, defaultDateLib } from "../classes/DateLib";
 import { getInitialMonth } from "./getInitialMonth";
 
 it("return start of month", () => {
@@ -13,6 +12,20 @@ it("return start of month", () => {
     defaultDateLib,
   );
   expect(isSameDay(initialMonth, startOfMonth(month))).toBe(true);
+});
+
+it("returns the start of month with the time zone", () => {
+  const month = new Date(1935, 5, 1);
+  const timeZone = "Asia/Tehran";
+  const dateLib = new DateLib({ timeZone });
+  const initialMonth = getInitialMonth(
+    { month, timeZone, today: TZDate.tz(timeZone) },
+    month,
+    month,
+    dateLib,
+  );
+  const expected = new TZDate(1935, 5, 1, timeZone);
+  expect(initialMonth.getTime()).toBe(expected.getTime());
 });
 
 describe("when no startMonth or endMonth is given", () => {

@@ -6,6 +6,7 @@ import type {
   GetWeekOptions,
   GetYearOptions,
   Interval,
+  StartOfMonthOptions,
   StartOfWeekOptions,
 } from "date-fns";
 import {
@@ -252,7 +253,8 @@ export class DateLib {
       return this.overrides.today();
     }
     if (this.options.timeZone) {
-      return TZDate.tz(this.options.timeZone);
+      const today = TZDate.tz(this.options.timeZone);
+      return today;
     }
     return new this.Date();
   };
@@ -412,7 +414,9 @@ export class DateLib {
   endOfISOWeek = (date: Date): Date => {
     return this.overrides?.endOfISOWeek
       ? this.overrides.endOfISOWeek(date)
-      : endOfISOWeek(date);
+      : this.options.timeZone
+        ? this.endOfWeek(date, { weekStartsOn: 1 })
+        : endOfISOWeek(date);
   };
 
   /**
@@ -424,7 +428,18 @@ export class DateLib {
   endOfMonth = (date: Date): Date => {
     return this.overrides?.endOfMonth
       ? this.overrides.endOfMonth(date)
-      : endOfMonth(date);
+      : this.options.timeZone
+        ? (() => {
+            const lastDay = new TZDate(
+              date.getFullYear(),
+              date.getMonth() + 1,
+              0,
+              this.options.timeZone,
+            );
+            lastDay.setHours(23, 59, 59, 999);
+            return lastDay;
+          })()
+        : endOfMonth(date);
   };
 
   /**
@@ -434,9 +449,16 @@ export class DateLib {
    * @returns The end of the week.
    */
   endOfWeek = (date: Date, options?: EndOfWeekOptions<Date>): Date => {
-    return this.overrides?.endOfWeek
-      ? this.overrides.endOfWeek(date, options)
-      : endOfWeek(date, this.options);
+    if (this.overrides?.endOfWeek) {
+      return this.overrides.endOfWeek(date, options);
+    }
+    if (!this.options.timeZone) {
+      return endOfWeek(date, this.options);
+    }
+    const start = this.startOfWeek(date, options);
+    const end = this.addDays(start, 6);
+    end.setHours(23, 59, 59, 999);
+    return end;
   };
 
   /**
@@ -448,7 +470,18 @@ export class DateLib {
   endOfYear = (date: Date): Date => {
     return this.overrides?.endOfYear
       ? this.overrides.endOfYear(date)
-      : endOfYear(date);
+      : this.options.timeZone
+        ? (() => {
+            const lastDay = new TZDate(
+              date.getFullYear(),
+              11,
+              31,
+              this.options.timeZone,
+            );
+            lastDay.setHours(23, 59, 59, 999);
+            return lastDay;
+          })()
+        : endOfYear(date);
   };
 
   /**
@@ -664,7 +697,14 @@ export class DateLib {
   startOfDay = (date: Date): Date => {
     return this.overrides?.startOfDay
       ? this.overrides.startOfDay(date)
-      : startOfDay(date);
+      : this.options.timeZone
+        ? new TZDate(
+            date.getFullYear(),
+            date.getMonth(),
+            date.getDate(),
+            this.options.timeZone,
+          )
+        : startOfDay(date);
   };
 
   /**
@@ -676,7 +716,9 @@ export class DateLib {
   startOfISOWeek = (date: Date): Date => {
     return this.overrides?.startOfISOWeek
       ? this.overrides.startOfISOWeek(date)
-      : startOfISOWeek(date);
+      : this.options.timeZone
+        ? this.startOfWeek(date, { weekStartsOn: 1 })
+        : startOfISOWeek(date);
   };
 
   /**
@@ -685,10 +727,17 @@ export class DateLib {
    * @param date The original date.
    * @returns The start of the month.
    */
-  startOfMonth = (date: Date): Date => {
-    return this.overrides?.startOfMonth
-      ? this.overrides.startOfMonth(date)
-      : startOfMonth(date);
+  startOfMonth = (date: Date, _options?: StartOfMonthOptions<Date>): Date => {
+   return this.overrides?.startOfMonth
+      ? this.overrides.startOfMonth(date, _options)
+      : this.options.timeZone
+        ? new TZDate(
+            date.getFullYear(),
+            date.getMonth(),
+            1,
+            this.options.timeZone,
+          )
+        : startOfMonth(date, _options);
   };
 
   /**
@@ -698,9 +747,17 @@ export class DateLib {
    * @returns The start of the week.
    */
   startOfWeek = (date: Date, _options?: StartOfWeekOptions): Date => {
-    return this.overrides?.startOfWeek
-      ? this.overrides.startOfWeek(date, this.options)
-      : startOfWeek(date, this.options);
+    if (this.overrides?.startOfWeek) {
+      return this.overrides.startOfWeek(date, this.options);
+    }
+    if (!this.options.timeZone) {
+      return startOfWeek(date, this.options);
+    }
+    const weekStartsOn =
+      _options?.weekStartsOn ?? this.options.weekStartsOn ?? 0;
+    const start = this.startOfDay(date);
+    const diff = (start.getDay() - weekStartsOn + 7) % 7;
+    return this.addDays(start, -diff);
   };
 
   /**
@@ -712,7 +769,9 @@ export class DateLib {
   startOfYear = (date: Date): Date => {
     return this.overrides?.startOfYear
       ? this.overrides.startOfYear(date)
-      : startOfYear(date);
+      : this.options.timeZone
+        ? new TZDate(date.getFullYear(), 0, 1, this.options.timeZone)
+        : startOfYear(date);
   };
 }
 /** The default locale (English). */

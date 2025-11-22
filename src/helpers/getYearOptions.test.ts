@@ -1,4 +1,4 @@
-import { defaultDateLib } from "../classes/DateLib";
+import { DateLib, defaultDateLib } from "../classes/DateLib";
 
 import { getFormatters } from "./getFormatters";
 import { getYearOptions } from "./getYearOptions";
@@ -64,5 +64,22 @@ test("return reversed dropdown options when reverse is true", () => {
     { value: 2024, label: "2024", disabled: false },
     { value: 2023, label: "2023", disabled: false },
     { value: 2022, label: "2022", disabled: false },
+  ]);
+});
+
+test("uses the configured time zone when building the year range", () => {
+  const startMonth = new Date(2022, 6, 15);
+  const endMonth = new Date(2024, 6, 15);
+  const formatters = getFormatters({
+    formatYearDropdown: (date: Date) => `${date.getFullYear()}`,
+  });
+  const dateLib = new DateLib({ timeZone: "Asia/Tokyo" });
+
+  const result = getYearOptions(startMonth, endMonth, formatters, dateLib);
+
+  expect(result).toEqual([
+    { value: 2022, label: "2022", disabled: false },
+    { value: 2023, label: "2023", disabled: false },
+    { value: 2024, label: "2024", disabled: false },
   ]);
 });
