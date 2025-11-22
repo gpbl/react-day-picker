@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 
 import type {
   CalendarDay,
@@ -84,6 +84,8 @@ export function useCalendar(
     | "fixedWeeks"
     | "ISOWeek"
     | "numberOfMonths"
+    | "pagedNavigation"
+    | "reverseMonths"
     | "disableNavigation"
     | "onMonthChange"
     | "month"
@@ -115,27 +117,70 @@ export function useCalendar(
   }, [props.timeZone]);
 
   /** The months displayed in the calendar. */
-  const displayMonths = getDisplayMonths(firstMonth, navEnd, props, dateLib);
+  // biome-ignore lint/correctness/useExhaustiveDependencies: We want to recompute only when specific props change.
+  const { months, weeks, days, previousMonth, nextMonth } = useMemo(() => {
+    const displayMonths = getDisplayMonths(
+      firstMonth,
+      navEnd,
+      { numberOfMonths: props.numberOfMonths },
+      dateLib,
+    );
 
-  /** The dates displayed in the calendar. */
-  const dates = getDates(
-    displayMonths,
-    props.endMonth ? endOfMonth(props.endMonth) : undefined,
-    props,
+    const dates = getDates(
+      displayMonths,
+      props.endMonth ? endOfMonth(props.endMonth) : undefined,
+      {
+        ISOWeek: props.ISOWeek,
+        fixedWeeks: props.fixedWeeks,
+        broadcastCalendar: props.broadcastCalendar,
+      },
+      dateLib,
+    );
+
+    const months = getMonths(
+      displayMonths,
+      dates,
+      {
+        broadcastCalendar: props.broadcastCalendar,
+        fixedWeeks: props.fixedWeeks,
+        ISOWeek: props.ISOWeek,
+        reverseMonths: props.reverseMonths,
+      },
+      dateLib,
+    );
+
+    const weeks = getWeeks(months);
+    const days = getDays(months);
+
+    const previousMonth = getPreviousMonth(
+      firstMonth,
+      navStart,
+      props,
+      dateLib,
+    );
+    const nextMonth = getNextMonth(firstMonth, navEnd, props, dateLib);
+
+    return {
+      months,
+      weeks,
+      days,
+      previousMonth,
+      nextMonth,
+    };
+  }, [
     dateLib,
-  );
-
-  /** The Months displayed in the calendar. */
-  const months = getMonths(displayMonths, dates, props, dateLib);
-
-  /** The Weeks displayed in the calendar. */
-  const weeks = getWeeks(months);
-
-  /** The Days displayed in the calendar. */
-  const days = getDays(months);
-
-  const previousMonth = getPreviousMonth(firstMonth, navStart, props, dateLib);
-  const nextMonth = getNextMonth(firstMonth, navEnd, props, dateLib);
+    firstMonth.getTime(),
+    navEnd?.getTime(),
+    navStart?.getTime(),
+    props.disableNavigation,
+    props.broadcastCalendar,
+    props.endMonth?.getTime(),
+    props.fixedWeeks,
+    props.ISOWeek,
+    props.numberOfMonths,
+    props.pagedNavigation,
+    props.reverseMonths,
+  ]);
 
   const { disableNavigation, onMonthChange } = props;
 
