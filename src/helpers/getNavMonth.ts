@@ -26,11 +26,18 @@ export function getNavMonths(
 ): [start: Date | undefined, end: Date | undefined] {
   let { startMonth, endMonth } = props;
 
+  const normalizeStartMonth = (date: Date) =>
+    dateLib.startOfMonth(
+      dateLib.newDate(date.getFullYear(), date.getMonth(), 1),
+    );
+  const normalizeEndMonth = (date: Date) =>
+    dateLib.endOfMonth(
+      dateLib.newDate(date.getFullYear(), date.getMonth(), 1),
+    );
+
   const {
     startOfYear,
     startOfDay,
-    startOfMonth,
-    endOfMonth,
     addYears,
     endOfYear,
     newDate,
@@ -40,13 +47,13 @@ export function getNavMonths(
   // Handle deprecated code
   const { fromYear, toYear, fromMonth, toMonth } = props;
   if (!startMonth && fromMonth) {
-    startMonth = fromMonth;
+    startMonth = normalizeStartMonth(fromMonth);
   }
   if (!startMonth && fromYear) {
     startMonth = dateLib.newDate(fromYear, 0, 1);
   }
   if (!endMonth && toMonth) {
-    endMonth = toMonth;
+    endMonth = normalizeEndMonth(toMonth);
   }
   if (!endMonth && toYear) {
     endMonth = newDate(toYear, 11, 31);
@@ -56,14 +63,14 @@ export function getNavMonths(
     props.captionLayout === "dropdown" ||
     props.captionLayout === "dropdown-years";
   if (startMonth) {
-    startMonth = startOfMonth(startMonth);
+    startMonth = normalizeStartMonth(startMonth);
   } else if (fromYear) {
     startMonth = newDate(fromYear, 0, 1);
   } else if (!startMonth && hasYearDropdown) {
     startMonth = startOfYear(addYears(props.today ?? today(), -100));
   }
   if (endMonth) {
-    endMonth = endOfMonth(endMonth);
+    endMonth = normalizeEndMonth(endMonth);
   } else if (toYear) {
     endMonth = newDate(toYear, 11, 31);
   } else if (!endMonth && hasYearDropdown) {

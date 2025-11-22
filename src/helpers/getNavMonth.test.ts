@@ -8,7 +8,7 @@ import {
 } from "date-fns";
 import type { DayPickerProps } from "react-day-picker/types";
 
-import { defaultDateLib } from "../classes/DateLib";
+import { DateLib, defaultDateLib } from "../classes/DateLib";
 
 import { getNavMonths } from "./getNavMonth";
 
@@ -74,6 +74,24 @@ describe('when "toYear" is set', () => {
   test('"endMonth" should be the end of that year', () => {
     const [, navEndMonth] = getNavMonths(props, defaultDateLib);
     expect(navEndMonth).toEqual(new Date(toYear, 11, 31));
+  });
+});
+
+describe("when using a time zone", () => {
+  const dateLib = new DateLib({ timeZone: "Asia/Tehran" });
+  const startMonth = new Date(1935, 5, 1);
+  const endMonth = new Date(1935, 5, 1);
+  const props: DayPickerProps = {
+    captionLayout: "dropdown-years",
+    startMonth,
+    endMonth,
+    timeZone: "Asia/Tehran",
+  };
+
+  test("navStart and navEnd stay in the provided month/year", () => {
+    const [navStartMonth, navEndMonth] = getNavMonths(props, dateLib);
+    expect(navStartMonth?.getFullYear()).toBe(1935);
+    expect(navEndMonth?.getFullYear()).toBe(1935);
   });
 });
 
