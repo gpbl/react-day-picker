@@ -727,7 +727,16 @@ export function DayPicker(initialProps: DayPickerProps) {
                                     type="button"
                                     day={day}
                                     modifiers={modifiers}
-                                    disabled={modifiers.disabled || undefined}
+                                    disabled={
+                                      (!modifiers.focused &&
+                                        modifiers.disabled) ||
+                                      undefined
+                                    }
+                                    aria-disabled={
+                                      (modifiers.focused &&
+                                        modifiers.disabled) ||
+                                      undefined
+                                    }
                                     tabIndex={isFocusTarget(day) ? 0 : -1}
                                     aria-label={labelDayButton(
                                       date,

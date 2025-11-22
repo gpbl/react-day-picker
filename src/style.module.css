@@ -296,7 +296,7 @@
   opacity: var(--rdp-outside-opacity);
 }
 
-.disabled {
+.disabled:not(.selected) {
   opacity: var(--rdp-disabled-opacity);
 }
 
