@@ -4,15 +4,13 @@ import { labelMonthDropdown } from "react-day-picker";
 
 import { grid } from "@/test/elements";
 import { render, screen } from "@/test/render";
+import { setTestTime } from "@/test/setTestTime";
 import { user } from "@/test/user";
-
 import { DropdownMultipleMonths } from "./DropdownMultipleMonths";
 
 const today = new Date(2023, 9, 16);
 
-beforeAll(() => jest.setSystemTime(today));
-afterAll(() => jest.useRealTimers());
-
+setTestTime(today);
 beforeEach(() => {
   render(<DropdownMultipleMonths />);
 });

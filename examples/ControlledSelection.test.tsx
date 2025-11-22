@@ -2,14 +2,12 @@ import React from "react";
 
 import { dateButton, gridcell } from "@/test/elements";
 import { render } from "@/test/render";
+import { setTestTime } from "@/test/setTestTime";
 import { user } from "@/test/user";
-
 import { ControlledSelection } from "./ControlledSelection";
 
 const today = new Date(2024, 8, 17);
-beforeAll(() => jest.setSystemTime(today));
-afterAll(() => jest.useRealTimers());
-
+setTestTime(today);
 beforeEach(async () => {});
 
 test("a range is selected after clicking two dates", async () => {

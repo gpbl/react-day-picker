@@ -2,8 +2,8 @@ import { render, screen } from "@testing-library/react";
 import React from "react";
 
 import { grid, monthDropdown, yearDropdown } from "@/test/elements";
+import { setTestTime } from "@/test/setTestTime";
 import { user } from "@/test/user";
-
 import { CustomDropdown } from "./CustomDropdown";
 
 // Mocks for Radix UI
@@ -15,9 +15,7 @@ window.HTMLElement.prototype.releasePointerCapture = jest.fn();
 
 const today = new Date(2015, 6, 1);
 
-beforeAll(() => jest.setSystemTime(today));
-afterAll(() => jest.useRealTimers());
-
+setTestTime(today);
 beforeEach(() => {
   render(<CustomDropdown />);
 });

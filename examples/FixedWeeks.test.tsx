@@ -1,14 +1,12 @@
 import React from "react";
 
 import { render, screen } from "@/test/render";
-
+import { setTestTime } from "@/test/setTestTime";
 import { FixedWeeks } from "./Fixedweeks";
 
 const today = new Date(2021, 10, 25);
 
-beforeAll(() => jest.setSystemTime(today));
-afterAll(() => jest.useRealTimers());
-
+setTestTime(today);
 beforeEach(() => {
   render(<FixedWeeks />);
 });

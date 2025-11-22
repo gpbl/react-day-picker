@@ -3,15 +3,13 @@ import React from "react";
 
 import { app, dateButton, gridcell } from "@/test/elements";
 import { renderApp } from "@/test/renderApp";
+import { setTestTime } from "@/test/setTestTime";
 import { user } from "@/test/user";
-
 import { ModifiersToday } from "./ModifiersToday";
 
 const today = new Date(2022, 5, 10);
 
-beforeAll(() => jest.setSystemTime(today));
-afterAll(() => jest.useRealTimers());
-
+setTestTime(today);
 beforeEach(() => {
   renderApp(<ModifiersToday />);
 });

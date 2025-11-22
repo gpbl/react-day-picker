@@ -3,13 +3,11 @@ import React from "react";
 
 import { dateButton } from "@/test/elements";
 import { fireEvent, render, screen } from "@/test/render";
-
+import { setTestTime } from "@/test/setTestTime";
 import { CustomDayButton } from "./CustomDayButton";
 
 const today = new Date(2021, 10, 25);
-beforeAll(() => jest.setSystemTime(today));
-afterAll(() => jest.useRealTimers());
-
+setTestTime(today);
 beforeEach(() => {
   render(<CustomDayButton />);
 });

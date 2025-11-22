@@ -1,14 +1,13 @@
 import React from "react";
 import { dateButton } from "@/test/elements";
 import { render } from "@/test/render";
+import { setTestTime } from "@/test/setTestTime";
 import { user } from "@/test/user";
 import { TestCase2843 } from "./TestCase2843";
 
 const today = new Date(2024, 8, 6);
 
-beforeAll(() => jest.setSystemTime(today));
-afterAll(() => jest.useRealTimers());
-
+setTestTime(today);
 describe("when clicking the today button", () => {
   beforeEach(async () => {
     render(<TestCase2843 />);

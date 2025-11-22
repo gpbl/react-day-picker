@@ -2,15 +2,13 @@ import { render } from "@testing-library/react";
 import React from "react";
 
 import { dateButton, gridcell } from "@/test/elements";
+import { setTestTime } from "@/test/setTestTime";
 import { user } from "@/test/user";
-
 import { SingleControlled } from "./SingleControlled";
 
 const today = new Date(2024, 10, 25);
 
-beforeAll(() => jest.setSystemTime(today));
-afterAll(() => jest.useRealTimers());
-
+setTestTime(today);
 beforeEach(() => {
   render(<SingleControlled />);
 });

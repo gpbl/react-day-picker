@@ -2,13 +2,11 @@ import React from "react";
 
 import { grid } from "@/test/elements";
 import { render, screen } from "@/test/render";
+import { setTestTime } from "@/test/setTestTime";
 import { user } from "@/test/user";
-
 import { Controlled } from "./Controlled";
 
-beforeAll(() => jest.setSystemTime(new Date(2022, 5, 10)));
-afterAll(() => jest.useRealTimers());
-
+setTestTime(new Date(2022, 5, 10));
 describe('when the "Today" button is clicked', () => {
   const todayButton = () => screen.getByRole("button", { name: "Go to Today" });
   beforeEach(async () => {

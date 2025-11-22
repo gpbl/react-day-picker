@@ -3,14 +3,13 @@ import { addDays } from "date-fns";
 import React from "react";
 import { dateButton } from "@/test/elements";
 import { render } from "@/test/render";
+import { setTestTime } from "@/test/setTestTime";
 import { user } from "@/test/user";
 import { RangeResetSelection } from "./RangeResetSelection";
 
 const today = new Date(2022, 8, 12);
 
-beforeAll(() => jest.setSystemTime(today));
-afterAll(() => jest.useRealTimers());
-
+setTestTime(today);
 beforeEach(() => render(<RangeResetSelection />));
 
 const getFrom = () => screen.getByTestId("from");

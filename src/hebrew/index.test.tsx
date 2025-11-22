@@ -2,14 +2,12 @@ import { enUS } from "date-fns/locale/en-US";
 import React from "react";
 import { grid } from "@/test/elements";
 import { render, screen } from "@/test/render";
-
+import { setTestTime } from "@/test/setTestTime";
 import { DayPicker } from "./index";
 
 const today = new Date(2024, 9, 3);
 
-beforeAll(() => jest.setSystemTime(today));
-afterAll(() => jest.useRealTimers());
-
+setTestTime(today);
 describe("Hebrew DayPicker", () => {
   test("renders Hebrew month caption by default", () => {
     render(<DayPicker />);

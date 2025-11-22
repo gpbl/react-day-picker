@@ -4,15 +4,13 @@ import { labelGrid } from "react-day-picker";
 
 import { dateButton, grid, gridcell, nextButton } from "@/test/elements";
 import { render } from "@/test/render";
+import { setTestTime } from "@/test/setTestTime";
 import { user } from "@/test/user";
-
 import { TestCase2389 } from "./TestCase2389";
 
 const today = new Date(2024, 8, 6);
 
-beforeAll(() => jest.setSystemTime(today));
-afterAll(() => jest.useRealTimers());
-
+setTestTime(today);
 beforeEach(async () => {
   render(<TestCase2389 />);
 });

@@ -3,17 +3,15 @@ import React from "react";
 
 import { nextButton, previousButton } from "@/test/elements";
 import { render } from "@/test/render";
+import { setTestTime } from "@/test/setTestTime";
 import { user } from "@/test/user";
-
 import { FromToYear } from "./FromToYear";
 
 const fromMonth = new Date(2024, 0);
 const toMonth = new Date(2026, 11);
 const today = new Date(2025, 10, 25);
 
-beforeAll(() => jest.setSystemTime(today));
-afterAll(() => jest.useRealTimers());
-
+setTestTime(today);
 beforeEach(() => {
   render(<FromToYear />);
 });
