@@ -728,7 +728,7 @@ export class DateLib {
    * @returns The start of the month.
    */
   startOfMonth = (date: Date, _options?: StartOfMonthOptions<Date>): Date => {
-   return this.overrides?.startOfMonth
+    return this.overrides?.startOfMonth
       ? this.overrides.startOfMonth(date, _options)
       : this.options.timeZone
         ? new TZDate(

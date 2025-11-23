@@ -31,18 +31,10 @@ export function getNavMonths(
       dateLib.newDate(date.getFullYear(), date.getMonth(), 1),
     );
   const normalizeEndMonth = (date: Date) =>
-    dateLib.endOfMonth(
-      dateLib.newDate(date.getFullYear(), date.getMonth(), 1),
-    );
+    dateLib.endOfMonth(dateLib.newDate(date.getFullYear(), date.getMonth(), 1));
 
-  const {
-    startOfYear,
-    startOfDay,
-    addYears,
-    endOfYear,
-    newDate,
-    today,
-  } = dateLib;
+  const { startOfYear, startOfDay, addYears, endOfYear, newDate, today } =
+    dateLib;
 
   // Handle deprecated code
   const { fromYear, toYear, fromMonth, toMonth } = props;

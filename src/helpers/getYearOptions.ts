@@ -31,7 +31,11 @@ export function getYearOptions(
 
   const years: Date[] = [];
   const step = startYear <= endYear ? 1 : -1;
-  for (let year = startYear; step > 0 ? year <= endYear : year >= endYear; year += step) {
+  for (
+    let year = startYear;
+    step > 0 ? year <= endYear : year >= endYear;
+    year += step
+  ) {
     years.push(newDate(year, 0, 1));
   }
 

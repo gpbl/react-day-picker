@@ -1,5 +1,5 @@
-import type { Numerals } from "../types/shared.js";
 import { TZDate } from "@date-fns/tz";
+import type { Numerals } from "../types/shared.js";
 import { DateLib } from "./DateLib.js";
 
 const numeralCases: Array<[Numerals, string]> = [
