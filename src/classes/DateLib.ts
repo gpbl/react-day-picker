@@ -173,11 +173,7 @@ export class DateLib {
    * Creates a date in the configured time zone clamping the day so it always
    * exists in the target month.
    */
-  private newDateInMonth(
-    year: number,
-    monthIndex: number,
-    day: number,
-  ): Date {
+  private newDateInMonth(year: number, monthIndex: number, day: number): Date {
     const clampedDay = Math.min(day, this.getDaysInMonth(year, monthIndex));
     return this.newDate(year, monthIndex, clampedDay);
   }

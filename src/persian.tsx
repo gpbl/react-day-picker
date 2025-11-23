@@ -2,7 +2,10 @@ import type { Locale } from "date-fns-jalali";
 import * as locales from "date-fns-jalali/locale";
 import React from "react";
 
-import { type DateLibOptions, DayPicker as DayPickerComponent } from "./index.js";
+import {
+  type DateLibOptions,
+  DayPicker as DayPickerComponent,
+} from "./index.js";
 import { getPersianDateLib } from "./persianDateLib.js";
 import type { DayPickerProps } from "./types/props.js";
 
