@@ -90,4 +90,41 @@ describe("DateLib with time zones", () => {
     expect(start.getTime()).toBe(expectedStart.getTime());
     expect(end.getTime()).toBe(expectedEnd.getTime());
   });
+
+  test("addMonths moves forward in historical time zones", () => {
+    const result = dateLib.addMonths(new Date(1933, 5, 1), 1);
+    expect(dateLib.getYear(result)).toBe(1933);
+    expect(dateLib.getMonth(result)).toBe(6);
+    expect(result.getDate()).toBe(1);
+  });
+
+  test("addYears keeps the month/day in historical time zones", () => {
+    const result = dateLib.addYears(new Date(1933, 5, 1), 1);
+    expect(dateLib.getYear(result)).toBe(1934);
+    expect(dateLib.getMonth(result)).toBe(5);
+    expect(result.getDate()).toBe(1);
+  });
+
+  test("setYear preserves the calendar month", () => {
+    const result = dateLib.setYear(new Date(1933, 5, 1), 1934);
+    expect(dateLib.getYear(result)).toBe(1934);
+    expect(dateLib.getMonth(result)).toBe(5);
+    expect(result.getDate()).toBe(1);
+  });
+});
+
+describe("DateLib with overrides and time zones", () => {
+  test("prefers overrides even when timeZone is set", () => {
+    const addMonths = jest.fn(() => new Date(2000, 0, 1));
+    const dateLib = new DateLib(
+      { timeZone: "Asia/Tehran" },
+      {
+        addMonths,
+      },
+    );
+
+    const result = dateLib.addMonths(new Date(1933, 5, 1), 1);
+    expect(addMonths).toHaveBeenCalled();
+    expect(result.getFullYear()).toBe(2000);
+  });
 });

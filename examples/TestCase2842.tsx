@@ -10,8 +10,8 @@ import { DayPicker } from "react-day-picker";
 export function TestCase2842() {
   return (
     <DayPicker
-      startMonth={new Date(1935, 5, 1)}
-      endMonth={new Date(1935, 5, 1)}
+      startMonth={new Date(1933, 5, 1)}
+      endMonth={new Date(1937, 5, 1)}
       captionLayout="dropdown-years"
       timeZone="Asia/Tehran"
     />

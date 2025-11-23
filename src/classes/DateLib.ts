@@ -164,6 +164,24 @@ export class DateLib {
     return input.replace(/\d/g, (digit) => digitMap[digit] || digit);
   }
 
+  /** Returns the number of days in a month for the configured time zone. */
+  private getDaysInMonth(year: number, monthIndex: number): number {
+    return this.endOfMonth(this.newDate(year, monthIndex, 1)).getDate();
+  }
+
+  /**
+   * Creates a date in the configured time zone clamping the day so it always
+   * exists in the target month.
+   */
+  private newDateInMonth(
+    year: number,
+    monthIndex: number,
+    day: number,
+  ): Date {
+    const clampedDay = Math.min(day, this.getDaysInMonth(year, monthIndex));
+    return this.newDate(year, monthIndex, clampedDay);
+  }
+
   /**
    * Formats a number using the configured numbering system.
    *
@@ -253,8 +271,7 @@ export class DateLib {
       return this.overrides.today();
     }
     if (this.options.timeZone) {
-      const today = TZDate.tz(this.options.timeZone);
-      return today;
+      return TZDate.tz(this.options.timeZone);
     }
     return new this.Date();
   };
@@ -299,9 +316,17 @@ export class DateLib {
    * @returns The new date with the months added.
    */
   addMonths = (date: Date, amount: number): Date => {
-    return this.overrides?.addMonths
-      ? this.overrides.addMonths(date, amount)
-      : addMonths(date, amount);
+    if (this.overrides?.addMonths) {
+      return this.overrides.addMonths(date, amount);
+    }
+    if (!this.options.timeZone) {
+      return addMonths(date, amount);
+    }
+    const start = this.startOfDay(date);
+    const targetMonthIndex = start.getMonth() + amount;
+    const targetYear = start.getFullYear() + Math.floor(targetMonthIndex / 12);
+    const normalizedMonth = ((targetMonthIndex % 12) + 12) % 12;
+    return this.newDateInMonth(targetYear, normalizedMonth, start.getDate());
   };
 
   /**
@@ -325,9 +350,13 @@ export class DateLib {
    * @returns The new date with the years added.
    */
   addYears = (date: Date, amount: number): Date => {
-    return this.overrides?.addYears
-      ? this.overrides.addYears(date, amount)
-      : addYears(date, amount);
+    if (this.overrides?.addYears) {
+      return this.overrides.addYears(date, amount);
+    }
+    if (!this.options.timeZone) {
+      return addYears(date, amount);
+    }
+    return this.addMonths(date, amount * 12);
   };
 
   /**
@@ -412,11 +441,12 @@ export class DateLib {
    * @returns The end of the ISO week.
    */
   endOfISOWeek = (date: Date): Date => {
-    return this.overrides?.endOfISOWeek
-      ? this.overrides.endOfISOWeek(date)
-      : this.options.timeZone
-        ? this.endOfWeek(date, { weekStartsOn: 1 })
-        : endOfISOWeek(date);
+    if (this.overrides?.endOfISOWeek) {
+      return this.overrides.endOfISOWeek(date);
+    }
+    return this.options.timeZone
+      ? this.endOfWeek(date, { weekStartsOn: 1 })
+      : endOfISOWeek(date);
   };
 
   /**
@@ -426,20 +456,20 @@ export class DateLib {
    * @returns The end of the month.
    */
   endOfMonth = (date: Date): Date => {
-    return this.overrides?.endOfMonth
-      ? this.overrides.endOfMonth(date)
-      : this.options.timeZone
-        ? (() => {
-            const lastDay = new TZDate(
-              date.getFullYear(),
-              date.getMonth() + 1,
-              0,
-              this.options.timeZone,
-            );
-            lastDay.setHours(23, 59, 59, 999);
-            return lastDay;
-          })()
-        : endOfMonth(date);
+    if (this.overrides?.endOfMonth) {
+      return this.overrides.endOfMonth(date);
+    }
+    if (!this.options.timeZone) {
+      return endOfMonth(date);
+    }
+    const lastDay = new TZDate(
+      date.getFullYear(),
+      date.getMonth() + 1,
+      0,
+      this.options.timeZone,
+    );
+    lastDay.setHours(23, 59, 59, 999);
+    return lastDay;
   };
 
   /**
@@ -468,20 +498,20 @@ export class DateLib {
    * @returns The end of the year.
    */
   endOfYear = (date: Date): Date => {
-    return this.overrides?.endOfYear
-      ? this.overrides.endOfYear(date)
-      : this.options.timeZone
-        ? (() => {
-            const lastDay = new TZDate(
-              date.getFullYear(),
-              11,
-              31,
-              this.options.timeZone,
-            );
-            lastDay.setHours(23, 59, 59, 999);
-            return lastDay;
-          })()
-        : endOfYear(date);
+    if (this.overrides?.endOfYear) {
+      return this.overrides.endOfYear(date);
+    }
+    if (!this.options.timeZone) {
+      return endOfYear(date);
+    }
+    const lastDay = new TZDate(
+      date.getFullYear(),
+      11,
+      31,
+      this.options.timeZone,
+    );
+    lastDay.setHours(23, 59, 59, 999);
+    return lastDay;
   };
 
   /**
@@ -658,9 +688,15 @@ export class DateLib {
    * @returns The new date with the month set.
    */
   setMonth = (date: Date, month: number): Date => {
-    return this.overrides?.setMonth
-      ? this.overrides.setMonth(date, month)
-      : setMonth(date, month);
+    if (this.overrides?.setMonth) {
+      return this.overrides.setMonth(date, month);
+    }
+    if (!this.options.timeZone) {
+      return setMonth(date, month);
+    }
+    const targetYear = date.getFullYear() + Math.floor(month / 12);
+    const normalizedMonth = ((month % 12) + 12) % 12;
+    return this.newDateInMonth(targetYear, normalizedMonth, date.getDate());
   };
 
   /**
@@ -671,9 +707,13 @@ export class DateLib {
    * @returns The new date with the year set.
    */
   setYear = (date: Date, year: number): Date => {
-    return this.overrides?.setYear
-      ? this.overrides.setYear(date, year)
-      : setYear(date, year);
+    if (this.overrides?.setYear) {
+      return this.overrides.setYear(date, year);
+    }
+    if (!this.options.timeZone) {
+      return setYear(date, year);
+    }
+    return this.newDateInMonth(year, date.getMonth(), date.getDate());
   };
 
   /**
@@ -695,16 +735,18 @@ export class DateLib {
    * @returns The start of the day.
    */
   startOfDay = (date: Date): Date => {
-    return this.overrides?.startOfDay
-      ? this.overrides.startOfDay(date)
-      : this.options.timeZone
-        ? new TZDate(
-            date.getFullYear(),
-            date.getMonth(),
-            date.getDate(),
-            this.options.timeZone,
-          )
-        : startOfDay(date);
+    if (this.overrides?.startOfDay) {
+      return this.overrides.startOfDay(date);
+    }
+    if (!this.options.timeZone) {
+      return startOfDay(date);
+    }
+    return new TZDate(
+      date.getFullYear(),
+      date.getMonth(),
+      date.getDate(),
+      this.options.timeZone,
+    );
   };
 
   /**
@@ -714,11 +756,13 @@ export class DateLib {
    * @returns The start of the ISO week.
    */
   startOfISOWeek = (date: Date): Date => {
-    return this.overrides?.startOfISOWeek
-      ? this.overrides.startOfISOWeek(date)
-      : this.options.timeZone
-        ? this.startOfWeek(date, { weekStartsOn: 1 })
-        : startOfISOWeek(date);
+    if (this.overrides?.startOfISOWeek) {
+      return this.overrides.startOfISOWeek(date);
+    }
+    if (!this.options.timeZone) {
+      return startOfISOWeek(date);
+    }
+    return this.startOfWeek(date, { weekStartsOn: 1 });
   };
 
   /**
@@ -728,16 +772,18 @@ export class DateLib {
    * @returns The start of the month.
    */
   startOfMonth = (date: Date, _options?: StartOfMonthOptions<Date>): Date => {
-    return this.overrides?.startOfMonth
-      ? this.overrides.startOfMonth(date, _options)
-      : this.options.timeZone
-        ? new TZDate(
-            date.getFullYear(),
-            date.getMonth(),
-            1,
-            this.options.timeZone,
-          )
-        : startOfMonth(date, _options);
+    if (this.overrides?.startOfMonth) {
+      return this.overrides.startOfMonth(date, this.options);
+    }
+    if (!this.options.timeZone) {
+      return startOfMonth(date, this.options);
+    }
+    return new TZDate(
+      date.getFullYear(),
+      date.getMonth(),
+      1,
+      this.options.timeZone,
+    );
   };
 
   /**
@@ -767,11 +813,13 @@ export class DateLib {
    * @returns The start of the year.
    */
   startOfYear = (date: Date): Date => {
-    return this.overrides?.startOfYear
-      ? this.overrides.startOfYear(date)
-      : this.options.timeZone
-        ? new TZDate(date.getFullYear(), 0, 1, this.options.timeZone)
-        : startOfYear(date);
+    if (this.overrides?.startOfYear) {
+      return this.overrides.startOfYear(date);
+    }
+    if (!this.options.timeZone) {
+      return startOfYear(date);
+    }
+    return new TZDate(date.getFullYear(), 0, 1, this.options.timeZone);
   };
 }
 /** The default locale (English). */

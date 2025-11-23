@@ -26,15 +26,13 @@ export function getNavMonths(
 ): [start: Date | undefined, end: Date | undefined] {
   let { startMonth, endMonth } = props;
 
-  const normalizeStartMonth = (date: Date) =>
-    dateLib.startOfMonth(
-      dateLib.newDate(date.getFullYear(), date.getMonth(), 1),
-    );
-  const normalizeEndMonth = (date: Date) =>
-    dateLib.endOfMonth(dateLib.newDate(date.getFullYear(), date.getMonth(), 1));
-
   const { startOfYear, startOfDay, addYears, endOfYear, newDate, today } =
     dateLib;
+
+  const normalizeStartMonth = (date: Date) =>
+    dateLib.startOfMonth(newDate(date.getFullYear(), date.getMonth(), 1));
+  const normalizeEndMonth = (date: Date) =>
+    dateLib.endOfMonth(newDate(date.getFullYear(), date.getMonth(), 1));
 
   // Handle deprecated code
   const { fromYear, toYear, fromMonth, toMonth } = props;
