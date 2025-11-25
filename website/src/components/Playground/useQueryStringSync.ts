@@ -96,43 +96,48 @@ export function useQueryStringSync(basePath: string = "/playground") {
     };
 
     qsProps.forEach((key) => {
-      if (params.has(key)) {
-        const value = params.get(key) || true;
-        try {
-          switch (typeMap[key]) {
-            case "boolean":
-              parsedProps[key as keyof DayPickerPropsWithCalendar] = !!key;
-              break;
-            case "number":
+      if (!params.has(key)) {
+        return;
+      }
+      const value = params.get(key);
+      try {
+        switch (typeMap[key]) {
+          case "boolean":
+            parsedProps[key as keyof DayPickerPropsWithCalendar] = true;
+            break;
+          case "number":
+            if (value !== null) {
               parsedProps[key as keyof DayPickerPropsWithCalendar] =
                 Number(value);
-              break;
-            case "string":
-              parsedProps[key as keyof DayPickerPropsWithCalendar] =
-                value || "";
-              break;
-            case "locale":
-              parsedProps.locale = Object.values(locales).find(
-                (locale) => locale.code === value,
-              );
-              break;
-            case "date": {
-              const timestamp = Number(value);
-              const parsedDate = new Date(
-                Number.isNaN(timestamp) ? value : timestamp,
-              );
-              if (!Number.isNaN(parsedDate.getTime())) {
-                parsedProps[key as keyof DayPickerPropsWithCalendar] =
-                  parsedDate;
-              }
-              break;
             }
-            default:
-              break;
+            break;
+          case "string":
+            parsedProps[key as keyof DayPickerPropsWithCalendar] =
+              value ?? "";
+            break;
+          case "locale":
+            if (!value) break;
+            parsedProps.locale = Object.values(locales).find(
+              (locale) => locale.code === value,
+            );
+            break;
+          case "date": {
+            if (!value) break;
+            const timestamp = Number(value);
+            const parsedDate = new Date(
+              Number.isNaN(timestamp) ? value : timestamp,
+            );
+            if (!Number.isNaN(parsedDate.getTime())) {
+              parsedProps[key as keyof DayPickerPropsWithCalendar] =
+                parsedDate;
+            }
+            break;
           }
-        } catch (error) {
-          console.error(`Error parsing query string key "${key}":`, error);
+          default:
+            break;
         }
+      } catch (error) {
+        console.error(`Error parsing query string key "${key}":`, error);
       }
     });
     return parsedProps;
