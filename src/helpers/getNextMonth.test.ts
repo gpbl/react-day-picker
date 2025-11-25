@@ -1,6 +1,6 @@
 import { addMonths, isSameMonth } from "date-fns";
 
-import { defaultDateLib } from "../classes/DateLib";
+import { DateLib, defaultDateLib } from "../classes/DateLib";
 
 import { getNextMonth } from "./getNextMonth";
 
@@ -97,5 +97,19 @@ describe("when displaying 3 months", () => {
         expect(result).toBe(undefined);
       });
     });
+  });
+});
+
+describe("when using a historical time zone", () => {
+  const dateLib = new DateLib({ timeZone: "Asia/Tehran" });
+  const startingMonth = dateLib.startOfMonth(dateLib.newDate(1933, 5, 1));
+  const endMonth = dateLib.startOfMonth(dateLib.newDate(1933, 11, 1));
+
+  it("advances to the next calendar month", () => {
+    const result = getNextMonth(startingMonth, endMonth, {}, dateLib);
+    expect(result).toBeDefined();
+    const expected = dateLib.newDate(1933, 6, 1);
+    expect(result && dateLib.isSameMonth(result, expected)).toBe(true);
+    expect(result && result.getDate()).toBe(1);
   });
 });
