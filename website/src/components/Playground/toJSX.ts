@@ -5,6 +5,18 @@ import type { DayPickerProps } from "react-day-picker";
  * props as example
  */
 export function toJSX(props: Partial<DayPickerProps>) {
+  const formatDate = (value: Date) =>
+    `={new Date(${value.getFullYear()}, ${value.getMonth()}, ${value.getDate()})}`;
+
+  const formatValue = (value: unknown) => {
+    if (value === undefined || value === false) return null;
+    if (value instanceof Date) return formatDate(value);
+    if (typeof value === "string") return `="${value}"`;
+    if (typeof value === "number") return `={${value}}`;
+    if (value === true) return "";
+    return `={${JSON.stringify(value)}}`;
+  };
+
   return (
     Object.keys(props)
       // @ts-expect-error abc
@@ -12,16 +24,8 @@ export function toJSX(props: Partial<DayPickerProps>) {
       .sort((a, b) => a.localeCompare(b))
       .map((key) => {
         // @ts-expect-error abc
-        const value = props[key] as string | number | boolean;
-        const valueAsString =
-          typeof value === "string"
-            ? `="${value}"`
-            : typeof value === "number"
-              ? `={${value}}`
-              : value
-                ? ""
-                : `x={${JSON.stringify(value)}}`;
-        return ` ${key}${valueAsString}`;
+        const formattedValue = formatValue(props[key]);
+        return formattedValue === null ? "" : ` ${key}${formattedValue}`;
       })
       .join("")
   );

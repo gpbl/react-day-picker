@@ -51,7 +51,6 @@ export function Playground() {
     // @ts-expect-error calendar is not a prop of DayPicker
     calendar: undefined,
     locale: undefined,
-    month: undefined,
     dir:
       (props.calendar === "persian" || props.calendar === "hebrew") &&
       props.dir === "rtl"
