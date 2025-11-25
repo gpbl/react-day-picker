@@ -33,6 +33,9 @@ const qsProps = [
   "selected",
   "showOutsideDays",
   "showWeekNumber",
+  "startMonth",
+  "endMonth",
+  "month",
   "timeZone",
   "toMonth",
   "weeksStartOn",
@@ -50,42 +53,47 @@ export function useQueryStringSync(basePath: string = "/playground") {
   const parseQueryString = (search: string): DayPickerPropsWithCalendar => {
     const params = new URLSearchParams(search);
     const parsedProps: DayPickerPropsWithCalendar = {};
-    const typeMap: Record<string, "boolean" | "number" | "string" | "locale"> =
-      {
-        animate: "boolean",
-        broadcastCalendar: "boolean",
-        calendar: "string",
-        captionLayout: "string",
-        defaultMonth: "string",
-        dir: "string",
-        disabled: "string",
-        disableNavigation: "boolean",
-        firstDayOfWeek: "number",
-        firstWeekContainsDate: "number",
-        fixedWeeks: "boolean",
-        fromMonth: "string",
-        hideNavigation: "boolean",
-        hideWeekdays: "boolean",
-        ISOWeek: "boolean",
-        locale: "locale",
-        max: "number",
-        min: "number",
-        mode: "string",
-        navLayout: "string",
-        numberOfMonths: "number",
-        numerals: "string",
-        pagedNavigation: "boolean",
-        required: "boolean",
-        reverseMonths: "boolean",
-        reverseYears: "boolean",
-        selected: "string",
-        showOutsideDays: "boolean",
-        showWeekNumber: "boolean",
-        timeZone: "string",
-        toMonth: "string",
-        weeksStartOn: "number",
-        weekStartsOn: "number",
-      };
+    const typeMap: Record<
+      string,
+      "boolean" | "number" | "string" | "locale" | "date"
+    > = {
+      animate: "boolean",
+      broadcastCalendar: "boolean",
+      calendar: "string",
+      captionLayout: "string",
+      defaultMonth: "date",
+      dir: "string",
+      disabled: "string",
+      disableNavigation: "boolean",
+      endMonth: "date",
+      firstDayOfWeek: "number",
+      firstWeekContainsDate: "number",
+      fixedWeeks: "boolean",
+      fromMonth: "date",
+      hideNavigation: "boolean",
+      hideWeekdays: "boolean",
+      ISOWeek: "boolean",
+      locale: "locale",
+      max: "number",
+      min: "number",
+      mode: "string",
+      month: "date",
+      navLayout: "string",
+      numberOfMonths: "number",
+      numerals: "string",
+      pagedNavigation: "boolean",
+      required: "boolean",
+      reverseMonths: "boolean",
+      reverseYears: "boolean",
+      selected: "string",
+      showOutsideDays: "boolean",
+      showWeekNumber: "boolean",
+      startMonth: "date",
+      timeZone: "string",
+      toMonth: "date",
+      weeksStartOn: "number",
+      weekStartsOn: "number",
+    };
 
     qsProps.forEach((key) => {
       if (params.has(key)) {
@@ -108,6 +116,17 @@ export function useQueryStringSync(basePath: string = "/playground") {
                 (locale) => locale.code === value,
               );
               break;
+            case "date": {
+              const timestamp = Number(value);
+              const parsedDate = new Date(
+                Number.isNaN(timestamp) ? value : timestamp,
+              );
+              if (!Number.isNaN(parsedDate.getTime())) {
+                parsedProps[key as keyof DayPickerPropsWithCalendar] =
+                  parsedDate;
+              }
+              break;
+            }
             default:
               break;
           }
@@ -132,6 +151,8 @@ export function useQueryStringSync(basePath: string = "/playground") {
           if (key === "locale") {
             if (!value) return;
             qs.push(`locale=${value.code}`);
+          } else if (value instanceof Date) {
+            qs.push(`${key}=${value.getTime()}`);
           } else {
             qs.push(`${key}${value === true ? "" : `=${value}`}`);
           }
