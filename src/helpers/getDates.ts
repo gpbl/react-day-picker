@@ -43,21 +43,33 @@ export function getDates(
       ? startOfISOWeek(firstMonth)
       : startOfWeek(firstMonth);
 
-  const endWeekLastDate = broadcastCalendar
+  const displayMonthsWeekEnd = broadcastCalendar
     ? endOfBroadcastWeek(lastMonth)
     : ISOWeek
       ? endOfISOWeek(endOfMonth(lastMonth))
       : endOfWeek(endOfMonth(lastMonth));
 
-  const nOfDays = differenceInCalendarDays(endWeekLastDate, startWeekFirstDate);
+  // If maxDate is set, clamp the grid to the end of that week.
+  const constraintWeekEnd =
+    maxDate &&
+    (broadcastCalendar
+      ? endOfBroadcastWeek(maxDate)
+      : ISOWeek
+        ? endOfISOWeek(maxDate)
+        : endOfWeek(maxDate));
+
+  // Pick the earliest week end between the displayed months and the constraint.
+  const gridEndDate =
+    constraintWeekEnd && isAfter(displayMonthsWeekEnd, constraintWeekEnd)
+      ? constraintWeekEnd
+      : displayMonthsWeekEnd;
+
+  const nOfDays = differenceInCalendarDays(gridEndDate, startWeekFirstDate);
   const nOfMonths = differenceInCalendarMonths(lastMonth, firstMonth) + 1;
 
   const dates: Date[] = [];
   for (let i = 0; i <= nOfDays; i++) {
     const date = addDays(startWeekFirstDate, i);
-    if (maxDate && isAfter(date, maxDate)) {
-      break;
-    }
     dates.push(date);
   }
 

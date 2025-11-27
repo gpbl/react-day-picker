@@ -113,16 +113,21 @@ describe("when the first month and the last month are the same", () => {
   describe("when using a max date", () => {
     const month = new Date(2023, 4, 1);
     const maxDate = new Date(2023, 4, 15);
+    const dateLib = new DateLib({ weekStartsOn: 1 });
+    const expectedLastDay = dateLib.addDays(
+      dateLib.startOfWeek(maxDate),
+      6,
+    );
+    const expectedLength =
+      dateLib.differenceInCalendarDays(
+        expectedLastDay,
+        dateLib.startOfWeek(month),
+      ) + 1;
 
-    it("the last day should be the max date", () => {
-      const dates = getDates(
-        [month],
-        maxDate,
-        {},
-        new DateLib({ weekStartsOn: 1 }),
-      );
-      expect(dates).toHaveLength(15);
-      expect(dates[dates.length - 1]).toEqual(maxDate);
+    it("the last day should be the end of that week", () => {
+      const dates = getDates([month], maxDate, {}, dateLib);
+      expect(dates).toHaveLength(expectedLength);
+      expect(dates[dates.length - 1]).toEqual(expectedLastDay);
     });
   });
   describe("when using ISO weeks", () => {
@@ -161,16 +166,26 @@ describe("when the first month and the last month are different", () => {
     const firstMonth = new Date(2023, 4, 1);
     const lastMonth = new Date(2023, 11, 1);
     const maxDate = new Date(2023, 5, 15);
+    const dateLib = new DateLib({ weekStartsOn: 1 });
+    const expectedLastDay = dateLib.addDays(
+      dateLib.startOfWeek(maxDate),
+      6,
+    );
+    const expectedLength =
+      dateLib.differenceInCalendarDays(
+        expectedLastDay,
+        dateLib.startOfWeek(firstMonth),
+      ) + 1;
 
-    it("the last day should be the max date", () => {
+    it("the last day should be the end of that week", () => {
       const dates = getDates(
         [firstMonth, lastMonth],
         maxDate,
         {},
-        new DateLib({ weekStartsOn: 1 }),
+        dateLib,
       );
-      expect(dates).toHaveLength(46);
-      expect(dates[dates.length - 1]).toEqual(maxDate);
+      expect(dates).toHaveLength(expectedLength);
+      expect(dates[dates.length - 1]).toEqual(expectedLastDay);
     });
   });
   describe("when using ISO weeks", () => {
