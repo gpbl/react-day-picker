@@ -523,7 +523,6 @@ export function DayPicker(initialProps: DayPickerProps) {
                       </span>
                     </components.DropdownNav>
                   ) : (
-                    // biome-ignore lint/a11y/useSemanticElements: breaking change
                     <components.CaptionLabel
                       className={classNames[UI.CaptionLabel]}
                       role="status"
@@ -571,7 +570,6 @@ export function DayPicker(initialProps: DayPickerProps) {
                     />
                   )}
 
-                {/* biome-ignore lint/a11y/useSemanticElements: react component */}
                 <components.MonthGrid
                   role="grid"
                   aria-multiselectable={mode === "multiple" || mode === "range"}
@@ -631,7 +629,6 @@ export function DayPicker(initialProps: DayPickerProps) {
                           week={week}
                         >
                           {showWeekNumber && (
-                            // biome-ignore lint/a11y/useSemanticElements: react component
                             <components.WeekNumber
                               week={week}
                               style={styles?.[UI.WeekNumber]}
@@ -697,7 +694,6 @@ export function DayPicker(initialProps: DayPickerProps) {
                                 : undefined;
 
                             return (
-                              // biome-ignore lint/a11y/useSemanticElements: react component
                               <components.Day
                                 key={`${day.isoDate}_${day.displayMonthId}`}
                                 day={day}
@@ -774,7 +770,6 @@ export function DayPicker(initialProps: DayPickerProps) {
           })}
         </components.Months>
         {props.footer && (
-          // biome-ignore lint/a11y/useSemanticElements: react component
           <components.Footer
             className={classNames[UI.Footer]}
             style={styles?.[UI.Footer]}
