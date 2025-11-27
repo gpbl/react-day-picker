@@ -18,17 +18,16 @@ describe("when rendered without a locale", () => {
   });
 });
 
-describe.each<0 | 1 | 2 | 3 | 4 | 5 | 6>([0, 1, 2, 3, 4, 5, 6])(
-  "when week start on %s",
-  (weekStartsOn) => {
-    beforeEach(() => {
-      result = getWeekdays(new DateLib({ locale: es, weekStartsOn }));
-    });
-    test("the first date should be weekStartsOn", () => {
-      expect(result[0].getDay()).toBe(weekStartsOn);
-    });
-  },
-);
+describe.each<0 | 1 | 2 | 3 | 4 | 5 | 6>([
+  0, 1, 2, 3, 4, 5, 6,
+])("when week start on %s", (weekStartsOn) => {
+  beforeEach(() => {
+    result = getWeekdays(new DateLib({ locale: es, weekStartsOn }));
+  });
+  test("the first date should be weekStartsOn", () => {
+    expect(result[0].getDay()).toBe(weekStartsOn);
+  });
+});
 
 describe("when using ISO week", () => {
   beforeEach(() => {
