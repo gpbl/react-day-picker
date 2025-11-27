@@ -147,10 +147,7 @@ describe("when the first month and the last month are the same", () => {
     const maxDate = new Date(2023, 4, 15);
     const dateLib = new DateLib({ weekStartsOn: 3 }); // Wednesday start
 
-    const expectedLastDay = dateLib.addDays(
-      dateLib.startOfWeek(maxDate),
-      6,
-    );
+    const expectedLastDay = dateLib.addDays(dateLib.startOfWeek(maxDate), 6);
     const expectedLength =
       dateLib.differenceInCalendarDays(
         expectedLastDay,
@@ -178,7 +175,12 @@ describe("when the first month and the last month are the same", () => {
       ) + 1;
 
     it("clamps to the end of the ISO week", () => {
-      const dates = getDates([month], maxDate, { ISOWeek: true }, defaultDateLib);
+      const dates = getDates(
+        [month],
+        maxDate,
+        { ISOWeek: true },
+        defaultDateLib,
+      );
       expect(dates[dates.length - 1]).toEqual(expectedLastDay);
       expect(dates).toHaveLength(expectedLength);
     });
