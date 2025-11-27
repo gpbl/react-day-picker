@@ -114,10 +114,7 @@ describe("when the first month and the last month are the same", () => {
     const month = new Date(2023, 4, 1);
     const maxDate = new Date(2023, 4, 15);
     const dateLib = new DateLib({ weekStartsOn: 1 });
-    const expectedLastDay = dateLib.addDays(
-      dateLib.startOfWeek(maxDate),
-      6,
-    );
+    const expectedLastDay = dateLib.addDays(dateLib.startOfWeek(maxDate), 6);
     const expectedLength =
       dateLib.differenceInCalendarDays(
         expectedLastDay,
@@ -167,10 +164,7 @@ describe("when the first month and the last month are different", () => {
     const lastMonth = new Date(2023, 11, 1);
     const maxDate = new Date(2023, 5, 15);
     const dateLib = new DateLib({ weekStartsOn: 1 });
-    const expectedLastDay = dateLib.addDays(
-      dateLib.startOfWeek(maxDate),
-      6,
-    );
+    const expectedLastDay = dateLib.addDays(dateLib.startOfWeek(maxDate), 6);
     const expectedLength =
       dateLib.differenceInCalendarDays(
         expectedLastDay,
@@ -178,12 +172,7 @@ describe("when the first month and the last month are different", () => {
       ) + 1;
 
     it("the last day should be the end of that week", () => {
-      const dates = getDates(
-        [firstMonth, lastMonth],
-        maxDate,
-        {},
-        dateLib,
-      );
+      const dates = getDates([firstMonth, lastMonth], maxDate, {}, dateLib);
       expect(dates).toHaveLength(expectedLength);
       expect(dates[dates.length - 1]).toEqual(expectedLastDay);
     });
