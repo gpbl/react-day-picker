@@ -141,6 +141,48 @@ describe("when the first month and the last month are the same", () => {
       expect(dates[dates.length - 1]).toEqual(new Date(2023, 5, 4));
     });
   });
+
+  describe("when using a custom week start with a max date", () => {
+    const month = new Date(2023, 4, 1); // May 2023
+    const maxDate = new Date(2023, 4, 15);
+    const dateLib = new DateLib({ weekStartsOn: 3 }); // Wednesday start
+
+    const expectedLastDay = dateLib.addDays(
+      dateLib.startOfWeek(maxDate),
+      6,
+    );
+    const expectedLength =
+      dateLib.differenceInCalendarDays(
+        expectedLastDay,
+        dateLib.startOfWeek(month),
+      ) + 1;
+
+    it("clamps to the end of the custom week", () => {
+      const dates = getDates([month], maxDate, {}, dateLib);
+      expect(dates[dates.length - 1]).toEqual(expectedLastDay);
+      expect(dates).toHaveLength(expectedLength);
+    });
+  });
+
+  describe("when using ISO weeks with a max date", () => {
+    const month = new Date(2023, 4, 1); // May 2023
+    const maxDate = new Date(2023, 4, 15);
+    const expectedLastDay = defaultDateLib.addDays(
+      defaultDateLib.startOfISOWeek(maxDate),
+      6,
+    );
+    const expectedLength =
+      defaultDateLib.differenceInCalendarDays(
+        expectedLastDay,
+        defaultDateLib.startOfISOWeek(month),
+      ) + 1;
+
+    it("clamps to the end of the ISO week", () => {
+      const dates = getDates([month], maxDate, { ISOWeek: true }, defaultDateLib);
+      expect(dates[dates.length - 1]).toEqual(expectedLastDay);
+      expect(dates).toHaveLength(expectedLength);
+    });
+  });
 });
 
 describe("when the first month and the last month are different", () => {
