@@ -25,11 +25,10 @@ const numeralCases: Array<[Numerals, string]> = [
 ];
 
 describe("DateLib numerals", () => {
-  test.each(numeralCases)(
-    "formats numbers using %s digits",
-    (numerals, expected) => {
-      const dateLib = new DateLib({ numerals });
-      expect(dateLib.formatNumber(123)).toBe(expected);
-    },
-  );
+  test.each(
+    numeralCases,
+  )("formats numbers using %s digits", (numerals, expected) => {
+    const dateLib = new DateLib({ numerals });
+    expect(dateLib.formatNumber(123)).toBe(expected);
+  });
 });
