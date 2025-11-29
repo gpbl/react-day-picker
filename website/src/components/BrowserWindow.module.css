@@ -1,17 +1,25 @@
 .browserWindow {
   min-height: 320px;
   border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: var(--ifm-global-radius);
-  box-shadow: var(--ifm-global-shadow-lw);
+  border-radius: var(--ifm-pre-border-radius);
   margin-bottom: var(--ifm-leading);
-  background: var(--ifm-pre-background);
+  background: var(--ifm-color-emphasis-200);
+}
+
+[data-theme="dark"] .browserWindow {
+  border: 1px solid var(--ifm-color-emphasis-100);
+  background: var(--ifm-color-emphasis-100);
 }
 
 .browserWindowHeader {
   align-items: center;
   display: flex;
   padding: 0.5rem 1rem;
-  border-radius: var(--ifm-global-radius);
+  border-radius: var(--ifm-pre-border-radius);
+  background: var(--ifm-color-emphasis-200);
+}
+
+[data-theme="dark"] .browserWindowHeader {
   background: var(--ifm-color-emphasis-100);
 }
 
@@ -33,7 +41,7 @@
 .browserWindowAddressBar {
   flex: 1 0;
   margin: 0 1rem 0 0.5rem;
-  border-radius: 12.5px;
+  border-radius: var(--ifm-pre-border-radius);
   background-color: var(--ifm-pre-background);
   color: var(--ifm-color-gray-800);
   padding: 5px 15px;
@@ -43,16 +51,12 @@
   user-select: none;
 }
 
-[data-theme="dark"] .browserWindowAddressBar {
-  color: var(--ifm-color-gray-300);
-}
 
 .dot {
   margin-right: 6px;
   margin-top: 4px;
   height: 12px;
   width: 12px;
-  background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
 }
@@ -64,21 +68,12 @@
 .bar {
   width: 17px;
   height: 3px;
-  background-color: #aaa;
   margin: 3px 0;
   display: block;
 }
 
-html:not([data-theme="dark"]) .browserWindow {
-  --ifm-background-color: white;
-}
-
-html[data-theme="dark"] .browserWindow {
-  --ifm-background-color: black;
-}
-
 .browserWindowBody {
-  background-color: var(--ifm-background-color);
+  background-color: var(--ifm-color-emphasis-0);
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
   padding: 2rem 2rem;

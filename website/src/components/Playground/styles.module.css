@@ -7,6 +7,10 @@
   text-align: center;
 }
 
+.playground h2 {
+  margin: 1rem auto;
+}
+
 .form {
   display: flex;
   flex-direction: row;

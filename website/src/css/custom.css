@@ -1,48 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+@import './markdown.css';
 
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
-/* You can override the default Infima variables here. */
 :root {
-  /* Brand colors — softened for a more modern aesthetic */
-  --ifm-color-primary: #3b82f6; /* blue-500 */
-  --ifm-color-primary-dark: #2563eb; /* blue-600 */
-  --ifm-color-primary-darker: #1d4ed8; /* blue-700 */
-  --ifm-color-primary-darkest: #1e40af; /* blue-800 */
-  --ifm-color-primary-light: #60a5fa; /* blue-400 */
-  --ifm-color-primary-lighter: #93c5fd; /* blue-300 */
-  --ifm-color-primary-lightest: #bfdbfe; /* blue-200 */
+  --ifm-color-primary: #007aff;
+  --ifm-color-primary-dark: #006ee6;
+  --ifm-color-primary-darker: #0062cc;
+  --ifm-color-primary-darkest: #0055b3;
+  --ifm-color-primary-light: #1a87ff;
+  --ifm-color-primary-lighter: #3395ff;
+  --ifm-color-primary-lightest: #4da2ff;
 
-  /* Modern typography: prefer system fonts, fall back to Inter */
+  --ifm-color-emphasis-0: #FCFCFD;
+  --ifm-color-emphasis-100: #F9FAFB;
+  --ifm-color-emphasis-200: #F3F4F6;
+  --ifm-color-emphasis-300: #E5E7EB;
+  --ifm-color-emphasis-400: #D2D6DB;
+  --ifm-color-emphasis-500: #9DA4AE;
+  --ifm-color-emphasis-600: #6C737F;
+  --ifm-color-emphasis-700: #4D5761;
+  --ifm-color-emphasis-800: #384250;
+  --ifm-color-emphasis-900: #1F2A37;
+  --ifm-color-emphasis-1000: #111927;
+
+
   --ifm-font-family-base: ui-sans-serif, system-ui, -apple-system, Segoe UI,
     Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, 'Inter',
     'Apple Color Emoji', 'Segoe UI Emoji';
-  --ifm-global-shadow-lw: 1px 1px 1px 0px rgba(0, 0, 0, 0.1);
+  --ifm-global-shadow-lw: 0px transparent;
   --ifm-menu-color: var(--ifm-color-emphasis-200);
-  --ifm-font-family-monospace: 'JetBrains Mono', monospace;
+  --ifm-font-family-monospace: ui-monospace, 'SF Mono', Consolas,
+    'Liberation Mono', Menlo, Courier, monospace;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 
   --ifm-menu-color: unset;
-  --ifm-font-weight-semibold: 400;
   --ifm-heading-font-weight: 600;
-  --ifm-toc-border-color: transparent;
-  --ifm-table-background: rgba(0, 0, 0, 0.03);
-  --ifm-table-cell-padding: 0.25rem;
-  /* --ifm-transition-fast: 0;
-  --ifm-transition-slow: 0;
-  --ifm-transition-slow: 0; */
-
-  --ifm-table-cell-padding: 0.35rem 0.5rem;
+  --ifm-toc-border-color: var(--ifm-color-emphasis-200);
+  --ifm-table-cell-padding: 0.35em 0.5em;
   --ifm-table-border-width: 0;
-  --ifm-tabs-padding-vertical: 0.25rem;
-  --ifm-tabs-padding-horizontal: 0.5rem;
-  --ifm-global-spacing: 0.75rem;
-
-  /* --ifm-navbar-background-color: #eeeeff; */
+  --ifm-tabs-padding-vertical: 0.35em;
+  --ifm-tabs-padding-horizontal: 0.5em;
+  --ifm-global-spacing: 0.75em;
 
   --doc-sidebar-width: 260px !important;
   --ifm-alert-border-left-width: 2px;
@@ -50,29 +46,59 @@
   --ifm-menu-link-sublist-icon: url(/img/chevron.svg);
 
   --docsearch-muted-color: var(--docsearch-text-color) !important;
+
+  --ifm-code-border-radius: 0;
+
+  --ifm-navbar-shadow: none;  
+  --ifm-alert-shadow: none;
+  --ifm-pre-border-radius: 18px;
+  --ifm-table-border-color: var(--ifm-color-emphasis-300);
+  --ifm-navbar-background-color: var(--ifm-color-emphasis-0);
+ 
+  --ifm-dropdown-background-color: var(--ifm-color-emphasis-100);
+  --ifm-dropdown-hover-background-color: var(--ifm-color-emphasis-200);
+
+}
+
+html[data-theme="dark"] {
+  background-attachment: fixed !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 html[data-theme="dark"] {
-  --ifm-color-primary: #60a5fa; /* blue-400 */
-  --ifm-color-primary-dark: #3b82f6; /* blue-500 */
-  --ifm-color-primary-darker: #2563eb; /* blue-600 */
-  --ifm-color-primary-darkest: #1d4ed8; /* blue-700 */
-  --ifm-color-primary-light: #93c5fd; /* blue-300 */
-  --ifm-color-primary-lighter: #bfdbfe; /* blue-200 */
-  --ifm-color-primary-lightest: #dbeafe; /* blue-100 */
+  --ifm-color-primary: #0b84ff;
+  --ifm-color-primary-dark: #0a77e6;
+  --ifm-color-primary-darker: #096acc;
+  --ifm-color-primary-darkest: #085cb3;
+  --ifm-color-primary-light: #2390ff;
+  --ifm-color-primary-lighter: #3c9dff;
+  --ifm-color-primary-lightest: #54a9ff;
 
-  --ifm-table-background: rgba(0, 0, 0, 0.1);
+  --ifm-color-emphasis-0: #111927;
+  --ifm-color-emphasis-100: #1F2A37;
+  --ifm-color-emphasis-200: #384250;
+  --ifm-color-emphasis-300: #4D5761;
+  --ifm-color-emphasis-400: #6C737F;
+  --ifm-color-emphasis-500: #9DA4AE;
+  --ifm-color-emphasis-600: #D2D6DB;
+  --ifm-color-emphasis-700: #E5E7EB;
+  --ifm-color-emphasis-800: #F3F4F6;
+  --ifm-color-emphasis-900: #F9FAFB;
+  --ifm-color-emphasis-1000: #FCFCFD;
+
+  --ifm-toc-border-color: var(--ifm-color-emphasis-100);
   --ifm-table-border-color: var(--ifm-color-emphasis-100);
 
-  --ifm-background-color: #000;
-  --ifm-navbar-background-color: rgba(20, 20, 20, 0.6);
+  
+  background-image: linear-gradient(to bottom, #111, #111927) !important;
+}
 
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-
-  --ifm-toc-border-color: transparent !important;
-
-  --ifm-color-content: #d3d3d3;
+@media (min-width: 997px) {
+  html[data-theme="dark"] .navbar {
+    border-bottom-color: var(--ifm-color-emphasis-100) !important;
+  }
 }
 
 .rdp-root {
@@ -99,72 +125,12 @@ html[data-theme="dark"] .rdp-root {
 }
 
 html[data-theme="dark"] {
-  background-image: linear-gradient(to bottom, #0a0a0a, #131313) !important;
-  background-attachment: fixed !important;
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
 }
 
 /* Style the main content area */
 .main-wrapper main {
   max-width: 110ch; /* Constrain the maximum width of the content for better readability */
   margin-inline: auto;
-}
-
-.markdown {
-  min-height: calc(100vh - var(--ifm-navbar-height) - 17rem);
-}
-
-.markdown a {
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.markdown a[href^="http"] {
-  position: relative;
-  display: inline-block;
-  margin-right: 0.75em;
-}
-.markdown a[href^="http"]:after {
-  content: "↗";
-  font-size: 0.75em;
-  padding-left: 1px;
-  top: 0.3em;
-  text-decoration: none;
-  position: absolute;
-}
-
-.markdown h1:first-child {
-  font-size: 2.25rem;
-  letter-spacing: -0.02em;
-}
-@media (max-width: 996px) {
-  .markdown h1:first-child {
-    margin-block-start: 0em;
-  }
-}
-
-.markdown > h2 {
-  font-size: 1.6rem;
-  letter-spacing: -0.02em;
-  padding-top: 1em;
-  border-top: 1px solid var(--ifm-color-emphasis-200);
-}
-
-.markdown > header + h2 {
-  border-top: 0;
-}
-
-.markdown > h3 {
-  font-size: 1.35rem;
-  font-weight: 600;
-  letter-spacing: -0.015em;
-}
-
-.markdown > h4 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: -0.015em;
 }
 
 a > code {
@@ -209,7 +175,7 @@ a.table-of-contents__link:not(:hover):not(.table-of-contents__link--active) {
   .table-of-contents::before {
     content: "On This Page";
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1em;
     margin: var(--ifm-toc-padding-vertical) var(--ifm-toc-padding-horizontal);
   }
 }
@@ -225,46 +191,26 @@ a.theme-edit-this-page {
   display: inline-flex;
   align-items: center;
 }
+
 a.theme-edit-this-page > svg {
   height: 0.8rem;
   width: 0.8rem;
 }
 
-.markdown table {
-  margin: 2rem 0;
-  display: table;
-  width: 100%;
-  font-size: 0.875rem;
-}
-
-.markdown table tr {
-  border-bottom: 1px solid var(--ifm-table-border-color);
-}
-
-.markdown table tr {
-  background-color: unset;
-}
-
-.markdown table tr td code {
-  white-space: nowrap;
-}
-
-.markdown table th {
-  font-weight: 600;
-  background-color: unset !important;
-  text-align: left;
-}
-
-.markdown table thead tr {
-  border-bottom-width: 1px;
-}
 
 pre {
   --ifm-code-font-size: 85%;
-  background-color: var(--ifm-color-emphasis-100) !important;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 10px;
-  box-shadow: 0 1px 0 rgba(0,0,0,.02), 0 8px 24px rgba(0,0,0,.06);
+  background: var(--ifm-color-emphasis-0) !important;
+  --prism-background-color: var(--ifm-color-emphasis-0);
+  /* border: 1px solid var(--ifm-color-emphasis-200); */
+  /* box-shadow: 0 1px 0 rgba(0,0,0,.02), 0 8px 24px rgba(0,0,0,.06); */
+}
+
+
+
+div.codeBlockContainer_TRp6 {
+  box-shadow: none !important;
+  border-radius: var(--ifm-pre-border-radius);
 }
 
 .tabs__item {
@@ -279,27 +225,6 @@ pre {
 
 .tabs + .margin-top--md {
   margin-top: 0 !important;
-}
-
-.markdown details {
-  font-size: 0.875rem;
-}
-
-.markdown details summary {
-  font-size: 1rem;
-}
-
-.markdown details table {
-  margin: 0;
-}
-
-.markdown details > summary:before {
-  top: 0.37rem;
-}
-
-.markdown div[class^="codeBlockTitle_"] {
-  padding: 0.5rem 1rem;
-  font-size: 0.75rem;
 }
 
 @media (min-width: 997px) {
@@ -327,10 +252,6 @@ div[class^="docRoot"],
 .navbar__title {
   text-transform: uppercase;
   font-weight: 600;
-}
-
-.navbar__brand {
-  /* min-width: var(--doc-sidebar-width); */
 }
 
 a.navbar__item svg {
@@ -441,9 +362,6 @@ div[class^="docRoot"] {
   height: 1.75rem;
 }
 
-.markdown table.no-wrap-table {
-  display: block;
-}
 
 .no-wrap-table th,
 .no-wrap-table td {
@@ -466,29 +384,4 @@ div[class^="tocCollapsible"] > button {
 
 div[class^="tocCollapsibleContent"] > ul {
   border-bottom: 1px solid var(--ifm-color-emphasis-300);
-}
-
-/* Markdown typography refinements */
-.markdown :not(pre) > code {
-  background: var(--ifm-color-emphasis-100);
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 4px;
-  padding: 0.1rem 0.3rem;
-}
-html[data-theme="dark"] .markdown :not(pre) > code {
-  background: rgba(255, 255, 255, 0.04);
-}
-
-.markdown blockquote {
-  border-left: 3px solid var(--ifm-color-primary);
-  background: var(--ifm-table-background);
-  padding: 0.5rem 1rem;
-}
-
-.markdown ul,
-.markdown ol {
-  margin-block: 0.5rem 1rem;
-}
-.markdown li {
-  margin-block: 0.15rem;
 }
