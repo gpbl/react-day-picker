@@ -242,6 +242,9 @@ export function DayPicker(initialProps: DayPickerProps) {
       e.preventDefault();
       e.stopPropagation();
       setFocused(day);
+      if (m.disabled) {
+        return;
+      }
       select?.(day.date, m, e);
       onDayClick?.(day.date, m, e);
     },
