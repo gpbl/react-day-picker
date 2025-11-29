@@ -14,9 +14,6 @@ const config: Config = {
   projectName: "react-day-picker",
   trailingSlash: false,
 
-  onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
-
   i18n: {
     defaultLocale: "en",
     locales: ["en"],
@@ -128,7 +125,6 @@ const config: Config = {
       logo: {
         alt: "DayPicker Logo",
         src: "img/logo.png",
-        srcDark: "img/logo-dark.png",
       },
       items: [
         {
@@ -177,7 +173,7 @@ const config: Config = {
     prism: {
       additionalLanguages: ["bash", "diff", "json", "css"],
       theme: prismThemes.vsLight,
-      darkTheme: prismThemes.dracula,
+      darkTheme: prismThemes.vsDark,
     },
     algolia: {
       appId: "N44150BS2A",

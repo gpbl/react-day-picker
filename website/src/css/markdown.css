@@ -1,0 +1,154 @@
+.markdown {
+  min-height: calc(100vh - var(--ifm-navbar-height) - 17rem);
+}
+
+.markdown a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.markdown a[href^="http"] {
+  position: relative;
+  display: inline-block;
+  margin-right: 0.75em;
+}
+.markdown a[href^="http"]:after {
+  content: "↗";
+  font-size: 0.75em;
+  padding-left: 1px;
+  top: 0.3em;
+  text-decoration: none;
+  position: absolute;
+}
+
+.markdown h1:first-child {
+  font-size: 2.25rem;
+  letter-spacing: -0.02em;
+}
+@media (max-width: 996px) {
+  .markdown h1:first-child {
+    margin-block-start: 0em;
+  }
+}
+
+.markdown > h2 {
+  font-size: 1.6rem;
+  letter-spacing: -0.02em;
+  padding-top: 1em;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.markdown > header + h2 {
+  border-top: 0;
+}
+
+.markdown > h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.markdown > h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.markdown table {
+  margin: 2rem 0;
+  display: table;
+  width: 100%;
+  font-size: 0.875rem;
+}
+
+.markdown table tr {
+  border-bottom: 1px solid var(--ifm-table-border-color);
+}
+
+.markdown table tr {
+  background-color: unset;
+}
+
+.markdown table tr td code {
+  white-space: nowrap;
+}
+
+.markdown table th {
+  font-weight: 600;
+  background-color: unset !important;
+  text-align: left;
+}
+
+.markdown table thead tr {
+  border-bottom-width: 1px;
+}
+
+.markdown details {
+  font-size: 0.875rem;
+}
+
+.markdown details summary {
+  font-size: 1rem;
+}
+
+.markdown details table {
+  margin: 0;
+}
+
+.markdown details > summary:before {
+  top: 0.37rem;
+}
+
+.markdown div[class^="codeBlockTitle_"] {
+  padding: .8rem 1rem;
+  font-size: 0.75rem;
+  background: var(--ifm-color-emphasis-200);
+  border-bottom: 0;
+}
+
+[data-theme="dark"] .markdown div[class^="codeBlockTitle_"] {
+  background: var(--ifm-color-emphasis-100);
+}
+
+div[class^="codeBlockTitle_"] + div > pre {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.markdown table.no-wrap-table {
+  display: block;
+}
+
+.no-wrap-table th,
+.no-wrap-table td {
+  white-space: nowrap;
+}
+
+.no-wrap-table p {
+  margin: unset;
+}
+
+/* Markdown typography refinements */
+.markdown :not(pre) > code {
+  background: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 4px;
+  padding: 0.1rem 0.3rem;
+}
+html[data-theme="dark"] .markdown :not(pre) > code {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.markdown blockquote {
+  border-left: 3px solid var(--ifm-color-primary);
+  background: var(--ifm-table-background);
+  padding: 0.5rem 1rem;
+}
+
+.markdown ul[not(.tabs)],
+.markdown ol {
+  margin-block: 0.5rem 1rem;
+}
+.markdown li {
+  margin-block: 0.15rem;
+}
