@@ -9,7 +9,7 @@ import {
   nextButton,
   previousButton,
 } from "@/test/elements";
-import { fireEvent, render, screen } from "@/test/render";
+import { act, fireEvent, render, screen } from "@/test/render";
 import { setTestTime } from "@/test/setTestTime";
 import { user } from "@/test/user";
 import { defaultLocale } from "./classes/DateLib";
@@ -119,6 +119,31 @@ describe("when the grid is focused", () => {
       await user.tab();
       expect(activeElement()).toBe(dateButton(startOfMonth(today)));
     });
+  });
+});
+
+describe("when a disabled day is focused", () => {
+  test("keyboard and mouse interactions do not select it", async () => {
+    const disabledDay = new Date(2024, 8, 5);
+    const handleSelect = jest.fn();
+
+    render(
+      <DayPicker
+        defaultMonth={disabledDay}
+        disabled={[disabledDay]}
+        mode="single"
+        onSelect={handleSelect}
+      />,
+    );
+
+    const disabledElement = dateButton(disabledDay);
+    act(() => disabledElement.focus());
+
+    await user.keyboard("{Enter}");
+    await user.click(disabledElement);
+
+    expect(handleSelect).not.toHaveBeenCalled();
+    expect(disabledElement).toHaveAttribute("aria-disabled", "true");
   });
 });
 
