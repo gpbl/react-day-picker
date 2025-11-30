@@ -1,0 +1,24 @@
+---
+title: Setting the Time Zone
+sidebar_position: 2
+---
+
+DayPicker can render dates in a specific time zone so that what users see matches their local time or a time zone you explicitly choose. Internally, this is handled via the time zone support in [date-fns](https://date-fns.org/docs/Time-Zones).
+
+By default, DayPicker uses the browser’s local time zone. You can override this with the `timeZone` prop.
+
+The time zone can be specified as either an [IANA time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) identifier or a UTC offset.
+
+| Prop Name  | Type     | Description                                       |
+| ---------- | -------- | ------------------------------------------------- |
+| `timeZone` | `string` | The time zone to use when rendering the calendar. |
+
+```tsx
+<DayPicker timeZone="UTC" /> // Coordinated Universal Time
+<DayPicker timeZone="Pacific/Honolulu" /> // US Hawaii Time
+<DayPicker timeZone="Europe/Paris" /> // Central European Time
+```
+
+<BrowserWindow bodyStyle={{ justifyContent: "start" }}>
+  <Examples.TimeZone />
+</BrowserWindow>

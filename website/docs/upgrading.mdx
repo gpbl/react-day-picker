@@ -18,7 +18,7 @@ If you are upgrading from v7, this guide is still valid. First, read the [migrat
 npm install react-day-picker@latest
 ```
 
-If you are not using `date-fns` directly in your code (e.g., when using a [different locale](./docs/localization.mdx)), remove it from your dependencies:
+If you are not using `date-fns` directly in your code (e.g., when using a [different locale](./localization/changing-locale.mdx)), remove it from your dependencies:
 
 ```bash npm2yarn
 npm remove date-fns
@@ -159,7 +159,7 @@ Update test selectors as needed:
 
 #### `labelDay` Changes
 
-The `labelDay` function has been renamed to `labelDayButton`. It now includes the year and communicates the selected and today status. See [Translating DayPicker](./docs/translation.mdx) for more information.
+The `labelDay` function has been renamed to `labelDayButton`. It now includes the year and communicates the selected and today status. See [Translating DayPicker](./guides/translation.mdx) for more information.
 
 ### 7. Update Formatters to Return a String
 

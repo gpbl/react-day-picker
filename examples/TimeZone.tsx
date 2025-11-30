@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { DayPicker, TZDate } from "react-day-picker";
 
 export function TimeZone() {
-  const timeZone = "Pacific/Kiritimati";
+  const timeZone = "Pacific/Honolulu";
   const [selected, setSelected] = useState<Date | undefined>(
     TZDate.tz(timeZone),
   );

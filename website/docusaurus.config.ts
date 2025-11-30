@@ -87,6 +87,34 @@ const config: Config = {
             to: "/guides/accessibility",
             from: ["/docs/accessibility"],
           },
+          {
+            to: "/guides/translation",
+            from: ["/docs/translation", "/localization/translating-daypicker"],
+          },
+          {
+            to: "/localization/changing-locale",
+            from: ["/docs/localization"],
+          },
+          {
+            to: "/localization/setting-time-zone",
+            from: ["/docs/time-zone"],
+          },
+          {
+            to: "/localization/persian",
+            from: ["/calendars/persian"],
+          },
+          {
+            to: "/localization/buddhist",
+            from: ["/calendars/buddhist"],
+          },
+          {
+            to: "/localization/ethiopic",
+            from: ["/calendars/ethiopic"],
+          },
+          {
+            to: "/localization/hebrew",
+            from: ["/calendars/hebrew"],
+          },
         ],
       },
     ],

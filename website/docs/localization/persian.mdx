@@ -1,0 +1,36 @@
+---
+title: Persian Calendar
+---
+
+DayPicker supports the Persian [Solar Hijri](<https://en.wikipedia.org/wiki/Iranian_calendars#Modern_calendar:_Solar_Hijri_(SH)>) calendar via a dedicated build.
+
+Import `DayPicker` from `react-day-picker/persian` to render Persian months and weekdays while keeping the usual DayPicker API.
+
+```tsx
+import { DayPicker } from "react-day-picker/persian";
+```
+
+### Farsi labels, Eastern Arabic-Indic digits
+
+```tsx
+import { DayPicker } from "react-day-picker/persian";
+import { faIR } from "react-day-picker/locale";
+<DayPicker locale={faIR} />;
+```
+
+<BrowserWindow>
+  <Examples.Persian />
+</BrowserWindow>
+
+### English labels, LTR, Latin digits
+
+```tsx
+import { DayPicker } from "react-day-picker/persian";
+import { enUS } from "react-day-picker/locale";
+
+<DayPicker locale={enUS} dir="ltr" numerals="latn" />;
+```
+
+<BrowserWindow>
+  <Examples.PersianEn />
+</BrowserWindow>
