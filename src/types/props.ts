@@ -1,5 +1,5 @@
 import type React from "react";
-import type { DateLib, Locale } from "../classes/DateLib.js";
+import type { DateLib, DayPickerLocale } from "../classes/DateLib.js";
 import type { DeprecatedUI } from "../UI.js";
 
 import type {
@@ -431,7 +431,7 @@ export interface PropsBase {
    * @see https://daypicker.dev/docs/localization
    * @see https://github.com/date-fns/date-fns/tree/main/src/locale for a list of the supported locales
    */
-  locale?: Partial<Locale> | undefined;
+  locale?: Partial<DayPickerLocale> | undefined;
   /**
    * The numeral system to use when formatting dates.
    *

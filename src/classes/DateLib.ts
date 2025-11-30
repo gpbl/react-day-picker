@@ -42,15 +42,26 @@ import {
   startOfWeek,
   startOfYear,
 } from "date-fns";
-import type { Locale } from "date-fns/locale";
+import type { Locale as DateFnsLocale } from "date-fns/locale";
 import { enUS } from "date-fns/locale/en-US";
 
 import { endOfBroadcastWeek } from "../helpers/endOfBroadcastWeek.js";
 import { startOfBroadcastWeek } from "../helpers/startOfBroadcastWeek.js";
-import type { Numerals } from "../types/shared.js";
+import type { Labels, Numerals } from "../types/shared.js";
 
 export type { Month as DateFnsMonth } from "date-fns";
-export type { Locale } from "date-fns/locale";
+
+/** Translations for DayPicker-specific labels. */
+export type DayPickerLocaleLabels = {
+  [K in keyof Labels]?: string | Labels[K];
+};
+
+/** Locale type used by DayPicker. */
+export interface DayPickerLocale extends DateFnsLocale {
+  /** Localized DayPicker-specific labels. */
+  labels?: DayPickerLocaleLabels;
+}
+export type Locale = DayPickerLocale;
 
 /**
  * @ignore
@@ -82,7 +93,7 @@ export interface DateLibOptions
   /** A constructor for the `Date` object. */
   Date?: typeof Date;
   /** A locale to use for formatting dates. */
-  locale?: Locale;
+  locale?: DayPickerLocale;
   /**
    * A time zone to use for dates.
    *

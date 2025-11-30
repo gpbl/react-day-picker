@@ -1,3 +1,7 @@
+import type { DateLibOptions } from "../classes/DateLib.js";
+
+const defaultLabel = "Go to the Next Month";
+
 /**
  * Generates the ARIA label for the "next month" button.
  *
@@ -8,6 +12,6 @@
  * @group Labels
  * @see https://daypicker.dev/docs/translation#aria-labels
  */
-export function labelNext(_month: Date | undefined) {
-  return "Go to the Next Month";
+export function labelNext(_month: Date | undefined, _options?: DateLibOptions) {
+  return defaultLabel;
 }
