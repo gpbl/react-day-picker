@@ -187,6 +187,16 @@
     "./examples": {
       "types": "./examples/index.d.ts",
       "import": "./examples/index.ts"
+    },
+    "./locales/*": {
+      "import": {
+        "types": "./dist/esm/locales/*.d.ts",
+        "default": "./dist/esm/locales/*.js"
+      },
+      "require": {
+        "types": "./dist/cjs/locales/*.d.ts",
+        "default": "./dist/cjs/locales/*.js"
+      }
     }
   },
   "scripts": {
