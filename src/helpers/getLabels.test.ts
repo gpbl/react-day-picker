@@ -3,6 +3,7 @@ import { enUS } from "date-fns/locale";
 import { DateLib } from "../classes/DateLib.js";
 import { fr } from "../locales/fr.js";
 import { it } from "../locales/it.js";
+import { ja } from "../locales/ja.js";
 
 import { getLabels } from "./getLabels.js";
 
@@ -33,6 +34,20 @@ describe("getLabels", () => {
     const labels = getLabels(undefined, dateLib.options);
 
     expect(labels.labelWeekday(new Date(2024, 0, 1))).toBe("weekday-1");
+  });
+
+  test("custom labels override locale labels", () => {
+    const custom = { labelNext: () => "custom-next" };
+    const labels = getLabels(custom, new DateLib({ locale: ja }).options);
+
+    expect(labels.labelNext(new Date())).toBe("custom-next");
+  });
+
+  test("falls back to defaults when locale does not define a label", () => {
+    const locale = { ...enUS, labels: {} };
+    const labels = getLabels(undefined, new DateLib({ locale }).options);
+
+    expect(labels.labelWeekNumber(1)).toBe("Week 1");
   });
 
   test("uses Italian locale label translations", () => {
