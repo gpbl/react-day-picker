@@ -1,6 +1,7 @@
 import { enUS } from "date-fns/locale/en-US";
-import { format as ethFormat } from "../lib/format";
-import { amET } from "./am-ET";
+
+import { format as ethFormat } from "../ethiopic/lib/format.js";
+import { amET } from "./am-ET.js";
 
 describe("am-ET locale", () => {
   test("has correct code", () => {
@@ -42,3 +43,4 @@ describe("am-ET locale", () => {
     );
   });
 });
+

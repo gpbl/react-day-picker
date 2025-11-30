@@ -9,9 +9,7 @@ import {
 import type { DayPickerProps } from "../types/props.js";
 
 import * as ethiopicDateLib from "./lib/index.js";
-import amET from "./locale/am-ET.js";
-
-export { enUS } from "date-fns/locale/en-US";
+import amET from "../locale/am-ET.js";
 
 /**
  * Render the Ethiopic calendar.
@@ -68,4 +66,4 @@ export const getDateLib = (options?: DateLibOptions) => {
 };
 
 // Export a minimal Amharic (Ethiopia) date-fns locale that uses Intl
-export { amET } from "./locale/am-ET.js";
+export { amET } from "../locale/am-ET.js";

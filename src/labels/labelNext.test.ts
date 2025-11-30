@@ -2,7 +2,7 @@ import { enUS } from "date-fns/locale";
 
 import { DateLib, type DayPickerLocale } from "../classes/DateLib.js";
 import { getLabels } from "../helpers/getLabels.js";
-import { it } from "../locales/it.js";
+import { it } from "../locale/it.js";
 
 import { labelNext } from "./labelNext";
 
