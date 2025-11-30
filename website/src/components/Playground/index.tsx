@@ -8,22 +8,26 @@ import {
 import {
   DayPicker as DayPickerBuddhist,
   getDateLib as getDateLibBuddhist,
+  enUS as enUSBuddhist,
   th as thBuddhist,
 } from "react-day-picker/buddhist";
 import {
   amET as amETEthiopic,
   DayPicker as DayPickerEthiopic,
   getDateLib as getDateLibEthiopic,
+  enUS as enUSEthiopic,
 } from "react-day-picker/ethiopic";
 import {
   DayPicker as DayPickerHebrew,
   getDateLib as getDateLibHebrew,
+  enUS as enUSHebrew,
   he as heHebrew,
 } from "react-day-picker/hebrew";
 import * as locales from "react-day-picker/locale";
 import {
   DayPicker as DayPickerPersian,
   faIR as faIRpersian,
+  enUS as enUSPersian,
   getDateLib,
 } from "react-day-picker/persian";
 import { BrowserWindow } from "../BrowserWindow";
@@ -36,6 +40,13 @@ import styles from "./styles.module.css";
 import { toJSX } from "./toJSX";
 import { useQueryStringSync } from "./useQueryStringSync";
 
+const localeImportsByCalendar = {
+  persian: { enUS: enUSPersian, faIR: faIRpersian },
+  ethiopic: { amET: amETEthiopic, enUS: enUSEthiopic },
+  buddhist: { enUS: enUSBuddhist, th: thBuddhist },
+  hebrew: { enUS: enUSHebrew, he: heHebrew },
+};
+
 export function Playground() {
   const { props, setProps } = useQueryStringSync();
   const [selected, setSelected] = React.useState<
@@ -46,7 +57,46 @@ export function Playground() {
   const [backgroundAccentColor, setBackgroundAccentColor] = React.useState("");
   const [rangeMiddleColor, setRangeMiddleColor] = React.useState("");
 
-  let formattedProps = `<DayPicker${toJSX({
+  const calendarLocale =
+    props.calendar && props.calendar in localeImportsByCalendar
+      ? localeImportsByCalendar[
+          props.calendar as keyof typeof localeImportsByCalendar
+        ]
+      : undefined;
+
+  const localeEntries = calendarLocale
+    ? Object.entries(calendarLocale)
+    : Object.entries(locales);
+  const localeEntry =
+    props.locale &&
+    localeEntries.find(([, localeValue]) => localeValue === props.locale);
+  const localeName = localeEntry?.[0];
+  const localeProp = localeName ? ` locale={${localeName}}` : "";
+  const localeImport =
+    localeName &&
+    (calendarLocale
+      ? `import { ${localeName} } from "react-day-picker/${props.calendar}";`
+      : `import { ${localeName} } from "react-day-picker/locale";`);
+
+  const importStatements: string[] = [];
+
+  if (props.calendar === "persian") {
+    importStatements.push(`import { DayPicker } from "react-day-picker/persian";`);
+  } else if (props.calendar === "ethiopic") {
+    importStatements.push(`import { DayPicker } from "react-day-picker/ethiopic";`);
+  } else if (props.calendar === "buddhist") {
+    importStatements.push(`import { DayPicker } from "react-day-picker/buddhist";`);
+  } else if (props.calendar === "hebrew") {
+    importStatements.push(`import { DayPicker } from "react-day-picker/hebrew";`);
+  } else {
+    importStatements.push(`import { DayPicker } from "react-day-picker";`);
+  }
+
+  if (localeImport) {
+    importStatements.unshift(localeImport);
+  }
+
+  const formattedProps = `${importStatements.join("\n")}\n\n<DayPicker${toJSX({
     ...props,
     // @ts-expect-error calendar is not a prop of DayPicker
     calendar: undefined,
@@ -56,27 +106,7 @@ export function Playground() {
       props.dir === "rtl"
         ? undefined
         : props.dir,
-  })} />`;
-
-  if (props.calendar === "persian") {
-    formattedProps =
-      `import { DayPicker } from "react-day-picker/persian";\n\n` +
-      formattedProps;
-  } else if (props.calendar === "ethiopic") {
-    formattedProps =
-      `import { DayPicker } from "react-day-picker/ethiopic";\n\n` +
-      formattedProps;
-  } else if (props.calendar === "buddhist") {
-    formattedProps =
-      `import { DayPicker } from "react-day-picker/buddhist";\n\n` +
-      formattedProps;
-  } else if (props.calendar === "hebrew") {
-    formattedProps =
-      `import { DayPicker } from "react-day-picker/hebrew";\n\n` +
-      formattedProps;
-  } else {
-    formattedProps = `import { DayPicker } from "react-day-picker";\n\n${formattedProps}`;
-  }
+  })}${localeProp} />`;
   const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
   const DayPickerComponent =

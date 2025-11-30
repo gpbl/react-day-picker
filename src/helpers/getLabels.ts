@@ -1,15 +1,99 @@
 import * as defaultLabels from "../labels/index.js";
+import type { DateLibOptions } from "../classes/DateLib.js";
 import type { DayPickerProps, Labels } from "../types/index.js";
+
+const resolveLabel = <T extends (...args: any[]) => string>(
+  defaultLabel: T,
+  customLabel: T | undefined,
+  localeLabel: string | T | undefined,
+): T => {
+  if (customLabel) return customLabel;
+  if (localeLabel) {
+    return (typeof localeLabel === "function"
+      ? localeLabel
+      : ((..._args: Parameters<T>) => localeLabel)) as T;
+  }
+  return defaultLabel;
+};
 
 /**
  * Merges custom labels from the props with the default labels.
  *
+ * When available, uses the locale-provided translation for `labelNext`.
+ *
  * @param customLabels The custom labels provided in the DayPicker props.
- * @returns The merged labels object.
+ * @param options Options from the date library, used to resolve locale translations.
+ * @returns The merged labels object with locale-aware defaults.
  */
-export function getLabels(customLabels: DayPickerProps["labels"]): Labels {
+export function getLabels(
+  customLabels: DayPickerProps["labels"],
+  options: DateLibOptions,
+): Labels {
+  const localeLabels = options.locale?.labels ?? {};
+
   return {
     ...defaultLabels,
-    ...customLabels,
+    ...(customLabels ?? {}),
+    labelDayButton: resolveLabel(
+      defaultLabels.labelDayButton,
+      customLabels?.labelDayButton,
+      localeLabels.labelDayButton,
+    ),
+    labelMonthDropdown: resolveLabel(
+      defaultLabels.labelMonthDropdown,
+      customLabels?.labelMonthDropdown,
+      localeLabels.labelMonthDropdown,
+    ),
+    labelNext: (month: Date | undefined, opts: DateLibOptions = options) => {
+      if (customLabels?.labelNext) {
+        return customLabels.labelNext(month, opts);
+      }
+      if (localeLabels.labelNext) {
+        return typeof localeLabels.labelNext === "function"
+          ? localeLabels.labelNext(month, opts)
+          : localeLabels.labelNext;
+      }
+      return defaultLabels.labelNext(month, opts);
+    },
+    labelPrevious: resolveLabel(
+      defaultLabels.labelPrevious,
+      customLabels?.labelPrevious,
+      localeLabels.labelPrevious,
+    ),
+    labelWeekNumber: resolveLabel(
+      defaultLabels.labelWeekNumber,
+      customLabels?.labelWeekNumber,
+      localeLabels.labelWeekNumber,
+    ),
+    labelYearDropdown: resolveLabel(
+      defaultLabels.labelYearDropdown,
+      customLabels?.labelYearDropdown,
+      localeLabels.labelYearDropdown,
+    ),
+    labelGrid: resolveLabel(
+      defaultLabels.labelGrid,
+      customLabels?.labelGrid,
+      localeLabels.labelGrid,
+    ),
+    labelGridcell: resolveLabel(
+      defaultLabels.labelGridcell,
+      customLabels?.labelGridcell,
+      localeLabels.labelGridcell,
+    ),
+    labelNav: resolveLabel(
+      defaultLabels.labelNav,
+      customLabels?.labelNav,
+      localeLabels.labelNav,
+    ),
+    labelWeekNumberHeader: resolveLabel(
+      defaultLabels.labelWeekNumberHeader,
+      customLabels?.labelWeekNumberHeader,
+      localeLabels.labelWeekNumberHeader,
+    ),
+    labelWeekday: resolveLabel(
+      defaultLabels.labelWeekday,
+      customLabels?.labelWeekday,
+      localeLabels.labelWeekday,
+    ),
   };
 }

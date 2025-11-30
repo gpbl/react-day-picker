@@ -12,7 +12,7 @@ import { getMonthOptions } from "./helpers/getMonthOptions.js";
 import { getStyleForModifiers } from "./helpers/getStyleForModifiers.js";
 import { getWeekdays } from "./helpers/getWeekdays.js";
 import { getYearOptions } from "./helpers/getYearOptions.js";
-import * as defaultLabels from "./labels/index.js";
+import { getLabels } from "./helpers/getLabels.js";
 import type {
   DayPickerProps,
   Modifiers,
@@ -118,7 +118,7 @@ export function DayPicker(initialProps: DayPickerProps) {
         dateLib,
         components: getComponents(props.components),
         formatters: getFormatters(props.formatters),
-        labels: { ...defaultLabels, ...props.labels },
+        labels: getLabels(props.labels, dateLib.options),
         locale,
         classNames: { ...getDefaultClassNames(), ...props.classNames },
       };
