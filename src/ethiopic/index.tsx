@@ -6,10 +6,9 @@ import {
   type DateLibOptions,
   DayPicker as DayPickerComponent,
 } from "../index.js";
-import type { DayPickerProps } from "../types/props.js";
-
-import * as ethiopicDateLib from "./lib/index.js";
 import amET from "../locale/am-ET.js";
+import type { DayPickerProps } from "../types/props.js";
+import * as ethiopicDateLib from "./lib/index.js";
 
 /**
  * Render the Ethiopic calendar.

@@ -1,11 +1,15 @@
 import type {
-  Locale,
+  Locale as DateFnsLocale,
   LocaleDayPeriod,
   LocaleOptions,
   LocaleWidth,
   Localize,
 } from "date-fns/locale";
 import { enUS } from "date-fns/locale/en-US";
+
+import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
+import { DateLib } from "../classes/DateLib.js";
+import type { Modifiers } from "../types/index.js";
 
 /**
  * Minimal Amharic (Ethiopia) locale for date-fns v4.
@@ -99,8 +103,11 @@ const options: LocaleOptions = {
   firstWeekContainsDate: 1,
 };
 
-/** Amharic (Ethiopia) locale backed by Intl for core names. */
-export const amET: Locale = {
+/**
+ * Amharic (Ethiopia) locale backed by Intl for core names plus DayPicker
+ * labels.
+ */
+export const amET: DayPickerLocale = {
   code: "am-ET",
   // Reuse en-US for distance/relative formatting and formatLong skeletons
   formatDistance: enUS.formatDistance,
@@ -109,7 +116,44 @@ export const amET: Locale = {
   localize,
   match: enUS.match,
   options,
+  labels: {
+    labelDayButton: (
+      date: Date,
+      modifiers: Modifiers,
+      opts?: DateLibOptions,
+      dateLib?: DateLib,
+    ) => {
+      const lib = dateLib ?? new DateLib(opts);
+      let label = lib.format(date, "PPPP");
+      if (modifiers.today) label = `ዛሬ፣ ${label}`;
+      if (modifiers.selected) label = `${label}, ተመርጧል`;
+      return label;
+    },
+    labelMonthDropdown: "ወርን ይምረጡ",
+    labelNext: "ወደ ቀጣይ ወር ይሂዱ",
+    labelPrevious: "ወደ ቀዳሚ ወር ይሂዱ",
+    labelWeekNumber: (weekNumber: number) => `ሳምንት ${weekNumber}`,
+    labelYearDropdown: "ዓመቱን ይምረጡ",
+    labelGrid: (date: Date, opts?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(opts)).formatMonthYear(date),
+    labelGridcell: (
+      date: Date,
+      modifiers?: Modifiers,
+      opts?: DateLibOptions,
+      dateLib?: DateLib,
+    ) => {
+      const lib = dateLib ?? new DateLib(opts);
+      let label = lib.format(date, "PPPP");
+      if (modifiers?.today) {
+        label = `ዛሬ፣ ${label}`;
+      }
+      return label;
+    },
+    labelNav: "መምሪያ አሞሌ",
+    labelWeekNumberHeader: "የሳምንት ቁጥር",
+    labelWeekday: (date: Date, opts?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(opts)).format(date, "cccc"),
+  },
 };
 
 export default amET;
-
