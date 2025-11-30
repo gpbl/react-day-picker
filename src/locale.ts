@@ -4,6 +4,7 @@ export type {
   DayPickerLocaleLabels,
 } from "./classes/DateLib.js";
 export { af } from "./locale/af.js";
+export { amET } from "./locale/am-ET.js";
 export { ar } from "./locale/ar.js";
 export { arDZ } from "./locale/ar-DZ.js";
 export { arEG } from "./locale/ar-EG.js";
@@ -31,12 +32,14 @@ export { enIE } from "./locale/en-IE.js";
 export { enIN } from "./locale/en-IN.js";
 export { enNZ } from "./locale/en-NZ.js";
 export { enUS } from "./locale/en-US.js";
+export { enUSJalali } from "./locale/en-US-jalali.js";
 export { enZA } from "./locale/en-ZA.js";
 export { eo } from "./locale/eo.js";
 export { es } from "./locale/es.js";
 export { et } from "./locale/et.js";
 export { eu } from "./locale/eu.js";
 export { faIR } from "./locale/fa-IR.js";
+export { faIRJalali } from "./locale/fa-IR-jalali.js";
 export { fi } from "./locale/fi.js";
 export { fr } from "./locale/fr.js";
 export { frCA } from "./locale/fr-CA.js";
