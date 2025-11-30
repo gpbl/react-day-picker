@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Icelandic locale extended with DayPicker-specific translations.
- */
+/** Icelandic locale extended with DayPicker-specific translations. */
 export const is: DayPickerLocale = {
   ...dateFnsIs,
   labels: {
@@ -27,11 +25,8 @@ export const is: DayPickerLocale = {
     labelPrevious: "Farðu í fyrri mánuð",
     labelWeekNumber: (weekNumber: number) => `Vika ${weekNumber}`,
     labelYearDropdown: "Veldu árið",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const is: DayPickerLocale = {
     },
     labelNav: "Leiðarstika",
     labelWeekNumberHeader: "Vikunúmer",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

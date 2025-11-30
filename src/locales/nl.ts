@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Dutch locale extended with DayPicker-specific translations.
- */
+/** Dutch locale extended with DayPicker-specific translations. */
 export const nl: DayPickerLocale = {
   ...dateFnsNl,
   labels: {
@@ -27,11 +25,8 @@ export const nl: DayPickerLocale = {
     labelPrevious: "Ga naar vorige maand",
     labelWeekNumber: (weekNumber: number) => `Week ${weekNumber}`,
     labelYearDropdown: "Kies het jaar",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const nl: DayPickerLocale = {
     },
     labelNav: "Navigatiebalk",
     labelWeekNumberHeader: "Weeknummer",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

@@ -47,8 +47,7 @@ import { enUS } from "date-fns/locale/en-US";
 
 import { endOfBroadcastWeek } from "../helpers/endOfBroadcastWeek.js";
 import { startOfBroadcastWeek } from "../helpers/startOfBroadcastWeek.js";
-import type { Labels } from "../types/shared.js";
-import type { Numerals } from "../types/shared.js";
+import type { Labels, Numerals } from "../types/shared.js";
 
 export type { Month as DateFnsMonth } from "date-fns";
 

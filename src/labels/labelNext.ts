@@ -12,9 +12,6 @@ const defaultLabel = "Go to the Next Month";
  * @group Labels
  * @see https://daypicker.dev/docs/translation#aria-labels
  */
-export function labelNext(
-  _month: Date | undefined,
-  _options?: DateLibOptions,
-) {
+export function labelNext(_month: Date | undefined, _options?: DateLibOptions) {
   return defaultLabel;
 }

@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Albanian locale extended with DayPicker-specific translations.
- */
+/** Albanian locale extended with DayPicker-specific translations. */
 export const sq: DayPickerLocale = {
   ...dateFnsSq,
   labels: {
@@ -27,11 +25,8 @@ export const sq: DayPickerLocale = {
     labelPrevious: "Shko te muaji i mëparshëm",
     labelWeekNumber: (weekNumber: number) => `Java ${weekNumber}`,
     labelYearDropdown: "Zgjidhni vitin",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const sq: DayPickerLocale = {
     },
     labelNav: "Shiriti i navigimit",
     labelWeekNumberHeader: "Numri i javës",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

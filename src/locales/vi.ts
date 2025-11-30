@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Vietnamese locale extended with DayPicker-specific translations.
- */
+/** Vietnamese locale extended with DayPicker-specific translations. */
 export const vi: DayPickerLocale = {
   ...dateFnsVi,
   labels: {
@@ -27,11 +25,8 @@ export const vi: DayPickerLocale = {
     labelPrevious: "Đến tháng trước",
     labelWeekNumber: (weekNumber: number) => `Tuần ${weekNumber}`,
     labelYearDropdown: "Chọn năm",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const vi: DayPickerLocale = {
     },
     labelNav: "Thanh điều hướng",
     labelWeekNumberHeader: "Số tuần",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

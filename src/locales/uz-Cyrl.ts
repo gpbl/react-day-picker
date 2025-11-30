@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Uzbek (Cyrillic) locale extended with DayPicker-specific translations.
- */
+/** Uzbek (Cyrillic) locale extended with DayPicker-specific translations. */
 export const uzCyrl: DayPickerLocale = {
   ...dateFnsUzCyrl,
   labels: {
@@ -27,11 +25,8 @@ export const uzCyrl: DayPickerLocale = {
     labelPrevious: "Олдинги ойга ўтинг",
     labelWeekNumber: (weekNumber: number) => `Ҳафта ${weekNumber}`,
     labelYearDropdown: "Йилни танланг",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const uzCyrl: DayPickerLocale = {
     },
     labelNav: "Навигация панели",
     labelWeekNumberHeader: "Ҳафта рақами",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

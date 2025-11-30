@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Japanese locale extended with DayPicker-specific translations.
- */
+/** Japanese locale extended with DayPicker-specific translations. */
 export const ja: DayPickerLocale = {
   ...dateFnsJa,
   labels: {
@@ -27,11 +25,8 @@ export const ja: DayPickerLocale = {
     labelPrevious: "前の月へ",
     labelWeekNumber: (weekNumber: number) => `第${weekNumber}週`,
     labelYearDropdown: "年を選択",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const ja: DayPickerLocale = {
     },
     labelNav: "ナビゲーションバー",
     labelWeekNumberHeader: "週番号",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

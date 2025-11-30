@@ -8,11 +8,11 @@ import { getComponents } from "./helpers/getComponents.js";
 import { getDataAttributes } from "./helpers/getDataAttributes.js";
 import { getDefaultClassNames } from "./helpers/getDefaultClassNames.js";
 import { getFormatters } from "./helpers/getFormatters.js";
+import { getLabels } from "./helpers/getLabels.js";
 import { getMonthOptions } from "./helpers/getMonthOptions.js";
 import { getStyleForModifiers } from "./helpers/getStyleForModifiers.js";
 import { getWeekdays } from "./helpers/getWeekdays.js";
 import { getYearOptions } from "./helpers/getYearOptions.js";
-import { getLabels } from "./helpers/getLabels.js";
 import type {
   DayPickerProps,
   Modifiers,

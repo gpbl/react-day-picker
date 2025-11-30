@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Estonian locale extended with DayPicker-specific translations.
- */
+/** Estonian locale extended with DayPicker-specific translations. */
 export const et: DayPickerLocale = {
   ...dateFnsEt,
   labels: {
@@ -27,11 +25,8 @@ export const et: DayPickerLocale = {
     labelPrevious: "Mine eelmisele kuule",
     labelWeekNumber: (weekNumber: number) => `Nädal ${weekNumber}`,
     labelYearDropdown: "Vali aasta",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const et: DayPickerLocale = {
     },
     labelNav: "Navigeerimisriba",
     labelWeekNumberHeader: "Nädala number",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

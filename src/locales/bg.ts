@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Bulgarian locale extended with DayPicker-specific translations.
- */
+/** Bulgarian locale extended with DayPicker-specific translations. */
 export const bg: DayPickerLocale = {
   ...dateFnsBg,
   labels: {
@@ -27,11 +25,8 @@ export const bg: DayPickerLocale = {
     labelPrevious: "Към предишния месец",
     labelWeekNumber: (weekNumber: number) => `Седмица ${weekNumber}`,
     labelYearDropdown: "Изберете година",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const bg: DayPickerLocale = {
     },
     labelNav: "Лента за навигация",
     labelWeekNumberHeader: "Номер на седмица",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

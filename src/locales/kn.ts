@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Kannada locale extended with DayPicker-specific translations.
- */
+/** Kannada locale extended with DayPicker-specific translations. */
 export const kn: DayPickerLocale = {
   ...dateFnsKn,
   labels: {
@@ -27,11 +25,8 @@ export const kn: DayPickerLocale = {
     labelPrevious: "ಹಿಂದಿನ ತಿಂಗಳಿಗೆ ಹೋಗಿ",
     labelWeekNumber: (weekNumber: number) => `ವಾರ ${weekNumber}`,
     labelYearDropdown: "ವರ್ಷ ಆಯ್ಕೆಮಾಡಿ",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const kn: DayPickerLocale = {
     },
     labelNav: "ನವಿಗೇಶನ್ ಪಟ್ಟೆ",
     labelWeekNumberHeader: "ವಾರ ಸಂಖ್ಯೆ",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

@@ -5,7 +5,8 @@ import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
 /**
- * Central Kurdish (Sorani) locale extended with DayPicker-specific translations.
+ * Central Kurdish (Sorani) locale extended with DayPicker-specific
+ * translations.
  */
 export const ckb: DayPickerLocale = {
   ...dateFnsCkb,
@@ -27,11 +28,8 @@ export const ckb: DayPickerLocale = {
     labelPrevious: "بڕۆ بۆ مانگی پێشوو",
     labelWeekNumber: (weekNumber: number) => `هەفتە ${weekNumber}`,
     labelYearDropdown: "ساڵ هەڵبژێرە",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +45,7 @@ export const ckb: DayPickerLocale = {
     },
     labelNav: "شریتی ڕاڕەوێژ",
     labelWeekNumberHeader: "ژمارەی هەفتە",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

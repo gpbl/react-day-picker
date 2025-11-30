@@ -13,9 +13,7 @@ test("returns the default label when no locale translation is provided", () => {
 test("returns the translated label from the locale when available", () => {
   const labels = getLabels(undefined, new DateLib({ locale: it }).options);
 
-  expect(labels.labelNext(new Date())).toEqual(
-    "Vai al mese successivo",
-  );
+  expect(labels.labelNext(new Date())).toEqual("Vai al mese successivo");
 });
 
 test("calls the locale label function when provided", () => {
@@ -23,7 +21,9 @@ test("calls the locale label function when provided", () => {
     ...enUS,
     labels: {
       labelNext: (month) =>
-        month ? `Next: ${month.toLocaleDateString("en-US", { month: "long" })}` : "Next",
+        month
+          ? `Next: ${month.toLocaleDateString("en-US", { month: "long" })}`
+          : "Next",
     },
   };
 

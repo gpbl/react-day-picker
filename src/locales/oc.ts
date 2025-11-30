@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Occitan locale extended with DayPicker-specific translations.
- */
+/** Occitan locale extended with DayPicker-specific translations. */
 export const oc: DayPickerLocale = {
   ...dateFnsOc,
   labels: {
@@ -27,11 +25,8 @@ export const oc: DayPickerLocale = {
     labelPrevious: "Anar al mes precedent",
     labelWeekNumber: (weekNumber: number) => `Setmana ${weekNumber}`,
     labelYearDropdown: "Causissètz l'annada",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const oc: DayPickerLocale = {
     },
     labelNav: "Barra de navigacion",
     labelWeekNumberHeader: "Numèro de setmana",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

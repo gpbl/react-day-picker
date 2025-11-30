@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Kazakh locale extended with DayPicker-specific translations.
- */
+/** Kazakh locale extended with DayPicker-specific translations. */
 export const kk: DayPickerLocale = {
   ...dateFnsKk,
   labels: {
@@ -27,11 +25,8 @@ export const kk: DayPickerLocale = {
     labelPrevious: "Алдыңғы айға өту",
     labelWeekNumber: (weekNumber: number) => `Апта ${weekNumber}`,
     labelYearDropdown: "Жылды таңдаңыз",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const kk: DayPickerLocale = {
     },
     labelNav: "Навигация жолағы",
     labelWeekNumberHeader: "Апта нөмірі",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

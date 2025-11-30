@@ -25,8 +25,7 @@ describe("getLabels", () => {
       locale: {
         ...enUS,
         labels: {
-          labelWeekday: (date) =>
-            `weekday-${date.getDay()}`,
+          labelWeekday: (date) => `weekday-${date.getDay()}`,
         },
       },
     });

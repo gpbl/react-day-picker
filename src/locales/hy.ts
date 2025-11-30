@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Armenian locale extended with DayPicker-specific translations.
- */
+/** Armenian locale extended with DayPicker-specific translations. */
 export const hy: DayPickerLocale = {
   ...dateFnsHy,
   labels: {
@@ -27,11 +25,8 @@ export const hy: DayPickerLocale = {
     labelPrevious: "Անցնել նախորդ ամսին",
     labelWeekNumber: (weekNumber: number) => `Շաբաթ ${weekNumber}`,
     labelYearDropdown: "Ընտրեք տարին",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const hy: DayPickerLocale = {
     },
     labelNav: "Նավիգացիայի վահանակ",
     labelWeekNumberHeader: "Շաբաթվա համարը",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

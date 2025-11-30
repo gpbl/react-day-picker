@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Georgian locale extended with DayPicker-specific translations.
- */
+/** Georgian locale extended with DayPicker-specific translations. */
 export const ka: DayPickerLocale = {
   ...dateFnsKa,
   labels: {
@@ -27,11 +25,8 @@ export const ka: DayPickerLocale = {
     labelPrevious: "გადასვლა წინა თვეზე",
     labelWeekNumber: (weekNumber: number) => `კვირა ${weekNumber}`,
     labelYearDropdown: "აირჩიეთ წელი",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const ka: DayPickerLocale = {
     },
     labelNav: "ნავიგაციის ზოლი",
     labelWeekNumberHeader: "კვირის ნომერი",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

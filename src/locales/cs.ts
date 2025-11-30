@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Czech locale extended with DayPicker-specific translations.
- */
+/** Czech locale extended with DayPicker-specific translations. */
 export const cs: DayPickerLocale = {
   ...dateFnsCs,
   labels: {
@@ -27,11 +25,8 @@ export const cs: DayPickerLocale = {
     labelPrevious: "Přejít na předchozí měsíc",
     labelWeekNumber: (weekNumber: number) => `Týden ${weekNumber}`,
     labelYearDropdown: "Vyberte rok",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const cs: DayPickerLocale = {
     },
     labelNav: "Navigační panel",
     labelWeekNumberHeader: "Číslo týdne",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Portuguese locale extended with DayPicker-specific translations.
- */
+/** Portuguese locale extended with DayPicker-specific translations. */
 export const pt: DayPickerLocale = {
   ...dateFnsPt,
   labels: {
@@ -27,11 +25,8 @@ export const pt: DayPickerLocale = {
     labelPrevious: "Ir para o mês anterior",
     labelWeekNumber: (weekNumber: number) => `Semana ${weekNumber}`,
     labelYearDropdown: "Escolha o ano",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const pt: DayPickerLocale = {
     },
     labelNav: "Barra de navegação",
     labelWeekNumberHeader: "Número da semana",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

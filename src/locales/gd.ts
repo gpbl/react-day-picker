@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Scottish Gaelic locale extended with DayPicker-specific translations.
- */
+/** Scottish Gaelic locale extended with DayPicker-specific translations. */
 export const gd: DayPickerLocale = {
   ...dateFnsGd,
   labels: {
@@ -27,11 +25,8 @@ export const gd: DayPickerLocale = {
     labelPrevious: "Rach gu mìos roimhe",
     labelWeekNumber: (weekNumber: number) => `Seachdain ${weekNumber}`,
     labelYearDropdown: "Tagh am bliadhna",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const gd: DayPickerLocale = {
     },
     labelNav: "Bàr seòlaidh",
     labelWeekNumberHeader: "Àireamh seachdain",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

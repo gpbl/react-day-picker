@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Basque locale extended with DayPicker-specific translations.
- */
+/** Basque locale extended with DayPicker-specific translations. */
 export const eu: DayPickerLocale = {
   ...dateFnsEu,
   labels: {
@@ -27,11 +25,8 @@ export const eu: DayPickerLocale = {
     labelPrevious: "Joan aurreko hilabetera",
     labelWeekNumber: (weekNumber: number) => `Astea ${weekNumber}`,
     labelYearDropdown: "Hautatu urtea",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const eu: DayPickerLocale = {
     },
     labelNav: "Nabigazio barra",
     labelWeekNumberHeader: "Aste zenbakia",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

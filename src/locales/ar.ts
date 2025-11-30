@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Arabic locale extended with DayPicker-specific translations.
- */
+/** Arabic locale extended with DayPicker-specific translations. */
 export const ar: DayPickerLocale = {
   ...dateFnsAr,
   labels: {
@@ -27,11 +25,8 @@ export const ar: DayPickerLocale = {
     labelPrevious: "اذهب إلى الشهر السابق",
     labelWeekNumber: (weekNumber: number) => `الأسبوع ${weekNumber}`,
     labelYearDropdown: "اختر السنة",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const ar: DayPickerLocale = {
     },
     labelNav: "شريط التنقل",
     labelWeekNumberHeader: "رقم الأسبوع",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

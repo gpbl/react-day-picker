@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Luxembourgish locale extended with DayPicker-specific translations.
- */
+/** Luxembourgish locale extended with DayPicker-specific translations. */
 export const lb: DayPickerLocale = {
   ...dateFnsLb,
   labels: {
@@ -27,11 +25,8 @@ export const lb: DayPickerLocale = {
     labelPrevious: "Op de virdrun Mount",
     labelWeekNumber: (weekNumber: number) => `Woch ${weekNumber}`,
     labelYearDropdown: "Joer auswielen",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const lb: DayPickerLocale = {
     },
     labelNav: "Navigatiounsbar",
     labelWeekNumberHeader: "Wochennummer",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

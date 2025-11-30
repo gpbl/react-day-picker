@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Haitian Creole locale extended with DayPicker-specific translations.
- */
+/** Haitian Creole locale extended with DayPicker-specific translations. */
 export const ht: DayPickerLocale = {
   ...dateFnsHt,
   labels: {
@@ -27,11 +25,8 @@ export const ht: DayPickerLocale = {
     labelPrevious: "Ale nan mwa anvan",
     labelWeekNumber: (weekNumber: number) => `Semèn ${weekNumber}`,
     labelYearDropdown: "Chwazi ane a",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const ht: DayPickerLocale = {
     },
     labelNav: "Ba navigasyon",
     labelWeekNumberHeader: "Nimewo semèn",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

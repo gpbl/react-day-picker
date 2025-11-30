@@ -5,7 +5,8 @@ import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
 /**
- * Chinese (Traditional, Hong Kong) locale extended with DayPicker-specific translations.
+ * Chinese (Traditional, Hong Kong) locale extended with DayPicker-specific
+ * translations.
  */
 export const zhHK: DayPickerLocale = {
   ...dateFnsZhHK,
@@ -27,11 +28,8 @@ export const zhHK: DayPickerLocale = {
     labelPrevious: "前往上個月",
     labelWeekNumber: (weekNumber: number) => `第 ${weekNumber} 週`,
     labelYearDropdown: "選擇年份",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +45,7 @@ export const zhHK: DayPickerLocale = {
     },
     labelNav: "導覽列",
     labelWeekNumberHeader: "週數",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

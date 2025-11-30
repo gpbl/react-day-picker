@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Lithuanian locale extended with DayPicker-specific translations.
- */
+/** Lithuanian locale extended with DayPicker-specific translations. */
 export const lt: DayPickerLocale = {
   ...dateFnsLt,
   labels: {
@@ -27,11 +25,8 @@ export const lt: DayPickerLocale = {
     labelPrevious: "Pereiti į ankstesnį mėnesį",
     labelWeekNumber: (weekNumber: number) => `Savaitė ${weekNumber}`,
     labelYearDropdown: "Pasirinkite metus",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const lt: DayPickerLocale = {
     },
     labelNav: "Naršymo juosta",
     labelWeekNumberHeader: "Savaitės numeris",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

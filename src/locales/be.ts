@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Belarusian locale extended with DayPicker-specific translations.
- */
+/** Belarusian locale extended with DayPicker-specific translations. */
 export const be: DayPickerLocale = {
   ...dateFnsBe,
   labels: {
@@ -27,11 +25,8 @@ export const be: DayPickerLocale = {
     labelPrevious: "Перайсці да папярэдняга месяца",
     labelWeekNumber: (weekNumber: number) => `Тыдзень ${weekNumber}`,
     labelYearDropdown: "Абярыце год",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const be: DayPickerLocale = {
     },
     labelNav: "Панэль навігацыі",
     labelWeekNumberHeader: "Нумар тыдня",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

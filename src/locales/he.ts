@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Hebrew locale extended with DayPicker-specific translations.
- */
+/** Hebrew locale extended with DayPicker-specific translations. */
 export const he: DayPickerLocale = {
   ...dateFnsHe,
   labels: {
@@ -27,11 +25,8 @@ export const he: DayPickerLocale = {
     labelPrevious: "עבור לחודש הקודם",
     labelWeekNumber: (weekNumber: number) => `שבוע ${weekNumber}`,
     labelYearDropdown: "בחר את השנה",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const he: DayPickerLocale = {
     },
     labelNav: "סרגל ניווט",
     labelWeekNumberHeader: "מספר שבוע",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Norwegian Nynorsk locale extended with DayPicker-specific translations.
- */
+/** Norwegian Nynorsk locale extended with DayPicker-specific translations. */
 export const nn: DayPickerLocale = {
   ...dateFnsNn,
   labels: {
@@ -27,11 +25,8 @@ export const nn: DayPickerLocale = {
     labelPrevious: "Gå til førre månad",
     labelWeekNumber: (weekNumber: number) => `Veke ${weekNumber}`,
     labelYearDropdown: "Vel år",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const nn: DayPickerLocale = {
     },
     labelNav: "Navigasjonslinje",
     labelWeekNumberHeader: "Vekenummer",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

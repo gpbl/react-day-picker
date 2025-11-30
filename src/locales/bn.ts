@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Bengali locale extended with DayPicker-specific translations.
- */
+/** Bengali locale extended with DayPicker-specific translations. */
 export const bn: DayPickerLocale = {
   ...dateFnsBn,
   labels: {
@@ -27,11 +25,8 @@ export const bn: DayPickerLocale = {
     labelPrevious: "পূর্ববর্তী মাসে যান",
     labelWeekNumber: (weekNumber: number) => `সপ্তাহ ${weekNumber}`,
     labelYearDropdown: "বছর নির্বাচন করুন",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const bn: DayPickerLocale = {
     },
     labelNav: "নেভিগেশন বার",
     labelWeekNumberHeader: "সপ্তাহ নম্বর",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

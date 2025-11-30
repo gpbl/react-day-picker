@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Latvian locale extended with DayPicker-specific translations.
- */
+/** Latvian locale extended with DayPicker-specific translations. */
 export const lv: DayPickerLocale = {
   ...dateFnsLv,
   labels: {
@@ -27,11 +25,8 @@ export const lv: DayPickerLocale = {
     labelPrevious: "Uz iepriekšējo mēnesi",
     labelWeekNumber: (weekNumber: number) => `Nedēļa ${weekNumber}`,
     labelYearDropdown: "Izvēlieties gadu",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const lv: DayPickerLocale = {
     },
     labelNav: "Navigācijas josla",
     labelWeekNumberHeader: "Nedēļas numurs",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

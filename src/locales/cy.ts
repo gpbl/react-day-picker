@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Welsh locale extended with DayPicker-specific translations.
- */
+/** Welsh locale extended with DayPicker-specific translations. */
 export const cy: DayPickerLocale = {
   ...dateFnsCy,
   labels: {
@@ -27,11 +25,8 @@ export const cy: DayPickerLocale = {
     labelPrevious: "Ewch i'r mis blaenorol",
     labelWeekNumber: (weekNumber: number) => `Wythnos ${weekNumber}`,
     labelYearDropdown: "Dewiswch y flwyddyn",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const cy: DayPickerLocale = {
     },
     labelNav: "Bar llywio",
     labelWeekNumberHeader: "Rhif yr wythnos",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

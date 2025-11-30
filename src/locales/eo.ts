@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Esperanto locale extended with DayPicker-specific translations.
- */
+/** Esperanto locale extended with DayPicker-specific translations. */
 export const eo: DayPickerLocale = {
   ...dateFnsEo,
   labels: {
@@ -27,11 +25,8 @@ export const eo: DayPickerLocale = {
     labelPrevious: "Iru al la antaŭa monato",
     labelWeekNumber: (weekNumber: number) => `Semajno ${weekNumber}`,
     labelYearDropdown: "Elektu la jaron",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const eo: DayPickerLocale = {
     },
     labelNav: "Naviga breto",
     labelWeekNumberHeader: "Semajna numero",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };

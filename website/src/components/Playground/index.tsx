@@ -7,27 +7,27 @@ import {
 } from "react-day-picker";
 import {
   DayPicker as DayPickerBuddhist,
-  getDateLib as getDateLibBuddhist,
   enUS as enUSBuddhist,
+  getDateLib as getDateLibBuddhist,
   th as thBuddhist,
 } from "react-day-picker/buddhist";
 import {
   amET as amETEthiopic,
   DayPicker as DayPickerEthiopic,
-  getDateLib as getDateLibEthiopic,
   enUS as enUSEthiopic,
+  getDateLib as getDateLibEthiopic,
 } from "react-day-picker/ethiopic";
 import {
   DayPicker as DayPickerHebrew,
-  getDateLib as getDateLibHebrew,
   enUS as enUSHebrew,
+  getDateLib as getDateLibHebrew,
   he as heHebrew,
 } from "react-day-picker/hebrew";
 import * as locales from "react-day-picker/locale";
 import {
   DayPicker as DayPickerPersian,
-  faIR as faIRpersian,
   enUS as enUSPersian,
+  faIR as faIRpersian,
   getDateLib,
 } from "react-day-picker/persian";
 import { BrowserWindow } from "../BrowserWindow";
@@ -81,13 +81,21 @@ export function Playground() {
   const importStatements: string[] = [];
 
   if (props.calendar === "persian") {
-    importStatements.push(`import { DayPicker } from "react-day-picker/persian";`);
+    importStatements.push(
+      `import { DayPicker } from "react-day-picker/persian";`,
+    );
   } else if (props.calendar === "ethiopic") {
-    importStatements.push(`import { DayPicker } from "react-day-picker/ethiopic";`);
+    importStatements.push(
+      `import { DayPicker } from "react-day-picker/ethiopic";`,
+    );
   } else if (props.calendar === "buddhist") {
-    importStatements.push(`import { DayPicker } from "react-day-picker/buddhist";`);
+    importStatements.push(
+      `import { DayPicker } from "react-day-picker/buddhist";`,
+    );
   } else if (props.calendar === "hebrew") {
-    importStatements.push(`import { DayPicker } from "react-day-picker/hebrew";`);
+    importStatements.push(
+      `import { DayPicker } from "react-day-picker/hebrew";`,
+    );
   } else {
     importStatements.push(`import { DayPicker } from "react-day-picker";`);
   }

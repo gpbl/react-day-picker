@@ -4,9 +4,7 @@ import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
-/**
- * Thai locale extended with DayPicker-specific translations.
- */
+/** Thai locale extended with DayPicker-specific translations. */
 export const th: DayPickerLocale = {
   ...dateFnsTh,
   labels: {
@@ -27,11 +25,8 @@ export const th: DayPickerLocale = {
     labelPrevious: "ไปเดือนก่อนหน้า",
     labelWeekNumber: (weekNumber: number) => `สัปดาห์ ${weekNumber}`,
     labelYearDropdown: "เลือกปี",
-    labelGrid: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).formatMonthYear(date),
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
@@ -47,10 +42,7 @@ export const th: DayPickerLocale = {
     },
     labelNav: "แถบนำทาง",
     labelWeekNumberHeader: "หมายเลขสัปดาห์",
-    labelWeekday: (
-      date: Date,
-      options?: DateLibOptions,
-      dateLib?: DateLib,
-    ) => (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
+      (dateLib ?? new DateLib(options)).format(date, "cccc"),
   },
 };
