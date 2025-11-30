@@ -55,17 +55,11 @@ export function getLabels(
       customLabels?.labelMonthDropdown,
       localeLabels.labelMonthDropdown,
     ),
-    labelNext: (month: Date | undefined, opts: DateLibOptions = options) => {
-      if (customLabels?.labelNext) {
-        return customLabels.labelNext(month, opts);
-      }
-      if (localeLabels.labelNext) {
-        return typeof localeLabels.labelNext === "function"
-          ? localeLabels.labelNext(month, opts)
-          : localeLabels.labelNext;
-      }
-      return defaultLabels.labelNext(month, opts);
-    },
+    labelNext: resolveLabel(
+      defaultLabels.labelNext,
+      customLabels?.labelNext,
+      localeLabels.labelNext,
+    ),
     labelPrevious: resolveLabel(
       defaultLabels.labelPrevious,
       customLabels?.labelPrevious,
