@@ -1,7 +1,6 @@
-import { es } from "date-fns/locale/es";
-import { ja } from "date-fns/locale/ja";
-
 import { DateLib, defaultLocale } from "../classes/DateLib.js";
+import { es } from "../locale/es.js";
+import { ja } from "../locale/ja.js";
 
 import { formatCaption } from "./formatCaption";
 

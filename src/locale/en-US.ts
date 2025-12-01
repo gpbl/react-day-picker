@@ -1,7 +1,11 @@
+import { format } from "date-fns";
 import { enUS as dateFnsEnUS } from "date-fns/locale";
 
-import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
-import { DateLib } from "../classes/DateLib.js";
+import type {
+  DateLib,
+  DateLibOptions,
+  DayPickerLocale,
+} from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
 
 /** English (United States) locale extended with DayPicker-specific translations. */
@@ -14,8 +18,14 @@ export const enUS: DayPickerLocale = {
       options?: DateLibOptions,
       dateLib?: DateLib,
     ) => {
-      const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let formatDate: (d: Date, pattern: string) => string;
+      if (dateLib && typeof dateLib.format === "function") {
+        formatDate = dateLib.format.bind(dateLib);
+      } else {
+        formatDate = (d, pattern) =>
+          format(d, pattern, { locale: dateFnsEnUS, ...options });
+      }
+      let label = formatDate(date, "PPPP");
       if (modifiers.today) label = `Today, ${label}`;
       if (modifiers.selected) label = `${label}, selected`;
       return label;
@@ -25,16 +35,30 @@ export const enUS: DayPickerLocale = {
     labelPrevious: "Go to the Previous Month",
     labelWeekNumber: (weekNumber: number) => `Week ${weekNumber}`,
     labelYearDropdown: "Choose the Year",
-    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
-      (dateLib ?? new DateLib(options)).formatMonthYear(date),
+    labelGrid: (date: Date, options?: DateLibOptions, dateLib?: DateLib) => {
+      let formatDate: (d: Date, pattern: string) => string;
+      if (dateLib && typeof dateLib.format === "function") {
+        formatDate = dateLib.format.bind(dateLib);
+      } else {
+        formatDate = (d, pattern) =>
+          format(d, pattern, { locale: dateFnsEnUS, ...options });
+      }
+      return formatDate(date, "LLLL yyyy");
+    },
     labelGridcell: (
       date: Date,
       modifiers?: Modifiers,
       options?: DateLibOptions,
       dateLib?: DateLib,
     ) => {
-      const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let formatDate: (d: Date, pattern: string) => string;
+      if (dateLib && typeof dateLib.format === "function") {
+        formatDate = dateLib.format.bind(dateLib);
+      } else {
+        formatDate = (d, pattern) =>
+          format(d, pattern, { locale: dateFnsEnUS, ...options });
+      }
+      let label = formatDate(date, "PPPP");
       if (modifiers?.today) {
         label = `Today, ${label}`;
       }
@@ -42,7 +66,15 @@ export const enUS: DayPickerLocale = {
     },
     labelNav: "Navigation bar",
     labelWeekNumberHeader: "Week Number",
-    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
-      (dateLib ?? new DateLib(options)).format(date, "cccc"),
+    labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) => {
+      let formatDate: (d: Date, pattern: string) => string;
+      if (dateLib && typeof dateLib.format === "function") {
+        formatDate = dateLib.format.bind(dateLib);
+      } else {
+        formatDate = (d, pattern) =>
+          format(d, pattern, { locale: dateFnsEnUS, ...options });
+      }
+      return formatDate(date, "cccc");
+    },
   },
 };

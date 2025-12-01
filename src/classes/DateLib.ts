@@ -43,10 +43,9 @@ import {
   startOfYear,
 } from "date-fns";
 import type { Locale as DateFnsLocale } from "date-fns/locale";
-import { enUS } from "date-fns/locale/en-US";
-
 import { endOfBroadcastWeek } from "../helpers/endOfBroadcastWeek.js";
 import { startOfBroadcastWeek } from "../helpers/startOfBroadcastWeek.js";
+import { enUS } from "../locale/en-US.js";
 import type { Labels, Numerals } from "../types/shared.js";
 
 export type { Month as DateFnsMonth } from "date-fns";
@@ -727,7 +726,7 @@ export class DateLib {
   };
 }
 /** The default locale (English). */
-export { enUS as defaultLocale } from "date-fns/locale/en-US";
+export { enUS as defaultLocale } from "../locale/en-US.js";
 
 /**
  * The default date library with English locale.

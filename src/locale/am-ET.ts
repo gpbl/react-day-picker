@@ -1,15 +1,13 @@
 import type {
-  Locale as DateFnsLocale,
   LocaleDayPeriod,
   LocaleOptions,
   LocaleWidth,
   Localize,
 } from "date-fns/locale";
-import { enUS } from "date-fns/locale/en-US";
-
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
 import type { Modifiers } from "../types/index.js";
+import { enUS } from "./en-US.js";
 
 /**
  * Minimal Amharic (Ethiopia) locale for date-fns v4.

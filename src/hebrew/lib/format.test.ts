@@ -1,7 +1,7 @@
-import { enUS } from "date-fns/locale/en-US";
-import { he } from "date-fns/locale/he";
+import { enUS } from "../../locale/en-US.js";
+import { he } from "../../locale/he.js";
 
-import { format } from "./index";
+import { format } from "./format.js";
 
 describe("hebrew format", () => {
   const roshHashanah5785 = new Date(2024, 9, 3);
