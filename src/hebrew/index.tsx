@@ -1,18 +1,13 @@
 import type { Locale } from "date-fns";
-import * as locales from "date-fns/locale";
 import React from "react";
-
 import {
   DateLib,
   type DateLibOptions,
   DayPicker as DayPickerComponent,
 } from "../index.js";
+import { he } from "../locale/he.js";
 import type { DayPickerProps } from "../types/props.js";
-
 import * as hebrewDateLib from "./lib/index.js";
-
-export const he = locales.he;
-export const enUS = locales.enUS;
 
 /**
  * Render the Hebrew (lunisolar) calendar.
@@ -57,3 +52,6 @@ export function DayPicker(
 export const getDateLib = (options?: DateLibOptions) => {
   return new DateLib(options, hebrewDateLib);
 };
+
+export { enUS } from "../locale/en-US.js";
+export { he } from "../locale/he.js";

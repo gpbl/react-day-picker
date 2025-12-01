@@ -1,8 +1,8 @@
-import { enUS } from "date-fns/locale/en-US";
 import React from "react";
 import { grid } from "@/test/elements";
 import { render, screen } from "@/test/render";
 import { setTestTime } from "@/test/setTestTime";
+import { enUS } from "../locale/en-US.js";
 import { DayPicker } from "./index";
 
 const today = new Date(2024, 9, 3);

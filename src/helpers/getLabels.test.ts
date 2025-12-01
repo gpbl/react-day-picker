@@ -1,9 +1,8 @@
-import { enUS } from "date-fns/locale";
-
 import { DateLib } from "../classes/DateLib.js";
-import { fr } from "../locales/fr.js";
-import { it } from "../locales/it.js";
-import { ja } from "../locales/ja.js";
+import { enUS } from "../locale/en-US.js";
+import { fr } from "../locale/fr.js";
+import { it } from "../locale/it.js";
+import { ja } from "../locale/ja.js";
 
 import { getLabels } from "./getLabels.js";
 

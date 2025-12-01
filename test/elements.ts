@@ -15,16 +15,20 @@ export function app() {
 }
 
 /** Return the previous button element from the screen. */
-export function previousButton() {
+export function previousButton(
+  name: ByRoleOptions["name"] = "Go to the Previous Month",
+) {
   return screen.getByRole("button", {
-    name: "Go to the Previous Month",
+    name,
   });
 }
 
 /** Return the next button element from the screen. */
-export function nextButton() {
+export function nextButton(
+  name: ByRoleOptions["name"] = "Go to the Next Month",
+) {
   return screen.getByRole("button", {
-    name: "Go to the Next Month",
+    name,
   });
 }
 

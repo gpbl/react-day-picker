@@ -1,5 +1,4 @@
 import type { Locale } from "date-fns";
-import * as locales from "date-fns/locale";
 import React from "react";
 
 import {
@@ -7,6 +6,8 @@ import {
   type DateLibOptions,
   DayPicker as DayPickerComponent,
 } from "../index.js";
+import { enUS as enUSLocale } from "../locale/en-US.js";
+import { th as thLocale } from "../locale/th.js";
 import type { DayPickerProps } from "../types/props.js";
 
 import { format as originalBuddhistFormat } from "./lib/format.js";
@@ -20,8 +21,8 @@ const buddhistFormat: typeof DateLib.prototype.format = (
   return originalBuddhistFormat(date, formatStr, options as DateLibOptions);
 };
 
-export const th = locales.th;
-export const enUS = locales.enUS;
+export const th = thLocale;
+export const enUS = enUSLocale;
 
 /**
  * Render the Buddhist (Thai) calendar.

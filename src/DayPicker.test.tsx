@@ -1,5 +1,4 @@
 import { startOfDay, startOfMonth } from "date-fns";
-import { ja } from "date-fns/locale/ja";
 import React from "react";
 import {
   activeElement,
@@ -16,6 +15,7 @@ import { defaultLocale } from "./classes/DateLib";
 import type { MonthProps } from "./components/Month";
 import type { MonthsProps } from "./components/Months";
 import { DayPicker } from "./DayPicker";
+import { ja } from "./locale/ja.js";
 
 const testId = "test";
 const dayPicker = () => screen.getByTestId(testId);
@@ -249,8 +249,12 @@ test("places the month dropdown before the year dropdown by default", () => {
 test("places the year dropdown before the month dropdown for year-first locales", () => {
   render(<DayPicker captionLayout="dropdown" locale={ja} />);
   const combos = screen.getAllByRole("combobox");
-  expect(combos[0]).toHaveAttribute("aria-label", "Choose the Year");
-  expect(combos[1]).toHaveAttribute("aria-label", "Choose the Month");
+  expect(combos[0]).toHaveAccessibleName(
+    ja.labels?.labelYearDropdown as string,
+  );
+  expect(combos[1]).toHaveAccessibleName(
+    ja.labels?.labelMonthDropdown as string,
+  );
 });
 
 test("should render the custom components", () => {
