@@ -12,7 +12,7 @@ exports[`should match the snapshot 1`] = `
         class="rdp-months"
       >
         <nav
-          aria-label=""
+          aria-label="Navigation bar"
           class="rdp-nav"
         >
           <button
@@ -651,7 +651,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
         class="rdp-months"
       >
         <nav
-          aria-label=""
+          aria-label="Navigation bar"
           class="rdp-nav"
         >
           <button
