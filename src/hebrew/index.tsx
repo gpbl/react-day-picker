@@ -52,3 +52,6 @@ export function DayPicker(
 export const getDateLib = (options?: DateLibOptions) => {
   return new DateLib(options, hebrewDateLib);
 };
+
+export { he } from "../locale/he.js";
+export { enUS } from "../locale/en-US.js";

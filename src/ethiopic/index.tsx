@@ -66,3 +66,4 @@ export const getDateLib = (options?: DateLibOptions) => {
 
 // Export a minimal Amharic (Ethiopia) date-fns locale that uses Intl
 export { amET } from "../locale/am-ET.js";
+export { enUS } from "../locale/en-US.js";
