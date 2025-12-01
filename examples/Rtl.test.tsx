@@ -19,14 +19,14 @@ test("should have the rtl dir attribute", () => {
 
 describe("when clicking the next month button", () => {
   test("should display the next month", async () => {
-    await user.click(nextButton());
+    await user.click(nextButton("اذهب إلى الشهر التالي"));
     expect(grid()).toHaveAccessibleName("ديسمبر 2021");
   });
 });
 
 describe("when clicking the previous month button", () => {
   test("should display the previous month", async () => {
-    await user.click(previousButton());
+    await user.click(previousButton("اذهب إلى الشهر السابق"));
     expect(grid()).toHaveAccessibleName("أكتوبر 2021");
   });
 });

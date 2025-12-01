@@ -1,4 +1,4 @@
-import { ja } from "date-fns/locale/ja";
+import { ja } from "../locale/ja.js";
 
 import { labelGrid } from "./labelGrid";
 

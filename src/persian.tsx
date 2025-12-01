@@ -1,17 +1,19 @@
-import type { Locale } from "date-fns-jalali";
 import * as dateFnsJalali from "date-fns-jalali";
-import * as locales from "date-fns-jalali/locale";
 import React from "react";
-
+import type { DayPickerLocale } from "./classes/DateLib.js";
 import {
   DateLib,
   type DateLibOptions,
   DayPicker as DayPickerComponent,
 } from "./index.js";
+import { enUSJalali } from "./locale/en-US-jalali.js";
+import { faIRJalali } from "./locale/fa-IR-jalali.js";
 import type { DayPickerProps } from "./types/props.js";
 
-export const faIR = locales.faIR;
-export const enUS = locales.enUS;
+/** Persian (Iran) Jalali locale with DayPicker labels. */
+export const faIR = faIRJalali;
+/** English (US) Jalali locale with DayPicker labels. */
+export const enUS = enUSJalali;
 
 /**
  * Renders the Persian calendar using the DayPicker component.
@@ -33,7 +35,7 @@ export function DayPicker(
      *
      * @default `faIR`
      */
-    locale?: Locale;
+    locale?: DayPickerLocale;
     /**
      * The direction of the text in the calendar.
      *

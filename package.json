@@ -85,16 +85,6 @@
         "default": "./dist/cjs/ethiopic/index.js"
       }
     },
-    "./locale": {
-      "import": {
-        "types": "./dist/esm/locale.d.ts",
-        "default": "./dist/esm/locale.js"
-      },
-      "require": {
-        "types": "./dist/cjs/locale.d.ts",
-        "default": "./dist/cjs/locale.js"
-      }
-    },
     "./style": {
       "sass": "./src/style.css"
     },
@@ -188,14 +178,24 @@
       "types": "./examples/index.d.ts",
       "import": "./examples/index.ts"
     },
-    "./locales/*": {
+    "./locale": {
       "import": {
-        "types": "./dist/esm/locales/*.d.ts",
-        "default": "./dist/esm/locales/*.js"
+        "types": "./dist/esm/locale.d.ts",
+        "default": "./dist/esm/locale.js"
       },
       "require": {
-        "types": "./dist/cjs/locales/*.d.ts",
-        "default": "./dist/cjs/locales/*.js"
+        "types": "./dist/cjs/locale.d.ts",
+        "default": "./dist/cjs/locale.js"
+      }
+    },
+    "./locale/*": {
+      "import": {
+        "types": "./dist/esm/locale/*.d.ts",
+        "default": "./dist/esm/locale/*.js"
+      },
+      "require": {
+        "types": "./dist/cjs/locale/*.d.ts",
+        "default": "./dist/cjs/locale/*.js"
       }
     }
   },

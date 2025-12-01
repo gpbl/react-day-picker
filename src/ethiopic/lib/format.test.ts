@@ -1,4 +1,4 @@
-import { enUS } from "date-fns/locale/en-US";
+import { enUS } from "../../locale/en-US.js";
 import { toGregorianDate } from "../utils";
 import { type FormatOptions, format } from "./format";
 

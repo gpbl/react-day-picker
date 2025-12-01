@@ -1,6 +1,7 @@
-import { enUS } from "date-fns/locale/en-US";
-import { format as ethFormat } from "../lib/format";
-import { amET } from "./am-ET";
+import { DateLib } from "../classes/DateLib.js";
+import { format as ethFormat } from "../ethiopic/lib/format.js";
+import { amET } from "./am-ET.js";
+import { enUS } from "./en-US.js";
 
 describe("am-ET locale", () => {
   test("has correct code", () => {
@@ -40,5 +41,27 @@ describe("am-ET locale", () => {
     expect(amET.formatLong.date({ width: "full" })).toBe(
       enUS.formatLong.date({ width: "full" }),
     );
+  });
+
+  test("exposes DayPicker labels", () => {
+    expect(amET.labels).toBeDefined();
+    expect(typeof amET.labels?.labelDayButton).toBe("function");
+    expect(typeof amET.labels?.labelWeekday).toBe("function");
+  });
+
+  test("labelDayButton prefixes today label in Amharic", () => {
+    const date = new Date(2017, 0, 1);
+    let label = "";
+    if (typeof amET.labels?.labelDayButton === "function") {
+      label = amET.labels?.labelDayButton(
+        date,
+        { today: true } as never,
+        undefined,
+        new DateLib({ locale: amET }),
+      );
+    } else if (typeof amET.labels?.labelDayButton === "string") {
+      label = amET.labels?.labelDayButton;
+    }
+    expect(label).toContain("ዛሬ");
   });
 });

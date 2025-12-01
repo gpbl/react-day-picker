@@ -1,6 +1,5 @@
-import { es } from "date-fns/locale/es";
-
 import { DateLib } from "../classes/DateLib";
+import { es } from "../locale/es.js";
 
 import { formatMonthDropdown } from "./formatMonthDropdown";
 
