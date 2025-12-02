@@ -29,7 +29,11 @@ describe("when matching the same day", () => {
 });
 
 describe("when matching an array of dates including the day", () => {
-  const matcher = [addDays(testDay, -1), testDay, addDays(testDay, 1)];
+  const matcher = [
+    addDays(testDay, -1),
+    new Date(testDay),
+    addDays(testDay, 1),
+  ];
   const result = dateMatchModifiers(testDay, [matcher], defaultDateLib);
   test("should return true", () => {
     expect(result).toBe(true);

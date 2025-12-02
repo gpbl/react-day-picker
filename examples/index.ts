@@ -95,6 +95,7 @@ export * from "./TestCase2511";
 export * from "./TestCase2585";
 export * from "./TestCase2835";
 export * from "./TestCase2843";
+export * from "./TestCase2864";
 export * from "./Testcase1567";
 export * from "./TimeZone";
 export * from "./timezone/TestCase2833";
