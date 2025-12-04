@@ -77,3 +77,27 @@ const locale = {
 ```
 
 Keep overrides minimal so you inherit built-in behaviors like translated labels and month/year formatting.
+
+## Custom formatters
+
+Use the `formatters` prop to customize how dates, week numbers, and weekday names are rendered.
+
+```tsx
+import { format } from "date-fns";
+
+<DayPicker
+  formatters={{
+    formatCaption: (date, options) => format(date, "LLLL yyyy", options),
+  }}
+/>;
+```
+
+| Function                                                               | Description                                                     |
+| ---------------------------------------------------------------------- | --------------------------------------------------------------- |
+| [`formatCaption`](../api/functions/formatCaption.md)                   | Format the caption of the month.                                |
+| [`formatDay`](../api/functions/formatDay.md)                           | Format the day date shown in the day cell.                      |
+| [`formatMonthDropdown`](../api/functions/formatMonthDropdown.md)       | Format the month number for the dropdown option label.          |
+| [`formatWeekNumber`](../api/functions/formatWeekNumber.md)             | Format the week number.                                         |
+| [`formatWeekNumberHeader`](../api/functions/formatWeekNumberHeader.md) | Format the week number header.                                  |
+| [`formatWeekdayName`](../api/functions/formatWeekdayName.md)           | Format the weekday name to be displayed in the weekdays header. |
+| [`formatYearDropdown`](../api/functions/formatYearDropdown.md)         | Format the years for the dropdown option label.                 |
