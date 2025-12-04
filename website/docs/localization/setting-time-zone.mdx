@@ -19,6 +19,30 @@ The time zone can be specified as either an [IANA time zone](https://en.wikipedi
 <DayPicker timeZone="Europe/Paris" /> // Central European Time
 ```
 
+## Working with time-zoned dates
+
+When working with time zones, use the `TZDate` object exported by `react-day-picker` instead of the native `Date` object. `TZDate` ensures the calendar reads and writes dates in the time zone you specify.
+
+```tsx
+import React, { useState } from "react";
+import { DayPicker, TZDate } from "react-day-picker";
+
+export function TimeZone() {
+  const timeZone = "Pacific/Honolulu";
+  const [selected, setSelected] = useState<Date | undefined>(
+    TZDate.tz(timeZone), // Use `TZDate` instead of `Date`
+  );
+  return (
+    <DayPicker
+      mode="single"
+      timeZone={timeZone}
+      selected={selected}
+      onSelect={setSelected}
+    />
+  );
+}
+```
+
 <BrowserWindow bodyStyle={{ justifyContent: "start" }}>
   <Examples.TimeZone />
 </BrowserWindow>
