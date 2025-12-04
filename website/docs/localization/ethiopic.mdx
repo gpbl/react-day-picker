@@ -1,0 +1,39 @@
+---
+title: Ethiopic Calendar
+---
+
+DayPicker supports the [Ethiopic calendar](https://en.wikipedia.org/wiki/Ethiopian_calendar) via a dedicated build.
+
+Import `DayPicker` from `react-day-picker/ethiopic` to display Ethiopic months, weekdays, and numerals while keeping the usual DayPicker API.
+
+```tsx
+import { DayPicker } from "react-day-picker/ethiopic";
+```
+
+### Basic usage
+
+By default, the locale is `amET` with Ge'ez numerals.
+
+```tsx
+import { DayPicker } from "react-day-picker/ethiopic";
+
+<DayPicker />;
+```
+
+<BrowserWindow>
+  <Examples.Ethiopic />
+</BrowserWindow>
+
+### Latin numerals
+
+Switch to Latin numerals:
+
+```tsx
+import { DayPicker } from "react-day-picker/ethiopic";
+
+<DayPicker numerals="latn" />;
+```
+
+<BrowserWindow>
+  <Examples.EthiopicLatin />
+</BrowserWindow>

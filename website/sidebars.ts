@@ -42,6 +42,20 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Localization",
+      collapsed: false,
+      items: [
+        "localization/changing-locale",
+        "localization/setting-time-zone",
+        "localization/iso-and-broadcast",
+        "localization/persian",
+        "localization/buddhist",
+        "localization/ethiopic",
+        "localization/hebrew",
+      ],
+    },
+    {
+      type: "category",
       label: "Guides",
       collapsed: false,
       items: [
