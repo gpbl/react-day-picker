@@ -35,7 +35,7 @@ export function dateMatchModifiers(
       return isSameDay(date, matcher);
     }
     if (isDatesArray(matcher, dateLib)) {
-      return matcher.includes(date);
+      return matcher.some((matcherDate) => isSameDay(date, matcherDate));
     }
     if (isDateRange(matcher)) {
       return rangeIncludesDate(matcher, date, false, dateLib);
