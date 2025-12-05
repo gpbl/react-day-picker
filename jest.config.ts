@@ -1,6 +1,6 @@
-process.env.TZ = process.env.TEST_TZ ?? "UTC";
-
-console.log(`Running tests in ${process.env.TZ} timezone`);
+if (process.env.TZ) {
+  console.log(`Running tests in ${process.env.TZ} timezone`);
+}
 
 import type { Config } from "@jest/types";
 
