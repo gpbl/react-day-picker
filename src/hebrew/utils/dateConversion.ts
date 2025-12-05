@@ -7,12 +7,15 @@ import { GREGORIAN_EPOCH, type HebrewDate, MS_PER_DAY } from "./constants.js";
 
 /** Convert a Gregorian date to an absolute day number from the epoch. */
 function dateToAbsolute(date: Date): number {
+  // Years < 100 must use UTC components to avoid JS's 1900 offset; for normal
+  // years keep local components so we don't reintroduce UTC/local skew in the
+  // rendered month grid.
+  const useUTC = date.getFullYear() < 100;
+  const year = useUTC ? date.getUTCFullYear() : date.getFullYear();
+  const month = useUTC ? date.getUTCMonth() : date.getMonth();
+  const day = useUTC ? date.getUTCDate() : date.getDate();
   const normalized = new Date(0);
-  normalized.setUTCFullYear(
-    date.getUTCFullYear(),
-    date.getUTCMonth(),
-    date.getUTCDate(),
-  );
+  normalized.setUTCFullYear(year, month, day);
   normalized.setUTCHours(0, 0, 0, 0);
   return Math.floor((normalized.getTime() - GREGORIAN_EPOCH) / MS_PER_DAY) + 1;
 }
