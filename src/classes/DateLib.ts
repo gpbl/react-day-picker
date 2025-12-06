@@ -50,12 +50,18 @@ import type { Labels, Numerals } from "../types/shared.js";
 
 export type { Month as DateFnsMonth } from "date-fns";
 
-/** Translations for DayPicker-specific labels. */
+/**
+ * Translations for DayPicker-specific labels.
+ * @since v9.12.0
+ */
 export type DayPickerLocaleLabels = {
   [K in keyof Labels]?: string | Labels[K];
 };
 
-/** Locale type used by DayPicker. */
+/**
+ * Locale type used by DayPicker.
+ * @since v9.12.0
+ */
 export interface DayPickerLocale extends DateFnsLocale {
   /** Localized DayPicker-specific labels. */
   labels?: DayPickerLocaleLabels;
