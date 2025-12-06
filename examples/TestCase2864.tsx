@@ -3,8 +3,8 @@ import React from "react";
 import { DayPicker } from "react-day-picker";
 
 /**
- * Reproduction for Date[] matchers inside `disabled`.
- * When passing `[dates]` as a matcher, the dates should be disabled.
+ * Reproduction for Date[] matchers inside `disabled`. When passing `[dates]` as
+ * a matcher, the dates should be disabled.
  */
 export function TestCase2864() {
   const holidays = React.useMemo(

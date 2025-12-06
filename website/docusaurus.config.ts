@@ -115,6 +115,14 @@ const config: Config = {
             to: "/localization/hebrew",
             from: ["/calendars/hebrew"],
           },
+          {
+            to: "/docs/appearance",
+            from: ["/docs/customization", "/customization"],
+          },
+          {
+            to: "/selections/selection-modes",
+            from: ["/docs/selection-modes"],
+          },
         ],
       },
     ],
