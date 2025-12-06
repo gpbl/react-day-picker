@@ -1,0 +1,61 @@
+---
+sidebar_position: 3
+---
+
+# Multiple Mode
+
+Set the `mode` prop to `"multiple"` to enable the selection of multiple dates in DayPicker.
+
+```tsx
+<DayPicker mode="multiple" />
+```
+
+<BrowserWindow>
+  <Examples.Multiple />
+</BrowserWindow>
+
+## Props
+
+| Prop Name  | Type                                                                             | Description                                       |
+| ---------- | -------------------------------------------------------------------------------- | ------------------------------------------------- |
+| `selected` | `Date[] \| undefined`                                                            | The selected dates.                               |
+| `onSelect` | [`OnSelectHandler<Date[] \| undefined>`](../api/type-aliases/OnSelectHandler.md) | Event callback when a date is selected.           |
+| `min`      | `number`                                                                         | The minimum number of dates that can be selected. |
+| `max`      | `number`                                                                         | The maximum number of dates that can be selected. |
+| `required` | `boolean`                                                                        | Make the selection required.                      |
+
+Use the `selected` and `onSelect` props to manage the selected dates:
+
+```tsx
+export function App() {
+  const [selected, setSelected] = React.useState<Date[] | undefined>();
+
+  return (
+    <DayPicker mode="multiple" selected={selected} onSelect={setSelected} />
+  );
+}
+```
+
+## Min and Max Dates
+
+Use the `min` and `max` props to limit the number of selectable dates.
+
+```tsx
+<DayPicker mode="multiple" min={2} max={5} />
+```
+
+<BrowserWindow>
+  <Examples.MultipleMinMax />
+</BrowserWindow>
+
+## Required Selection
+
+By setting the `required` prop, DayPicker ensures that the selected dates cannot be unselected.
+
+```tsx
+<DayPicker mode="multiple" required selected={[new Date()]} />
+```
+
+<BrowserWindow>
+  <Examples.MultipleRequired />
+</BrowserWindow>
