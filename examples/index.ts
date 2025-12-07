@@ -18,6 +18,8 @@ export * from "./CustomDropdown";
 export * from "./CustomMultiple";
 export * from "./CustomSingle";
 export * from "./CustomWeek";
+export * from "./CustomRollingWindow";
+export * from "./CustomMonthSelection";
 export * from "./DefaultMonth";
 export * from "./Dialog";
 export * from "./Disabled";
