@@ -37,7 +37,7 @@ export function BrowserWindow({
         </div>
       </div>
 
-      <div className={styles.browserWindowBody} style={bodyStyle}>
+      <div className={`${styles.browserWindowBody} rdp-demo`} style={bodyStyle}>
         {shadow ? (
           <ShadowDomWrapper styleStr={styleStr}>{children}</ShadowDomWrapper>
         ) : (

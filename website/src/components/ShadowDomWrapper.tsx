@@ -14,6 +14,11 @@ export function ShadowDomWrapper({
     <root.div>
       {children}
       <style>{style.toString()}</style>
+      <style>{`
+        .rdp-root {
+          --rdp-accent-color: var(--ifm-color-primary);
+        }
+      `}</style>
       {colorMode === "dark" && (
         <style>{`
           .rdp-root {

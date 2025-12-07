@@ -48,7 +48,7 @@ const config: Config = {
         },
         blog: false,
         theme: {
-          customCss: ["./src/css/custom.css", "../src/style.css"],
+          customCss: ["../src/style.css", "./src/css/site.css"],
         },
         sitemap: {
           lastmod: "date",
@@ -136,7 +136,6 @@ const config: Config = {
       "data-api": "/q/a/event",
     },
   ],
-
   themeConfig: {
     image: "img/social-card.png",
     metadata: [
