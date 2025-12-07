@@ -15,7 +15,7 @@ The `onDayClick` prop is a function that receives the clicked day and its modifi
 
 ## How custom selection works
 
-- Use `mode="default"` (or omit `mode`) to disable built-in selection logic.
+- Omit `mode` (or set it to `undefined`) to disable built-in selection logic.
 - Keep your own selection state, derive a `selected` modifier (and any `range_*` modifiers) from it, and pass them to `modifiers` so styling/ARIA stay aligned.
 - Ignore clicks on `modifiers.disabled` or `modifiers.hidden` to preserve accessibility.
 - For keyboard support, handle `onDayKeyDown` (Space/Enter) in the same way as `onDayClick`.
@@ -40,7 +40,6 @@ export function CustomWeek() {
 
   return (
     <DayPicker
-      mode="default"
       showWeekNumber
       showOutsideDays
       modifiers={{
@@ -106,7 +105,6 @@ export function CustomSingle() {
   }
   return (
     <DayPicker
-      mode="default"
       modifiers={modifiers}
       onDayClick={(day, modifiers) => {
         if (modifiers.disabled || modifiers.hidden) return;
@@ -175,7 +173,6 @@ export function CustomMultiple() {
 
   return (
     <DayPicker
-      mode="default"
       onDayClick={handleDayClick}
       onDayKeyDown={(day, modifiers, e) => {
         if (e.key === " " || e.key === "Enter") {
@@ -215,7 +212,6 @@ export function CustomRollingWindow() {
 
   return (
     <DayPicker
-      mode="default"
       modifiers={{
         selected: range,
         range_start: range?.from,
@@ -267,7 +263,6 @@ export function CustomMonthSelection() {
 
   return (
     <DayPicker
-      mode="default"
       showOutsideDays
       modifiers={{
         selected: monthRange,
@@ -294,7 +289,6 @@ Use `modifiersClassNames` or `modifiersStyles` to surface your custom state (for
 
 ```tsx
 <DayPicker
-  mode="default"
   modifiers={{ selected: value, rolling: rollingRange }}
   modifiersClassNames={{ rolling: "my-rolling" }}
   modifiersStyles={{ rolling: { background: "var(--rdp-accent-color)" } }}
@@ -307,7 +301,6 @@ For week-based selections, set `weekStartsOn` (locale-aware) and consider handli
 
 ```tsx
 <DayPicker
-  mode="default"
   showWeekNumber
   weekStartsOn={1}
   onWeekNumberClick={(weekNumber, week, e) => {

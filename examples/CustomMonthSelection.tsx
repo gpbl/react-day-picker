@@ -19,7 +19,6 @@ export function CustomMonthSelection() {
 
   return (
     <DayPicker
-      mode="default"
       showOutsideDays
       modifiers={{
         selected: monthRange,

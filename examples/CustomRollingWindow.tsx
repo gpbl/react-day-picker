@@ -15,7 +15,6 @@ export function CustomRollingWindow() {
 
   return (
     <DayPicker
-      mode="default"
       modifiers={{
         selected: range,
         range_start: range?.from,
