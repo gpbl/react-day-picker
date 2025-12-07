@@ -18,6 +18,12 @@ You may need to use custom components in advanced applications to:
 - Implement buttons or dropdowns using your own design system components.
 - Wrap an element with another element, like adding a tooltip to a day cell.
 
+## Keep accessibility and behavior intact
+
+- Always forward the props you receive (including `aria-*`, `tabIndex`, `ref`, and event handlers) to preserve keyboard navigation and screen reader support.
+- Reuse `classNames` and `labels` from `useDayPicker` when rendering built-in elements so modifiers and ARIA text remain correct.
+- Prefer composing around the default components instead of rebuilding behavior like focus management in `DayButton`.
+
 When customizing components, familiarize yourself with the [API Reference](../api#components) and the [DayPicker Anatomy](../docs/anatomy.mdx). Ensure you maintain [accessibility](../guides/accessibility.mdx).
 
 :::note Custom Components vs Formatters
@@ -41,6 +47,18 @@ Custom components allow you to extend DayPicker beyond just using [formatters](.
   }}
 />
 ```
+
+### Component props cheat sheet
+
+| Component                                           | Props type                                           | Notes                                                |
+| --------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| `Day`                                               | [`DayProps`](../api/functions/Day.md)                | Receives `day` (with `date`) and `modifiers`.        |
+| `DayButton`                                         | [`DayButtonProps`](../api/functions/DayButton.md)    | Handles focus; keep forwarding `ref`/`aria-*`.       |
+| `Nav`                                               | [`NavProps`](../api/functions/Nav.md)                | Use provided `onPreviousClick`/`onNextClick`.        |
+| `Dropdown`                                          | [`DropdownProps`](../api/functions/Dropdown.md)      | Forward `aria-label` and call `onChange` with target. |
+| `Root`                                              | [`RootProps`](../api/functions/Root.md)              | Forward `rootRef` when `animate` is enabled.         |
+
+The `components` prop accepts a **partial** map—pass only the entries you want to override. The legacy `Button` entry is deprecated; prefer `NextMonthButton` and `PreviousMonthButton`.
 
 ## List of Custom Components
 
@@ -71,6 +89,7 @@ Custom components allow you to extend DayPicker beyond just using [formatters](.
 | [`Weekdays`](../api/functions/Weekdays.md)                       | The row containing the week days.                              |
 | [`Weeks`](../api/functions/Weeks.md)                             | The weeks section in the month grid.                           |
 | [`YearsDropdown`](../api/functions/YearsDropdown.md)             | The dropdown with the years.                                   |
+| `Button`                                                         | Deprecated: use `NextMonthButton`/`PreviousMonthButton`.       |
 
 ## DayPicker Hook
 
@@ -160,6 +179,31 @@ export function MyDatePicker() {
   <Examples.CustomDayButton />
 </BrowserWindow>
 
+### Compose with the defaults
+
+When you want to add UI but keep the built-in behavior (focus, labels, modifier classes), wrap the default component from context.
+
+```tsx title="./WrappedDayButton.tsx"
+import { DayButtonProps, DayPicker, UI, useDayPicker } from "react-day-picker";
+
+function WrappedDayButton(props: DayButtonProps) {
+  const { components, classNames } = useDayPicker();
+  return (
+    <components.DayButton
+      {...props}
+      className={`${classNames[UI.DayButton]} my-custom-class`}
+    >
+      <span>{props.day.date.getDate()}</span>
+      <small aria-hidden>★</small>
+    </components.DayButton>
+  );
+}
+
+export function WrappedDayExample() {
+  return <DayPicker components={{ DayButton: WrappedDayButton }} />;
+}
+```
+
 ### Custom Select Dropdown
 
 You can use a custom [Dropdown](../api/functions/Dropdown.md) to select years and months. The example below uses a simplified version of `shadcn/ui`'s [Select](https://ui.shadcn.com/docs/components/select).
@@ -167,7 +211,7 @@ You can use a custom [Dropdown](../api/functions/Dropdown.md) to select years an
 ```tsx title="./CustomDropdown.tsx"
 import React, { useState } from "react";
 
-import { DayButtonProps, DayPicker } from "react-day-picker";
+import { DayPicker, type DropdownProps } from "react-day-picker";
 
 import {
   Select,
@@ -179,7 +223,7 @@ import {
 } from "@/components/ui/select";
 
 export function CustomSelectDropdown(props: DropdownProps) {
-  const { options, value, onChange } = props;
+  const { options, value, onChange, "aria-label": ariaLabel } = props;
 
   const handleValueChange = (newValue: string) => {
     if (onChange) {
@@ -195,7 +239,7 @@ export function CustomSelectDropdown(props: DropdownProps) {
 
   return (
     <Select value={value?.toString()} onValueChange={handleValueChange}>
-      <SelectTrigger>
+      <SelectTrigger aria-label={ariaLabel}>
         <SelectValue />
       </SelectTrigger>
       <SelectContent>
@@ -236,5 +280,34 @@ export function CustomDropdown() {
 <BrowserWindow>
   <Examples.CustomDropdown />
 </BrowserWindow>
+
+If your design system portals dropdown content, provide the container (as shown in `examples/CustomDropdown/CustomDropdown.tsx`) so the list renders inside the calendar's shadow root in the docs.
+
+### Structural customization
+
+Swap layout components to add design-system wrappers or decoration while keeping behavior.
+
+```tsx title="./CustomRoot.tsx"
+import { DayPicker, type RootProps } from "react-day-picker";
+
+function CardRoot(props: RootProps) {
+  const { rootRef, ...rest } = props;
+  return (
+    <div ref={rootRef} className="card shadow-md" {...rest}>
+      {rest.children}
+    </div>
+  );
+}
+
+export function CustomRootExample() {
+  return <DayPicker components={{ Root: CardRoot }} />;
+}
+```
+
+### Choosing Day vs. DayButton vs. formatters
+
+- Use `DayButton` to change interactivity or add content inside the button while keeping the cell layout.
+- Use `Day` to change the table cell structure (wrappers, tooltips) when you need control over the `<td>`.
+- Use [formatters](./translation.mdx#custom-formatters) for simple text changes (e.g., labels) without altering structure.
 
 What are you using custom components for? [Let us know](https://github.com/gpbl/react-day-picker/discussions).
