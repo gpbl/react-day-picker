@@ -50,13 +50,13 @@ Custom components allow you to extend DayPicker beyond just using [formatters](.
 
 ### Component props cheat sheet
 
-| Component                                           | Props type                                           | Notes                                                |
-| --------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
-| `Day`                                               | [`DayProps`](../api/functions/Day.md)                | Receives `day` (with `date`) and `modifiers`.        |
-| `DayButton`                                         | [`DayButtonProps`](../api/functions/DayButton.md)    | Handles focus; keep forwarding `ref`/`aria-*`.       |
-| `Nav`                                               | [`NavProps`](../api/functions/Nav.md)                | Use provided `onPreviousClick`/`onNextClick`.        |
-| `Dropdown`                                          | [`DropdownProps`](../api/functions/Dropdown.md)      | Forward `aria-label` and call `onChange` with target. |
-| `Root`                                              | [`RootProps`](../api/functions/Root.md)              | Forward `rootRef` when `animate` is enabled.         |
+| Component   | Props type                                        | Notes                                                 |
+| ----------- | ------------------------------------------------- | ----------------------------------------------------- |
+| `Day`       | [`DayProps`](../api/functions/Day.md)             | Receives `day` (with `date`) and `modifiers`.         |
+| `DayButton` | [`DayButtonProps`](../api/functions/DayButton.md) | Handles focus; keep forwarding `ref`/`aria-*`.        |
+| `Nav`       | [`NavProps`](../api/functions/Nav.md)             | Use provided `onPreviousClick`/`onNextClick`.         |
+| `Dropdown`  | [`DropdownProps`](../api/functions/Dropdown.md)   | Forward `aria-label` and call `onChange` with target. |
+| `Root`      | [`RootProps`](../api/functions/Root.md)           | Forward `rootRef` when `animate` is enabled.          |
 
 The `components` prop accepts a **partial** map—pass only the entries you want to override. The legacy `Button` entry is deprecated; prefer `NextMonthButton` and `PreviousMonthButton`.
 

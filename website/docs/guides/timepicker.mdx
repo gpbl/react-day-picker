@@ -15,11 +15,7 @@ DayPicker does not include a built-in time picker. However, you can implement a 
 Derive the time input value from the selected date so the UI stays synchronized, even when the date changes programmatically.
 
 ```tsx
-import React, {
-  type ChangeEventHandler,
-  useEffect,
-  useState,
-} from "react";
+import React, { type ChangeEventHandler, useEffect, useState } from "react";
 
 import { format, setHours, setMinutes } from "date-fns";
 import { DayPicker } from "react-day-picker";
