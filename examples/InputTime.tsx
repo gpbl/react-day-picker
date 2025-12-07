@@ -1,18 +1,27 @@
-import { setHours, setMinutes } from "date-fns";
-import React, { type ChangeEventHandler, useState } from "react";
+import { format, setHours, setMinutes } from "date-fns";
+import React, { type ChangeEventHandler, useEffect, useState } from "react";
 import { DayPicker } from "react-day-picker";
 
 export function InputTime() {
   const [selected, setSelected] = useState<Date>();
   const [timeValue, setTimeValue] = useState<string>("00:00");
 
+  // Keep the time input in sync when the selected date changes elsewhere.
+  useEffect(() => {
+    if (selected) {
+      setTimeValue(format(selected, "HH:mm"));
+    }
+  }, [selected]);
+
   const handleTimeChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const time = e.target.value;
     if (!selected) {
+      // Defer composing a full Date until a day is picked.
       setTimeValue(time);
       return;
     }
     const [hours, minutes] = time.split(":").map((str) => parseInt(str, 10));
+    // Compose a new Date using the current day plus the chosen time.
     const newSelectedDate = setHours(setMinutes(selected, minutes), hours);
     setSelected(newSelectedDate);
     setTimeValue(time);
@@ -26,6 +35,7 @@ export function InputTime() {
     const [hours, minutes] = timeValue
       .split(":")
       .map((str) => parseInt(str, 10));
+    // Apply the time value to the picked day.
     const newDate = new Date(
       date.getFullYear(),
       date.getMonth(),
