@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 7
 ---
 
 # Months Navigation
@@ -162,35 +162,3 @@ For advanced customization, you can override the default style with your own ani
 Customizing the animation function, such as for an up/down transition, can be challenging due to the HTML table structure of the grid. We may improve this in a future version. Please leave your feedback in [DayPicker Discussions](https://github.com/gpbl/react-day-picker/discussions).
 
 :::
-
-## Disabling the Navigation {#disablenavigation}
-
-To prevent the user from navigating between months, set the `disableNavigation` prop to `true`.
-
-| Prop Name           | Type      | Description                            |
-| ------------------- | --------- | -------------------------------------- |
-| `disableNavigation` | `boolean` | Disable the navigation between months. |
-
-```tsx
-<DayPicker disableNavigation />
-```
-
-<BrowserWindow>
-  <Examples.DisableNavigation />
-</BrowserWindow>
-
-## Hiding the Navigation {#hidenavigation}
-
-To hide the navigation completely, set the `hideNavigation` prop to `true`. This is useful when setting the [caption layout](./appearance.mdx#caption-layouts) to `"dropdown"`.
-
-| Prop Name        | Type      | Description              |
-| ---------------- | --------- | ------------------------ |
-| `hideNavigation` | `boolean` | Hide the navigation bar. |
-
-```tsx
-<DayPicker hideNavigation captionLayout="dropdown" />
-```
-
-<BrowserWindow>
-  <Examples.HideNavigation />
-</BrowserWindow>

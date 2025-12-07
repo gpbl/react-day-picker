@@ -52,7 +52,8 @@ export type { Month as DateFnsMonth } from "date-fns";
 
 /**
  * Translations for DayPicker-specific labels.
- * @since v9.12.0
+ *
+ * @since V9.12.0
  */
 export type DayPickerLocaleLabels = {
   [K in keyof Labels]?: string | Labels[K];
@@ -60,7 +61,8 @@ export type DayPickerLocaleLabels = {
 
 /**
  * Locale type used by DayPicker.
- * @since v9.12.0
+ *
+ * @since V9.12.0
  */
 export interface DayPickerLocale extends DateFnsLocale {
   /** Localized DayPicker-specific labels. */

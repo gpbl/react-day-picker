@@ -1,0 +1,130 @@
+---
+sidebar_position: 4
+---
+
+# Caption and Navigation Layouts
+
+| Prop Name       | Type                                                                      | Description                                       |
+| --------------- | ------------------------------------------------------------------------- | ------------------------------------------------- |
+| `captionLayout` | `"label"`<br/>`"dropdown"`<br/>`"dropdown-months"`<br/>`"dropdown-years"` | Choose the layout for the month caption.          |
+| `navLayout`     | `"around"`<br/>`"after"`                                                  | Adjust the positioning of the navigation buttons. |
+
+## Caption Layouts
+
+Use the `captionLayout` prop to customize the layout of the month caption.
+
+```tsx
+<DayPicker captionLayout="label" /> // Default value: shows the month and year.
+```
+
+| Caption Layout      | Description                                            |
+| ------------------- | ------------------------------------------------------ |
+| `"label"`           | Displays the month and year as a label. Default value. |
+| `"dropdown"`        | Displays dropdowns for both month and year navigation. |
+| `"dropdown-months"` | Displays a dropdown only for the month navigation.     |
+| `"dropdown-years"`  | Displays a dropdown only for the year navigation.      |
+
+### Caption Dropdown
+
+| Prop Name       | Type                                                        | Description                                                    |
+| --------------- | ----------------------------------------------------------- | -------------------------------------------------------------- |
+| `captionLayout` | `"dropdown"`<br/>`"dropdown-months"`<br/>`"dropdown-years"` | Choose a dropdown layout for the caption.                      |
+| `startMonth`    | `Date`                                                      | The earliest month available in the dropdown.                  |
+| `endMonth`      | `Date`                                                      | The latest month available in the dropdown.                    |
+| `reverseYears`  | `boolean`                                                   | Reverse the order of the years when a years dropdown is shown. |
+
+To enable a navigation dropdown, set `captionLayout` to `dropdown`, `dropdown-months`, or `dropdown-years`.
+
+- When displaying the dropdown for the years, use the `reverseYears` prop to reverse the order of the years.
+- Use the `startMonth` and `endMonth` properties to define the start and end dates for the calendar navigation.
+
+:::info Default Range
+
+Without specifying the `startMonth` and `endMonth` properties, the dropdown will display the last 100 years.
+
+:::
+
+```tsx
+<DayPicker
+  captionLayout="dropdown"
+  defaultMonth={new Date(2024, 6)}
+  startMonth={new Date(2024, 6)}
+  endMonth={new Date(2025, 9)}
+/>
+```
+
+<BrowserWindow>
+  <Examples.Dropdown />
+</BrowserWindow>
+
+## Navigation Layouts
+
+Use the `navLayout` prop to adjust the positioning of the navigation buttons.
+
+| Prop Name   | Type                     | Description                                       |
+| ----------- | ------------------------ | ------------------------------------------------- |
+| `navLayout` | `"around"`<br/>`"after"` | Adjust the positioning of the navigation buttons. |
+
+| Navigation Layout | Description                                                                                |
+| ----------------- | ------------------------------------------------------------------------------------------ |
+| `"around"`        | Buttons are displayed on either side of the caption.                                       |
+| `"after"`         | Buttons are displayed after the caption, ensuring the tab order matches the visual order.  |
+| `undefined`       | Buttons are displayed after the caption, but the tab order may not match the visual order. |
+
+```tsx
+<DayPicker navLayout="around" />
+```
+
+<BrowserWindow>
+  <Examples.NavLayout />
+</BrowserWindow>
+
+```tsx
+<DayPicker navLayout="after" />
+```
+
+<BrowserWindow>
+  <Examples.NavLayoutAfter />
+</BrowserWindow>
+
+See [Navigation](./navigation.mdx) for additional ways to customize the calendar’s navigation.
+
+:::info Tab Order vs. Visual Order
+
+If not set, the navigation buttons default to being displayed after the caption. However, the tab order may not align with the visual order when setting `"dropdown"` as caption layout. To ensure the component [remains accessible](https://www.w3.org/TR/WCAG22/#focus-order), set `navLayout` to `"after"` or to `"around"` instead of leaving it undefined.
+
+In a future version, the default behavior will be changed to `"after"`.
+
+:::
+
+### Disabling the Navigation {#disablenavigation}
+
+To prevent the user from navigating between months, set the `disableNavigation` prop to `true`.
+
+| Prop Name           | Type      | Description                            |
+| ------------------- | --------- | -------------------------------------- |
+| `disableNavigation` | `boolean` | Disable the navigation between months. |
+
+```tsx
+<DayPicker disableNavigation />
+```
+
+<BrowserWindow>
+  <Examples.DisableNavigation />
+</BrowserWindow>
+
+### Hiding the Navigation {#hidenavigation}
+
+To hide the navigation completely, set the `hideNavigation` prop to `true`. This is useful when setting the [caption layout](./caption-and-nav-layouts.mdx#caption-layouts) to `"dropdown"`.
+
+| Prop Name        | Type      | Description              |
+| ---------------- | --------- | ------------------------ |
+| `hideNavigation` | `boolean` | Hide the navigation bar. |
+
+```tsx
+<DayPicker hideNavigation captionLayout="dropdown" />
+```
+
+<BrowserWindow>
+  <Examples.HideNavigation />
+</BrowserWindow>

@@ -28,7 +28,7 @@ const sidebars: SidebarsConfig = {
     "start",
     {
       type: "category",
-      label: "Appearance",
+      label: "Customization",
       collapsed: false,
       items: [
         {
