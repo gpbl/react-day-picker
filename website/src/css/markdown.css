@@ -1,5 +1,6 @@
 .markdown {
   min-height: calc(100vh - var(--ifm-navbar-height) - 17rem);
+  --doc-table-min-width: 640px;
 }
 
 .markdown a {
@@ -56,9 +57,9 @@
 
 .markdown table {
   margin: 2rem 0;
-  display: table;
   width: 100%;
   font-size: 0.875rem;
+  display: table;
 }
 
 .markdown table tr {
@@ -77,10 +78,31 @@
   font-weight: 600;
   background-color: unset !important;
   text-align: left;
+  white-space: nowrap;
 }
 
 .markdown table thead tr {
   border-bottom-width: 1px;
+}
+
+@media (max-width: 995px) {
+  .table-scroll {
+    margin: 2rem 0;
+    padding-bottom: 0.5rem;
+  }
+
+  .table-scroll table {
+    margin: 0;
+  }
+
+  .table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-scroll table {
+    min-width: var(--doc-table-min-width);
+  }
 }
 
 .markdown details {
