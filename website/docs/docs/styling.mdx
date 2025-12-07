@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Styling
+# Styling and Appearance
 
 DayPicker comes with a minimal style inspired by macOS date pickers, designed to be extended and customized.
 
@@ -106,6 +106,10 @@ To toggle between dark and light modes, override the accent color with the desir
 
 You can import `style.module.css` if you want your CSS pre-processor to parse it. Pass the imported styles to the `classNames` prop.
 
+| Prop Name    | Type                                              | Description                                       |
+| ------------ | ------------------------------------------------- | ------------------------------------------------- |
+| `classNames` | [`ClassNames`](../api/type-aliases/ClassNames.md) | Apply custom class names instead of the defaults. |
+
 ```tsx title="./MyDatePicker.jsx"
 import { DayPicker } from "react-day-picker";
 import classNames from "react-day-picker/style.module.css";
@@ -174,6 +178,10 @@ We currently don't have a CSS file completely written in Tailwind CSS. If you'd 
 ## Inline Styles
 
 To change the appearance of any DayPicker element using inline styles, use the `styles` prop.
+
+| Prop Name | Type     | Description                                           |
+| --------- | -------- | ----------------------------------------------------- |
+| `styles`  | `Styles` | Provide inline styles keyed by DayPicker UI elements. |
 
 ```tsx
 const monthCaptionStyle = {
