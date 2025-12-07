@@ -136,14 +136,6 @@ const config: Config = {
       "data-api": "/q/a/event",
     },
   ],
-
-  future: {
-    v4: {
-      useCssCascadeLayers: true,
-      removeLegacyPostBuildHeadAttribute: true,
-    },
-  },
-
   themeConfig: {
     image: "img/social-card.png",
     metadata: [
