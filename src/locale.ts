@@ -2,7 +2,8 @@ export * from "date-fns/locale";
 
 /**
  * DayPicker locale types including translated DayPicker labels.
- * @since v9.12.0
+ *
+ * @since V9.12.0
  */
 export type {
   DayPickerLocale,
@@ -10,7 +11,8 @@ export type {
 } from "./classes/DateLib.js";
 /**
  * DayPicker locales extended with translated labels.
- * @since v9.12.0
+ *
+ * @since V9.12.0
  */
 export { af } from "./locale/af.js";
 export { amET } from "./locale/am-ET.js";

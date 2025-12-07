@@ -1,7 +1,7 @@
 {
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.biome": true
+    "source.fixAll.biome": "explicit"
   },
   "[typescript]": {
     "editor.defaultFormatter": "biomejs.biome"
