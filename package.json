@@ -4,7 +4,7 @@
   "description": "Customizable Date Picker for React",
   "author": "Giampaolo Bellavite <io@gpbl.dev>",
   "homepage": "https://daypicker.dev",
-  "packageManager": "pnpm@9.15.9",
+  "packageManager": "pnpm@10.24.0",
   "engines": {
     "node": ">=18"
   },
@@ -255,9 +255,9 @@
     "jest-transform-css": "^6.0.3",
     "mockdate": "^3.0.5",
     "prettier": "^3.7.1",
-    "prettier-plugin-jsdoc": "^1.5.0",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
+    "prettier-plugin-jsdoc": "^1.7.0",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
     "ts-node": "^10.9.2",
     "tslib": "^2.8.1",
     "typescript": "^5.9.3",
