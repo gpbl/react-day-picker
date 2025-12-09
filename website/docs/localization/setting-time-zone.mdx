@@ -9,19 +9,21 @@ By default, DayPicker uses the browser’s local time zone. You can override thi
 
 The time zone can be specified as either an [IANA time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) identifier or a UTC offset.
 
-| Prop Name  | Type     | Description                                       |
-| ---------- | -------- | ------------------------------------------------- |
-| `timeZone` | `string` | The time zone to use when rendering the calendar. |
+| Prop Name  | Type     | Description                                            |
+| ---------- | -------- | ------------------------------------------------------ |
+| `timeZone` | `string` | The IANA time zone to use when rendering the calendar. |
 
 ```tsx
 <DayPicker timeZone="UTC" /> // Coordinated Universal Time
 <DayPicker timeZone="Pacific/Honolulu" /> // US Hawaii Time
 <DayPicker timeZone="Europe/Paris" /> // Central European Time
+<DayPicker timeZone="UTC+2" /> // UTC plus 2 hours
+<DayPicker timeZone="UTC-5" /> // UTC minus 5 hours
 ```
 
 ## Working with time-zoned dates
 
-When working with time zones, use the `TZDate` object exported by `react-day-picker` instead of the native `Date` object. `TZDate` ensures the calendar reads and writes dates in the time zone you specify.
+When working with time zones, use the `TZDate` object exported by `react-day-picker` instead of the native `Date` object. `TZDate` ensures your user interface always reads and writes dates in the time zone you specify.
 
 ```tsx
 import React, { useState } from "react";
@@ -38,6 +40,11 @@ export function TimeZone() {
       timeZone={timeZone}
       selected={selected}
       onSelect={setSelected}
+      footer={
+        selected
+          ? selected.toString()
+          : `Pick a day to see it is in ${timeZone} time zone.`
+      }
     />
   );
 }

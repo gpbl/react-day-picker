@@ -42,6 +42,7 @@ const timeZones = [
   "Asia/Dubai",
   "Asia/Hong_Kong",
   "Asia/Kolkata",
+  "Asia/Saigon",
   "Asia/Seoul",
   "Asia/Shanghai",
   "Asia/Singapore",
