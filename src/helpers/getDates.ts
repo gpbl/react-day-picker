@@ -83,5 +83,30 @@ export function getDates(
       dates.push(date);
     }
   }
+
+  if (hasDuplicateDay(dates, dateLib)) {
+    // Useful for diagnosing timezone/date-lib edge cases without changing behavior.
+    console.warn("DayPicker: duplicate calendar days detected in getDates", {
+      dates,
+    });
+  }
+
   return dates;
+}
+
+/**
+ * Returns `true` when the list contains at least two dates falling on the same
+ * calendar day (after normalizing to the start of the day with `dateLib`).
+ */
+export function hasDuplicateDay(dates: Date[], dateLib: DateLib): boolean {
+  const seen = new Set<string>();
+  for (const day of dates) {
+    const start = dateLib.startOfDay(day);
+    const key = `${dateLib.getYear(start)}-${dateLib.getMonth(start)}-${start.getDate()}`;
+    if (seen.has(key)) {
+      return true;
+    }
+    seen.add(key);
+  }
+  return false;
 }
