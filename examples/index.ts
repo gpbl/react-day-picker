@@ -3,6 +3,7 @@ export * from "./Animate";
 export * from "./AnimateCSSVars";
 export * from "./AnimateRange";
 export * from "./AnimateRtl";
+export * from "./AsiaSaigonTimezone";
 export * from "./AutoFocus";
 export * from "./BroadcastCalendar";
 export * from "./Buddhist";
