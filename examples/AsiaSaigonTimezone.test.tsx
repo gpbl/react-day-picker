@@ -7,7 +7,7 @@ beforeEach(() => {
   render(<AsiaSaigonTimezone />);
 });
 
-test.skip('should have the "id" attribute', () => {
+test.skip("the first row should display 7 days", () => {
   expect(
     screen.getAllByRole("row")[0].querySelectorAll("[role='gridcell']"),
   ).toHaveLength(7);
