@@ -101,8 +101,9 @@ export function getDates(
 export function hasDuplicateDay(dates: Date[], dateLib: DateLib): boolean {
   const seen = new Set<string>();
   for (const day of dates) {
-    const start = dateLib.startOfDay(day);
-    const key = `${dateLib.getYear(start)}-${dateLib.getMonth(start)}-${start.getDate()}`;
+    // Key by the calendar components of the original date to avoid timezone
+    // and sub-hour offsets shifting us into the previous/next day.
+    const key = `${dateLib.getYear(day)}-${dateLib.getMonth(day)}-${day.getDate()}`;
     if (seen.has(key)) {
       return true;
     }
