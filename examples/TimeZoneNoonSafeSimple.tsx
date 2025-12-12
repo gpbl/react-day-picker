@@ -7,6 +7,11 @@ export function TimeZoneNoonSafeSimple() {
   const [selected, setSelected] = useState<Date | undefined>(
     new TZDate(1900, 11, 1, timeZone),
   );
+  const formatter = new Intl.DateTimeFormat("en-US", {
+    dateStyle: "full",
+    timeStyle: "short",
+    timeZone,
+  });
 
   return (
     <DayPicker
@@ -20,8 +25,8 @@ export function TimeZoneNoonSafeSimple() {
       onSelect={setSelected}
       footer={
         selected
-          ? `Selected: ${selected.toString()}`
-          : "Pick a day to see the time zone-aware date"
+          ? `Selected: ${formatter.format(selected)} (${timeZone})`
+          : `Pick a day to see it in ${timeZone}`
       }
     />
   );

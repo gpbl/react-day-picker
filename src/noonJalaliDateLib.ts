@@ -20,7 +20,7 @@ import {
 } from "date-fns-jalali";
 
 import type { DateLib } from "./classes/DateLib.js";
-import type { CreateNoonDateLibOverridesOptions } from "./noonDateLib.js";
+import type { CreateNoonOverridesOptions } from "./noonDateLib.js";
 
 /**
  * Jalali-aware version of {@link createNoonDateLibOverrides}.
@@ -28,12 +28,14 @@ import type { CreateNoonDateLibOverridesOptions } from "./noonDateLib.js";
  * Keeps all calendar math at noon in the target time zone while deferring to
  * `date-fns-jalali` for calendar logic.
  */
-export function createJalaliNoonDateLibOverrides(
-  options: CreateNoonDateLibOverridesOptions = {},
+export function createJalaliNoonOverrides(
+  options: CreateNoonOverridesOptions = {},
 ): Partial<typeof DateLib.prototype> {
   const { timeZone, weekStartsOn, locale } = options;
-  const fallbackWeekStartsOn =
-    weekStartsOn ?? locale?.options?.weekStartsOn ?? 0;
+  type WeekStartsOn = NonNullable<StartOfWeekOptions["weekStartsOn"]>;
+  const fallbackWeekStartsOn: WeekStartsOn = (weekStartsOn ??
+    locale?.options?.weekStartsOn ??
+    0) as WeekStartsOn;
 
   const normalize = (date: Date | number | string) => {
     const normalizedDate =
@@ -67,7 +69,8 @@ export function createJalaliNoonDateLibOverrides(
     },
     startOfWeek: (date, options?: StartOfWeekOptions) => {
       const base = normalize(date);
-      const weekStartsOnValue = options?.weekStartsOn ?? fallbackWeekStartsOn;
+      const weekStartsOnValue =
+        (options?.weekStartsOn ?? fallbackWeekStartsOn) as WeekStartsOn;
       return normalize(
         startOfWeekJalali(base, {
           weekStartsOn: weekStartsOnValue,
@@ -78,14 +81,13 @@ export function createJalaliNoonDateLibOverrides(
       const base = normalize(date);
       return normalize(startOfISOWeekJalali(base));
     },
-    startOfMonth: (date) =>
-      normalize(startOfMonthJalali(normalize(date))),
-    startOfYear: (date) =>
-      normalize(startOfYearJalali(normalize(date))),
+    startOfMonth: (date) => normalize(startOfMonthJalali(normalize(date))),
+    startOfYear: (date) => normalize(startOfYearJalali(normalize(date))),
 
     endOfWeek: (date, options?: EndOfWeekOptions) => {
       const base = normalize(date);
-      const weekStartsOnValue = options?.weekStartsOn ?? fallbackWeekStartsOn;
+      const weekStartsOnValue =
+        (options?.weekStartsOn ?? fallbackWeekStartsOn) as WeekStartsOn;
       return normalize(
         endOfWeekJalali(base, {
           weekStartsOn: weekStartsOnValue,
@@ -96,19 +98,14 @@ export function createJalaliNoonDateLibOverrides(
       const base = normalize(date);
       return normalize(endOfISOWeekJalali(base));
     },
-    endOfMonth: (date) =>
-      normalize(endOfMonthJalali(normalize(date))),
-    endOfYear: (date) =>
-      normalize(endOfYearJalali(normalize(date))),
+    endOfMonth: (date) => normalize(endOfMonthJalali(normalize(date))),
+    endOfYear: (date) => normalize(endOfYearJalali(normalize(date))),
 
     eachMonthOfInterval: (interval) => {
-      return eachMonthOfIntervalJalali(
-        {
-          start: normalize(interval.start),
-          end: normalize(interval.end),
-        },
-        { weekStartsOn: fallbackWeekStartsOn },
-      ).map((date) => normalize(date));
+      return eachMonthOfIntervalJalali({
+        start: normalize(interval.start),
+        end: normalize(interval.end),
+      }).map((date) => normalize(date));
     },
 
     addDays: (date, amount) =>

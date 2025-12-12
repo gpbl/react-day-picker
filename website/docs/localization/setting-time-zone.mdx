@@ -12,7 +12,7 @@ The time zone can be specified as either an [IANA time zone](https://en.wikipedi
 | Prop Name  | Type      | Description                                                                          |
 | ---------- | --------- | ------------------------------------------------------------------------------------ |
 | `timeZone` | `string`  | The IANA time zone to use when rendering the calendar.                               |
-| `noonSafe` | `boolean` | Experimental. Keep calendar math at noon in the time zone to avoid historical drift. |
+| `noonSafe` | `boolean` | Experimental (see below). Keep calendar math at noon in the time zone to avoid historical drift and use when your time zone shows duplicated/missing days. |
 
 ```tsx
 <DayPicker timeZone="UTC" /> // Coordinated Universal Time
@@ -69,7 +69,9 @@ const timeZone = "Asia/Dubai";
 ```
 
 This override is optional and only needed when you render months that include
-offsets with seconds and want to avoid duplicate or missing days in the grid.
+offsets with seconds and want to avoid duplicate or missing days in the grid. Use
+it when you notice time-zone related glitches such as missing days, duplicate
+days, or unexpected week padding.
 
 <BrowserWindow bodyStyle={{ justifyContent: "start" }}>
   <Examples.TimeZoneNoonSafeSimple />

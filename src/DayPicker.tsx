@@ -13,7 +13,7 @@ import { getMonthOptions } from "./helpers/getMonthOptions.js";
 import { getStyleForModifiers } from "./helpers/getStyleForModifiers.js";
 import { getWeekdays } from "./helpers/getWeekdays.js";
 import { getYearOptions } from "./helpers/getYearOptions.js";
-import { createNoonDateLibOverrides } from "./noonDateLib.js";
+import { createNoonOverrides } from "./noonDateLib.js";
 import type {
   DayPickerProps,
   Modifiers,
@@ -105,7 +105,7 @@ export function DayPicker(initialProps: DayPickerProps) {
 
       const noonOverrides =
         props.noonSafe && props.timeZone
-          ? createNoonDateLibOverrides({
+          ? createNoonOverrides({
               timeZone: props.timeZone,
               weekStartsOn,
               locale,
@@ -114,7 +114,7 @@ export function DayPicker(initialProps: DayPickerProps) {
       const overrides =
         props.dateLib && noonOverrides
           ? { ...noonOverrides, ...props.dateLib }
-          : props.dateLib ?? noonOverrides;
+          : (props.dateLib ?? noonOverrides);
 
       const dateLib = new DateLib(
         {

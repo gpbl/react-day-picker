@@ -8,7 +8,7 @@ import {
 } from "./index.js";
 import { enUSJalali } from "./locale/en-US-jalali.js";
 import { faIRJalali } from "./locale/fa-IR-jalali.js";
-import { createJalaliNoonDateLibOverrides } from "./noonJalaliDateLib.js";
+import { createJalaliNoonOverrides } from "./noonJalaliDateLib.js";
 import type { DayPickerProps } from "./types/props.js";
 
 /** Persian (Iran) Jalali locale with DayPicker labels. */
@@ -115,16 +115,17 @@ export const getDateLib = (
   },
 ) => {
   const { noonSafe, overrides, ...dateLibOptions } = options ?? {};
-  const baseOverrides = noonSafe && dateLibOptions.timeZone
-    ? {
-        ...dateFnsJalali,
-        ...createJalaliNoonDateLibOverrides({
-          timeZone: dateLibOptions.timeZone,
-          weekStartsOn: dateLibOptions.weekStartsOn,
-          locale: dateLibOptions.locale,
-        }),
-      }
-    : dateFnsJalali;
+  const baseOverrides =
+    noonSafe && dateLibOptions.timeZone
+      ? {
+          ...dateFnsJalali,
+          ...createJalaliNoonOverrides({
+            timeZone: dateLibOptions.timeZone,
+            weekStartsOn: dateLibOptions.weekStartsOn,
+            locale: dateLibOptions.locale,
+          }),
+        }
+      : dateFnsJalali;
 
   return new DateLib(dateLibOptions, { ...baseOverrides, ...overrides });
 };

@@ -12,7 +12,7 @@ import {
 } from "date-fns";
 import type { DateLib } from "./classes/DateLib.js";
 
-export interface CreateNoonDateLibOverridesOptions {
+export interface CreateNoonOverridesOptions {
   timeZone?: string;
   weekStartsOn?: number;
   locale?: Locale;
@@ -23,12 +23,14 @@ export interface CreateNoonDateLibOverridesOptions {
  * time zone. This avoids second-level offset changes (e.g., historical zones
  * with +03:41:12) from pushing dates backward across midnight.
  */
-export function createNoonDateLibOverrides(
-  options: CreateNoonDateLibOverridesOptions = {},
+export function createNoonOverrides(
+  options: CreateNoonOverridesOptions = {},
 ): Partial<typeof DateLib.prototype> {
   const { timeZone, weekStartsOn, locale } = options;
-  const fallbackWeekStartsOn =
-    weekStartsOn ?? locale?.options?.weekStartsOn ?? 0;
+  type WeekStartsOn = NonNullable<StartOfWeekOptions["weekStartsOn"]>;
+  const fallbackWeekStartsOn: WeekStartsOn = (weekStartsOn ??
+    locale?.options?.weekStartsOn ??
+    0) as WeekStartsOn;
 
   const normalize = (date: Date | number | string) => {
     const normalizedDate =
@@ -70,7 +72,8 @@ export function createNoonDateLibOverrides(
     },
     startOfWeek: (date, options?: StartOfWeekOptions) => {
       const base = normalize(date);
-      const weekStartsOnValue = options?.weekStartsOn ?? fallbackWeekStartsOn;
+      const weekStartsOnValue =
+        (options?.weekStartsOn ?? fallbackWeekStartsOn) as WeekStartsOn;
       const diff = (base.getDay() - weekStartsOnValue + 7) % 7;
       return normalize(
         new TZDate(
@@ -108,7 +111,8 @@ export function createNoonDateLibOverrides(
 
     endOfWeek: (date, options?: EndOfWeekOptions) => {
       const base = normalize(date);
-      const weekStartsOnValue = options?.weekStartsOn ?? fallbackWeekStartsOn;
+      const weekStartsOnValue =
+        (options?.weekStartsOn ?? fallbackWeekStartsOn) as WeekStartsOn;
       const endDow = (weekStartsOnValue + 6) % 7;
       const diff = (endDow - base.getDay() + 7) % 7;
       return normalize(
