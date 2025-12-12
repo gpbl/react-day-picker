@@ -14,6 +14,8 @@ The time zone can be specified as either an [IANA time zone](https://en.wikipedi
 | `timeZone`  | `string`  | The IANA time zone to use when rendering the calendar.                      |
 | `noonSafe`  | `boolean` | Keep calendar math at noon in the time zone to avoid historical drift.      |
 
+> `noonSafe` is experimental as of v9.13.0 and may change in future releases.
+
 ```tsx
 <DayPicker timeZone="UTC" /> // Coordinated Universal Time
 <DayPicker timeZone="Pacific/Honolulu" /> // US Hawaii Time
