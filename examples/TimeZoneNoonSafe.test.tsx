@@ -13,6 +13,20 @@ test("the first row should display 7 days", () => {
   expect(firstDayRow?.querySelectorAll("[role='gridcell']")).toHaveLength(7);
 });
 
+test("week numbers remain valid when using noonSafe", () => {
+  render(<TimeZoneNoonSafe showWeekNumber />);
+  const weekNumbers = screen
+    .getAllByRole("rowheader")
+    .map((cell) => Number(cell.textContent))
+    .filter((value) => Number.isFinite(value));
+
+  expect(weekNumbers.length).toBeGreaterThan(0);
+  weekNumbers.forEach((value) => {
+    expect(value).toBeGreaterThan(0);
+    expect(value).toBeLessThan(60);
+  });
+});
+
 test("the last row should display 7 days", () => {
   render(<TimeZoneNoonSafe />);
   const grid = screen.getByRole("grid");

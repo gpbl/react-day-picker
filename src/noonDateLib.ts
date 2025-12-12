@@ -5,6 +5,9 @@ import {
   addMonths,
   addWeeks,
   addYears,
+  differenceInCalendarDays as differenceInCalendarDaysFn,
+  differenceInCalendarMonths as differenceInCalendarMonthsFn,
+  getWeek as getWeekFn,
   startOfDay as startOfDayFn,
 } from "date-fns";
 import type { DateLib } from "./classes/DateLib.js";
@@ -33,7 +36,7 @@ export function createNoonDateLibOverrides(
         ? new Date(date)
         : date;
     if (!timeZone || Number.isNaN(+normalizedDate)) return normalizedDate;
-    return new TZDate(
+    const tzDate = new TZDate(
       normalizedDate.getFullYear(),
       normalizedDate.getMonth(),
       normalizedDate.getDate(),
@@ -42,6 +45,7 @@ export function createNoonDateLibOverrides(
       0,
       timeZone,
     );
+    return new Date(tzDate.getTime());
   };
 
   return {
@@ -184,18 +188,18 @@ export function createNoonDateLibOverrides(
 
     getWeek: (date) => {
       const base = normalize(date);
-      const weekStartsOnValue = fallbackWeekStartsOn;
-      const diff = (base.getDay() - weekStartsOnValue + 7) % 7;
-      const start = new TZDate(
-        base.getFullYear(),
-        base.getMonth(),
-        base.getDate() - diff,
-        12,
-        0,
-        0,
-        timeZone,
-      );
-      return start.getTime();
+      return getWeekFn(base, { weekStartsOn: fallbackWeekStartsOn });
+    },
+
+    differenceInCalendarDays: (dateLeft, dateRight) => {
+      const left = startOfDayFn(normalize(dateLeft));
+      const right = startOfDayFn(normalize(dateRight));
+      return differenceInCalendarDaysFn(left, right);
+    },
+    differenceInCalendarMonths: (dateLeft, dateRight) => {
+      const left = startOfDayFn(normalize(dateLeft));
+      const right = startOfDayFn(normalize(dateRight));
+      return differenceInCalendarMonthsFn(left, right);
     },
   };
 }

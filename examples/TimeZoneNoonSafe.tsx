@@ -46,6 +46,8 @@ export function TimeZoneNoonSafe(props: TimeZoneNoonSafeProps = {}) {
       timeZone={timeZone}
       noonSafe
       weekStartsOn={weekStartsOn}
+      showOutsideDays={rest.showOutsideDays ?? true}
+      fixedWeeks={rest.fixedWeeks ?? true}
       selected={selectedValue}
       onSelect={onSelect}
       startMonth={startMonth ?? new Date(1880, 0, 1)}
