@@ -6,7 +6,6 @@ import {
   type PropsSingle,
   TZDate,
 } from "react-day-picker";
-import { createNoonDateLibOverrides } from "react-day-picker/noon-date-lib";
 
 type TimeZoneNoonSafeProps = Partial<DayPickerProps> & {
   selected?: Date;
@@ -29,10 +28,6 @@ export function TimeZoneNoonSafe(props: TimeZoneNoonSafeProps = {}) {
   const timeZone = timeZoneProp ?? "Asia/Dubai";
   const weekStartsOn = (weekStartsOnProp ??
     1) as DayPickerProps["weekStartsOn"];
-  const dateLib = createNoonDateLibOverrides({
-    timeZone,
-    weekStartsOn,
-  });
   const [selected, setSelected] = useState<Date | undefined>(
     selectedProp ?? new TZDate(1900, 11, 1, timeZone),
   );
@@ -49,10 +44,10 @@ export function TimeZoneNoonSafe(props: TimeZoneNoonSafeProps = {}) {
       captionLayout="dropdown"
       defaultMonth={defaultMonth ?? new TZDate(1900, 11, 1, timeZone)}
       timeZone={timeZone}
+      noonSafe
       weekStartsOn={weekStartsOn}
       selected={selectedValue}
       onSelect={onSelect}
-      dateLib={dateLib}
       startMonth={startMonth ?? new Date(1880, 0, 1)}
       toYear={2025}
       footer={

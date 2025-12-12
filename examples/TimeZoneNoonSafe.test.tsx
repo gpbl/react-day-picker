@@ -1,7 +1,5 @@
 import userEvent from "@testing-library/user-event";
 import React from "react";
-import { DateLib } from "react-day-picker";
-import { createNoonDateLibOverrides } from "react-day-picker/noon-date-lib";
 import { render, screen, within } from "@/test/render";
 import { TimeZoneNoonSafe } from "./TimeZoneNoonSafe";
 
@@ -72,11 +70,5 @@ test("year dropdown starts at the fromMonth year", () => {
   const selectYear = screen.getAllByRole("combobox")[1];
   const firstYearOption = within(selectYear).getAllByRole("option")[0];
 
-  const dateLib = new DateLib(
-    { timeZone },
-    createNoonDateLibOverrides({ timeZone, weekStartsOn: 1 }),
-  );
-  const expectedFirstYear = dateLib.getYear(dateLib.startOfMonth(fromMonth));
-
-  expect(Number(firstYearOption.getAttribute("value"))).toBe(expectedFirstYear);
+  expect(Number(firstYearOption.getAttribute("value"))).toBe(1880);
 });

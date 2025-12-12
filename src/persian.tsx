@@ -8,6 +8,7 @@ import {
 } from "./index.js";
 import { enUSJalali } from "./locale/en-US-jalali.js";
 import { faIRJalali } from "./locale/fa-IR-jalali.js";
+import { createJalaliNoonDateLibOverrides } from "./noonJalaliDateLib.js";
 import type { DayPickerProps } from "./types/props.js";
 
 /** Persian (Iran) Jalali locale with DayPicker labels. */
@@ -70,20 +71,32 @@ export function DayPicker(
     numerals?: DayPickerProps["numerals"];
   },
 ) {
+  const {
+    locale: localeProp,
+    dir,
+    dateLib: dateLibProp,
+    numerals,
+    noonSafe,
+    ...restProps
+  } = props;
+
   const dateLib = getDateLib({
-    locale: props.locale,
+    locale: localeProp,
     weekStartsOn: props.broadcastCalendar ? 1 : props.weekStartsOn,
     firstWeekContainsDate: props.firstWeekContainsDate,
     useAdditionalWeekYearTokens: props.useAdditionalWeekYearTokens,
     useAdditionalDayOfYearTokens: props.useAdditionalDayOfYearTokens,
     timeZone: props.timeZone,
+    numerals: numerals ?? "arabext",
+    noonSafe,
+    overrides: dateLibProp,
   });
   return (
     <DayPickerComponent
-      {...props}
-      locale={props.locale ?? faIR}
-      numerals={props.numerals ?? "arabext"}
-      dir={props.dir ?? "rtl"}
+      {...restProps}
+      locale={localeProp ?? faIR}
+      numerals={numerals ?? "arabext"}
+      dir={dir ?? "rtl"}
       dateLib={dateLib}
     />
   );
@@ -95,6 +108,23 @@ export function DayPicker(
  * @param options - Optional configuration for the date library.
  * @returns The date library instance.
  */
-export const getDateLib = (options?: DateLibOptions) => {
-  return new DateLib(options, dateFnsJalali);
+export const getDateLib = (
+  options?: DateLibOptions & {
+    noonSafe?: boolean;
+    overrides?: DayPickerProps["dateLib"];
+  },
+) => {
+  const { noonSafe, overrides, ...dateLibOptions } = options ?? {};
+  const baseOverrides = noonSafe && dateLibOptions.timeZone
+    ? {
+        ...dateFnsJalali,
+        ...createJalaliNoonDateLibOverrides({
+          timeZone: dateLibOptions.timeZone,
+          weekStartsOn: dateLibOptions.weekStartsOn,
+          locale: dateLibOptions.locale,
+        }),
+      }
+    : dateFnsJalali;
+
+  return new DateLib(dateLibOptions, { ...baseOverrides, ...overrides });
 };

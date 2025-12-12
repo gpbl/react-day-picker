@@ -9,9 +9,10 @@ By default, DayPicker uses the browser’s local time zone. You can override thi
 
 The time zone can be specified as either an [IANA time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) identifier or a UTC offset.
 
-| Prop Name  | Type     | Description                                            |
-| ---------- | -------- | ------------------------------------------------------ |
-| `timeZone` | `string` | The IANA time zone to use when rendering the calendar. |
+| Prop Name   | Type      | Description                                                                 |
+| ----------- | --------- | --------------------------------------------------------------------------- |
+| `timeZone`  | `string`  | The IANA time zone to use when rendering the calendar.                      |
+| `noonSafe`  | `boolean` | Keep calendar math at noon in the time zone to avoid historical drift.      |
 
 ```tsx
 <DayPicker timeZone="UTC" /> // Coordinated Universal Time
@@ -58,19 +59,13 @@ export function TimeZone() {
 
 Some historical time zones use offsets with seconds (for example `Asia/Dubai` in
 1900 is `+03:41:12`). JavaScript `Date` and `date-fns` round offsets to minutes,
-which can push midnight calculations into the previous day. You can opt into a
-“noon-safe” date library that keeps all calendar math at 12:00 in the chosen
-time zone so the date never drifts.
-
-Import the helper from the optional submodule (kept out of the default bundle):
+which can push midnight calculations into the previous day. Set `noonSafe` to
+keep calendar math at 12:00 in the chosen time zone so the date never drifts.
 
 ```ts
-import { createNoonDateLibOverrides } from "react-day-picker/noon-date-lib";
-
 const timeZone = "Asia/Dubai";
-const noonSafe = createNoonDateLibOverrides({ timeZone, weekStartsOn: 1 });
 
-<DayPicker timeZone={timeZone} dateLib={noonSafe} />;
+<DayPicker timeZone={timeZone} weekStartsOn={1} noonSafe />;
 ```
 
 This override is optional and only needed when you render months that include

@@ -7,7 +7,6 @@ import {
   addYears,
   startOfDay as startOfDayFn,
 } from "date-fns";
-
 import type { DateLib } from "./classes/DateLib.js";
 
 export interface CreateNoonDateLibOverridesOptions {
