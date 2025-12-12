@@ -72,8 +72,8 @@ export function createNoonOverrides(
     },
     startOfWeek: (date, options?: StartOfWeekOptions) => {
       const base = normalize(date);
-      const weekStartsOnValue =
-        (options?.weekStartsOn ?? fallbackWeekStartsOn) as WeekStartsOn;
+      const weekStartsOnValue = (options?.weekStartsOn ??
+        fallbackWeekStartsOn) as WeekStartsOn;
       const diff = (base.getDay() - weekStartsOnValue + 7) % 7;
       return normalize(
         new TZDate(
@@ -111,8 +111,8 @@ export function createNoonOverrides(
 
     endOfWeek: (date, options?: EndOfWeekOptions) => {
       const base = normalize(date);
-      const weekStartsOnValue =
-        (options?.weekStartsOn ?? fallbackWeekStartsOn) as WeekStartsOn;
+      const weekStartsOnValue = (options?.weekStartsOn ??
+        fallbackWeekStartsOn) as WeekStartsOn;
       const endDow = (weekStartsOnValue + 6) % 7;
       const diff = (endDow - base.getDay() + 7) % 7;
       return normalize(

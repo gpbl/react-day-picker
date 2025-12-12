@@ -69,8 +69,8 @@ export function createJalaliNoonOverrides(
     },
     startOfWeek: (date, options?: StartOfWeekOptions) => {
       const base = normalize(date);
-      const weekStartsOnValue =
-        (options?.weekStartsOn ?? fallbackWeekStartsOn) as WeekStartsOn;
+      const weekStartsOnValue = (options?.weekStartsOn ??
+        fallbackWeekStartsOn) as WeekStartsOn;
       return normalize(
         startOfWeekJalali(base, {
           weekStartsOn: weekStartsOnValue,
@@ -86,8 +86,8 @@ export function createJalaliNoonOverrides(
 
     endOfWeek: (date, options?: EndOfWeekOptions) => {
       const base = normalize(date);
-      const weekStartsOnValue =
-        (options?.weekStartsOn ?? fallbackWeekStartsOn) as WeekStartsOn;
+      const weekStartsOnValue = (options?.weekStartsOn ??
+        fallbackWeekStartsOn) as WeekStartsOn;
       return normalize(
         endOfWeekJalali(base, {
           weekStartsOn: weekStartsOnValue,
