@@ -35,6 +35,16 @@
         "default": "./dist/cjs/index.js"
       }
     },
+    "./noon-date-lib": {
+      "import": {
+        "types": "./dist/esm/noonDateLib.d.ts",
+        "default": "./dist/esm/noonDateLib.js"
+      },
+      "require": {
+        "types": "./dist/cjs/noonDateLib.d.ts",
+        "default": "./dist/cjs/noonDateLib.js"
+      }
+    },
     "./jalali": {
       "import": {
         "types": "./dist/esm/jalali.d.ts",

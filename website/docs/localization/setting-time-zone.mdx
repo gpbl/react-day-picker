@@ -53,3 +53,29 @@ export function TimeZone() {
 <BrowserWindow bodyStyle={{ justifyContent: "start" }}>
   <Examples.TimeZone />
 </BrowserWindow>
+
+## Historical time zones with second offsets
+
+Some historical time zones use offsets with seconds (for example `Asia/Dubai` in
+1900 is `+03:41:12`). JavaScript `Date` and `date-fns` round offsets to minutes,
+which can push midnight calculations into the previous day. You can opt into a
+“noon-safe” date library that keeps all calendar math at 12:00 in the chosen
+time zone so the date never drifts.
+
+Import the helper from the optional submodule (kept out of the default bundle):
+
+```ts
+import { createNoonDateLibOverrides } from "react-day-picker/noon-date-lib";
+
+const timeZone = "Asia/Dubai";
+const noonSafe = createNoonDateLibOverrides({ timeZone, weekStartsOn: 1 });
+
+<DayPicker timeZone={timeZone} dateLib={noonSafe} />;
+```
+
+This override is optional and only needed when you render months that include
+offsets with seconds and want to avoid duplicate or missing days in the grid.
+
+<BrowserWindow bodyStyle={{ justifyContent: "start" }}>
+  <Examples.TimeZoneNoonSafe />
+</BrowserWindow>

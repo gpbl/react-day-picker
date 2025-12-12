@@ -101,6 +101,7 @@ export * from "./TestCase2843";
 export * from "./TestCase2864";
 export * from "./Testcase1567";
 export * from "./TimeZone";
+export * from "./TimeZoneNoonSafe";
 export * from "./timezone/TestCase2833";
 export * from "./Utc";
 export * from "./WeekIso";

@@ -1,7 +1,19 @@
 import React from "react";
 
-import { DayPicker } from "react-day-picker";
+import { DayPicker, TZDate } from "react-day-picker";
+import { createNoonDateLibOverrides } from "react-day-picker/noon-date-lib";
 
 export function AsiaSaigonTimezone() {
-  return <DayPicker defaultMonth={new Date(1900, 11)} timeZone="Asia/Saigon" />;
+  const timeZone = "Asia/Saigon";
+  const dateLib = createNoonDateLibOverrides({ timeZone });
+
+  return (
+    <DayPicker
+      defaultMonth={new TZDate(1900, 11, 1, timeZone)}
+      timeZone={timeZone}
+      showOutsideDays
+      fixedWeeks
+      dateLib={dateLib}
+    />
+  );
 }

@@ -5,6 +5,7 @@
       "@/test": ["./test"],
       "@/test/*": ["./test/*"],
       "react-day-picker": ["./src"],
+      "react-day-picker/noon-date-lib": ["./src/noonDateLib"],
       "react-day-picker/*": ["./src/*"]
     },
     "noEmit": true,

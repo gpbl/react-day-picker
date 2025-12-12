@@ -28,6 +28,7 @@ const config: Config.InitialOptions = {
         "react-day-picker/locale/(.*)\\.js": ["<rootDir>/src/locale/$1.ts"],
         "react-day-picker/locale/(.*)": ["<rootDir>/src/locale/$1"],
         "react-day-picker/locale": ["<rootDir>/src/locale.ts"],
+        "react-day-picker/noon-date-lib": ["<rootDir>/src/noonDateLib.ts"],
         "^(\\.\\.?\\/.+)\\.jsx?$": "$1", // see https://github.com/kulshekhar/ts-jest/issues/1057
       },
     },
@@ -45,6 +46,7 @@ const config: Config.InitialOptions = {
         "react-day-picker/locale/(.*)\\.js": ["<rootDir>/src/locale/$1.ts"],
         "react-day-picker/locale/(.*)": ["<rootDir>/src/locale/$1"],
         "react-day-picker/locale": ["<rootDir>/src/locale.ts"],
+        "react-day-picker/noon-date-lib": ["<rootDir>/src/noonDateLib.ts"],
         "react-day-picker": ["<rootDir>/src/index.ts"],
         "^(\\.\\.?\\/.+)\\.jsx?$": "$1", // see https://github.com/kulshekhar/ts-jest/issues/1057
       },
@@ -60,6 +62,7 @@ const config: Config.InitialOptions = {
         "react-day-picker/locale/(.*)\\.js": ["<rootDir>/src/locale/$1.ts"],
         "react-day-picker/locale/(.*)": ["<rootDir>/src/locale/$1"],
         "react-day-picker/locale": ["<rootDir>/src/locale.ts"],
+        "react-day-picker/noon-date-lib": ["<rootDir>/src/noonDateLib.ts"],
         "react-day-picker": ["<rootDir>/src/index.ts"],
         "^(\\.\\.?\\/.+)\\.jsx?$": "$1", // see https://github.com/kulshekhar/ts-jest/issues/1057
       },
@@ -80,6 +83,7 @@ const config: Config.InitialOptions = {
         ],
         "react-day-picker/locale/(.*)": ["<rootDir>/dist/cjs/locale/$1"],
         "react-day-picker/locale": ["<rootDir>/dist/cjs/locale.js"],
+        "react-day-picker/noon-date-lib": ["<rootDir>/dist/cjs/noonDateLib.js"],
         "react-day-picker": ["<rootDir>/dist/cjs/index.js"],
         "../src": ["<rootDir>/dist/cjs"], // allow using same @/test/elements in both env
         "^(\\.\\.?\\/.+)\\.jsx?$": "$1", // see https://github.com/kulshekhar/ts-jest/issues/1057
