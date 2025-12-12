@@ -9,12 +9,10 @@ By default, DayPicker uses the browser’s local time zone. You can override thi
 
 The time zone can be specified as either an [IANA time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) identifier or a UTC offset.
 
-| Prop Name   | Type      | Description                                                                 |
-| ----------- | --------- | --------------------------------------------------------------------------- |
-| `timeZone`  | `string`  | The IANA time zone to use when rendering the calendar.                      |
-| `noonSafe`  | `boolean` | Keep calendar math at noon in the time zone to avoid historical drift.      |
-
-> `noonSafe` is experimental as of v9.13.0 and may change in future releases.
+| Prop Name  | Type      | Description                                                                          |
+| ---------- | --------- | ------------------------------------------------------------------------------------ |
+| `timeZone` | `string`  | The IANA time zone to use when rendering the calendar.                               |
+| `noonSafe` | `boolean` | Experimental. Keep calendar math at noon in the time zone to avoid historical drift. |
 
 ```tsx
 <DayPicker timeZone="UTC" /> // Coordinated Universal Time
@@ -74,5 +72,5 @@ This override is optional and only needed when you render months that include
 offsets with seconds and want to avoid duplicate or missing days in the grid.
 
 <BrowserWindow bodyStyle={{ justifyContent: "start" }}>
-  <Examples.TimeZoneNoonSafe />
+  <Examples.TimeZoneNoonSafeSimple />
 </BrowserWindow>
