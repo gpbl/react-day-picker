@@ -1,5 +1,6 @@
 import userEvent from "@testing-library/user-event";
 import React from "react";
+import { dateButton, grid } from "@/test/elements";
 import { render, screen, within } from "@/test/render";
 import { TimeZoneNoonSafe } from "./TimeZoneNoonSafe";
 
@@ -85,4 +86,41 @@ test("year dropdown starts at the fromMonth year", () => {
   const firstYearOption = within(selectYear).getAllByRole("option")[0];
 
   expect(Number(firstYearOption.getAttribute("value"))).toBe(1880);
+});
+
+describe("when props are midnight UTC dates with noonSafe and a time zone", () => {
+  const originalTz = process.env.TZ;
+  const isoDate = new Date("2024-03-01T00:00:00.000Z");
+
+  beforeAll(() => {
+    process.env.TZ = "America/Los_Angeles";
+  });
+
+  afterAll(() => {
+    process.env.TZ = originalTz;
+  });
+
+  test("the month prop is interpreted in the target zone", () => {
+    render(
+      <TimeZoneNoonSafe timeZone="Europe/Berlin" noonSafe month={isoDate} />,
+    );
+
+    expect(grid("March 2024")).toBeInTheDocument();
+  });
+
+  test("selected/disabled dates are interpreted in the target zone", () => {
+    render(
+      <TimeZoneNoonSafe
+        timeZone="Europe/Berlin"
+        noonSafe
+        month={isoDate}
+        selected={isoDate}
+        disabled={isoDate}
+      />,
+    );
+
+    const marchFirst = dateButton(new Date(2024, 2, 1));
+    expect(marchFirst).toBeInTheDocument();
+    expect(marchFirst).toBeDisabled();
+  });
 });
