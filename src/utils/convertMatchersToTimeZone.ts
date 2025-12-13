@@ -1,3 +1,4 @@
+import { TZDate } from "@date-fns/tz";
 import type { Matcher } from "../types/index.js";
 import { toTimeZone } from "./toTimeZone.js";
 import {
@@ -7,18 +8,37 @@ import {
   isDateRange,
 } from "./typeguards.js";
 
-function convertMatcher(matcher: Matcher, timeZone: string): Matcher {
+function toZoneNoon(date: Date, timeZone: string, noonSafe?: boolean) {
+  if (!noonSafe) return toTimeZone(date, timeZone);
+  const zoned = toTimeZone(date, timeZone);
+  const noonZoned = new TZDate(
+    zoned.getFullYear(),
+    zoned.getMonth(),
+    zoned.getDate(),
+    12,
+    0,
+    0,
+    timeZone,
+  );
+  return new Date(noonZoned.getTime());
+}
+
+function convertMatcher(
+  matcher: Matcher,
+  timeZone: string,
+  noonSafe?: boolean,
+): Matcher {
   if (typeof matcher === "boolean" || typeof matcher === "function") {
     return matcher;
   }
 
   if (matcher instanceof Date) {
-    return toTimeZone(matcher, timeZone);
+    return toZoneNoon(matcher, timeZone, noonSafe);
   }
 
   if (Array.isArray(matcher)) {
     return matcher.map((value) =>
-      value instanceof Date ? toTimeZone(value, timeZone) : value,
+      value instanceof Date ? toZoneNoon(value, timeZone, noonSafe) : value,
     );
   }
 
@@ -32,20 +52,20 @@ function convertMatcher(matcher: Matcher, timeZone: string): Matcher {
 
   if (isDateInterval(matcher)) {
     return {
-      before: toTimeZone(matcher.before, timeZone),
-      after: toTimeZone(matcher.after, timeZone),
+      before: toZoneNoon(matcher.before, timeZone, noonSafe),
+      after: toZoneNoon(matcher.after, timeZone, noonSafe),
     };
   }
 
   if (isDateAfterType(matcher)) {
     return {
-      after: toTimeZone(matcher.after, timeZone),
+      after: toZoneNoon(matcher.after, timeZone, noonSafe),
     };
   }
 
   if (isDateBeforeType(matcher)) {
     return {
-      before: toTimeZone(matcher.before, timeZone),
+      before: toZoneNoon(matcher.before, timeZone, noonSafe),
     };
   }
 
@@ -63,14 +83,17 @@ function convertMatcher(matcher: Matcher, timeZone: string): Matcher {
 export function convertMatchersToTimeZone(
   matchers: Matcher | Matcher[] | undefined,
   timeZone: string,
+  noonSafe?: boolean,
 ): Matcher | Matcher[] | undefined {
   if (!matchers) {
     return matchers;
   }
 
   if (Array.isArray(matchers)) {
-    return matchers.map((matcher) => convertMatcher(matcher, timeZone));
+    return matchers.map((matcher) =>
+      convertMatcher(matcher, timeZone, noonSafe),
+    );
   }
 
-  return convertMatcher(matchers, timeZone);
+  return convertMatcher(matchers, timeZone, noonSafe);
 }
