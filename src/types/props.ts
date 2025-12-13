@@ -305,6 +305,14 @@ export interface PropsBase {
    */
   timeZone?: string | undefined;
   /**
+   * Keep calendar math at noon in the configured {@link timeZone} to avoid
+   * historical second-level offsets drifting days across midnight.
+   *
+   * @since 9.13.0
+   * @experimental
+   */
+  noonSafe?: boolean | undefined;
+  /**
    * Change the components used for rendering the calendar elements.
    *
    * @see https://daypicker.dev/guides/custom-components

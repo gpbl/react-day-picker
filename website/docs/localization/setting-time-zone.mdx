@@ -9,9 +9,10 @@ By default, DayPicker uses the browser’s local time zone. You can override thi
 
 The time zone can be specified as either an [IANA time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) identifier or a UTC offset.
 
-| Prop Name  | Type     | Description                                            |
-| ---------- | -------- | ------------------------------------------------------ |
-| `timeZone` | `string` | The IANA time zone to use when rendering the calendar. |
+| Prop Name  | Type      | Description                                                                                                                                                |
+| ---------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `timeZone` | `string`  | The IANA time zone to use when rendering the calendar.                                                                                                     |
+| `noonSafe` | `boolean` | Experimental (see below). Keep calendar math at noon in the time zone to avoid historical drift and use when your time zone shows duplicated/missing days. |
 
 ```tsx
 <DayPicker timeZone="UTC" /> // Coordinated Universal Time
@@ -52,4 +53,26 @@ export function TimeZone() {
 
 <BrowserWindow bodyStyle={{ justifyContent: "start" }}>
   <Examples.TimeZone />
+</BrowserWindow>
+
+## Historical time zones with second offsets
+
+Some historical time zones use offsets with seconds (for example `Asia/Dubai` in
+1900 is `+03:41:12`). JavaScript `Date` and `date-fns` round offsets to minutes,
+which can push midnight calculations into the previous day. Set `noonSafe` to
+keep calendar math at 12:00 in the chosen time zone so the date never drifts.
+
+```ts
+const timeZone = "Asia/Dubai";
+
+<DayPicker timeZone={timeZone} weekStartsOn={1} noonSafe />;
+```
+
+This override is optional and only needed when you render months that include
+offsets with seconds and want to avoid duplicate or missing days in the grid. Use
+it when you notice time-zone related glitches such as missing days, duplicate
+days, or unexpected week padding.
+
+<BrowserWindow bodyStyle={{ justifyContent: "start" }}>
+  <Examples.TimeZoneNoonSafeSimple />
 </BrowserWindow>

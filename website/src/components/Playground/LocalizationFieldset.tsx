@@ -271,6 +271,7 @@ export function LocalizationFieldset({
               calendar: undefined,
               locale: undefined,
               timeZone: undefined,
+              noonSafe: undefined,
               numerals: undefined,
               weekStartsOn: undefined,
               firstWeekContainsDate: undefined,
@@ -320,6 +321,22 @@ export function LocalizationFieldset({
             ))}
           </select>
         </label>
+        {props.timeZone ? (
+          <label>
+            <input
+              type="checkbox"
+              name="noonSafe"
+              checked={!!props.noonSafe}
+              onChange={(e) =>
+                setProps({
+                  ...props,
+                  noonSafe: e.target.checked || undefined,
+                })
+              }
+            />
+            Noon-safe date math
+          </label>
+        ) : null}
         <label>
           Locale:
           <select
