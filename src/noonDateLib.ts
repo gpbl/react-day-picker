@@ -13,6 +13,9 @@ export interface CreateNoonOverridesOptions {
   locale?: Locale;
 }
 
+type SupportedDate = Date | number | string | TZDate;
+type WeekStartsOn = NonNullable<StartOfWeekOptions["weekStartsOn"]>;
+
 /**
  * Creates `dateLib` overrides that keep all calendar math at noon in the target
  * time zone. This avoids second-level offset changes (e.g., historical zones
@@ -23,13 +26,12 @@ export function createNoonOverrides(
   options: CreateNoonOverridesOptions = {},
 ): Partial<typeof DateLib.prototype> {
   const { weekStartsOn, locale } = options;
-  type WeekStartsOn = NonNullable<StartOfWeekOptions["weekStartsOn"]>;
   const fallbackWeekStartsOn: WeekStartsOn = (weekStartsOn ??
     locale?.options?.weekStartsOn ??
     0) as WeekStartsOn;
 
-  type SupportedDate = Date | number | string | TZDate;
-
+  // Keep all internal math anchored at noon in the target zone to avoid
+  // historical second-level offsets from crossing midnight.
   const toNoonTZDate = (date: SupportedDate): TZDate => {
     const normalizedDate =
       typeof date === "number" || typeof date === "string"
@@ -46,10 +48,9 @@ export function createNoonOverrides(
     );
   };
 
-  const toNoonDate = (date: SupportedDate): TZDate => {
-    return toNoonTZDate(date);
-  };
-
+  // Convert a value into a host `Date` that represents the same calendar day
+  // as the target-zone noon. This is useful for helpers (e.g., date-fns week
+  // utilities) that expect local `Date` instances rather than `TZDate`s.
   const toCalendarDate = (date: SupportedDate): Date => {
     const zoned = toNoonTZDate(date);
     return new Date(
@@ -65,7 +66,7 @@ export function createNoonOverrides(
 
   return {
     today: () => {
-      return toNoonDate(TZDate.tz(timeZone));
+      return toNoonTZDate(TZDate.tz(timeZone));
     },
 
     newDate: (year: number, monthIndex: number, date: number) => {

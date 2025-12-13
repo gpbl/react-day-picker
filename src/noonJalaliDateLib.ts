@@ -23,6 +23,9 @@ import {
 import type { DateLib } from "./classes/DateLib.js";
 import type { CreateNoonOverridesOptions } from "./noonDateLib.js";
 
+type SupportedDate = Date | number | string | TZDate;
+type WeekStartsOn = NonNullable<StartOfWeekOptions["weekStartsOn"]>;
+
 /**
  * Jalali-aware version of {@link createNoonDateLibOverrides}.
  *
@@ -34,13 +37,12 @@ export function createJalaliNoonOverrides(
   options: CreateNoonOverridesOptions = {},
 ): Partial<typeof DateLib.prototype> {
   const { weekStartsOn, locale } = options;
-  type WeekStartsOn = NonNullable<StartOfWeekOptions["weekStartsOn"]>;
   const fallbackWeekStartsOn: WeekStartsOn = (weekStartsOn ??
     locale?.options?.weekStartsOn ??
     6) as WeekStartsOn;
 
-  type SupportedDate = Date | number | string | TZDate;
-
+  // Keep all internal math anchored at noon in the target zone to avoid
+  // historical second-level offsets from crossing midnight.
   const toNoonTZDate = (date: SupportedDate): TZDate => {
     const normalizedDate =
       typeof date === "number" || typeof date === "string"
@@ -55,10 +57,6 @@ export function createJalaliNoonOverrides(
       0,
       timeZone,
     );
-  };
-
-  const toNoonDate = (date: SupportedDate): TZDate => {
-    return toNoonTZDate(date);
   };
 
   // Represent the target-zone calendar date in the host zone so date-fns-jalali
@@ -82,7 +80,7 @@ export function createJalaliNoonOverrides(
       new TZDate(year, monthIndex, date, 12, 0, 0, timeZone),
 
     startOfDay: (date) => {
-      return toNoonDate(date);
+      return toNoonTZDate(date);
     },
     startOfWeek: (date, options?: StartOfWeekOptions) => {
       const weekStartsOnValue = (options?.weekStartsOn ??

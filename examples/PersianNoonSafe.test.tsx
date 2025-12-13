@@ -1,5 +1,5 @@
 import React from "react";
-import { DayPicker, faIR } from "react-day-picker/persian";
+import { DayPicker, enUS, faIR } from "react-day-picker/persian";
 
 import { render, screen, within } from "@/test/render";
 
@@ -47,4 +47,24 @@ test("Persian noonSafe renders full first week for historical Saigon month", () 
   );
 
   expect(within(dayRows[0]).getAllByRole("gridcell")).toHaveLength(7);
+});
+
+test("month dropdown does not repeat month labels when noonSafe is set", () => {
+  render(
+    <DayPicker
+      captionLayout="dropdown"
+      month={new Date(1300, 11, 1)}
+      noonSafe
+      numerals="latn"
+      timeZone="Asia/Tehran"
+      locale={enUS}
+    />,
+  );
+
+  const monthSelect = screen.getAllByRole("combobox")[0];
+  const monthLabels = within(monthSelect)
+    .getAllByRole("option")
+    .map((option) => option.textContent);
+
+  expect(new Set(monthLabels).size).toBe(monthLabels.length);
 });
