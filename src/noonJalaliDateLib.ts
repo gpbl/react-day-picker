@@ -14,7 +14,6 @@ import {
   endOfWeek as endOfWeekJalali,
   endOfYear as endOfYearJalali,
   getWeek as getWeekJalali,
-  startOfDay as startOfDayJalali,
   startOfISOWeek as startOfISOWeekJalali,
   startOfMonth as startOfMonthJalali,
   startOfWeek as startOfWeekJalali,
