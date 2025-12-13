@@ -13,7 +13,6 @@ import {
 import type { DateLib } from "./classes/DateLib.js";
 
 export interface CreateNoonOverridesOptions {
-  timeZone?: string;
   weekStartsOn?: number;
   locale?: Locale;
 }
@@ -24,9 +23,10 @@ export interface CreateNoonOverridesOptions {
  * with +03:41:12) from pushing dates backward across midnight.
  */
 export function createNoonOverrides(
+  timeZone: string,
   options: CreateNoonOverridesOptions = {},
 ): Partial<typeof DateLib.prototype> {
-  const { timeZone, weekStartsOn, locale } = options;
+  const { weekStartsOn, locale } = options;
   type WeekStartsOn = NonNullable<StartOfWeekOptions["weekStartsOn"]>;
   const fallbackWeekStartsOn: WeekStartsOn = (weekStartsOn ??
     locale?.options?.weekStartsOn ??
@@ -40,7 +40,6 @@ export function createNoonOverrides(
       typeof date === "number" || typeof date === "string"
         ? new Date(date)
         : date;
-    if (!timeZone || Number.isNaN(+normalizedDate)) return normalizedDate;
     const tzDate = new TZDate(
       normalizedDate.getFullYear(),
       normalizedDate.getMonth(),
@@ -55,17 +54,14 @@ export function createNoonOverrides(
 
   return {
     today: () => {
-      return toNoonDate(timeZone ? TZDate.tz(timeZone) : new Date());
+      return toNoonDate(TZDate.tz(timeZone));
     },
 
     newDate: (year: number, monthIndex: number, date: number) => {
-      return timeZone
-        ? new TZDate(year, monthIndex, date, 12, 0, 0, timeZone)
-        : new Date(year, monthIndex, date);
+      return new TZDate(year, monthIndex, date, 12, 0, 0, timeZone);
     },
 
     startOfDay: (date) => {
-      if (!timeZone) return startOfDayFn(date);
       const base = toNoonDate(date);
       return new TZDate(
         base.getFullYear(),

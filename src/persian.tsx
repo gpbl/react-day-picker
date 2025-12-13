@@ -119,8 +119,7 @@ export const getDateLib = (
     noonSafe && dateLibOptions.timeZone
       ? {
           ...dateFnsJalali,
-          ...createJalaliNoonOverrides({
-            timeZone: dateLibOptions.timeZone,
+          ...createJalaliNoonOverrides(dateLibOptions.timeZone, {
             weekStartsOn: dateLibOptions.weekStartsOn,
             locale: dateLibOptions.locale,
           }),

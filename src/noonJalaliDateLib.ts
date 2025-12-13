@@ -29,9 +29,10 @@ import type { CreateNoonOverridesOptions } from "./noonDateLib.js";
  * `date-fns-jalali` for calendar logic.
  */
 export function createJalaliNoonOverrides(
+  timeZone: string,
   options: CreateNoonOverridesOptions = {},
 ): Partial<typeof DateLib.prototype> {
-  const { timeZone, weekStartsOn, locale } = options;
+  const { weekStartsOn, locale } = options;
   type WeekStartsOn = NonNullable<StartOfWeekOptions["weekStartsOn"]>;
   const fallbackWeekStartsOn: WeekStartsOn = (weekStartsOn ??
     locale?.options?.weekStartsOn ??
@@ -42,7 +43,6 @@ export function createJalaliNoonOverrides(
       typeof date === "number" || typeof date === "string"
         ? new Date(date)
         : date;
-    if (!timeZone || Number.isNaN(+normalizedDate)) return normalizedDate;
     const tzDate = new TZDate(
       normalizedDate.getFullYear(),
       normalizedDate.getMonth(),
@@ -56,14 +56,11 @@ export function createJalaliNoonOverrides(
   };
 
   return {
-    today: () => normalize(timeZone ? TZDate.tz(timeZone) : new Date()),
+    today: () => normalize(TZDate.tz(timeZone)),
     newDate: (year: number, monthIndex: number, date: number) =>
-      timeZone
-        ? new TZDate(year, monthIndex, date, 12, 0, 0, timeZone)
-        : new Date(year, monthIndex, date),
+      new TZDate(year, monthIndex, date, 12, 0, 0, timeZone),
 
     startOfDay: (date) => {
-      if (!timeZone) return startOfDayJalali(date);
       const base = normalize(date);
       return normalize(startOfDayJalali(base));
     },

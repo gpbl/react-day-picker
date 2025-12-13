@@ -105,8 +105,7 @@ export function DayPicker(initialProps: DayPickerProps) {
 
       const noonOverrides =
         props.noonSafe && props.timeZone
-          ? createNoonOverrides({
-              timeZone: props.timeZone,
+          ? createNoonOverrides(props.timeZone, {
               weekStartsOn,
               locale,
             })
