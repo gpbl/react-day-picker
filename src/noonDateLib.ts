@@ -1,14 +1,10 @@
 import { TZDate } from "@date-fns/tz";
 import type { EndOfWeekOptions, Locale, StartOfWeekOptions } from "date-fns";
 import {
-  addDays,
-  addMonths,
-  addWeeks,
-  addYears,
   differenceInCalendarDays as differenceInCalendarDaysFn,
   differenceInCalendarMonths as differenceInCalendarMonthsFn,
+  getISOWeek as getISOWeekFn,
   getWeek as getWeekFn,
-  startOfDay as startOfDayFn,
 } from "date-fns";
 import type { DateLib } from "./classes/DateLib.js";
 
@@ -32,15 +28,14 @@ export function createNoonOverrides(
     locale?.options?.weekStartsOn ??
     0) as WeekStartsOn;
 
-  const toNoonDate = (date: Date | number | string) => {
-    // Always normalize inputs (including TZDate) to a plain Date at noon in the
-    // target zone. date-fns coerces TZDate to Date internally, so we rebuild the
-    // instant here to keep return types consistent and avoid leaking TZDate.
+  type SupportedDate = Date | number | string | TZDate;
+
+  const toNoonTZDate = (date: SupportedDate): TZDate => {
     const normalizedDate =
       typeof date === "number" || typeof date === "string"
         ? new Date(date)
         : date;
-    const tzDate = new TZDate(
+    return new TZDate(
       normalizedDate.getFullYear(),
       normalizedDate.getMonth(),
       normalizedDate.getDate(),
@@ -49,7 +44,23 @@ export function createNoonOverrides(
       0,
       timeZone,
     );
-    return new Date(tzDate.getTime());
+  };
+
+  const toNoonDate = (date: SupportedDate): TZDate => {
+    return toNoonTZDate(date);
+  };
+
+  const toCalendarDate = (date: SupportedDate): Date => {
+    const zoned = toNoonTZDate(date);
+    return new Date(
+      zoned.getFullYear(),
+      zoned.getMonth(),
+      zoned.getDate(),
+      0,
+      0,
+      0,
+      0,
+    );
   };
 
   return {
@@ -62,180 +73,150 @@ export function createNoonOverrides(
     },
 
     startOfDay: (date) => {
-      const base = toNoonDate(date);
-      return new TZDate(
-        base.getFullYear(),
-        base.getMonth(),
-        base.getDate(),
+      return toNoonTZDate(date);
+    },
+
+    startOfWeek: (date, options?: StartOfWeekOptions) => {
+      const base = toNoonTZDate(date);
+      const weekStartsOnValue = (options?.weekStartsOn ??
+        fallbackWeekStartsOn) as WeekStartsOn;
+      const diff = (base.getDay() - weekStartsOnValue + 7) % 7;
+      base.setDate(base.getDate() - diff);
+      return base;
+    },
+
+    startOfISOWeek: (date) => {
+      const base = toNoonTZDate(date);
+      const diff = (base.getDay() - 1 + 7) % 7;
+      base.setDate(base.getDate() - diff);
+      return base;
+    },
+
+    startOfMonth: (date) => {
+      const base = toNoonTZDate(date);
+      base.setDate(1);
+      return base;
+    },
+
+    startOfYear: (date) => {
+      const base = toNoonTZDate(date);
+      base.setMonth(0, 1);
+      return base;
+    },
+
+    endOfWeek: (date, options?: EndOfWeekOptions) => {
+      const base = toNoonTZDate(date);
+      const weekStartsOnValue = (options?.weekStartsOn ??
+        fallbackWeekStartsOn) as WeekStartsOn;
+      const endDow = (weekStartsOnValue + 6) % 7;
+      const diff = (endDow - base.getDay() + 7) % 7;
+      base.setDate(base.getDate() + diff);
+      return base;
+    },
+
+    endOfISOWeek: (date) => {
+      const base = toNoonTZDate(date);
+      const diff = (7 - base.getDay()) % 7;
+      base.setDate(base.getDate() + diff);
+      return base;
+    },
+
+    endOfMonth: (date) => {
+      const base = toNoonTZDate(date);
+      base.setMonth(base.getMonth() + 1, 0);
+      return base;
+    },
+
+    endOfYear: (date) => {
+      const base = toNoonTZDate(date);
+      base.setMonth(11, 31);
+      return base;
+    },
+
+    eachMonthOfInterval: (interval) => {
+      const start = toNoonTZDate(interval.start);
+      const end = toNoonTZDate(interval.end);
+      const result: Date[] = [];
+      const cursor = new TZDate(
+        start.getFullYear(),
+        start.getMonth(),
+        1,
         12,
         0,
         0,
         timeZone,
       );
-    },
-
-    startOfWeek: (date, options?: StartOfWeekOptions) => {
-      const base = toNoonDate(date);
-      const weekStartsOnValue = (options?.weekStartsOn ??
-        fallbackWeekStartsOn) as WeekStartsOn;
-      const diff = (base.getDay() - weekStartsOnValue + 7) % 7;
-      return toNoonDate(
-        new TZDate(
-          base.getFullYear(),
-          base.getMonth(),
-          base.getDate() - diff,
-          12,
-          0,
-          0,
-          timeZone,
-        ),
-      );
-    },
-
-    startOfISOWeek: (date) => {
-      const base = toNoonDate(date);
-      const diff = (base.getDay() - 1 + 7) % 7;
-      return toNoonDate(
-        new TZDate(
-          base.getFullYear(),
-          base.getMonth(),
-          base.getDate() - diff,
-          12,
-          0,
-          0,
-          timeZone,
-        ),
-      );
-    },
-
-    startOfMonth: (date) => {
-      return toNoonDate(
-        new TZDate(date.getFullYear(), date.getMonth(), 1, 12, 0, 0, timeZone),
-      );
-    },
-
-    startOfYear: (date) => {
-      return toNoonDate(
-        new TZDate(date.getFullYear(), 0, 1, 12, 0, 0, timeZone),
-      );
-    },
-
-    endOfWeek: (date, options?: EndOfWeekOptions) => {
-      const base = toNoonDate(date);
-      const weekStartsOnValue = (options?.weekStartsOn ??
-        fallbackWeekStartsOn) as WeekStartsOn;
-      const endDow = (weekStartsOnValue + 6) % 7;
-      const diff = (endDow - base.getDay() + 7) % 7;
-      return toNoonDate(
-        new TZDate(
-          base.getFullYear(),
-          base.getMonth(),
-          base.getDate() + diff,
-          12,
-          0,
-          0,
-          timeZone,
-        ),
-      );
-    },
-
-    endOfISOWeek: (date) => {
-      const base = toNoonDate(date);
-      const diff = (7 - base.getDay()) % 7;
-      return toNoonDate(
-        new TZDate(
-          base.getFullYear(),
-          base.getMonth(),
-          base.getDate() + diff,
-          12,
-          0,
-          0,
-          timeZone,
-        ),
-      );
-    },
-
-    endOfMonth: (date) => {
-      return toNoonDate(
-        new TZDate(
-          date.getFullYear(),
-          date.getMonth() + 1,
-          0,
-          12,
-          0,
-          0,
-          timeZone,
-        ),
-      );
-    },
-
-    endOfYear: (date) => {
-      return toNoonDate(
-        new TZDate(date.getFullYear(), 11, 31, 12, 0, 0, timeZone),
-      );
-    },
-
-    eachMonthOfInterval: (interval) => {
-      const start = toNoonDate(interval.start);
-      const end = toNoonDate(interval.end);
-      const result: Date[] = [];
-      let y = start.getFullYear();
-      let m = start.getMonth();
       const endKey = end.getFullYear() * 12 + end.getMonth();
-      while (y * 12 + m <= endKey) {
-        result.push(new TZDate(y, m, 1, 12, 0, 0, timeZone));
-        m++;
-        if (m > 11) {
-          m = 0;
-          y++;
-        }
+      while (cursor.getFullYear() * 12 + cursor.getMonth() <= endKey) {
+        result.push(new TZDate(cursor, timeZone));
+        cursor.setMonth(cursor.getMonth() + 1, 1);
       }
       return result;
     },
 
-    // Normalize to noon before arithmetic (avoid DST/midnight edge cases) and
-    // re-normalize after (ensure the result is back at noon and returned as a
-    // plain Date). Both passes are intentional.
+    // Normalize to noon once before arithmetic (avoid DST/midnight edge cases),
+    // mutate the same TZDate, and return it.
     addDays: (date, amount) => {
-      return toNoonDate(addDays(toNoonDate(date), amount));
+      const base = toNoonTZDate(date);
+      base.setDate(base.getDate() + amount);
+      return base;
     },
 
     addWeeks: (date, amount) => {
-      return toNoonDate(addWeeks(toNoonDate(date), amount));
+      const base = toNoonTZDate(date);
+      base.setDate(base.getDate() + amount * 7);
+      return base;
     },
 
     addMonths: (date, amount) => {
-      return toNoonDate(addMonths(toNoonDate(date), amount));
+      const base = toNoonTZDate(date);
+      base.setMonth(base.getMonth() + amount);
+      return base;
     },
 
     addYears: (date, amount) => {
-      return toNoonDate(addYears(toNoonDate(date), amount));
+      const base = toNoonTZDate(date);
+      base.setFullYear(base.getFullYear() + amount);
+      return base;
     },
 
     eachYearOfInterval: (interval) => {
-      const start = toNoonDate(interval.start);
-      const end = toNoonDate(interval.end);
+      const start = toNoonTZDate(interval.start);
+      const end = toNoonTZDate(interval.end);
       const years: Date[] = [];
-      for (let y = start.getFullYear(); y <= end.getFullYear(); y++) {
-        years.push(new TZDate(y, 0, 1, 12, 0, 0, timeZone));
+      const cursor = new TZDate(start.getFullYear(), 0, 1, 12, 0, 0, timeZone);
+      while (cursor.getFullYear() <= end.getFullYear()) {
+        years.push(new TZDate(cursor, timeZone));
+        cursor.setFullYear(cursor.getFullYear() + 1, 0, 1);
       }
       return years;
     },
 
-    getWeek: (date) => {
-      const base = toNoonDate(date);
-      return getWeekFn(base, { weekStartsOn: fallbackWeekStartsOn });
+    getWeek: (date, options) => {
+      const base = toCalendarDate(date);
+      return getWeekFn(base, {
+        weekStartsOn: options?.weekStartsOn ?? fallbackWeekStartsOn,
+        firstWeekContainsDate:
+          options?.firstWeekContainsDate ??
+          locale?.options?.firstWeekContainsDate ??
+          1,
+      });
+    },
+
+    getISOWeek: (date) => {
+      const base = toCalendarDate(date);
+      return getISOWeekFn(base);
     },
 
     differenceInCalendarDays: (dateLeft, dateRight) => {
-      const left = startOfDayFn(toNoonDate(dateLeft));
-      const right = startOfDayFn(toNoonDate(dateRight));
+      const left = toCalendarDate(dateLeft);
+      const right = toCalendarDate(dateRight);
       return differenceInCalendarDaysFn(left, right);
     },
 
     differenceInCalendarMonths: (dateLeft, dateRight) => {
-      const left = startOfDayFn(toNoonDate(dateLeft));
-      const right = startOfDayFn(toNoonDate(dateRight));
+      const left = toCalendarDate(dateLeft);
+      const right = toCalendarDate(dateRight);
       return differenceInCalendarMonthsFn(left, right);
     },
   };

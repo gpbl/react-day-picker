@@ -1,5 +1,6 @@
 import userEvent from "@testing-library/user-event";
 import React from "react";
+import { DayPicker } from "react-day-picker";
 import { dateButton, grid } from "@/test/elements";
 import { render, screen, within } from "@/test/render";
 import { TimeZoneNoonSafe } from "./TimeZoneNoonSafe";
@@ -122,5 +123,35 @@ describe("when props are midnight UTC dates with noonSafe and a time zone", () =
     const marchFirst = dateButton(new Date(2024, 2, 1));
     expect(marchFirst).toBeInTheDocument();
     expect(marchFirst).toBeDisabled();
+  });
+});
+
+describe("when the system zone is Honolulu and the target zone is historical Auckland", () => {
+  const originalTz = process.env.TZ;
+
+  beforeAll(() => {
+    process.env.TZ = "Pacific/Honolulu";
+  });
+
+  afterAll(() => {
+    process.env.TZ = originalTz;
+  });
+
+  test("noonSafe keeps the full month grid", () => {
+    render(
+      <DayPicker
+        mode="single"
+        month={new Date(1900, 10, 30)}
+        noonSafe
+        timeZone="Pacific/Auckland"
+      />,
+    );
+
+    expect(
+      document.querySelector('[data-day="1900-11-01"]'),
+    ).toBeInTheDocument();
+    expect(
+      document.querySelector('[data-day="1900-11-30"]'),
+    ).toBeInTheDocument();
   });
 });

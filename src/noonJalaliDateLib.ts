@@ -5,6 +5,8 @@ import {
   addMonths as addMonthsJalali,
   addWeeks as addWeeksJalali,
   addYears as addYearsJalali,
+  differenceInCalendarDays as differenceInCalendarDaysJalali,
+  differenceInCalendarMonths as differenceInCalendarMonthsJalali,
   eachMonthOfInterval as eachMonthOfIntervalJalali,
   eachYearOfInterval as eachYearOfIntervalJalali,
   endOfISOWeek as endOfISOWeekJalali,
@@ -36,14 +38,16 @@ export function createJalaliNoonOverrides(
   type WeekStartsOn = NonNullable<StartOfWeekOptions["weekStartsOn"]>;
   const fallbackWeekStartsOn: WeekStartsOn = (weekStartsOn ??
     locale?.options?.weekStartsOn ??
-    0) as WeekStartsOn;
+    6) as WeekStartsOn;
 
-  const normalize = (date: Date | number | string) => {
+  type SupportedDate = Date | number | string | TZDate;
+
+  const toNoonTZDate = (date: SupportedDate): TZDate => {
     const normalizedDate =
       typeof date === "number" || typeof date === "string"
         ? new Date(date)
         : date;
-    const tzDate = new TZDate(
+    return new TZDate(
       normalizedDate.getFullYear(),
       normalizedDate.getMonth(),
       normalizedDate.getDate(),
@@ -52,79 +56,121 @@ export function createJalaliNoonOverrides(
       0,
       timeZone,
     );
-    return new Date(tzDate.getTime());
+  };
+
+  const toNoonDate = (date: SupportedDate): TZDate => {
+    return toNoonTZDate(date);
+  };
+
+  // Represent the target-zone calendar date in the host zone so date-fns-jalali
+  // (which is not time-zone aware) can operate on stable wall times.
+  const toCalendarDate = (date: SupportedDate): Date => {
+    const zoned = toNoonTZDate(date);
+    return new Date(
+      zoned.getFullYear(),
+      zoned.getMonth(),
+      zoned.getDate(),
+      12,
+      0,
+      0,
+      0,
+    );
   };
 
   return {
-    today: () => normalize(TZDate.tz(timeZone)),
+    today: () => toNoonTZDate(TZDate.tz(timeZone)),
     newDate: (year: number, monthIndex: number, date: number) =>
       new TZDate(year, monthIndex, date, 12, 0, 0, timeZone),
 
     startOfDay: (date) => {
-      const base = normalize(date);
-      return normalize(startOfDayJalali(base));
+      return toNoonDate(date);
     },
     startOfWeek: (date, options?: StartOfWeekOptions) => {
-      const base = normalize(date);
       const weekStartsOnValue = (options?.weekStartsOn ??
         fallbackWeekStartsOn) as WeekStartsOn;
-      return normalize(
-        startOfWeekJalali(base, {
-          weekStartsOn: weekStartsOnValue,
-        }),
-      );
+      const start = startOfWeekJalali(toCalendarDate(date), {
+        weekStartsOn: weekStartsOnValue,
+      });
+      return toNoonTZDate(start);
     },
     startOfISOWeek: (date) => {
-      const base = normalize(date);
-      return normalize(startOfISOWeekJalali(base));
+      const start = startOfISOWeekJalali(toCalendarDate(date));
+      return toNoonTZDate(start);
     },
-    startOfMonth: (date) => normalize(startOfMonthJalali(normalize(date))),
-    startOfYear: (date) => normalize(startOfYearJalali(normalize(date))),
+    startOfMonth: (date) => {
+      const start = startOfMonthJalali(toCalendarDate(date));
+      return toNoonTZDate(start);
+    },
+    startOfYear: (date) => {
+      const start = startOfYearJalali(toCalendarDate(date));
+      return toNoonTZDate(start);
+    },
 
     endOfWeek: (date, options?: EndOfWeekOptions) => {
-      const base = normalize(date);
       const weekStartsOnValue = (options?.weekStartsOn ??
         fallbackWeekStartsOn) as WeekStartsOn;
-      return normalize(
-        endOfWeekJalali(base, {
-          weekStartsOn: weekStartsOnValue,
-        }),
-      );
+      const end = endOfWeekJalali(toCalendarDate(date), {
+        weekStartsOn: weekStartsOnValue,
+      });
+      return toNoonTZDate(end);
     },
     endOfISOWeek: (date) => {
-      const base = normalize(date);
-      return normalize(endOfISOWeekJalali(base));
+      const end = endOfISOWeekJalali(toCalendarDate(date));
+      return toNoonTZDate(end);
     },
-    endOfMonth: (date) => normalize(endOfMonthJalali(normalize(date))),
-    endOfYear: (date) => normalize(endOfYearJalali(normalize(date))),
+    endOfMonth: (date) => {
+      const end = endOfMonthJalali(toCalendarDate(date));
+      return toNoonTZDate(end);
+    },
+    endOfYear: (date) => {
+      const end = endOfYearJalali(toCalendarDate(date));
+      return toNoonTZDate(end);
+    },
 
     eachMonthOfInterval: (interval) => {
       return eachMonthOfIntervalJalali({
-        start: normalize(interval.start),
-        end: normalize(interval.end),
-      }).map((date) => normalize(date));
+        start: toCalendarDate(interval.start),
+        end: toCalendarDate(interval.end),
+      }).map((date) => toNoonTZDate(date));
     },
 
     addDays: (date, amount) =>
-      normalize(addDaysJalali(normalize(date), amount)),
+      toNoonTZDate(addDaysJalali(toCalendarDate(date), amount)),
     addWeeks: (date, amount) =>
-      normalize(addWeeksJalali(normalize(date), amount)),
+      toNoonTZDate(addWeeksJalali(toCalendarDate(date), amount)),
     addMonths: (date, amount) =>
-      normalize(addMonthsJalali(normalize(date), amount)),
+      toNoonTZDate(addMonthsJalali(toCalendarDate(date), amount)),
     addYears: (date, amount) =>
-      normalize(addYearsJalali(normalize(date), amount)),
+      toNoonTZDate(addYearsJalali(toCalendarDate(date), amount)),
 
     eachYearOfInterval: (interval) => {
       return eachYearOfIntervalJalali({
-        start: normalize(interval.start),
-        end: normalize(interval.end),
-      }).map((date) => normalize(date));
+        start: toCalendarDate(interval.start),
+        end: toCalendarDate(interval.end),
+      }).map((date) => toNoonTZDate(date));
     },
 
-    getWeek: (date) => {
-      return getWeekJalali(normalize(date), {
-        weekStartsOn: fallbackWeekStartsOn,
+    getWeek: (date, options) => {
+      const base = toCalendarDate(date);
+      return getWeekJalali(base, {
+        weekStartsOn: options?.weekStartsOn ?? fallbackWeekStartsOn,
+        firstWeekContainsDate:
+          options?.firstWeekContainsDate ??
+          locale?.options?.firstWeekContainsDate ??
+          1,
       });
+    },
+
+    differenceInCalendarDays: (dateLeft, dateRight) => {
+      const left = toCalendarDate(dateLeft);
+      const right = toCalendarDate(dateRight);
+      return differenceInCalendarDaysJalali(left, right);
+    },
+
+    differenceInCalendarMonths: (dateLeft, dateRight) => {
+      const left = toCalendarDate(dateLeft);
+      const right = toCalendarDate(dateRight);
+      return differenceInCalendarMonthsJalali(left, right);
     },
   };
 }
