@@ -13,6 +13,7 @@ import { getMonthOptions } from "./helpers/getMonthOptions.js";
 import { getStyleForModifiers } from "./helpers/getStyleForModifiers.js";
 import { getWeekdays } from "./helpers/getWeekdays.js";
 import { getYearOptions } from "./helpers/getYearOptions.js";
+import { createNoonOverrides } from "./noonDateLib.js";
 import type {
   DayPickerProps,
   Modifiers,
@@ -100,18 +101,31 @@ export function DayPicker(initialProps: DayPickerProps) {
   const { components, formatters, labels, dateLib, locale, classNames } =
     useMemo(() => {
       const locale = { ...defaultLocale, ...props.locale };
+      const weekStartsOn = props.broadcastCalendar ? 1 : props.weekStartsOn;
+
+      const noonOverrides =
+        props.noonSafe && props.timeZone
+          ? createNoonOverrides(props.timeZone, {
+              weekStartsOn,
+              locale,
+            })
+          : undefined;
+      const overrides =
+        props.dateLib && noonOverrides
+          ? { ...noonOverrides, ...props.dateLib }
+          : (props.dateLib ?? noonOverrides);
 
       const dateLib = new DateLib(
         {
           locale,
-          weekStartsOn: props.broadcastCalendar ? 1 : props.weekStartsOn,
+          weekStartsOn,
           firstWeekContainsDate: props.firstWeekContainsDate,
           useAdditionalWeekYearTokens: props.useAdditionalWeekYearTokens,
           useAdditionalDayOfYearTokens: props.useAdditionalDayOfYearTokens,
           timeZone: props.timeZone,
           numerals: props.numerals,
         },
-        props.dateLib,
+        overrides,
       );
 
       return {
@@ -132,6 +146,7 @@ export function DayPicker(initialProps: DayPickerProps) {
       props.timeZone,
       props.numerals,
       props.dateLib,
+      props.noonSafe,
       props.components,
       props.formatters,
       props.labels,
