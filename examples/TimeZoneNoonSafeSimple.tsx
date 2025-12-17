@@ -8,15 +8,6 @@ export function TimeZoneNoonSafeSimple() {
     new TZDate(1900, 11, 1, timeZone),
   );
   const [noonSafeEnabled, setNoonSafeEnabled] = useState(true);
-  const resetToMidnight = (date?: Date) =>
-    date
-      ? new TZDate(
-          date.getFullYear(),
-          date.getMonth(),
-          date.getDate(),
-          timeZone,
-        )
-      : undefined;
   const formatter = new Intl.DateTimeFormat("en-US", {
     dateStyle: "full",
     timeStyle: "short",
@@ -27,15 +18,7 @@ export function TimeZoneNoonSafeSimple() {
     <div>
       <button
         aria-pressed={noonSafeEnabled}
-        onClick={() => {
-          setNoonSafeEnabled((current) => {
-            const next = !current;
-            if (!next) {
-              setSelected((value) => resetToMidnight(value));
-            }
-            return next;
-          });
-        }}
+        onClick={() => setNoonSafeEnabled((current) => !current)}
         type="button"
       >
         {noonSafeEnabled ? "Disable noonSafe" : "Enable noonSafe"}
