@@ -7,6 +7,16 @@ export function TimeZoneNoonSafeSimple() {
   const [selected, setSelected] = useState<Date | undefined>(
     new TZDate(1900, 11, 1, timeZone),
   );
+  const [noonSafeEnabled, setNoonSafeEnabled] = useState(true);
+  const resetToMidnight = (date?: Date) =>
+    date
+      ? new TZDate(
+          date.getFullYear(),
+          date.getMonth(),
+          date.getDate(),
+          timeZone,
+        )
+      : undefined;
   const formatter = new Intl.DateTimeFormat("en-US", {
     dateStyle: "full",
     timeStyle: "short",
@@ -14,20 +24,35 @@ export function TimeZoneNoonSafeSimple() {
   });
 
   return (
-    <DayPicker
-      mode="single"
-      timeZone={timeZone}
-      weekStartsOn={1}
-      noonSafe
-      fixedWeeks
-      showOutsideDays
-      selected={selected}
-      onSelect={setSelected}
-      footer={
-        selected
-          ? `Selected: ${formatter.format(selected)} (${timeZone})`
-          : `Pick a day to see it in ${timeZone}`
-      }
-    />
+    <div>
+      <button
+        aria-pressed={noonSafeEnabled}
+        onClick={() => {
+          setNoonSafeEnabled((current) => {
+            const next = !current;
+            if (!next) {
+              setSelected((value) => resetToMidnight(value));
+            }
+            return next;
+          });
+        }}
+        type="button"
+      >
+        {noonSafeEnabled ? "Disable noonSafe" : "Enable noonSafe"}
+      </button>
+      <DayPicker
+        month={new Date(1900, 11, 1)}
+        mode="single"
+        timeZone={timeZone}
+        noonSafe={noonSafeEnabled}
+        selected={selected}
+        onSelect={setSelected}
+        footer={
+          selected
+            ? `Selected: ${formatter.format(selected)} (${timeZone})`
+            : `Pick a day to see it in ${timeZone}`
+        }
+      />
+    </div>
   );
 }
