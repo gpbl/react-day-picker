@@ -57,10 +57,7 @@ export function TimeZone() {
 
 ## Historical time zones with second offsets
 
-Some historical time zones use offsets with seconds (for example `Asia/Dubai` in
-1900 is `+03:41:12`). JavaScript `Date` and `date-fns` round offsets to minutes,
-which can push midnight calculations into the previous day. Set `noonSafe` to
-keep calendar math at 12:00 in the chosen time zone so the date never drifts.
+Some historical time zones use offsets with seconds (for example `Asia/Dubai` in 1900 is `+03:41:12`). JavaScript `Date` and `date-fns` round offsets to minutes, which can push midnight calculations into the previous day. Set `noonSafe` to keep calendar math at 12:00 in the chosen time zone so the date never drifts. 
 
 ```ts
 const timeZone = "Asia/Dubai";
@@ -68,10 +65,7 @@ const timeZone = "Asia/Dubai";
 <DayPicker timeZone={timeZone} weekStartsOn={1} noonSafe />;
 ```
 
-This override is optional and only needed when you render months that include
-offsets with seconds and want to avoid duplicate or missing days in the grid. Use
-it when you notice time-zone related glitches such as missing days, duplicate
-days, or unexpected week padding.
+This override is optional and only needed when you render months that include offsets with seconds and want to avoid duplicate or missing days in the grid. Use it when you notice time-zone related glitches such as missing days, duplicate days, or unexpected week padding.
 
 <BrowserWindow bodyStyle={{ justifyContent: "start" }}>
   <Examples.TimeZoneNoonSafeSimple />

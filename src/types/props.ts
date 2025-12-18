@@ -306,10 +306,13 @@ export interface PropsBase {
   timeZone?: string | undefined;
   /**
    * Keep calendar math at noon in the configured {@link timeZone} to avoid
-   * historical second-level offsets drifting days across midnight.
+   * historical second-level offsets drifting dates across midnight.
+   *
+   * This prop sets the time of the dates to noon (12:00).
    *
    * @since 9.13.0
    * @experimental
+   * @see https://daypicker.dev/localization/setting-time-zone#historical-time-zones-with-second-offsets
    */
   noonSafe?: boolean | undefined;
   /**

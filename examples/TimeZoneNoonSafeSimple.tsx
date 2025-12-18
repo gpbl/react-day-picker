@@ -24,7 +24,7 @@ export function TimeZoneNoonSafeSimple() {
         {noonSafeEnabled ? "Disable noonSafe" : "Enable noonSafe"}
       </button>
       <DayPicker
-        month={new Date(1900, 11, 1)}
+        defaultMonth={new Date(1900, 11, 1)}
         mode="single"
         timeZone={timeZone}
         noonSafe={noonSafeEnabled}
