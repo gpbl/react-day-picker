@@ -97,6 +97,8 @@ Implementing the date picker as a dialog requires careful consideration of acces
 
 In this example, we use the native HTML `<dialog>` element, which provides a built-in way to create a modal dialog. You can replace the native `<dialog>` element with a custom dialog component or a modal library that fits your application's design and accessibility requirements.
 
+If a screen reader keeps the arrow keys for browse mode (for example, NVDA), set `role="application"` on the calendar root and make sure it has an accessible name that includes the current month (for example, "Calendar, September 2025"). This prompts focus mode so arrow-key navigation works inside the calendar.
+
 <BrowserWindow>
   <Examples.Dialog />
 </BrowserWindow>
@@ -126,6 +128,7 @@ export function Dialog() {
 
   // Function to toggle the dialog visibility
   const toggleDialog = () => setIsDialogOpen(!isDialogOpen);
+  const calendarLabel = `Calendar, ${format(month, "MMMM yyyy")}`;
 
   // Hook to handle the body scroll behavior and focus trapping
   useEffect(() => {
@@ -185,7 +188,7 @@ export function Dialog() {
       <button
         style={{ fontSize: "inherit" }}
         onClick={toggleDialog}
-        aria-controls="dialog"
+        aria-controls={dialogId}
         aria-haspopup="dialog"
         aria-expanded={isDialogOpen}
         aria-label="Open calendar to choose booking date"
@@ -205,10 +208,13 @@ export function Dialog() {
         aria-labelledby={headerId}
         onClose={() => setIsDialogOpen(false)}
       >
+        <h2 id={headerId}>Choose a date</h2>
         <DayPicker
           month={month}
           onMonthChange={setMonth}
           autoFocus
+          role="application"
+          aria-label={calendarLabel}
           mode="single"
           selected={selectedDate}
           onSelect={handleDayPickerSelect}

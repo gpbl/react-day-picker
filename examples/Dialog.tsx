@@ -21,6 +21,7 @@ export function Dialog() {
 
   // Function to toggle the dialog visibility
   const toggleDialog = () => setIsDialogOpen(!isDialogOpen);
+  const calendarLabel = `Calendar, ${format(month, "MMMM yyyy")}`;
 
   // Hook to handle the body scroll behavior and focus trapping. You may want to
   // use your own trapping library as the body.style overflow will break the
@@ -82,7 +83,7 @@ export function Dialog() {
         type="button"
         style={{ fontSize: "inherit" }}
         onClick={toggleDialog}
-        aria-controls="dialog"
+        aria-controls={dialogId}
         aria-haspopup="dialog"
         aria-expanded={isDialogOpen}
         aria-label="Open calendar to choose booking date"
@@ -102,19 +103,24 @@ export function Dialog() {
         onClose={() => setIsDialogOpen(false)}
       >
         {isDialogOpen && (
-          <DayPicker
-            defaultMonth={selectedDate || month}
-            onMonthChange={setMonth}
-            autoFocus
-            mode="single"
-            selected={selectedDate}
-            onSelect={handleDayPickerSelect}
-            footer={
-              selectedDate !== undefined && (
-                <>Selected: {selectedDate.toDateString()}</>
-              )
-            }
-          />
+          <>
+            <h2 id={headerId}>Choose a date</h2>
+            <DayPicker
+              defaultMonth={selectedDate || month}
+              onMonthChange={setMonth}
+              autoFocus
+              role="application"
+              aria-label={calendarLabel}
+              mode="single"
+              selected={selectedDate}
+              onSelect={handleDayPickerSelect}
+              footer={
+                selectedDate !== undefined && (
+                  <>Selected: {selectedDate.toDateString()}</>
+                )
+              }
+            />
+          </>
         )}
       </dialog>
     </div>
