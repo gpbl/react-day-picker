@@ -301,7 +301,7 @@ export interface PropsBase {
    * for the possible values.
    *
    * @since 9.1.1
-   * @see https://daypicker.dev/docs/time-zone
+   * @see https://daypicker.dev/localization/setting-time-zone
    */
   timeZone?: string | undefined;
   /**
@@ -312,7 +312,7 @@ export interface PropsBase {
    *
    * @since 9.13.0
    * @experimental
-   * @see https://daypicker.dev/localization/setting-time-zone#historical-time-zones-with-second-offsets
+   * @see https://daypicker.dev/localization/setting-time-zone#noonsafe
    */
   noonSafe?: boolean | undefined;
   /**
