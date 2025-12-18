@@ -17,6 +17,10 @@ on:
         default: false
         type: boolean
 
+permissions:
+  id-token: write # Required for OIDC
+  contents: read
+
 jobs:
   typecheck:
     runs-on: ubuntu-latest
@@ -25,8 +29,9 @@ jobs:
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20.16
+          node-version: 24
           cache: pnpm
+          registry-url: "https://registry.npmjs.org"
       - run: pnpm install --frozen-lockfile
       - run: pnpm typecheck
 
@@ -37,7 +42,7 @@ jobs:
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20.16
+          node-version: 24
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint ci . --reporter=github
@@ -50,7 +55,7 @@ jobs:
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20.16
+          node-version: 24
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm test
@@ -63,7 +68,7 @@ jobs:
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20.16
+          node-version: 24
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
@@ -80,7 +85,7 @@ jobs:
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20.16
+          node-version: 24
           cache: pnpm
       - uses: actions/download-artifact@v4
         with:
@@ -101,7 +106,7 @@ jobs:
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20.16
+          node-version: 24
           registry-url: https://registry.npmjs.org/
           always-auth: false
       - uses: actions/download-artifact@v4
