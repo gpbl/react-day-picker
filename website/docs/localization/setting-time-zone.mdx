@@ -51,7 +51,7 @@ export function TimeZone() {
 }
 ```
 
-<BrowserWindow bodyStyle={{ justifyContent: "start" }}>
+<BrowserWindow bodyStyle={{ justifyContent: "start" }} sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/TimeZone.tsx">
   <Examples.TimeZone />
 </BrowserWindow>
 
@@ -67,6 +67,10 @@ const timeZone = "Asia/Dubai";
 
 This override is optional and only needed when you render months that include offsets with seconds and want to avoid duplicate or missing days in the grid. Use it when you notice time-zone related glitches such as missing days, duplicate days, or unexpected week padding.
 
-<BrowserWindow bodyStyle={{ justifyContent: "start" }}>
+<BrowserWindow
+  bodyStyle={{ justifyContent: "start" }}
+  sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/TimeZoneNoonSafeSimple.tsx"
+  sourceLabel="View source"
+>
   <Examples.TimeZoneNoonSafeSimple />
 </BrowserWindow>

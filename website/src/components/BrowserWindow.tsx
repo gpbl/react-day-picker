@@ -12,11 +12,13 @@ import { ShadowDomWrapper } from "./ShadowDomWrapper";
 interface Props {
   children: ReactNode;
   minHeight?: number;
-  url: string;
+  url?: string;
   style?: CSSProperties;
   styleStr?: string;
   bodyStyle?: CSSProperties;
   shadow?: boolean;
+  sourceUrl?: string;
+  sourceLabel?: string;
 }
 
 export function BrowserWindow({
@@ -26,6 +28,9 @@ export function BrowserWindow({
   bodyStyle,
   shadow = true,
   styleStr,
+  url,
+  sourceUrl,
+  sourceLabel = "View source",
 }: Props) {
   return (
     <div className={styles.browserWindow} style={{ ...style, minHeight }}>
@@ -35,6 +40,19 @@ export function BrowserWindow({
           <span className={styles.dot} style={{ background: "#fbbe3c" }} />
           <span className={styles.dot} style={{ background: "#58cb42" }} />
         </div>
+        {url ? (
+          <div className={styles.browserWindowAddressBar}>{url}</div>
+        ) : null}
+        {sourceUrl ? (
+          <a
+            className={styles.sourceLink}
+            href={sourceUrl}
+            rel="noreferrer"
+            target="_blank"
+          >
+            {sourceLabel}
+          </a>
+        ) : null}
       </div>
 
       <div className={`${styles.browserWindowBody} rdp-demo`} style={bodyStyle}>
