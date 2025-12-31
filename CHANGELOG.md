@@ -90,7 +90,7 @@ export function BuddhistCalendar() {
 ```
 
 
-Read more in the [documentation](/localization#buddhist-calendar) and play with it in [playground](/playground?calendar=buddhist).
+Read more in the [documentation](/localization/buddhist) and play with it in [playground](/playground?calendar=buddhist).
 
 #### Hebrew Calendar
 
@@ -105,7 +105,7 @@ export function HebrewCalendar() {
 ```
 
 
-Read more in the [documentation](/localization#hebrew-calendar) and play with it in [playground](/playground?calendar=hebrew).
+Read more in the [documentation](/localization/hebrew) and play with it in [playground](/playground?calendar=hebrew).
 
 #### What's Changed
 * feat: Buddhist calendar by [@gpbl](https://github.com/gpbl) in [#2825](https://github.com/gpbl/react-day-picker/pull/2825)
@@ -136,7 +136,7 @@ export function EthiopicCalendar() {
 ```
 
 
-Read more in the [documentation](/localization#ethiopic-calendar) and play with it in [playground](/playground?calendar=ethiopic).
+Read more in the [documentation](/localization/ethiopic) and play with it in [playground](/playground?calendar=ethiopic).
 
 #### What's Changed
 * feat: ethiopic calendar by [@temesgen-mulugeta](https://github.com/temesgen-mulugeta) in [#2658](https://github.com/gpbl/react-day-picker/pull/2658)
@@ -201,7 +201,7 @@ The `navLayout` prop allows you to change the layout of the navigation buttons i
 - With `navLayout="around"`, navigation buttons are displayed on either side of the caption.
 - With `navLayout="after"`, navigation buttons are displayed after the caption. This layout ensures that the focus order respects the visual order, conforming to the [WCAG 2.2](https://www.w3.org/TR/WCAG22/#focus-order) guidelines for accessibility.
 
-For more details, see the [Navigation Layouts](/customization#navigation-layouts) section in the documentation.
+For more details, see the [Navigation Layouts](/docs/caption-and-nav-layouts#navigation-layouts) section in the documentation.
 
 ```tsx
 <DayPicker navLayout="around" />
@@ -309,7 +309,7 @@ This change may cause custom styles for those disabled buttons to break. To fix 
 
 #### Animating Month Transitions
 
-Thanks to the work by [@rodgobbi](https://github.com/rodgobbi), we have added animations to DayPicker. The new [`animate` prop](/navigation#animate) enables CSS transitions for captions and weeks when navigating between months:
+Thanks to the work by [@rodgobbi](https://github.com/rodgobbi), we have added animations to DayPicker. The new [`animate` prop](/docs/navigation#animate) enables CSS transitions for captions and weeks when navigating between months:
 
 
 ```tsx
@@ -356,7 +356,7 @@ This release fixes the calendar breaking its layout when passing a `month` not i
 
 _Release date: 2024-12-29_
 
-This release adds full support for the [Persian calendar](/localization#persian-calendar) and a new `numerals` prop to [set the numbering system](/translation#numeral-systems).
+This release adds full support for the [Persian calendar](/localization/persian) and a new `numerals` prop to [set the numbering system](/localization/changing-locale#numerals).
 
 #### Breaking Change: Dropdown Formatters
 
@@ -382,7 +382,7 @@ If you were using DayPicker from `react-day-picker/jalali`, change your imports 
 + import { DayPicker } from  `react-day-picker/persian`;
 ```
 
-See the [Persian calendar](/localization#persian-calendar) documentation for more details about using Persian calendar in DayPicker.
+See the [Persian calendar](/localization/persian) documentation for more details about using Persian calendar in DayPicker.
 
 #### What's Changed
 
@@ -446,7 +446,7 @@ This release improves support for screen readers and fixes a VoiceOver issue whe
 
 _Release date: 2024-11-24_
 
-This version includes support for [broadcast calendars](/localization#broadcast-calendar) and some style fixes.
+This version includes support for [broadcast calendars](/localization/iso-and-broadcast#broadcast-calendar) and some style fixes.
 
 #### What's Changed
 * feat: add support for broadcast calendars by [@Nradar](https://github.com/Nradar) in [#2597](https://github.com/gpbl/react-day-picker/pull/2597)
@@ -557,7 +557,7 @@ This release improves reliability for controlled mode and adds experimental supp
 
 #### Time Zone Support
 
-By integrating the [@date-fns/tz](https://github.com/date-fns/tz) utilities for handling time zones, we have added a new experimental `timeZone` prop. Please see the [updated docs](/localization#time-zone) for more details.
+By integrating the [@date-fns/tz](https://github.com/date-fns/tz) utilities for handling time zones, we have added a new experimental `timeZone` prop. Please see the [updated docs](/localization/setting-time-zone) for more details.
 
 ```tsx
 import { DayPicker, TZDate } from 'react-day-picker';
@@ -659,7 +659,7 @@ This release addresses the failed import of the common-js module for some app bu
 
 _Release date: 2024-07-30_
 
-This release improves the range mode behavior (see the [updated docs](/selection-modes#range-mode)) and address some styling issues.
+This release improves the range mode behavior (see the [updated docs](/selections/range-mode)) and address some styling issues.
 
 #### What's Changed
 
@@ -731,10 +731,10 @@ npm install react-day-picker@latest
 #### What’s New
 
 - Moved `date-fns` from peer dependencies to dependencies.
-- Added support for [UTC dates](/localization#utc-dates) and [Jalali Calendar](/localization#jalali-calendar).
-- [Enhanced accessibility](/accessibility) to better comply with [WCAG 2.1](https://www.w3.org/TR/WCAG21/) recommendations.
-- [Simplified styles](/styling) and new CSS variables for easier customization.
-- Improved selection logic for [range mode](/selection-modes.mdx).
+- Added support for [UTC dates](/localization/setting-time-zone#working-with-time-zoned-dates) and [Jalali Calendar](/localization/persian).
+- [Enhanced accessibility](/guides/accessibility) to better comply with [WCAG 2.1](https://www.w3.org/TR/WCAG21/) recommendations.
+- [Simplified styles](/docs/styling) and new CSS variables for easier customization.
+- Improved selection logic for [range mode](/selections/range-mode).
 - New `dropdown-years` and `dropdown-months` caption layouts.
 - New `hideWeekdayRow` and `hideNavigation` props.
 - Updated for a complete [custom components](/guides/custom-components) support.
@@ -930,8 +930,8 @@ _Release date: 2023-06-19_
 #### What's Changed
 
 * feat: add custom ID to grid elements by [@GeorgeTaveras1231](https://github.com/GeorgeTaveras1231) in [#1730](https://github.com/gpbl/react-day-picker/pull/1730)
-* docs: [Time Picker example](https://react-day-picker.js.org/guides/input-fields#example-time-selection) by [@Erik-McKelvey](https://github.com/Erik-McKelvey) in [#1772](https://github.com/gpbl/react-day-picker/pull/1772)
-* docs: added more details about [week numbers calculations](https://react-day-picker.js.org/basics/customization#showing-the-week-numbers)
+* docs: [Time Picker example](https://daypicker.dev/guides/input-fields#example-time-selection) by [@Erik-McKelvey](https://github.com/Erik-McKelvey) in [#1772](https://github.com/gpbl/react-day-picker/pull/1772)
+* docs: added more details about [week numbers calculations](https://daypicker.dev/basics/customization#showing-the-week-numbers)
 
 ## v8.7.1
 
@@ -960,7 +960,7 @@ _Release date: 2023-02-18_
 
 #### What's Changed
 
-* feat: new `dropdown-buttons` caption layout by [@seanockert](https://github.com/seanockert) in [#1678](https://github.com/gpbl/react-day-picker/pull/1678) (see [example](https://react-day-picker.js.org/basics/navigation#choosing-a-caption-layout)).
+* feat: new `dropdown-buttons` caption layout by [@seanockert](https://github.com/seanockert) in [#1678](https://github.com/gpbl/react-day-picker/pull/1678) (see [example](https://daypicker.dev/basics/navigation#choosing-a-caption-layout)).
 * feat: added `displayMonth` prop to `Footer` by [@gpbl](https://github.com/gpbl) in [#1690](https://github.com/gpbl/react-day-picker/pull/1690)
 
 ## v8.5.1
@@ -1196,7 +1196,7 @@ _Release date: 2022-03-26_
 
 This version Introduces mayor breaking changes and is mostly incompatible with v7. 
 
-Head over the redesigned website at https://react-day-picker.js.org for more details.
+Head over the redesigned website at https://daypicker.dev for more details.
 
 #### Notable changes
 
@@ -1207,7 +1207,7 @@ Head over the redesigned website at https://react-day-picker.js.org for more det
 - replaced `DayPickerInput` component with `useInput` hook
 - new and redesigned props
 
-See also: https://react-day-picker.js.org/guides/upgrading
+See also: https://daypicker.dev/guides/upgrading
 
 
 ## v7.4.9
@@ -1353,7 +1353,7 @@ _Release Date: 2018-03-04_
 
 **DayPicker**
 
-- Added: [`enableOutsideDaysClick`](/api/DayPicker#enableOutsideDaysClick) prop ([#585](https://github.com/gpbl/react-day-picker/issues/585) by [smesgr](https://github.com/smesgr))
+- Added: [`enableOutsideDaysClick`](https://daypicker.dev/api/DayPicker#enableOutsideDaysClick) prop ([#585](https://github.com/gpbl/react-day-picker/issues/585) by [smesgr](https://github.com/smesgr))
 - Fixed: month may be not defined in the navigation component ([#607](https://github.com/gpbl/react-day-picker/issues/607) by [MhMadHamster](https://github.com/MhMadHamster))
 - Fixed: outside days were shown also when using `toMonth`/`fromMonth` ([#630](https://github.com/gpbl/react-day-picker/issues/630))
 - Fixed: `Cannot read property 'focus'` error with outside days ([#646](https://github.com/gpbl/react-day-picker/issues/646))
@@ -1363,7 +1363,7 @@ _Release Date: 2018-03-04_
 
 - Improved: focus/blur behavior ([#598](https://github.com/gpbl/react-day-picker/issues/598) by [jbarco](https://github.com/bartpeeters), [#579](https://github.com/gpbl/react-day-picker/issues/579))
 - Improved: `onDayChange` is called `undefined` when day is not valid ([#647](https://github.com/gpbl/react-day-picker/issues/647))
-- Added: [`keepFocus`](/api/DayPickerInput#keepFocus) prop ([#598](https://github.com/gpbl/react-day-picker/issues/598) by [bartpeeters](https://github.com/bartpeeters))
+- Added: [`keepFocus`](https://daypicker.dev/api/DayPickerInput#keepFocus) prop ([#598](https://github.com/gpbl/react-day-picker/issues/598) by [bartpeeters](https://github.com/bartpeeters))
 - Fixed: use `dayPickerProps.month` before the input's value ([#612](https://github.com/gpbl/react-day-picker/issues/612) by [kradical](https://github.com/kradical))
 - Typescript: fixed `onDayChange` definition ([#622](https://github.com/gpbl/react-day-picker/issues/622))
 
@@ -1416,11 +1416,11 @@ If you find problems while upgrading, please [add an issue](https://github.com/g
 **New features**
 
 - Improved layout and style. Added `.DayPicker-Months` container.
-- Added: [`renderWeek`](/api/DayPicker`renderWeek) prop ([#497](https://github.com/gpbl/react-day-picker/issues/497) by [jenshandersson](https://github.com/jenshandersson))
-- Added: [`onTodayButtonClick`](/api/DayPicker#onTodayButtonClick) prop ([#529](https://github.com/gpbl/react-day-picker/issues/529))
-- Added: [`showWeekDays`](/api/DayPicker#showWeekDays) prop. Set it to `false` to hide weekday names
-- Added: `month` prop to [`navbarElement`](/api/DayPicker#navbarElement) ([#552](https://github.com/gpbl/react-day-picker/issues/552))
-- Renamed `enableOutsideDays` prop to [`showOutsideDays`](/api/DayPicker#showOutsideDays)
+- Added: [`renderWeek`](https://daypicker.dev/api/DayPicker#renderWeek) prop ([#497](https://github.com/gpbl/react-day-picker/issues/497) by [jenshandersson](https://github.com/jenshandersson))
+- Added: [`onTodayButtonClick`](https://daypicker.dev/api/DayPicker#onTodayButtonClick) prop ([#529](https://github.com/gpbl/react-day-picker/issues/529))
+- Added: [`showWeekDays`](https://daypicker.dev/api/DayPicker#showWeekDays) prop. Set it to `false` to hide weekday names
+- Added: `month` prop to [`navbarElement`](https://daypicker.dev/api/DayPicker#navbarElement) ([#552](https://github.com/gpbl/react-day-picker/issues/552))
+- Renamed `enableOutsideDays` prop to [`showOutsideDays`](https://daypicker.dev/api/DayPicker#showOutsideDays)
 
 **Bug fixes**
 
@@ -1435,7 +1435,7 @@ _Release date: PickerInpu_
 
 **Breaking changes**
 
-- The moment.js requirement [#518](https://github.com/gpbl/react-day-picker/pull/518), and you should use [`parseDate`](/api/DayPickerInput#parseDate) and [`formatDate`](/api/DayPickerInput#formatDate) props to parse and format the dates. If you want to keep using moment.js, your existing code should changes as follows:
+- The moment.js requirement [#518](https://github.com/gpbl/react-day-picker/pull/518), and you should use [`parseDate`](https://daypicker.dev/api/DayPickerInput#parseDate) and [`formatDate`](https://daypicker.dev/api/DayPickerInput#formatDate) props to parse and format the dates. If you want to keep using moment.js, your existing code should changes as follows:
 
   ```diff
     import DayPicker from 'react-day-picker/DayPickerInput'
@@ -1453,9 +1453,9 @@ _Release date: PickerInpu_
     }
   ```
 
-  See also [this example](/examples/input-moment).
+  See also [this example](https://daypicker.dev/examples/input-moment).
 
-- You must pass additional props to the input component using the [`inputProps`](/api/DayPickerInput#inputProps) prop. _This is not a breaking change if you are just using `placeholder` or `value`_. E.g.:
+- You must pass additional props to the input component using the [`inputProps`](https://daypicker.dev/api/DayPickerInput#inputProps) prop. _This is not a breaking change if you are just using `placeholder` or `value`_. E.g.:
   ```diff
   <DayPickerInput
      placeholder="Type a day"
@@ -1471,13 +1471,13 @@ _Release date: PickerInpu_
 
 **New features**
 
-- New: [`inputProps`](/api/DayPickerInput#inputProps) prop to pass additional props to the input component
-- New: [`parseDate`](/api/DayPickerInput#parseDate) and [`formatDate`](/api/DayPickerInput#formatDate) props
-- New: [`inputProps`](/api/DayPickerInput#inputProps) prop to pass additional props to the input component
-- New: [`overlayComponent`](/api/DayPickerInput#overlayComponent) prop: useful to customize the overlay component ([#477](https://github.com/gpbl/react-day-picker/issues/477), thanks to [wldcordeiro](https://github.com/wldcordeiro))
-- New: allow to change `numberOfMonths`, `selectedDays` props from `dayPickerProps` ([#513](https://github.com/gpbl/react-day-picker/issues/513), [#531](https://github.com/gpbl/react-day-picker/issues/531) by [hydrognomik](https://github.com/hydrognomik)). Useful for selecting range of days ([example](/examples/input-from-to)).
-- New: [`showOverlay`](/api/DayPickerInput#showOverlay) prop: shows the overlay at the initial rendering (useful for styling)
-- New: [`getInput`](/api/DayPickerInput#getInput) and [`getDayPicker`](/api/DayPickerInput#getDayPicker) public methods
+- New: [`inputProps`](https://daypicker.dev/api/DayPickerInput#inputProps) prop to pass additional props to the input component
+- New: [`parseDate`](https://daypicker.dev/api/DayPickerInput#parseDate) and [`formatDate`](https://daypicker.dev/api/DayPickerInput#formatDate) props
+- New: [`inputProps`](https://daypicker.dev/api/DayPickerInput#inputProps) prop to pass additional props to the input component
+- New: [`overlayComponent`](https://daypicker.dev/api/DayPickerInput#overlayComponent) prop: useful to customize the overlay component ([#477](https://github.com/gpbl/react-day-picker/issues/477), thanks to [wldcordeiro](https://github.com/wldcordeiro))
+- New: allow to change `numberOfMonths`, `selectedDays` props from `dayPickerProps` ([#513](https://github.com/gpbl/react-day-picker/issues/513), [#531](https://github.com/gpbl/react-day-picker/issues/531) by [hydrognomik](https://github.com/hydrognomik)). Useful for selecting range of days ([example](https://daypicker.dev/examples/input-from-to)).
+- New: [`showOverlay`](https://daypicker.dev/api/DayPickerInput#showOverlay) prop: shows the overlay at the initial rendering (useful for styling)
+- New: [`getInput`](https://daypicker.dev/api/DayPickerInput#getInput) and [`getDayPicker`](https://daypicker.dev/api/DayPickerInput#getDayPicker) public methods
 
 * Changed: clicking the Today Button will set the input value to today ([#561](https://github.com/gpbl/react-day-picker/issues/561))
 * Changed: removed `fixedWeek` prop. Use `dayPickerProps ={{ fixedWeek: true }}` to restore it.
@@ -1519,7 +1519,7 @@ _Release Date: 2017-07-09_
 
 **Improvements**
 
-- Added new [`onDayMouseDown`](/api.html#ondaymousedown) and [`onDayMouseUp`](/api.html#ondaymouseup) props ([#445](https://github.com/gpbl/react-day-picker/issues/445) by [eldritchideen](https://github.com/eldritchideen))
+- Added new [`onDayMouseDown`](https://daypicker.dev/api.html#ondaymousedown) and [`onDayMouseUp`](https://daypicker.dev/api.html#ondaymouseup) props ([#445](https://github.com/gpbl/react-day-picker/issues/445) by [eldritchideen](https://github.com/eldritchideen))
 
 **Bug fixes**
 
@@ -1600,7 +1600,7 @@ This major release focuses on performance, improves accessibility and fixes some
 **Improvements**
 
 - Allow `{after, before}` modifiers in the same object ([#354](https://github.com/gpbl/react-day-picker/issues/354)). You can now write before/after modifiers such as `disabledDays={ { before: aDate, after: aDate }}`.
-- **DayPickerInput**: added [`clickUnselectsDay`](/api-input.html#clickunselectsday) prop to unselect and clear the input when clicking on a previously selected day ([#399](https://github.com/gpbl/react-day-picker/issues/399))
+- **DayPickerInput**: added [`clickUnselectsDay`](https://daypicker.dev/api-input.html#clickunselectsday) prop to unselect and clear the input when clicking on a previously selected day ([#399](https://github.com/gpbl/react-day-picker/issues/399))
 
 **Bug fixes**
 
@@ -1632,19 +1632,19 @@ _Release Date: 2017-05-09_
 
 Use the `DayPickerInput` component to render an input field interacting with the day picker ([#213](https://github.com/gpbl/react-day-picker/issues/213)).
 
-See [example](/examples/input.html), [docs](/input.html) and [API reference](/api-input.html).
+See [example](https://daypicker.dev/examples/input.html), [docs](https://daypicker.dev/input.html) and [API reference](https://daypicker.dev/api-input.html).
 
 **New features**
 
-- New [`todayButton`](/api-daypicker.html#todaybutton) prop ([#329](https://github.com/gpbl/react-day-picker/issues/329)).
+- New [`todayButton`](https://daypicker.dev/api-daypicker.html#todaybutton) prop ([#329](https://github.com/gpbl/react-day-picker/issues/329)).
 
-  Use this prop to display a button on the calendar's footer to switch to the current month ([example](/examples/customization-today-button.html)).
+  Use this prop to display a button on the calendar's footer to switch to the current month ([example](https://daypicker.dev/examples/customization-today-button.html)).
 
-- New [`showWeekDays`](/api-daypicker.html#showweekdays) and [`onWeekClick`](/api-daypicker.html#onweekclick) props ([#304](https://github.com/gpbl/react-day-picker/issues/304)).
+- New [`showWeekDays`](https://daypicker.dev/api-daypicker.html#showweekdays) and [`onWeekClick`](https://daypicker.dev/api-daypicker.html#onweekclick) props ([#304](https://github.com/gpbl/react-day-picker/issues/304)).
 
-  Use this props to display and interact with the year's week numbers ([example](/examples/customization-week-numbers.html)).
+  Use this props to display and interact with the year's week numbers ([example](https://daypicker.dev/examples/customization-week-numbers.html)).
 
-- New `daysOfWeek` [modifiers type](/modifiers.html) to match days of the weeks ([#330](https://github.com/gpbl/react-day-picker/issues/330)).
+- New `daysOfWeek` [modifiers type](https://daypicker.dev/modifiers.html) to match days of the weeks ([#330](https://github.com/gpbl/react-day-picker/issues/330)).
 
   For example, to match Sundays and Mondays:
 
@@ -1673,7 +1673,7 @@ _Release date: 2017-05-03_
 
 _Release Date: 2017-04-29_
 
-- Expose [ModifiersUtils](/ModifiersUtils.html) functions ([#309](https://github.com/gpbl/react-day-picker/pull/309) by [cwmoo740](https://github.com/cwmoo740))
+- Expose [ModifiersUtils](https://daypicker.dev/ModifiersUtils.html) functions ([#309](https://github.com/gpbl/react-day-picker/pull/309) by [cwmoo740](https://github.com/cwmoo740))
 
   Use this set of functions if you need to validate or test your modifiers.
 
@@ -1682,8 +1682,8 @@ _Release Date: 2017-04-29_
 _Release Date: 2017-04-25_
 
 - Include Typescript Type Definitions ([#303](https://github.com/gpbl/react-day-picker/pull/303))
-- Added: a new [`modifiersStyles`](/api-daypicker.html#modifiersstyles) prop to add inline style to the days matching the given modifiers (see [`example`](/api-daypicker.html#modifiersstyles)).
-- Added: `isDayBefore`, `isDayAfter` functions to [DateUtils](/DateUtils.html).
+- Added: a new [`modifiersStyles`](https://daypicker.dev/api-daypicker.html#modifiersstyles) prop to add inline style to the days matching the given modifiers (see [`example`](https://daypicker.dev/api-daypicker.html#modifiersstyles)).
+- Added: `isDayBefore`, `isDayAfter` functions to [DateUtils](https://daypicker.dev/DateUtils.html).
 
 **Bug fixes**
 
@@ -1701,7 +1701,7 @@ _Release date: 2017-04-14_
 _Release Date: 2017-03-09_
 
 - Allow overriding `today` modifier ([#279](https://github.com/gpbl/react-day-picker/pull/279) by [maxdubrinsky](https://github.com/maxdubrinsky))
-- Pass React Components to [`navBarElement`](/api-daypicker.html#navBarElement), [`captionElement`](/api-daypicker.html#captionElement), [`weekdayElement`](/api-daypicker.html#weekdayElement) ([#280](https://github.com/gpbl/react-day-picker/pull/280) by [cwmoo740](https://github.com/cwmoo740))
+- Pass React Components to [`navBarElement`](https://daypicker.dev/api-daypicker.html#navBarElement), [`captionElement`](https://daypicker.dev/api-daypicker.html#captionElement), [`weekdayElement`](https://daypicker.dev/api-daypicker.html#weekdayElement) ([#280](https://github.com/gpbl/react-day-picker/pull/280) by [cwmoo740](https://github.com/cwmoo740))
 
 - Fixed `aria` roles for weekdays and months HTML elements ([#276](https://github.com/gpbl/react-day-picker/pull/276) by [oigewan](https://github.com/oigewan))
 
@@ -1716,15 +1716,15 @@ _Release date: 2017-03-03_
 
 _Release Date: 2017-03-03_
 
-- New [`classNames`](/api-daypicker.html#classnames) prop ([#264](https://github.com/gpbl/react-day-picker/issues/264)).
+- New [`classNames`](https://daypicker.dev/api-daypicker.html#classnames) prop ([#264](https://github.com/gpbl/react-day-picker/issues/264)).
 
-  Use this prop to change the CSS class names or add support for CSS modules ([#73](https://github.com/gpbl/react-day-picker/issues/73), see [this example](/css-modules.html)).
+  Use this prop to change the CSS class names or add support for CSS modules ([#73](https://github.com/gpbl/react-day-picker/issues/73), see [this example](https://daypicker.dev/css-modules.html)).
 
-- New [`month`](/api-daypicker.html#month) prop ([#263](https://github.com/gpbl/react-day-picker/issues/263)).
+- New [`month`](https://daypicker.dev/api-daypicker.html#month) prop ([#263](https://github.com/gpbl/react-day-picker/issues/263)).
 
   This differs from the `initialMonth` props as it causes the calendar to re-render when its value changes.
 
-- Added: `aria-label` attributes to the navigation bar with the new [`labels`](/api-daypicker.html#labels) prop ([#258](https://github.com/gpbl/react-day-picker/issues/258)).
+- Added: `aria-label` attributes to the navigation bar with the new [`labels`](https://daypicker.dev/api-daypicker.html#labels) prop ([#258](https://github.com/gpbl/react-day-picker/issues/258)).
 
 ## v5.0.0
 
@@ -1743,7 +1743,7 @@ This release focuses on improving perfomance and the component's api-daypicker.
   />
   ```
 
-  Read more in the [modifiers documentation](/modifiers.html).
+  Read more in the [modifiers documentation](https://daypicker.dev/modifiers.html).
 
 - **Breaking change** Event handlers signature has changed ([#256](https://github.com/gpbl/react-day-picker/issues/256))
 
@@ -1760,7 +1760,7 @@ This release focuses on improving perfomance and the component's api-daypicker.
   }
   ```
 
-- **Breaking change** Use [`containerProps`](/api-daypicker.html#containerprops) to pass props to the container `div` element. Before, any prop was passed to the container element degrading performance ([#255](https://github.com/gpbl/react-day-picker/issues/255)):
+- **Breaking change** Use [`containerProps`](https://daypicker.dev/api-daypicker.html#containerprops) to pass props to the container `div` element. Before, any prop was passed to the container element degrading performance ([#255](https://github.com/gpbl/react-day-picker/issues/255)):
 
   ```diff
   <DayPicker
@@ -1777,7 +1777,7 @@ This release focuses on improving perfomance and the component's api-daypicker.
 
 - **Breaking change** Updating `initialMonth` will not show anymore a different month after the first mount ([#169](https://github.com/gpbl/react-day-picker/issues/169))
 
-  If you need the calendar to display a different month, use the [`month`](/api-daypicker.html#month) prop.
+  If you need the calendar to display a different month, use the [`month`](https://daypicker.dev/api-daypicker.html#month) prop.
 
 - **Breaking change** Use `lang` HTML attribute instead of a specific CSS class name.
 
@@ -1804,7 +1804,7 @@ _Release Date: 2016-10-14_
 
 **Easier localization**
 
-With these new props you can localize the Day Picker in a more declarative way. Check out [this example](/examples/?localized).
+With these new props you can localize the Day Picker in a more declarative way. Check out [this example](https://daypicker.dev/examples/?localized).
 
 ## v3.0.1
 
@@ -1817,7 +1817,7 @@ _Release date: 2016-10-14_
 \_Release Date: 2016-10-11
 
 - Fixed [an issue](https://github.com/gpbl/react-day-picker/issues/207) with weekdays labels ([#220](https://github.com/gpbl/react-day-picker/pull/220) by [makenosound](https://github.com/makenosound)).
-- Removed `weekdayComponent` and `navbarComponent` props (deprecated from [v2.3.0](#v230-2016-06-30))
+- Removed `weekdayComponent` and `navbarComponent` props (deprecated from [v2.3.0](#v230))
 
 **Breaking changes**
 
@@ -1868,7 +1868,7 @@ _Release Date: 2016-06-30_
 
 _Release Date: 2016-06-09_
 
-Added `fixedWeeks` prop ([#176](https://github.com/gpbl/react-day-picker/pull/176) by [fcsonline](https://github.com/fcsonline)). Use this prop to always display 6 weeks per month: [example](/examples/?fixedWeeks).
+Added `fixedWeeks` prop ([#176](https://github.com/gpbl/react-day-picker/pull/176) by [fcsonline](https://github.com/fcsonline)). Use this prop to always display 6 weeks per month: [example](https://daypicker.dev/examples/?fixedWeeks).
 
 ## v2.1.1
 
@@ -1880,8 +1880,8 @@ Fixed compatibility with IE11 ([#175](https://github.com/gpbl/react-day-picker/p
 
 _Release Date: 2016-06-02_
 
-- Added [`weekdayComponent`](/api-daypicker.html#weekdaycomponent-component) prop ([#172](https://github.com/gpbl/react-day-picker/pull/172) by [stanislav-ermakov-roi](https://github.com/stanislav-ermakov-roi)). Use this prop to use a custom component for rendering the weekday cells in the header.
-- Added [`navbarComponent`](/api-daypicker.html#navbarcomponent-component) prop ([#173](https://github.com/gpbl/react-day-picker/pull/173) by [stanislav-ermakov-roi](https://github.com/stanislav-ermakov-roi)). Use this prop to use a custom component for rendering the navigation bar.
+- Added [`weekdayComponent`](https://daypicker.dev/api-daypicker.html#weekdaycomponent-component) prop ([#172](https://github.com/gpbl/react-day-picker/pull/172) by [stanislav-ermakov-roi](https://github.com/stanislav-ermakov-roi)). Use this prop to use a custom component for rendering the weekday cells in the header.
+- Added [`navbarComponent`](https://daypicker.dev/api-daypicker.html#navbarcomponent-component) prop ([#173](https://github.com/gpbl/react-day-picker/pull/173) by [stanislav-ermakov-roi](https://github.com/stanislav-ermakov-roi)). Use this prop to use a custom component for rendering the navigation bar.
 
 ## v2.0.3
 
@@ -1951,13 +1951,13 @@ onDayClick(e, day, { selected }) {
 
 This affects code using `require('react-day-picker').default` or similar syntax, which was required for v1.3.0. Now you can `require('react-day-picker')` as usual, i.e. without specifying `default`. If you are using ES2015 modules `import DayPicker from 'react-day-picker'`, this change shouldn't affect you.
 
-- New `formatDay` function in [LocaleUtils](/utils-locale.html).
+- New `formatDay` function in [LocaleUtils](https://daypicker.dev/utils-locale.html).
 
-If you are using your [custom LocaleUtils](/localization.html#advanced) to localize the calendar, you need to implement this function as well, which is required to format the newly added [#132](https://github.com/gpbl/react-day-picker/pull/132) (see the [documentation](/localization.html#advanced) for an example). If you are localizing [using moment](/localization.html#moment), this change shouldn't affect you.
+If you are using your [custom LocaleUtils](https://daypicker.dev/localization.html#advanced) to localize the calendar, you need to implement this function as well, which is required to format the newly added [#132](https://github.com/gpbl/react-day-picker/pull/132) (see the [documentation](https://daypicker.dev/localization.html#advanced) for an example). If you are localizing [using moment](https://daypicker.dev/localization.html#moment), this change shouldn't affect you.
 
 **New props**
 
-- New [`disabledDays`](/api-daypicker.html#disabledays-prop) and [`selectedDays`](/api-daypicker.html#disabledays-prop) props. They receive a function `(day) => Bool` as value to easily define which day should have the `selected` or `disabled` modifiers. See [#34](https://github.com/gpbl/react-day-picker/issues/34) for more details.
+- New [`disabledDays`](https://daypicker.dev/api-daypicker.html#disabledays-prop) and [`selectedDays`](https://daypicker.dev/api-daypicker.html#disabledays-prop) props. They receive a function `(day) => Bool` as value to easily define which day should have the `selected` or `disabled` modifiers. See [#34](https://github.com/gpbl/react-day-picker/issues/34) for more details.
 
   So if you were writing something like:
 
@@ -1979,8 +1979,8 @@ If you are using your [custom LocaleUtils](/localization.html#advanced) to local
   />
   ```
 
-- Added [`reverseMonths`](/api-daypicker.html#reversemonths-prop) prop to render the most recent month first. ([#141](https://github.com/gpbl/react-day-picker/pull/141) by [@sonrtomas](https://github.com/sonrtomas)
-- Added [`onDayKeyDown`](/api-daypicker.html#ondaykeydown-prop), [`onDayTouchStart`](/api-daypicker.html#ondaytouchstart-prop), [`onDayTouchEnd`](/api-daypicker.html#ondaytouchend-prop) props.
+- Added [`reverseMonths`](https://daypicker.dev/api-daypicker.html#reversemonths-prop) prop to render the most recent month first. ([#141](https://github.com/gpbl/react-day-picker/pull/141) by [@sonrtomas](https://github.com/sonrtomas)
+- Added [`onDayKeyDown`](https://daypicker.dev/api-daypicker.html#ondaykeydown-prop), [`onDayTouchStart`](https://daypicker.dev/api-daypicker.html#ondaytouchstart-prop), [`onDayTouchEnd`](https://daypicker.dev/api-daypicker.html#ondaytouchend-prop) props.
 
 **Improvements**
 
@@ -2020,12 +2020,12 @@ _Release Date: 2015-12-04_
 
 **New features**
 
-- Use a custom caption element with the new [`captionElement`](/api-daypicker.html#captionelement-element) prop. A custom caption element is useful, for example, to create a year/month navigation as shown in [this example](/examples/advanced-year-navigation.html). Read [#52](https://github.com/gpbl/react-day-picker/issues/52) for a discussion about this feature.
+- Use a custom caption element with the new [`captionElement`](https://daypicker.dev/api-daypicker.html#captionelement-element) prop. A custom caption element is useful, for example, to create a year/month navigation as shown in [this example](https://daypicker.dev/examples/advanced-year-navigation.html). Read [#52](https://github.com/gpbl/react-day-picker/issues/52) for a discussion about this feature.
 
 **Improvements**
 
-- Improved navigation when clicking on outside days ([#112](https://github.com/gpbl/react-day-picker/issues/112), see also [this example](/examples/months-restrict-navigation.html))
-- New `addMonths` function in [DateUtils](/DateUtils.html)
+- Improved navigation when clicking on outside days ([#112](https://github.com/gpbl/react-day-picker/issues/112), see also [this example](https://daypicker.dev/examples/months-restrict-navigation.html))
+- New `addMonths` function in [DateUtils](https://daypicker.dev/DateUtils.html)
 - Added a style definition to package.json ([#105](https://github.com/gpbl/react-day-picker/issues/105), thanks [@webbushka](https://github.com/webbushka))
 
 **Fixed bugs**
@@ -2067,7 +2067,7 @@ _Release Date: 2015-11-06_
 
 **New features**
 
-- New `fromMonth` and `toMonth` props. Use the [`fromMonth`](/api-daypicker.html#frommonth-date) and [`toMonth`](/api-daypicker.html#tomonth-date) props to restrict the months within which the calendar can work. See [this example](/examples/months-restrict-navigation.html).
+- New `fromMonth` and `toMonth` props. Use the [`fromMonth`](https://daypicker.dev/api-daypicker.html#frommonth-date) and [`toMonth`](https://daypicker.dev/api-daypicker.html#tomonth-date) props to restrict the months within which the calendar can work. See [this example](https://daypicker.dev/examples/months-restrict-navigation.html).
 - `dateUtils` includes some useful function to set custom modifiers
 - `localeUtils` are the default functions used to localize the Day Picker in english. See https://github.com/gpbl/react-day-picker/issues/46#issuecomment-153498039 for a sample usage of this library.
 
@@ -2134,7 +2134,7 @@ _Release Date: 2015-06-24_
 
 First major release. Please see [the updated website](/) for more info.
 
-- [#27] Removed the dependency from moment.js. Events and props work **only** with native `Date` object. To localize the Day Picker with moment.js (or another library), follow [this page](/#tips)
+- [#27] Removed the dependency from moment.js. Events and props work **only** with native `Date` object. To localize the Day Picker with moment.js (or another library), follow [this page](/localization/changing-locale)
 - Class names have been updated (objects are now CamelCase). As example, please see [the updated CSS file](https://github.com/gpbl/react-day-picker/blob/master/site/src/style/DayPicker.scss).
 - [#27] All rendered tags are now `div` or `span`. Use CSS to style the daypicker as table.
 - A `today` modifier is added automatically
