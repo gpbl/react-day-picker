@@ -28,7 +28,7 @@ import { es } from "react-day-picker/locale";
 <DayPicker locale={es} /> // Use Spanish locale, now with translated labels.
 ```
 
-If you previously set the `labels` prop for translations, you can remove it. For details on switching locales, see /localization/changing-locale.
+If you previously set the `labels` prop for translations, you can remove it. For details on switching locales, see the [localization guide](/localization/changing-locale).
 
 #### What's Changed
 * feat: add locale-aware labels and translated locale wrappers by [@gpbl](https://github.com/gpbl) in [#2861](https://github.com/gpbl/react-day-picker/pull/2861)
