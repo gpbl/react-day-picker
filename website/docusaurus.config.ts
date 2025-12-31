@@ -172,6 +172,14 @@ const config: Config = {
               href: "https://react-day-picker-v7.netlify.app",
               label: "7.4.10",
             },
+            {
+              type: "html",
+              value: '<hr style="margin: 8px 0" class="dropdown-separator">',
+            },
+            {
+              href: "/changelog",
+              label: "Changelog",
+            },
           ],
         },
         {
