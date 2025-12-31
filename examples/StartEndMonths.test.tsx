@@ -2,9 +2,12 @@ import React from "react";
 
 import { grid, gridcell, nextButton } from "@/test/elements";
 import { render } from "@/test/render";
+import { setTestTime } from "@/test/setTestTime";
 import { user } from "@/test/user";
 
 import { StartEndMonths } from "./StartEndMonths";
+
+setTestTime(new Date(2026, 0, 15));
 
 beforeEach(() => {
   render(<StartEndMonths />);
