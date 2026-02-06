@@ -113,16 +113,15 @@ export function useQueryStringSync(basePath: string = "/playground") {
       try {
         switch (typeMap[key]) {
           case "boolean":
-            parsedProps[key as keyof DayPickerPropsWithCalendar] = true;
+            parsedProps[key] = true;
             break;
           case "number":
             if (value !== null) {
-              parsedProps[key as keyof DayPickerPropsWithCalendar] =
-                Number(value);
+              parsedProps[key] = Number(value);
             }
             break;
           case "string":
-            parsedProps[key as keyof DayPickerPropsWithCalendar] = value ?? "";
+            parsedProps[key] = value ?? "";
             break;
           case "locale":
             if (!value) break;
@@ -137,7 +136,7 @@ export function useQueryStringSync(basePath: string = "/playground") {
               Number.isNaN(timestamp) ? value : timestamp,
             );
             if (!Number.isNaN(parsedDate.getTime())) {
-              parsedProps[key as keyof DayPickerPropsWithCalendar] = parsedDate;
+              parsedProps[key] = parsedDate;
             }
             break;
           }
