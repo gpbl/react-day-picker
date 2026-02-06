@@ -98,6 +98,11 @@ export function DayPicker(
       numerals={numerals ?? "arabext"}
       dir={dir ?? "rtl"}
       dateLib={dateLib}
+      formatters={{
+        formatWeekdayName: (date, options, lib) =>
+          (lib ?? dateLib).format(date, "ccccc"),
+        ...props.formatters,
+      }}
     />
   );
 }
