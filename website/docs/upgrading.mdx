@@ -20,12 +20,12 @@ npm install react-day-picker@9
 
 | Removed prop | Use instead |
 | --- | --- |
-| `fromMonth` | `startMonth` |
-| `fromYear` | `startMonth` |
-| `toMonth` | `endMonth` |
-| `toYear` | `endMonth` |
-| `fromDate` | `hidden={{ before: ... }}` and optionally `startMonth` |
-| `toDate` | `hidden={{ after: ... }}` and optionally `endMonth` |
+| `fromMonth` | [`startMonth`](./api/interfaces/PropsBase#startmonth) |
+| `fromYear` | [`startMonth`](./api/interfaces/PropsBase#startmonth) |
+| `toMonth` | [`endMonth`](./api/interfaces/PropsBase#endmonth) |
+| `toYear` | [`endMonth`](./api/interfaces/PropsBase#endmonth) |
+| `fromDate` | [`hidden`](./api/interfaces/PropsBase#hidden) with `before` matcher and optionally [`startMonth`](./api/interfaces/PropsBase#startmonth) |
+| `toDate` | [`hidden`](./api/interfaces/PropsBase#hidden) with `after` matcher and optionally [`endMonth`](./api/interfaces/PropsBase#endmonth) |
 
 ```diff
 <DayPicker
@@ -48,31 +48,31 @@ npm install react-day-picker@9
 
 | Removed prop | Use instead |
 | --- | --- |
-| `initialFocus` | `autoFocus` |
-| `onWeekNumberClick` | Custom `WeekNumber` component |
-| `onDayKeyUp`, `onDayKeyPress`, `onDayPointerEnter`, `onDayPointerLeave`, `onDayTouchCancel`, `onDayTouchEnd`, `onDayTouchMove`, `onDayTouchStart` | Custom `DayButton` component |
+| `initialFocus` | [`autoFocus`](./api/interfaces/PropsBase#autofocus) |
+| `onWeekNumberClick` | Custom [`WeekNumber`](./api/functions/WeekNumber) component |
+| `onDayKeyUp`, `onDayKeyPress`, `onDayPointerEnter`, `onDayPointerLeave`, `onDayTouchCancel`, `onDayTouchEnd`, `onDayTouchMove`, `onDayTouchStart` | Custom [`DayButton`](./api/functions/DayButton) component |
 
 ### 4. Replace removed formatter and label aliases
 
 | Removed API | Use instead |
 | --- | --- |
-| `formatMonthCaption` | `formatCaption` |
-| `formatYearCaption` | `formatYearDropdown` |
-| `labelDay` | `labelDayButton` |
-| `labelCaption` | `labelGrid` |
+| `formatMonthCaption` | [`formatCaption`](./api/functions/formatCaption) |
+| `formatYearCaption` | [`formatYearDropdown`](./api/functions/formatYearDropdown) |
+| `labelDay` | [`labelDayButton`](./api/functions/labelDayButton) |
+| `labelCaption` | [`labelGrid`](./api/functions/labelGrid) |
 
 ### 5. Replace removed utility aliases
 
 | Removed API | Use instead |
 | --- | --- |
-| `isMatch` | `dateMatchModifiers` |
-| `isDateInRange` | `rangeIncludesDate` |
+| `isMatch` | [`dateMatchModifiers`](./api/functions/dateMatchModifiers) |
+| `isDateInRange` | [`rangeIncludesDate`](./api/functions/rangeIncludesDate) |
 
 ### 6. Update custom components
 
 `components.Button` was removed.
 
-Use `components.PreviousMonthButton` and `components.NextMonthButton` instead.
+Use [`components.PreviousMonthButton`](./api/type-aliases/CustomComponents#previousmonthbutton) and [`components.NextMonthButton`](./api/type-aliases/CustomComponents#nextmonthbutton) instead.
 
 ```diff
 <DayPicker
@@ -88,7 +88,7 @@ Use `components.PreviousMonthButton` and `components.NextMonthButton` instead.
 
 The `DeprecatedUI` compatibility keys were removed from `classNames` and `styles`.
 
-Use only current keys from `UI`, `DayFlag`, `SelectionState`, and `Animation`.
+Use only current keys from [`UI`](./api/enumerations/UI#enumeration-members), [`DayFlag`](./api/enumerations/DayFlag#enumeration-members), [`SelectionState`](./api/enumerations/SelectionState#enumeration-members), and [`Animation`](./api/enumerations/Animation#enumeration-members).
 
 ### 8. Update imports
 
@@ -96,7 +96,7 @@ Removed imports:
 
 - `react-day-picker/jalali` (use `react-day-picker/persian`)
 - Deprecated type exports from `types/deprecated`
-- `dateLib`, `FormatOptions`, and `LabelOptions` from `DateLib`
+- `dateLib`, `FormatOptions`, and `LabelOptions` from [`DateLib`](./api/classes/DateLib)
 
 ## Upgrading to v9
 
@@ -371,12 +371,12 @@ Review your styles against the v8 styling model in the [v8 styling guide](/v8/us
 
 | v7 prop | v8 replacement |
 | --- | --- |
-| `showWeekNumbers` | `showWeekNumber` |
+| `showWeekNumbers` | [`showWeekNumber`](./api/interfaces/PropsBase#showweeknumber) |
 | `todayButton` | Removed (implement via controlled navigation) |
-| `initialMonth` | `defaultMonth` |
-| `canChangeMonth` | `disableNavigation` |
-| `selectedDays` | `selected` |
-| `disabledDays` | `disabled` |
+| `initialMonth` | [`defaultMonth`](./api/interfaces/PropsBase#defaultmonth) |
+| `canChangeMonth` | [`disableNavigation`](./api/interfaces/PropsBase#disablenavigation) |
+| `selectedDays` | [`selected`](./api/interfaces/PropsSingle#selected) |
+| `disabledDays` | [`disabled`](./api/interfaces/PropsBase#disabled) |
 
 ### 6. Replace `DateUtils` usage
 
