@@ -1,7 +1,5 @@
 import React, { type ButtonHTMLAttributes } from "react";
 
-import { useDayPicker } from "../useDayPicker.js";
-
 /**
  * Render the button to navigate to the next month in the calendar.
  *
@@ -11,8 +9,7 @@ import { useDayPicker } from "../useDayPicker.js";
 export function NextMonthButton(
   props: ButtonHTMLAttributes<HTMLButtonElement>,
 ) {
-  const { components } = useDayPicker();
-  return <components.Button {...props} />;
+  return <button {...props} />;
 }
 
 export type NextMonthButtonProps = Parameters<typeof NextMonthButton>[0];

@@ -20,10 +20,3 @@ export function formatCaption(
   const lib = dateLib ?? new DateLib(options);
   return lib.formatMonthYear(month);
 }
-
-/**
- * @private
- * @deprecated Use {@link formatCaption} instead.
- * @group Formatters
- */
-export const formatMonthCaption = formatCaption;

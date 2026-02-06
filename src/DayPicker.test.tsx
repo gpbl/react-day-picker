@@ -276,6 +276,21 @@ test("should render the custom components", () => {
   expect(screen.getByText("Custom MonthsDropdown")).toBeInTheDocument();
 });
 
+test("should render custom previous and next month buttons", () => {
+  render(
+    <DayPicker
+      components={{
+        PreviousMonthButton: () => <button type="button">Go Back</button>,
+        NextMonthButton: () => <button type="button">Go Forward</button>,
+      }}
+    />,
+  );
+  expect(screen.getByRole("button", { name: "Go Back" })).toBeInTheDocument();
+  expect(
+    screen.getByRole("button", { name: "Go Forward" }),
+  ).toBeInTheDocument();
+});
+
 describe("when navLayout is set", () => {
   const today = new Date(2024, 1, 4);
   describe("when navLayout is set to 'around'", () => {

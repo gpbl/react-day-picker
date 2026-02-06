@@ -3,11 +3,12 @@ import React, { useState } from "react";
 import {
   DayPicker,
   type DayPickerProps,
+  type PropsBase,
   type PropsSingle,
   TZDate,
 } from "react-day-picker";
 
-type TimeZoneNoonSafeProps = Partial<DayPickerProps> & {
+type TimeZoneNoonSafeProps = Omit<PropsBase, "mode"> & {
   selected?: Date;
   onSelect?: PropsSingle["onSelect"];
 };
@@ -21,7 +22,6 @@ export function TimeZoneNoonSafe(props: TimeZoneNoonSafeProps = {}) {
     defaultMonth,
     startMonth,
     footer,
-    mode: _mode,
     ...rest
   } = props;
 
@@ -51,7 +51,7 @@ export function TimeZoneNoonSafe(props: TimeZoneNoonSafeProps = {}) {
       selected={selectedValue}
       onSelect={onSelect}
       startMonth={startMonth ?? new Date(1880, 0, 1)}
-      toYear={2025}
+      endMonth={new Date(2025, 11, 31)}
       footer={
         footer ??
         (selected

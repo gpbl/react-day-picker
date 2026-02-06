@@ -27,9 +27,3 @@ export function labelDayButton(
   if (modifiers.selected) label = `${label}, selected`;
   return label;
 }
-
-/**
- * @ignore
- * @deprecated Use `labelDayButton` instead.
- */
-export const labelDay = labelDayButton;

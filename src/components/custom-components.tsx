@@ -1,4 +1,3 @@
-export * from "./Button.js";
 export * from "./CaptionLabel.js";
 export * from "./Chevron.js";
 export * from "./Day.js";
