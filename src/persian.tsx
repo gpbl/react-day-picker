@@ -91,13 +91,23 @@ export function DayPicker(
     noonSafe,
     overrides: dateLibProp,
   });
+  const locale = localeProp ?? faIR;
+
   return (
     <DayPickerComponent
       {...restProps}
-      locale={localeProp ?? faIR}
+      locale={locale}
       numerals={numerals ?? "arabext"}
       dir={dir ?? "rtl"}
       dateLib={dateLib}
+      formatters={{
+        formatWeekdayName: (date, _options, lib) => {
+          const activeLib = lib ?? dateLib;
+          const isPersian = activeLib.options.locale?.code?.startsWith("fa");
+          return activeLib.format(date, isPersian ? "ccccc" : "cccccc");
+        },
+        ...props.formatters,
+      }}
     />
   );
 }

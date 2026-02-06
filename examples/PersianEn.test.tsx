@@ -17,3 +17,10 @@ test("should render 6 rows", () => {
   render(<PersianEn />);
   expect(screen.getAllByRole("row")).toHaveLength(6);
 });
+
+test("should render English short weekday labels", () => {
+  render(<PersianEn />);
+  expect(
+    screen.getByRole("columnheader", { name: "Thursday", hidden: true }),
+  ).toHaveTextContent("Th");
+});
