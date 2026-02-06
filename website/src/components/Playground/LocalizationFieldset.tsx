@@ -2,7 +2,6 @@ import React from "react";
 
 import {
   type DayPickerProps,
-  dateLib,
   defaultDateLib,
   type Numerals,
 } from "react-day-picker";
@@ -401,7 +400,7 @@ export function LocalizationFieldset({
             <option></option>
             {[1, 4].map((day) => (
               <option key={day} value={day}>
-                {dateLib.format(new Date(2021, 0, day), "EEEE")}
+                {defaultDateLib.format(new Date(2021, 0, day), "EEEE")}
               </option>
             ))}
           </select>
