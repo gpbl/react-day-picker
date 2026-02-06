@@ -1,0 +1,294 @@
+---
+sidebar_position: 5
+---
+
+# Upgrading to v9
+
+This release includes significant updates related to accessibility, styles, internationalization, and performance. See the [changelog](./changelog.mdx) for the full list of changes.
+
+## Upgrading from v7
+
+If you are upgrading from v7, this guide is still valid. First, read the [migration guide from v7 to v8](/v8/upgrading), then follow the steps below.
+
+## Checklist
+
+### 1. Upgrade to the Latest Version
+
+```bash npm2yarn
+npm install react-day-picker@latest
+```
+
+If you are not using `date-fns` directly in your code (e.g., when using a [different locale](./localization/changing-locale.mdx)), remove it from your dependencies:
+
+```bash npm2yarn
+npm remove date-fns
+```
+
+### 2. Update Your Custom Styles
+
+The default design has changed slightly. You may need to adjust DayPicker to match your design. See the [styling docs](./docs/styling.mdx) for more information.
+
+### 3. Add the `onSelect` Prop When Using `selected`
+
+The `selected` prop is now controlled. Add an `onSelect` prop to handle the selected state and keep it in sync with your component.
+
+```diff
++ const [selected, setSelected] = useState<Date | undefined>(undefined);
+  <DayPicker
+    mode="single"
+    selected={selected} // controlled prop
++   onSelect={setSelected} // update the selected date
+  />
+```
+
+### 4. Update Class Names
+
+Class names for UI elements have been updated for clarity and consistency. If you use custom styles via the `classNames` or `styles` prop, update them accordingly.
+
+For example, `day_disabled` is now `disabled`:
+
+```diff
+ <DayPicker
+   classNames={{
+-    day_disabled: 'day-disabled',
++    disabled: 'day-disabled', // applies `.day_disabled` to disabled days
+   }}
+ />
+```
+
+Additionally, the `day` element is now `day_button`, and the `cell` element is now `day`:
+
+```diff
+ <DayPicker
+   classNames={{
+-    cell: 'day-cell',
++    day: 'day-cell',
+-    day: 'day-button',
++    day_button: 'day-button',
+   }}
+ />
+```
+
+See the full list of updated class names in the `DeprecatedUI` type.
+
+<details>
+  <summary>**List of Updated Class Names**</summary>
+
+| Old Name              | New Name                                                   |
+| --------------------- | ---------------------------------------------------------- |
+| `button`              | `button_previous`, `button_next`                           |
+| `button_reset`        | `button_previous`, `button_next`                           |
+| `caption`             | `month_caption`                                            |
+| `caption_between`     | Removed                                                    |
+| `caption_dropdowns`   | `dropdowns`                                                |
+| `caption_end`         | Removed                                                    |
+| `caption_start`       | Removed                                                    |
+| `cell`                | `day` – ⚠️ The previous `day` element is now `day_button`. |
+| `day_disabled`        | `disabled`                                                 |
+| `day_hidden`          | `hidden`                                                   |
+| `day_outside`         | `outside`                                                  |
+| `day_range_end`       | `range_end`                                                |
+| `day_range_middle`    | `range_middle`                                             |
+| `day_range_start`     | `range_start`                                              |
+| `day_selected`        | `selected`                                                 |
+| `day_today`           | `today`                                                    |
+| `dropdown_icon`       | `chevron`                                                  |
+| `dropdown_month`      | `months_dropdown`                                          |
+| `dropdown_year`       | `years_dropdown`                                           |
+| `head`                | Removed                                                    |
+| `head_cell`           | `weekday`                                                  |
+| `head_row`            | `weekdays`                                                 |
+| `multiple_months`     | Removed. Use `data-multiple-months` data attribute.        |
+| `nav_button`          | `button_previous`, `button_next`                           |
+| `nav_button_next`     | `button_next`                                              |
+| `nav_button_previous` | `button_previous`                                          |
+| `nav_icon`            | `chevron`, `button_next`, `button_previous`                |
+| `row`                 | `week`                                                     |
+| `table`               | `month_grid`                                               |
+| `tbody`               | `weeks`                                                    |
+| `tfoot`               | `footer`                                                   |
+| `vhidden`             | Removed                                                    |
+| `weeknumber`          | `week_number`                                              |
+| `with_weeknumber`     | Removed. Use `data-week-numbers` data attribute.           |
+
+</details>
+
+### 5. Replace `fromDate` and `toDate`
+
+Replace `fromDate` and `toDate` with the `hidden`, `startMonth`, and `endMonth` props.
+
+#### Example: Replace `fromDate`
+
+```diff
+ <DayPicker
+-   fromDate={new Date(2010, 11, 03)}
++   startMonth={new Date(2010, 11)}
++   hidden={[{ before: new Date(2010, 11, 03) }]}
+ />
+```
+
+#### Example: Replace `toDate`
+
+```diff
+ <DayPicker
+-   toDate={new Date(2010, 11, 03)}
++   endMonth={new Date(2010, 11)}
++   hidden={[{ after: new Date(2010, 11, 03) }]}
+ />
+```
+
+### 6. Update Tests and Translations
+
+DayPicker's ARIA labels have been updated for clarity. Update your tests and translations accordingly.
+
+#### Updated ARIA Labels
+
+| Label                                                                    | Old Label                | New Label                                                                                                  |
+| ------------------------------------------------------------------------ | ------------------------ | ---------------------------------------------------------------------------------------------------------- |
+| [`labelDayButton`](./api/functions/labelDayButton)<br/>_ex_ ~`labelDay`~ | `21st November (Monday)` | `Monday, November 21st, 2024`<br/>`Monday, November 21st, 2024, selected`<br/>`Today, November 21st, 2024` |
+| [`labelPrevious`](./api/functions/labelPrevious)                         | `Go to previous month`   | `Go to the Previous Month`                                                                                 |
+| [`labelNext`](./api/functions/labelNext)                                 | `Go to next month`       | `Go to the Next Month`                                                                                     |
+| [`labelWeekNumber`](./api/functions/labelWeekNumber.md)                  | `Week nr. ##`            | `Week ##`                                                                                                  |
+
+Update test selectors as needed:
+
+```diff
+- screen.getByRole('button', 'Go to next month');
++ screen.getByRole('button', 'Go to the Next Month');
+```
+
+#### `labelDay` Changes
+
+The `labelDay` function has been renamed to `labelDayButton`. It now includes the year and communicates the selected and today status. See [Translating DayPicker](./guides/translation.mdx) for more information.
+
+### 7. Update Formatters to Return a String
+
+Formatters now return a `string` instead of a `ReactNode`. Update your code accordingly.
+
+```diff
+  <DayPicker
+    formatters={{
+-      formatCaption: (month) => <strong>{format(month, "LLLL y")}</strong> // ❌ returned an element
++      formatCaption: (month) => format(month, "LLLL y") // ✅ return a string
+    }}
+  />;
+```
+
+If you need to return a `ReactElement`, use a [custom component](./guides/custom-components.mdx):
+
+```tsx
+<DayPicker
+  formatters={{
+    formatCaption: (month) => format(month, "LLLL y"), // ✅ return a string
+  }}
+  components={{
+    Caption: ({ children }) => <strong>{children}</strong>, // ✅ return a ReactElement
+  }}
+/>
+```
+
+### 8. Update Custom Components
+
+If you use the `components` prop, update your code as some components have changed. See the [custom components guide](./guides/custom-components.mdx) for details.
+
+```diff
+  <DayPicker
+    components={{
+-     IconRight: MyRightIcon,
+-     IconLeft: MyLeftIcon,
++     Chevron: (props) => {
++       if (props.orientation === "left") {
++         return <ChevronLeftIcon {...props} />;
++       }
++       return <ChevronRightIcon {...props} />;
++     },
+    }}
+  />
+```
+
+<details>
+  <summary>**List of Updated Components**</summary>
+
+| Component      | Changes                                                                     |
+| -------------- | --------------------------------------------------------------------------- |
+| `Caption`      | Renamed to [`MonthCaption`](./api/functions/MonthCaption.md).               |
+| `Day`          | Now renders a [`DayButton`](./api/functions/DayButton.md).                  |
+| `DayContent`   | Removed. Use [`formatDay`](./api/functions/formatDay.md) to change content. |
+| `Head`         | Removed.                                                                    |
+| `HeadRow`      | Renamed to [`Weekdays`](./api/functions/Weekdays.md).                       |
+| `IconDropdown` | Removed. The icon is rendered by [`Chevron`](./api/functions/Chevron.md).   |
+| `IconLeft`     | Removed. The icon is rendered by [`Chevron`](./api/functions/Chevron.md).   |
+| `IconRight`    | Removed. The icon is rendered by [`Chevron`](./api/functions/Chevron.md).   |
+| `Row`          | Renamed to [`Week`](./api/functions/Week.md).                               |
+
+</details>
+
+### Deprecations
+
+Deprecated props and types will be removed in the next major version. Update your code to avoid breaking changes.
+
+#### Deprecated Props
+
+| Deprecated Prop | Replacement  | Notes                                            |
+| --------------- | ------------ | ------------------------------------------------ |
+| ~`fromMonth`~   | `startMonth` | Renamed. The start month for the navigation.     |
+| ~`toMonth`~     | `endMonth`   | Renamed. The end month for the navigation.       |
+| ~`fromYear`~    | `startMonth` | Pass the first month of the year to `startMonth` |
+| ~`toYear`~      | `endMonth`   | Pass the last month of the year to `endMonth`.   |
+
+#### Example
+
+```diff
+  <DayPicker
+-   fromYear={2010}
++   startMonth={new Date(2010, 0)}  // January 2010
+-   toYear={2021}
++   endMonth={new Date(2021, 11)} // December 2021
+  />
+```
+
+#### Deprecated Types
+
+If you use TypeScript, some types have been deprecated for clarity and shorter names.
+
+```diff
+- import type { DayPickerDefaultProps } from 'react-day-picker';
++ import type { PropsBase } from 'react-day-picker';
+```
+
+See the source of [types/deprecated.ts](https://github.com/gpbl/react-day-picker/blob/next/src/types/deprecated.ts) for more details.
+
+<details>
+  <summary>**List of Deprecated Types**</summary>
+
+| Deprecated Type                | Deprecation Reason                                                                                            |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------- |
+| ~`Caption`~                    | Renamed to [`MonthCaption`](./api/functions/MonthCaption.md).                                                 |
+| ~`HeadRow`~                    | Removed.                                                                                                      |
+| ~`Row`~                        | Renamed to [`Week`](./api/functions/Week.md).                                                                 |
+| ~`DayPickerSingleProps`~       | Renamed to [`PropsSingle`](./api/interfaces/PropsSingle.md).                                                  |
+| ~`DayPickerMultipleProps`~     | Renamed to [`PropsMulti`](./api/interfaces/PropsMulti.md).                                                    |
+| ~`DayPickerRangeProps`~        | Renamed to [`PropsRange`](./api/interfaces/PropsRange.md).                                                    |
+| ~`DayPickerDefaultProps`~      | Renamed to [`PropsBase`](./api/interfaces/PropsBase.md).                                                      |
+| ~`DaySelectionMode`~           | Renamed to [`Mode`](./api/type-aliases/Mode.md).                                                              |
+| ~`Modifier`~                   | Will be removed. Use `string` instead.                                                                        |
+| ~`InternaModifier`~            | Split into [`DayFlag`](./api/enumerations/DayFlag) and [`SelectionState`](./api/enumerations/SelectionState). |
+| ~`SelectSingleEventHandler`~   | Will be removed. Use [`PropsSingle["onSelect]`](./api/interfaces/PropsSingle.md) instead.                     |
+| ~`SelectMultipleEventHandler`~ | Will be removed. Use [`PropsMulti["onSelect]`](./api/interfaces/PropsMulti.md) instead.                       |
+| ~`SelectRangeEventHandler`~    | Will be removed. Use [`PropsRange["onSelect]`](./api/interfaces/PropsRange.md) instead.                       |
+| ~`DayPickerProviderProps`~     | Not used anymore.                                                                                             |
+| ~`useNavigation`~              | Included in [`useDayPicker`](./api/functions/useDayPicker.md).                                                |
+| ~`useDayRender`~               | Removed. Customize day rendering with the `htmlAttributes` prop in a custom `Day` component.                  |
+| ~`ContextProvidersProps`~      | Not used anymore.                                                                                             |
+| ~`DayLabel`~                   | Use `typeof labelDay` instead.                                                                                |
+| ~`NavButtonLabel`~             | Use `typeof labelNext` or `typeof labelPrevious` instead.                                                     |
+| ~`WeekdayLabel`~               | Use `typeof labelWeekday` instead.                                                                            |
+| ~`WeekNumberLabel`~            | Use `typeof labelWeekNumber` instead.                                                                         |
+| ~`DayClickEventHandler`~       | Use `DayMouseEventHandler` instead.                                                                           |
+| ~`DayFocusEventHandler`~       | Will be removed. Use `DayEventHandler<React.FocusEvent \| React.KeyboardEvent>` instead.                      |
+| ~`DayKeyboardEventHandler`~    | Will be removed. Use `DayEventHandler<React.KeyboardEvent>` instead.                                          |
+| ~`DayMouseEventHandler`~       | Will be removed. Use `DayEventHandler<React.MouseEvent>` instead.                                             |
+| ~`DayPointerEventHandler`~     | Will be removed. Use `DayEventHandler<React.PointerEvent>` instead.                                           |
+| ~`DayTouchEventHandler`~       | Will be removed. Use `DayEventHandler<React.TouchEvent>` instead.                                             |
+
+</details>

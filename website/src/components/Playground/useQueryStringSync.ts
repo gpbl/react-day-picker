@@ -15,7 +15,6 @@ const qsProps = [
   "firstDayOfWeek",
   "firstWeekContainsDate",
   "fixedWeeks",
-  "fromMonth",
   "hideNavigation",
   "hideWeekdays",
   "ISOWeek",
@@ -38,7 +37,6 @@ const qsProps = [
   "endMonth",
   "month",
   "timeZone",
-  "toMonth",
   "weeksStartOn",
   "weekStartsOn",
 ];
@@ -70,7 +68,6 @@ export function useQueryStringSync(basePath: string = "/playground") {
       firstDayOfWeek: "number",
       firstWeekContainsDate: "number",
       fixedWeeks: "boolean",
-      fromMonth: "date",
       hideNavigation: "boolean",
       hideWeekdays: "boolean",
       ISOWeek: "boolean",
@@ -92,7 +89,6 @@ export function useQueryStringSync(basePath: string = "/playground") {
       showWeekNumber: "boolean",
       startMonth: "date",
       timeZone: "string",
-      toMonth: "date",
       weeksStartOn: "number",
       weekStartsOn: "number",
     };

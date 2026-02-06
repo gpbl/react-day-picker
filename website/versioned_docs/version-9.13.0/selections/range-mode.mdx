@@ -1,0 +1,70 @@
+---
+sidebar_position: 4
+---
+
+# Range Mode
+
+Set the `mode` prop to `"range"` to enable the selection of a continuous range of dates in DayPicker.
+
+```tsx
+<DayPicker mode="range" />
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/Range.tsx">
+  <Examples.Range />
+</BrowserWindow>
+
+## Range Mode Props
+
+| Prop Name         | Type                                                                                | Description                                |
+| ----------------- | ----------------------------------------------------------------------------------- | ------------------------------------------ |
+| `selected`        | [`DateRange`](../api/type-aliases/DateRange.md)                                     | The selected range.                        |
+| `onSelect`        | [`OnSelectHandler<DateRange \| undefined>`](../api/type-aliases/OnSelectHandler.md) | Event callback when a date is selected.    |
+| `required`        | `boolean`                                                                           | Make the selection required.               |
+| `min`             | `number`                                                                            | The minimum number of nights in the range. |
+| `max`             | `number`                                                                            | The maximum number of nights in the range. |
+| `excludeDisabled` | `boolean`                                                                           | Exclude disabled dates from the range.     |
+
+## Min and Max Dates
+
+By default, a range can have a length of 0 nights, meaning the start date can be the same as the end date. Use the `min` prop to set the minimum number of nights. The range will remain "open" until at least the `min` number of nights are selected.
+
+Similarly, use the `max` prop to set the maximum number of nights.
+
+```tsx
+<DayPicker mode="range" min={1} max={6} />
+```
+
+<BrowserWindow bodyStyle={{ justifyContent: "start" }} sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/RangeMinMax.tsx">
+  <Examples.RangeMinMax />
+</BrowserWindow>
+
+## Required Ranges
+
+By setting the `required` prop, DayPicker ensures that the selected range cannot be unselected.
+
+```tsx
+<DayPicker mode="range" required />
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/RangeRequired.tsx">
+  <Examples.RangeRequired />
+</BrowserWindow>
+
+## Excluding Disabled Dates {#exclude-disabled}
+
+In `range` mode, disabled dates are included in the selected range by default. To exclude disabled dates from the range, use the `excludeDisabled` prop. If a disabled date is selected, the range will reset.
+
+```tsx
+<DayPicker
+  mode="range"
+  // Disable weekends
+  disabled={{ dayOfWeek: [0, 6] }}
+  // Reset range when a disabled date is included
+  excludeDisabled
+/>
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/RangeExcludeDisabled.tsx">
+  <Examples.RangeExcludeDisabled />
+</BrowserWindow>

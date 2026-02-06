@@ -1,0 +1,76 @@
+---
+title: Setting the Time Zone
+sidebar_position: 2
+---
+
+DayPicker can render dates in a specific time zone so that what users see matches their local time or a time zone you explicitly choose. Internally, this is handled via the time zone support in [date-fns](https://date-fns.org/docs/Time-Zones).
+
+By default, DayPicker uses the browser’s local time zone. You can override this with the `timeZone` prop.
+
+The time zone can be specified as either an [IANA time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) identifier or a UTC offset.
+
+| Prop Name  | Type      | Description                                                                                                                                                |
+| ---------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `timeZone` | `string`  | The IANA time zone to use when rendering the calendar.                                                                                                     |
+| `noonSafe` | `boolean` | Experimental (see below). Keep calendar math at noon in the time zone to avoid historical drift and use when your time zone shows duplicated/missing days. |
+
+```tsx
+<DayPicker timeZone="UTC" /> // Coordinated Universal Time
+<DayPicker timeZone="Pacific/Honolulu" /> // US Hawaii Time
+<DayPicker timeZone="Europe/Paris" /> // Central European Time
+<DayPicker timeZone="UTC+2" /> // UTC plus 2 hours
+<DayPicker timeZone="UTC-5" /> // UTC minus 5 hours
+```
+
+## Working with time-zoned dates
+
+When working with time zones, use the `TZDate` object exported by `react-day-picker` instead of the native `Date` object. `TZDate` ensures your user interface always reads and writes dates in the time zone you specify.
+
+```tsx
+import React, { useState } from "react";
+import { DayPicker, TZDate } from "react-day-picker";
+
+export function TimeZone() {
+  const timeZone = "Pacific/Honolulu";
+  const [selected, setSelected] = useState<Date | undefined>(
+    TZDate.tz(timeZone), // Use `TZDate` instead of `Date`
+  );
+  return (
+    <DayPicker
+      mode="single"
+      timeZone={timeZone}
+      selected={selected}
+      onSelect={setSelected}
+      footer={
+        selected
+          ? selected.toString()
+          : `Pick a day to see it is in ${timeZone} time zone.`
+      }
+    />
+  );
+}
+```
+
+<BrowserWindow bodyStyle={{ justifyContent: "start" }} sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/TimeZone.tsx">
+  <Examples.TimeZone />
+</BrowserWindow>
+
+## Historical time zones with second offsets {#noonsafe}
+
+Some historical time zones use offsets with seconds (for example `Asia/Dubai` in 1900 is `+03:41:12`). JavaScript `Date` and `date-fns` round offsets to minutes, which can push midnight calculations into the previous day. Set `noonSafe` to keep calendar math at 12:00 in the chosen time zone so the date never drifts.
+
+```ts
+const timeZone = "Asia/Dubai";
+
+<DayPicker timeZone={timeZone} weekStartsOn={1} noonSafe />;
+```
+
+This override is optional and only needed when you render months that include offsets with seconds and want to avoid duplicate or missing days in the grid. Use it when you notice time-zone related glitches such as missing days, duplicate days, or unexpected week padding.
+
+<BrowserWindow
+  bodyStyle={{ justifyContent: "start" }}
+  sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/TimeZoneNoonSafeSimple.tsx"
+  sourceLabel="View source"
+>
+  <Examples.TimeZoneNoonSafeSimple />
+</BrowserWindow>

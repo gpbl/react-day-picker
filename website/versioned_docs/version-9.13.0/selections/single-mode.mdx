@@ -1,0 +1,50 @@
+---
+sidebar_position: 2
+---
+
+# Single Mode
+
+When the `mode` prop is set to `"single"`, only one date can be selected at a time.
+
+```tsx
+<DayPicker mode="single" />
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/Single.tsx">
+  <Examples.Single />
+</BrowserWindow>
+
+## Single Mode Props
+
+| Prop Name  | Type                                                                           | Description                             |
+| ---------- | ------------------------------------------------------------------------------ | --------------------------------------- |
+| `selected` | `Date \| undefined`                                                            | The selected date.                      |
+| `onSelect` | [`OnSelectHandler<Date \| undefined>`](../api/type-aliases/OnSelectHandler.md) | Event callback when a date is selected. |
+| `required` | `boolean`                                                                      | Make the selection required.            |
+
+## Controlled Selections
+
+Use the `selected` and `onSelect` props to control the selected date:
+
+```tsx
+export function App() {
+  const [selected, setSelected] = React.useState<Date | undefined>();
+  return <DayPicker mode="single" selected={selected} onSelect={setSelected} />;
+}
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/SingleControlled.tsx">
+  <Examples.SingleControlled />
+</BrowserWindow>
+
+## Required Selection
+
+By setting the `required` prop, DayPicker ensures that the user cannot unselect the selected date.
+
+```tsx
+<DayPicker mode="single" required />
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/SingleRequired.tsx">
+  <Examples.SingleRequired />
+</BrowserWindow>

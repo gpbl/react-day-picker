@@ -1,0 +1,71 @@
+---
+sidebar_position: 5
+---
+
+# Grid and Months
+
+## Outside Days
+
+By default, DayPicker hides the days falling into other months. Use `showOutsideDays` to display them.
+
+| Prop Name         | Type      | Description                                  |
+| ----------------- | --------- | -------------------------------------------- |
+| `showOutsideDays` | `boolean` | Display the days that fall outside the month |
+
+```tsx
+<DayPicker showOutsideDays />
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/OutsideDays.tsx">
+  <Examples.OutsideDays />
+</BrowserWindow>
+
+## Fixed Weeks
+
+In a year, months can have between 4 and 6 weeks. Use the `fixedWeeks` prop to always display 6 weeks per month. This will prevent the grid from changing its height while navigating the calendar.
+
+| Prop Name    | Type      | Description                                  |
+| ------------ | --------- | -------------------------------------------- |
+| `fixedWeeks` | `boolean` | Always render 6 weeks to avoid layout shift. |
+
+```tsx
+<DayPicker fixedWeeks showWeekNumber />
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/Fixedweeks.tsx">
+  <Examples.FixedWeeks />
+</BrowserWindow>
+
+## Multiple Months {#multiplemonths}
+
+To display multiple months in the calendar, use the `numberOfMonths` prop.
+
+| Prop Name         | Type      | Description                                     |
+| ----------------- | --------- | ----------------------------------------------- |
+| `numberOfMonths`  | `number`  | The number of displayed months. Default is `1`. |
+| `pagedNavigation` | `boolean` | Paginate the navigation.                        |
+| `reverseMonths`   | `boolean` | Render multiple months in reversed order.       |
+
+```tsx
+<DayPicker numberOfMonths={2} />
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/MultipleMonths.tsx">
+  <Examples.MultipleMonths />
+</BrowserWindow>
+
+### Paged Navigation
+
+With `pagedNavigation`, the navigation jumps by the specified number of months at a time.
+
+| Prop Name         | Type      | Description                                                      |
+| ----------------- | --------- | ---------------------------------------------------------------- |
+| `pagedNavigation` | `boolean` | Jump forward/backward by the number of displayed months at once. |
+
+```tsx
+<DayPicker numberOfMonths={2} pagedNavigation />
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/MultipleMonthsPaged.tsx">
+  <Examples.MultipleMonthsPaged />
+</BrowserWindow>

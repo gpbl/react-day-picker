@@ -1,0 +1,81 @@
+---
+sidebar_position: 6
+---
+
+# Week Numbers and Footer
+
+## Week Numbers {#showweeknumber}
+
+To display the column with week numbers, use the `showWeekNumber` prop.
+
+| Prop Name        | Type      | Description               |
+| ---------------- | --------- | ------------------------- |
+| `showWeekNumber` | `boolean` | Display the week numbers. |
+
+```tsx
+<DayPicker showWeekNumber />
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/Weeknumber.tsx">
+  <Examples.Weeknumber />
+</BrowserWindow>
+
+### Handling Week Numbers Click
+
+To handle clicks on the week numbers, you can set the `WeekNumber` [custom component](../guides/custom-components.mdx):
+
+```tsx
+<DayPicker
+  showWeekNumber
+  components={{
+    WeekNumber: (props) => (
+      <button onClick={() => alert(`Week ${props.weekNumber}`)}>
+        {props.weekNumber}
+      </button>
+    ),
+  }}
+/>
+```
+
+### Selecting the Whole Week
+
+In [selection mode](../selections/selection-modes.mdx), you can create a [custom selection](../guides/custom-selections.mdx) that selects the entire week when a day is clicked.
+
+## Footer as Live Region
+
+Use the `footer` prop to display a footer below the calendar. The footer acts as a [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) to announce changes to screen readers. For more information on making the calendar accessible, see the [Accessibility guide](../guides/accessibility.mdx).
+
+| Prop Name | Type                    | Description                                                                   |
+| --------- | ----------------------- | ----------------------------------------------------------------------------- |
+| `footer`  | `ReactNode` \| `string` | Content rendered below the calendar as an ARIA live region for announcements. |
+
+```tsx
+export function Footer() {
+  const [selected, setSelected] = React.useState<Date>();
+  return (
+    <DayPicker
+      mode="single"
+      selected={selected}
+      onSelect={setSelected}
+      footer={
+        selected
+          ? `You picked ${selected.toLocaleDateString()}.`
+          : "Please pick a date."
+      }
+    />
+  );
+}
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/Footer.tsx">
+  <Examples.Footer />
+</BrowserWindow>
+
+## Custom Components
+
+In DayPicker, you can replace the components used internally to render the calendar. For more information, see the [Custom Components](../guides/custom-components.mdx) guide.
+
+| Prop Name    | Type                                              | Description                                                 |
+| ------------ | ------------------------------------------------- | ----------------------------------------------------------- |
+| `components` | [`CustomComponents`](../api/index.md#components)  | Change the internal components used to render the calendar. |
+| `classNames` | [`ClassNames`](../api/type-aliases/ClassNames.md) | Use custom class names instead of the default ones.         |
