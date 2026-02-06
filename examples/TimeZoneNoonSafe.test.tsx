@@ -72,15 +72,15 @@ describe("TimeZoneNoonSafe navigation", () => {
   });
 });
 
-test("year dropdown starts at the fromMonth year", () => {
+test("year dropdown starts at the startMonth year", () => {
   const timeZone = "Asia/Dubai";
-  const fromMonth = new Date(1880, 0, 1);
+  const startMonth = new Date(1880, 0, 1);
   render(
     <TimeZoneNoonSafe
       captionLayout="dropdown"
       timeZone={timeZone}
-      fromMonth={fromMonth}
-      toMonth={new Date(1885, 11, 31)}
+      startMonth={startMonth}
+      endMonth={new Date(1885, 11, 31)}
     />,
   );
   const selectYear = screen.getAllByRole("combobox")[1];

@@ -15,13 +15,7 @@ import type { DayPickerProps } from "../types/props.js";
 export function getInitialMonth(
   props: Pick<
     DayPickerProps,
-    | "fromYear"
-    | "toYear"
-    | "month"
-    | "defaultMonth"
-    | "today"
-    | "numberOfMonths"
-    | "timeZone"
+    "month" | "defaultMonth" | "today" | "numberOfMonths" | "timeZone"
   >,
   navStart: Date | undefined,
   navEnd: Date | undefined,

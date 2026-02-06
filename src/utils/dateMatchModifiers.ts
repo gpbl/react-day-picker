@@ -70,9 +70,3 @@ export function dateMatchModifiers(
     return false;
   });
 }
-
-/**
- * @private
- * @deprecated Use {@link dateMatchModifiers} instead.
- */
-export const isMatch = dateMatchModifiers;

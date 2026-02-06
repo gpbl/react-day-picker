@@ -62,6 +62,14 @@ const Test = () => {
         selected={new Date()}
         onDayClick={() => {}}
       />
+      {/* @ts-expect-error Removed in v10: use `startMonth` */}
+      <DayPicker fromMonth={new Date()} />
+      {/* @ts-expect-error Removed in v10: use `endMonth` */}
+      <DayPicker toYear={2030} />
+      {/* @ts-expect-error Removed in v10: use `autoFocus` */}
+      <DayPicker initialFocus />
+      {/* @ts-expect-error Removed in v10: use custom `WeekNumber` component */}
+      <DayPicker showWeekNumber onWeekNumberClick={() => {}} />
     </>
   );
 };
