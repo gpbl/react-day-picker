@@ -10,10 +10,14 @@ This guide provides incremental upgrade paths for recent major versions.
 
 DayPicker v10 removes all APIs that were previously marked as deprecated in v9.
 
+:::note
+DayPicker v10 does not change behavior for non-deprecated APIs. If your app is not using deprecated v9 APIs, it should continue to work after upgrading without code changes.
+:::
+
 ### 1. Upgrade the package
 
 ```bash npm2yarn
-npm install react-day-picker@9
+npm install react-day-picker@latest
 ```
 
 ### 2. Replace removed navigation props
