@@ -99,7 +99,7 @@ export function DayPicker(
       dir={dir ?? "rtl"}
       dateLib={dateLib}
       formatters={{
-        formatWeekdayName: (date, options, lib) =>
+        formatWeekdayName: (date, _options, lib) =>
           (lib ?? dateLib).format(date, "ccccc"),
         ...props.formatters,
       }}
