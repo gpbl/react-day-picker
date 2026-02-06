@@ -16,10 +16,3 @@ export function formatYearDropdown(
 ): string {
   return dateLib.format(year, "yyyy");
 }
-
-/**
- * @private
- * @deprecated Use `formatYearDropdown` instead.
- * @group Formatters
- */
-export const formatYearCaption = formatYearDropdown;

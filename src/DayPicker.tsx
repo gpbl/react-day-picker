@@ -462,8 +462,6 @@ export function DayPicker(initialProps: DayPickerProps) {
                               key="month"
                               className={classNames[UI.MonthsDropdown]}
                               aria-label={labelMonthDropdown()}
-                              classNames={classNames}
-                              components={components}
                               disabled={Boolean(props.disableNavigation)}
                               onChange={handleMonthChange(calendarMonth.date)}
                               options={getMonthOptions(
@@ -489,8 +487,6 @@ export function DayPicker(initialProps: DayPickerProps) {
                               key="year"
                               className={classNames[UI.YearsDropdown]}
                               aria-label={labelYearDropdown(dateLib.options)}
-                              classNames={classNames}
-                              components={components}
                               disabled={Boolean(props.disableNavigation)}
                               onChange={handleYearChange(calendarMonth.date)}
                               options={getYearOptions(

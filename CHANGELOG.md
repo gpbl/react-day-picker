@@ -2,6 +2,23 @@
 
 DayPicker follows [Semantic Versioning](http://semver.org/). See the [Releases page](https://github.com/gpbl/react-day-picker/releases) on Github for the complete list of changes, diffs and contributors, or the [list of versions](https://www.npmjs.com/package/react-day-picker?activeTab=versions) published on npm.
 
+## v10.0.0
+
+_Release date: 2026-02-06_
+
+DayPicker v10 removes all previously deprecated public APIs from v9.
+
+#### Breaking Changes
+
+- remove deprecated props: `fromDate`, `toDate`, `fromMonth`, `toMonth`, `fromYear`, `toYear`, `initialFocus`
+- remove deprecated event props: `onWeekNumberClick`, `onDayKeyUp`, `onDayKeyPress`, `onDayPointerEnter`, `onDayPointerLeave`, `onDayTouchCancel`, `onDayTouchEnd`, `onDayTouchMove`, `onDayTouchStart`
+- remove deprecated type exports from `types/deprecated`
+- remove deprecated aliases: `formatMonthCaption`, `formatYearCaption`, `labelDay`, `labelCaption`, `isMatch`, `isDateInRange`
+- remove deprecated `components.Button` customization entry
+- remove deprecated `DeprecatedUI` compatibility typing for `classNames` and `styles`
+- remove deprecated DateLib exports: `FormatOptions`, `LabelOptions`, `dateLib`, and `DateLib.Date`
+- remove deprecated `react-day-picker/jalali` subpath (use `react-day-picker/persian`)
+
 ## v9.13.0
 
 _Release date: 2025-12-18_
