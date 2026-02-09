@@ -93,11 +93,11 @@
         "default": "./src/style.css"
       },
       "import": {
-        "types": "./src/style.module.css.d.ts",
+        "types": "./src/style.css.d.ts",
         "default": "./src/style.css"
       },
       "require": {
-        "types": "./src/style.module.css.d.ts",
+        "types": "./src/style.css.d.ts",
         "default": "./src/style.css"
       }
     },
