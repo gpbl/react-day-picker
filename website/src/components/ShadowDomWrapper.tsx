@@ -27,6 +27,10 @@ export function ShadowDomWrapper({
               --rdp-range_end-color: black;
               --rdp-range_start-color: black;
             }
+
+            .rdp-root[dir="rtl"] {
+              font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif;
+            }
           `}</style>
       )}
       {styleStr && <style>{styleStr}</style>}
