@@ -16,7 +16,7 @@ export const se: DayPickerLocale = {
     ) => {
       const lib = dateLib ?? new DateLib(options);
       let label = lib.format(date, "PPPP");
-      if (modifiers.today) label = `Ođđaid, ${label}`;
+      if (modifiers.today) label = `Odne, ${label}`;
       if (modifiers.selected) label = `${label}, válljejuvvon`;
       return label;
     },
@@ -36,7 +36,7 @@ export const se: DayPickerLocale = {
       const lib = dateLib ?? new DateLib(options);
       let label = lib.format(date, "PPPP");
       if (modifiers?.today) {
-        label = `Ođđaid, ${label}`;
+        label = `Odne, ${label}`;
       }
       return label;
     },
