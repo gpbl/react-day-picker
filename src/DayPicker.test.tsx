@@ -67,7 +67,12 @@ test("use custom components", () => {
       data-testid={testId}
       components={{
         Nav: () => <div>Custom Navigation</div>,
-        Month: (_props: MonthProps) => <div>Custom Month</div>,
+        Month: ({ children }: MonthProps) => (
+          <div>
+            Custom Month
+            {children}
+          </div>
+        ),
         Months: (props: MonthsProps) => (
           <div {...props}>
             Custom Months<div>{props.children}</div>
@@ -293,6 +298,17 @@ test("should render custom previous and next month buttons", () => {
 
 describe("when navLayout is set", () => {
   const today = new Date(2024, 1, 4);
+  describe("when navLayout is not set", () => {
+    beforeEach(() => {
+      render(<DayPicker today={today} data-testid={testId} />);
+    });
+    test("defaults navigation layout to 'after'", () => {
+      expect(dayPicker()).toHaveAttribute("data-nav-layout", "after");
+    });
+    test("renders navigation after the month caption", () => {
+      expect(nav().previousSibling).toHaveTextContent("February 2024");
+    });
+  });
   describe("when navLayout is set to 'around'", () => {
     beforeEach(() => {
       render(
@@ -309,7 +325,7 @@ describe("when navLayout is set", () => {
       expect(nextButton().previousSibling).toHaveTextContent("February 2024");
     });
   });
-  describe("when navLayout is set to 'aft er'", () => {
+  describe("when navLayout is set to 'after'", () => {
     beforeEach(() => {
       render(
         <DayPicker today={today} navLayout="after" data-testid={testId} />,
