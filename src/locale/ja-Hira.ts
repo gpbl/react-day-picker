@@ -40,7 +40,7 @@ export const jaHira: DayPickerLocale = {
       }
       return label;
     },
-    labelNav: "ナビゲーションバー",
+    labelNav: "なびげえしょんばあ",
     labelWeekNumberHeader: "しゅうばんごう",
     labelWeekday: (date: Date, options?: DateLibOptions, dateLib?: DateLib) =>
       (dateLib ?? new DateLib(options)).format(date, "cccc"),
