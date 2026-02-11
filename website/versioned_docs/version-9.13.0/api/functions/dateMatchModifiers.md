@@ -2,7 +2,7 @@
 
 > **dateMatchModifiers**(`date`, `matchers`, `dateLib`): `boolean`
 
-Defined in: [src/utils/dateMatchModifiers.ts:23](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/utils/dateMatchModifiers.ts#L23)
+Defined in: [src/utils/dateMatchModifiers.ts:23](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/utils/dateMatchModifiers.ts#L23)
 
 Checks if a given date matches at least one of the specified [Matcher](../type-aliases/Matcher.md).
 

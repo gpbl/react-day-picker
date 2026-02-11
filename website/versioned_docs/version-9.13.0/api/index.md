@@ -1,4 +1,4 @@
-# API v10.0.0
+# API v9.13.0
 
 ## DayPicker
 
@@ -124,6 +124,7 @@
 
 | Type Alias | Description |
 | ------ | ------ |
+| [ButtonProps](type-aliases/ButtonProps.md) | - |
 | [CaptionLabelProps](type-aliases/CaptionLabelProps.md) | - |
 | [ChevronProps](type-aliases/ChevronProps.md) | - |
 | [ClassNames](type-aliases/ClassNames.md) | The CSS classnames to use for the [UI](enumerations/UI.md) elements, the [SelectionState](enumerations/SelectionState.md) and the [DayFlag](enumerations/DayFlag.md). |
@@ -138,6 +139,7 @@
 | [DayPickerContext](type-aliases/DayPickerContext.md) | Represents the context for the DayPicker component, providing various properties and methods to interact with the calendar. |
 | [DayPickerLocaleLabels](type-aliases/DayPickerLocaleLabels.md) | Translations for DayPicker-specific labels. |
 | [DayProps](type-aliases/DayProps.md) | - |
+| [~~DeprecatedUI~~](type-aliases/DeprecatedUI.md) | Deprecated UI elements and flags from previous versions of DayPicker. |
 | [DropdownNavProps](type-aliases/DropdownNavProps.md) | - |
 | [DropdownOption](type-aliases/DropdownOption.md) | An option to use in the dropdown. Maps to the `<option>` HTML element. |
 | [DropdownProps](type-aliases/DropdownProps.md) | - |

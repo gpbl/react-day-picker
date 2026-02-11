@@ -2,7 +2,7 @@
 
 > **SelectHandlerMulti**\<`T`\> = (`triggerDate`, `modifiers`, `e`) => `T`\[`"required"`\] *extends* `true` ? `Date`[] : `Date`[] \| `undefined`
 
-Defined in: [src/types/selection.ts:54](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/selection.ts#L54)
+Defined in: [src/types/selection.ts:54](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/selection.ts#L54)
 
 ## Type Parameters
 

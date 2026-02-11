@@ -2,7 +2,7 @@
 
 > **addToRange**(`date`, `initialRange`, `min`, `max`, `required`, `dateLib`): [`DateRange`](../type-aliases/DateRange.md) \| `undefined`
 
-Defined in: [src/utils/addToRange.ts:17](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/utils/addToRange.ts#L17)
+Defined in: [src/utils/addToRange.ts:17](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/utils/addToRange.ts#L17)
 
 Adds a date to an existing range, considering constraints like minimum and
 maximum range size.

@@ -2,7 +2,7 @@
 
 > **labelWeekNumber**(`weekNumber`, `_options?`): `string`
 
-Defined in: [src/labels/labelWeekNumber.ts:13](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/labels/labelWeekNumber.ts#L13)
+Defined in: [src/labels/labelWeekNumber.ts:13](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/labels/labelWeekNumber.ts#L13)
 
 Generates the ARIA label for the week number cell (the first cell in a row).
 

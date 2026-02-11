@@ -2,7 +2,7 @@
 
 > **DayPicker**(`initialProps`): `Element`
 
-Defined in: [src/DayPicker.tsx:44](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/DayPicker.tsx#L44)
+Defined in: [src/DayPicker.tsx:44](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/DayPicker.tsx#L44)
 
 Renders the DayPicker calendar component.
 

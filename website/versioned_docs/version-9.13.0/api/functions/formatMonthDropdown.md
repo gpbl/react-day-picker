@@ -2,7 +2,7 @@
 
 > **formatMonthDropdown**(`month`, `dateLib`): `string`
 
-Defined in: [src/formatters/formatMonthDropdown.ts:14](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/formatters/formatMonthDropdown.ts#L14)
+Defined in: [src/formatters/formatMonthDropdown.ts:14](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/formatters/formatMonthDropdown.ts#L14)
 
 Formats the month for the dropdown option label.
 

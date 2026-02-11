@@ -502,6 +502,11 @@
         "items": [
           {
             "type": "doc",
+            "id": "api/type-aliases/ButtonProps",
+            "label": "ButtonProps"
+          },
+          {
+            "type": "doc",
             "id": "api/type-aliases/CaptionLabelProps",
             "label": "CaptionLabelProps"
           },
@@ -569,6 +574,12 @@
             "type": "doc",
             "id": "api/type-aliases/DayProps",
             "label": "DayProps"
+          },
+          {
+            "type": "doc",
+            "id": "api/type-aliases/DeprecatedUI",
+            "label": "DeprecatedUI",
+            "className": "typedoc-sidebar-item-deprecated"
           },
           {
             "type": "doc",

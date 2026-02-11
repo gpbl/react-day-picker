@@ -1,6 +1,6 @@
 # Interface: PropsRange
 
-Defined in: [src/types/props.ts:622](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/props.ts#L622)
+Defined in: [src/types/props.ts:720](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/props.ts#L720)
 
 The props when the range selection is optional.
 
@@ -14,7 +14,7 @@ https://daypicker.dev/docs/selection-modes#range-mode
 
 > `optional` **disabled**: [`Matcher`](../type-aliases/Matcher.md) \| [`Matcher`](../type-aliases/Matcher.md)[]
 
-Defined in: [src/types/props.ts:631](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/props.ts#L631)
+Defined in: [src/types/props.ts:729](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/props.ts#L729)
 
 Apply the `disabled` modifier to the matching days. Disabled days cannot be
 selected when in a selection mode is set.
@@ -29,7 +29,7 @@ https://daypicker.dev/docs/selection-modes#disabled
 
 > `optional` **excludeDisabled**: `boolean`
 
-Defined in: [src/types/props.ts:638](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/props.ts#L638)
+Defined in: [src/types/props.ts:736](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/props.ts#L736)
 
 When `true`, the range will reset when including a disabled day.
 
@@ -47,7 +47,7 @@ https://daypicker.dev/docs/selection-modes#exclude-disabled
 
 > `optional` **max**: `number`
 
-Defined in: [src/types/props.ts:646](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/props.ts#L646)
+Defined in: [src/types/props.ts:744](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/props.ts#L744)
 
 The maximum number of days to include in the range.
 
@@ -57,7 +57,7 @@ The maximum number of days to include in the range.
 
 > `optional` **min**: `number`
 
-Defined in: [src/types/props.ts:644](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/props.ts#L644)
+Defined in: [src/types/props.ts:742](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/props.ts#L742)
 
 The minimum number of days to include in the range.
 
@@ -67,7 +67,7 @@ The minimum number of days to include in the range.
 
 > **mode**: `"range"`
 
-Defined in: [src/types/props.ts:623](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/props.ts#L623)
+Defined in: [src/types/props.ts:721](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/props.ts#L721)
 
 ***
 
@@ -75,7 +75,7 @@ Defined in: [src/types/props.ts:623](https://github.com/gpbl/react-day-picker/bl
 
 > `optional` **onSelect**: [`OnSelectHandler`](../type-aliases/OnSelectHandler.md)\<[`DateRange`](../type-aliases/DateRange.md) \| `undefined`\>
 
-Defined in: [src/types/props.ts:642](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/props.ts#L642)
+Defined in: [src/types/props.ts:740](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/props.ts#L740)
 
 Event handler when the selection changes.
 
@@ -85,7 +85,7 @@ Event handler when the selection changes.
 
 > `optional` **required**: `false`
 
-Defined in: [src/types/props.ts:624](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/props.ts#L624)
+Defined in: [src/types/props.ts:722](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/props.ts#L722)
 
 ***
 
@@ -93,6 +93,6 @@ Defined in: [src/types/props.ts:624](https://github.com/gpbl/react-day-picker/bl
 
 > `optional` **selected**: [`DateRange`](../type-aliases/DateRange.md)
 
-Defined in: [src/types/props.ts:640](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/props.ts#L640)
+Defined in: [src/types/props.ts:738](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/props.ts#L738)
 
 The selected range.

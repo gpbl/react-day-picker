@@ -2,7 +2,7 @@
 
 > **Modifiers** = `Record`\<`string`, `boolean`\>
 
-Defined in: [src/types/shared.ts:277](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/shared.ts#L277)
+Defined in: [src/types/shared.ts:303](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/shared.ts#L303)
 
 Represents the modifiers that match a specific day in the calendar.
 

@@ -1,6 +1,6 @@
 # Class: DateLib
 
-Defined in: [src/classes/DateLib.ts:116](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L116)
+Defined in: [src/classes/DateLib.ts:127](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L127)
 
 A wrapper class around [date-fns](http://date-fns.org) that provides utility
 methods for date manipulation and formatting.
@@ -22,7 +22,7 @@ const dateLib = new DateLib({ locale: es });
 
 > **new DateLib**(`options?`, `overrides?`): `DateLib`
 
-Defined in: [src/classes/DateLib.ts:129](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L129)
+Defined in: [src/classes/DateLib.ts:140](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L140)
 
 Creates an instance of `DateLib`.
 
@@ -43,7 +43,7 @@ Creates an instance of `DateLib`.
 
 > **addDays**(`date`, `amount`): `Date`
 
-Defined in: [src/classes/DateLib.ts:287](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L287)
+Defined in: [src/classes/DateLib.ts:304](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L304)
 
 Adds the specified number of days to the given date.
 
@@ -66,7 +66,7 @@ The new date with the days added.
 
 > **addMonths**(`date`, `amount`): `Date`
 
-Defined in: [src/classes/DateLib.ts:300](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L300)
+Defined in: [src/classes/DateLib.ts:317](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L317)
 
 Adds the specified number of months to the given date.
 
@@ -89,7 +89,7 @@ The new date with the months added.
 
 > **addWeeks**(`date`, `amount`): `Date`
 
-Defined in: [src/classes/DateLib.ts:313](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L313)
+Defined in: [src/classes/DateLib.ts:330](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L330)
 
 Adds the specified number of weeks to the given date.
 
@@ -112,7 +112,7 @@ The new date with the weeks added.
 
 > **addYears**(`date`, `amount`): `Date`
 
-Defined in: [src/classes/DateLib.ts:326](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L326)
+Defined in: [src/classes/DateLib.ts:343](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L343)
 
 Adds the specified number of years to the given date.
 
@@ -135,7 +135,7 @@ The new date with the years added.
 
 > **differenceInCalendarDays**(`dateLeft`, `dateRight`): `number`
 
-Defined in: [src/classes/DateLib.ts:339](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L339)
+Defined in: [src/classes/DateLib.ts:356](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L356)
 
 Returns the number of calendar days between the given dates.
 
@@ -158,7 +158,7 @@ The number of calendar days between the dates.
 
 > **differenceInCalendarMonths**(`dateLeft`, `dateRight`): `number`
 
-Defined in: [src/classes/DateLib.ts:352](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L352)
+Defined in: [src/classes/DateLib.ts:369](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L369)
 
 Returns the number of calendar months between the given dates.
 
@@ -181,7 +181,7 @@ The number of calendar months between the dates.
 
 > **eachMonthOfInterval**(`interval`): `Date`[]
 
-Defined in: [src/classes/DateLib.ts:363](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L363)
+Defined in: [src/classes/DateLib.ts:380](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L380)
 
 Returns the months between the given dates.
 
@@ -201,7 +201,7 @@ Returns the months between the given dates.
 
 > **eachYearOfInterval**(`interval`): `Date`[]
 
-Defined in: [src/classes/DateLib.ts:376](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L376)
+Defined in: [src/classes/DateLib.ts:393](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L393)
 
 Returns the years between the given dates.
 
@@ -227,7 +227,7 @@ The array of years in the interval.
 
 > **endOfBroadcastWeek**(`date`): `Date`
 
-Defined in: [src/classes/DateLib.ts:401](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L401)
+Defined in: [src/classes/DateLib.ts:418](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L418)
 
 Returns the end of the broadcast week for the given date.
 
@@ -249,7 +249,7 @@ The end of the broadcast week.
 
 > **endOfISOWeek**(`date`): `Date`
 
-Defined in: [src/classes/DateLib.ts:413](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L413)
+Defined in: [src/classes/DateLib.ts:430](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L430)
 
 Returns the end of the ISO week for the given date.
 
@@ -271,7 +271,7 @@ The end of the ISO week.
 
 > **endOfMonth**(`date`): `Date`
 
-Defined in: [src/classes/DateLib.ts:425](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L425)
+Defined in: [src/classes/DateLib.ts:442](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L442)
 
 Returns the end of the month for the given date.
 
@@ -293,7 +293,7 @@ The end of the month.
 
 > **endOfWeek**(`date`, `options?`): `Date`
 
-Defined in: [src/classes/DateLib.ts:437](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L437)
+Defined in: [src/classes/DateLib.ts:454](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L454)
 
 Returns the end of the week for the given date.
 
@@ -316,7 +316,7 @@ The end of the week.
 
 > **endOfYear**(`date`): `Date`
 
-Defined in: [src/classes/DateLib.ts:449](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L449)
+Defined in: [src/classes/DateLib.ts:466](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L466)
 
 Returns the end of the year for the given date.
 
@@ -338,7 +338,7 @@ The end of the year.
 
 > **format**(`date`, `formatStr`, `_options?`): `string`
 
-Defined in: [src/classes/DateLib.ts:462](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L462)
+Defined in: [src/classes/DateLib.ts:479](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L479)
 
 Formats the given date using the specified format string.
 
@@ -362,7 +362,7 @@ The formatted date string.
 
 > **formatMonthYear**(`date`): `string`
 
-Defined in: [src/classes/DateLib.ts:201](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L201)
+Defined in: [src/classes/DateLib.ts:212](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L212)
 
 Formats the month/year pair respecting locale conventions.
 
@@ -386,7 +386,7 @@ Formats the month/year pair respecting locale conventions.
 
 > **formatNumber**(`value`): `string`
 
-Defined in: [src/classes/DateLib.ts:180](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L180)
+Defined in: [src/classes/DateLib.ts:191](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L191)
 
 Formats a number using the configured numbering system.
 
@@ -412,7 +412,7 @@ The formatted number as a string.
 
 > **getISOWeek**(`date`): `number`
 
-Defined in: [src/classes/DateLib.ts:482](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L482)
+Defined in: [src/classes/DateLib.ts:499](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L499)
 
 Returns the ISO week number for the given date.
 
@@ -434,7 +434,7 @@ The ISO week number.
 
 > **getMonth**(`date`, `_options?`): `number`
 
-Defined in: [src/classes/DateLib.ts:494](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L494)
+Defined in: [src/classes/DateLib.ts:511](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L511)
 
 Returns the month of the given date.
 
@@ -457,7 +457,7 @@ The month.
 
 > **getMonthYearOrder**(): [`MonthYearOrder`](../type-aliases/MonthYearOrder.md)
 
-Defined in: [src/classes/DateLib.ts:188](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L188)
+Defined in: [src/classes/DateLib.ts:199](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L199)
 
 Returns the preferred ordering for month and year labels for the current
 locale.
@@ -472,7 +472,7 @@ locale.
 
 > **getWeek**(`date`, `_options?`): `number`
 
-Defined in: [src/classes/DateLib.ts:518](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L518)
+Defined in: [src/classes/DateLib.ts:535](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L535)
 
 Returns the local week number for the given date.
 
@@ -495,7 +495,7 @@ The week number.
 
 > **getYear**(`date`, `_options?`): `number`
 
-Defined in: [src/classes/DateLib.ts:506](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L506)
+Defined in: [src/classes/DateLib.ts:523](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L523)
 
 Returns the year of the given date.
 
@@ -518,7 +518,7 @@ The year.
 
 > **isAfter**(`date`, `dateToCompare`): `boolean`
 
-Defined in: [src/classes/DateLib.ts:531](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L531)
+Defined in: [src/classes/DateLib.ts:548](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L548)
 
 Checks if the first date is after the second date.
 
@@ -541,7 +541,7 @@ True if the first date is after the second date.
 
 > **isBefore**(`date`, `dateToCompare`): `boolean`
 
-Defined in: [src/classes/DateLib.ts:544](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L544)
+Defined in: [src/classes/DateLib.ts:561](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L561)
 
 Checks if the first date is before the second date.
 
@@ -564,7 +564,7 @@ True if the first date is before the second date.
 
 > **isSameDay**(`dateLeft`, `dateRight`): `boolean`
 
-Defined in: [src/classes/DateLib.ts:569](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L569)
+Defined in: [src/classes/DateLib.ts:586](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L586)
 
 Checks if the given dates are on the same day.
 
@@ -587,7 +587,7 @@ True if the dates are on the same day.
 
 > **isSameMonth**(`dateLeft`, `dateRight`): `boolean`
 
-Defined in: [src/classes/DateLib.ts:582](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L582)
+Defined in: [src/classes/DateLib.ts:599](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L599)
 
 Checks if the given dates are in the same month.
 
@@ -610,7 +610,7 @@ True if the dates are in the same month.
 
 > **isSameYear**(`dateLeft`, `dateRight`): `boolean`
 
-Defined in: [src/classes/DateLib.ts:595](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L595)
+Defined in: [src/classes/DateLib.ts:612](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L612)
 
 Checks if the given dates are in the same year.
 
@@ -633,7 +633,7 @@ True if the dates are in the same year.
 
 > **max**(`dates`): `Date`
 
-Defined in: [src/classes/DateLib.ts:607](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L607)
+Defined in: [src/classes/DateLib.ts:624](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L624)
 
 Returns the latest date in the given array of dates.
 
@@ -655,7 +655,7 @@ The latest date.
 
 > **min**(`dates`): `Date`
 
-Defined in: [src/classes/DateLib.ts:617](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L617)
+Defined in: [src/classes/DateLib.ts:634](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L634)
 
 Returns the earliest date in the given array of dates.
 
@@ -677,7 +677,7 @@ The earliest date.
 
 > **newDate**(`year`, `monthIndex`, `date`): `Date`
 
-Defined in: [src/classes/DateLib.ts:270](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L270)
+Defined in: [src/classes/DateLib.ts:287](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L287)
 
 Creates a new `Date` object with the specified year, month, and day.
 
@@ -705,7 +705,7 @@ A new `Date` object.
 
 > **setMonth**(`date`, `month`): `Date`
 
-Defined in: [src/classes/DateLib.ts:628](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L628)
+Defined in: [src/classes/DateLib.ts:645](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L645)
 
 Sets the month of the given date.
 
@@ -728,7 +728,7 @@ The new date with the month set.
 
 > **setYear**(`date`, `year`): `Date`
 
-Defined in: [src/classes/DateLib.ts:641](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L641)
+Defined in: [src/classes/DateLib.ts:658](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L658)
 
 Sets the year of the given date.
 
@@ -751,7 +751,7 @@ The new date with the year set.
 
 > **startOfBroadcastWeek**(`date`, `_dateLib`): `Date`
 
-Defined in: [src/classes/DateLib.ts:653](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L653)
+Defined in: [src/classes/DateLib.ts:670](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L670)
 
 Returns the start of the broadcast week for the given date.
 
@@ -774,7 +774,7 @@ The start of the broadcast week.
 
 > **startOfDay**(`date`): `Date`
 
-Defined in: [src/classes/DateLib.ts:665](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L665)
+Defined in: [src/classes/DateLib.ts:682](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L682)
 
 Returns the start of the day for the given date.
 
@@ -796,7 +796,7 @@ The start of the day.
 
 > **startOfISOWeek**(`date`): `Date`
 
-Defined in: [src/classes/DateLib.ts:677](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L677)
+Defined in: [src/classes/DateLib.ts:694](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L694)
 
 Returns the start of the ISO week for the given date.
 
@@ -818,7 +818,7 @@ The start of the ISO week.
 
 > **startOfMonth**(`date`): `Date`
 
-Defined in: [src/classes/DateLib.ts:689](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L689)
+Defined in: [src/classes/DateLib.ts:706](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L706)
 
 Returns the start of the month for the given date.
 
@@ -840,7 +840,7 @@ The start of the month.
 
 > **startOfWeek**(`date`, `_options?`): `Date`
 
-Defined in: [src/classes/DateLib.ts:701](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L701)
+Defined in: [src/classes/DateLib.ts:718](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L718)
 
 Returns the start of the week for the given date.
 
@@ -863,7 +863,7 @@ The start of the week.
 
 > **startOfYear**(`date`): `Date`
 
-Defined in: [src/classes/DateLib.ts:713](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L713)
+Defined in: [src/classes/DateLib.ts:730](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L730)
 
 Returns the start of the year for the given date.
 
@@ -885,7 +885,7 @@ The start of the year.
 
 > **today**(): `Date`
 
-Defined in: [src/classes/DateLib.ts:250](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L250)
+Defined in: [src/classes/DateLib.ts:268](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L268)
 
 Creates a new `Date` object representing today's date.
 
@@ -901,11 +901,25 @@ A `Date` object for today's date.
 
 ## Properties
 
+### ~~Date~~
+
+> **Date**: `DateConstructor`
+
+Defined in: [src/classes/DateLib.ts:260](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L260)
+
+Reference to the built-in Date constructor.
+
+#### Deprecated
+
+Use `newDate()` or `today()`.
+
+***
+
 ### isDate()
 
 > **isDate**: (`value`) => `value is Date`
 
-Defined in: [src/classes/DateLib.ts:556](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L556)
+Defined in: [src/classes/DateLib.ts:573](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L573)
 
 Checks if the given value is a Date object.
 
@@ -927,7 +941,7 @@ True if the value is a Date object.
 
 > `readonly` **options**: [`DateLibOptions`](../interfaces/DateLibOptions.md)
 
-Defined in: [src/classes/DateLib.ts:118](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L118)
+Defined in: [src/classes/DateLib.ts:129](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L129)
 
 The options for configuring the date library.
 
@@ -937,6 +951,6 @@ The options for configuring the date library.
 
 > `readonly` `optional` **overrides**: `Partial`\<`DateLib`\>
 
-Defined in: [src/classes/DateLib.ts:121](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L121)
+Defined in: [src/classes/DateLib.ts:132](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L132)
 
 Overrides for the default date library functions.

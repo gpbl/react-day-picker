@@ -2,7 +2,7 @@
 
 > **rangeContainsModifiers**(`range`, `modifiers`, `dateLib`): `boolean`
 
-Defined in: [src/utils/rangeContainsModifiers.ts:27](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/utils/rangeContainsModifiers.ts#L27)
+Defined in: [src/utils/rangeContainsModifiers.ts:27](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/utils/rangeContainsModifiers.ts#L27)
 
 Checks if a date range contains dates that match the given modifiers.
 

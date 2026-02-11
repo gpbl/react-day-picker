@@ -2,7 +2,7 @@
 
 > **Selection**\<`T`\> = \{ `isSelected`: (`date`) => `boolean`; `select`: [`SelectHandler`](SelectHandler.md)\<`T`\> \| `undefined`; `selected`: [`SelectedValue`](SelectedValue.md)\<`T`\> \| `undefined`; \}
 
-Defined in: [src/types/selection.ts:4](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/selection.ts#L4)
+Defined in: [src/types/selection.ts:4](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/selection.ts#L4)
 
 ## Type Parameters
 
@@ -16,7 +16,7 @@ Defined in: [src/types/selection.ts:4](https://github.com/gpbl/react-day-picker/
 
 > **isSelected**: (`date`) => `boolean`
 
-Defined in: [src/types/selection.ts:10](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/selection.ts#L10)
+Defined in: [src/types/selection.ts:10](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/selection.ts#L10)
 
 Whether the given date is selected.
 
@@ -36,7 +36,7 @@ Whether the given date is selected.
 
 > **select**: [`SelectHandler`](SelectHandler.md)\<`T`\> \| `undefined`
 
-Defined in: [src/types/selection.ts:8](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/selection.ts#L8)
+Defined in: [src/types/selection.ts:8](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/selection.ts#L8)
 
 Set a selection.
 
@@ -46,6 +46,6 @@ Set a selection.
 
 > **selected**: [`SelectedValue`](SelectedValue.md)\<`T`\> \| `undefined`
 
-Defined in: [src/types/selection.ts:6](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/selection.ts#L6)
+Defined in: [src/types/selection.ts:6](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/selection.ts#L6)
 
 The selected date(s).

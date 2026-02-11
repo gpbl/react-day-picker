@@ -1,6 +1,6 @@
 # Interface: PropsSingleRequired
 
-Defined in: [src/types/props.ts:524](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/props.ts#L524)
+Defined in: [src/types/props.ts:622](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/props.ts#L622)
 
 The props when the single selection is required.
 
@@ -14,7 +14,7 @@ https://daypicker.dev/docs/selection-modes#single-mode
 
 > **mode**: `"single"`
 
-Defined in: [src/types/props.ts:525](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/props.ts#L525)
+Defined in: [src/types/props.ts:623](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/props.ts#L623)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [src/types/props.ts:525](https://github.com/gpbl/react-day-picker/bl
 
 > `optional` **onSelect**: [`OnSelectHandler`](../type-aliases/OnSelectHandler.md)\<`Date`\>
 
-Defined in: [src/types/props.ts:530](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/props.ts#L530)
+Defined in: [src/types/props.ts:628](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/props.ts#L628)
 
 Event handler when a day is selected.
 
@@ -32,7 +32,7 @@ Event handler when a day is selected.
 
 > **required**: `true`
 
-Defined in: [src/types/props.ts:526](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/props.ts#L526)
+Defined in: [src/types/props.ts:624](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/props.ts#L624)
 
 ***
 
@@ -40,6 +40,6 @@ Defined in: [src/types/props.ts:526](https://github.com/gpbl/react-day-picker/bl
 
 > **selected**: `Date` \| `undefined`
 
-Defined in: [src/types/props.ts:528](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/props.ts#L528)
+Defined in: [src/types/props.ts:626](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/props.ts#L626)
 
 The selected date.

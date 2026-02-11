@@ -2,7 +2,7 @@
 
 > **DropdownNav**(`props`): `Element`
 
-Defined in: [src/components/DropdownNav.tsx:9](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/components/DropdownNav.tsx#L9)
+Defined in: [src/components/DropdownNav.tsx:9](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/components/DropdownNav.tsx#L9)
 
 Render the navigation dropdowns for the calendar.
 

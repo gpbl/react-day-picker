@@ -1,6 +1,6 @@
 # Enumeration: Animation
 
-Defined in: [src/UI.ts:104](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/UI.ts#L104)
+Defined in: [src/UI.ts:106](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/UI.ts#L106)
 
 Enum representing different animation states for transitioning between
 months.

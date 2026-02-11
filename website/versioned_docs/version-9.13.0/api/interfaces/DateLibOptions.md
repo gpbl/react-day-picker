@@ -1,6 +1,6 @@
 # Interface: DateLibOptions
 
-Defined in: [src/classes/DateLib.ts:85](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L85)
+Defined in: [src/classes/DateLib.ts:96](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L96)
 
 The options for the `DateLib` class.
 
@@ -22,7 +22,7 @@ Extends `date-fns` [format](https://date-fns.org/docs/format),
 
 > `optional` **Date**: `DateConstructor`
 
-Defined in: [src/classes/DateLib.ts:90](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L90)
+Defined in: [src/classes/DateLib.ts:101](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L101)
 
 A constructor for the `Date` object.
 
@@ -32,7 +32,7 @@ A constructor for the `Date` object.
 
 > `optional` **locale**: [`DayPickerLocale`](DayPickerLocale.md)
 
-Defined in: [src/classes/DateLib.ts:92](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L92)
+Defined in: [src/classes/DateLib.ts:103](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L103)
 
 A locale to use for formatting dates.
 
@@ -46,7 +46,7 @@ A locale to use for formatting dates.
 
 > `optional` **numerals**: [`Numerals`](../type-aliases/Numerals.md)
 
-Defined in: [src/classes/DateLib.ts:104](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L104)
+Defined in: [src/classes/DateLib.ts:115](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L115)
 
 The numbering system to use for formatting numbers.
 
@@ -60,7 +60,7 @@ The numbering system to use for formatting numbers.
 
 > `optional` **timeZone**: `string`
 
-Defined in: [src/classes/DateLib.ts:98](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/DateLib.ts#L98)
+Defined in: [src/classes/DateLib.ts:109](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/DateLib.ts#L109)
 
 A time zone to use for dates.
 

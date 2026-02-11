@@ -2,7 +2,7 @@
 
 > **DayPickerContext**\<`T`\> = \{ `classNames`: [`ClassNames`](ClassNames.md); `components`: [`CustomComponents`](CustomComponents.md); `dayPickerProps`: [`DayPickerProps`](DayPickerProps.md); `formatters`: [`Formatters`](Formatters.md); `getModifiers`: (`day`) => [`Modifiers`](Modifiers.md); `goToMonth`: (`month`) => `void`; `isSelected`: (`date`) => `boolean` \| `undefined`; `labels`: [`Labels`](Labels.md); `months`: [`CalendarMonth`](../classes/CalendarMonth.md)[]; `nextMonth`: `Date` \| `undefined`; `previousMonth`: `Date` \| `undefined`; `select`: [`SelectHandler`](SelectHandler.md)\<`T`\> \| `undefined`; `selected`: [`SelectedValue`](SelectedValue.md)\<`T`\> \| `undefined`; `styles`: `Partial`\<[`Styles`](Styles.md)\> \| `undefined`; \}
 
-Defined in: [src/useDayPicker.ts:34](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/useDayPicker.ts#L34)
+Defined in: [src/useDayPicker.ts:34](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/useDayPicker.ts#L34)
 
 Represents the context for the DayPicker component, providing various
 properties and methods to interact with the calendar.
@@ -19,7 +19,7 @@ properties and methods to interact with the calendar.
 
 > **classNames**: [`ClassNames`](ClassNames.md)
 
-Defined in: [src/useDayPicker.ts:56](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/useDayPicker.ts#L56)
+Defined in: [src/useDayPicker.ts:56](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/useDayPicker.ts#L56)
 
 The class names for the UI elements.
 
@@ -29,7 +29,7 @@ The class names for the UI elements.
 
 > **components**: [`CustomComponents`](CustomComponents.md)
 
-Defined in: [src/useDayPicker.ts:54](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/useDayPicker.ts#L54)
+Defined in: [src/useDayPicker.ts:54](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/useDayPicker.ts#L54)
 
 The components used internally by DayPicker.
 
@@ -39,7 +39,7 @@ The components used internally by DayPicker.
 
 > **dayPickerProps**: [`DayPickerProps`](DayPickerProps.md)
 
-Defined in: [src/useDayPicker.ts:68](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/useDayPicker.ts#L68)
+Defined in: [src/useDayPicker.ts:68](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/useDayPicker.ts#L68)
 
 The props as passed to the DayPicker component.
 
@@ -53,7 +53,7 @@ The props as passed to the DayPicker component.
 
 > **formatters**: [`Formatters`](Formatters.md)
 
-Defined in: [src/useDayPicker.ts:62](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/useDayPicker.ts#L62)
+Defined in: [src/useDayPicker.ts:62](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/useDayPicker.ts#L62)
 
 The formatters used to format the UI elements.
 
@@ -63,7 +63,7 @@ The formatters used to format the UI elements.
 
 > **getModifiers**: (`day`) => [`Modifiers`](Modifiers.md)
 
-Defined in: [src/useDayPicker.ts:46](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/useDayPicker.ts#L46)
+Defined in: [src/useDayPicker.ts:46](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/useDayPicker.ts#L46)
 
 Returns the modifiers for the given day.
 
@@ -83,7 +83,7 @@ Returns the modifiers for the given day.
 
 > **goToMonth**: (`month`) => `void`
 
-Defined in: [src/useDayPicker.ts:44](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/useDayPicker.ts#L44)
+Defined in: [src/useDayPicker.ts:44](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/useDayPicker.ts#L44)
 
 Navigate to the specified month. Will fire the `onMonthChange` callback.
 
@@ -103,7 +103,7 @@ Navigate to the specified month. Will fire the `onMonthChange` callback.
 
 > **isSelected**: (`date`) => `boolean` \| `undefined`
 
-Defined in: [src/useDayPicker.ts:52](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/useDayPicker.ts#L52)
+Defined in: [src/useDayPicker.ts:52](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/useDayPicker.ts#L52)
 
 Whether the given date is selected.
 
@@ -113,7 +113,7 @@ Whether the given date is selected.
 
 > **labels**: [`Labels`](Labels.md)
 
-Defined in: [src/useDayPicker.ts:60](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/useDayPicker.ts#L60)
+Defined in: [src/useDayPicker.ts:60](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/useDayPicker.ts#L60)
 
 The labels used in the user interface.
 
@@ -123,7 +123,7 @@ The labels used in the user interface.
 
 > **months**: [`CalendarMonth`](../classes/CalendarMonth.md)[]
 
-Defined in: [src/useDayPicker.ts:38](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/useDayPicker.ts#L38)
+Defined in: [src/useDayPicker.ts:38](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/useDayPicker.ts#L38)
 
 The months displayed in the calendar.
 
@@ -133,7 +133,7 @@ The months displayed in the calendar.
 
 > **nextMonth**: `Date` \| `undefined`
 
-Defined in: [src/useDayPicker.ts:40](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/useDayPicker.ts#L40)
+Defined in: [src/useDayPicker.ts:40](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/useDayPicker.ts#L40)
 
 The next month to display.
 
@@ -143,7 +143,7 @@ The next month to display.
 
 > **previousMonth**: `Date` \| `undefined`
 
-Defined in: [src/useDayPicker.ts:42](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/useDayPicker.ts#L42)
+Defined in: [src/useDayPicker.ts:42](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/useDayPicker.ts#L42)
 
 The previous month to display.
 
@@ -153,7 +153,7 @@ The previous month to display.
 
 > **select**: [`SelectHandler`](SelectHandler.md)\<`T`\> \| `undefined`
 
-Defined in: [src/useDayPicker.ts:50](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/useDayPicker.ts#L50)
+Defined in: [src/useDayPicker.ts:50](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/useDayPicker.ts#L50)
 
 Set a selection.
 
@@ -163,7 +163,7 @@ Set a selection.
 
 > **selected**: [`SelectedValue`](SelectedValue.md)\<`T`\> \| `undefined`
 
-Defined in: [src/useDayPicker.ts:48](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/useDayPicker.ts#L48)
+Defined in: [src/useDayPicker.ts:48](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/useDayPicker.ts#L48)
 
 The selected date(s).
 
@@ -173,6 +173,6 @@ The selected date(s).
 
 > **styles**: `Partial`\<[`Styles`](Styles.md)\> \| `undefined`
 
-Defined in: [src/useDayPicker.ts:58](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/useDayPicker.ts#L58)
+Defined in: [src/useDayPicker.ts:58](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/useDayPicker.ts#L58)
 
 The styles for the UI elements.

@@ -2,7 +2,7 @@
 
 > **Month**(`props`): `Element`
 
-Defined in: [src/components/Month.tsx:12](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/components/Month.tsx#L12)
+Defined in: [src/components/Month.tsx:12](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/components/Month.tsx#L12)
 
 Render the grid with the weekday header row and the weeks for a specific
 month.

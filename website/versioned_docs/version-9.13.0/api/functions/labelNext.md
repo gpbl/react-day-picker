@@ -2,7 +2,7 @@
 
 > **labelNext**(`_month`, `_options?`): `string`
 
-Defined in: [src/labels/labelNext.ts:15](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/labels/labelNext.ts#L15)
+Defined in: [src/labels/labelNext.ts:15](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/labels/labelNext.ts#L15)
 
 Generates the ARIA label for the "next month" button.
 

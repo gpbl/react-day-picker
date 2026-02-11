@@ -2,7 +2,7 @@
 
 > **Formatters** = \{ `formatCaption`: *typeof* [`formatCaption`](../functions/formatCaption.md); `formatDay`: *typeof* [`formatDay`](../functions/formatDay.md); `formatMonthDropdown`: *typeof* [`formatMonthDropdown`](../functions/formatMonthDropdown.md); `formatWeekdayName`: *typeof* [`formatWeekdayName`](../functions/formatWeekdayName.md); `formatWeekNumber`: *typeof* [`formatWeekNumber`](../functions/formatWeekNumber.md); `formatWeekNumberHeader`: *typeof* [`formatWeekNumberHeader`](../functions/formatWeekNumberHeader.md); `formatYearDropdown`: *typeof* [`formatYearDropdown`](../functions/formatYearDropdown.md); \}
 
-Defined in: [src/types/shared.ts:97](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/shared.ts#L97)
+Defined in: [src/types/shared.ts:106](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/shared.ts#L106)
 
 Represents a map of formatters used to render localized content.
 
@@ -12,7 +12,7 @@ Represents a map of formatters used to render localized content.
 
 > **formatCaption**: *typeof* [`formatCaption`](../functions/formatCaption.md)
 
-Defined in: [src/types/shared.ts:99](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/shared.ts#L99)
+Defined in: [src/types/shared.ts:108](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/shared.ts#L108)
 
 Format the caption of a month grid.
 
@@ -22,7 +22,7 @@ Format the caption of a month grid.
 
 > **formatDay**: *typeof* [`formatDay`](../functions/formatDay.md)
 
-Defined in: [src/types/shared.ts:101](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/shared.ts#L101)
+Defined in: [src/types/shared.ts:110](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/shared.ts#L110)
 
 Format the day in the day cell.
 
@@ -32,7 +32,7 @@ Format the day in the day cell.
 
 > **formatMonthDropdown**: *typeof* [`formatMonthDropdown`](../functions/formatMonthDropdown.md)
 
-Defined in: [src/types/shared.ts:103](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/shared.ts#L103)
+Defined in: [src/types/shared.ts:112](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/shared.ts#L112)
 
 Format the label in the month dropdown.
 
@@ -42,7 +42,7 @@ Format the label in the month dropdown.
 
 > **formatWeekdayName**: *typeof* [`formatWeekdayName`](../functions/formatWeekdayName.md)
 
-Defined in: [src/types/shared.ts:109](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/shared.ts#L109)
+Defined in: [src/types/shared.ts:125](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/shared.ts#L125)
 
 Format the week day name in the header.
 
@@ -52,7 +52,7 @@ Format the week day name in the header.
 
 > **formatWeekNumber**: *typeof* [`formatWeekNumber`](../functions/formatWeekNumber.md)
 
-Defined in: [src/types/shared.ts:105](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/shared.ts#L105)
+Defined in: [src/types/shared.ts:121](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/shared.ts#L121)
 
 Format the week number.
 
@@ -62,7 +62,7 @@ Format the week number.
 
 > **formatWeekNumberHeader**: *typeof* [`formatWeekNumberHeader`](../functions/formatWeekNumberHeader.md)
 
-Defined in: [src/types/shared.ts:107](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/shared.ts#L107)
+Defined in: [src/types/shared.ts:123](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/shared.ts#L123)
 
 Format the header of the week number column.
 
@@ -72,6 +72,6 @@ Format the header of the week number column.
 
 > **formatYearDropdown**: *typeof* [`formatYearDropdown`](../functions/formatYearDropdown.md)
 
-Defined in: [src/types/shared.ts:111](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/shared.ts#L111)
+Defined in: [src/types/shared.ts:127](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/shared.ts#L127)
 
 Format the label in the year dropdown.

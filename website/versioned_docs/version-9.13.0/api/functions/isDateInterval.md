@@ -2,7 +2,7 @@
 
 > **isDateInterval**(`matcher`): `matcher is DateInterval`
 
-Defined in: [src/utils/typeguards.ts:17](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/utils/typeguards.ts#L17)
+Defined in: [src/utils/typeguards.ts:17](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/utils/typeguards.ts#L17)
 
 Checks if the given value is of type [DateInterval](../type-aliases/DateInterval.md).
 

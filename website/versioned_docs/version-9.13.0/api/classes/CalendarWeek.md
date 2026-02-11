@@ -1,6 +1,6 @@
 # Class: CalendarWeek
 
-Defined in: [src/classes/CalendarWeek.ts:8](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/CalendarWeek.ts#L8)
+Defined in: [src/classes/CalendarWeek.ts:8](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/CalendarWeek.ts#L8)
 
 Represents a week in a calendar month.
 
@@ -12,7 +12,7 @@ A `CalendarWeek` contains the days within the week and the week number.
 
 > **new CalendarWeek**(`weekNumber`, `days`): `CalendarWeek`
 
-Defined in: [src/classes/CalendarWeek.ts:9](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/CalendarWeek.ts#L9)
+Defined in: [src/classes/CalendarWeek.ts:9](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/CalendarWeek.ts#L9)
 
 #### Parameters
 
@@ -31,7 +31,7 @@ Defined in: [src/classes/CalendarWeek.ts:9](https://github.com/gpbl/react-day-pi
 
 > **days**: [`CalendarDay`](CalendarDay.md)[]
 
-Defined in: [src/classes/CalendarWeek.ts:18](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/CalendarWeek.ts#L18)
+Defined in: [src/classes/CalendarWeek.ts:18](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/CalendarWeek.ts#L18)
 
 The days that belong to this week.
 
@@ -41,6 +41,6 @@ The days that belong to this week.
 
 > **weekNumber**: `number`
 
-Defined in: [src/classes/CalendarWeek.ts:15](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/CalendarWeek.ts#L15)
+Defined in: [src/classes/CalendarWeek.ts:15](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/CalendarWeek.ts#L15)
 
 The number of the week within the year.

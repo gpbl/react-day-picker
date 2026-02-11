@@ -10,8 +10,8 @@ This guide provides incremental upgrade paths for recent major versions.
 
 DayPicker v10 removes all APIs that were previously marked as deprecated in v9.
 
-:::note
-DayPicker v10 does not change behavior for non-deprecated APIs. If your app is not using deprecated v9 APIs, it should continue to work after upgrading without code changes.
+:::note Easy Upgrade Path
+DayPicker v10 does not change behavior for non-deprecated APIs in most cases. The main exception is `navLayout`: when omitted, it now defaults to `"after"`.
 :::
 
 ### 1. Upgrade the package
@@ -54,7 +54,7 @@ npm install react-day-picker@latest
 | --- | --- |
 | `initialFocus` | [`autoFocus`](./api/interfaces/PropsBase#autofocus) |
 | `onWeekNumberClick` | Custom [`WeekNumber`](./api/functions/WeekNumber) component |
-| `onDayKeyUp`, `onDayKeyPress`, `onDayPointerEnter`, `onDayPointerLeave`, `onDayTouchCancel`, `onDayTouchEnd`, `onDayTouchMove`, `onDayTouchStart` | Custom [`DayButton`](./api/functions/DayButton) component |
+| `onDayKeyUp`<br/>`onDayKeyPress`<br/>`onDayPointerEnter`<br/>`onDayPointerLeave`<br/>`onDayTouchCancel`<br/>`onDayTouchEnd`<br/>`onDayTouchMove`<br/>`onDayTouchStart` | Custom [`DayButton`](./api/functions/DayButton) component |
 
 ### 4. Replace removed formatter and label aliases
 
@@ -101,6 +101,18 @@ Removed imports:
 - `react-day-picker/jalali` (use `react-day-picker/persian`)
 - Deprecated type exports from `types/deprecated`
 - `dateLib`, `FormatOptions`, and `LabelOptions` from [`DateLib`](./api/classes/DateLib)
+
+### 9. Review `navLayout` default behavior
+
+In v10, omitting [`navLayout`](./api/interfaces/PropsBase#navlayout) is equivalent to `navLayout="after"`.
+
+If you previously relied on leaving `navLayout` undefined, check:
+
+- visual placement of navigation buttons
+- focus order and keyboard navigation sequence
+- tests/snapshots that assert DOM order or `data-nav-layout` attributes
+
+To keep behavior explicit and stable across upgrades, set `navLayout` directly to `"after"` or `"around"`.
 
 ## Upgrading to v9
 

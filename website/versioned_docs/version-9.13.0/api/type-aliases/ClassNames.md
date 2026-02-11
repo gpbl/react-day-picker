@@ -2,7 +2,7 @@
 
 > **ClassNames** = \{ \[key in UI \| SelectionState \| DayFlag \| Animation\]: string \}
 
-Defined in: [src/types/shared.ts:253](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/shared.ts#L253)
+Defined in: [src/types/shared.ts:279](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/shared.ts#L279)
 
 The CSS classnames to use for the [UI](../enumerations/UI.md) elements, the
 [SelectionState](../enumerations/SelectionState.md) and the [DayFlag](../enumerations/DayFlag.md).

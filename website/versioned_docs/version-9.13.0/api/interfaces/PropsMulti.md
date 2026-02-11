@@ -1,6 +1,6 @@
 # Interface: PropsMulti
 
-Defined in: [src/types/props.ts:573](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/props.ts#L573)
+Defined in: [src/types/props.ts:671](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/props.ts#L671)
 
 The props when the multiple selection is optional.
 
@@ -14,7 +14,7 @@ https://daypicker.dev/docs/selection-modes#multiple-mode
 
 > `optional` **max**: `number`
 
-Defined in: [src/types/props.ts:583](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/props.ts#L583)
+Defined in: [src/types/props.ts:681](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/props.ts#L681)
 
 The maximum number of selectable days.
 
@@ -24,7 +24,7 @@ The maximum number of selectable days.
 
 > `optional` **min**: `number`
 
-Defined in: [src/types/props.ts:581](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/props.ts#L581)
+Defined in: [src/types/props.ts:679](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/props.ts#L679)
 
 The minimum number of selectable days.
 
@@ -34,7 +34,7 @@ The minimum number of selectable days.
 
 > **mode**: `"multiple"`
 
-Defined in: [src/types/props.ts:574](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/props.ts#L574)
+Defined in: [src/types/props.ts:672](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/props.ts#L672)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [src/types/props.ts:574](https://github.com/gpbl/react-day-picker/bl
 
 > `optional` **onSelect**: [`OnSelectHandler`](../type-aliases/OnSelectHandler.md)\<`Date`[] \| `undefined`\>
 
-Defined in: [src/types/props.ts:579](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/props.ts#L579)
+Defined in: [src/types/props.ts:677](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/props.ts#L677)
 
 Event handler when days are selected.
 
@@ -52,7 +52,7 @@ Event handler when days are selected.
 
 > `optional` **required**: `false`
 
-Defined in: [src/types/props.ts:575](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/props.ts#L575)
+Defined in: [src/types/props.ts:673](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/props.ts#L673)
 
 ***
 
@@ -60,6 +60,6 @@ Defined in: [src/types/props.ts:575](https://github.com/gpbl/react-day-picker/bl
 
 > `optional` **selected**: `Date`[]
 
-Defined in: [src/types/props.ts:577](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/types/props.ts#L577)
+Defined in: [src/types/props.ts:675](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/types/props.ts#L675)
 
 The selected dates.

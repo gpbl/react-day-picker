@@ -1,6 +1,6 @@
 # Class: CalendarDay
 
-Defined in: [src/classes/CalendarDay.ts:10](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/CalendarDay.ts#L10)
+Defined in: [src/classes/CalendarDay.ts:10](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/CalendarDay.ts#L10)
 
 Represents a day displayed in the calendar.
 
@@ -14,7 +14,7 @@ the displayed month.
 
 > **new CalendarDay**(`date`, `displayMonth`, `dateLib`): `CalendarDay`
 
-Defined in: [src/classes/CalendarDay.ts:11](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/CalendarDay.ts#L11)
+Defined in: [src/classes/CalendarDay.ts:11](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/CalendarDay.ts#L11)
 
 #### Parameters
 
@@ -34,7 +34,7 @@ Defined in: [src/classes/CalendarDay.ts:11](https://github.com/gpbl/react-day-pi
 
 > **isEqualTo**(`day`): `boolean`
 
-Defined in: [src/classes/CalendarDay.ts:82](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/CalendarDay.ts#L82)
+Defined in: [src/classes/CalendarDay.ts:82](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/CalendarDay.ts#L82)
 
 Checks if this day is equal to another `CalendarDay`, considering both the
 date and the displayed month.
@@ -57,7 +57,7 @@ date and the displayed month.
 
 > `readonly` **date**: `Date`
 
-Defined in: [src/classes/CalendarDay.ts:52](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/CalendarDay.ts#L52)
+Defined in: [src/classes/CalendarDay.ts:52](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/CalendarDay.ts#L52)
 
 The date represented by this day.
 
@@ -67,7 +67,7 @@ The date represented by this day.
 
 > `readonly` **dateMonthId**: `string`
 
-Defined in: [src/classes/CalendarDay.ts:73](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/CalendarDay.ts#L73)
+Defined in: [src/classes/CalendarDay.ts:73](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/CalendarDay.ts#L73)
 
 Stable `yyyy-MM` representation of the date's actual month.
 
@@ -81,7 +81,7 @@ V9.11.2
 
 > `readonly` **displayMonth**: `Date`
 
-Defined in: [src/classes/CalendarDay.ts:49](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/CalendarDay.ts#L49)
+Defined in: [src/classes/CalendarDay.ts:49](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/CalendarDay.ts#L49)
 
 The month that is currently displayed in the calendar.
 
@@ -95,7 +95,7 @@ enabled.
 
 > `readonly` **displayMonthId**: `string`
 
-Defined in: [src/classes/CalendarDay.ts:66](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/CalendarDay.ts#L66)
+Defined in: [src/classes/CalendarDay.ts:66](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/CalendarDay.ts#L66)
 
 Stable `yyyy-MM` representation of the displayed month.
 
@@ -109,7 +109,7 @@ V9.11.2
 
 > `readonly` **isoDate**: `string`
 
-Defined in: [src/classes/CalendarDay.ts:59](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/CalendarDay.ts#L59)
+Defined in: [src/classes/CalendarDay.ts:59](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/CalendarDay.ts#L59)
 
 Stable `yyyy-MM-dd` representation for reuse in keys/data attrs.
 
@@ -123,7 +123,7 @@ V9.11.2
 
 > `readonly` **outside**: `boolean`
 
-Defined in: [src/classes/CalendarDay.ts:40](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/classes/CalendarDay.ts#L40)
+Defined in: [src/classes/CalendarDay.ts:40](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/classes/CalendarDay.ts#L40)
 
 Indicates whether the day does not belong to the displayed month.
 

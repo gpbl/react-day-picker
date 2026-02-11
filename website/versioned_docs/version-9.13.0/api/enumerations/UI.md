@@ -1,6 +1,6 @@
 # Enumeration: UI
 
-Defined in: [src/UI.ts:9](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/UI.ts#L9)
+Defined in: [src/UI.ts:11](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/UI.ts#L11)
 
 Enum representing the UI elements composing DayPicker. These elements are
 mapped to [CustomComponents](../type-aliases/CustomComponents.md), [ClassNames](../type-aliases/ClassNames.md), and [Styles](../type-aliases/Styles.md).

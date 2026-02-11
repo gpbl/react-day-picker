@@ -1,6 +1,6 @@
 # Enumeration: SelectionState
 
-Defined in: [src/UI.ts:89](https://github.com/gpbl/react-day-picker/blob/fee7c41a14a33ffe420a52725cc230af72faa526/src/UI.ts#L89)
+Defined in: [src/UI.ts:91](https://github.com/gpbl/react-day-picker/blob/103fe7f57055a681af0d1e473054a9da528b5423/src/UI.ts#L91)
 
 Enum representing selection states that can be applied to the [UI.Day](UI.md)
 element in selection mode.

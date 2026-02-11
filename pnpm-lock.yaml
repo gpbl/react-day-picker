@@ -160,6 +160,9 @@ importers:
       react-day-picker-v8:
         specifier: npm:react-day-picker@8.10.1
         version: react-day-picker@8.10.1(date-fns@4.1.0)(react@19.2.4)
+      react-day-picker-v9:
+        specifier: npm:react-day-picker@9.13.0
+        version: react-day-picker@9.13.0(react@19.2.4)
       react-dom:
         specifier: ^19.2.4
         version: 19.2.4(react@19.2.4)
@@ -6358,6 +6361,12 @@ packages:
     peerDependencies:
       date-fns: ^2.28.0 || ^3.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  react-day-picker@9.13.0:
+    resolution: {integrity: sha512-euzj5Hlq+lOHqI53NiuNhCP8HWgsPf/bBAVijR50hNaY1XwjKjShAnIe8jm8RD2W9IJUvihDIZ+KrmqfFzNhFQ==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      react: '>=16.8.0'
 
   react-dom@19.2.4:
     resolution: {integrity: sha512-AXJdLo8kgMbimY95O2aKQqsz2iWi9jMgKJhRBAxECE4IFxfcazB2LmzloIoibJI3C12IlY20+KFaLv+71bUJeQ==}
@@ -15168,6 +15177,13 @@ snapshots:
   react-day-picker@8.10.1(date-fns@4.1.0)(react@19.2.4):
     dependencies:
       date-fns: 4.1.0
+      react: 19.2.4
+
+  react-day-picker@9.13.0(react@19.2.4):
+    dependencies:
+      '@date-fns/tz': 1.4.1
+      date-fns: 4.1.0
+      date-fns-jalali: 4.1.0-0
       react: 19.2.4
 
   react-dom@19.2.4(react@19.2.4):
