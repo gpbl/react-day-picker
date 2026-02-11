@@ -85,8 +85,8 @@ export enum DayFlag {
 }
 
 /**
- * Enum representing selection states that can be applied to the {@link UI | UI.Day}
- * element in selection mode.
+ * Enum representing selection states that can be applied to the
+ * {@link UI | UI.Day} element in selection mode.
  */
 export enum SelectionState {
   /** The day is at the end of a selected range. */
@@ -138,14 +138,16 @@ export enum Animation {
 export type DeprecatedUI<T extends CSSProperties | string> = {
   /**
    * This element was applied to the style of any button in DayPicker and it is
-   * replaced by {@link UI | UI.PreviousMonthButton} and {@link UI | UI.NextMonthButton}.
+   * replaced by {@link UI | UI.PreviousMonthButton} and
+   * {@link UI | UI.NextMonthButton}.
    *
    * @deprecated
    */
   button: T;
   /**
    * This element was resetting the style of any button in DayPicker and it is
-   * replaced by {@link UI | UI.PreviousMonthButton} and {@link UI | UI.NextMonthButton}.
+   * replaced by {@link UI | UI.PreviousMonthButton} and
+   * {@link UI | UI.NextMonthButton}.
    *
    * @deprecated
    */
@@ -207,25 +209,29 @@ export type DeprecatedUI<T extends CSSProperties | string> = {
    */
   day_outside: T;
   /**
-   * This element has been renamed to {@link SelectionState | SelectionState.range_end}.
+   * This element has been renamed to
+   * {@link SelectionState | SelectionState.range_end}.
    *
    * @deprecated
    */
   day_range_end: T;
   /**
-   * This element has been renamed to {@link SelectionState | SelectionState.range_middle}.
+   * This element has been renamed to
+   * {@link SelectionState | SelectionState.range_middle}.
    *
    * @deprecated
    */
   day_range_middle: T;
   /**
-   * This element has been renamed to {@link SelectionState | SelectionState.range_start}.
+   * This element has been renamed to
+   * {@link SelectionState | SelectionState.range_start}.
    *
    * @deprecated
    */
   day_range_start: T;
   /**
-   * This element has been renamed to {@link SelectionState | SelectionState.selected}.
+   * This element has been renamed to
+   * {@link SelectionState | SelectionState.selected}.
    *
    * @deprecated
    */
@@ -237,8 +243,8 @@ export type DeprecatedUI<T extends CSSProperties | string> = {
    */
   day_today: T;
   /**
-   * This element has been removed. The dropdown icon is now {@link UI | UI.Chevron}
-   * inside a {@link UI | UI.CaptionLabel}.
+   * This element has been removed. The dropdown icon is now
+   * {@link UI | UI.Chevron} inside a {@link UI | UI.CaptionLabel}.
    *
    * @deprecated
    */
@@ -300,8 +306,9 @@ export type DeprecatedUI<T extends CSSProperties | string> = {
    */
   nav_button_previous: T;
   /**
-   * This element has been removed. The dropdown icon is now {@link UI | UI.Chevron}
-   * inside a {@link UI | UI.NextMonthButton} or a {@link UI | UI.PreviousMonthButton}.
+   * This element has been removed. The dropdown icon is now
+   * {@link UI | UI.Chevron} inside a {@link UI | UI.NextMonthButton} or a
+   * {@link UI | UI.PreviousMonthButton}.
    *
    * @deprecated
    */
@@ -325,8 +332,8 @@ export type DeprecatedUI<T extends CSSProperties | string> = {
    */
   tbody: T;
   /**
-   * This element has been removed. The {@link UI | UI.Footer} is now a single element
-   * below the months.
+   * This element has been removed. The {@link UI | UI.Footer} is now a single
+   * element below the months.
    *
    * @deprecated
    */
