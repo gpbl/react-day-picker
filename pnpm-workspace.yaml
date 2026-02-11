@@ -1,4 +1,7 @@
 packages:
-  - "website"
-  - "examples-app"
-  - "performance-tests"
+  - website
+  - examples-app
+
+onlyBuiltDependencies:
+  - '@swc/core'
+  - esbuild
