@@ -20,9 +20,3 @@ export function labelGrid(
   const lib = dateLib ?? new DateLib(options);
   return lib.formatMonthYear(date);
 }
-
-/**
- * @ignore
- * @deprecated Use {@link labelGrid} instead.
- */
-export const labelCaption = labelGrid;

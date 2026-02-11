@@ -7,47 +7,11 @@ exports[`should match the snapshot 1`] = `
   <div
     class="rdp-root"
     data-mode="single"
+    data-nav-layout="after"
   >
     <div
       class="rdp-months"
     >
-      <nav
-        aria-label="Navigation bar"
-        class="rdp-nav"
-      >
-        <button
-          aria-label="Go to the Previous Month"
-          class="rdp-button_previous"
-          type="button"
-        >
-          <svg
-            class="rdp-chevron"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-          >
-            <polygon
-              points="16 18.112 9.81111111 12 16 5.87733333 14.0888889 4 6 12 14.0888889 20"
-            />
-          </svg>
-        </button>
-        <button
-          aria-label="Go to the Next Month"
-          class="rdp-button_next"
-          type="button"
-        >
-          <svg
-            class="rdp-chevron"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-          >
-            <polygon
-              points="8 18.112 14.18888889 12 8 5.87733333 9.91111111 4 18 12 9.91111111 20"
-            />
-          </svg>
-        </button>
-      </nav>
       <div
         class="rdp-month"
       >
@@ -62,6 +26,43 @@ exports[`should match the snapshot 1`] = `
             November 2021
           </span>
         </div>
+        <nav
+          aria-label="Navigation bar"
+          class="rdp-nav"
+        >
+          <button
+            aria-label="Go to the Previous Month"
+            class="rdp-button_previous"
+            type="button"
+          >
+            <svg
+              class="rdp-chevron"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+            >
+              <polygon
+                points="16 18.112 9.81111111 12 16 5.87733333 14.0888889 4 6 12 14.0888889 20"
+              />
+            </svg>
+          </button>
+          <button
+            aria-label="Go to the Next Month"
+            class="rdp-button_next"
+            type="button"
+          >
+            <svg
+              class="rdp-chevron"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+            >
+              <polygon
+                points="8 18.112 14.18888889 12 8 5.87733333 9.91111111 4 18 12 9.91111111 20"
+              />
+            </svg>
+          </button>
+        </nav>
         <table
           aria-label="November 2021"
           aria-multiselectable="false"
