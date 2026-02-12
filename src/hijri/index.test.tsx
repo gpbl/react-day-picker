@@ -27,4 +27,13 @@ describe("Hijri DayPicker", () => {
     expect(cell).toBeInTheDocument();
     expect(cell).toHaveAttribute("role", "gridcell");
   });
+
+  test("renders Latin digits with Arabic locale when numerals=latn", () => {
+    render(<DayPicker numerals="latn" />);
+    expect(grid("رمضان 1446")).toBeInTheDocument();
+
+    const cell = screen.getByText("8");
+    expect(cell).toBeInTheDocument();
+    expect(cell).toHaveAttribute("role", "gridcell");
+  });
 });

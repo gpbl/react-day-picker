@@ -2,14 +2,22 @@ import type { FormatOptions as DateFnsFormatOptions } from "date-fns";
 import type { DateLibOptions } from "../../classes/DateLib.js";
 import { toHijriDate } from "../utils/conversion.js";
 
+const DEFAULT_LOCALE_CODE = "ar-SA";
+const BASE_NUMBERING_SYSTEM = "latn";
+
 const getLocaleCode = (options?: DateLibOptions): string => {
-  return options?.locale?.code ?? "ar-SA"; // Default to ar-SA for Hijri
+  return options?.locale?.code ?? DEFAULT_LOCALE_CODE;
 };
 
-const formatMonthName = (date: Date, localeCode: string, width: "long" | "short" | "narrow"): string => {
+const formatMonthName = (
+  date: Date,
+  localeCode: string,
+  width: "long" | "short" | "narrow",
+): string => {
   return new Intl.DateTimeFormat(localeCode, {
     month: width,
     calendar: "islamic-umalqura",
+    numberingSystem: BASE_NUMBERING_SYSTEM,
   }).format(date);
 };
 
@@ -21,6 +29,7 @@ const formatWeekdayName = (
   return new Intl.DateTimeFormat(localeCode, {
     weekday: width,
     calendar: "islamic-umalqura",
+    numberingSystem: BASE_NUMBERING_SYSTEM,
   }).format(date);
 };
 
@@ -32,11 +41,16 @@ const formatDateStyle = (
   return new Intl.DateTimeFormat(localeCode, {
     dateStyle: style,
     calendar: "islamic-umalqura",
+    numberingSystem: BASE_NUMBERING_SYSTEM,
   }).format(date);
 };
 
-const formatNumber = (value: number, localeCode: string): string => {
-  return new Intl.NumberFormat(localeCode, { useGrouping: false }).format(value);
+const formatNumber = (value: number): string => {
+  return value.toString();
+};
+
+const formatPaddedNumber = (value: number): string => {
+  return formatNumber(value).padStart(2, "0");
 };
 
 const buildTimeFormat = (
@@ -50,6 +64,7 @@ const buildTimeFormat = (
     minute: "numeric",
     hour12,
     calendar: "islamic-umalqura",
+    numberingSystem: BASE_NUMBERING_SYSTEM,
   }).format(date);
 };
 
@@ -63,14 +78,10 @@ export function format(
   const localeCode = getLocaleCode(extendedOptions);
   const hijri = toHijriDate(date);
 
-  // Note: formatNumber uses locale numerals.
-  // If we want Latin numerals when locale is 'en', Intl handles it.
-
-  // Simple format implementation.
   switch (formatStr) {
     case "LLLL y":
     case "LLLL yyyy":
-      return `${formatMonthName(date, localeCode, "long")} ${formatNumber(hijri.year, localeCode)}`;
+      return `${formatMonthName(date, localeCode, "long")} ${formatNumber(hijri.year)}`;
     case "LLLL":
       return formatMonthName(date, localeCode, "long");
     case "LLL":
@@ -80,47 +91,35 @@ export function format(
     case "PPPP":
       return formatDateStyle(date, localeCode, "full");
     case "PP":
-        return formatDateStyle(date, localeCode, "medium");
+      return formatDateStyle(date, localeCode, "medium");
     case "P":
-        return formatDateStyle(date, localeCode, "short");
+      return formatDateStyle(date, localeCode, "short");
     case "cccc":
       return formatWeekdayName(date, localeCode, "long");
     case "ccc":
-        return formatWeekdayName(date, localeCode, "short");
+      return formatWeekdayName(date, localeCode, "short");
     case "ccccc":
     case "cccccc":
       return formatWeekdayName(date, localeCode, "narrow");
     case "yyyy":
     case "y":
-      return formatNumber(hijri.year, localeCode);
+      return formatNumber(hijri.year);
     case "yyyy-MM":
-      // ISO-like but with locale numerals? Or force latin?
-      // Usually technical formats prefer latin digits.
-      // But here we respect locale.
-      return `${formatNumber(hijri.year, localeCode)}-${formatNumber(hijri.monthIndex + 1, localeCode).padStart(2, "0")}`; // this padStart might fail if numerals are Arabic
+      return `${formatNumber(hijri.year)}-${formatPaddedNumber(hijri.monthIndex + 1)}`;
     case "yyyy-MM-dd":
-       // For simple numeric formats, maybe better to construct manually if digits are latin.
-       // But if digits are Arabic, padStart won't work well on string length if it counts codepoints...
-       // Actually Arabic digits are 1 char.
-       // But '٠' is 0.
-       // Let's rely on Intl for dateStyle='short' for generic date, but formatStr asks specifically.
-       // If formatStr is specific 'yyyy-MM-dd', usually implies ISO-8601 which is Gregorian.
-       // But here we are formatting Hijri date.
-       // Let's simplify and assume standard digits for yyyy-MM-dd or use generic join.
-       return `${formatNumber(hijri.year, localeCode)}-${formatNumber(hijri.monthIndex + 1, localeCode)}-${formatNumber(hijri.day, localeCode)}`;
+      return `${formatNumber(hijri.year)}-${formatPaddedNumber(hijri.monthIndex + 1)}-${formatPaddedNumber(hijri.day)}`;
     case "MM":
-      return formatNumber(hijri.monthIndex + 1, localeCode); // No padding logic here for simplicity unless we map digits
+      return formatPaddedNumber(hijri.monthIndex + 1);
     case "M":
-      return formatNumber(hijri.monthIndex + 1, localeCode);
+      return formatNumber(hijri.monthIndex + 1);
     case "dd":
-      return formatNumber(hijri.day, localeCode);
+      return formatPaddedNumber(hijri.day);
     case "d":
-      return formatNumber(hijri.day, localeCode);
+      return formatNumber(hijri.day);
     default:
       if (/[Hh]/.test(formatStr) && /m/.test(formatStr)) {
         return buildTimeFormat(date, localeCode, formatStr);
       }
-      // Fallback
       return formatDateStyle(date, localeCode, "medium");
   }
 }
