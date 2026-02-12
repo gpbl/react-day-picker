@@ -1,0 +1,313 @@
+---
+sidebar_position: 4
+---
+
+# Custom Components
+
+Use the `components` prop to extend each rendered HTML element with your own custom components.
+
+| Prop Name    | Type                                                          | Description                            |
+| ------------ | ------------------------------------------------------------- | -------------------------------------- |
+| `components` | [`CustomComponents`](../api/type-aliases/CustomComponents.md) | Change the components of the calendar. |
+
+You may need to use custom components in advanced applications to:
+
+- Prevent default events from occurring.
+- Add new event listeners, such as touch events.
+- Display extra content, such as a calendar entry in the day cell.
+- Implement buttons or dropdowns using your own design system components.
+- Wrap an element with another element, like adding a tooltip to a day cell.
+
+## Keep accessibility and behavior intact
+
+- Always forward the props you receive (including `aria-*`, `tabIndex`, `ref`, and event handlers) to preserve keyboard navigation and screen reader support.
+- Reuse `classNames` and `labels` from `useDayPicker` when rendering built-in elements so modifiers and ARIA text remain correct.
+- Prefer composing around the default components instead of rebuilding behavior like focus management in `DayButton`.
+
+When customizing components, familiarize yourself with the [API Reference](../api#components) and the [DayPicker Anatomy](../docs/anatomy.mdx). Ensure you maintain [accessibility](../guides/accessibility.mdx).
+
+:::note Custom Components vs Formatters
+
+Custom components allow you to extend DayPicker beyond just using [formatters](./translation.mdx#custom-formatters). While formatters modify the content within the calendar, custom components enable you to alter the structure of the HTML elements.
+
+:::
+
+## Implementing a Custom Component
+
+- Pass the components you want to customize to the `components` prop (see the [list of custom components](#list-of-custom-components) below).
+- Consider reusing the core components and composing your customizations on top of them.
+- Use a custom React Context to share state between your custom components and your application.
+
+```tsx
+<DayPicker
+  components={{
+    Day: CustomDaycell,
+    MonthGrid: CustomMonthGrid,
+    // etc.
+  }}
+/>
+```
+
+### Component props cheat sheet
+
+| Component   | Props type                                        | Notes                                                 |
+| ----------- | ------------------------------------------------- | ----------------------------------------------------- |
+| `Day`       | [`DayProps`](../api/functions/Day.md)             | Receives `day` (with `date`) and `modifiers`.         |
+| `DayButton` | [`DayButtonProps`](../api/functions/DayButton.md) | Handles focus; keep forwarding `ref`/`aria-*`.        |
+| `Nav`       | [`NavProps`](../api/functions/Nav.md)             | Use provided `onPreviousClick`/`onNextClick`.         |
+| `Dropdown`  | [`DropdownProps`](../api/functions/Dropdown.md)   | Forward `aria-label` and call `onChange` with target. |
+| `Root`      | [`RootProps`](../api/functions/Root.md)           | Forward `rootRef` when `animate` is enabled.          |
+
+The `components` prop accepts a **partial** map—pass only the entries you want to override. The legacy `Button` entry is deprecated; prefer `NextMonthButton` and `PreviousMonthButton`.
+
+## List of Custom Components
+
+| Name                                                             | Description                                                    |
+| ---------------------------------------------------------------- | -------------------------------------------------------------- |
+| [`CaptionLabel`](../api/functions/CaptionLabel.md)               | The caption label of the month grid.                           |
+| [`Chevron`](../api/functions/Chevron.md)                         | The chevron icon used in the navigation buttons and dropdowns. |
+| [`Day`](../api/functions/Day.md)                                 | The day cell in the month grid.                                |
+| [`DayButton`](../api/functions/DayButton.md)                     | The button containing the day in the day cell.                 |
+| [`Dropdown`](../api/functions/Dropdown.md)                       | The dropdown element to select years and months.               |
+| [`DropdownNav`](../api/functions/DropdownNav.md)                 | The container of the dropdowns.                                |
+| [`Footer`](../api/functions/Footer.md)                           | The footer element announced by screen readers.                |
+| [`Month`](../api/functions/Month.md)                             | The container of the MonthGrid.                                |
+| [`MonthCaption`](../api/functions/MonthCaption.md)               | The caption of the month grid.                                 |
+| [`MonthGrid`](../api/functions/MonthGrid.md)                     | The grid of days in a month.                                   |
+| [`Months`](../api/functions/Months.md)                           | Wrapper of the month grids.                                    |
+| [`MonthsDropdown`](../api/functions/MonthsDropdown.md)           | The dropdown with the months.                                  |
+| [`Nav`](../api/functions/Nav.md)                                 | The navigation element with the next and previous buttons.     |
+| [`NextMonthButton`](../api/functions/NextMonthButton.md)         | The next month button element in the navigation.               |
+| [`Option`](../api/functions/Option.md)                           | The `<option>` HTML element in the dropdown.                   |
+| [`PreviousMonthButton`](../api/functions/PreviousMonthButton.md) | The previous month button element in the navigation.           |
+| [`Root`](../api/functions/Root.md)                               | The root element of the calendar.                              |
+| [`Select`](../api/functions/Select.md)                           | The select element in the dropdowns.                           |
+| [`Week`](../api/functions/Week.md)                               | The week rows.                                                 |
+| [`WeekNumber`](../api/functions/WeekNumber.md)                   | The cell with the number of the week.                          |
+| [`WeekNumberHeader`](../api/functions/WeekNumberHeader.md)       | The header of the week number column.                          |
+| [`Weekday`](../api/functions/Weekday.md)                         | The weekday name in the header.                                |
+| [`Weekdays`](../api/functions/Weekdays.md)                       | The row containing the week days.                              |
+| [`Weeks`](../api/functions/Weeks.md)                             | The weeks section in the month grid.                           |
+| [`YearsDropdown`](../api/functions/YearsDropdown.md)             | The dropdown with the years.                                   |
+| `Button`                                                         | Deprecated: use `NextMonthButton`/`PreviousMonthButton`.       |
+
+## DayPicker Hook
+
+In a custom component, import the `useDayPicker` hook to access the DayPicker context.
+
+```ts
+import { useDayPicker } from "react-day-picker";
+```
+
+| Function                                           | Return value                                                  | Description                                                                    |
+| -------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| [`useDayPicker`](../api/functions/useDayPicker.md) | [`DayPickerContext`](../api/type-aliases/DayPickerContext.md) | Returns the current state of DayPicker and functions to navigate the calendar. |
+
+### DayPicker Context
+
+The DayPicker context provides the current state of the calendar, including the selected days, modifiers, and navigation state.
+
+| Name             | Type                                                                          | Description                                    |
+| ---------------- | ----------------------------------------------------------------------------- | ---------------------------------------------- |
+| `classNames`     | [`ClassNames`](../api/type-aliases/ClassNames.md)                             | The class names for the UI elements.           |
+| `components`     | [`CustomComponents`](../api/type-aliases/CustomComponents.md)                 | The components used internally by DayPicker.   |
+| `formatters`     | [`Formatters`](../api/type-aliases/Formatters.md)                             | The formatters used to format the UI elements. |
+| `getModifiers`   | (`day`) => [`Modifiers`](../api/type-aliases/Modifiers.md)                    | Returns the modifiers for the given day.       |
+| `goToMonth`      | (`month`) => `void`                                                           | Navigates to the specified month.              |
+| `isSelected`     | (`date`) => `boolean` \| `undefined`                                          | Whether the given date is selected.            |
+| `labels`         | [`Labels`](../api/type-aliases/Labels.md)                                     | The labels used in the user interface.         |
+| `months`         | [`CalendarMonth`](../api/classes/CalendarMonth.md)[]                          | The months displayed in the calendar.          |
+| `nextMonth`      | `Date` \| `undefined`                                                         | The next month to display.                     |
+| `previousMonth`  | `Date` \| `undefined`                                                         | The previous month to display.                 |
+| `select`         | [`SelectHandler`](../api/type-aliases/SelectHandler.md)\<`T`\> \| `undefined` | Sets a selection.                              |
+| `selected`       | [`SelectedValue`](../api/type-aliases/SelectedValue.md)\<`T`\> \| `undefined` | The selected date(s).                          |
+| `styles`         | `Partial`\<[`Styles`](../api/type-aliases/Styles.md)\> \| `undefined`         | The styles for the UI elements.                |
+| `dayPickerProps` | [`DayPickerProps`](../api/type-aliases/DayPickerProps.md)                     | The props passed to the DayPicker component.   |
+
+## Examples
+
+### Intercepting Click Events
+
+For example, you can use a custom [DayButton](../api/functions/DayButton.md) to select days with a double-click event. This approach uses a custom React context to share the selected date state between the custom `DayButton` and the main component.
+
+```tsx title="./MyDatePicker.tsx"
+import React from "react";
+
+import { DayButton, type DayButtonProps, DayPicker } from "react-day-picker";
+
+// Create a context to share the selected date state between the custom DayButton and the main component.
+const SelectedDateContext = React.createContext<{
+  selected?: Date;
+  setSelected?: React.Dispatch<React.SetStateAction<Date | undefined>>;
+}>({});
+
+// Custom DayButton that uses the context to set the selected date on double-click and clear it on single click.
+function DayButtonWithContext(props: DayButtonProps) {
+  const { day, modifiers, ...buttonProps } = props;
+
+  const { setSelected } = React.use(SelectedDateContext);
+  return (
+    <DayButton
+      {...buttonProps}
+      day={day}
+      modifiers={modifiers}
+      onClick={() => setSelected?.(undefined)}
+      onDoubleClick={() => setSelected?.(day.date)}
+    />
+  );
+}
+
+export function MyDatePicker() {
+  const [selected, setSelected] = React.useState<Date>();
+
+  return (
+    <SelectedDateContext.Provider value={{ selected, setSelected }}>
+      <DayPicker
+        mode="single"
+        selected={selected}
+        onSelect={setSelected}
+        components={{
+          DayButton: DayButtonWithContext,
+        }}
+      />
+    </SelectedDateContext.Provider>
+  );
+}
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/CustomDayButton.tsx">
+  <ExamplesV9.CustomDayButton />
+</BrowserWindow>
+
+### Compose with the defaults
+
+When you want to add UI but keep the built-in behavior (focus, labels, modifier classes), wrap the default component from context.
+
+```tsx title="./WrappedDayButton.tsx"
+import { DayButtonProps, DayPicker, UI, useDayPicker } from "react-day-picker";
+
+function WrappedDayButton(props: DayButtonProps) {
+  const { components, classNames } = useDayPicker();
+  return (
+    <components.DayButton
+      {...props}
+      className={`${classNames[UI.DayButton]} my-custom-class`}
+    >
+      <span>{props.day.date.getDate()}</span>
+      <small aria-hidden>★</small>
+    </components.DayButton>
+  );
+}
+
+export function WrappedDayExample() {
+  return <DayPicker components={{ DayButton: WrappedDayButton }} />;
+}
+```
+
+### Custom Select Dropdown
+
+You can use a custom [Dropdown](../api/functions/Dropdown.md) to select years and months. The example below uses a simplified version of `shadcn/ui`'s [Select](https://ui.shadcn.com/docs/components/select).
+
+```tsx title="./CustomDropdown.tsx"
+import React, { useState } from "react";
+
+import { DayPicker, type DropdownProps } from "react-day-picker";
+
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+export function CustomSelectDropdown(props: DropdownProps) {
+  const { options, value, onChange, "aria-label": ariaLabel } = props;
+
+  const handleValueChange = (newValue: string) => {
+    if (onChange) {
+      const syntheticEvent = {
+        target: {
+          value: newValue,
+        },
+      } as React.ChangeEvent<HTMLSelectElement>;
+
+      onChange(syntheticEvent);
+    }
+  };
+
+  return (
+    <Select value={value?.toString()} onValueChange={handleValueChange}>
+      <SelectTrigger aria-label={ariaLabel}>
+        <SelectValue />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectGroup>
+          {options?.map((option) => (
+            <SelectItem
+              key={option.value}
+              value={option.value.toString()}
+              disabled={option.disabled}
+            >
+              {option.label}
+            </SelectItem>
+          ))}
+        </SelectGroup>
+      </SelectContent>
+    </Select>
+  );
+}
+
+export function CustomDropdown() {
+  const [selected, setSelected] = useState<Date | undefined>();
+
+  return (
+    <DayPicker
+      captionLayout="dropdown"
+      components={{ Dropdown: CustomSelectDropdown }}
+      mode="single"
+      selected={selected}
+      onSelect={setSelected}
+      footer={
+        selected ? `Selected: ${selected.toLocaleDateString()}` : "Pick a day."
+      }
+    />
+  );
+}
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/CustomDropdown/CustomDropdown.tsx">
+  <ExamplesV9.CustomDropdown />
+</BrowserWindow>
+
+If your design system portals dropdown content, provide the container (as shown in `examples/CustomDropdown/CustomDropdown.tsx`) so the list renders inside the calendar's shadow root in the docs.
+
+### Structural customization
+
+Swap layout components to add design-system wrappers or decoration while keeping behavior.
+
+```tsx title="./CustomRoot.tsx"
+import { DayPicker, type RootProps } from "react-day-picker";
+
+function CardRoot(props: RootProps) {
+  const { rootRef, ...rest } = props;
+  return (
+    <div ref={rootRef} className="card shadow-md" {...rest}>
+      {rest.children}
+    </div>
+  );
+}
+
+export function CustomRootExample() {
+  return <DayPicker components={{ Root: CardRoot }} />;
+}
+```
+
+### Choosing Day vs. DayButton vs. formatters
+
+- Use `DayButton` to change interactivity or add content inside the button while keeping the cell layout.
+- Use `Day` to change the table cell structure (wrappers, tooltips) when you need control over the `<td>`.
+- Use [formatters](./translation.mdx#custom-formatters) for simple text changes (e.g., labels) without altering structure.
+
+What are you using custom components for? [Let us know](https://github.com/gpbl/react-day-picker/discussions).

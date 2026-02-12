@@ -1,0 +1,172 @@
+---
+sidebar_position: 6
+---
+
+# Date and Time Picker
+
+DayPicker does not include a built-in time picker. However, you can implement a time picker by combining DayPicker with a time input field or any custom time picker component, as shown in the following example.
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/InputTime.tsx">
+  <ExamplesV9.InputTime />
+</BrowserWindow>
+
+## Keep date and time in sync
+
+Derive the time input value from the selected date so the UI stays synchronized, even when the date changes programmatically.
+
+```tsx
+import React, { type ChangeEventHandler, useEffect, useState } from "react";
+
+import { format, setHours, setMinutes } from "date-fns";
+import { DayPicker } from "react-day-picker";
+
+export function InputTime() {
+  const [selected, setSelected] = useState<Date>();
+  const [timeValue, setTimeValue] = useState<string>("00:00");
+
+  // Keep the time input in sync when the selected date changes elsewhere.
+  useEffect(() => {
+    if (selected) {
+      setTimeValue(format(selected, "HH:mm"));
+    }
+  }, [selected]);
+
+  const handleTimeChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    const time = e.target.value;
+    if (!selected) {
+      // Defer composing a full Date until a day is picked.
+      setTimeValue(time);
+      return;
+    }
+    const [hours, minutes] = time.split(":").map((str) => parseInt(str, 10));
+    // Compose a new Date using the current day plus the chosen time.
+    const newSelectedDate = setHours(setMinutes(selected, minutes), hours);
+    setSelected(newSelectedDate);
+    setTimeValue(time);
+  };
+
+  const handleDaySelect = (date: Date | undefined) => {
+    if (!timeValue || !date) {
+      setSelected(date);
+      return;
+    }
+    const [hours, minutes] = timeValue
+      .split(":")
+      .map((str) => parseInt(str, 10));
+    const newDate = new Date(
+      date.getFullYear(),
+      date.getMonth(),
+      date.getDate(),
+      hours,
+      minutes,
+    );
+    setSelected(newDate);
+  };
+
+  return (
+    <div>
+      <form style={{ marginBlockEnd: "1em" }}>
+        <label>
+          Set the time:{" "}
+          <input type="time" value={timeValue} onChange={handleTimeChange} />
+        </label>
+      </form>
+      <DayPicker
+        mode="single"
+        selected={selected}
+        onSelect={handleDaySelect}
+        footer={`Selected date: ${selected ? selected.toLocaleString() : "none"}`}
+      />
+    </div>
+  );
+}
+```
+
+## Time zones and daylight saving
+
+`Date` values are interpreted in the user's local time zone. If you need to anchor to a specific time zone, create dates with `TZDate` and convert to strings (such as ISO) when persisting. Be cautious around daylight saving transitions, where some wall-clock times may be skipped or repeated.
+
+## Validate time input
+
+Use native `<input type="time">` validation or guard values before composing a date:
+
+```tsx
+const MIN_TIME = "09:00";
+const MAX_TIME = "18:00";
+
+const handleTimeChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+  const time = e.target.value;
+  if (time < MIN_TIME || time > MAX_TIME) return;
+  setTimeValue(time);
+  if (selected) {
+    const [hours, minutes] = time.split(":").map((str) => parseInt(str, 10));
+    setSelected(setHours(setMinutes(selected, minutes), hours));
+  }
+};
+```
+
+## Date ranges with independent times
+
+When selecting a range, keep start and end times separate and merge them into each date:
+
+```tsx
+const [from, setFrom] = useState<Date>();
+const [to, setTo] = useState<Date>();
+const [fromTime, setFromTime] = useState("09:00");
+const [toTime, setToTime] = useState("17:00");
+
+const applyTime = (date: Date | undefined, time: string) => {
+  if (!date) return undefined;
+  const [h, m] = time.split(":").map((str) => parseInt(str, 10));
+  return setHours(setMinutes(date, m), h);
+};
+
+<DayPicker
+  mode="range"
+  selected={{ from, to }}
+  onSelect={(range) => {
+    setFrom(applyTime(range?.from, fromTime));
+    setTo(applyTime(range?.to, toTime));
+  }}
+/>;
+```
+
+## Using custom time pickers
+
+Swap the `<input type="time">` with your design system's time picker or dropdowns. Forward `aria-*` props to keep accessibility consistent with DayPicker, and reuse the same date-composition logic shown above.
+
+```tsx
+import { DayPicker } from "react-day-picker";
+import { TimePicker } from "your-design-system"; // placeholder
+
+function CustomTimePicker() {
+  const [selected, setSelected] = useState<Date>();
+
+  const applyTime = (value: string) => {
+    if (!selected) return;
+    const [h, m] = value.split(":").map((str) => parseInt(str, 10));
+    setSelected(setHours(setMinutes(selected, m), h));
+  };
+
+  return (
+    <>
+      <DayPicker mode="single" selected={selected} onSelect={setSelected} />
+      <TimePicker
+        aria-label="Select time"
+        value={selected ? format(selected, "HH:mm") : "09:00"}
+        onChange={applyTime}
+      />
+    </>
+  );
+}
+```
+
+## Persisting values
+
+When saving or sending the selection, prefer serializing to an ISO string or UTC timestamp instead of locale strings to avoid time zone ambiguity.
+
+```ts
+const payload = selected
+  ? { startsAtIso: selected.toISOString(), startsAtMs: selected.getTime() }
+  : null;
+```

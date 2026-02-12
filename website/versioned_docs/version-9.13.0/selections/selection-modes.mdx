@@ -1,0 +1,43 @@
+---
+sidebar_position: 1
+---
+
+# Selection Modes
+
+The `mode` prop determines the selection mode.
+DayPicker offers predefined rules for date selection.
+
+- [Single mode](./single-mode.mdx): Allows the selection of a single date.
+- [Multiple mode](./multiple-mode.mdx): Allows the selection of multiple individual dates.
+- [Range mode](./range-mode.mdx): Allows the selection of a continuous range of dates.
+
+| Prop Name  | Type                                                                                 | Description                             |
+| ---------- | ------------------------------------------------------------------------------------ | --------------------------------------- |
+| `mode`     | `"single"` \| `"multiple"` \| `"range"`                                              | Enter a selection mode.                 |
+| `disabled` | [`Matcher`](../api/type-aliases/Matcher.md) \| `Matcher[]`                           | Disabled dates that cannot be selected. |
+| `selected` | `Date` \| `Date[]` \| [`DateRange`](../api/type-aliases/DateRange.md) \| `undefined` | The selected date(s).                   |
+| `required` | `boolean`                                                                            | When `true`, the selection is required. |
+| `onSelect` | [`OnSelectHandler`](../api/type-aliases/OnSelectHandler.md)                          | Event callback when a date is selected. |
+
+## Customizing Selections
+
+To customize the behavior of a selection mode, use the `selected` and `onSelect` props to handle the selection event and update the selected dates according to your application's requirements:
+
+```tsx
+import { useState } from "react";
+
+import { DayPicker } from "react-day-picker";
+
+export function App() {
+  const [selected, setSelected] = useState<Date[] | undefined>();
+  const handleSelect = (newSelected) => {
+    // Update the selected dates
+    setSelected(newSelected);
+  };
+  return (
+    <DayPicker mode="multiple" selected={selected} onSelect={handleSelect} />
+  );
+}
+```
+
+You can also set the selection mode to `default` and implement your own mode using `modifiers` and `onDayClick`. For more information, read the [Custom Selections](../guides/custom-selections.mdx) guide.

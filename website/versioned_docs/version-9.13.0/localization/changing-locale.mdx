@@ -1,0 +1,75 @@
+---
+title: Changing the Locale
+sidebar_position: 1
+---
+
+DayPicker can localize month names, weekday labels, and other text using the locales provided by [date-fns](https://date-fns.org/docs/I18n). All locales are exported from `react-day-picker/locale`.
+
+By default, DayPicker uses the English (US) locale (`en-US`). You can override this via the `locale` prop.
+
+| Prop Name | Type                                       | Description                         |
+| --------- | ------------------------------------------ | ----------------------------------- |
+| `locale`  | [`Locale`](https://date-fns.org/docs/I18n) | Set the locale. Default is `en-US`. |
+
+For example, to set the calendar to Spanish, import the `es` locale and pass it to the `locale` prop:
+
+```tsx
+import { DayPicker } from "react-day-picker";
+import { es } from "react-day-picker/locale";
+
+export function Spanish() {
+  return <DayPicker locale={es} />;
+}
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/Spanish.tsx">
+  <ExamplesV9.Spanish />
+</BrowserWindow>
+
+## Numerals
+
+Use the `numerals` prop to select the numbering system used by labels and formatters (for example, `latn`, `arab`, `thai`). Locale label translations also respect the numerals you choose.
+
+| Prop Name  | Type                                          | Description                                     |
+| ---------- | --------------------------------------------- | ----------------------------------------------- |
+| `numerals` | [`Numerals`](../api/type-aliases/Numerals.md) | Numbering system for labels and formatted text. |
+
+```tsx
+import { DayPicker } from "react-day-picker";
+import { hi } from "react-day-picker/locale";
+
+export function HindiWithDevanagariNumerals() {
+  return <DayPicker locale={hi} numerals="deva" />;
+}
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/Numerals.tsx">
+  <ExamplesV9.Numerals />
+</BrowserWindow>
+
+## RTL text direction
+
+Set the text direction to right-to-left with the `dir` prop.
+
+```tsx
+import { arSA } from "react-day-picker/locale";
+
+<DayPicker locale={arSA} dir="rtl" />;
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/Rtl.tsx">
+  <ExamplesV9.Rtl />
+</BrowserWindow>
+
+## Override week settings
+
+You can override week-related settings even when they differ from the defaults for the current locale.
+
+| Prop Name               | Type                 | Description                                               |
+| ----------------------- | -------------------- | --------------------------------------------------------- |
+| `weekStartsOn`          | `0 \| 1 \| ... \| 6` | First day of the week (0 = Sunday, 1 = Monday, etc.).     |
+| `firstWeekContainsDate` | `1 \| 2 \| ... \| 7` | January day that must fall in the first week of the year. |
+
+```tsx
+<DayPicker weekStartsOn={1} firstWeekContainsDate={4} />
+```

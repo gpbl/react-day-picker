@@ -1,0 +1,330 @@
+---
+sidebar_position: 2
+---
+
+# Custom Selections
+
+If the built-in [selection modes](../selections/selection-modes.mdx) do not satisfy your app’s requirements, you can control the selection behavior using the [`onDayClick`](../api/interfaces/PropsBase.md#ondayclick) and [`modifiers`](../api/type-aliases/Modifiers.md) props.
+
+| Prop         | Type                                                        | Description                               |
+| ------------ | ----------------------------------------------------------- | ----------------------------------------- |
+| `onDayClick` | [`DayEventHandler`](../api/type-aliases/DayEventHandler.md) | Callback when a day is clicked.           |
+| `modifiers`  | [`Modifiers`](../api/type-aliases/Modifiers.md)             | An object with the modifiers of the days. |
+
+The `onDayClick` prop is a function that receives the clicked day and its modifiers as arguments.
+
+## How custom selection works
+
+- Omit `mode` (or set it to `undefined`) to disable built-in selection logic.
+- Keep your own selection state, derive a `selected` modifier (and any `range_*` modifiers) from it, and pass them to `modifiers` so styling/ARIA stay aligned.
+- Ignore clicks on `modifiers.disabled` or `modifiers.hidden` to preserve accessibility.
+- For keyboard support, handle `onDayKeyDown` (Space/Enter) in the same way as `onDayClick`.
+
+## Examples
+
+### Week Selection
+
+The following example demonstrates how to select an entire week when a day is clicked.
+
+Note the use of the `startOfWeek` and `endOfWeek` functions from [date-fns](https://date-fns.org), and how the `selectedWeek` state is passed to the `modifiers` prop.
+
+```tsx
+import React, { useState } from "react";
+
+import { endOfWeek, startOfWeek } from "date-fns";
+import { type DateRange, DayPicker, rangeIncludesDate } from "react-day-picker";
+
+/** Select the whole week when the day is clicked. */
+export function CustomWeek() {
+  const [selectedWeek, setSelectedWeek] = useState<DateRange | undefined>();
+
+  return (
+    <DayPicker
+      showWeekNumber
+      showOutsideDays
+      modifiers={{
+        selected: selectedWeek,
+        range_start: selectedWeek?.from,
+        range_end: selectedWeek?.to,
+        range_middle: (date: Date) =>
+          selectedWeek ? rangeIncludesDate(selectedWeek, date, true) : false,
+      }}
+      onDayClick={(day, modifiers) => {
+        if (modifiers.disabled || modifiers.hidden) return;
+        if (modifiers.selected) {
+          setSelectedWeek(undefined);
+          return;
+        }
+        setSelectedWeek({
+          from: startOfWeek(day),
+          to: endOfWeek(day),
+        });
+      }}
+      onDayKeyDown={(day, modifiers, e) => {
+        if (e.key === " " || e.key === "Enter") {
+          e.preventDefault();
+          if (modifiers.disabled || modifiers.hidden) return;
+          if (modifiers.selected) {
+            setSelectedWeek(undefined);
+            return;
+          }
+          setSelectedWeek({
+            from: startOfWeek(day),
+            to: endOfWeek(day),
+          });
+        }
+      }}
+      footer={
+        selectedWeek &&
+        `Week from ${selectedWeek?.from?.toLocaleDateString()} to ${selectedWeek?.to?.toLocaleDateString()}`
+      }
+    />
+  );
+}
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/CustomWeek.tsx">
+  <ExamplesV9.CustomWeek />
+</BrowserWindow>
+
+### Single Selection
+
+For example, to implement the "single selection" behavior (similar to when `mode="single"`):
+
+```tsx
+import { useState } from "react";
+
+import { DayPicker, DayPickerProps } from "react-day-picker";
+
+export function CustomSingle() {
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>();
+
+  const modifiers: DayPickerProps["modifiers"] = {};
+  if (selectedDate) {
+    modifiers.selected = selectedDate;
+  }
+  return (
+    <DayPicker
+      modifiers={modifiers}
+      onDayClick={(day, modifiers) => {
+        if (modifiers.disabled || modifiers.hidden) return;
+        setSelectedDate(modifiers.selected ? undefined : day);
+      }}
+      onDayKeyDown={(day, modifiers, e) => {
+        if (e.key === " " || e.key === "Enter") {
+          e.preventDefault();
+          if (modifiers.disabled || modifiers.hidden) return;
+          setSelectedDate(modifiers.selected ? undefined : day);
+        }
+      }}
+      footer={selectedDate && `You selected ${selectedDate.toDateString()}`}
+    />
+  );
+}
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/CustomSingle.tsx">
+  <ExamplesV9.CustomSingle />
+</BrowserWindow>
+
+### Multi Selections
+
+Selecting multiple days is a bit more complex as it involves handling an array of dates. The following example replicates the `mode="multiple"` selection mode:
+
+```tsx
+import { useState } from "react";
+
+import { isSameDay } from "date-fns";
+import { DayEventHandler, DayPicker } from "react-day-picker";
+
+export function CustomMultiple() {
+  const [value, setValue] = useState<Date[]>([]);
+
+  const handleDayClick: DayEventHandler<React.MouseEvent> = (
+    day,
+    modifiers,
+  ) => {
+    if (modifiers.disabled || modifiers.hidden) return;
+    const newValue = [...value];
+    if (modifiers.selected) {
+      const index = value.findIndex((d) => isSameDay(day, d));
+      newValue.splice(index, 1);
+    } else {
+      if (!value.some((d) => isSameDay(d, day))) {
+        newValue.push(day);
+      }
+    }
+    setValue(newValue);
+  };
+
+  const handleResetClick = () => setValue([]);
+
+  let footer = <>Please pick one or more days.</>;
+
+  if (value.length > 0)
+    footer = (
+      <>
+        You selected {value.length} days.{" "}
+        <button type="button" onClick={handleResetClick}>
+          Reset
+        </button>
+      </>
+    );
+
+  return (
+    <DayPicker
+      onDayClick={handleDayClick}
+      onDayKeyDown={(day, modifiers, e) => {
+        if (e.key === " " || e.key === "Enter") {
+          e.preventDefault();
+          handleDayClick(day, modifiers, e as any);
+        }
+      }}
+      modifiers={{ selected: value }}
+      footer={footer}
+    />
+  );
+}
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/CustomMultiple.tsx">
+  <ExamplesV9.CustomMultiple />
+</BrowserWindow>
+
+### Rolling N-day window
+
+Create a fixed-length range (for example, 7 days) starting from the clicked day.
+
+```tsx
+import { addDays } from "date-fns";
+import { useState } from "react";
+
+import { type DateRange, DayPicker } from "react-day-picker";
+
+export function CustomRollingWindow() {
+  const [range, setRange] = useState<DateRange | undefined>();
+  const windowLength = 7;
+
+  const applyRange = (start: Date): DateRange => ({
+    from: start,
+    to: addDays(start, windowLength - 1),
+  });
+
+  return (
+    <DayPicker
+      modifiers={{
+        selected: range,
+        range_start: range?.from,
+        range_end: range?.to,
+        range_middle: range,
+      }}
+      onDayClick={(day, modifiers) => {
+        if (modifiers.disabled || modifiers.hidden) return;
+        setRange(modifiers.selected ? undefined : applyRange(day));
+      }}
+      onDayKeyDown={(day, modifiers, e) => {
+        if (e.key === " " || e.key === "Enter") {
+          e.preventDefault();
+          if (modifiers.disabled || modifiers.hidden) return;
+          setRange(modifiers.selected ? undefined : applyRange(day));
+        }
+      }}
+    />
+  );
+}
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/CustomRollingWindow.tsx">
+  <ExamplesV9.CustomRollingWindow />
+</BrowserWindow>
+
+### Selecting full months
+
+Toggle an entire month at a time.
+
+```tsx
+import { endOfMonth, startOfMonth } from "date-fns";
+import { useState } from "react";
+
+import { type DateRange, DayPicker } from "react-day-picker";
+
+export function CustomMonthSelection() {
+  const [monthRange, setMonthRange] = useState<DateRange | undefined>();
+
+  const toMonthRange = (day: Date): DateRange => ({
+    from: startOfMonth(day),
+    to: endOfMonth(day),
+  });
+
+  const isInRange = (day: Date) =>
+    monthRange?.from && monthRange?.to
+      ? day >= monthRange.from && day <= monthRange.to
+      : false;
+
+  return (
+    <DayPicker
+      showOutsideDays
+      modifiers={{
+        selected: monthRange,
+        range_start: monthRange?.from,
+        range_end: monthRange?.to,
+        range_middle: monthRange,
+      }}
+      onDayClick={(day, modifiers) => {
+        if (modifiers.disabled || modifiers.hidden) return;
+        setMonthRange(isInRange(day) ? undefined : toMonthRange(day));
+      }}
+    />
+  );
+}
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/CustomMonthSelection.tsx">
+  <ExamplesV9.CustomMonthSelection />
+</BrowserWindow>
+
+## Style custom modifiers
+
+Use `modifiersClassNames` or `modifiersStyles` to surface your custom state (for example, `range_middle`, `rolling`, `blocked`).
+
+```tsx
+<DayPicker
+  modifiers={{ selected: value, rolling: rollingRange }}
+  modifiersClassNames={{ rolling: "my-rolling" }}
+  modifiersStyles={{ rolling: { background: "var(--rdp-accent-color)" } }}
+/>
+```
+
+## Week numbers and starts
+
+For week-based selections, set `weekStartsOn` (locale-aware) and consider handling `onWeekNumberClick` to select a week when its number is clicked. Combine it with `showWeekNumber`.
+
+```tsx
+<DayPicker
+  showWeekNumber
+  weekStartsOn={1}
+  onWeekNumberClick={(weekNumber, week, e) => {
+    e.preventDefault();
+    setSelectedWeek({ from: week.from, to: week.to });
+  }}
+  modifiers={{ selected: selectedWeek }}
+/>
+```
+
+## Persisting custom selections
+
+Serialize your custom selection state before storing or sending it.
+
+```ts
+// Single date
+const payload = selectedDate ? selectedDate.toISOString() : null;
+
+// Multiple dates
+const payload = value.map((date) => date.toISOString());
+
+// Range
+const payload =
+  range?.from && range?.to
+    ? { from: range.from.toISOString(), to: range.to.toISOString() }
+    : null;
+```
