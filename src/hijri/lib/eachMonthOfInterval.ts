@@ -24,7 +24,9 @@ export function eachMonthOfInterval(interval: Interval): Date[] {
     currentYear < endYear ||
     (currentYear === endYear && currentMonth <= endMonth)
   ) {
-    months.push(toGregorianDate({ year: currentYear, monthIndex: currentMonth, day: 1 }));
+    months.push(
+      toGregorianDate({ year: currentYear, monthIndex: currentMonth, day: 1 }),
+    );
 
     currentMonth += 1;
     if (currentMonth > 11) {
