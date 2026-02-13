@@ -1,22 +1,31 @@
-import { toGregorianDate } from "./conversion.js";
+import { toGregorianDate, toHijriDate } from "./conversion.js";
+import { clampHijriDate } from "./range.js";
 
-const MS_PER_DAY = 24 * 60 * 60 * 1000;
+const MAX_DAY_IN_HIJRI_MONTH = 30;
+const MIN_DAY_IN_HIJRI_MONTH = 29;
 
 export function getDaysInMonth(year: number, monthIndex: number): number {
-  // To get days in month, find difference between start of next month and start of this month.
-  // Note: monthIndex can be 12 (for next year's first month calculation).
-  // We handle overflow in toGregorianDate logic if needed, but toGregorianDate wrapper takes monthIndex.
-  // We need to handle year rollover if monthIndex >= 12.
+  const clamped = clampHijriDate({ year, monthIndex, day: 1 });
 
-  let nextMonthYear = year;
-  let nextMonthIndex = monthIndex + 1;
-  if (nextMonthIndex > 11) {
-      nextMonthYear += Math.floor(nextMonthIndex / 12);
-      nextMonthIndex = nextMonthIndex % 12;
+  for (
+    let day = MAX_DAY_IN_HIJRI_MONTH;
+    day >= MIN_DAY_IN_HIJRI_MONTH;
+    day -= 1
+  ) {
+    const candidateDate = toGregorianDate({
+      year: clamped.year,
+      monthIndex: clamped.monthIndex,
+      day,
+    });
+    const roundTrip = toHijriDate(candidateDate);
+    if (
+      roundTrip.year === clamped.year &&
+      roundTrip.monthIndex === clamped.monthIndex &&
+      roundTrip.day === day
+    ) {
+      return day;
+    }
   }
 
-  const startCurrent = toGregorianDate({ year, monthIndex, day: 1 });
-  const startNext = toGregorianDate({ year: nextMonthYear, monthIndex: nextMonthIndex, day: 1 });
-
-  return Math.round((startNext.getTime() - startCurrent.getTime()) / MS_PER_DAY);
+  return MIN_DAY_IN_HIJRI_MONTH;
 }
