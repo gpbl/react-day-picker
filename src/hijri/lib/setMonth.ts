@@ -12,11 +12,11 @@ export function setMonth(date: Date, monthIndex: number): Date {
   let targetMonth = monthIndex;
 
   if (targetMonth > 11 || targetMonth < 0) {
-      targetYear += Math.floor(targetMonth / 12);
-      targetMonth = targetMonth % 12;
-      if (targetMonth < 0) {
-          targetMonth += 12;
-      }
+    targetYear += Math.floor(targetMonth / 12);
+    targetMonth = targetMonth % 12;
+    if (targetMonth < 0) {
+      targetMonth += 12;
+    }
   }
 
   const daysInTargetMonth = getDaysInMonth(targetYear, targetMonth);

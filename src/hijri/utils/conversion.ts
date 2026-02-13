@@ -1,7 +1,4 @@
-import {
-  gregorianToHijri,
-  hijriToGregorian,
-} from "@tabby_ai/hijri-converter";
+import { gregorianToHijri, hijriToGregorian } from "@tabby_ai/hijri-converter";
 import type { HijriDate } from "./types.js";
 
 /** Convert a Gregorian date to a Hijri date. */

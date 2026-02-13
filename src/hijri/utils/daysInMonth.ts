@@ -11,12 +11,18 @@ export function getDaysInMonth(year: number, monthIndex: number): number {
   let nextMonthYear = year;
   let nextMonthIndex = monthIndex + 1;
   if (nextMonthIndex > 11) {
-      nextMonthYear += Math.floor(nextMonthIndex / 12);
-      nextMonthIndex = nextMonthIndex % 12;
+    nextMonthYear += Math.floor(nextMonthIndex / 12);
+    nextMonthIndex = nextMonthIndex % 12;
   }
 
   const startCurrent = toGregorianDate({ year, monthIndex, day: 1 });
-  const startNext = toGregorianDate({ year: nextMonthYear, monthIndex: nextMonthIndex, day: 1 });
+  const startNext = toGregorianDate({
+    year: nextMonthYear,
+    monthIndex: nextMonthIndex,
+    day: 1,
+  });
 
-  return Math.round((startNext.getTime() - startCurrent.getTime()) / MS_PER_DAY);
+  return Math.round(
+    (startNext.getTime() - startCurrent.getTime()) / MS_PER_DAY,
+  );
 }
