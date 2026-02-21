@@ -123,6 +123,61 @@ describe("useRange", () => {
       to: new Date(2023, 6, 10),
     });
   });
+
+  describe("rangeResetOnSelect", () => {
+    test("sets only from when selected is undefined", () => {
+      const date = new Date(2023, 6, 15);
+      const { result } = renderHook(() =>
+        useRange(
+          {
+            mode: "range",
+            selected: undefined,
+            required: false,
+            rangeResetOnSelect: true,
+          },
+          defaultDateLib,
+        ),
+      );
+
+      act(() => {
+        result.current.select?.(date, {}, {} as React.MouseEvent);
+      });
+
+      expect(result.current.selected).toEqual({
+        from: date,
+        to: undefined,
+      });
+    });
+
+    test("reset range when full range is selected", () => {
+      const fullRange = {
+        from: new Date(2023, 6, 1),
+        to: new Date(2023, 6, 5),
+      };
+      const anotherDate = new Date(2023, 6, 15);
+      const { result } = renderHook(() =>
+        useRange(
+          {
+            mode: "range",
+            selected: fullRange,
+            required: false,
+            rangeResetOnSelect: true,
+          },
+          defaultDateLib,
+        ),
+      );
+
+      act(() => {
+        result.current.select?.(anotherDate, {}, {} as React.MouseEvent);
+      });
+
+      expect(result.current.selected).toEqual({
+        from: anotherDate,
+        to: undefined,
+      });
+    });
+  });
+
   it("uses the selected value from props when onSelect is provided", () => {
     const mockOnSelect = jest.fn();
     const selectedRange = {
