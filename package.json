@@ -245,7 +245,7 @@
   ],
   "dependencies": {
     "@date-fns/tz": "^1.4.1",
-    "@tabby_ai/hijri-converter": "^1.0.5",
+    "@tabby_ai/hijri-converter": "1.0.5",
     "date-fns": "^4.1.0",
     "date-fns-jalali": "^4.1.0-0"
   },
