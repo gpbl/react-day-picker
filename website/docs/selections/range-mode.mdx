@@ -24,7 +24,7 @@ Set the `mode` prop to `"range"` to enable the selection of a continuous range o
 | `min`                 | `number`                                                                            | The minimum number of nights in the range. |
 | `max`                 | `number`                                                                            | The maximum number of nights in the range. |
 | `excludeDisabled`     | `boolean`                                                                           | Exclude disabled dates from the range.     |
-| `rangeResetOnSelect`  | `boolean`                                                                           | Reset range when a date is selected.       |
+| `resetOnSelect`  | `boolean`                                                                           | Reset range when a date is selected.       |
 
 ## Min and Max Dates
 
@@ -76,12 +76,12 @@ In `range` mode, disabled dates are included in the selected range by default. T
 
 ## Reset Range On Select {#reset-selection`}
 
-By default, the `DayPicker` keeps the range complete, changing the `from` or `to` when the user clicks on a day. To reset the range when clicking on a day, use the `rangeResetOnSelect` prop.
+By default, the `DayPicker` keeps the range complete, changing the `from` or `to` when the user clicks on a day. To reset the range when clicking on a day, use the `resetOnSelect` prop.
 
 ```tsx
 <DayPicker
   mode="range"
-  rangeResetOnSelect
+  resetOnSelect
 />
 ```
 

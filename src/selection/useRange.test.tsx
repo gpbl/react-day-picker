@@ -124,7 +124,7 @@ describe("useRange", () => {
     });
   });
 
-  describe("rangeResetOnSelect", () => {
+  describe("resetOnSelect", () => {
     test("sets only from when selected is undefined", () => {
       const date = new Date(2023, 6, 15);
       const { result } = renderHook(() =>
@@ -133,7 +133,7 @@ describe("useRange", () => {
             mode: "range",
             selected: undefined,
             required: false,
-            rangeResetOnSelect: true,
+            resetOnSelect: true,
           },
           defaultDateLib,
         ),
@@ -161,7 +161,7 @@ describe("useRange", () => {
             mode: "range",
             selected: fullRange,
             required: false,
-            rangeResetOnSelect: true,
+            resetOnSelect: true,
           },
           defaultDateLib,
         ),

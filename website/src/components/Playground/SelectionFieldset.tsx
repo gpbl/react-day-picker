@@ -93,10 +93,10 @@ export function SelectionFieldset({
           <label>
             <input
               type="checkbox"
-              checked={props.rangeResetOnSelect}
-              name="rangeResetOnSelect"
+              checked={props.resetOnSelect}
+              name="resetOnSelect"
               onChange={(e) => {
-                setProps({ ...props, rangeResetOnSelect: e.target.checked });
+                setProps({ ...props, resetOnSelect: e.target.checked });
               }}
             />
             Reset range on select

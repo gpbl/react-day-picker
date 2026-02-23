@@ -27,7 +27,7 @@ export function useRange<T extends DayPickerProps>(
   const {
     disabled,
     excludeDisabled,
-    rangeResetOnSelect,
+    resetOnSelect,
     selected: initiallySelected,
     required,
     onSelect,
@@ -52,7 +52,7 @@ export function useRange<T extends DayPickerProps>(
     let newRange: ReturnType<typeof addToRange>;
     if (triggerDate) {
       const hasFullRange = selected?.from && selected?.to;
-      if (rangeResetOnSelect && (hasFullRange || !selected?.from)) {
+      if (resetOnSelect && (hasFullRange || !selected?.from)) {
         newRange = { from: triggerDate, to: undefined };
       } else {
         newRange = addToRange(

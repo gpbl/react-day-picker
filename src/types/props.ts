@@ -706,7 +706,7 @@ export interface PropsRangeRequired {
    * When `true`, clicking a day while a full range is selected resets the
    * range to that day as the new start instead of updating the existing range.
    */
-  rangeResetOnSelect?: boolean | undefined;
+  resetOnSelect?: boolean | undefined;
   /** The selected range. */
   selected: DateRange | undefined;
   /** Event handler when a range is selected. */
@@ -743,7 +743,7 @@ export interface PropsRange {
    * When `true`, clicking a day while a full range is selected resets the
    * range to that day as the new start instead of updating the existing range.
    */
-  rangeResetOnSelect?: boolean | undefined;
+  resetOnSelect?: boolean | undefined;
   /** The selected range. */
   selected?: DateRange | undefined;
   /** Event handler when the selection changes. */
