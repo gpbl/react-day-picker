@@ -17,24 +17,24 @@ const getTo = () => screen.getByTestId("to");
 
 test("select same day range", async () => {
   await user.click(dateButton(today));
-  expect(getFrom()).toHaveTextContent("from: 2022-09-12");
-  expect(getTo()).toHaveTextContent("to:");
+  expect(getFrom()).toHaveTextContent("2022-09-12");
+  expect(getTo()).toHaveTextContent("");
   await user.click(dateButton(today));
-  expect(getFrom()).toHaveTextContent("from: 2022-09-12");
-  expect(getTo()).toHaveTextContent("to: 2022-09-12");
+  expect(getFrom()).toHaveTextContent("2022-09-12");
+  expect(getTo()).toHaveTextContent("—2022-09-12");
 });
 
 test("start range after click on day with range selected", async () => {
   await user.click(dateButton(today));
-  expect(getFrom()).toHaveTextContent("from: 2022-09-12");
-  expect(getTo()).toHaveTextContent("to:");
+  expect(getFrom()).toHaveTextContent("2022-09-12");
+  expect(getTo()).toHaveTextContent("");
   await user.click(dateButton(addDays(today, 1)));
-  expect(getFrom()).toHaveTextContent("from: 2022-09-12");
-  expect(getTo()).toHaveTextContent("to: 2022-09-13");
+  expect(getFrom()).toHaveTextContent("2022-09-12");
+  expect(getTo()).toHaveTextContent("—2022-09-13");
   await user.click(dateButton(addDays(today, 4)));
-  expect(getFrom()).toHaveTextContent("from: 2022-09-16");
-  expect(getTo()).toHaveTextContent("to:");
+  expect(getFrom()).toHaveTextContent("2022-09-16");
+  expect(getTo()).toHaveTextContent("");
   await user.click(dateButton(today));
-  expect(getFrom()).toHaveTextContent("from: 2022-09-12");
-  expect(getTo()).toHaveTextContent("to: 2022-09-16");
+  expect(getFrom()).toHaveTextContent("2022-09-12");
+  expect(getTo()).toHaveTextContent("—2022-09-16");
 });

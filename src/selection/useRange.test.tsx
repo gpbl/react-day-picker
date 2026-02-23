@@ -176,6 +176,51 @@ describe("useRange", () => {
         to: undefined,
       });
     });
+
+    test("clears a single-day range when required is false", () => {
+      const day = new Date(2023, 6, 15);
+      const { result } = renderHook(() =>
+        useRange(
+          {
+            mode: "range",
+            selected: { from: day, to: day },
+            required: false,
+            resetOnSelect: true,
+          },
+          defaultDateLib,
+        ),
+      );
+
+      act(() => {
+        result.current.select?.(day, {}, {} as React.MouseEvent);
+      });
+
+      expect(result.current.selected).toBeUndefined();
+    });
+
+    test("resets to an open range when required is true", () => {
+      const day = new Date(2023, 6, 15);
+      const { result } = renderHook(() =>
+        useRange(
+          {
+            mode: "range",
+            selected: { from: day, to: day },
+            required: true,
+            resetOnSelect: true,
+          },
+          defaultDateLib,
+        ),
+      );
+
+      act(() => {
+        result.current.select?.(day, {}, {} as React.MouseEvent);
+      });
+
+      expect(result.current.selected).toEqual({
+        from: day,
+        to: undefined,
+      });
+    });
   });
 
   it("uses the selected value from props when onSelect is provided", () => {

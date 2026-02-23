@@ -51,9 +51,21 @@ export function useRange<T extends DayPickerProps>(
     const { min, max } = props as PropsRange;
     let newRange: ReturnType<typeof addToRange>;
     if (triggerDate) {
-      const hasFullRange = selected?.from && selected?.to;
+      const selectedFrom = selected?.from;
+      const selectedTo = selected?.to;
+      const hasFullRange = !!selectedFrom && !!selectedTo;
+      const isClickingSingleDayRange =
+        !!selectedFrom &&
+        !!selectedTo &&
+        dateLib.isSameDay(selectedFrom, selectedTo) &&
+        dateLib.isSameDay(triggerDate, selectedFrom);
+
       if (resetOnSelect && (hasFullRange || !selected?.from)) {
-        newRange = { from: triggerDate, to: undefined };
+        if (!required && isClickingSingleDayRange) {
+          newRange = undefined;
+        } else {
+          newRange = { from: triggerDate, to: undefined };
+        }
       } else {
         newRange = addToRange(
           triggerDate,

@@ -16,15 +16,15 @@ Set the `mode` prop to `"range"` to enable the selection of a continuous range o
 
 ## Range Mode Props
 
-| Prop Name             | Type                                                                                | Description                                |
-| --------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------ |
-| `selected`            | [`DateRange`](../api/type-aliases/DateRange.md)                                     | The selected range.                        |
-| `onSelect`            | [`OnSelectHandler<DateRange \| undefined>`](../api/type-aliases/OnSelectHandler.md) | Event callback when a date is selected.    |
-| `required`            | `boolean`                                                                           | Make the selection required.               |
-| `min`                 | `number`                                                                            | The minimum number of nights in the range. |
-| `max`                 | `number`                                                                            | The maximum number of nights in the range. |
-| `excludeDisabled`     | `boolean`                                                                           | Exclude disabled dates from the range.     |
-| `resetOnSelect`  | `boolean`                                                                           | Reset range when a date is selected.       |
+| Prop Name         | Type                                                                                | Description                                |
+| ----------------- | ----------------------------------------------------------------------------------- | ------------------------------------------ |
+| `selected`        | [`DateRange`](../api/type-aliases/DateRange.md)                                     | The selected range.                        |
+| `onSelect`        | [`OnSelectHandler<DateRange \| undefined>`](../api/type-aliases/OnSelectHandler.md) | Event callback when a date is selected.    |
+| `required`        | `boolean`                                                                           | Make the selection required.               |
+| `resetOnSelect`   | `boolean`                                                                           | Start a new range after a completed one.   |
+| `min`             | `number`                                                                            | The minimum number of nights in the range. |
+| `max`             | `number`                                                                            | The maximum number of nights in the range. |
+| `excludeDisabled` | `boolean`                                                                           | Exclude disabled dates from the range.     |
 
 ## Min and Max Dates
 
@@ -55,6 +55,19 @@ By setting the `required` prop, DayPicker ensures that the selected range cannot
   <Examples.RangeRequired />
 </BrowserWindow>
 
+## Reset Range On Select {#reset-selection}
+
+By default, once a range is complete, clicking another day updates the current `from` or `to`.
+Use `resetOnSelect` to start a new range when there is no current start date or when a full range is already selected. In those cases, the clicked day becomes `from`, `to` is cleared, and the next click completes the range.
+
+```tsx
+<DayPicker mode="range" resetOnSelect />
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/RangeResetSelection.tsx">
+  <Examples.RangeResetSelection />
+</BrowserWindow>
+
 ## Excluding Disabled Dates {#exclude-disabled}
 
 In `range` mode, disabled dates are included in the selected range by default. To exclude disabled dates from the range, use the `excludeDisabled` prop. If a disabled date is selected, the range will reset.
@@ -71,20 +84,4 @@ In `range` mode, disabled dates are included in the selected range by default. T
 
 <BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/RangeExcludeDisabled.tsx">
   <Examples.RangeExcludeDisabled />
-</BrowserWindow>
-
-
-## Reset Range On Select {#reset-selection`}
-
-By default, the `DayPicker` keeps the range complete, changing the `from` or `to` when the user clicks on a day. To reset the range when clicking on a day, use the `resetOnSelect` prop.
-
-```tsx
-<DayPicker
-  mode="range"
-  resetOnSelect
-/>
-```
-
-<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/RangeResetSelection.tsx">
-  <Examples.RangeResetSelection />
 </BrowserWindow>

@@ -19,16 +19,16 @@ export function RangeResetSelection() {
       mode="range"
       selected={selected}
       onSelect={handleSelect}
-      rangeResetOnSelect
+      resetOnSelect
       footer={
-        <div>
-          <p data-testid="from">
-            from: {selected?.from && format(selected?.from, "yyyy-MM-dd")}
-          </p>
-          <p data-testid="to">
-            to: {selected?.to && format(selected?.to, "yyyy-MM-dd")}
-          </p>
-        </div>
+        <p>
+          <span data-testid="from">
+            {selected?.from && format(selected?.from, "yyyy-MM-dd")}
+          </span>
+          <span data-testid="to">
+            {selected?.to && `—${format(selected?.to, "yyyy-MM-dd")}`}
+          </span>
+        </p>
       }
     />
   );
