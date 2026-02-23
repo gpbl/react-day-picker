@@ -36,7 +36,7 @@ function normalizeHijriMonth(
   year: number,
   monthIndex: number,
 ): Pick<HijriDate, "year" | "monthIndex"> {
-  let normalizedYear = year + Math.floor(monthIndex / MONTHS_PER_YEAR);
+  let normalizedYear = year + Math.trunc(monthIndex / MONTHS_PER_YEAR);
   let normalizedMonth = monthIndex % MONTHS_PER_YEAR;
   if (normalizedMonth < 0) {
     normalizedMonth += MONTHS_PER_YEAR;
