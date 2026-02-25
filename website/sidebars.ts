@@ -57,6 +57,7 @@ const sidebars: SidebarsConfig = {
         "localization/setting-time-zone",
         "localization/iso-and-broadcast",
         "localization/persian",
+        "localization/hijri",
         "localization/buddhist",
         "localization/ethiopic",
         "localization/hebrew",
