@@ -12,7 +12,7 @@ importers:
         specifier: ^1.4.1
         version: 1.4.1
       '@tabby_ai/hijri-converter':
-        specifier: ^1.0.5
+        specifier: 1.0.5
         version: 1.0.5
       date-fns:
         specifier: ^4.1.0
