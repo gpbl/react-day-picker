@@ -38,4 +38,44 @@ describe("hijri format", () => {
       expect(dateLib.format(ramadanDate, "d")).toBe("٨");
     });
   });
+
+  describe('when Intl.DateTimeFormat does not support "islamic-umalqura"', () => {
+    const originalDateTimeFormat = Intl.DateTimeFormat;
+
+    beforeEach(() => {
+      jest.spyOn(Intl, "DateTimeFormat").mockImplementation(((
+        locales,
+        options,
+      ) => {
+        if (options?.calendar === "islamic-umalqura") {
+          throw new RangeError("Unsupported calendar");
+        }
+        return new originalDateTimeFormat(locales, options);
+      }) as typeof Intl.DateTimeFormat);
+    });
+
+    afterEach(() => {
+      jest.restoreAllMocks();
+    });
+
+    test("formats month and year using fallback names", () => {
+      expect(format(ramadanDate, "LLLL y", { locale: enUS })).toBe(
+        "Ramadan 1446",
+      );
+    });
+
+    test("formats weekday tokens using fallback weekday names", () => {
+      expect(format(ramadanDate, "cccccc", { locale: enUS })).toBe("S");
+    });
+
+    test("formats full date style using fallback formatting", () => {
+      expect(format(ramadanDate, "PPPP", { locale: enUS })).toBe(
+        "Saturday, Ramadan 8, 1446",
+      );
+    });
+
+    test("formats time tokens without throwing", () => {
+      expect(format(ramadanDate, "hh:mm a", { locale: enUS })).toMatch(/\d/);
+    });
+  });
 });
