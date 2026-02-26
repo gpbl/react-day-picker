@@ -699,9 +699,18 @@ export interface PropsRangeRequired {
   /**
    * When `true`, the range will reset when including a disabled day.
    *
-   * @since V9.0.2
+   * @since 9.0.2
    */
   excludeDisabled?: boolean | undefined;
+  /**
+   * When `true`, clicking a day starts a new range if there is no current start
+   * date or if a range is already complete. In those cases, the clicked day
+   * becomes the start of the new range.
+   *
+   * @since 9.14
+   * @see https://daypicker.dev/selections/range-mode#reset-selection
+   */
+  resetOnSelect?: boolean | undefined;
   /** The selected range. */
   selected: DateRange | undefined;
   /** Event handler when a range is selected. */
@@ -730,10 +739,20 @@ export interface PropsRange {
   /**
    * When `true`, the range will reset when including a disabled day.
    *
-   * @since V9.0.2
+   * @since 9.0.2
    * @see https://daypicker.dev/docs/selection-modes#exclude-disabled
    */
   excludeDisabled?: boolean | undefined;
+  /**
+   * When `true`, clicking a day starts a new range if there is no current start
+   * date or if a range is already complete. In those cases, the clicked day
+   * becomes the start of the new range. When `required` is `false`, clicking
+   * the same day of a single-day range clears the selection.
+   *
+   * @since 9.14
+   * @see https://daypicker.dev/selections/range-mode#reset-selection
+   */
+  resetOnSelect?: boolean | undefined;
   /** The selected range. */
   selected?: DateRange | undefined;
   /** Event handler when the selection changes. */
