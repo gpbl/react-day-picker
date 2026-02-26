@@ -388,7 +388,7 @@ export function DayPicker(initialProps: DayPickerProps) {
         style={style}
         dir={props.dir}
         id={props.id}
-        lang={props.lang}
+        lang={props.lang ?? locale.code}
         nonce={props.nonce}
         title={props.title}
         role={props.role}

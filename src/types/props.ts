@@ -428,7 +428,12 @@ export interface PropsBase {
   nonce?: HTMLDivElement["nonce"];
   /** Add a `title` attribute to the container element. */
   title?: HTMLDivElement["title"];
-  /** Add the language tag to the container element. */
+  /**
+   * Add the language tag to the container element.
+   *
+   * When omitted, DayPicker uses the active locale code (`locale.code`).
+   * Set this prop to override the language tag.
+   */
   lang?: HTMLDivElement["lang"];
   /**
    * The locale object used to localize dates. Pass a locale from

@@ -7,6 +7,7 @@ exports[`should match the snapshot 1`] = `
       class="rdp-root"
       data-mode="range"
       id="test"
+      lang="en-US"
     >
       <div
         class="rdp-months"
@@ -646,6 +647,7 @@ exports[`when a day in the range is clicked when the day is clicked again when a
       class="rdp-root"
       data-mode="range"
       id="test"
+      lang="en-US"
     >
       <div
         class="rdp-months"
