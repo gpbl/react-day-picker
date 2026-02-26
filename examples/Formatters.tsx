@@ -25,9 +25,9 @@ const formatCaption = (month: Date, options: DateLibOptions | undefined) => {
 export function Formatters() {
   return (
     <DayPicker
-      fromYear={2020}
-      toYear={2025}
-      formatters={{ formatMonthCaption: formatCaption }}
+      startMonth={new Date(2020, 0)}
+      endMonth={new Date(2025, 11)}
+      formatters={{ formatCaption }}
     />
   );
 }

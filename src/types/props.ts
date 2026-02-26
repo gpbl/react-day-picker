@@ -1,6 +1,5 @@
 import type React from "react";
 import type { DateLib, DayPickerLocale } from "../classes/DateLib.js";
-import type { DeprecatedUI } from "../UI.js";
 
 import type {
   ClassNames,
@@ -67,7 +66,7 @@ export interface PropsBase {
    *
    * @see https://daypicker.dev/docs/styling
    */
-  classNames?: Partial<ClassNames> & Partial<DeprecatedUI<string>>;
+  classNames?: Partial<ClassNames>;
   /**
    * Change the class name for the day matching the `modifiers`.
    *
@@ -81,7 +80,7 @@ export interface PropsBase {
    *
    * @see https://daypicker.dev/docs/styling
    */
-  styles?: Partial<Styles> & Partial<DeprecatedUI<React.CSSProperties>>;
+  styles?: Partial<Styles>;
   /**
    * Change the class name for the day matching the {@link modifiers}.
    *
@@ -124,53 +123,12 @@ export interface PropsBase {
    */
   startMonth?: Date | undefined;
   /**
-   * @private
-   * @deprecated This prop has been removed. Use `hidden={{ before: date }}`
-   *   instead.
-   * @see https://daypicker.dev/docs/navigation#start-and-end-dates
-   */
-  fromDate?: Date | undefined;
-  /**
-   * @private
-   * @deprecated This prop has been renamed to `startMonth`.
-   * @see https://daypicker.dev/docs/navigation#start-and-end-dates
-   */
-  fromMonth?: Date | undefined;
-  /**
-   * @private
-   * @deprecated Use `startMonth` instead. E.g. `startMonth={new Date(year,
-   *   0)}`.
-   * @see https://daypicker.dev/docs/navigation#start-and-end-dates
-   */
-  fromYear?: number | undefined;
-
-  /**
    * The latest month to end the month navigation.
    *
    * @since 9.0.0
    * @see https://daypicker.dev/docs/navigation#start-and-end-dates
    */
   endMonth?: Date;
-  /**
-   * @private
-   * @deprecated This prop has been removed. Use `hidden={{ after: date }}`
-   *   instead.
-   * @see https://daypicker.dev/docs/navigation#start-and-end-dates
-   */
-  toDate?: Date;
-  /**
-   * @private
-   * @deprecated This prop has been renamed to `endMonth`.
-   * @see https://daypicker.dev/docs/navigation#start-and-end-dates
-   */
-  toMonth?: Date;
-  /**
-   * @private
-   * @deprecated Use `endMonth` instead. E.g. `endMonth={new Date(year, 0)}`.
-   * @see https://daypicker.dev/docs/navigation#start-and-end-dates
-   */
-  toYear?: number;
-
   /**
    * Paginate the month navigation displaying the `numberOfMonths` at a time.
    *
@@ -232,8 +190,7 @@ export interface PropsBase {
    * - `after`: Displays the buttons after the caption. This ensures the tab order
    *   matches the visual order.
    *
-   * If not set, the buttons default to being displayed after the caption, but
-   * the tab order may not align with the visual order.
+   * Default value is `after`.
    *
    * @since 9.7.0
    * @see https://daypicker.dev/docs/customization#navigation-layouts
@@ -340,11 +297,6 @@ export interface PropsBase {
    * @see https://daypicker.dev/guides/accessibility#autofocus
    */
   autoFocus?: boolean;
-  /**
-   * @private
-   * @deprecated This prop will be removed. Use {@link autoFocus} instead.
-   */
-  initialFocus?: boolean;
   /**
    * Apply the `disabled` modifier to the matching days. Disabled days cannot be
    * selected when in a selection mode is set.
@@ -510,16 +462,6 @@ export interface PropsBase {
    * @see https://daypicker.dev/docs/navigation
    */
   onPrevClick?: MonthChangeEventHandler;
-  /**
-   * Event handler when a week number is clicked.
-   *
-   * @private
-   * @deprecated Use a custom `WeekNumber` component instead.
-   * @see https://daypicker.dev/docs/customization#showweeknumber
-   */
-  // biome-ignore lint/suspicious/noExplicitAny: deprecated will be removed
-  onWeekNumberClick?: any;
-
   /** Event handler when a day is clicked. */
   onDayClick?: DayEventHandler<React.MouseEvent>;
   /** Event handler when a day is focused. */
@@ -541,47 +483,6 @@ export interface PropsBase {
    * @experimental
    */
   dateLib?: Partial<typeof DateLib.prototype> | undefined;
-
-  /**
-   * @private
-   * @deprecated Use a custom `DayButton` component instead.
-   */
-  onDayKeyUp?: DayEventHandler<React.KeyboardEvent>;
-  /**
-   * @private
-   * @deprecated Use a custom `DayButton` component instead.
-   */
-  onDayKeyPress?: DayEventHandler<React.KeyboardEvent>;
-  /**
-   * @private
-   * @deprecated Use a custom `DayButton` component instead.
-   */
-  onDayPointerEnter?: DayEventHandler<React.PointerEvent>;
-  /**
-   * @private
-   * @deprecated Use a custom `DayButton` component instead.
-   */
-  onDayPointerLeave?: DayEventHandler<React.PointerEvent>;
-  /**
-   * @private
-   * @deprecated Use a custom `DayButton` component instead.
-   */
-  onDayTouchCancel?: DayEventHandler<React.TouchEvent>;
-  /**
-   * @private
-   * @deprecated Use a custom `DayButton` component instead.
-   */
-  onDayTouchEnd?: DayEventHandler<React.TouchEvent>;
-  /**
-   * @private
-   * @deprecated Use a custom `DayButton` component instead.
-   */
-  onDayTouchMove?: DayEventHandler<React.TouchEvent>;
-  /**
-   * @private
-   * @deprecated Use a custom `DayButton` component instead.
-   */
-  onDayTouchStart?: DayEventHandler<React.TouchEvent>;
 }
 
 /**

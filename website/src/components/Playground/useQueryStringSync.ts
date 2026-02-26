@@ -59,7 +59,7 @@ export function useQueryStringSync(basePath: string = "/playground") {
 
   const parseQueryString = (search: string): DayPickerPropsWithCalendar => {
     const params = new URLSearchParams(search);
-    const parsedProps: DayPickerPropsWithCalendar = {};
+    const parsedProps: Record<string, unknown> = {};
     const typeMap: Record<
       string,
       "boolean" | "number" | "string" | "locale" | "date"
@@ -111,16 +111,15 @@ export function useQueryStringSync(basePath: string = "/playground") {
       try {
         switch (typeMap[key]) {
           case "boolean":
-            parsedProps[key as keyof DayPickerPropsWithCalendar] = true;
+            parsedProps[key] = true;
             break;
           case "number":
             if (value !== null) {
-              parsedProps[key as keyof DayPickerPropsWithCalendar] =
-                Number(value);
+              parsedProps[key] = Number(value);
             }
             break;
           case "string":
-            parsedProps[key as keyof DayPickerPropsWithCalendar] = value ?? "";
+            parsedProps[key] = value ?? "";
             break;
           case "locale":
             if (!value) break;
@@ -135,7 +134,7 @@ export function useQueryStringSync(basePath: string = "/playground") {
               Number.isNaN(timestamp) ? value : timestamp,
             );
             if (!Number.isNaN(parsedDate.getTime())) {
-              parsedProps[key as keyof DayPickerPropsWithCalendar] = parsedDate;
+              parsedProps[key] = parsedDate;
             }
             break;
           }
@@ -146,7 +145,7 @@ export function useQueryStringSync(basePath: string = "/playground") {
         console.error(`Error parsing query string key "${key}":`, error);
       }
     });
-    return parsedProps;
+    return parsedProps as DayPickerPropsWithCalendar;
   };
 
   const initialProps: DayPickerProps = parseQueryString(location.search);

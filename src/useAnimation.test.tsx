@@ -140,14 +140,14 @@ describe("useAnimation", () => {
       let monthWeekdaysContainers = getMonthWeekdaysContainers();
       let monthWeeksContainers = getMonthWeeksContainers();
 
-      expect(navContainers).toHaveLength(1);
+      expect(navContainers).toHaveLength(2);
       expect(monthContainers).toHaveLength(2);
       expect(monthCaptionContainers).toHaveLength(2);
       expect(monthWeekdaysContainers).toHaveLength(2);
       expect(monthWeeksContainers).toHaveLength(2);
 
       expect(getRootContainer()).toHaveStyle("isolation: isolate");
-      expect(navContainers[0]).toHaveStyle("z-index: 1");
+      expect(navContainers[1]).toHaveStyle("z-index: 1");
       expect(monthContainers[0]).toHaveStyle("position: relative");
       expect(monthContainers[0]).toHaveStyle("overflow: hidden");
       expect(monthContainers[1]).toHaveStyle("overflow: hidden");
@@ -167,7 +167,6 @@ describe("useAnimation", () => {
       monthWeekdaysContainers = getMonthWeekdaysContainers();
       monthWeeksContainers = getMonthWeeksContainers();
 
-      expect(navContainers).toHaveLength(1);
       expect(navContainers).toHaveLength(1);
       expect(monthContainers).toHaveLength(1);
       expect(monthCaptionContainers).toHaveLength(1);

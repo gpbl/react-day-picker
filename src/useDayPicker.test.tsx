@@ -25,7 +25,6 @@ describe("useDayPicker", () => {
     select: jest.fn(),
     isSelected: jest.fn((_date: Date) => false),
     components: {
-      Button: jest.fn(),
       Chevron: jest.fn(),
       CaptionLabel: jest.fn(),
       Day: jest.fn(),
@@ -105,7 +104,6 @@ describe("useDayPicker", () => {
       labelNext: jest.fn(),
       labelPrevious: jest.fn(),
       labelDayButton: jest.fn(),
-      labelDay: jest.fn(),
       labelWeekday: jest.fn(),
       labelWeekNumber: jest.fn(),
       labelWeekNumberHeader: jest.fn(),
@@ -114,12 +112,10 @@ describe("useDayPicker", () => {
       formatCaption: jest.fn(),
       formatDay: jest.fn(),
       formatMonthDropdown: jest.fn(),
-      formatMonthCaption: jest.fn(),
       formatWeekNumber: jest.fn(),
       formatWeekNumberHeader: jest.fn(),
       formatWeekdayName: jest.fn(),
       formatYearDropdown: jest.fn(),
-      formatYearCaption: jest.fn(),
     },
     dayPickerProps: {
       mode: "single",
