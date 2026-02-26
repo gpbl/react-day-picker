@@ -2,6 +2,47 @@
 
 DayPicker follows [Semantic Versioning](http://semver.org/). See the [Releases page](https://github.com/gpbl/react-day-picker/releases) on Github for the complete list of changes, diffs and contributors, or the [list of versions](https://www.npmjs.com/package/react-day-picker?activeTab=versions) published on npm.
 
+## v9.14.0
+
+_Release date: 2026-02-26_
+
+This release introduces a new `resetOnSelect` prop and adds support for the Hijri calendar.
+
+#### Resetting Selections in Range Mode
+
+When in range selection mode, use the [`resetOnSelect`](/selections/range-mode#reset-selection) prop to start a new range when a full range is already selected.
+
+#### Hijri Calendar
+
+To use the Hijri (Umm al-Qura) calendar, import `DayPicker` from `react-day-picker/hijri`:
+
+```tsx
+import { DayPicker } from "react-day-picker/hijri";
+
+export function HijriCalendar() {
+  return <DayPicker />;
+}
+```
+
+Read more in the [documentation](/localization/hijri) and play with it in [playground](/playground?calendar=hijri).
+
+#### What's Changed
+
+- feat: add Hijri calendar support (Umm al-Qura) by [@ws-rush](https://github.com/ws-rush) in [#2904](https://github.com/gpbl/react-day-picker/pull/2904)
+- feat: add `resetOnSelect` prop to reset date range when selecting date with completed range by [@rodgobbi](https://github.com/rodgobbi) in [#2906](https://github.com/gpbl/react-day-picker/pull/2906)
+- feat: add default `lang` prop to `DayPicker` root element by [@gpbl](https://github.com/gpbl) in [#2907](https://github.com/gpbl/react-day-picker/pull/2907)
+
+## v9.13.2
+
+_Release date: 2026-02-10_
+
+This release fixes the `style.css` type declaration export and corrects labels for Northern Sami (`se`) and Japanese Hiragana (`ja-Hira`) locales.
+
+#### What's Changed
+
+- fix(build): add correct type declaration for `style.css` export by [@NotNestor](https://github.com/NotNestor) in [#2897](https://github.com/gpbl/react-day-picker/pull/2897)
+- fix(locale): correct Northern Sami (`se`) and Japanese Hiragana (`ja-Hira`) labels by [@gpbl](https://github.com/gpbl) in [#2898](https://github.com/gpbl/react-day-picker/pull/2898)
+
 ## v9.13.0
 
 _Release date: 2025-12-18_
