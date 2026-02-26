@@ -61,6 +61,23 @@ test("forward aria attributes to the root element", () => {
   expect(dayPicker()).toHaveAttribute("aria-labelledby", "calendar-heading");
 });
 
+describe("when rendering the root language tag", () => {
+  test("sets the default locale code when lang is not provided", () => {
+    render(<DayPicker data-testid={testId} />);
+    expect(dayPicker()).toHaveAttribute("lang", defaultLocale.code);
+  });
+
+  test("uses the locale code when locale is provided", () => {
+    render(<DayPicker data-testid={testId} locale={ja} />);
+    expect(dayPicker()).toHaveAttribute("lang", ja.code);
+  });
+
+  test("prefers lang over locale code when both are provided", () => {
+    render(<DayPicker data-testid={testId} locale={ja} lang="ar" />);
+    expect(dayPicker()).toHaveAttribute("lang", "ar");
+  });
+});
+
 test("use custom components", () => {
   render(
     <DayPicker
