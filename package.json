@@ -1,6 +1,6 @@
 {
   "name": "react-day-picker",
-  "version": "9.13.2",
+  "version": "9.14.0",
   "description": "Customizable Date Picker for React",
   "author": "Giampaolo Bellavite <io@gpbl.dev>",
   "homepage": "https://daypicker.dev",
@@ -247,7 +247,7 @@
     "@date-fns/tz": "^1.4.1",
     "@tabby_ai/hijri-converter": "1.0.5",
     "date-fns": "^4.1.0",
-    "date-fns-jalali": "^4.1.0-0"
+    "date-fns-jalali": "4.1.0-0"
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.14",
