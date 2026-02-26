@@ -72,6 +72,9 @@ button:focus-visible {
   }
 }
 
-div[dir="rtl"] {
+.rdp-root:lang(ar),
+.rdp-root:lang(fa),
+.rdp-root:lang(ckb),
+.rdp-root:lang(ug) {
   font-family: 'Vazirmatn', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }

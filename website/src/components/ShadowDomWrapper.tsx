@@ -18,6 +18,13 @@ export function ShadowDomWrapper({
         .rdp-root {
           --rdp-accent-color: var(--ifm-color-primary);
         }
+
+        .rdp-root:lang(ar),
+        .rdp-root:lang(fa),
+        .rdp-root:lang(ckb),
+        .rdp-root:lang(ug) {
+          font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif;
+        }
       `}</style>
       {colorMode === "dark" && (
         <style>{`
@@ -26,10 +33,6 @@ export function ShadowDomWrapper({
               --rdp-accent-background-color: #073845;
               --rdp-range_end-color: black;
               --rdp-range_start-color: black;
-            }
-
-            .rdp-root[dir="rtl"] {
-              font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif;
             }
           `}</style>
       )}

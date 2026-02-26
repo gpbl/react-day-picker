@@ -38,10 +38,14 @@ import { arSA } from "react-day-picker/locale";
 <DayPicker locale={arSA} />;
 ```
 
-You can target locale-specific styles with the CSS `:lang(...)` selector:
+You can target locale-specific styles with the CSS `:lang(...)` selector.
+For Arabic-script locales in DayPicker (`ar*`, `fa-IR`, `ckb`, `ug`), apply your font with language selectors instead of `dir`:
 
 ```css
-.rdp-root:lang(ar) {
+.rdp-root:lang(ar),
+.rdp-root:lang(fa),
+.rdp-root:lang(ckb),
+.rdp-root:lang(ug) {
   font-family: "Noto Naskh Arabic", serif;
 }
 ```
