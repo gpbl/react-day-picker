@@ -29,6 +29,7 @@ const qsProps = [
   "noonSafe",
   "pagedNavigation",
   "required",
+  "resetOnSelect",
   "reverseMonths",
   "reverseYears",
   "selected",
@@ -44,7 +45,13 @@ const qsProps = [
 ];
 
 export type DayPickerPropsWithCalendar = DayPickerProps & {
-  calendar?: "gregorian" | "persian" | "ethiopic" | "buddhist" | "hebrew";
+  calendar?:
+    | "gregorian"
+    | "persian"
+    | "hijri"
+    | "ethiopic"
+    | "buddhist"
+    | "hebrew";
 };
 
 export function useQueryStringSync(basePath: string = "/playground") {
@@ -85,6 +92,7 @@ export function useQueryStringSync(basePath: string = "/playground") {
       noonSafe: "boolean",
       pagedNavigation: "boolean",
       required: "boolean",
+      resetOnSelect: "boolean",
       reverseMonths: "boolean",
       reverseYears: "boolean",
       selected: "string",

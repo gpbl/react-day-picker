@@ -23,12 +23,18 @@ import {
   getDateLib as getDateLibHebrew,
   he as heHebrew,
 } from "react-day-picker/hebrew";
+import {
+  arSA as arSAHijri,
+  DayPicker as DayPickerHijri,
+  enUS as enUSHijri,
+  getDateLib as getDateLibHijri,
+} from "react-day-picker/hijri";
 import * as locales from "react-day-picker/locale";
 import {
   DayPicker as DayPickerPersian,
   enUS as enUSPersian,
   faIR as faIRpersian,
-  getDateLib,
+  getDateLib as getDateLibPersian,
 } from "react-day-picker/persian";
 import { BrowserWindow } from "../BrowserWindow";
 import { HighlightWithTheme } from "../HighlightWithTheme";
@@ -42,6 +48,7 @@ import { useQueryStringSync } from "./useQueryStringSync";
 
 const localeImportsByCalendar = {
   persian: { enUS: enUSPersian, faIR: faIRpersian },
+  hijri: { arSA: arSAHijri, enUS: enUSHijri },
   ethiopic: { amET: amETEthiopic, enUS: enUSEthiopic },
   buddhist: { enUS: enUSBuddhist, th: thBuddhist },
   hebrew: { enUS: enUSHebrew, he: heHebrew },
@@ -96,6 +103,10 @@ export function Playground() {
     importStatements.push(
       `import { DayPicker } from "react-day-picker/hebrew";`,
     );
+  } else if (props.calendar === "hijri") {
+    importStatements.push(
+      `import { DayPicker } from "react-day-picker/hijri";`,
+    );
   } else {
     importStatements.push(`import { DayPicker } from "react-day-picker";`);
   }
@@ -110,7 +121,9 @@ export function Playground() {
     calendar: undefined,
     locale: undefined,
     dir:
-      (props.calendar === "persian" || props.calendar === "hebrew") &&
+      (props.calendar === "persian" ||
+        props.calendar === "hebrew" ||
+        props.calendar === "hijri") &&
       props.dir === "rtl"
         ? undefined
         : props.dir,
@@ -126,11 +139,13 @@ export function Playground() {
           ? DayPickerBuddhist
           : props.calendar === "hebrew"
             ? DayPickerHebrew
-            : DayPicker;
+            : props.calendar === "hijri"
+              ? DayPickerHijri
+              : DayPicker;
 
   const dateLib =
     props.calendar === "persian"
-      ? getDateLib({
+      ? getDateLibPersian({
           locale: (props.locale as locales.Locale) ?? faIRpersian,
           timeZone: props.timeZone,
         })
@@ -152,10 +167,16 @@ export function Playground() {
                 timeZone: props.timeZone,
                 numerals: props.numerals,
               })
-            : new DateLib({
-                locale: (props.locale as locales.Locale) ?? locales.enUS,
-                timeZone: props.timeZone,
-              });
+            : props.calendar === "hijri"
+              ? getDateLibHijri({
+                  locale: (props.locale as locales.Locale) ?? arSAHijri,
+                  timeZone: props.timeZone,
+                  numerals: props.numerals,
+                })
+              : new DateLib({
+                  locale: (props.locale as locales.Locale) ?? locales.enUS,
+                  timeZone: props.timeZone,
+                });
 
   return (
     <div className={styles.playground}>

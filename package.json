@@ -85,6 +85,16 @@
         "default": "./dist/cjs/ethiopic/index.js"
       }
     },
+    "./hijri": {
+      "import": {
+        "types": "./dist/esm/hijri/index.d.ts",
+        "default": "./dist/esm/hijri/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/hijri/index.d.ts",
+        "default": "./dist/cjs/hijri/index.js"
+      }
+    },
     "./style": {
       "sass": "./src/style.css"
     },
@@ -228,11 +238,14 @@
     "buddhist.d.ts",
     "hebrew.js",
     "hebrew.d.ts",
+    "hijri.js",
+    "hijri.d.ts",
     "locale.js",
     "locale.d.ts"
   ],
   "dependencies": {
     "@date-fns/tz": "^1.4.1",
+    "@tabby_ai/hijri-converter": "1.0.5",
     "date-fns": "^4.1.0",
     "date-fns-jalali": "^4.1.0-0"
   },

@@ -7,6 +7,7 @@ exports[`should match the snapshot 1`] = `
   <div
     class="rdp-root"
     data-mode="single"
+    lang="en-US"
   >
     <div
       class="rdp-months"
