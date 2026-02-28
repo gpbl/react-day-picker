@@ -44,14 +44,8 @@ export function DayPicker(
   },
 ) {
   const { dateLib: dateLibProp, ...dayPickerProps } = props;
-  const hasStartBound =
-    props.startMonth !== undefined ||
-    props.fromMonth !== undefined ||
-    props.fromYear !== undefined;
-  const hasEndBound =
-    props.endMonth !== undefined ||
-    props.toMonth !== undefined ||
-    props.toYear !== undefined;
+  const hasStartBound = props.startMonth !== undefined;
+  const hasEndBound = props.endMonth !== undefined;
 
   const clampedProps: typeof dayPickerProps = {
     ...dayPickerProps,
@@ -64,8 +58,6 @@ export function DayPicker(
     endMonth: hasEndBound
       ? clampDateProp(props.endMonth)
       : new Date(GREGORIAN_MAX_DATE),
-    fromMonth: clampDateProp(props.fromMonth),
-    toMonth: clampDateProp(props.toMonth),
   };
 
   return (
