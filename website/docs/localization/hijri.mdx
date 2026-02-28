@@ -1,0 +1,39 @@
+---
+title: Hijri Calendar
+---
+
+DayPicker supports the [Hijri (Umm al-Qura) calendar](https://en.wikipedia.org/wiki/Islamic_calendar) via a dedicated build.
+
+Import `DayPicker` from `react-day-picker/hijri` to render Hijri months and weekdays while keeping the usual DayPicker API.
+
+```tsx
+import { DayPicker } from "react-day-picker/hijri";
+```
+
+### Basic usage (Arabic labels, RTL, Arabic-Indic digits)
+
+```tsx
+import { DayPicker } from "react-day-picker/hijri";
+
+<DayPicker />;
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/Hijri.tsx">
+  <Examples.Hijri />
+</BrowserWindow>
+
+### English labels, LTR, Latin digits
+
+```tsx
+import { DayPicker, enUS } from "react-day-picker/hijri";
+
+<DayPicker locale={enUS} dir="ltr" numerals="latn" />;
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/HijriEn.tsx">
+  <Examples.HijriEn />
+</BrowserWindow>
+
+:::note
+The Hijri build uses Umm al-Qura conversion tables with a supported Gregorian range of `1924-08-01` to `2077-11-16`. Out-of-range date props are clamped to this interval.
+:::

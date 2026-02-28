@@ -27,6 +27,7 @@ export function useRange<T extends DayPickerProps>(
   const {
     disabled,
     excludeDisabled,
+    resetOnSelect,
     selected: initiallySelected,
     required,
     onSelect,
@@ -48,9 +49,34 @@ export function useRange<T extends DayPickerProps>(
     e: React.MouseEvent | React.KeyboardEvent,
   ) => {
     const { min, max } = props as PropsRange;
-    const newRange = triggerDate
-      ? addToRange(triggerDate, selected, min, max, required, dateLib)
-      : undefined;
+    let newRange: ReturnType<typeof addToRange>;
+    if (triggerDate) {
+      const selectedFrom = selected?.from;
+      const selectedTo = selected?.to;
+      const hasFullRange = !!selectedFrom && !!selectedTo;
+      const isClickingSingleDayRange =
+        !!selectedFrom &&
+        !!selectedTo &&
+        dateLib.isSameDay(selectedFrom, selectedTo) &&
+        dateLib.isSameDay(triggerDate, selectedFrom);
+
+      if (resetOnSelect && (hasFullRange || !selected?.from)) {
+        if (!required && isClickingSingleDayRange) {
+          newRange = undefined;
+        } else {
+          newRange = { from: triggerDate, to: undefined };
+        }
+      } else {
+        newRange = addToRange(
+          triggerDate,
+          selected,
+          min,
+          max,
+          required,
+          dateLib,
+        );
+      }
+    }
 
     if (excludeDisabled && disabled && newRange?.from && newRange.to) {
       if (

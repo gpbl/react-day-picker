@@ -26,6 +26,26 @@ export function Spanish() {
   <Examples.Spanish />
 </BrowserWindow>
 
+## Language tag on the root element
+
+DayPicker sets the root element `lang` attribute from the active locale code (`locale.code`).
+
+If you need a different language tag, pass the `lang` prop explicitly.
+
+```tsx
+import { arSA } from "react-day-picker/locale";
+
+<DayPicker locale={arSA} />;
+```
+
+You can target locale-specific styles with the CSS `:lang(...)` selector:
+
+```css
+.rdp-root:lang(ar) {
+  font-family: "Noto Naskh Arabic", serif;
+}
+```
+
 ## Numerals
 
 Use the `numerals` prop to select the numbering system used by labels and formatters (for example, `latn`, `arab`, `thai`). Locale label translations also respect the numerals you choose.

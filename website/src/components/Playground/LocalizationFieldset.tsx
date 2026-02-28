@@ -14,6 +14,7 @@ import {
   enUS as enUSEthiopic,
 } from "react-day-picker/ethiopic";
 import { enUS as enUSHebrew, he as heHebrew } from "react-day-picker/hebrew";
+import { arSA as arSAHijri, enUS as enUSHijri } from "react-day-picker/hijri";
 import * as locales from "react-day-picker/locale";
 import {
   enUS as enUSPersian,
@@ -83,12 +84,14 @@ const numerals: { value: Numerals; label: string }[] = [
 ];
 const calendars: (
   | "persian"
+  | "hijri"
   | "ethiopic"
   | "buddhist"
   | "gregorian"
   | "hebrew"
-)[] = ["gregorian", "persian", "ethiopic", "buddhist", "hebrew"];
+)[] = ["gregorian", "persian", "hijri", "ethiopic", "buddhist", "hebrew"];
 const persianLocales = { faIR: faIRPersian, enUS: enUSPersian };
+const hijriLocales = { arSA: arSAHijri, enUS: enUSHijri };
 const ethiopicLocales = { amET: amETEthiopic, enUS: enUSEthiopic };
 const buddhistLocales = { th: thBuddhist, enUS: enUSBuddhist };
 const hebrewLocales = { he: heHebrew, enUS: enUSHebrew };
@@ -100,6 +103,7 @@ const allLocales = Object.values(locales) as DayPickerProps["locale"][];
 const calendarLocales: Record<CalendarType, DayPickerProps["locale"][]> = {
   gregorian: allLocales,
   persian: Object.values(persianLocales),
+  hijri: Object.values(hijriLocales),
   ethiopic: Object.values(ethiopicLocales),
   buddhist: Object.values(buddhistLocales),
   hebrew: Object.values(hebrewLocales),
@@ -116,6 +120,7 @@ const calendarDefaults: Partial<
   >
 > = {
   persian: { locale: faIRPersian, dir: "rtl" },
+  hijri: { locale: arSAHijri, dir: "rtl", numerals: "arab" as Numerals },
   ethiopic: { locale: amETEthiopic, numerals: "geez" as Numerals },
   buddhist: { locale: thBuddhist, numerals: "thai" as Numerals },
   hebrew: { numerals: "latn" as Numerals },

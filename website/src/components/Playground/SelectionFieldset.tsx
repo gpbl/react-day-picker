@@ -89,6 +89,19 @@ export function SelectionFieldset({
             Required
           </label>
         )}
+        {props.mode === "range" && (
+          <label>
+            <input
+              type="checkbox"
+              checked={props.resetOnSelect}
+              name="resetOnSelect"
+              onChange={(e) => {
+                setProps({ ...props, resetOnSelect: e.target.checked });
+              }}
+            />
+            Reset range on select
+          </label>
+        )}
         {props.mode === "range" || props.mode === "multiple" ? (
           <label>
             Min Selection:

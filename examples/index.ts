@@ -41,6 +41,8 @@ export * from "./FromToYear";
 export * from "./Hebrew";
 export * from "./HebrewEn";
 export * from "./HideNavigation";
+export * from "./Hijri";
+export * from "./HijriEn";
 export * from "./Input";
 export * from "./InputRange";
 export * from "./InputTime";
