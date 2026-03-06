@@ -153,8 +153,12 @@ export function DayPicker(initialProps: DayPickerProps) {
       props.classNames,
     ]);
 
-  if (!props.today) {
-    props = { ...props, today: dateLib.today() };
+  if (!props.today || props.navLayout === undefined) {
+    props = {
+      ...props,
+      today: props.today ?? dateLib.today(),
+      navLayout: props.navLayout ?? "after",
+    };
   }
 
   const {
@@ -400,18 +404,6 @@ export function DayPicker(initialProps: DayPickerProps) {
           className={classNames[UI.Months]}
           style={styles?.[UI.Months]}
         >
-          {!props.hideNavigation && !navLayout && (
-            <components.Nav
-              data-animated-nav={props.animate ? "true" : undefined}
-              className={classNames[UI.Nav]}
-              style={styles?.[UI.Nav]}
-              aria-label={labelNav()}
-              onPreviousClick={handlePreviousClick}
-              onNextClick={handleNextClick}
-              previousMonth={previousMonth}
-              nextMonth={nextMonth}
-            />
-          )}
           {months.map((calendarMonth, displayIndex) => {
             return (
               <components.Month
@@ -462,8 +454,6 @@ export function DayPicker(initialProps: DayPickerProps) {
                               key="month"
                               className={classNames[UI.MonthsDropdown]}
                               aria-label={labelMonthDropdown()}
-                              classNames={classNames}
-                              components={components}
                               disabled={Boolean(props.disableNavigation)}
                               onChange={handleMonthChange(calendarMonth.date)}
                               options={getMonthOptions(
@@ -489,8 +479,6 @@ export function DayPicker(initialProps: DayPickerProps) {
                               key="year"
                               className={classNames[UI.YearsDropdown]}
                               aria-label={labelYearDropdown(dateLib.options)}
-                              classNames={classNames}
-                              components={components}
                               disabled={Boolean(props.disableNavigation)}
                               onChange={handleYearChange(calendarMonth.date)}
                               options={getYearOptions(

@@ -95,11 +95,11 @@ describe("Hijri DayPicker", () => {
     expect(nextButton()).toHaveAttribute("aria-disabled", "true");
   });
 
-  test("clamps deprecated fromMonth below range", () => {
+  test("clamps startMonth below range", () => {
     render(
       <DayPicker
         month={gregorianMinDate}
-        fromMonth={new Date(1900, 0, 1)}
+        startMonth={new Date(1900, 0, 1)}
         locale={enUS}
         dir="ltr"
         numerals="latn"
@@ -109,11 +109,11 @@ describe("Hijri DayPicker", () => {
     expect(previousButton()).toHaveAttribute("aria-disabled", "true");
   });
 
-  test("clamps deprecated toMonth above range", () => {
+  test("clamps endMonth above range", () => {
     render(
       <DayPicker
         month={gregorianMaxDate}
-        toMonth={new Date(2100, 0, 1)}
+        endMonth={new Date(2100, 0, 1)}
         locale={enUS}
         dir="ltr"
         numerals="latn"

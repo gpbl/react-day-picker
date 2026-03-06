@@ -70,17 +70,6 @@ export interface DayPickerLocale extends DateFnsLocale {
 }
 export type Locale = DayPickerLocale;
 
-/**
- * @ignore
- * @deprecated Use {@link DateLibOptions} instead.
- */
-export type FormatOptions = DateLibOptions;
-/**
- * @ignore
- * @deprecated Use {@link DateLibOptions} instead.
- */
-export type LabelOptions = DateLibOptions;
-
 /** Indicates the preferred ordering of month and year for localized labels. */
 export type MonthYearOrder = "month-first" | "year-first";
 
@@ -253,13 +242,6 @@ export class DateLib {
   ]);
 
   /**
-   * Reference to the built-in Date constructor.
-   *
-   * @deprecated Use `newDate()` or `today()`.
-   */
-  Date: typeof Date = Date;
-
-  /**
    * Creates a new `Date` object representing today's date.
    *
    * @since 9.5.0
@@ -272,7 +254,8 @@ export class DateLib {
     if (this.options.timeZone) {
       return TZDate.tz(this.options.timeZone);
     }
-    return new this.Date();
+    const DateCtor = this.options.Date ?? Date;
+    return new DateCtor();
   };
 
   /**
@@ -742,9 +725,3 @@ export { enUS as defaultLocale } from "../locale/en-US.js";
  * @since 9.2.0
  */
 export const defaultDateLib = new DateLib();
-
-/**
- * @ignore
- * @deprecated Use `defaultDateLib`.
- */
-export const dateLib = defaultDateLib;
