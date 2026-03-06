@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap');
+
 :root {
   --ifm-background-color: #242424;
   --ifm-menu-color-background-hover: rgba(255, 255, 255, 0.05);
@@ -68,4 +70,11 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.rdp-root:lang(ar),
+.rdp-root:lang(fa),
+.rdp-root:lang(ckb),
+.rdp-root:lang(ug) {
+  font-family: 'Vazirmatn', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }

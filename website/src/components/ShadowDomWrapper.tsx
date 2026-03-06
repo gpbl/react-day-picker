@@ -18,6 +18,13 @@ export function ShadowDomWrapper({
         .rdp-root {
           --rdp-accent-color: var(--ifm-color-primary);
         }
+
+        .rdp-root:lang(ar),
+        .rdp-root:lang(fa),
+        .rdp-root:lang(ckb),
+        .rdp-root:lang(ug) {
+          font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif;
+        }
       `}</style>
       {colorMode === "dark" && (
         <style>{`
