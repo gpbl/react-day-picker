@@ -297,15 +297,24 @@ Use `modifiersClassNames` or `modifiersStyles` to surface your custom state (for
 
 ## Week numbers and starts
 
-For week-based selections, set `weekStartsOn` (locale-aware) and consider handling `onWeekNumberClick` to select a week when its number is clicked. Combine it with `showWeekNumber`.
+For week-based selections, set `weekStartsOn` (locale-aware) and use a custom `WeekNumber` component to handle week selection when clicking the week number.
 
 ```tsx
 <DayPicker
   showWeekNumber
   weekStartsOn={1}
-  onWeekNumberClick={(weekNumber, week, e) => {
-    e.preventDefault();
-    setSelectedWeek({ from: week.from, to: week.to });
+  components={{
+    WeekNumber: ({ week, ...thProps }) => (
+      <th
+        {...thProps}
+        onClick={() =>
+          setSelectedWeek({ from: week.days[0].date, to: week.days[6].date })
+        }
+        style={{ cursor: "pointer" }}
+      >
+        {week.weekNumber}
+      </th>
+    ),
   }}
   modifiers={{ selected: selectedWeek }}
 />

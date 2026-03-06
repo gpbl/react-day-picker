@@ -26,6 +26,7 @@
     "prism-react-renderer": "^2.4.1",
     "react": "^19.2.4",
     "react-day-picker": "workspace:^",
+    "react-day-picker-v9": "npm:react-day-picker@9.13.0",
     "react-day-picker-v8": "npm:react-day-picker@8.10.1",
     "react-dom": "^19.2.4",
     "react-shadow": "^20.6.0",

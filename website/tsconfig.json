@@ -9,5 +9,5 @@
     "strict": true,
     "types": ["node", "@docusaurus/module-type-aliases"]
   },
-  "include": ["src", "examples-v8"]
+  "include": ["src", "examples-v8", "examples-v9"]
 }

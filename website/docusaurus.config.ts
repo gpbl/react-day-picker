@@ -34,6 +34,11 @@ const config: Config = {
           ],
           lastVersion: "current",
           versions: {
+            "9.13.0": {
+              label: "9.13.0",
+              badge: true,
+              path: "/v9",
+            },
             "8.10.1": {
               label: "8.10.1",
               badge: true,
@@ -179,6 +184,10 @@ const config: Config = {
             {
               href: "/changelog",
               label: "Changelog",
+            },
+            {
+              href: "/upgrading",
+              label: "Upgrading",
             },
           ],
         },
