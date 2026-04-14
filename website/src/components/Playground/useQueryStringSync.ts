@@ -15,7 +15,6 @@ const qsProps = [
   "firstDayOfWeek",
   "firstWeekContainsDate",
   "fixedWeeks",
-  "fromMonth",
   "hideNavigation",
   "hideWeekdays",
   "ISOWeek",
@@ -39,10 +38,14 @@ const qsProps = [
   "endMonth",
   "month",
   "timeZone",
-  "toMonth",
   "weeksStartOn",
   "weekStartsOn",
 ];
+
+const legacyMonthBounds = {
+  fromMonth: "startMonth",
+  toMonth: "endMonth",
+} as const;
 
 export type DayPickerPropsWithCalendar = DayPickerProps & {
   calendar?:
@@ -105,23 +108,28 @@ export function useQueryStringSync(basePath: string = "/playground") {
       weekStartsOn: "number",
     };
 
-    qsProps.forEach((key) => {
+    [...qsProps, ...Object.keys(legacyMonthBounds)].forEach((key) => {
       if (!params.has(key)) {
+        return;
+      }
+      const normalizedKey =
+        legacyMonthBounds[key as keyof typeof legacyMonthBounds] ?? key;
+      if (normalizedKey in parsedProps) {
         return;
       }
       const value = params.get(key);
       try {
         switch (typeMap[key]) {
           case "boolean":
-            parsedProps[key] = true;
+            parsedProps[normalizedKey] = true;
             break;
           case "number":
             if (value !== null) {
-              parsedProps[key] = Number(value);
+              parsedProps[normalizedKey] = Number(value);
             }
             break;
           case "string":
-            parsedProps[key] = value ?? "";
+            parsedProps[normalizedKey] = value ?? "";
             break;
           case "locale":
             if (!value) break;
@@ -136,7 +144,7 @@ export function useQueryStringSync(basePath: string = "/playground") {
               Number.isNaN(timestamp) ? value : timestamp,
             );
             if (!Number.isNaN(parsedDate.getTime())) {
-              parsedProps[key] = parsedDate;
+              parsedProps[normalizedKey] = parsedDate;
             }
             break;
           }
