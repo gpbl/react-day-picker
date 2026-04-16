@@ -1,6 +1,7 @@
+// @ts-nocheck
 import { addMonths } from "date-fns";
 import React from "react";
-import { DayPicker, type WeekNumberProps } from "react-day-picker-next";
+import { DayPicker, type WeekNumberProps } from "../dist/esm/index.js";
 
 const today = new Date(2021, 0, 1);
 

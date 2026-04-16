@@ -60,7 +60,7 @@ export function useQueryStringSync(basePath: string = "/playground") {
 
   const parseQueryString = (search: string): DayPickerPropsWithCalendar => {
     const params = new URLSearchParams(search);
-    const parsedProps: DayPickerPropsWithCalendar = {};
+    const parsedProps: Record<string, unknown> = {};
     const typeMap: Record<
       string,
       "boolean" | "number" | "string" | "locale" | "date"
@@ -148,7 +148,7 @@ export function useQueryStringSync(basePath: string = "/playground") {
         console.error(`Error parsing query string key "${key}":`, error);
       }
     });
-    return parsedProps;
+    return parsedProps as DayPickerPropsWithCalendar;
   };
 
   const initialProps: DayPickerProps = parseQueryString(location.search);

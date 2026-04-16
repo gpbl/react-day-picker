@@ -1,7 +1,8 @@
+// @ts-nocheck
 import { format } from "date-fns";
 import React from "react";
-import { DayPicker } from "react-day-picker-next";
-import { it } from "react-day-picker-next/locale";
+import { DayPicker } from "../dist/esm/index.js";
+import { it } from "../dist/esm/locale.js";
 
 export function ItalianLabels() {
   return (

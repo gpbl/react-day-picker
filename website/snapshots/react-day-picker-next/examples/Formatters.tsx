@@ -1,6 +1,7 @@
+// @ts-nocheck
 import { format } from "date-fns";
 import React from "react";
-import { type DateLibOptions, DayPicker } from "react-day-picker-next";
+import { type DateLibOptions, DayPicker } from "../dist/esm/index.js";
 
 const seasonEmoji: Record<string, string> = {
   winter: "⛄️",

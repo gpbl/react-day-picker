@@ -1,6 +1,11 @@
+// @ts-nocheck
 import { format, isAfter, isBefore, isValid, parse } from "date-fns";
 import React, { type ChangeEventHandler, useState } from "react";
-import { type DateRange, DayPicker, type PropsRange } from "react-day-picker-next";
+import {
+  type DateRange,
+  DayPicker,
+  type PropsRange,
+} from "../dist/esm/index.js";
 
 export function InputRange() {
   const [selectedRange, setSelectedRange] = useState<DateRange>();

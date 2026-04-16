@@ -1,6 +1,7 @@
+// @ts-nocheck
 import React, { useState } from "react";
 
-import { type DayEventHandler, DayPicker } from "react-day-picker-next";
+import { type DayEventHandler, DayPicker } from "../dist/esm/index.js";
 
 export function ModifiersToday() {
   const initialFooter = "Try clicking the today’s date.";

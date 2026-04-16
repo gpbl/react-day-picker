@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { format } from "date-fns";
 import React, { useState } from "react";
 
@@ -5,7 +6,7 @@ import {
   type DateRange,
   DayPicker,
   type OnSelectHandler,
-} from "react-day-picker-next";
+} from "../dist/esm/index.js";
 
 export function RangeResetSelection() {
   const [selected, setSelected] = useState<DateRange>();

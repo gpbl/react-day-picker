@@ -1,6 +1,7 @@
+// @ts-nocheck
 import { format, isValid, parse } from "date-fns";
 import React, { useEffect, useId, useRef, useState } from "react";
-import { DayPicker } from "react-day-picker-next";
+import { DayPicker } from "../dist/esm/index.js";
 
 export function Dialog() {
   const dialogRef = useRef<HTMLDialogElement>(null);

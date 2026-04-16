@@ -1,6 +1,7 @@
+// @ts-nocheck
 import React, { createContext, use, useCallback, useState } from "react";
 
-import { DayPicker, type DropdownProps } from "react-day-picker-next";
+import { DayPicker, type DropdownProps } from "../../dist/esm/index.js";
 
 import {
   Select,

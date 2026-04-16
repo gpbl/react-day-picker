@@ -1,6 +1,7 @@
+// @ts-nocheck
 import React from "react";
 
-import { DayPicker, TZDate } from "react-day-picker-next";
+import { DayPicker, TZDate } from "../dist/esm/index.js";
 
 export function AsiaSaigonTimezone() {
   const timeZone = "Asia/Saigon";

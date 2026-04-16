@@ -1,6 +1,11 @@
+// @ts-nocheck
 import { endOfWeek, startOfWeek } from "date-fns";
 import React, { useState } from "react";
-import { type DateRange, DayPicker, rangeIncludesDate } from "react-day-picker-next";
+import {
+  type DateRange,
+  DayPicker,
+  rangeIncludesDate,
+} from "../dist/esm/index.js";
 
 /** Select the whole week when the day is clicked. */
 export function CustomWeek() {

@@ -1,7 +1,8 @@
+// @ts-nocheck
 import { addDays } from "date-fns";
 import React, { useState } from "react";
 
-import { type DateRange, DayPicker } from "react-day-picker-next";
+import { type DateRange, DayPicker } from "../dist/esm/index.js";
 
 /** Select a fixed-length range starting from the clicked day. */
 export function CustomRollingWindow() {

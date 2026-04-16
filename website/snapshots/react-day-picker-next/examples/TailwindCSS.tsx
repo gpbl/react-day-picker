@@ -1,6 +1,7 @@
+// @ts-nocheck
 import React from "react";
 
-import { DayPicker, getDefaultClassNames } from "react-day-picker-next";
+import { DayPicker, getDefaultClassNames } from "../dist/esm/index.js";
 
 export function TailwindCSS() {
   const defaultClassNames = getDefaultClassNames();

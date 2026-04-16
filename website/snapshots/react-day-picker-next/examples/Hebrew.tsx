@@ -1,6 +1,7 @@
+// @ts-nocheck
 import React from "react";
 
-import { DayPicker } from "react-day-picker-next/hebrew";
+import { DayPicker } from "../dist/esm/hebrew/index.js";
 
 export function Hebrew() {
   return <DayPicker />;

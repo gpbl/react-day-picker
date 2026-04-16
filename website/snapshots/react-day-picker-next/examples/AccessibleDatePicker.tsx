@@ -1,6 +1,7 @@
+// @ts-nocheck
 import { format } from "date-fns";
 import React, { useState } from "react";
-import { DayPicker } from "react-day-picker-next";
+import { DayPicker } from "../dist/esm/index.js";
 
 export function AccessibleDatePicker() {
   const [meetingDate, setMeetingDate] = useState<Date | undefined>(undefined);

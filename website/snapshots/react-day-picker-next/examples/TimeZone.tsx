@@ -1,6 +1,7 @@
+// @ts-nocheck
 import React, { useState } from "react";
 
-import { DayPicker, TZDate } from "react-day-picker-next";
+import { DayPicker, TZDate } from "../dist/esm/index.js";
 
 export function TimeZone() {
   const timeZone = "Pacific/Honolulu";

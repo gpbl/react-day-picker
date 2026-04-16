@@ -1,6 +1,7 @@
+// @ts-nocheck
 import { addDays } from "date-fns";
 import React from "react";
-import { DayPicker } from "react-day-picker-next";
+import { DayPicker } from "../dist/esm/index.js";
 
 export function MultipleMinMax() {
   const selected = [new Date(), addDays(new Date(), 1)];

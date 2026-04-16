@@ -1,15 +1,14 @@
-// Import the original mapper
 import { useDocsVersion } from "@docusaurus/plugin-content-docs/client";
 import MDXComponents from "@theme-original/MDXComponents";
 import type { ComponentProps, ComponentType } from "react";
 import * as CurrentExamples from "react-day-picker/examples";
-import * as NextExamples from "../../snapshots/react-day-picker-next/examples";
-
 import * as ExamplesV8 from "../../examples-v8";
+import * as NextExamples from "../../snapshots/react-day-picker-next/examples";
 import { BrowserWindow } from "../components/BrowserWindow";
 
 type TableComponent = ComponentType<ComponentProps<"table">>;
-type ExampleComponent = ComponentType<any>;
+type ExampleProps = Record<string, unknown>;
+type ExampleComponent = ComponentType<ExampleProps>;
 type ExampleModule = Record<string, ExampleComponent>;
 
 const Table: TableComponent =

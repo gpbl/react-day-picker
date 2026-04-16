@@ -1,6 +1,7 @@
+// @ts-nocheck
 import React from "react";
 
-import { DayPicker } from "react-day-picker-next";
+import { DayPicker } from "../dist/esm/index.js";
 
 /**
  * Test case for issue #2835. Note that this cannot be replicated in jsdom.

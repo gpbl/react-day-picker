@@ -1,6 +1,7 @@
+// @ts-nocheck
 import { addDays, format } from "date-fns";
 import React, { useState } from "react";
-import { type DateRange, DayPicker } from "react-day-picker-next";
+import { type DateRange, DayPicker } from "../dist/esm/index.js";
 
 export function Range() {
   const defaultMonth = new Date(2020, 5, 15);

@@ -1,6 +1,7 @@
+// @ts-nocheck
 import React from "react";
 
-import { DayPicker, enUS } from "react-day-picker-next/persian";
+import { DayPicker, enUS } from "../dist/esm/persian.js";
 
 export function PersianEn() {
   return (

@@ -1,6 +1,7 @@
+// @ts-nocheck
 import React, { useState } from "react";
 
-import { type DateRange, DayPicker } from "react-day-picker-next";
+import { type DateRange, DayPicker } from "../dist/esm/index.js";
 
 export function TestCase2843() {
   const [selected, setSelected] = useState<DateRange>();

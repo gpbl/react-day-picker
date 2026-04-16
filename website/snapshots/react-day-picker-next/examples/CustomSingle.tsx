@@ -1,6 +1,7 @@
+// @ts-nocheck
 import React, { useState } from "react";
 
-import { DayPicker, type DayPickerProps } from "react-day-picker-next";
+import { DayPicker, type DayPickerProps } from "../dist/esm/index.js";
 
 export function CustomSingle() {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>();

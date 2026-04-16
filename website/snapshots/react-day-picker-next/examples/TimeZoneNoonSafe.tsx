@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from "react";
 
 import {
@@ -6,7 +7,7 @@ import {
   type PropsBase,
   type PropsSingle,
   TZDate,
-} from "react-day-picker-next";
+} from "../dist/esm/index.js";
 
 type TimeZoneNoonSafeProps = Omit<PropsBase, "mode"> & {
   selected?: Date;

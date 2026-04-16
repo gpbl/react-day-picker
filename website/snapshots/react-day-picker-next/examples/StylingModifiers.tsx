@@ -1,6 +1,7 @@
+// @ts-nocheck
 import { addDays } from "date-fns";
 import React from "react";
-import { DayPicker } from "react-day-picker-next";
+import { DayPicker } from "../dist/esm/index.js";
 
 import customStyles from "./styles/styling-modifiers.module.css";
 

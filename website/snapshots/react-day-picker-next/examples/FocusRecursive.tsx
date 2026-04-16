@@ -1,6 +1,7 @@
+// @ts-nocheck
 import React from "react";
 
-import { DayPicker } from "react-day-picker-next";
+import { DayPicker } from "../dist/esm/index.js";
 
 /** Test for the next focus day to not cause an infinite recursion. */
 export function FocusRecursive() {

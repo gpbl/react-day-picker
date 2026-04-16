@@ -1,6 +1,11 @@
+// @ts-nocheck
 import React from "react";
 
-import { DayButton, type DayButtonProps, DayPicker } from "react-day-picker-next";
+import {
+  DayButton,
+  type DayButtonProps,
+  DayPicker,
+} from "../dist/esm/index.js";
 
 const SelectedDateContext = React.createContext<{
   selected?: Date;

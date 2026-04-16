@@ -1,6 +1,7 @@
+// @ts-nocheck
 import React from "react";
 
-import { DayPicker, enUS } from "react-day-picker-next/buddhist";
+import { DayPicker, enUS } from "../dist/esm/buddhist/index.js";
 
 export function BuddhistEn() {
   return (

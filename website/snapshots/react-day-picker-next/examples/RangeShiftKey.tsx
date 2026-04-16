@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { isSameDay } from "date-fns";
 import React, { type MouseEventHandler } from "react";
 import {
@@ -5,7 +6,7 @@ import {
   type DayButtonProps,
   DayPicker,
   useDayPicker,
-} from "react-day-picker-next";
+} from "../dist/esm/index.js";
 
 function DayWithShiftKey(props: DayButtonProps) {
   const { selected } = useDayPicker<{ mode: "range" }>();

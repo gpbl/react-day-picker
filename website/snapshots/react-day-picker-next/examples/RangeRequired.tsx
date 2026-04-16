@@ -1,6 +1,7 @@
+// @ts-nocheck
 import { addDays, format, startOfMonth } from "date-fns";
 import React, { useState } from "react";
-import { type DateRange, DayPicker } from "react-day-picker-next";
+import { type DateRange, DayPicker } from "../dist/esm/index.js";
 
 export function RangeRequired() {
   const [range, setRange] = useState<DateRange>({

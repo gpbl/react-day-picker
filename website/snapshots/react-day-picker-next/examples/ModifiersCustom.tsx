@@ -1,6 +1,7 @@
+// @ts-nocheck
 import React from "react";
 
-import { type DayEventHandler, DayPicker } from "react-day-picker-next";
+import { type DayEventHandler, DayPicker } from "../dist/esm/index.js";
 
 const bookedDays = [
   new Date(2024, 5, 8),

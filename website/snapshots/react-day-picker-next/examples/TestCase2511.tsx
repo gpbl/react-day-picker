@@ -1,6 +1,7 @@
+// @ts-nocheck
 import { enAU } from "date-fns/locale";
 import React from "react";
-import { DateLib, DayPicker } from "react-day-picker-next";
+import { DateLib, DayPicker } from "../dist/esm/index.js";
 
 /**
  * Test case for issue #2511

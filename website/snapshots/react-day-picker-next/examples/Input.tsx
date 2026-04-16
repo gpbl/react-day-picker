@@ -1,6 +1,7 @@
+// @ts-nocheck
 import { format, isValid, parse } from "date-fns";
 import React, { useId, useState } from "react";
-import { DayPicker } from "react-day-picker-next";
+import { DayPicker } from "../dist/esm/index.js";
 
 /** Render an input field bound to a DayPicker calendar. */
 export function Input() {

@@ -1,6 +1,7 @@
+// @ts-nocheck
 import React from "react";
 
-import { DayPicker, enUS } from "react-day-picker-next/hijri";
+import { DayPicker, enUS } from "../dist/esm/hijri/index.js";
 
 export function HijriEn() {
   return (
