@@ -34,6 +34,13 @@ const config: Config = {
           ],
           lastVersion: "current",
           versions: {
+            next: {
+              label: "next",
+              badge: true,
+              banner: "unreleased",
+              noIndex: true,
+              path: "/next",
+            },
             "8.10.1": {
               label: "8.10.1",
               badge: true,

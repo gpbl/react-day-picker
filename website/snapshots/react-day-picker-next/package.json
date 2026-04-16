@@ -1,0 +1,136 @@
+{
+  "name": "react-day-picker-next",
+  "version": "10.0.0-next.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/cjs/index.d.ts",
+  "module": "./dist/esm/index.js",
+  "style": "./src/style.css",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./persian": {
+      "import": {
+        "types": "./dist/esm/persian.d.ts",
+        "default": "./dist/esm/persian.js"
+      },
+      "require": {
+        "types": "./dist/cjs/persian.d.ts",
+        "default": "./dist/cjs/persian.js"
+      }
+    },
+    "./buddhist": {
+      "import": {
+        "types": "./dist/esm/buddhist/index.d.ts",
+        "default": "./dist/esm/buddhist/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/buddhist/index.d.ts",
+        "default": "./dist/cjs/buddhist/index.js"
+      }
+    },
+    "./hebrew": {
+      "import": {
+        "types": "./dist/esm/hebrew/index.d.ts",
+        "default": "./dist/esm/hebrew/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/hebrew/index.d.ts",
+        "default": "./dist/cjs/hebrew/index.js"
+      }
+    },
+    "./ethiopic": {
+      "import": {
+        "types": "./dist/esm/ethiopic/index.d.ts",
+        "default": "./dist/esm/ethiopic/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/ethiopic/index.d.ts",
+        "default": "./dist/cjs/ethiopic/index.js"
+      }
+    },
+    "./hijri": {
+      "import": {
+        "types": "./dist/esm/hijri/index.d.ts",
+        "default": "./dist/esm/hijri/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/hijri/index.d.ts",
+        "default": "./dist/cjs/hijri/index.js"
+      }
+    },
+    "./style": {
+      "sass": "./src/style.css"
+    },
+    "./style.css": {
+      "style": {
+        "default": "./src/style.css"
+      },
+      "import": {
+        "types": "./src/style.css.d.ts",
+        "default": "./src/style.css"
+      },
+      "require": {
+        "types": "./src/style.css.d.ts",
+        "default": "./src/style.css"
+      }
+    },
+    "./style.module": {
+      "sass": "./src/style.module.css"
+    },
+    "./style.module.css": {
+      "style": {
+        "default": "./src/style.module.css"
+      },
+      "import": {
+        "types": "./src/style.module.css.d.ts",
+        "default": "./src/style.module.css"
+      },
+      "require": {
+        "types": "./src/style.module.css.d.ts",
+        "default": "./src/style.module.css"
+      }
+    },
+    "./package.json": {
+      "import": "./package.json",
+      "require": "./package.json",
+      "default": "./package.json"
+    },
+    "./examples": {
+      "types": "./examples/index.ts",
+      "import": "./examples/index.ts"
+    },
+    "./locale": {
+      "import": {
+        "types": "./dist/esm/locale.d.ts",
+        "default": "./dist/esm/locale.js"
+      },
+      "require": {
+        "types": "./dist/cjs/locale.d.ts",
+        "default": "./dist/cjs/locale.js"
+      }
+    },
+    "./locale/*": {
+      "import": {
+        "types": "./dist/esm/locale/*.d.ts",
+        "default": "./dist/esm/locale/*.js"
+      },
+      "require": {
+        "types": "./dist/cjs/locale/*.d.ts",
+        "default": "./dist/cjs/locale/*.js"
+      }
+    }
+  }
+}
