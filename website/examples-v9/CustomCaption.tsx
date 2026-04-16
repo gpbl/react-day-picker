@@ -5,7 +5,7 @@ import {
   DayPicker,
   type MonthCaptionProps,
   useDayPicker,
-} from "react-day-picker";
+} from "react-day-picker-v9";
 
 function CustomMonthCaption(props: MonthCaptionProps) {
   const { goToMonth, nextMonth, previousMonth } = useDayPicker();

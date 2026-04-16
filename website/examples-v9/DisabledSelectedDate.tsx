@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React from "react";
 
-import { DayPicker } from "react-day-picker";
+import { DayPicker } from "react-day-picker-v9";
 
 const today = new Date(2025, 2, 8);
 const toDate = new Date(today);

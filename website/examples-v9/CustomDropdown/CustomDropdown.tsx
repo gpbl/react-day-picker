@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React, { createContext, use, useCallback, useState } from "react";
 
-import { DayPicker, type DropdownProps } from "react-day-picker";
+import { DayPicker, type DropdownProps } from "react-day-picker-v9";
 
 import {
   Select,

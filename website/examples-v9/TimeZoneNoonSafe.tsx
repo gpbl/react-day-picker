@@ -6,7 +6,7 @@ import {
   type DayPickerProps,
   type PropsSingle,
   TZDate,
-} from "react-day-picker";
+} from "react-day-picker-v9";
 
 type TimeZoneNoonSafeProps = Partial<DayPickerProps> & {
   selected?: Date;

@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { enAU } from "date-fns/locale";
 import React from "react";
-import { DateLib, DayPicker } from "react-day-picker";
+import { DateLib, DayPicker } from "react-day-picker-v9";
 
 /**
  * Test case for issue #2511

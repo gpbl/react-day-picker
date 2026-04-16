@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React, { useState } from "react";
 
-import { type DateRange, DayPicker } from "react-day-picker";
+import { type DateRange, DayPicker } from "react-day-picker-v9";
 
 /**
  * Test case for issue #1567

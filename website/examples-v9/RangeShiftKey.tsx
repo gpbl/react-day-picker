@@ -6,7 +6,7 @@ import {
   type DayButtonProps,
   DayPicker,
   useDayPicker,
-} from "react-day-picker";
+} from "react-day-picker-v9";
 
 function DayWithShiftKey(props: DayButtonProps) {
   const { selected } = useDayPicker<{ mode: "range" }>();

@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { addMonths } from "date-fns";
 import React from "react";
-import { DayPicker } from "react-day-picker";
+import { DayPicker } from "react-day-picker-v9";
 
 /** Example for bug #2630. */
 export function FocusedDisabledNav() {

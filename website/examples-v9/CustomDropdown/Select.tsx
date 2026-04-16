@@ -1,7 +1,7 @@
 // @ts-nocheck
 import * as SelectPrimitive from "@radix-ui/react-select";
 import * as React from "react";
-import { Chevron } from "react-day-picker";
+import { Chevron } from "react-day-picker-v9";
 
 const Select = SelectPrimitive.Root;
 

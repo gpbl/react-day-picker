@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React from "react";
 
-import { DayPicker } from "react-day-picker";
+import { DayPicker } from "react-day-picker-v9";
 
 /**
  * Reproduction for Date[] matchers inside `disabled`. When passing `[dates]` as

@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React from "react";
 
-import { type DayMouseEventHandler, DayPicker } from "react-day-picker";
+import { type DayMouseEventHandler, DayPicker } from "react-day-picker-v9";
 
 const bookedDays = [
   new Date(2024, 5, 8),

@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { subDays } from "date-fns";
 import React from "react";
-import { DayPicker, type SelectSingleEventHandler } from "react-day-picker";
+import { DayPicker, type SelectSingleEventHandler } from "react-day-picker-v9";
 
 export function ModifiersSelected() {
   const yesterday = subDays(new Date(), 1);

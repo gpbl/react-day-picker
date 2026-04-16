@@ -6,7 +6,7 @@ import {
   type DateRange,
   DayPicker,
   type OnSelectHandler,
-} from "react-day-picker";
+} from "react-day-picker-v9";
 
 export function RangeResetSelection() {
   const [selected, setSelected] = useState<DateRange>();

@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { format, isValid, parse } from "date-fns";
 import React, { useEffect, useId, useRef, useState } from "react";
-import { DayPicker } from "react-day-picker";
+import { DayPicker } from "react-day-picker-v9";
 
 export function Dialog() {
   const dialogRef = useRef<HTMLDialogElement>(null);

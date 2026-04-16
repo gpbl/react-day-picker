@@ -1,8 +1,8 @@
 // @ts-nocheck
 import { ar } from "date-fns/locale";
 import React, { useState } from "react";
-import { DayPicker } from "react-day-picker";
-import classNames from "react-day-picker/style.module.css";
+import { DayPicker } from "react-day-picker-v9";
+import classNames from "react-day-picker-v9/style.module.css";
 
 export function AnimateRtl() {
   const [selected, setSelected] = useState<Date>();

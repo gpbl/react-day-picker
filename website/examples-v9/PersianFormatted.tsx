@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React from "react";
 
-import { DayPicker, faIR, getDateLib } from "react-day-picker/persian";
+import { DayPicker, faIR, getDateLib } from "react-day-picker-v9/persian";
 
 export function PersianFormatted() {
   const [selected, setSelected] = React.useState(new Date());

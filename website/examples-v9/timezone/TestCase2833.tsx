@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React from "react";
 
-import { DayPicker, TZDate } from "react-day-picker";
+import { DayPicker, TZDate } from "react-day-picker-v9";
 
 const now = new Date();
 
