@@ -1,7 +1,8 @@
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
 import { themes as prismThemes } from "prism-react-renderer";
-import pkg from "react-day-picker/package.json";
+
+const STABLE_DOCS_VERSION = "9.14.0";
 
 const config: Config = {
   title: "React DayPicker",
@@ -47,7 +48,7 @@ const config: Config = {
               path: "/v8",
             },
             current: {
-              label: `${pkg.version}`,
+              label: STABLE_DOCS_VERSION,
               path: "/",
               badge: false,
             },
