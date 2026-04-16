@@ -81,13 +81,6 @@ const config: Config = {
 
   plugins: [
     [
-      "docusaurus-plugin-typedoc",
-      {
-        entryPoints: ["../src/index.ts"],
-        tsconfig: "../tsconfig-docs.json",
-      },
-    ],
-    [
       "@docusaurus/plugin-client-redirects",
       {
         redirects: [
