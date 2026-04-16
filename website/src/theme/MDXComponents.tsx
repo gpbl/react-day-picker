@@ -1,9 +1,9 @@
 import { useDocsVersion } from "@docusaurus/plugin-content-docs/client";
 import MDXComponents from "@theme-original/MDXComponents";
 import type { ComponentProps, ComponentType } from "react";
+import * as CurrentExamples from "react-day-picker/examples";
 import * as ExamplesV8 from "../../examples-v8";
 import * as ExamplesV9 from "../../examples-v9";
-import * as ExamplesV10 from "../../examples-v10";
 import { BrowserWindow } from "../components/BrowserWindow";
 
 type TableComponent = ComponentType<ComponentProps<"table">>;
@@ -17,7 +17,7 @@ const Table: TableComponent =
 
 const exampleModulesByVersion: Record<string, ExampleModule> = {
   current: ExamplesV9 as unknown as ExampleModule,
-  next: ExamplesV10 as unknown as ExampleModule,
+  next: CurrentExamples as unknown as ExampleModule,
 };
 const exampleComponentCache = new Map<string, ExampleComponent>();
 

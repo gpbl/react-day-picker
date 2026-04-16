@@ -1,8 +1,0 @@
-// @ts-nocheck
-import React from "react";
-
-import { DayPicker } from "react-day-picker-v10";
-
-export function MultipleMonthsPaged() {
-  return <DayPicker numberOfMonths={2} pagedNavigation />;
-}
