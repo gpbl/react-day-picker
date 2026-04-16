@@ -7,8 +7,8 @@ export function FromToMonth() {
   return (
     <DayPicker
       defaultMonth={defaultMonth}
-      startMonth={defaultMonth}
-      endMonth={new Date(2015, 10, 20)}
+      fromMonth={defaultMonth}
+      toMonth={new Date(2015, 10, 20)}
     />
   );
 }

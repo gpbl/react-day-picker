@@ -7,16 +7,7 @@ import {
   TZDate,
 } from "react-day-picker";
 
-type TimeZoneNoonSafeProps = Pick<
-  DayPickerProps,
-  | "defaultMonth"
-  | "fixedWeeks"
-  | "footer"
-  | "showOutsideDays"
-  | "startMonth"
-  | "timeZone"
-  | "weekStartsOn"
-> & {
+type TimeZoneNoonSafeProps = Partial<DayPickerProps> & {
   selected?: Date;
   onSelect?: PropsSingle["onSelect"];
 };
@@ -30,8 +21,8 @@ export function TimeZoneNoonSafe(props: TimeZoneNoonSafeProps = {}) {
     defaultMonth,
     startMonth,
     footer,
-    showOutsideDays,
-    fixedWeeks,
+    mode: _mode,
+    ...rest
   } = props;
 
   const timeZone = timeZoneProp ?? "Asia/Dubai";
@@ -55,18 +46,19 @@ export function TimeZoneNoonSafe(props: TimeZoneNoonSafeProps = {}) {
       timeZone={timeZone}
       noonSafe
       weekStartsOn={weekStartsOn}
-      showOutsideDays={showOutsideDays ?? true}
-      fixedWeeks={fixedWeeks ?? true}
+      showOutsideDays={rest.showOutsideDays ?? true}
+      fixedWeeks={rest.fixedWeeks ?? true}
       selected={selectedValue}
       onSelect={onSelect}
       startMonth={startMonth ?? new Date(1880, 0, 1)}
-      endMonth={new Date(2025, 11)}
+      toYear={2025}
       footer={
         footer ??
         (selected
           ? selected.toString()
           : `Pick a day to see it in ${timeZone} time zone.`)
       }
+      {...rest}
     />
   );
 }

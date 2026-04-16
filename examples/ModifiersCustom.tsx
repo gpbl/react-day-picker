@@ -1,6 +1,6 @@
 import React from "react";
 
-import { type DayEventHandler, DayPicker } from "react-day-picker";
+import { type DayMouseEventHandler, DayPicker } from "react-day-picker";
 
 const bookedDays = [
   new Date(2024, 5, 8),
@@ -27,11 +27,7 @@ const css = `
 }`;
 
 export function ModifiersCustom() {
-  const handleDayClick: DayEventHandler<React.MouseEvent> = (
-    day,
-    modifiers,
-  ) => {
-    const booked = (modifiers as { booked?: boolean }).booked;
+  const handleDayClick: DayMouseEventHandler = (day, { booked }) => {
     alert(`Day ${day.toLocaleDateString()} is booked? ${booked}`);
   };
 

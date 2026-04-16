@@ -1,0 +1,34 @@
+// @ts-nocheck
+import { format } from "date-fns";
+import React from "react";
+import { type DateLibOptions, DayPicker } from "react-day-picker-v10";
+
+const seasonEmoji: Record<string, string> = {
+  winter: "⛄️",
+  spring: "🌸",
+  summer: "🌻",
+  autumn: "🍂",
+};
+
+const getSeason = (month: Date): string => {
+  const monthNumber = month.getMonth();
+  if (monthNumber >= 0 && monthNumber < 3) return "winter";
+  if (monthNumber >= 3 && monthNumber < 6) return "spring";
+  if (monthNumber >= 6 && monthNumber < 9) return "summer";
+  else return "autumn";
+};
+
+const formatCaption = (month: Date, options: DateLibOptions | undefined) => {
+  const season = getSeason(month);
+  return `${seasonEmoji[season]} ${format(month, "LLLL", { locale: options?.locale })}`;
+};
+
+export function Formatters() {
+  return (
+    <DayPicker
+      startMonth={new Date(2020, 0)}
+      endMonth={new Date(2025, 11)}
+      formatters={{ formatCaption }}
+    />
+  );
+}
