@@ -13,10 +13,7 @@ import {
   amET as amETEthiopic,
   enUS as enUSEthiopic,
 } from "react-day-picker-v9/ethiopic";
-import {
-  enUS as enUSHebrew,
-  he as heHebrew,
-} from "react-day-picker-v9/hebrew";
+import { enUS as enUSHebrew, he as heHebrew } from "react-day-picker-v9/hebrew";
 import {
   arSA as arSAHijri,
   enUS as enUSHijri,

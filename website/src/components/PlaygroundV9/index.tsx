@@ -39,12 +39,12 @@ import {
 } from "react-day-picker-v9/persian";
 import { BrowserWindow } from "../BrowserWindow";
 import { HighlightWithTheme } from "../HighlightWithTheme";
+import { toJSX } from "../Playground/shared/toJSX";
+import styles from "../Playground/styles.module.css";
 import { CustomizationFieldset } from "./CustomizationFieldset";
 import { LocalizationFieldset } from "./LocalizationFieldset";
 import { NavigationFieldset } from "./NavigationFieldset";
 import { SelectionFieldset } from "./SelectionFieldset";
-import styles from "../Playground/styles.module.css";
-import { toJSX } from "../Playground/shared/toJSX";
 import { useQueryStringSync } from "./useQueryStringSync";
 
 const localeImportsByCalendar = {

@@ -42,8 +42,8 @@ import { CustomizationFieldset } from "./CustomizationFieldset";
 import { LocalizationFieldset } from "./LocalizationFieldset";
 import { NavigationFieldset } from "./NavigationFieldset";
 import { SelectionFieldset } from "./SelectionFieldset";
-import styles from "./styles.module.css";
 import { toJSX } from "./shared/toJSX";
+import styles from "./styles.module.css";
 import { useQueryStringSync } from "./useQueryStringSync";
 
 const localeImportsByCalendar = {
