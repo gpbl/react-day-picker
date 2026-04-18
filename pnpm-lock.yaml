@@ -167,7 +167,7 @@ importers:
         specifier: npm:react-day-picker@8.10.1
         version: react-day-picker@8.10.1(date-fns@4.1.0)(react@19.2.4)
       react-day-picker-v9:
-        specifier: npm:react-day-picker@9.14.0
+        specifier: npm:react-day-picker@9
         version: react-day-picker@9.14.0(react@19.2.4)
       react-dom:
         specifier: ^19.2.4
