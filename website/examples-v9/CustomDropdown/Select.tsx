@@ -142,12 +142,12 @@ function SelectStyles() {
 
 export {
   Select,
-  SelectGroup,
-  SelectValue,
-  SelectTrigger,
   SelectContent,
+  SelectGroup,
   SelectItem,
-  SelectScrollUpButton,
   SelectScrollDownButton,
+  SelectScrollUpButton,
   SelectStyles,
+  SelectTrigger,
+  SelectValue,
 };

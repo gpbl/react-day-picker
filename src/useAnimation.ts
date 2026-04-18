@@ -148,8 +148,7 @@ export function useAnimation(
 
     if (
       currentMonthEls?.every((el) => el instanceof HTMLElement) &&
-      previousMonthEls &&
-      previousMonthEls.every((el) => el instanceof HTMLElement)
+      previousMonthEls?.every((el) => el instanceof HTMLElement)
     ) {
       animatingRef.current = true;
       const cleanUpFunctions: (() => void)[] = [];
