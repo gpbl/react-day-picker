@@ -128,14 +128,14 @@ jobs:
         run: |
           if [ -n "$REQUESTED_TAG" ]; then
             tag="$REQUESTED_TAG"
-          elif [[ "$PACKAGE_VERSION" == *-* ]]; then
+          elif [[ "$PACKAGE_VERSION" == *-next* ]]; then
             tag="next"
           else
             tag="latest"
           fi
 
-          if [[ "$PACKAGE_VERSION" == *-* && "$tag" = "latest" ]]; then
-            echo "Refusing to publish prerelease version $PACKAGE_VERSION under the latest dist-tag." >&2
+          if [[ "$PACKAGE_VERSION" == *-next* && "$tag" = "latest" ]]; then
+            echo "Refusing to publish next prerelease version $PACKAGE_VERSION under the latest dist-tag." >&2
             exit 1
           fi
 
