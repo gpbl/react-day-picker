@@ -1,14 +1,21 @@
 {
-  // This file is not used in compilation. It is here just for a nice editor experience.
-  "extends": "@docusaurus/tsconfig",
+  // Keep this config local so we don't inherit deprecated TS options from @docusaurus/tsconfig.
   "compilerOptions": {
+    "allowJs": true,
+    "esModuleInterop": true,
     "target": "ES2018",
     "lib": ["DOM", "ESNext", "DOM.Iterable"],
     "jsx": "react-jsx",
-    "baseUrl": ".",
-    "ignoreDeprecations": "6.0",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "paths": {
+      "@site/*": ["./*"]
+    },
+    "skipLibCheck": true,
     "strict": true,
-    "types": ["node", "@docusaurus/module-type-aliases"]
+    "types": ["node", "@docusaurus/module-type-aliases"],
+    "useDefineForClassFields": false
   },
   "include": ["src", "examples-v8", "examples-v9"]
 }
