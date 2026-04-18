@@ -15,13 +15,13 @@
     "typecheck-watch": "tsc --noEmit --watch"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.9.2",
-    "@docusaurus/faster": "^3.9.2",
-    "@docusaurus/plugin-client-redirects": "^3.9.2",
-    "@docusaurus/plugin-content-docs": "^3.9.2",
-    "@docusaurus/preset-classic": "^3.9.2",
-    "@docusaurus/remark-plugin-npm2yarn": "^3.9.2",
-    "@docusaurus/theme-common": "^3.9.2",
+    "@docusaurus/core": "^3.10.0",
+    "@docusaurus/faster": "^3.10.0",
+    "@docusaurus/plugin-client-redirects": "^3.10.0",
+    "@docusaurus/plugin-content-docs": "^3.10.0",
+    "@docusaurus/preset-classic": "^3.10.0",
+    "@docusaurus/remark-plugin-npm2yarn": "^3.10.0",
+    "@docusaurus/theme-common": "^3.10.0",
     "@mdx-js/react": "^3.1.1",
     "docusaurus-plugin-plausible": "^0.0.5",
     "prism-react-renderer": "^2.4.1",
@@ -34,9 +34,9 @@
     "remark-github": "^12.0.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^3.9.2",
-    "@docusaurus/tsconfig": "^3.9.2",
-    "@docusaurus/types": "^3.9.2",
+    "@docusaurus/module-type-aliases": "^3.10.0",
+    "@docusaurus/tsconfig": "^3.10.0",
+    "@docusaurus/types": "^3.10.0",
     "docusaurus-plugin-typedoc": "^1.4.2",
     "identity-obj-proxy": "^3.0.0",
     "raw-loader": "^4.0.2",

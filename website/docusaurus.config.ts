@@ -24,6 +24,14 @@ const config: Config = {
     locales: ["en"],
   },
 
+  markdown: {
+    mdx1Compat: {
+      comments: true,
+      admonitions: true,
+      headingIds: true,
+    },
+  },
+
   presets: [
     [
       "classic",
@@ -237,7 +245,7 @@ const config: Config = {
   },
   future: {
     v4: true,
-    experimental_faster: true,
+    faster: true,
   } satisfies Preset.ThemeConfig,
 };
 
