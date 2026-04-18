@@ -54,8 +54,12 @@ const localeImportsByCalendar = {
   hebrew: { enUS: enUSHebrew, he: heHebrew },
 };
 
-export function Playground() {
-  const { props, setProps } = useQueryStringSync();
+type PlaygroundProps = {
+  basePath?: string;
+};
+
+export function Playground({ basePath = "/playground" }: PlaygroundProps) {
+  const { props, setProps } = useQueryStringSync(basePath);
   const [selected, setSelected] = React.useState<
     Date | Date[] | DateRange | undefined
   >();

@@ -4,6 +4,7 @@ import type { Config } from "@docusaurus/types";
 import { themes as prismThemes } from "prism-react-renderer";
 
 const nodeRequire = createRequire(import.meta.url);
+const nextDocsVersion = nodeRequire("../package.json").version;
 const stableDocsVersion = nodeRequire(
   "react-day-picker-v9/package.json",
 ).version;
@@ -48,7 +49,7 @@ const config: Config = {
           lastVersion: "current",
           versions: {
             next: {
-              label: "next",
+              label: nextDocsVersion,
               badge: true,
               banner: "unreleased",
               noIndex: true,
@@ -203,8 +204,7 @@ const config: Config = {
           label: "Documentation",
         },
         {
-          href: "/playground",
-          label: "Playground",
+          type: "custom-versionedPlayground",
           position: "left",
         },
         {
