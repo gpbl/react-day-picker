@@ -17,9 +17,9 @@ on:
         default: false
         type: boolean
       npm_tag:
-        description: npm dist-tag to publish under
+        description: Optional npm dist-tag override
         required: false
-        default: latest
+        default: ""
         type: string
 
 permissions:
@@ -118,4 +118,27 @@ jobs:
         with:
           name: rdp-dist
           path: dist
-      - run: npm publish --provenance --tag ${{ github.event.inputs.npm_tag || 'latest' }}
+      - id: package-version
+        run: |
+          echo "version=$(node -p \"require('./package.json').version\")" >> "$GITHUB_OUTPUT"
+      - id: npm-tag
+        env:
+          PACKAGE_VERSION: ${{ steps.package-version.outputs.version }}
+          REQUESTED_TAG: ${{ github.event.inputs.npm_tag }}
+        run: |
+          if [ -n "$REQUESTED_TAG" ]; then
+            tag="$REQUESTED_TAG"
+          elif [[ "$PACKAGE_VERSION" == *-* ]]; then
+            tag="next"
+          else
+            tag="latest"
+          fi
+
+          if [[ "$PACKAGE_VERSION" == *-* && "$tag" = "latest" ]]; then
+            echo "Refusing to publish prerelease version $PACKAGE_VERSION under the latest dist-tag." >&2
+            exit 1
+          fi
+
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          echo "Publishing $PACKAGE_VERSION with dist-tag $tag"
+      - run: npm publish --provenance --tag ${{ steps.npm-tag.outputs.tag }}
