@@ -5,6 +5,7 @@
     "jsx": "react", // Keep this to allow overriding React with Preact
     "module": "ES2020",
     "moduleResolution": "Node",
+    "ignoreDeprecations": "6.0",
     "sourceMap": true,
     "declaration": true,
     "outDir": "./dist",

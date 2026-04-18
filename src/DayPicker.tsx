@@ -504,7 +504,6 @@ export function DayPicker(initialProps: DayPickerProps) {
 
                         return controls;
                       })()}
-                      {/* biome-ignore lint/a11y/useSemanticElements: breaking change */}
                       <span
                         role="status"
                         aria-live="polite"
