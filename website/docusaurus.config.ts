@@ -4,8 +4,9 @@ import type { Config } from "@docusaurus/types";
 import { themes as prismThemes } from "prism-react-renderer";
 
 const nodeRequire = createRequire(import.meta.url);
-const stableDocsVersion =
-  nodeRequire("react-day-picker-v9/package.json").version;
+const stableDocsVersion = nodeRequire(
+  "react-day-picker-v9/package.json",
+).version;
 
 const config: Config = {
   title: "React DayPicker",
