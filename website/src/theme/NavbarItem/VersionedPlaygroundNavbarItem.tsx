@@ -23,7 +23,9 @@ export default function VersionedPlaygroundNavbarItem({
   const { pathname } = useLocation();
   const to = version.name === "next" ? "/next/playground" : "/playground";
   const isActive = /^\/(?:next\/)?playground\/?$/.test(pathname);
-  const activeClassName = mobile ? "menu__link--active" : "navbar__link--active";
+  const activeClassName = mobile
+    ? "menu__link--active"
+    : "navbar__link--active";
   const link = (
     <Link
       {...props}
