@@ -297,46 +297,18 @@ Use `modifiersClassNames` or `modifiersStyles` to surface your custom state (for
 
 ## Week numbers and starts
 
-For week-based selections, set `weekStartsOn` (locale-aware) and provide a custom `WeekNumber` component to select a whole week when its number is clicked. Combine it with `showWeekNumber`.
+For week-based selections, set `weekStartsOn` (locale-aware) and consider handling `onWeekNumberClick` to select a week when its number is clicked. Combine it with `showWeekNumber`.
 
 ```tsx
-import { useState } from "react";
-import {
-  type DateRange,
-  DayPicker,
-  type WeekNumberProps,
-} from "react-day-picker";
-
-export function WeekSelection() {
-  const [selectedWeek, setSelectedWeek] = useState<DateRange>();
-
-  function CustomWeekNumber({ week, ...props }: WeekNumberProps) {
-    return (
-      <th {...props}>
-        <button
-          type="button"
-          onClick={() =>
-            setSelectedWeek({
-              from: week.days[0].date,
-              to: week.days[week.days.length - 1].date,
-            })
-          }
-        >
-          {props.children}
-        </button>
-      </th>
-    );
-  }
-
-  return (
-    <DayPicker
-      showWeekNumber
-      weekStartsOn={1}
-      components={{ WeekNumber: CustomWeekNumber }}
-      modifiers={{ selected: selectedWeek }}
-    />
-  );
-}
+<DayPicker
+  showWeekNumber
+  weekStartsOn={1}
+  onWeekNumberClick={(weekNumber, week, e) => {
+    e.preventDefault();
+    setSelectedWeek({ from: week.from, to: week.to });
+  }}
+  modifiers={{ selected: selectedWeek }}
+/>
 ```
 
 ## Persisting custom selections
