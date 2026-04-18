@@ -3,9 +3,11 @@ import { useColorMode } from "@docusaurus/theme-common";
 import root from "react-shadow";
 
 export function ShadowDomWrapper({
+  baseStyleCss,
   children,
   styleStr,
 }: {
+  baseStyleCss?: string;
   children: React.ReactNode;
   styleStr: string | undefined;
 }) {
@@ -13,7 +15,7 @@ export function ShadowDomWrapper({
   return (
     <root.div>
       {children}
-      <style>{style.toString()}</style>
+      <style>{baseStyleCss ?? style.toString()}</style>
       <style>{`
         .rdp-root {
           --rdp-accent-color: var(--ifm-color-primary);

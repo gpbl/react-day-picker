@@ -1,7 +1,7 @@
 import Head from "@docusaurus/Head";
 import Layout from "@theme/Layout";
 
-import { Playground } from "../components/Playground";
+import { Playground } from "../components/PlaygroundV9";
 
 export default function playground() {
   return (

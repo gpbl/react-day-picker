@@ -11,6 +11,7 @@ import { ShadowDomWrapper } from "./ShadowDomWrapper";
 
 interface Props {
   children: ReactNode;
+  baseStyleCss?: string;
   minHeight?: number;
   url?: string;
   style?: CSSProperties;
@@ -23,6 +24,7 @@ interface Props {
 
 export function BrowserWindow({
   children,
+  baseStyleCss,
   minHeight,
   style,
   bodyStyle,
@@ -57,7 +59,9 @@ export function BrowserWindow({
 
       <div className={`${styles.browserWindowBody} rdp-demo`} style={bodyStyle}>
         {shadow ? (
-          <ShadowDomWrapper styleStr={styleStr}>{children}</ShadowDomWrapper>
+          <ShadowDomWrapper baseStyleCss={baseStyleCss} styleStr={styleStr}>
+            {children}
+          </ShadowDomWrapper>
         ) : (
           children
         )}

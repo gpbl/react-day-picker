@@ -1,11 +1,11 @@
 import { useHistory, useLocation } from "@docusaurus/router";
 import { useEffect, useMemo, useState } from "react";
-import type { DayPickerProps } from "react-day-picker";
-import * as locales from "react-day-picker/locale";
+import type { DayPickerProps } from "react-day-picker-v9";
+import * as locales from "react-day-picker-v9/locale";
 import {
   buildPlaygroundQueryString,
   parsePlaygroundSearch,
-} from "./shared/queryString";
+} from "../Playground/shared/queryString";
 
 export type DayPickerPropsWithCalendar = DayPickerProps & {
   calendar?:

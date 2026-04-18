@@ -1,10 +1,8 @@
-import type { DayPickerProps } from "react-day-picker";
-
 /**
  * Function to format a json object of props to a jsx source displaying the
  * props as example
  */
-export function toJSX(props: Partial<DayPickerProps>) {
+export function toJSX(props: Record<string, unknown>) {
   const formatDate = (value: Date) =>
     `={new Date(${value.getFullYear()}, ${value.getMonth()}, ${value.getDate()})}`;
 
@@ -17,16 +15,12 @@ export function toJSX(props: Partial<DayPickerProps>) {
     return `={${JSON.stringify(value)}}`;
   };
 
-  return (
-    Object.keys(props)
-      // @ts-expect-error abc
-      .filter((key) => props[key] !== undefined && props[key] !== false)
-      .sort((a, b) => a.localeCompare(b))
-      .map((key) => {
-        // @ts-expect-error abc
-        const formattedValue = formatValue(props[key]);
-        return formattedValue === null ? "" : ` ${key}${formattedValue}`;
-      })
-      .join("")
-  );
+  return Object.keys(props)
+    .filter((key) => props[key] !== undefined && props[key] !== false)
+    .sort((a, b) => a.localeCompare(b))
+    .map((key) => {
+      const formattedValue = formatValue(props[key]);
+      return formattedValue === null ? "" : ` ${key}${formattedValue}`;
+    })
+    .join("");
 }

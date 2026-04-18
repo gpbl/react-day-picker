@@ -1,49 +1,50 @@
+import dayPickerStyleCss from "!raw-loader!react-day-picker-v9/src/style.css";
 import React from "react";
 import {
   DateLib,
   type DateRange,
   DayPicker,
   isDateRange,
-} from "react-day-picker";
+} from "react-day-picker-v9";
 import {
   DayPicker as DayPickerBuddhist,
   enUS as enUSBuddhist,
   getDateLib as getDateLibBuddhist,
   th as thBuddhist,
-} from "react-day-picker/buddhist";
+} from "react-day-picker-v9/buddhist";
 import {
   amET as amETEthiopic,
   DayPicker as DayPickerEthiopic,
   enUS as enUSEthiopic,
   getDateLib as getDateLibEthiopic,
-} from "react-day-picker/ethiopic";
+} from "react-day-picker-v9/ethiopic";
 import {
   DayPicker as DayPickerHebrew,
   enUS as enUSHebrew,
   getDateLib as getDateLibHebrew,
   he as heHebrew,
-} from "react-day-picker/hebrew";
+} from "react-day-picker-v9/hebrew";
 import {
   arSA as arSAHijri,
   DayPicker as DayPickerHijri,
   enUS as enUSHijri,
   getDateLib as getDateLibHijri,
-} from "react-day-picker/hijri";
-import * as locales from "react-day-picker/locale";
+} from "react-day-picker-v9/hijri";
+import * as locales from "react-day-picker-v9/locale";
 import {
   DayPicker as DayPickerPersian,
   enUS as enUSPersian,
   faIR as faIRpersian,
   getDateLib as getDateLibPersian,
-} from "react-day-picker/persian";
+} from "react-day-picker-v9/persian";
 import { BrowserWindow } from "../BrowserWindow";
 import { HighlightWithTheme } from "../HighlightWithTheme";
 import { CustomizationFieldset } from "./CustomizationFieldset";
 import { LocalizationFieldset } from "./LocalizationFieldset";
 import { NavigationFieldset } from "./NavigationFieldset";
 import { SelectionFieldset } from "./SelectionFieldset";
-import styles from "./styles.module.css";
-import { toJSX } from "./shared/toJSX";
+import styles from "../Playground/styles.module.css";
+import { toJSX } from "../Playground/shared/toJSX";
 import { useQueryStringSync } from "./useQueryStringSync";
 
 const localeImportsByCalendar = {
@@ -210,6 +211,7 @@ export function Playground({ basePath = "/playground" }: PlaygroundProps) {
       </form>
       <div className={styles.browserWindow}>
         <BrowserWindow
+          baseStyleCss={dayPickerStyleCss.toString()}
           url=""
           styleStr={`
           .rdp-root,
