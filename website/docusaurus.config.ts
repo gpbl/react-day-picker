@@ -178,6 +178,7 @@ const config: Config = {
         {
           type: "docsVersionDropdown",
           position: "left",
+          versions: ["next", "current", "8.10.1"],
           dropdownActiveClassDisabled: true,
           dropdownItemsBefore: [],
           dropdownItemsAfter: [
