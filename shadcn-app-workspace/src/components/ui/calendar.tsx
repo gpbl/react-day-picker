@@ -36,17 +36,17 @@ function Calendar({
     ),
     month: cn("flex w-full flex-col gap-4", defaultClassNames.month),
     nav: cn(
-      "absolute inset-x-0 top-0 flex w-full items-center justify-between gap-1",
+      "pointer-events-none absolute inset-x-0 top-0 flex w-full items-center justify-between gap-1",
       defaultClassNames.nav,
     ),
     button_previous: cn(
       buttonVariants({ variant: buttonVariant }),
-      "size-(--cell-size) select-none p-0 aria-disabled:opacity-50",
+      "pointer-events-auto size-(--cell-size) select-none p-0 aria-disabled:opacity-50",
       defaultClassNames.button_previous,
     ),
     button_next: cn(
       buttonVariants({ variant: buttonVariant }),
-      "size-(--cell-size) select-none p-0 aria-disabled:opacity-50",
+      "pointer-events-auto size-(--cell-size) select-none p-0 aria-disabled:opacity-50",
       defaultClassNames.button_next,
     ),
     month_caption: cn(
@@ -119,6 +119,7 @@ function Calendar({
 
   return (
     <DayPicker
+      navLayout="after"
       showOutsideDays={showOutsideDays}
       className={cn(
         "group/calendar bg-background p-3 [--cell-size:--spacing(8)] [[data-slot=card-content]_&]:bg-transparent [[data-slot=popover-content]_&]:bg-transparent",
