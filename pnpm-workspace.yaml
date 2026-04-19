@@ -1,7 +1,9 @@
 packages:
   - website
   - examples-app
+  - shadcn-app-workspace
+  - shadcn-app-v9
 
 onlyBuiltDependencies:
-  - '@swc/core'
+  - "@swc/core"
   - esbuild
