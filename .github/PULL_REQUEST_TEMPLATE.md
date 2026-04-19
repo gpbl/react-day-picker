@@ -1,26 +1,13 @@
-# Pull Request Template
+<!--
 
-Thanks for your PR! Make sure you have read the [CONTRIBUTING](./CONTRIBUTING.md) guide.
+Thank you for contributing to DayPicker.
 
-## What's Changed
+Please follow the steps below to help us process your PR quickly.
 
-_Briefly describe the changes in this pull request._
+- Use a meaningful title for the pull request
+- Explain the reason for the change, for example whether it fixes a bug, adds a feature, or updates docs.
+- Add or edit tests to reflect the change (run `pnpm test`).
+- Add or edit the examples to reflect the change (run `pnpm dev`).
+- Please review your own PR to check for anything you may have missed.
 
-## Type of Change
-
-- [ ] Bug fix
-- [ ] New feature
-- [ ] Breaking change
-- [ ] Documentation update
-
-## Tips for a good PR
-
-- If you are changing code, please add tests to cover the changes.
-- Some screenshots or screen recording could help to understand the changes.
-- If it is a bug, please provide the code to reproduce it.
-
-Thanks
-
-## Additional Notes
-
-Add any extra comments or questions here.
+-->

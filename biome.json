@@ -8,6 +8,8 @@
   "files": {
     "ignoreUnknown": false,
     "includes": [
+      "**/*.js",
+      "**/*.mjs",
       "**/*.ts",
       "**/*.tsx",
       "!**/dist",

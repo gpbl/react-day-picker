@@ -8,7 +8,7 @@ const sharedConfig: Config.InitialOptions = {
   testEnvironment: "jsdom",
   setupFilesAfterEnv: ["<rootDir>/test/setup.ts"],
   transform: {
-    "^.+\\.tsx?$": [
+    "^.+\\.[mc]?[jt]sx?$": [
       "@swc/jest",
       { jsc: { transform: { react: { runtime: "automatic" } } } },
     ],
@@ -62,6 +62,16 @@ const config: Config.InitialOptions = {
         "react-day-picker/locale/(.*)": ["<rootDir>/src/locale/$1"],
         "react-day-picker/locale": ["<rootDir>/src/locale.ts"],
         "react-day-picker": ["<rootDir>/src/index.ts"],
+        "^(\\.\\.?\\/.+)\\.jsx?$": "$1", // see https://github.com/kulshekhar/ts-jest/issues/1057
+      },
+    },
+    {
+      ...sharedConfig,
+      displayName: "scripts",
+      testEnvironment: "node",
+      setupFilesAfterEnv: [],
+      roots: ["<rootDir>/scripts"],
+      moduleNameMapper: {
         "^(\\.\\.?\\/.+)\\.jsx?$": "$1", // see https://github.com/kulshekhar/ts-jest/issues/1057
       },
     },

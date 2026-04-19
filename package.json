@@ -1,6 +1,6 @@
 {
   "name": "react-day-picker",
-  "version": "10.0.0-next.0",
+  "version": "10.0.0-next.1",
   "description": "Customizable Date Picker for React",
   "author": "Giampaolo Bellavite <io@gpbl.dev>",
   "homepage": "https://daypicker.dev",
@@ -207,7 +207,7 @@
     "build:css": "./scripts/build-css.sh ./src/style.css ./src/style.module.css",
     "format": "prettier -w \"**/*.{md,mdx,ts,tsx}\"",
     "lint": "biome check",
-    "test": "jest --selectProjects examples --selectProjects src",
+    "test": "jest --selectProjects examples --selectProjects src --selectProjects scripts",
     "test:tz": "TZ=Australia/Adelaide jest --selectProjects examples/timezone",
     "test:build": "jest --selectProjects examples/built",
     "test-watch": "jest --watch",

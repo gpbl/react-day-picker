@@ -10,6 +10,13 @@
     "noEmit": true,
     "types": ["node", "jest", "@testing-library/jest-dom", "@types/jest"]
   },
-  "include": ["src", "test", "**/*.test.*", "examples"],
+  "include": [
+    "src",
+    "test",
+    "**/*.test.*",
+    "examples",
+    "scripts/**/*.d.ts",
+    "scripts/**/*.d.mts"
+  ],
   "exclude": ["website"]
 }
