@@ -25,7 +25,9 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: rdp-dist
-          path: dist
+          path: |
+            dist
+            packages/*/dist
 
   typecheck-website:
     needs: [build-react-day-picker]
@@ -40,7 +42,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: rdp-dist
-          path: dist
+          path: .
       - run: pnpm install --frozen-lockfile
       - run: pnpm -F website typecheck
 
@@ -57,7 +59,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: rdp-dist
-          path: dist
+          path: .
       - run: pnpm install --frozen-lockfile
       - run: pnpm -F website build
       - uses: actions/upload-artifact@v4

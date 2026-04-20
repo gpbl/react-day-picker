@@ -117,10 +117,14 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
+      - run: pnpm check:versions
+      - run: pnpm pack:dry-run
       - uses: actions/upload-artifact@v4
         with:
           name: rdp-dist
-          path: dist
+          path: |
+            dist
+            packages/*/dist
 
   test-build:
     runs-on: ubuntu-latest
@@ -139,7 +143,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: rdp-dist
-          path: dist
+          path: .
       # Test the downloaded artifact exactly as it would be published on npm.
       - run: pnpm install --frozen-lockfile
       - run: pnpm test:build
@@ -168,7 +172,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: rdp-dist
-          path: dist
+          path: .
       - name: Read package version
         id: package-version
         run: |
@@ -184,6 +188,8 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_TOKEN: ${{ github.token }}
         run: node ./scripts/validate-release-publish.mjs
+      - name: Validate workspace versions
+        run: pnpm check:versions
       - name: Resolve npm dist-tag
         id: npm-tag
         env:
@@ -205,5 +211,5 @@ jobs:
 
           echo "tag=$tag" >> "$GITHUB_OUTPUT"
           echo "Publishing $PACKAGE_VERSION with dist-tag $tag"
-      - name: Publish package
-        run: npm publish --provenance --tag ${{ steps.npm-tag.outputs.tag }}
+      - name: Publish packages
+        run: node ./scripts/publish-packages.mjs ${{ steps.npm-tag.outputs.tag }}
