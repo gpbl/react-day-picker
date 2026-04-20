@@ -4,16 +4,16 @@ title: Buddhist (Thai) Calendar
 
 DayPicker supports the Buddhist (Thai) calendar via a dedicated build. Months and weeks remain Gregorian, while years render in Buddhist Era (BE = CE + 543) and Thai numerals by default.
 
-Import `DayPicker` from `react-day-picker/buddhist` to render Buddhist years while keeping the usual DayPicker API.
+Import `DayPicker` from `@daypicker/buddhist` to render Buddhist years while keeping the usual DayPicker API.
 
 ```tsx
-import { DayPicker } from "react-day-picker/buddhist";
+import { DayPicker } from "@daypicker/buddhist";
 ```
 
 ### Basic usage
 
 ```tsx
-import { DayPicker } from "react-day-picker/buddhist";
+import { DayPicker } from "@daypicker/buddhist";
 
 <DayPicker />;
 ```
@@ -25,8 +25,7 @@ import { DayPicker } from "react-day-picker/buddhist";
 ### English locale with latin numerals
 
 ```tsx
-import { DayPicker } from "react-day-picker/buddhist";
-import { enUS } from "react-day-picker/locale";
+import { DayPicker, enUS } from "@daypicker/buddhist";
 
 <DayPicker locale={enUS} numerals="latn" />;
 ```

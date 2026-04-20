@@ -1,1 +1,1 @@
-export * from "react-day-picker/ethiopic";
+export * from "./ethiopic/index.js";

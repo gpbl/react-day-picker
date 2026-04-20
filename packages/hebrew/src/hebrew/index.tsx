@@ -4,7 +4,7 @@ import {
   DateLib,
   type DateLibOptions,
   DayPicker as DayPickerComponent,
-} from "../index.js";
+} from "react-day-picker";
 import { he } from "../locale/he.js";
 import type { DayPickerProps } from "../types/props.js";
 import * as hebrewDateLib from "./lib/index.js";

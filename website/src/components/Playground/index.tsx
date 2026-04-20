@@ -10,19 +10,19 @@ import {
   enUS as enUSBuddhist,
   getDateLib as getDateLibBuddhist,
   th as thBuddhist,
-} from "react-day-picker/buddhist";
+} from "@daypicker/buddhist";
 import {
   amET as amETEthiopic,
   DayPicker as DayPickerEthiopic,
   enUS as enUSEthiopic,
   getDateLib as getDateLibEthiopic,
-} from "react-day-picker/ethiopic";
+} from "@daypicker/ethiopic";
 import {
   DayPicker as DayPickerHebrew,
   enUS as enUSHebrew,
   getDateLib as getDateLibHebrew,
   he as heHebrew,
-} from "react-day-picker/hebrew";
+} from "@daypicker/hebrew";
 import {
   arSA as arSAHijri,
   DayPicker as DayPickerHijri,
@@ -86,29 +86,31 @@ export function Playground({ basePath = "/playground" }: PlaygroundProps) {
   const localeImport =
     localeName &&
     (calendarLocale
-      ? props.calendar === "persian" || props.calendar === "hijri"
-        ? `import { ${localeName} } from "@daypicker/${props.calendar}";`
-        : `import { ${localeName} } from "react-day-picker/${props.calendar}";`
+      ? `import { ${localeName} } from "@daypicker/${props.calendar}";`
       : `import { ${localeName} } from "react-day-picker/locale";`);
 
   const importStatements: string[] = [];
 
   if (props.calendar === "persian") {
-    importStatements.push(`import { DayPicker } from "@daypicker/persian";`);
+    importStatements.push(
+      `import { DayPicker } from "@daypicker/persian";`,
+    );
   } else if (props.calendar === "ethiopic") {
     importStatements.push(
-      `import { DayPicker } from "react-day-picker/ethiopic";`,
+      `import { DayPicker } from "@daypicker/ethiopic";`,
     );
   } else if (props.calendar === "buddhist") {
     importStatements.push(
-      `import { DayPicker } from "react-day-picker/buddhist";`,
+      `import { DayPicker } from "@daypicker/buddhist";`,
     );
   } else if (props.calendar === "hebrew") {
     importStatements.push(
-      `import { DayPicker } from "react-day-picker/hebrew";`,
+      `import { DayPicker } from "@daypicker/hebrew";`,
     );
   } else if (props.calendar === "hijri") {
-    importStatements.push(`import { DayPicker } from "@daypicker/hijri";`);
+    importStatements.push(
+      `import { DayPicker } from "@daypicker/hijri";`,
+    );
   } else {
     importStatements.push(`import { DayPicker } from "react-day-picker";`);
   }

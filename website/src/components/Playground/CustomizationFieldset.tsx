@@ -4,7 +4,7 @@ import { DateLib } from "react-day-picker";
 import {
   amET,
   getDateLib as getDateLibEthiopic,
-} from "react-day-picker/ethiopic";
+} from "@daypicker/ethiopic";
 import { arSA, getDateLib as getDateLibHijri } from "@daypicker/hijri";
 import * as locales from "react-day-picker/locale";
 import {

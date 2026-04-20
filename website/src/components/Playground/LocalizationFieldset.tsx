@@ -8,12 +8,12 @@ import {
 import {
   enUS as enUSBuddhist,
   th as thBuddhist,
-} from "react-day-picker/buddhist";
+} from "@daypicker/buddhist";
 import {
   amET as amETEthiopic,
   enUS as enUSEthiopic,
-} from "react-day-picker/ethiopic";
-import { enUS as enUSHebrew, he as heHebrew } from "react-day-picker/hebrew";
+} from "@daypicker/ethiopic";
+import { enUS as enUSHebrew, he as heHebrew } from "@daypicker/hebrew";
 import { arSA as arSAHijri, enUS as enUSHijri } from "@daypicker/hijri";
 import * as locales from "react-day-picker/locale";
 import {

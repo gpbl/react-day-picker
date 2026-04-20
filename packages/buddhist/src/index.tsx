@@ -1,1 +1,1 @@
-export * from "react-day-picker/buddhist";
+export * from "./buddhist/index.js";

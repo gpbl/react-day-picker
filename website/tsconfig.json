@@ -15,6 +15,9 @@
       "@site/*": ["./*"],
       "react-day-picker": ["../src/index.ts"],
       "react-day-picker/*": ["../src/*"],
+      "@daypicker/buddhist": ["../packages/buddhist/src/index.tsx"],
+      "@daypicker/ethiopic": ["../packages/ethiopic/src/index.tsx"],
+      "@daypicker/hebrew": ["../packages/hebrew/src/index.tsx"],
       "@daypicker/hijri": ["../packages/hijri/src/index.tsx"],
       "@daypicker/persian": ["../packages/persian/src/index.tsx"]
     },

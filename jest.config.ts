@@ -38,9 +38,6 @@ const config: Config.InitialOptions = {
       testPathIgnorePatterns: ["<rootDir>/examples/timezone/"],
       moduleNameMapper: {
         "@/test/(.*)": ["<rootDir>/test/$1"],
-        "react-day-picker/buddhist": ["<rootDir>/src/buddhist/index.tsx"],
-        "react-day-picker/hebrew": ["<rootDir>/src/hebrew/index.tsx"],
-        "react-day-picker/ethiopic": ["<rootDir>/src/ethiopic/index.tsx"],
         "@daypicker/buddhist": ["<rootDir>/packages/buddhist/src/index.tsx"],
         "@daypicker/ethiopic": ["<rootDir>/packages/ethiopic/src/index.tsx"],
         "@daypicker/hebrew": ["<rootDir>/packages/hebrew/src/index.tsx"],
@@ -103,9 +100,6 @@ const config: Config.InitialOptions = {
       testPathIgnorePatterns: ["<rootDir>/examples/timezone/"],
       moduleNameMapper: {
         "@/test/(.*)": ["<rootDir>/test/$1"],
-        "react-day-picker/buddhist": ["<rootDir>/dist/cjs/buddhist/index.js"],
-        "react-day-picker/hebrew": ["<rootDir>/dist/cjs/hebrew/index.js"],
-        "react-day-picker/ethiopic": ["<rootDir>/dist/cjs/ethiopic/index.js"],
         "@daypicker/buddhist": [
           "<rootDir>/packages/buddhist/dist/cjs/index.js",
         ],

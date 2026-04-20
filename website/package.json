@@ -15,6 +15,9 @@
     "typecheck-watch": "tsc --noEmit --watch"
   },
   "dependencies": {
+    "@daypicker/buddhist": "workspace:^",
+    "@daypicker/ethiopic": "workspace:^",
+    "@daypicker/hebrew": "workspace:^",
     "@daypicker/hijri": "workspace:^",
     "@daypicker/persian": "workspace:^",
     "@docusaurus/core": "^3.10.0",

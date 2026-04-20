@@ -4,16 +4,16 @@ title: Hebrew Calendar
 
 DayPicker supports the [Hebrew calendar](https://en.wikipedia.org/wiki/Hebrew_calendar) via a dedicated build.
 
-Import `DayPicker` from `react-day-picker/hebrew` to render Hebrew months (including Adar I/II in leap years) with RTL layout by default.
+Import `DayPicker` from `@daypicker/hebrew` to render Hebrew months (including Adar I/II in leap years) with RTL layout by default.
 
 ```tsx
-import { DayPicker } from "react-day-picker/hebrew";
+import { DayPicker } from "@daypicker/hebrew";
 ```
 
 ### Basic usage
 
 ```tsx
-import { DayPicker } from "react-day-picker/hebrew";
+import { DayPicker } from "@daypicker/hebrew";
 
 <DayPicker />;
 ```
@@ -25,8 +25,7 @@ import { DayPicker } from "react-day-picker/hebrew";
 ### English labels, LTR, Latin digits
 
 ```tsx
-import { DayPicker } from "react-day-picker/hebrew";
-import { enUS } from "react-day-picker/locale";
+import { DayPicker, enUS } from "@daypicker/hebrew";
 
 <DayPicker locale={enUS} dir="ltr" numerals="latn" />;
 ```

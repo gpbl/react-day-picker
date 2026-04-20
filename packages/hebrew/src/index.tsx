@@ -1,1 +1,1 @@
-export * from "react-day-picker/hebrew";
+export * from "./hebrew/index.js";

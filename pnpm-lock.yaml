@@ -121,6 +121,9 @@ importers:
 
   packages/buddhist:
     dependencies:
+      date-fns:
+        specifier: ^4.1.0
+        version: 4.1.0
       react:
         specifier: '>=18'
         version: 19.2.5
@@ -130,6 +133,9 @@ importers:
 
   packages/ethiopic:
     dependencies:
+      date-fns:
+        specifier: ^4.1.0
+        version: 4.1.0
       react:
         specifier: '>=18'
         version: 19.2.5
@@ -139,6 +145,9 @@ importers:
 
   packages/hebrew:
     dependencies:
+      date-fns:
+        specifier: ^4.1.0
+        version: 4.1.0
       react:
         specifier: '>=18'
         version: 19.2.5
@@ -294,6 +303,15 @@ importers:
 
   website:
     dependencies:
+      '@daypicker/buddhist':
+        specifier: workspace:^
+        version: link:../packages/buddhist
+      '@daypicker/ethiopic':
+        specifier: workspace:^
+        version: link:../packages/ethiopic
+      '@daypicker/hebrew':
+        specifier: workspace:^
+        version: link:../packages/hebrew
       '@daypicker/hijri':
         specifier: workspace:^
         version: link:../packages/hijri
