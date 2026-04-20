@@ -1,3 +1,15 @@
+import {
+  arSA as arSAHijri,
+  DayPicker as DayPickerHijri,
+  enUS as enUSHijri,
+  getDateLib as getDateLibHijri,
+} from "@daypicker/hijri";
+import {
+  DayPicker as DayPickerPersian,
+  enUS as enUSPersian,
+  faIR as faIRpersian,
+  getDateLib as getDateLibPersian,
+} from "@daypicker/persian";
 import React from "react";
 import {
   DateLib,
@@ -23,19 +35,7 @@ import {
   getDateLib as getDateLibHebrew,
   he as heHebrew,
 } from "react-day-picker/hebrew";
-import {
-  arSA as arSAHijri,
-  DayPicker as DayPickerHijri,
-  enUS as enUSHijri,
-  getDateLib as getDateLibHijri,
-} from "@daypicker/hijri";
 import * as locales from "react-day-picker/locale";
-import {
-  DayPicker as DayPickerPersian,
-  enUS as enUSPersian,
-  faIR as faIRpersian,
-  getDateLib as getDateLibPersian,
-} from "@daypicker/persian";
 import { BrowserWindow } from "../BrowserWindow";
 import { HighlightWithTheme } from "../HighlightWithTheme";
 import { CustomizationFieldset } from "./CustomizationFieldset";
