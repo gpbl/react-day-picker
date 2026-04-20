@@ -1,25 +1,18 @@
-import React from "react";
-
-import {
-  type DayPickerProps,
-  defaultDateLib,
-  type Numerals,
-} from "react-day-picker";
-import {
-  enUS as enUSBuddhist,
-  th as thBuddhist,
-} from "@daypicker/buddhist";
+import { enUS as enUSBuddhist, th as thBuddhist } from "@daypicker/buddhist";
 import {
   amET as amETEthiopic,
   enUS as enUSEthiopic,
 } from "@daypicker/ethiopic";
 import { enUS as enUSHebrew, he as heHebrew } from "@daypicker/hebrew";
 import { arSA as arSAHijri, enUS as enUSHijri } from "@daypicker/hijri";
-import * as locales from "react-day-picker/locale";
+import { enUS as enUSPersian, faIR as faIRPersian } from "@daypicker/persian";
+import React from "react";
 import {
-  enUS as enUSPersian,
-  faIR as faIRPersian,
-} from "@daypicker/persian";
+  type DayPickerProps,
+  defaultDateLib,
+  type Numerals,
+} from "react-day-picker";
+import * as locales from "react-day-picker/locale";
 
 import styles from "./styles.module.css";
 import type { DayPickerPropsWithCalendar } from "./useQueryStringSync";
