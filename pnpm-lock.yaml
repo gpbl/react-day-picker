@@ -11,15 +11,9 @@ importers:
       '@date-fns/tz':
         specifier: ^1.4.1
         version: 1.4.1
-      '@tabby_ai/hijri-converter':
-        specifier: 1.0.5
-        version: 1.0.5
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
-      date-fns-jalali:
-        specifier: 4.1.0-0
-        version: 4.1.0-0
     devDependencies:
       '@biomejs/biome':
         specifier: 2.4.12
@@ -154,6 +148,12 @@ importers:
 
   packages/hijri:
     dependencies:
+      '@tabby_ai/hijri-converter':
+        specifier: 1.0.5
+        version: 1.0.5
+      date-fns:
+        specifier: ^4.1.0
+        version: 4.1.0
       react:
         specifier: '>=18'
         version: 19.2.5
@@ -163,6 +163,12 @@ importers:
 
   packages/persian:
     dependencies:
+      '@date-fns/tz':
+        specifier: ^1.4.1
+        version: 1.4.1
+      date-fns-jalali:
+        specifier: 4.1.0-0
+        version: 4.1.0-0
       react:
         specifier: '>=18'
         version: 19.2.5
@@ -288,6 +294,12 @@ importers:
 
   website:
     dependencies:
+      '@daypicker/hijri':
+        specifier: workspace:^
+        version: link:../packages/hijri
+      '@daypicker/persian':
+        specifier: workspace:^
+        version: link:../packages/persian
       '@docusaurus/core':
         specifier: ^3.10.0
         version: 3.10.0(@docusaurus/faster@3.10.0(@docusaurus/types@3.10.0(@swc/core@1.15.26)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)))(@mdx-js/react@3.1.1(@types/react@19.2.14)(react@19.2.5))(@rspack/core@1.7.11)(@swc/core@1.15.26)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)

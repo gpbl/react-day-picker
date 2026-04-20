@@ -2,15 +2,21 @@
   // Keep this config local so we don't inherit deprecated TS options from @docusaurus/tsconfig.
   "compilerOptions": {
     "allowJs": true,
+    "baseUrl": ".",
     "esModuleInterop": true,
     "target": "ES2018",
     "lib": ["DOM", "ESNext", "DOM.Iterable"],
     "jsx": "react-jsx",
     "module": "esnext",
     "moduleResolution": "bundler",
+    "ignoreDeprecations": "6.0",
     "noEmit": true,
     "paths": {
-      "@site/*": ["./*"]
+      "@site/*": ["./*"],
+      "react-day-picker": ["../src/index.ts"],
+      "react-day-picker/*": ["../src/*"],
+      "@daypicker/hijri": ["../packages/hijri/src/index.tsx"],
+      "@daypicker/persian": ["../packages/persian/src/index.tsx"]
     },
     "skipLibCheck": true,
     "strict": true,

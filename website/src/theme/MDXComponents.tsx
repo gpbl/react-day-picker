@@ -1,7 +1,7 @@
 import { useDocsVersion } from "@docusaurus/plugin-content-docs/client";
 import MDXComponents from "@theme-original/MDXComponents";
 import type { ComponentProps, ComponentType } from "react";
-import * as CurrentExamples from "react-day-picker/examples";
+import * as CurrentExamples from "../examples";
 import * as ExamplesV8 from "../../examples-v8";
 import * as ExamplesV9 from "../../examples-v9";
 import { BrowserWindow } from "../components/BrowserWindow";

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { DayPicker } from "react-day-picker/persian";
+import { DayPicker } from "@daypicker/persian";
 
 export function Persian() {
   return <DayPicker mode="single" />;

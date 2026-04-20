@@ -14,12 +14,12 @@ import {
   enUS as enUSEthiopic,
 } from "react-day-picker/ethiopic";
 import { enUS as enUSHebrew, he as heHebrew } from "react-day-picker/hebrew";
-import { arSA as arSAHijri, enUS as enUSHijri } from "react-day-picker/hijri";
+import { arSA as arSAHijri, enUS as enUSHijri } from "@daypicker/hijri";
 import * as locales from "react-day-picker/locale";
 import {
   enUS as enUSPersian,
   faIR as faIRPersian,
-} from "react-day-picker/persian";
+} from "@daypicker/persian";
 
 import styles from "./styles.module.css";
 import type { DayPickerPropsWithCalendar } from "./useQueryStringSync";

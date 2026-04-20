@@ -1,4 +1,4 @@
-import { enUSJalali, faIRJalali } from "./locale.js";
+import { enUSJalali, faIRJalali } from "./index.js";
 
 describe("Jalali locales", () => {
   test("faIRJalali exposes DayPicker labels", () => {

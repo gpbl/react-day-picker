@@ -35,5 +35,9 @@
   "peerDependencies": {
     "react": ">=18",
     "react-day-picker": "10.0.0-next.1"
+  },
+  "dependencies": {
+    "@tabby_ai/hijri-converter": "1.0.5",
+    "date-fns": "^4.1.0"
   }
 }

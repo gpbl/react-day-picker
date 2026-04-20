@@ -35,16 +35,6 @@
         "default": "./dist/cjs/index.js"
       }
     },
-    "./persian": {
-      "import": {
-        "types": "./dist/esm/persian.d.ts",
-        "default": "./dist/esm/persian.js"
-      },
-      "require": {
-        "types": "./dist/cjs/persian.d.ts",
-        "default": "./dist/cjs/persian.js"
-      }
-    },
     "./buddhist": {
       "import": {
         "types": "./dist/esm/buddhist/index.d.ts",
@@ -73,16 +63,6 @@
       "require": {
         "types": "./dist/cjs/ethiopic/index.d.ts",
         "default": "./dist/cjs/ethiopic/index.js"
-      }
-    },
-    "./hijri": {
-      "import": {
-        "types": "./dist/esm/hijri/index.d.ts",
-        "default": "./dist/esm/hijri/index.js"
-      },
-      "require": {
-        "types": "./dist/cjs/hijri/index.d.ts",
-        "default": "./dist/cjs/hijri/index.js"
       }
     },
     "./style": {
@@ -228,22 +208,16 @@
     "src/style.module.css",
     "src/style.css.d.ts",
     "src/style.module.css.d.ts",
-    "persian.js",
-    "persian.d.ts",
     "buddhist.js",
     "buddhist.d.ts",
     "hebrew.js",
     "hebrew.d.ts",
-    "hijri.js",
-    "hijri.d.ts",
     "locale.js",
     "locale.d.ts"
   ],
   "dependencies": {
     "@date-fns/tz": "^1.4.1",
-    "@tabby_ai/hijri-converter": "1.0.5",
-    "date-fns": "^4.1.0",
-    "date-fns-jalali": "4.1.0-0"
+    "date-fns": "^4.1.0"
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.12",

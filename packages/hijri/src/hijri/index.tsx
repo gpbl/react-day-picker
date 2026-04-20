@@ -4,7 +4,7 @@ import {
   DateLib,
   type DateLibOptions,
   DayPicker as DayPickerComponent,
-} from "../index.js";
+} from "react-day-picker";
 import { arSA } from "../locale/ar-SA.js";
 import type { DayPickerProps } from "../types/props.js";
 import * as hijriDateLib from "./lib/index.js";

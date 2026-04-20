@@ -35,5 +35,9 @@
   "peerDependencies": {
     "react": ">=18",
     "react-day-picker": "10.0.0-next.1"
+  },
+  "dependencies": {
+    "@date-fns/tz": "^1.4.1",
+    "date-fns-jalali": "4.1.0-0"
   }
 }

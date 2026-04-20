@@ -1,1 +1,1 @@
-export * from "react-day-picker/hijri";
+export * from "./hijri/index.js";
