@@ -8,6 +8,7 @@ const nextDocsVersion = nodeRequire("../package.json").version;
 const stableDocsVersion = nodeRequire(
   "react-day-picker-v9/package.json",
 ).version;
+const currentExamplesPath = nodeRequire.resolve("../examples/index.ts");
 
 const config: Config = {
   title: "React DayPicker",
@@ -93,6 +94,20 @@ const config: Config = {
   ],
 
   plugins: [
+    function currentExamplesAliasPlugin() {
+      return {
+        name: "current-examples-alias",
+        configureWebpack() {
+          return {
+            resolve: {
+              alias: {
+                "react-day-picker/examples": currentExamplesPath,
+              },
+            },
+          };
+        },
+      };
+    },
     [
       "@docusaurus/plugin-client-redirects",
       {

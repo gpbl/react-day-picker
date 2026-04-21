@@ -124,10 +124,6 @@
       "require": "./package.json",
       "default": "./package.json"
     },
-    "./examples": {
-      "types": "./examples/index.d.ts",
-      "import": "./examples/index.ts"
-    },
     "./locale": {
       "import": {
         "types": "./dist/esm/locale.d.ts",
@@ -173,7 +169,6 @@
   },
   "files": [
     "dist",
-    "examples",
     "src/style.css",
     "src/style.module.css",
     "src/style.css.d.ts",
