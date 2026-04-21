@@ -10,6 +10,9 @@
 
     /* Bundler mode */
     "moduleResolution": "bundler",
+    "paths": {
+      "react-day-picker/examples": ["../examples/index.ts"]
+    },
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -23,5 +26,6 @@
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"]
+  "include": ["src", "../examples/**/*.ts", "../examples/**/*.tsx"],
+  "exclude": ["../examples/**/*.test.*"]
 }
