@@ -10,12 +10,20 @@
     "moduleResolution": "bundler",
     "noEmit": true,
     "paths": {
-      "@site/*": ["./*"]
+      "@site/*": ["./*"],
+      "react-day-picker/examples": ["../examples/index.ts"]
     },
     "skipLibCheck": true,
     "strict": true,
     "types": ["node", "@docusaurus/module-type-aliases"],
     "useDefineForClassFields": false
   },
-  "include": ["src", "examples-v8", "examples-v9"]
+  "include": [
+    "src",
+    "examples-v8",
+    "examples-v9",
+    "../examples/**/*.ts",
+    "../examples/**/*.tsx"
+  ],
+  "exclude": ["../examples/**/*.test.*"]
 }
