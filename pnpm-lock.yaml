@@ -122,29 +122,32 @@ importers:
   packages/buddhist:
     dependencies:
       react:
-        specifier: '>=18'
+        specifier: '>=16.8.0'
         version: 19.2.5
+    devDependencies:
       react-day-picker:
-        specifier: 10.0.0-next.1
-        version: 10.0.0-next.1(react@19.2.5)
+        specifier: workspace:*
+        version: link:../..
 
   packages/ethiopic:
     dependencies:
       react:
-        specifier: '>=18'
+        specifier: '>=16.8.0'
         version: 19.2.5
+    devDependencies:
       react-day-picker:
-        specifier: 10.0.0-next.1
-        version: 10.0.0-next.1(react@19.2.5)
+        specifier: workspace:*
+        version: link:../..
 
   packages/hebrew:
     dependencies:
       react:
-        specifier: '>=18'
+        specifier: '>=16.8.0'
         version: 19.2.5
+    devDependencies:
       react-day-picker:
-        specifier: 10.0.0-next.1
-        version: 10.0.0-next.1(react@19.2.5)
+        specifier: workspace:*
+        version: link:../..
 
   packages/hijri:
     dependencies:
@@ -155,11 +158,12 @@ importers:
         specifier: ^4.1.0
         version: 4.1.0
       react:
-        specifier: '>=18'
+        specifier: '>=16.8.0'
         version: 19.2.5
+    devDependencies:
       react-day-picker:
-        specifier: 10.0.0-next.1
-        version: 10.0.0-next.1(react@19.2.5)
+        specifier: workspace:*
+        version: link:../..
 
   packages/persian:
     dependencies:
@@ -170,11 +174,12 @@ importers:
         specifier: 4.1.0-0
         version: 4.1.0-0
       react:
-        specifier: '>=18'
+        specifier: '>=16.8.0'
         version: 19.2.5
+    devDependencies:
       react-day-picker:
-        specifier: 10.0.0-next.1
-        version: 10.0.0-next.1(react@19.2.5)
+        specifier: workspace:*
+        version: link:../..
 
   shadcn-app-v9:
     dependencies:
@@ -7310,12 +7315,6 @@ packages:
   rc@1.2.8:
     resolution: {integrity: sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==}
     hasBin: true
-
-  react-day-picker@10.0.0-next.1:
-    resolution: {integrity: sha512-WLYt9qunXOB51sL+JE+h4LM9LCqRkZv+Hj35biUrF5z2sQduEkeZZqypHN19Z93HzPceMEIdqOTHjP+vDIzbdw==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      react: '>=16.8.0'
 
   react-day-picker@8.10.1:
     resolution: {integrity: sha512-TMx7fNbhLk15eqcMt+7Z7S2KF7mfTId/XJDjKE8f+IUcFn0l08/kI4FiYTL/0yuOLmEcbR4Fwe3GJf/NiiMnPA==}
@@ -17199,14 +17198,6 @@ snapshots:
       ini: 1.3.8
       minimist: 1.2.8
       strip-json-comments: 2.0.1
-
-  react-day-picker@10.0.0-next.1(react@19.2.5):
-    dependencies:
-      '@date-fns/tz': 1.4.1
-      '@tabby_ai/hijri-converter': 1.0.5
-      date-fns: 4.1.0
-      date-fns-jalali: 4.1.0-0
-      react: 19.2.5
 
   react-day-picker@8.10.1(date-fns@4.1.0)(react@19.2.5):
     dependencies:

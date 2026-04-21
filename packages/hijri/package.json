@@ -39,5 +39,8 @@
   "dependencies": {
     "@tabby_ai/hijri-converter": "1.0.5",
     "date-fns": "^4.1.0"
+  },
+  "devDependencies": {
+    "react-day-picker": "workspace:*"
   }
 }

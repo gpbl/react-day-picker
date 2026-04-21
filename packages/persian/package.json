@@ -39,5 +39,8 @@
   "dependencies": {
     "@date-fns/tz": "^1.4.1",
     "date-fns-jalali": "4.1.0-0"
+  },
+  "devDependencies": {
+    "react-day-picker": "workspace:*"
   }
 }

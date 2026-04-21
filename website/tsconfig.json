@@ -13,6 +13,7 @@
     "noEmit": true,
     "paths": {
       "@site/*": ["./*"],
+      "react-day-picker/examples": ["../examples/index.ts"],
       "react-day-picker": ["../src/index.ts"],
       "react-day-picker/*": ["../src/*"],
       "@daypicker/hijri": ["../packages/hijri/src/index.tsx"],
@@ -23,5 +24,12 @@
     "types": ["node", "@docusaurus/module-type-aliases"],
     "useDefineForClassFields": false
   },
-  "include": ["src", "examples-v8", "examples-v9"]
+  "include": [
+    "src",
+    "examples-v8",
+    "examples-v9",
+    "../examples/**/*.ts",
+    "../examples/**/*.tsx"
+  ],
+  "exclude": ["../examples/**/*.test.*"]
 }
