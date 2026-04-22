@@ -4,12 +4,12 @@ DayPicker is a [React](https://react.dev) component for creating date pickers, c
 
 ## Documentation
 
-See **[daypicker.dev](https://daypicker.dev)** for guides, examples and API reference, or read [the docs in the repository](website/docs/start.mdx).
+See **[daypicker.dev](https://daypicker.dev)** for guides, examples and API reference, or read [the docs in the repository](https://github.com/gpbl/react-day-picker/blob/main/website/docs/start.mdx).
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./website/static/img/screenshot-dark.png" />
-  <source media="(prefers-color-scheme: light)" srcset="./website/static/img/screenshot-light.png" />
-  <img width="460" src="./website/static/img/screenshot.png"  alt="Screenshot of DayPicker displaying the September 2025 calendar, with the date range from the 17th to the 20th selected." />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gpbl/react-day-picker/main/website/static/img/screenshot-dark.png" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gpbl/react-day-picker/main/website/static/img/screenshot-light.png" />
+  <img width="460" src="https://raw.githubusercontent.com/gpbl/react-day-picker/main/website/static/img/screenshot.png"  alt="Screenshot of DayPicker displaying the September 2025 calendar, with the date range from the 17th to the 20th selected." />
 </picture>
 
 ## Features
@@ -18,7 +18,7 @@ See **[daypicker.dev](https://daypicker.dev)** for guides, examples and API refe
 - 🎨 Minimal design that can be [easily styled](https://daypicker.dev/docs/styling) with CSS or any CSS framework.
 - 📅 Supports [selections](https://daypicker.dev/docs/selection-modes) of single days, multiple days, ranges of days, or [custom selections](https://daypicker.dev/guides/custom-selections).
 - 🌍 Can be [localized](https://daypicker.dev/docs/localization) into any language and [time zones](https://daypicker.dev/docs/time-zone).
-- 🌐 Support for [ISO 8601](http://daypicker.dev/localization/iso-and-broadcast#iso-8601-calendar), [Persian](http://daypicker.dev/localization/persian), [Hijri](http://daypicker.dev/localization/hijri), [Buddhist (Thai)](http://daypicker.dev/localization/buddhist), [Ethiopic](http://daypicker.dev/localization/ethiopic), [Hebrew](http://daypicker.dev/localization/hebrew) and [broadcast](http://daypicker.dev/localization/iso-and-broadcast#broadcast-calendar) calendar.
+- 🌐 Support for [ISO 8601](http://daypicker.dev/localization/iso-and-broadcast#iso-8601-calendar) and [broadcast](http://daypicker.dev/localization/iso-and-broadcast#broadcast-calendar) calendars, plus [Persian](http://daypicker.dev/localization/persian), [Hijri](http://daypicker.dev/localization/hijri), [Buddhist (Thai)](http://daypicker.dev/localization/buddhist), [Ethiopic](http://daypicker.dev/localization/ethiopic), and [Hebrew](http://daypicker.dev/localization/hebrew) calendars through `@daypicker/*` add-on packages.
 - 🦮 Complies with WCAG 2.1 AA requirements for [accessibility](https://daypicker.dev/guides/accessibility).
 - ⚙️ [Customizable components](https://daypicker.dev/guides/custom-components) to extend the rendered elements.
 - 🔤 Easy integration [with input fields](https://daypicker.dev/guides/input-fields).
