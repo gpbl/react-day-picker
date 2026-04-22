@@ -40,7 +40,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: rdp-dist
-          path: .
+          path: packages
       - run: pnpm install --frozen-lockfile
       - run: pnpm -F website typecheck
 
@@ -57,7 +57,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: rdp-dist
-          path: .
+          path: packages
       - run: pnpm install --frozen-lockfile
       - run: pnpm -F website build
       - uses: actions/upload-artifact@v4

@@ -141,7 +141,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: rdp-dist
-          path: .
+          path: packages
       # Test the downloaded artifact exactly as it would be published on npm.
       - run: pnpm install --frozen-lockfile
       - run: pnpm test:build
@@ -170,7 +170,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: rdp-dist
-          path: .
+          path: packages
       - name: Read package version
         id: package-version
         run: |
