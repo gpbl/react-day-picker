@@ -11,7 +11,7 @@ const options = {
   name: "API",
   includeVersion: true,
   basePath: "../",
-  entryPoints: ["../src/index.ts"],
+  entryPoints: ["../packages/react-day-picker/src/index.ts"],
   tsconfig: "../tsconfig-docs.json",
   categorizeByGroup: true,
   groupOrder: [

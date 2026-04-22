@@ -2,7 +2,7 @@ name: react-day-picker
 
 # How this workflow works:
 # - Pull requests and branch pushes run typecheck, lint, test, and build jobs.
-# - A published GitHub Release publishes the matching package.json version to npm.
+# - A published GitHub Release publishes the matching package version to npm.
 # - Stable versions publish with the npm dist-tag latest.
 # - Versions containing -next publish with the npm dist-tag next, but only when the
 #   GitHub Release is marked as a prerelease.
@@ -12,9 +12,9 @@ name: react-day-picker
 #   branch head, so retries stay tied to the Release version being published.
 #
 # How to use it:
-# - Stable release: bump package.json to vX.Y.Z, create the matching GitHub Release
+# - Stable release: bump packages/react-day-picker/package.json to vX.Y.Z, create the matching GitHub Release
 #   tag, and publish the Release on GitHub.
-# - Next release: bump package.json to vX.Y.Z-next.N, create the matching GitHub
+# - Next release: bump packages/react-day-picker/package.json to vX.Y.Z-next.N, create the matching GitHub
 #   Release tag, and publish the Release on GitHub.
 # - Manual recovery: run this workflow manually with publish=true and the matching
 #   release_tag to rebuild, retest, and republish that Release version.
@@ -122,9 +122,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: rdp-dist
-          path: |
-            dist
-            packages/*/dist
+          path: packages/*/dist
 
   test-build:
     runs-on: ubuntu-latest
@@ -176,7 +174,7 @@ jobs:
       - name: Read package version
         id: package-version
         run: |
-          version=$(node -p 'require("./package.json").version')
+          version=$(node -p 'require("./packages/react-day-picker/package.json").version')
           echo "version=$version" >> "$GITHUB_OUTPUT"
       - name: Validate publish source
         env:

@@ -40,7 +40,10 @@ function createNpmError(
 
 function createPackageReader() {
   const packageInfoByDir: Record<string, { name: string; version: string }> = {
-    ".": { name: "react-day-picker", version: "10.0.0-next.1" },
+    "packages/react-day-picker": {
+      name: "react-day-picker",
+      version: "10.0.0-next.1",
+    },
     "packages/buddhist": {
       name: "@daypicker/buddhist",
       version: "10.0.0-next.1",
@@ -96,7 +99,7 @@ describe("publishPackages", function describePublishPackages() {
 
     publishPackages("next", {
       execFile,
-      packages: [".", "packages/buddhist"],
+      packages: ["packages/react-day-picker", "packages/buddhist"],
       readPackage: createPackageReader(),
     });
 
@@ -127,7 +130,7 @@ describe("publishPackages", function describePublishPackages() {
     expect(() =>
       publishPackages("next", {
         execFile,
-        packages: ["."],
+        packages: ["packages/react-day-picker"],
         readPackage: createPackageReader(),
       }),
     ).toThrow("npm ERR! network timeout");

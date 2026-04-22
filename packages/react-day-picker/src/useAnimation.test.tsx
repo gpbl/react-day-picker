@@ -1,8 +1,8 @@
 import { render } from "@testing-library/react";
 import React from "react";
+import { nextButton, previousButton } from "@/test/elements";
 import { setTestTime } from "@/test/setTestTime";
 import { user } from "@/test/user";
-import { nextButton, previousButton } from "../test/elements";
 import { DayPicker } from "./DayPicker";
 
 setTestTime(new Date(2025, 1, 10));

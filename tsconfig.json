@@ -5,7 +5,7 @@
     "types": ["node", "jest", "@testing-library/jest-dom", "@types/jest"]
   },
   "include": [
-    "src",
+    "packages/react-day-picker/src",
     "packages",
     "test",
     "**/*.test.*",

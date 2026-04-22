@@ -1,14 +1,35 @@
 import { createRequire } from "node:module";
+import { fileURLToPath } from "node:url";
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
 import { themes as prismThemes } from "prism-react-renderer";
 
 const nodeRequire = createRequire(import.meta.url);
-const nextDocsVersion = nodeRequire("../package.json").version;
+const nextDocsVersion = nodeRequire(
+  "../packages/react-day-picker/package.json",
+).version;
 const stableDocsVersion = nodeRequire(
   "react-day-picker-v9/package.json",
 ).version;
 const currentExamplesPath = nodeRequire.resolve("../examples/index.ts");
+const reactDayPickerSrcPath = nodeRequire.resolve(
+  "../packages/react-day-picker/src/index.ts",
+);
+const reactDayPickerSrcDir = fileURLToPath(
+  new URL("../packages/react-day-picker/src", import.meta.url),
+);
+const reactDayPickerLocalePath = nodeRequire.resolve(
+  "../packages/react-day-picker/src/locale.ts",
+);
+const reactDayPickerLocaleDir = fileURLToPath(
+  new URL("../packages/react-day-picker/src/locale", import.meta.url),
+);
+const reactDayPickerStylePath = nodeRequire.resolve(
+  "../packages/react-day-picker/src/style.css",
+);
+const reactDayPickerStyleModulePath = nodeRequire.resolve(
+  "../packages/react-day-picker/src/style.module.css",
+);
 
 const config: Config = {
   title: "React DayPicker",
@@ -70,7 +91,10 @@ const config: Config = {
         },
         blog: false,
         theme: {
-          customCss: ["../src/style.css", "./src/css/site.css"],
+          customCss: [
+            "../packages/react-day-picker/src/style.css",
+            "./src/css/site.css",
+          ],
         },
         sitemap: {
           lastmod: "date",
@@ -100,8 +124,19 @@ const config: Config = {
         configureWebpack() {
           return {
             resolve: {
+              extensionAlias: {
+                ".js": [".ts", ".tsx", ".js"],
+                ".jsx": [".tsx", ".jsx"],
+              },
               alias: {
                 "react-day-picker/examples": currentExamplesPath,
+                "react-day-picker/style.css$": reactDayPickerStylePath,
+                "react-day-picker/style.module.css$":
+                  reactDayPickerStyleModulePath,
+                "react-day-picker/src": reactDayPickerSrcDir,
+                "react-day-picker/locale$": reactDayPickerLocalePath,
+                "react-day-picker/locale": reactDayPickerLocaleDir,
+                "react-day-picker$": reactDayPickerSrcPath,
               },
             },
           };

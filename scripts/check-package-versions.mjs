@@ -4,7 +4,7 @@ import path from "node:path";
 const repoRoot = new URL("../", import.meta.url);
 
 const packagePaths = [
-  "package.json",
+  "packages/react-day-picker/package.json",
   "packages/buddhist/package.json",
   "packages/ethiopic/package.json",
   "packages/hebrew/package.json",
@@ -17,7 +17,9 @@ function readPackageJson(packagePath) {
   return JSON.parse(readFileSync(filePath, "utf8"));
 }
 
-const rootVersion = readPackageJson("package.json").version;
+const rootVersion = readPackageJson(
+  "packages/react-day-picker/package.json",
+).version;
 
 for (const packagePath of packagePaths.slice(1)) {
   const packageJson = readPackageJson(packagePath);

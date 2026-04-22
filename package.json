@@ -1,159 +1,16 @@
 {
-  "name": "react-day-picker",
-  "version": "10.0.0-next.1",
-  "description": "Customizable Date Picker for React",
-  "author": "Giampaolo Bellavite <io@gpbl.dev>",
-  "homepage": "https://daypicker.dev",
+  "name": "react-day-picker-workspace",
+  "version": "0.0.0",
+  "private": true,
   "packageManager": "pnpm@10.24.0",
   "engines": {
     "node": ">=18"
   },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gpbl/react-day-picker"
-  },
-  "bugs": {
-    "url": "https://github.com/gpbl/react-day-picker/issues"
-  },
-  "main": "./dist/cjs/index.js",
-  "types": "./dist/cjs/index.d.ts",
-  "module": "./dist/esm/index.js",
-  "style": "./src/style.css",
-  "type": "module",
-  "sideEffects": [
-    "**/*.css"
-  ],
-  "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/esm/index.d.ts",
-        "default": "./dist/esm/index.js"
-      },
-      "require": {
-        "types": "./dist/cjs/index.d.ts",
-        "default": "./dist/cjs/index.js"
-      }
-    },
-    "./style": {
-      "sass": "./src/style.css"
-    },
-    "./style.css": {
-      "style": {
-        "default": "./src/style.css"
-      },
-      "import": {
-        "types": "./src/style.css.d.ts",
-        "default": "./src/style.css"
-      },
-      "require": {
-        "types": "./src/style.css.d.ts",
-        "default": "./src/style.css"
-      }
-    },
-    "./style.module": {
-      "sass": "./src/style.module.css"
-    },
-    "./style.module.css": {
-      "style": {
-        "default": "./src/style.module.css"
-      },
-      "import": {
-        "types": "./src/style.module.css.d.ts",
-        "default": "./src/style.module.css"
-      },
-      "require": {
-        "types": "./src/style.module.css.d.ts",
-        "default": "./src/style.module.css"
-      }
-    },
-    "./src/style.css": {
-      "style": {
-        "default": "./src/style.css"
-      },
-      "import": {
-        "types": "./src/style.module.css.d.ts",
-        "default": "./src/style.css"
-      },
-      "require": {
-        "types": "./src/style.module.css.d.ts",
-        "default": "./src/style.css"
-      }
-    },
-    "./src/style.module.css": {
-      "style": {
-        "default": "./src/style.module.css"
-      },
-      "import": {
-        "types": "./src/style.module.css.d.ts",
-        "default": "./src/style.module.css"
-      },
-      "require": {
-        "types": "./src/style.module.css.d.ts",
-        "default": "./src/style.module.css"
-      }
-    },
-    "./dist/style.css": {
-      "style": {
-        "default": "./src/style.css"
-      },
-      "import": {
-        "types": "./src/style.module.css.d.ts",
-        "default": "./src/style.css"
-      },
-      "require": {
-        "types": "./src/style.module.css.d.ts",
-        "default": "./src/style.css"
-      }
-    },
-    "./dist/style.module.css": {
-      "style": {
-        "default": "./src/style.module.css"
-      },
-      "import": {
-        "types": "./src/style.module.css.d.ts",
-        "default": "./src/style.module.css"
-      },
-      "require": {
-        "types": "./src/style.module.css.d.ts",
-        "default": "./src/style.module.css"
-      }
-    },
-    "./package.json": {
-      "import": "./package.json",
-      "require": "./package.json",
-      "default": "./package.json"
-    },
-    "./locale": {
-      "import": {
-        "types": "./dist/esm/locale.d.ts",
-        "default": "./dist/esm/locale.js"
-      },
-      "require": {
-        "types": "./dist/cjs/locale.d.ts",
-        "default": "./dist/cjs/locale.js"
-      }
-    },
-    "./locale/*": {
-      "import": {
-        "types": "./dist/esm/locale/*.d.ts",
-        "default": "./dist/esm/locale/*.js"
-      },
-      "require": {
-        "types": "./dist/cjs/locale/*.d.ts",
-        "default": "./dist/cjs/locale/*.js"
-      }
-    }
-  },
   "scripts": {
-    "prepublish": "pnpm build",
-    "build": "pnpm clean:dist && pnpm build:root && pnpm build:packages",
-    "build:root": "pnpm build:cjs && pnpm build:esm && pnpm build:css",
+    "build": "pnpm clean:dist && pnpm build:react-day-picker && pnpm build:packages",
+    "build:react-day-picker": "pnpm --filter react-day-picker build",
     "build:packages": "pnpm -r --filter \"@daypicker/*\" build",
-    "build:cjs": "tsc --project tsconfig-cjs.json && echo '{ \"type\": \"commonjs\" }' > dist/cjs/package.json",
-    "build:esm": "tsc --project tsconfig-esm.json",
-    "build:css": "./scripts/build-css.sh ./src/style.css ./src/style.module.css",
-    "clean:dist": "rm -rf dist packages/*/dist",
+    "clean:dist": "rm -rf packages/*/dist",
     "format": "prettier -w \"**/*.{md,mdx,ts,tsx}\"",
     "lint": "biome check",
     "test": "jest --selectProjects examples --selectProjects src --selectProjects packages --selectProjects scripts",
@@ -162,26 +19,14 @@
     "test-watch": "jest --watch",
     "typecheck": "pnpm typecheck:root && pnpm typecheck:packages",
     "typecheck:root": "tsc --project ./tsconfig.json --noEmit",
-    "typecheck:packages": "pnpm -r --filter \"@daypicker/*\" typecheck",
+    "typecheck:packages": "pnpm -r --filter \"@daypicker/*\" typecheck && pnpm --filter react-day-picker typecheck",
     "check:versions": "node ./scripts/check-package-versions.mjs",
     "pack:dry-run": "node ./scripts/npm-pack-dry-run.mjs",
     "typecheck-watch": "tsc --project ./tsconfig.json --noEmit --watch"
   },
-  "files": [
-    "dist",
-    "src/style.css",
-    "src/style.module.css",
-    "src/style.css.d.ts",
-    "src/style.module.css.d.ts",
-    "locale.js",
-    "locale.d.ts"
-  ],
-  "dependencies": {
-    "@date-fns/tz": "^1.4.1",
-    "date-fns": "^4.1.0"
-  },
   "devDependencies": {
     "@biomejs/biome": "2.4.12",
+    "@date-fns/tz": "^1.4.1",
     "@jest/types": "^30.3.0",
     "@radix-ui/react-select": "^2.2.6",
     "@swc/core": "^1.15.26",
@@ -194,6 +39,8 @@
     "@types/node": "^25.6.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "date-fns": "^4.1.0",
+    "date-fns-jalali": "^4.1.0-0",
     "jest": "^30.3.0",
     "jest-environment-jsdom": "^30.3.0",
     "jest-transform-css": "^6.0.3",
@@ -201,17 +48,11 @@
     "prettier": "^3.8.3",
     "prettier-plugin-jsdoc": "^1.8.0",
     "react": "^19.2.5",
+    "react-day-picker": "workspace:*",
     "react-dom": "^19.2.5",
     "ts-node": "^10.9.2",
     "tslib": "^2.8.1",
     "typescript": "^6.0.3",
     "typescript-css-modules": "^1.0.4"
-  },
-  "peerDependencies": {
-    "react": ">=16.8.0"
-  },
-  "funding": {
-    "type": "individual",
-    "url": "https://github.com/sponsors/gpbl"
   }
 }

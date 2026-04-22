@@ -6,31 +6,78 @@ import { defineConfig } from "vite";
 export default defineConfig({
   plugins: [react()],
   resolve: {
-    alias: {
-      "@daypicker/buddhist": path.resolve(
-        __dirname,
-        "../packages/buddhist/src/index.tsx",
-      ),
-      "@daypicker/ethiopic": path.resolve(
-        __dirname,
-        "../packages/ethiopic/src/index.tsx",
-      ),
-      "@daypicker/hebrew": path.resolve(
-        __dirname,
-        "../packages/hebrew/src/index.tsx",
-      ),
-      "@daypicker/hijri": path.resolve(
-        __dirname,
-        "../packages/hijri/src/index.tsx",
-      ),
-      "@daypicker/persian": path.resolve(
-        __dirname,
-        "../packages/persian/src/index.tsx",
-      ),
-      "react-day-picker/examples": path.resolve(
-        __dirname,
-        "../examples/index.ts",
-      ),
-    },
+    alias: [
+      {
+        find: "react-day-picker/examples",
+        replacement: path.resolve(__dirname, "../examples/index.ts"),
+      },
+      {
+        find: "react-day-picker/style.css",
+        replacement: path.resolve(
+          __dirname,
+          "../packages/react-day-picker/src/style.css",
+        ),
+      },
+      {
+        find: "react-day-picker/style.module.css",
+        replacement: path.resolve(
+          __dirname,
+          "../packages/react-day-picker/src/style.module.css",
+        ),
+      },
+      {
+        find: /^react-day-picker\/locale\/(.+)$/,
+        replacement: path.resolve(
+          __dirname,
+          "../packages/react-day-picker/src/locale/$1.ts",
+        ),
+      },
+      {
+        find: /^react-day-picker\/locale$/,
+        replacement: path.resolve(
+          __dirname,
+          "../packages/react-day-picker/src/locale.ts",
+        ),
+      },
+      {
+        find: /^react-day-picker$/,
+        replacement: path.resolve(
+          __dirname,
+          "../packages/react-day-picker/src/index.ts",
+        ),
+      },
+      {
+        find: "@daypicker/buddhist",
+        replacement: path.resolve(
+          __dirname,
+          "../packages/buddhist/src/index.tsx",
+        ),
+      },
+      {
+        find: "@daypicker/ethiopic",
+        replacement: path.resolve(
+          __dirname,
+          "../packages/ethiopic/src/index.tsx",
+        ),
+      },
+      {
+        find: "@daypicker/hebrew",
+        replacement: path.resolve(
+          __dirname,
+          "../packages/hebrew/src/index.tsx",
+        ),
+      },
+      {
+        find: "@daypicker/hijri",
+        replacement: path.resolve(__dirname, "../packages/hijri/src/index.tsx"),
+      },
+      {
+        find: "@daypicker/persian",
+        replacement: path.resolve(
+          __dirname,
+          "../packages/persian/src/index.tsx",
+        ),
+      },
+    ],
   },
 });

@@ -7,7 +7,7 @@ import {
   labelMonthDropdown,
   labelYearDropdown,
   SelectionState,
-} from "../src";
+} from "react-day-picker";
 
 /** Return the application element from the screen. */
 export function app() {

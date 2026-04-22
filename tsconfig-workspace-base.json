@@ -6,8 +6,8 @@
     "paths": {
       "@/test": ["./test"],
       "@/test/*": ["./test/*"],
-      "react-day-picker": ["./src/index.ts"],
-      "react-day-picker/*": ["./src/*"],
+      "react-day-picker": ["./packages/react-day-picker/src/index.ts"],
+      "react-day-picker/*": ["./packages/react-day-picker/src/*"],
       "@daypicker/buddhist": ["./packages/buddhist/src/index.tsx"],
       "@daypicker/ethiopic": ["./packages/ethiopic/src/index.tsx"],
       "@daypicker/hebrew": ["./packages/hebrew/src/index.tsx"],

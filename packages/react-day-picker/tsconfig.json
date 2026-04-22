@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig-workspace-base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "rootDir": "../..",
+    "types": ["node", "jest", "@testing-library/jest-dom", "@types/jest"]
+  },
+  "include": ["src", "../../test/jest-custom-matchers.d.ts"]
+}

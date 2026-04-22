@@ -6,7 +6,7 @@ import { pathToFileURL } from "node:url";
 const repoRoot = new URL("../", import.meta.url);
 
 export const packageDirs = [
-  ".",
+  "packages/react-day-picker",
   "packages/buddhist",
   "packages/ethiopic",
   "packages/hebrew",

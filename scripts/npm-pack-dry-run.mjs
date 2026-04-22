@@ -1,7 +1,7 @@
 import { execFileSync } from "node:child_process";
 
 const packageDirs = [
-  ".",
+  "packages/react-day-picker",
   "packages/buddhist",
   "packages/ethiopic",
   "packages/hebrew",
