@@ -11,6 +11,11 @@
     /* Bundler mode */
     "moduleResolution": "bundler",
     "paths": {
+      "@daypicker/buddhist": ["../packages/buddhist/src/index.tsx"],
+      "@daypicker/ethiopic": ["../packages/ethiopic/src/index.tsx"],
+      "@daypicker/hebrew": ["../packages/hebrew/src/index.tsx"],
+      "@daypicker/hijri": ["../packages/hijri/src/index.tsx"],
+      "@daypicker/persian": ["../packages/persian/src/index.tsx"],
       "react-day-picker/examples": ["../examples/index.ts"]
     },
     "allowImportingTsExtensions": true,
@@ -26,6 +31,20 @@
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "../examples/**/*.ts", "../examples/**/*.tsx"],
-  "exclude": ["../examples/**/*.test.*"]
+  "include": [
+    "src",
+    "../examples/**/*.ts",
+    "../examples/**/*.tsx",
+    "../packages/buddhist/src/**/*.ts",
+    "../packages/buddhist/src/**/*.tsx",
+    "../packages/ethiopic/src/**/*.ts",
+    "../packages/ethiopic/src/**/*.tsx",
+    "../packages/hebrew/src/**/*.ts",
+    "../packages/hebrew/src/**/*.tsx",
+    "../packages/hijri/src/**/*.ts",
+    "../packages/hijri/src/**/*.tsx",
+    "../packages/persian/src/**/*.ts",
+    "../packages/persian/src/**/*.tsx"
+  ],
+  "exclude": ["../examples/**/*.test.*", "../packages/**/*.test.*"]
 }

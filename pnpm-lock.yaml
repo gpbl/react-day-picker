@@ -93,6 +93,21 @@ importers:
 
   examples-app:
     dependencies:
+      '@daypicker/buddhist':
+        specifier: workspace:^
+        version: link:../packages/buddhist
+      '@daypicker/ethiopic':
+        specifier: workspace:^
+        version: link:../packages/ethiopic
+      '@daypicker/hebrew':
+        specifier: workspace:^
+        version: link:../packages/hebrew
+      '@daypicker/hijri':
+        specifier: workspace:^
+        version: link:../packages/hijri
+      '@daypicker/persian':
+        specifier: workspace:^
+        version: link:../packages/persian
       react:
         specifier: ^19.2.5
         version: 19.2.5
