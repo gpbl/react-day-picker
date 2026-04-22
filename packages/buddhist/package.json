@@ -2,7 +2,16 @@
   "name": "@daypicker/buddhist",
   "version": "10.0.0-next.1",
   "description": "Buddhist calendar support for react-day-picker",
+  "homepage": "https://daypicker.dev",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gpbl/react-day-picker",
+    "directory": "packages/buddhist"
+  },
+  "bugs": {
+    "url": "https://github.com/gpbl/react-day-picker/issues"
+  },
   "type": "module",
   "main": "./dist/cjs/index.js",
   "types": "./dist/cjs/index.d.ts",
