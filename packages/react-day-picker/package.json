@@ -11,7 +11,8 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gpbl/react-day-picker"
+    "url": "https://github.com/gpbl/react-day-picker",
+    "directory": "packages/react-day-picker"
   },
   "bugs": {
     "url": "https://github.com/gpbl/react-day-picker/issues"
