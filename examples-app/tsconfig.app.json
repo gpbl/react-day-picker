@@ -11,6 +11,8 @@
     /* Bundler mode */
     "moduleResolution": "bundler",
     "paths": {
+      "@daypicker/hijri": ["../packages/hijri/src/index.tsx"],
+      "@daypicker/persian": ["../packages/persian/src/index.tsx"],
       "react-day-picker/examples": ["../examples/index.ts"]
     },
     "allowImportingTsExtensions": true,
@@ -26,6 +28,14 @@
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "../examples/**/*.ts", "../examples/**/*.tsx"],
-  "exclude": ["../examples/**/*.test.*"]
+  "include": [
+    "src",
+    "../examples/**/*.ts",
+    "../examples/**/*.tsx",
+    "../packages/hijri/src/**/*.ts",
+    "../packages/hijri/src/**/*.tsx",
+    "../packages/persian/src/**/*.ts",
+    "../packages/persian/src/**/*.tsx"
+  ],
+  "exclude": ["../examples/**/*.test.*", "../packages/**/*.test.*"]
 }

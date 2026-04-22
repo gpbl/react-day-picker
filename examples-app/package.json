@@ -12,6 +12,8 @@
     "node": "^20.19.0 || >=22.12.0"
   },
   "dependencies": {
+    "@daypicker/hijri": "workspace:^",
+    "@daypicker/persian": "workspace:^",
     "react": "^19.2.5",
     "react-day-picker": "workspace:*",
     "react-dom": "^19.2.5"
