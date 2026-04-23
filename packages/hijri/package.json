@@ -1,6 +1,6 @@
 {
   "name": "@daypicker/hijri",
-  "version": "10.0.0-next.1",
+  "version": "10.0.0-next.2",
   "description": "Hijri calendar support for react-day-picker",
   "homepage": "https://daypicker.dev",
   "license": "MIT",
@@ -17,7 +17,9 @@
   "types": "./dist/cjs/index.d.ts",
   "module": "./dist/esm/index.js",
   "sideEffects": false,
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "import": {
@@ -43,7 +45,7 @@
   },
   "peerDependencies": {
     "react": ">=16.8.0",
-    "react-day-picker": "10.0.0-next.1"
+    "react-day-picker": "10.0.0-next.2"
   },
   "dependencies": {
     "@tabby_ai/hijri-converter": "1.0.5",

@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.12",
+    "@changesets/cli": "^2.31.0",
     "@date-fns/tz": "^1.4.1",
     "@jest/types": "^30.3.0",
     "@radix-ui/react-select": "^2.2.6",

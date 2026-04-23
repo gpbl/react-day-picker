@@ -1,0 +1,19 @@
+{
+  "mode": "pre",
+  "tag": "next",
+  "initialVersions": {
+    "examples-app": "0.0.0",
+    "shadcn-app-v9": "0.0.0",
+    "shadcn-app-workspace": "0.0.0",
+    "website": "0.0.0",
+    "@daypicker/buddhist": "10.0.0-next.1",
+    "@daypicker/ethiopic": "10.0.0-next.1",
+    "@daypicker/hebrew": "10.0.0-next.1",
+    "@daypicker/hijri": "10.0.0-next.1",
+    "@daypicker/persian": "10.0.0-next.1",
+    "react-day-picker": "10.0.0-next.1"
+  },
+  "changesets": [
+    "mighty-chefs-ring"
+  ]
+}

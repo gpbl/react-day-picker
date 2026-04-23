@@ -106,7 +106,7 @@ describe("publishPackages", function describePublishPackages() {
     expect(execCalls.map((call) => call.args)).toEqual([
       ["view", "react-day-picker@10.0.0-next.1", "version"],
       ["view", "@daypicker/buddhist@10.0.0-next.1", "version"],
-      ["publish", "--provenance", "--tag", "next"],
+      ["publish", "--provenance", "--tag", "next", "--access", "public"],
     ]);
     const publishOptions = execCalls[2]?.options as
       | { cwd?: URL; stdio?: string }

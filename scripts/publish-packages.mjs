@@ -103,13 +103,24 @@ export function isPackageVersionPublished(
  * Publishes a package directory to npm.
  *
  * @param {string} packageDir - Package directory relative to the repo root.
+ * @param {PackageInfo} packageInfo - Package name and version being published.
  * @param {string} tag - Npm dist-tag to publish under.
  * @param {typeof execFileSync} [execFile=execFileSync] - Command runner.
  *   Default is `execFileSync`
  * @returns {void}
  */
-export function publishPackage(packageDir, tag, execFile = execFileSync) {
-  execFile("npm", ["publish", "--provenance", "--tag", tag], {
+export function publishPackage(
+  packageDir,
+  packageInfo,
+  tag,
+  execFile = execFileSync,
+) {
+  const publishArgs = ["publish", "--provenance", "--tag", tag];
+  if (packageInfo.name.startsWith("@")) {
+    publishArgs.push("--access", "public");
+  }
+
+  execFile("npm", publishArgs, {
     cwd: new URL(`../${packageDir}`, import.meta.url),
     stdio: "inherit",
   });
@@ -148,7 +159,7 @@ export function publishPackages(tag, options = {}) {
       continue;
     }
 
-    publishPackage(packageDir, tag, execFile);
+    publishPackage(packageDir, packageInfo, tag, execFile);
   }
 }
 
