@@ -2,7 +2,8 @@ import { createRequire } from "node:module";
 import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 
 const require = createRequire(import.meta.url);
-const typedocSidebar = require("./docs/api/typedoc-sidebar.cjs") as SidebarsConfig["api"][1];
+const typedocSidebar =
+  require("./docs/api/typedoc-sidebar.cjs") as SidebarsConfig["api"][1];
 
 // Something doesn't work when using the TypeDoc sidebar with DateLib importing types from date-fns.
 const typedocSidebarFixed = typedocSidebar.map((item) => {
