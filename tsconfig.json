@@ -13,5 +13,5 @@
     "scripts/**/*.d.ts",
     "scripts/**/*.d.mts"
   ],
-  "exclude": ["website"]
+  "exclude": ["apps/website"]
 }

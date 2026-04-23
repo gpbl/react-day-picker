@@ -15,10 +15,10 @@
     },
     {
       "name": "website",
-      "path": "website"
+      "path": "apps/website"
     },
     {
-      "path": "examples-app"
+      "path": "apps/examples-app"
     }
   ],
   "settings": {

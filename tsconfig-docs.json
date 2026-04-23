@@ -11,5 +11,5 @@
     "lib": ["dom", "dom.iterable", "esnext"]
   },
   "include": ["packages/react-day-picker/src"],
-  "exclude": ["website", "**/*.test.*"]
+  "exclude": ["apps/website", "**/*.test.*"]
 }

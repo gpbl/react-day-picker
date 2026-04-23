@@ -1,9 +1,6 @@
 packages:
   - packages/*
-  - website
-  - examples-app
-  - shadcn-app-workspace
-  - shadcn-app-v9
+  - apps/*
 
 onlyBuiltDependencies:
   - "@swc/core"

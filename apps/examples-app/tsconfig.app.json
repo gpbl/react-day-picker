@@ -1,0 +1,65 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "paths": {
+      "@daypicker/buddhist": ["../../packages/buddhist/src/index.tsx"],
+      "@daypicker/ethiopic": ["../../packages/ethiopic/src/index.tsx"],
+      "@daypicker/hebrew": ["../../packages/hebrew/src/index.tsx"],
+      "@daypicker/hijri": ["../../packages/hijri/src/index.tsx"],
+      "@daypicker/persian": ["../../packages/persian/src/index.tsx"],
+      "react-day-picker": ["../../packages/react-day-picker/src/index.ts"],
+      "react-day-picker/examples": ["../../examples/index.ts"],
+      "react-day-picker/locale": [
+        "../../packages/react-day-picker/src/locale.ts"
+      ],
+      "react-day-picker/locale/*": [
+        "../../packages/react-day-picker/src/locale/*"
+      ],
+      "react-day-picker/style.css": [
+        "../../packages/react-day-picker/src/style.css"
+      ],
+      "react-day-picker/style.module.css": [
+        "../../packages/react-day-picker/src/style.module.css"
+      ]
+    },
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": [
+    "src",
+    "../../examples/**/*.ts",
+    "../../examples/**/*.tsx",
+    "../../packages/buddhist/src/**/*.ts",
+    "../../packages/buddhist/src/**/*.tsx",
+    "../../packages/ethiopic/src/**/*.ts",
+    "../../packages/ethiopic/src/**/*.tsx",
+    "../../packages/hebrew/src/**/*.ts",
+    "../../packages/hebrew/src/**/*.tsx",
+    "../../packages/hijri/src/**/*.ts",
+    "../../packages/hijri/src/**/*.tsx",
+    "../../packages/persian/src/**/*.ts",
+    "../../packages/persian/src/**/*.tsx",
+    "../../packages/react-day-picker/src/**/*.ts",
+    "../../packages/react-day-picker/src/**/*.tsx"
+  ],
+  "exclude": ["../../examples/**/*.test.*", "../../packages/**/*.test.*"]
+}

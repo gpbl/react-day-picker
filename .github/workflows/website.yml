@@ -63,4 +63,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: website-build
-          path: website/build
+          path: apps/website/build

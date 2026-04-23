@@ -1,0 +1,40 @@
+{
+  // Keep this config local so we don't inherit deprecated TS options from @docusaurus/tsconfig.
+  "compilerOptions": {
+    "allowJs": true,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "target": "ES2018",
+    "lib": ["DOM", "ESNext", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "ignoreDeprecations": "6.0",
+    "noEmit": true,
+    "paths": {
+      "@site/*": ["./*"],
+      "react-day-picker/examples": ["../../examples/index.ts"],
+      "react-day-picker": ["../../packages/react-day-picker/src/index.ts"],
+      "react-day-picker/*": ["../../packages/react-day-picker/src/*"],
+      "@daypicker/buddhist": ["../../packages/buddhist/src/index.tsx"],
+      "@daypicker/ethiopic": ["../../packages/ethiopic/src/index.tsx"],
+      "@daypicker/hebrew": ["../../packages/hebrew/src/index.tsx"],
+      "@daypicker/hijri": ["../../packages/hijri/src/index.tsx"],
+      "@daypicker/persian": ["../../packages/persian/src/index.tsx"]
+    },
+    "skipLibCheck": true,
+    "strict": true,
+    "types": ["node", "@docusaurus/module-type-aliases"],
+    "useDefineForClassFields": false
+  },
+  "include": [
+    "src",
+    "examples-v8",
+    "examples-v9",
+    "../../examples/**/*.ts",
+    "../../examples/**/*.tsx",
+    "../../packages/react-day-picker/src/**/*.ts",
+    "../../packages/react-day-picker/src/**/*.tsx"
+  ],
+  "exclude": ["../../examples/**/*.test.*", "../../packages/**/*.test.*"]
+}

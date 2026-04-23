@@ -15,8 +15,8 @@
       "!**/dist",
       "!**/build",
       "!**/versioned_docs",
-      "!website/.docusaurus",
-      "!website/examples-v8"
+      "!apps/website/.docusaurus",
+      "!apps/website/examples-v8"
     ]
   },
   "formatter": {

@@ -4,12 +4,12 @@ DayPicker is a [React](https://react.dev) component for creating date pickers, c
 
 ## Documentation
 
-See **[daypicker.dev](https://daypicker.dev)** for guides, examples and API reference, or read [the docs in the repository](https://github.com/gpbl/react-day-picker/blob/main/website/docs/start.mdx).
+See **[daypicker.dev](https://daypicker.dev)** for guides, examples and API reference, or read [the docs in the repository](https://github.com/gpbl/react-day-picker/blob/main/apps/website/docs/start.mdx).
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gpbl/react-day-picker/main/website/static/img/screenshot-dark.png" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gpbl/react-day-picker/main/website/static/img/screenshot-light.png" />
-  <img width="460" src="https://raw.githubusercontent.com/gpbl/react-day-picker/main/website/static/img/screenshot.png"  alt="Screenshot of DayPicker displaying the September 2025 calendar, with the date range from the 17th to the 20th selected." />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gpbl/react-day-picker/main/apps/website/static/img/screenshot-dark.png" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gpbl/react-day-picker/main/apps/website/static/img/screenshot-light.png" />
+  <img width="460" src="https://raw.githubusercontent.com/gpbl/react-day-picker/main/apps/website/static/img/screenshot.png"  alt="Screenshot of DayPicker displaying the September 2025 calendar, with the date range from the 17th to the 20th selected." />
 </picture>
 
 ## Features
