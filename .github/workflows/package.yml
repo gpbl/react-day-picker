@@ -167,6 +167,7 @@ jobs:
           node-version: 24
           registry-url: https://registry.npmjs.org/
           always-auth: false
+      - run: pnpm install --frozen-lockfile
       - uses: actions/download-artifact@v4
         with:
           name: rdp-dist
