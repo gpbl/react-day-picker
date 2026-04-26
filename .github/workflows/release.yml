@@ -33,16 +33,15 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           ref: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.ref || github.ref }}
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - uses: pnpm/action-setup@v5
+      - uses: actions/setup-node@v6
         with:
           node-version: 24
           cache: pnpm
           registry-url: https://registry.npmjs.org/
-          always-auth: false
       - run: pnpm install --frozen-lockfile
 
       - name: Create release pull request or mark publishable release
@@ -57,16 +56,10 @@ jobs:
           createGithubReleases: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          EXPECTED_PR_AUTHOR: github-actions[bot]
-          EXPECTED_BASE_BRANCH: main
-          EXPECTED_PR_BRANCH: changesets-release/main
 
       - name: Recover release for a merged release PR commit
         if: github.event_name == 'workflow_dispatch'
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          EXPECTED_PR_AUTHOR: github-actions[bot]
-          EXPECTED_BASE_BRANCH: main
-          EXPECTED_PR_BRANCH: changesets-release/main
         run: pnpm release:ci
