@@ -25,7 +25,6 @@ function createShouldPublishContext(
     token: string;
     commitSha: string;
     expectedHeadBranch: string;
-    expectedAuthor: string;
     expectedBaseBranch: string;
   }> = {},
 ) {
@@ -34,7 +33,6 @@ function createShouldPublishContext(
     token: "test-token",
     commitSha: "abc123",
     expectedHeadBranch: "changesets-release/main",
-    expectedAuthor: "github-actions[bot]",
     expectedBaseBranch: "main",
     ...overrides,
   };
@@ -106,6 +104,16 @@ describe("shouldPublishRelease", function describeShouldPublishRelease() {
     );
 
     await expect(shouldPublishRelease(publishContext)).resolves.toBe(false);
+  });
+
+  test("it ignores the pull request author when the release branch matches", async function testIgnoreAuthor() {
+    shouldPublishFetchMock.mockResolvedValueOnce(
+      createShouldPublishFetchResponse([
+        createPullRequest({ user: { login: "someone-else" } }),
+      ]),
+    );
+
+    await expect(shouldPublishRelease(publishContext)).resolves.toBe(true);
   });
 
   test("it rejects invalid repository values", async function testInvalidRepository() {

@@ -11,7 +11,11 @@ import { shouldPublishRelease } from "./should-publish-release";
 
 const repoRoot = new URL("../", import.meta.url);
 const mainPackageDir = "packages/react-day-picker";
+const expectedReleasePrBranch = "changesets-release/main";
+const expectedReleaseBaseBranch = "main";
 
+// Keep the release workflow's validations in one ordered list so the publish
+// path runs the same checks locally and in GitHub Actions.
 const validationCommands = [
   ["typecheck"],
   ["lint", "ci", ".", "--reporter=github"],
@@ -23,6 +27,15 @@ const validationCommands = [
   ["test:build"],
 ] as const;
 
+/**
+ * Runs the repo's release automation after Changesets marks a merge as
+ * publishable.
+ *
+ * The flow is:
+ * 1. verify that the current commit came from the merged release PR
+ * 2. publish any package versions that are still missing on npm
+ * 3. ensure the repo-level GitHub Release exists for that version
+ */
 export async function releaseCi(): Promise<{
   shouldPublish: boolean;
   publishedPackages: boolean;
@@ -46,17 +59,15 @@ export async function releaseCi(): Promise<{
   ).trim();
   const packageInfo = readPackageInfo(mainPackageDir);
 
-  const publishAllowed = await shouldPublishRelease({
+  const isReleaseCommit = await shouldPublishRelease({
     repository,
     token,
     commitSha,
-    expectedHeadBranch:
-      process.env.EXPECTED_PR_BRANCH || "changesets-release/main",
-    expectedAuthor: process.env.EXPECTED_PR_AUTHOR || "github-actions[bot]",
-    expectedBaseBranch: process.env.EXPECTED_BASE_BRANCH || "main",
+    expectedHeadBranch: expectedReleasePrBranch,
+    expectedBaseBranch: expectedReleaseBaseBranch,
   });
 
-  if (!publishAllowed) {
+  if (!isReleaseCommit) {
     console.log(
       "This commit did not come from the merged Changesets release PR. Skipping release automation.",
     );
@@ -67,10 +78,10 @@ export async function releaseCi(): Promise<{
     };
   }
 
-  const unpublishedPackages = getUnpublishedPackages();
+  const unpublishedPackageVersions = getUnpublishedPackages();
   let publishedPackages = false;
 
-  if (unpublishedPackages.length > 0) {
+  if (unpublishedPackageVersions.length > 0) {
     for (const commandArgs of validationCommands) {
       execFileSync("pnpm", [...commandArgs], {
         cwd: repoRoot,
@@ -100,7 +111,10 @@ export async function releaseCi(): Promise<{
   };
 }
 
-export async function main(): Promise<void> {
+/**
+ * CLI entrypoint used by the release workflow and manual recovery runs.
+ */
+async function main(): Promise<void> {
   const result = await releaseCi();
   if (!result.shouldPublish) {
     return;

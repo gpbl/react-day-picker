@@ -1,32 +1,14 @@
-import process from "node:process";
-import { pathToFileURL } from "node:url";
-
-export interface GitHubRelease {
-  html_url: string;
-}
-
-export interface CreateReleaseContext {
-  repository: string;
-  token: string;
-  commitSha: string;
-  packageVersion: string;
-}
-
-interface ReleaseLookupRequest {
+/**
+ * Reads the GitHub Release for the version tag if it already exists.
+ */
+async function fetchReleaseByTag(request: {
   owner: string;
   repo: string;
   tag: string;
   token: string;
-}
-
-interface ReleaseCreateRequest extends ReleaseLookupRequest {
-  commitSha: string;
-  prerelease: boolean;
-}
-
-async function fetchReleaseByTag(
-  request: ReleaseLookupRequest,
-): Promise<GitHubRelease> {
+}): Promise<{
+  html_url: string;
+}> {
   const { owner, repo, tag, token } = request;
   const response = await fetch(
     `https://api.github.com/repos/${owner}/${repo}/releases/tags/${encodeURIComponent(tag)}`,
@@ -34,6 +16,8 @@ async function fetchReleaseByTag(
       headers: {
         Accept: "application/vnd.github+json",
         Authorization: `Bearer ${token}`,
+        // Pin the REST API version so release automation does not drift with
+        // GitHub's default behavior over time.
         "X-GitHub-Api-Version": "2022-11-28",
       },
     },
@@ -51,12 +35,24 @@ async function fetchReleaseByTag(
     );
   }
 
-  return response.json() as Promise<GitHubRelease>;
+  return response.json() as Promise<{
+    html_url: string;
+  }>;
 }
 
-async function createRelease(
-  request: ReleaseCreateRequest,
-): Promise<GitHubRelease> {
+/**
+ * Creates the repo-level GitHub Release after npm publish succeeds.
+ */
+async function createRelease(request: {
+  owner: string;
+  repo: string;
+  tag: string;
+  token: string;
+  commitSha: string;
+  prerelease: boolean;
+}): Promise<{
+  html_url: string;
+}> {
   const { owner, repo, tag, token, commitSha, prerelease } = request;
   const response = await fetch(
     `https://api.github.com/repos/${owner}/${repo}/releases`,
@@ -66,6 +62,8 @@ async function createRelease(
         Accept: "application/vnd.github+json",
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
+        // Pin the REST API version so release automation does not drift with
+        // GitHub's default behavior over time.
         "X-GitHub-Api-Version": "2022-11-28",
       },
       body: JSON.stringify({
@@ -85,14 +83,27 @@ async function createRelease(
     );
   }
 
-  return response.json() as Promise<GitHubRelease>;
+  return response.json() as Promise<{
+    html_url: string;
+  }>;
 }
 
-export async function createGitHubRelease(
-  context: CreateReleaseContext,
-): Promise<{
+/**
+ * Ensures the repo has a single GitHub Release for the published version.
+ *
+ * The helper is intentionally idempotent so reruns can recover from a partial
+ * publish where npm succeeded but GitHub Release creation did not.
+ */
+export async function createGitHubRelease(context: {
+  repository: string;
+  token: string;
+  commitSha: string;
+  packageVersion: string;
+}): Promise<{
   created: boolean;
-  release: GitHubRelease;
+  release: {
+    html_url: string;
+  };
   tag: string;
 }> {
   const [owner, repo] = context.repository.split("/");
@@ -101,7 +112,7 @@ export async function createGitHubRelease(
   }
 
   const tag = `v${context.packageVersion}`;
-  const prerelease = context.packageVersion.includes("-next");
+  const isPrereleaseVersion = context.packageVersion.includes("-next");
 
   try {
     const existingRelease = await fetchReleaseByTag({
@@ -125,57 +136,8 @@ export async function createGitHubRelease(
     tag,
     token: context.token,
     commitSha: context.commitSha,
-    prerelease,
+    prerelease: isPrereleaseVersion,
   });
 
   return { created: true, release: createdRelease, tag };
-}
-
-export async function main(): Promise<void> {
-  const repository = process.env.GITHUB_REPOSITORY;
-  const token = process.env.GITHUB_TOKEN;
-  const commitSha = process.env.GITHUB_SHA;
-  const packageVersion = process.env.PACKAGE_VERSION;
-
-  if (!repository) {
-    throw new Error("Missing required environment variable: GITHUB_REPOSITORY");
-  }
-  if (!token) {
-    throw new Error("Missing required environment variable: GITHUB_TOKEN");
-  }
-  if (!commitSha) {
-    throw new Error("Missing required environment variable: GITHUB_SHA");
-  }
-  if (!packageVersion) {
-    throw new Error("Missing required environment variable: PACKAGE_VERSION");
-  }
-
-  const result = await createGitHubRelease({
-    repository,
-    token,
-    commitSha,
-    packageVersion,
-  });
-
-  if (result.created) {
-    console.log(
-      `Created GitHub release ${result.tag} at ${result.release.html_url}.`,
-    );
-  } else {
-    console.log(
-      `GitHub release ${result.tag} already exists at ${result.release.html_url}.`,
-    );
-  }
-}
-
-const scriptPath = process.argv[1];
-if (scriptPath && import.meta.url === pathToFileURL(scriptPath).href) {
-  main().catch((error: unknown) => {
-    if (error instanceof Error) {
-      console.error(error.message);
-    } else {
-      console.error(error);
-    }
-    process.exit(1);
-  });
 }

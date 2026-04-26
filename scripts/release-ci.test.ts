@@ -57,9 +57,6 @@ beforeEach(function setupReleaseCiTestState() {
     ...process.env,
     GITHUB_REPOSITORY: "gpbl/react-day-picker",
     GITHUB_TOKEN: "test-token",
-    EXPECTED_PR_AUTHOR: "github-actions[bot]",
-    EXPECTED_BASE_BRANCH: "main",
-    EXPECTED_PR_BRANCH: "changesets-release/main",
   };
 
   jest.resetAllMocks();
@@ -150,7 +147,6 @@ describe("releaseCi", function describeReleaseCi() {
       token: "test-token",
       commitSha: "abc123",
       expectedHeadBranch: "changesets-release/main",
-      expectedAuthor: "github-actions[bot]",
       expectedBaseBranch: "main",
     });
     expect(
