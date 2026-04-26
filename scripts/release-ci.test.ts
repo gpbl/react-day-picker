@@ -58,6 +58,7 @@ beforeEach(function setupReleaseCiTestState() {
     GITHUB_REPOSITORY: "gpbl/react-day-picker",
     GITHUB_TOKEN: "test-token",
   };
+  delete process.env.RELEASE_COMMIT_SHA;
 
   jest.resetAllMocks();
 
