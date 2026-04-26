@@ -2,50 +2,19 @@ name: react-day-picker
 
 # How this workflow works:
 # - Pull requests and branch pushes run typecheck, lint, test, and build jobs.
-# - A published GitHub Release publishes the matching package version to npm.
-# - Stable versions publish with the npm dist-tag latest.
-# - Versions containing -next publish with the npm dist-tag next, but only when the
-#   GitHub Release is marked as a prerelease.
-# - A manual workflow run can retry a publish from an existing published Release by
-#   setting publish=true and release_tag=vX.Y.Z or vX.Y.Z-next.N.
-# - Manual runs build, test, and publish the tagged commit instead of the selected
-#   branch head, so retries stay tied to the Release version being published.
+# - The build job verifies publish-sensitive invariants like matching versions,
+#   npm pack contents, and the built-package smoke test.
 #
 # How to use it:
-# - Stable release: bump packages/react-day-picker/package.json to vX.Y.Z, create the matching GitHub Release
-#   tag, and publish the Release on GitHub.
-# - Next release: bump packages/react-day-picker/package.json to vX.Y.Z-next.N, create the matching GitHub
-#   Release tag, and publish the Release on GitHub.
-# - Manual recovery: run this workflow manually with publish=true and the matching
-#   release_tag to rebuild, retest, and republish that Release version.
+# - Open a pull request or push a branch to run the main validation suite.
+# - Package publishing is handled separately by `.github/workflows/release.yml`.
 on:
-  release:
-    types: [published]
   pull_request:
     branches:
       - "**"
   push:
     branches:
       - "**"
-  workflow_dispatch:
-    inputs:
-      publish:
-        description: Publish on npm
-        required: false
-        default: false
-        type: boolean
-      release_tag:
-        description:
-          Published GitHub Release tag to build, test, and publish from when
-          running manually
-        required: false
-        default: ""
-        type: string
-      npm_tag:
-        description: Optional npm dist-tag override
-        required: false
-        default: ""
-        type: string
 
 permissions:
   contents: read
@@ -55,10 +24,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event_name == 'workflow_dispatch' &&
-            github.event.inputs.release_tag != '' &&
-            github.event.inputs.release_tag || github.ref }}
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
@@ -72,10 +37,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event_name == 'workflow_dispatch' &&
-            github.event.inputs.release_tag != '' &&
-            github.event.inputs.release_tag || github.ref }}
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
@@ -89,10 +50,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event_name == 'workflow_dispatch' &&
-            github.event.inputs.release_tag != '' &&
-            github.event.inputs.release_tag || github.ref }}
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
@@ -106,10 +63,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event_name == 'workflow_dispatch' &&
-            github.event.inputs.release_tag != '' &&
-            github.event.inputs.release_tag || github.ref }}
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
@@ -129,10 +82,6 @@ jobs:
     needs: [build]
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event_name == 'workflow_dispatch' &&
-            github.event.inputs.release_tag != '' &&
-            github.event.inputs.release_tag || github.ref }}
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
@@ -145,70 +94,3 @@ jobs:
       # Test the downloaded artifact exactly as it would be published on npm.
       - run: pnpm install --frozen-lockfile
       - run: pnpm test:build
-
-  publish-on-npm:
-    runs-on: ubuntu-latest
-    needs: [build, test, test-build]
-    if:
-      ${{ github.event_name == 'release' || github.event.inputs.publish == 'true'
-      }}
-    permissions:
-      contents: read
-      id-token: write
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event_name == 'workflow_dispatch' &&
-            github.event.inputs.release_tag != '' &&
-            github.event.inputs.release_tag || github.ref }}
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          registry-url: https://registry.npmjs.org/
-          always-auth: false
-      - run: pnpm install --frozen-lockfile
-      - uses: actions/download-artifact@v4
-        with:
-          name: rdp-dist
-          path: packages
-      - name: Read package version
-        id: package-version
-        run: |
-          version=$(node -p 'require("./packages/react-day-picker/package.json").version')
-          echo "version=$version" >> "$GITHUB_OUTPUT"
-      - name: Validate publish source
-        env:
-          EVENT_NAME: ${{ github.event_name }}
-          PACKAGE_VERSION: ${{ steps.package-version.outputs.version }}
-          RELEASE_TAG: ${{ github.event.release.tag_name }}
-          RELEASE_IS_PRERELEASE: ${{ github.event.release.prerelease }}
-          REQUESTED_RELEASE_TAG: ${{ github.event.inputs.release_tag }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          GITHUB_TOKEN: ${{ github.token }}
-        run: node ./scripts/validate-release-publish.mjs
-      - name: Validate workspace versions
-        run: pnpm check:versions
-      - name: Resolve npm dist-tag
-        id: npm-tag
-        env:
-          PACKAGE_VERSION: ${{ steps.package-version.outputs.version }}
-          REQUESTED_TAG: ${{ github.event.inputs.npm_tag }}
-        run: |
-          if [ -n "$REQUESTED_TAG" ]; then
-            tag="$REQUESTED_TAG"
-          elif [[ "$PACKAGE_VERSION" == *-next* ]]; then
-            tag="next"
-          else
-            tag="latest"
-          fi
-
-          if [[ "$PACKAGE_VERSION" == *-next* && "$tag" = "latest" ]]; then
-            echo "Refusing to publish next prerelease version $PACKAGE_VERSION under the latest dist-tag." >&2
-            exit 1
-          fi
-
-          echo "tag=$tag" >> "$GITHUB_OUTPUT"
-          echo "Publishing $PACKAGE_VERSION with dist-tag $tag"
-      - name: Publish packages
-        run: pnpm exec tsx ./scripts/publish-packages.ts ${{ steps.npm-tag.outputs.tag }}

@@ -1,0 +1,72 @@
+name: release
+
+# How this workflow works:
+# - Every push to `main` updates or opens the Changesets release PR when there
+#   are pending changesets.
+# - When that release PR is merged, Changesets runs the repo's `release:ci`
+#   command to validate, publish, and create the repo GitHub Release.
+# - The same command is available via `workflow_dispatch` for release recovery
+#   on the merged release commit or another ref that resolves to it.
+#
+# Repo notes:
+# - npm trusted publishing should point at this exact workflow file.
+# - `release:ci` keeps the repo-specific publish safeguards in one script.
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Commit SHA or ref for the merged Changesets release PR to recover
+        required: true
+        type: string
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.ref || github.ref }}
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+          registry-url: https://registry.npmjs.org/
+          always-auth: false
+      - run: pnpm install --frozen-lockfile
+
+      - name: Create release pull request or mark publishable release
+        id: changesets
+        if: github.event_name == 'push'
+        uses: changesets/action@v1
+        with:
+          branch: "changesets-release/main"
+          commit: "build: version packages"
+          title: "build: version packages"
+          publish: "pnpm release:ci"
+          createGithubReleases: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EXPECTED_PR_AUTHOR: github-actions[bot]
+          EXPECTED_BASE_BRANCH: main
+          EXPECTED_PR_BRANCH: changesets-release/main
+
+      - name: Recover release for a merged release PR commit
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EXPECTED_PR_AUTHOR: github-actions[bot]
+          EXPECTED_BASE_BRANCH: main
+          EXPECTED_PR_BRANCH: changesets-release/main
+        run: pnpm release:ci
