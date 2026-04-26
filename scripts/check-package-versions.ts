@@ -10,16 +10,20 @@ const packagePaths = [
   "packages/hebrew/package.json",
   "packages/hijri/package.json",
   "packages/persian/package.json",
-];
+] as const;
 
-function readPackageJson(packagePath) {
+function readPackageJson(packagePath: string): {
+  version: string;
+  peerDependencies?: Record<string, string>;
+} {
   const filePath = new URL(packagePath, repoRoot);
-  return JSON.parse(readFileSync(filePath, "utf8"));
+  return JSON.parse(readFileSync(filePath, "utf8")) as {
+    version: string;
+    peerDependencies?: Record<string, string>;
+  };
 }
 
-const rootVersion = readPackageJson(
-  "packages/react-day-picker/package.json",
-).version;
+const rootVersion = readPackageJson(packagePaths[0]).version;
 
 for (const packagePath of packagePaths.slice(1)) {
   const packageJson = readPackageJson(packagePath);
@@ -28,6 +32,7 @@ for (const packagePath of packagePaths.slice(1)) {
       `Expected ${path.dirname(packagePath)} version ${rootVersion}, got ${packageJson.version}.`,
     );
   }
+
   if (packageJson.peerDependencies?.["react-day-picker"] !== rootVersion) {
     throw new Error(
       `Expected ${path.dirname(packagePath)} peer dependency react-day-picker=${rootVersion}, got ${packageJson.peerDependencies?.["react-day-picker"]}.`,

@@ -7,7 +7,7 @@ const packageDirs = [
   "packages/hebrew",
   "packages/hijri",
   "packages/persian",
-];
+] as const;
 
 for (const packageDir of packageDirs) {
   execFileSync("npm", ["pack", "--dry-run"], {

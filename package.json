@@ -20,9 +20,9 @@
     "typecheck": "pnpm typecheck:root && pnpm typecheck:packages",
     "typecheck:root": "tsc --project ./tsconfig.json --noEmit",
     "typecheck:packages": "pnpm -r --filter \"@daypicker/*\" typecheck && pnpm --filter react-day-picker typecheck",
-    "check:versions": "node ./scripts/check-package-versions.mjs",
-    "pack:dry-run": "node ./scripts/npm-pack-dry-run.mjs",
-    "release:ci": "pnpm exec tsx ./scripts/release-ci.ts",
+    "check:versions": "node --import tsx ./scripts/check-package-versions.ts",
+    "pack:dry-run": "node --import tsx ./scripts/npm-pack-dry-run.ts",
+    "release:ci": "node --import tsx ./scripts/release-ci.ts",
     "typecheck-watch": "tsc --project ./tsconfig.json --noEmit --watch"
   },
   "devDependencies": {
