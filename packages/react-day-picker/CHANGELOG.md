@@ -1,5 +1,7 @@
 # react-day-picker
 
+## 10.0.0-next.5
+
 ## 10.0.0-next.4
 
 ### Patch Changes

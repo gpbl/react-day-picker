@@ -1,5 +1,14 @@
 # @daypicker/hijri
 
+## 10.0.0-next.5
+
+### Patch Changes
+
+- [#2962](https://github.com/gpbl/react-day-picker/pull/2962) [`77de4f4`](https://github.com/gpbl/react-day-picker/commit/77de4f403fc77c02e64112c281ad3bc0e10f12b0) Thanks [@gpbl](https://github.com/gpbl)! - docs: simplify standalone calendar package READMEs.
+
+- Updated dependencies []:
+  - react-day-picker@10.0.0-next.5
+
 ## 10.0.0-next.4
 
 ### Patch Changes
