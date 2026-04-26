@@ -50,13 +50,15 @@ export async function releaseCi(): Promise<{
     throw new Error("Missing required environment variable: GITHUB_TOKEN");
   }
 
-  const commitSha = String(
-    execFileSync("git", ["rev-parse", "HEAD"], {
-      cwd: repoRoot,
-      encoding: "utf8",
-      stdio: ["ignore", "pipe", "pipe"],
-    }),
-  ).trim();
+  const commitSha =
+    process.env.RELEASE_COMMIT_SHA ??
+    String(
+      execFileSync("git", ["rev-parse", "HEAD"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        stdio: ["ignore", "pipe", "pipe"],
+      }),
+    ).trim();
   const packageInfo = readPackageInfo(mainPackageDir);
 
   const isReleaseCommit = await shouldPublishRelease({

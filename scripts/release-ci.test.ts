@@ -172,6 +172,36 @@ describe("releaseCi", function describeReleaseCi() {
     });
   });
 
+  test("it prefers RELEASE_COMMIT_SHA for recovery runs", async function testUsesReleaseCommitEnv() {
+    process.env.RELEASE_COMMIT_SHA = "release-commit-sha";
+
+    await expect(releaseCi()).resolves.toEqual({
+      shouldPublish: true,
+      publishedPackages: true,
+      releaseCreated: true,
+    });
+
+    expect(
+      releaseCiExecCalls.map((call) => [call.command, ...call.args]),
+    ).toEqual([
+      ["pnpm", "typecheck"],
+      ["pnpm", "lint", "ci", ".", "--reporter=github"],
+      ["pnpm", "test"],
+      ["pnpm", "test:tz"],
+      ["pnpm", "build"],
+      ["pnpm", "check:versions"],
+      ["pnpm", "pack:dry-run"],
+      ["pnpm", "test:build"],
+    ]);
+    expect(shouldPublishReleaseMock).toHaveBeenCalledWith({
+      repository: "gpbl/react-day-picker",
+      token: "test-token",
+      commitSha: "release-commit-sha",
+      expectedHeadBranch: "changeset-release/main",
+      expectedBaseBranch: "main",
+    });
+  });
+
   test("it still creates the repo release when packages are already published", async function testCreateReleaseWithoutPublishing() {
     getUnpublishedPackagesMock.mockReturnValue([]);
 

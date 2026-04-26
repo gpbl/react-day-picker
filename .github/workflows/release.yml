@@ -6,7 +6,8 @@ name: changesets release
 # - When that release PR is merged, Changesets runs the repo's `release:ci`
 #   command to validate, publish, and create the repo GitHub Release.
 # - The same command is available via `workflow_dispatch` for release recovery
-#   on the merged release commit or another ref that resolves to it.
+#   on the merged release commit while still using the latest release scripts
+#   from `main`.
 #
 # Repo notes:
 # - npm trusted publishing should point at this exact workflow file.
@@ -35,7 +36,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         with:
-          ref: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.ref || github.ref }}
+          ref: ${{ github.event_name == 'workflow_dispatch' && 'refs/heads/main' || github.ref }}
       - uses: pnpm/action-setup@v5
       - uses: actions/setup-node@v6
         with:
@@ -62,4 +63,5 @@ jobs:
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_COMMIT_SHA: ${{ github.event.inputs.ref }}
         run: pnpm release:ci
