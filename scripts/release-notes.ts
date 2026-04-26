@@ -65,6 +65,7 @@ function extractMeaningfulReleaseNotes(section: string): string[] {
       block.pop();
     }
 
+    // Reformat stock changelog-github bullets so the change summary leads.
     block[0] = block[0].replace(
       /^- (?:\[#\d+\]\([^)]+\)\s+)?(?:\[[`][^`]+[`]\]\([^)]+\)\s+)?(?:Thanks (?<users>.+?)!\s+)?-\s+(?<summary>.+)$/,
       (_, users: string | undefined, summary: string) => {
