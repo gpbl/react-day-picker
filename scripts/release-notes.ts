@@ -73,6 +73,15 @@ function extractMeaningfulReleaseNotes(section: string): string[] {
       block.pop();
     }
 
+    block[0] = block[0].replace(
+      /^- (?:\[#\d+\]\([^)]+\)\s+)?(?:\[[`][^`]+[`]\]\([^)]+\)\s+)?(?:Thanks (?<users>.+?)!\s+)?-\s+(?<summary>.+)$/,
+      (_, users: string | undefined, summary: string) => {
+        const pullMatch = block[0].match(/\[#\d+\]\([^)]+\)/);
+        const pull = pullMatch?.[0] ?? "";
+        return `- ${summary}${pull ? ` ${pull}` : ""}${users ? ` by ${users}` : ""}`;
+      },
+    );
+
     noteBlocks.push(block.join("\n"));
   }
 

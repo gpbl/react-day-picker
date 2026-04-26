@@ -122,7 +122,7 @@ function createMeaningfulChangelog(packageVersion: string) {
 
 ### Patch Changes
 
-- [#2959](https://github.com/gpbl/react-day-picker/pull/2959) Thanks [@gpbl](https://github.com/gpbl)! - Clarify the public \`useCalendar\` API documentation.
+- [#2959](https://github.com/gpbl/react-day-picker/pull/2959) [\`a77f89c\`](https://github.com/gpbl/react-day-picker/commit/a77f89c) Thanks [@gpbl](https://github.com/gpbl)! - docs: clarify the public \`useCalendar\` API documentation.
 `;
 }
 
@@ -207,8 +207,10 @@ describe("createGitHubRelease", function describeCreateGitHubRelease() {
     expect(createBody?.body).toContain("## What's Changed");
     expect(createBody?.body).toContain("### react-day-picker");
     expect(createBody?.body).toContain(
-      "Clarify the public `useCalendar` API documentation.",
+      "docs: clarify the public `useCalendar` API documentation. [#2959](https://github.com/gpbl/react-day-picker/pull/2959) by [@gpbl](https://github.com/gpbl)",
     );
+    expect(createBody?.body).not.toContain("Thanks [@gpbl]");
+    expect(createBody?.body).not.toContain("[`a77f89c`]");
     expect(createBody?.body).not.toContain("Updated dependencies");
     expect(createBody?.body).not.toContain("@daypicker/buddhist");
   });

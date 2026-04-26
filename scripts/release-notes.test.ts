@@ -108,7 +108,7 @@ function readPackageFile(path: string, packageVersion: string): string {
 
 ### Patch Changes
 
-- [#2959](https://github.com/gpbl/react-day-picker/pull/2959) Thanks [@gpbl](https://github.com/gpbl)! - Clarify the public \`useCalendar\` API documentation.
+- [#2959](https://github.com/gpbl/react-day-picker/pull/2959) [\`a77f89c\`](https://github.com/gpbl/react-day-picker/commit/a77f89c) Thanks [@gpbl](https://github.com/gpbl)! - docs: clarify the public \`useCalendar\` API documentation.
 
 DayPicker follows [Semantic Versioning](http://semver.org/).
 `;
@@ -131,6 +131,9 @@ DayPicker follows [Semantic Versioning](http://semver.org/).
 describe("release notes", function describeReleaseNotes() {
   test("it builds release notes from the current worktree", function testCurrentWorktree() {
     expect(buildReleaseBody("10.0.0-next.4")).toContain("### react-day-picker");
+    expect(buildReleaseBody("10.0.0-next.4")).toContain(
+      "- docs: clarify the public `useCalendar` API documentation. [#2959](https://github.com/gpbl/react-day-picker/pull/2959) by [@gpbl](https://github.com/gpbl)",
+    );
   });
 
   test("it previews a historical release from a git ref", function testHistoricalRef() {
@@ -142,9 +145,11 @@ describe("release notes", function describeReleaseNotes() {
     expect(releaseBody).toContain("## What's Changed");
     expect(releaseBody).toContain("### react-day-picker");
     expect(releaseBody).toContain(
-      "Clarify the public `useCalendar` API documentation.",
+      "docs: clarify the public `useCalendar` API documentation. [#2959](https://github.com/gpbl/react-day-picker/pull/2959) by [@gpbl](https://github.com/gpbl)",
     );
     expect(releaseBody).not.toContain("DayPicker follows");
+    expect(releaseBody).not.toContain("Thanks [@gpbl]");
+    expect(releaseBody).not.toContain("[`a77f89c`]");
     expect(releaseBody).not.toContain("Updated dependencies");
     expect(releaseBody).not.toContain("@daypicker/buddhist");
   });
