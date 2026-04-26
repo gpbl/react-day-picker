@@ -13,7 +13,7 @@ export function CustomWeek() {
       showWeekNumber
       modifiers={{
         // @ts-expect-error Strict mode not working
-        selected: selectedWeek
+        selected: selectedWeek,
       }}
       onDayClick={(day, modifiers) => {
         if (modifiers.selected) {
@@ -22,7 +22,7 @@ export function CustomWeek() {
         }
         setSelectedWeek({
           from: startOfWeek(day),
-          to: endOfWeek(day)
+          to: endOfWeek(day),
         });
       }}
       onWeekNumberClick={(weekNumber, dates) => {
@@ -32,7 +32,7 @@ export function CustomWeek() {
         }
         setSelectedWeek({
           from: startOfWeek(dates[0]),
-          to: endOfWeek(dates[dates.length - 1])
+          to: endOfWeek(dates[dates.length - 1]),
         });
       }}
       footer={

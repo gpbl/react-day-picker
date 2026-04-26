@@ -184,7 +184,13 @@ export function MyDatePicker() {
 When you want to add UI but keep the built-in behavior (focus, labels, modifier classes), wrap the default component from context.
 
 ```tsx title="./WrappedDayButton.tsx"
-import { type DayButtonProps, DayButton, DayPicker, UI, useDayPicker } from "react-day-picker";
+import {
+  type DayButtonProps,
+  DayButton,
+  DayPicker,
+  UI,
+  useDayPicker,
+} from "react-day-picker";
 
 function WrappedDayButton(props: DayButtonProps) {
   const { classNames } = useDayPicker();

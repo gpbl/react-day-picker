@@ -7,7 +7,7 @@ import {
   DateRange,
   DayPicker,
   DayProps,
-  useDayRender
+  useDayRender,
 } from "./react-day-picker-v8";
 
 function DayWithShiftKey(props: DayProps) {
@@ -56,7 +56,7 @@ export function RangeShiftKey() {
   return (
     <DayPicker
       components={{
-        Day: DayWithShiftKey
+        Day: DayWithShiftKey,
       }}
       mode="range"
       onSelect={setRange}

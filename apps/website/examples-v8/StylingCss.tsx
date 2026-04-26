@@ -13,7 +13,7 @@ export function StylingCss() {
       <style>{style}</style>
       <DayPicker
         classNames={{
-          caption: "caption_aqua"
+          caption: "caption_aqua",
         }}
       />
     </>

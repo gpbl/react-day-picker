@@ -6,7 +6,7 @@ const seasonEmoji: Record<string, string> = {
   winter: "⛄️",
   spring: "🌸",
   summer: "🌻",
-  autumn: "🍂"
+  autumn: "🍂",
 };
 
 const getSeason = (month: Date): string => {
