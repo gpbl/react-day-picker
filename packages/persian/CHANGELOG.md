@@ -1,5 +1,12 @@
 # @daypicker/persian
 
+## 10.0.0-next.4
+
+### Patch Changes
+
+- Updated dependencies [a77f89c]
+  - react-day-picker@10.0.0-next.4
+
 ## 10.0.0-next.3
 
 ### Patch Changes
