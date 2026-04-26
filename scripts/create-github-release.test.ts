@@ -1,18 +1,85 @@
 type CreateGitHubReleaseScriptModule = typeof import("./create-github-release");
 
+const releasePackageInfoByDir: Record<
+  string,
+  { name: string; version: string }
+> = {
+  "packages/react-day-picker": {
+    name: "react-day-picker",
+    version: "10.0.0-next.1",
+  },
+  "packages/buddhist": {
+    name: "@daypicker/buddhist",
+    version: "10.0.0-next.1",
+  },
+  "packages/ethiopic": {
+    name: "@daypicker/ethiopic",
+    version: "10.0.0-next.1",
+  },
+  "packages/hebrew": {
+    name: "@daypicker/hebrew",
+    version: "10.0.0-next.1",
+  },
+  "packages/hijri": {
+    name: "@daypicker/hijri",
+    version: "10.0.0-next.1",
+  },
+  "packages/persian": {
+    name: "@daypicker/persian",
+    version: "10.0.0-next.1",
+  },
+};
+
 let createGitHubRelease: CreateGitHubReleaseScriptModule["createGitHubRelease"];
 let releaseContext: ReturnType<typeof createReleaseContext>;
 let createReleaseFetchMock: jest.MockedFunction<typeof fetch>;
+let dependencyOnlyPackages: Set<string>;
+let readFileSyncMock: jest.Mock;
 const originalCreateReleaseFetch = global.fetch;
 
+jest.mock("node:fs", () => ({
+  readFileSync: jest.fn(),
+}));
+
 beforeAll(async function loadModule() {
+  readFileSyncMock = (await import("node:fs"))
+    .readFileSync as unknown as jest.Mock;
   ({ createGitHubRelease } = await import("./create-github-release"));
 });
 
 beforeEach(function setupTestState() {
   releaseContext = createReleaseContext();
   createReleaseFetchMock = jest.fn() as jest.MockedFunction<typeof fetch>;
+  dependencyOnlyPackages = new Set(
+    Object.keys(releasePackageInfoByDir).filter(
+      (packageDir) => packageDir !== "packages/react-day-picker",
+    ),
+  );
   global.fetch = createReleaseFetchMock;
+
+  readFileSyncMock.mockImplementation(function mockReadFile(file: unknown) {
+    const path = String(file);
+    const packageDir = Object.keys(releasePackageInfoByDir).find((candidate) =>
+      path.includes(`/${candidate}/`),
+    );
+
+    if (!packageDir) {
+      throw new Error(`Unknown test path: ${path}`);
+    }
+
+    if (path.endsWith("/package.json")) {
+      return JSON.stringify(releasePackageInfoByDir[packageDir]);
+    }
+
+    if (path.endsWith("/CHANGELOG.md")) {
+      const packageInfo = releasePackageInfoByDir[packageDir];
+      return dependencyOnlyPackages.has(packageDir)
+        ? createDependencyOnlyChangelog(packageInfo.version)
+        : createMeaningfulChangelog(packageInfo.version);
+    }
+
+    throw new Error(`Unhandled test path: ${path}`);
+  });
 });
 
 afterEach(function restoreFetch() {
@@ -48,6 +115,29 @@ function createReleasePayload(
   };
 }
 
+function createMeaningfulChangelog(packageVersion: string) {
+  return `# react-day-picker
+
+## ${packageVersion}
+
+### Patch Changes
+
+- [#2959](https://github.com/gpbl/react-day-picker/pull/2959) Thanks [@gpbl](https://github.com/gpbl)! - Clarify the public \`useCalendar\` API documentation.
+`;
+}
+
+function createDependencyOnlyChangelog(packageVersion: string) {
+  return `# package
+
+## ${packageVersion}
+
+### Patch Changes
+
+- Updated dependencies [a77f89c]
+  - react-day-picker@${packageVersion}
+`;
+}
+
 function createGitHubFetchResponse(
   overrides: Partial<{
     json: () => Promise<unknown>;
@@ -78,7 +168,7 @@ describe("createGitHubRelease", function describeCreateGitHubRelease() {
     expect(createReleaseFetchMock).toHaveBeenCalledTimes(1);
   });
 
-  test("it creates the release when the tag does not exist yet", async function testCreateReleaseOn404() {
+  test("it creates the release from package changelog entries when the tag does not exist yet", async function testCreateReleaseOn404() {
     createReleaseFetchMock
       .mockResolvedValueOnce(
         createGitHubFetchResponse({
@@ -98,12 +188,55 @@ describe("createGitHubRelease", function describeCreateGitHubRelease() {
       tag: "v10.0.0-next.1",
     });
 
-    expect(createReleaseFetchMock).toHaveBeenNthCalledWith(
-      2,
-      "https://api.github.com/repos/gpbl/react-day-picker/releases",
-      expect.objectContaining({
-        method: "POST",
-      }),
+    const createRequest = createReleaseFetchMock.mock.calls[1]?.[1];
+    const createBody =
+      createRequest &&
+      typeof createRequest === "object" &&
+      "body" in createRequest &&
+      typeof createRequest.body === "string"
+        ? JSON.parse(createRequest.body)
+        : undefined;
+
+    expect(createBody).toMatchObject({
+      name: "v10.0.0-next.1",
+      prerelease: true,
+      tag_name: "v10.0.0-next.1",
+      target_commitish: "abc123",
+    });
+    expect(createBody?.generate_release_notes).toBeUndefined();
+    expect(createBody?.body).toContain("## What's Changed");
+    expect(createBody?.body).toContain("### react-day-picker");
+    expect(createBody?.body).toContain(
+      "Clarify the public `useCalendar` API documentation.",
+    );
+    expect(createBody?.body).not.toContain("Updated dependencies");
+    expect(createBody?.body).not.toContain("@daypicker/buddhist");
+  });
+
+  test("it falls back to a generic release body when changelog entries only contain dependency updates", async function testDependencyOnlyFallback() {
+    dependencyOnlyPackages = new Set(Object.keys(releasePackageInfoByDir));
+    createReleaseFetchMock
+      .mockResolvedValueOnce(
+        createGitHubFetchResponse({
+          ok: false,
+          status: 404,
+        }),
+      )
+      .mockResolvedValueOnce(createGitHubFetchResponse());
+
+    await createGitHubRelease(releaseContext);
+
+    const createRequest = createReleaseFetchMock.mock.calls[1]?.[1];
+    const createBody =
+      createRequest &&
+      typeof createRequest === "object" &&
+      "body" in createRequest &&
+      typeof createRequest.body === "string"
+        ? JSON.parse(createRequest.body)
+        : undefined;
+
+    expect(createBody?.body).toBe(
+      "Published package updates for 10.0.0-next.1.",
     );
   });
 

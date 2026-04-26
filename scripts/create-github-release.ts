@@ -1,3 +1,5 @@
+import { buildReleaseBody } from "./release-notes";
+
 const githubApiVersion = "2022-11-28";
 const transientGitHubRequestAttempts = 3;
 
@@ -113,10 +115,11 @@ async function createRelease(request: {
   token: string;
   commitSha: string;
   prerelease: boolean;
+  body: string;
 }): Promise<{
   html_url: string;
 }> {
-  const { owner, repo, tag, token, commitSha, prerelease } = request;
+  const { owner, repo, tag, token, commitSha, prerelease, body } = request;
   const response = await fetchGitHub(
     `https://api.github.com/repos/${owner}/${repo}/releases`,
     {
@@ -133,9 +136,9 @@ async function createRelease(request: {
         tag_name: tag,
         target_commitish: commitSha,
         name: tag,
+        body,
         draft: false,
         prerelease,
-        generate_release_notes: true,
       }),
     },
   );
@@ -201,6 +204,7 @@ export async function createGitHubRelease(context: {
     token: context.token,
     commitSha: context.commitSha,
     prerelease: isPrereleaseVersion,
+    body: buildReleaseBody(context.packageVersion),
   });
 
   return { created: true, release: createdRelease, tag };

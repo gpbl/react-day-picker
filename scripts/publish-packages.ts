@@ -5,7 +5,7 @@ import { pathToFileURL } from "node:url";
 
 const repoRoot = new URL("../", import.meta.url);
 
-const packageDirs = [
+export const publishablePackageDirs = [
   "packages/react-day-picker",
   "packages/buddhist",
   "packages/ethiopic",
@@ -81,7 +81,7 @@ export function getUnpublishedPackages(): Array<{
     version: string;
   };
 }> {
-  return packageDirs.flatMap((packageDir) => {
+  return publishablePackageDirs.flatMap((packageDir) => {
     const packageInfo = readPackageInfo(packageDir);
     return isPackageVersionPublished(packageInfo)
       ? []
@@ -94,7 +94,7 @@ export function publishPackages(tag: string): void {
     throw new Error("Usage: publish-packages <npm-tag>");
   }
 
-  for (const packageDir of packageDirs) {
+  for (const packageDir of publishablePackageDirs) {
     const packageInfo = readPackageInfo(packageDir);
     if (isPackageVersionPublished(packageInfo)) {
       console.log(
