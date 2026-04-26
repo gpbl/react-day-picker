@@ -1,5 +1,12 @@
 # @daypicker/hijri
 
+## 10.0.0-next.3
+
+### Patch Changes
+
+- Updated dependencies [6b66f48]
+  - react-day-picker@10.0.0-next.3
+
 ## 10.0.0-next.2
 
 ### Patch Changes

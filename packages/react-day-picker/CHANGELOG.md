@@ -1,5 +1,11 @@
 # react-day-picker
 
+## 10.0.0-next.3
+
+### Patch Changes
+
+- 6b66f48: Clarify how to install the standalone calendar packages in the v10 prerelease README.
+
 DayPicker follows [Semantic Versioning](http://semver.org/). See the [Releases page](https://github.com/gpbl/react-day-picker/releases) on Github for the complete list of changes, diffs and contributors, or the [list of versions](https://www.npmjs.com/package/react-day-picker?activeTab=versions) published on npm.
 
 ## 10.0.0-next.2
