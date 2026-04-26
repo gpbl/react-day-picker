@@ -19,18 +19,18 @@ import { useControlledValue } from "./helpers/useControlledValue.js";
 import type { DayPickerProps } from "./types/props.js";
 
 /**
- * Return the calendar object to work with the calendar in custom components.
+ * Returns the calendar object used by DayPicker custom components.
  *
  * @see https://daypicker.dev/guides/custom-components
  */
 export interface Calendar {
   /**
-   * All the days displayed in the calendar. As opposite from
-   * {@link CalendarContext.dates}, it may return duplicated dates when shown
+   * All the days displayed in the calendar. Unlike
+   * {@link CalendarContext.dates}, it may contain duplicated dates when shown
    * outside the month.
    */
   days: CalendarDay[];
-  /** The months displayed in the calendar. */
+  /** The weeks displayed in the calendar. */
   weeks: CalendarWeek[];
   /** The months displayed in the calendar. */
   months: CalendarMonth[];
@@ -47,20 +47,17 @@ export interface Calendar {
   navStart: Date | undefined;
   /**
    * The month where the navigation ends. `undefined` if the calendar can be
-   * navigated indefinitely to the past.
+   * navigated indefinitely to the future.
    */
   navEnd: Date | undefined;
 
   /** Navigate to the specified month. Will fire the `onMonthChange` callback. */
   goToMonth: (month: Date) => void;
   /**
-   * Navigate to the specified date. If the second parameter (refDate) is
-   * provided and the date is before the refDate, then the month is set to one
-   * month before the date.
+   * Navigate to the month containing the specified day when it falls outside
+   * the currently displayed calendar.
    *
    * @param day - The date to navigate to.
-   * @param dateToCompare - Optional. If `date` is before `dateToCompare`, the
-   *   month is set to one month before the date.
    */
   goToDay: (day: CalendarDay) => void;
 }
