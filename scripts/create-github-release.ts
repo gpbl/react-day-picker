@@ -1,3 +1,64 @@
+const githubApiVersion = "2022-11-28";
+const transientGitHubRequestAttempts = 3;
+
+function isTransientFetchError(error: unknown): boolean {
+  return (
+    error instanceof Error &&
+    /fetch failed|network|timed out/i.test(error.message)
+  );
+}
+
+async function waitForRetry(attempt: number): Promise<void> {
+  await new Promise((resolve) => {
+    setTimeout(resolve, attempt * 500);
+  });
+}
+
+function formatGitHubErrorMessage(
+  action: string,
+  tag: string,
+  status: number,
+  body: string,
+): string {
+  const permissionHint =
+    status === 403
+      ? " GitHub denied creating the release or tag. Check whether repository rulesets or tag protections allow GitHub Actions to create v* tags/releases."
+      : "";
+  const details = body.trim();
+  if (!details) {
+    return `Could not ${action} GitHub Release ${tag} (HTTP ${status}).${permissionHint}`;
+  }
+
+  return `Could not ${action} GitHub Release ${tag} (HTTP ${status}): ${details}${permissionHint}`;
+}
+
+async function fetchGitHub(
+  input: string,
+  init: RequestInit,
+): Promise<Response> {
+  let lastError: unknown;
+
+  for (let attempt = 1; attempt <= transientGitHubRequestAttempts; attempt++) {
+    try {
+      return await fetch(input, init);
+    } catch (error) {
+      lastError = error;
+      if (
+        !isTransientFetchError(error) ||
+        attempt === transientGitHubRequestAttempts
+      ) {
+        break;
+      }
+      await waitForRetry(attempt);
+    }
+  }
+
+  if (lastError instanceof Error) {
+    throw new Error(lastError.message);
+  }
+  throw lastError;
+}
+
 /**
  * Reads the GitHub Release for the version tag if it already exists.
  */
@@ -10,7 +71,7 @@ async function fetchReleaseByTag(request: {
   html_url: string;
 }> {
   const { owner, repo, tag, token } = request;
-  const response = await fetch(
+  const response = await fetchGitHub(
     `https://api.github.com/repos/${owner}/${repo}/releases/tags/${encodeURIComponent(tag)}`,
     {
       headers: {
@@ -18,10 +79,12 @@ async function fetchReleaseByTag(request: {
         Authorization: `Bearer ${token}`,
         // Pin the REST API version so release automation does not drift with
         // GitHub's default behavior over time.
-        "X-GitHub-Api-Version": "2022-11-28",
+        "X-GitHub-Api-Version": githubApiVersion,
       },
     },
   );
+  const responseBody =
+    response.ok || response.status === 404 ? "" : await response.text();
 
   if (response.status === 404) {
     throw Object.assign(new Error(`GitHub Release ${tag} was not found.`), {
@@ -31,7 +94,7 @@ async function fetchReleaseByTag(request: {
 
   if (!response.ok) {
     throw new Error(
-      `Could not read GitHub Release ${tag} (HTTP ${response.status}).`,
+      formatGitHubErrorMessage("read", tag, response.status, responseBody),
     );
   }
 
@@ -54,7 +117,7 @@ async function createRelease(request: {
   html_url: string;
 }> {
   const { owner, repo, tag, token, commitSha, prerelease } = request;
-  const response = await fetch(
+  const response = await fetchGitHub(
     `https://api.github.com/repos/${owner}/${repo}/releases`,
     {
       method: "POST",
@@ -64,7 +127,7 @@ async function createRelease(request: {
         "Content-Type": "application/json",
         // Pin the REST API version so release automation does not drift with
         // GitHub's default behavior over time.
-        "X-GitHub-Api-Version": "2022-11-28",
+        "X-GitHub-Api-Version": githubApiVersion,
       },
       body: JSON.stringify({
         tag_name: tag,
@@ -76,10 +139,11 @@ async function createRelease(request: {
       }),
     },
   );
+  const responseBody = response.ok ? "" : await response.text();
 
   if (!response.ok) {
     throw new Error(
-      `Could not create GitHub Release ${tag} (HTTP ${response.status}).`,
+      formatGitHubErrorMessage("create", tag, response.status, responseBody),
     );
   }
 
