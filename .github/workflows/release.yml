@@ -1,4 +1,4 @@
-name: release
+name: changesets release
 
 # How this workflow works:
 # - Every push to `main` updates or opens the Changesets release PR when there
