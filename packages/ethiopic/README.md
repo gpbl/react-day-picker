@@ -27,19 +27,10 @@ export function EthiopicCalendar() {
 }
 ```
 
-The package also exports the `amET` and `enUS` locales, plus `getDateLib` for
-advanced date-library customization.
-
-## Peer Dependencies
-
-`@daypicker/ethiopic` is an add-on for `react-day-picker`. Your app must also
-install `react` and `react-day-picker`.
-
 ## Documentation
 
 - [Ethiopic calendar guide](https://daypicker.dev/next/localization/ethiopic)
 - [React DayPicker v10 docs](https://daypicker.dev/next)
-- [Issues and support](https://github.com/gpbl/react-day-picker/issues)
 
 ## License
 

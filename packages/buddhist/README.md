@@ -28,19 +28,10 @@ export function BuddhistCalendar() {
 }
 ```
 
-The package also exports the `th` and `enUS` locales, plus `getDateLib` for
-advanced date-library customization.
-
-## Peer Dependencies
-
-`@daypicker/buddhist` is an add-on for `react-day-picker`. Your app must also
-install `react` and `react-day-picker`.
-
 ## Documentation
 
 - [Buddhist calendar guide](https://daypicker.dev/next/localization/buddhist)
 - [React DayPicker v10 docs](https://daypicker.dev/next)
-- [Issues and support](https://github.com/gpbl/react-day-picker/issues)
 
 ## License
 

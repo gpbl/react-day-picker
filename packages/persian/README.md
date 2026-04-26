@@ -28,19 +28,10 @@ export function PersianCalendar() {
 }
 ```
 
-The package also exports the `faIR`, `enUS`, `faIRJalali`, and `enUSJalali`
-locales, plus `getDateLib` for advanced date-library customization.
-
-## Peer Dependencies
-
-`@daypicker/persian` is an add-on for `react-day-picker`. Your app must also
-install `react` and `react-day-picker`.
-
 ## Documentation
 
 - [Persian calendar guide](https://daypicker.dev/next/localization/persian)
 - [React DayPicker v10 docs](https://daypicker.dev/next)
-- [Issues and support](https://github.com/gpbl/react-day-picker/issues)
 
 ## License
 

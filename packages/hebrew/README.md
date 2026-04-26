@@ -28,19 +28,10 @@ export function HebrewCalendar() {
 }
 ```
 
-The package also exports the `he` and `enUS` locales, plus `getDateLib` for
-advanced date-library customization.
-
-## Peer Dependencies
-
-`@daypicker/hebrew` is an add-on for `react-day-picker`. Your app must also
-install `react` and `react-day-picker`.
-
 ## Documentation
 
 - [Hebrew calendar guide](https://daypicker.dev/next/localization/hebrew)
 - [React DayPicker v10 docs](https://daypicker.dev/next)
-- [Issues and support](https://github.com/gpbl/react-day-picker/issues)
 
 ## License
 
