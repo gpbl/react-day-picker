@@ -10,8 +10,7 @@
     "test",
     "**/*.test.*",
     "examples",
-    "scripts/**/*.d.ts",
-    "scripts/**/*.d.mts"
+    "scripts/**/*.ts"
   ],
   "exclude": ["apps/website"]
 }

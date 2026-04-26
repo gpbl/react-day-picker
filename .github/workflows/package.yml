@@ -210,4 +210,4 @@ jobs:
           echo "tag=$tag" >> "$GITHUB_OUTPUT"
           echo "Publishing $PACKAGE_VERSION with dist-tag $tag"
       - name: Publish packages
-        run: node ./scripts/publish-packages.mjs ${{ steps.npm-tag.outputs.tag }}
+        run: pnpm exec tsx ./scripts/publish-packages.ts ${{ steps.npm-tag.outputs.tag }}

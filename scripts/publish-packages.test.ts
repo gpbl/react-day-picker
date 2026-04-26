@@ -1,4 +1,4 @@
-type PublishPackagesModule = typeof import("./publish-packages.mjs");
+type PublishPackagesScriptModule = typeof import("./publish-packages");
 
 type ExecCall = {
   args: string[];
@@ -6,20 +6,77 @@ type ExecCall = {
   options?: unknown;
 };
 
-type ExecFile = (command: string, args: string[], options?: unknown) => string;
+const packageInfoByDir: Record<string, { name: string; version: string }> = {
+  "packages/react-day-picker": {
+    name: "react-day-picker",
+    version: "10.0.0-next.1",
+  },
+  "packages/buddhist": {
+    name: "@daypicker/buddhist",
+    version: "10.0.0-next.1",
+  },
+  "packages/ethiopic": {
+    name: "@daypicker/ethiopic",
+    version: "10.0.0-next.1",
+  },
+  "packages/hebrew": {
+    name: "@daypicker/hebrew",
+    version: "10.0.0-next.1",
+  },
+  "packages/hijri": {
+    name: "@daypicker/hijri",
+    version: "10.0.0-next.1",
+  },
+  "packages/persian": {
+    name: "@daypicker/persian",
+    version: "10.0.0-next.1",
+  },
+};
 
-let isPackageVersionMissingError: PublishPackagesModule["isPackageVersionMissingError"];
-let publishPackages: PublishPackagesModule["publishPackages"];
+let getUnpublishedPackages: PublishPackagesScriptModule["getUnpublishedPackages"];
+let publishPackages: PublishPackagesScriptModule["publishPackages"];
+let publishPackagesExecFileSyncMock: jest.Mock;
+let publishPackagesReadFileSyncMock: jest.Mock;
 let consoleLogSpy: jest.SpiedFunction<typeof console.log>;
+let execCalls: ExecCall[];
+
+jest.mock("node:child_process", () => ({
+  execFileSync: jest.fn(),
+}));
+
+jest.mock("node:fs", () => ({
+  readFileSync: jest.fn(),
+}));
 
 beforeAll(async function loadModule() {
-  ({ isPackageVersionMissingError, publishPackages } = await import(
-    "./publish-packages.mjs"
+  publishPackagesExecFileSyncMock = (await import("node:child_process"))
+    .execFileSync as unknown as jest.Mock;
+  publishPackagesReadFileSyncMock = (await import("node:fs"))
+    .readFileSync as unknown as jest.Mock;
+  ({ getUnpublishedPackages, publishPackages } = await import(
+    "./publish-packages"
   ));
 });
 
-beforeEach(function setupConsoleSpy() {
+beforeEach(function setupPublishPackagesTestState() {
+  execCalls = [];
+  jest.resetAllMocks();
   consoleLogSpy = jest.spyOn(console, "log").mockImplementation(() => {});
+
+  publishPackagesReadFileSyncMock.mockImplementation(function mockReadFile(
+    file: unknown,
+  ) {
+    const path = String(file);
+    const packageDir = Object.keys(packageInfoByDir).find((candidate) =>
+      path.includes(`/${candidate}/package.json`),
+    );
+
+    if (!packageDir) {
+      throw new Error(`Unknown test package.json path: ${path}`);
+    }
+
+    return JSON.stringify(packageInfoByDir[packageDir]);
+  });
 });
 
 afterEach(function restoreConsoleSpy() {
@@ -38,109 +95,108 @@ function createNpmError(
   });
 }
 
-function createPackageReader() {
-  const packageInfoByDir: Record<string, { name: string; version: string }> = {
-    "packages/react-day-picker": {
-      name: "react-day-picker",
-      version: "10.0.0-next.1",
-    },
-    "packages/buddhist": {
-      name: "@daypicker/buddhist",
-      version: "10.0.0-next.1",
-    },
-  };
-
-  return jest.fn(function readPackage(packageDir: string) {
-    const packageInfo = packageInfoByDir[packageDir];
-    if (!packageInfo) {
-      throw new Error(`Unknown test package: ${packageDir}`);
-    }
-    return packageInfo;
-  });
-}
-
-describe("isPackageVersionMissingError", function describeIsPackageVersionMissingError() {
-  test("it detects npm not-found responses", function testNotFoundResponse() {
-    expect(
-      isPackageVersionMissingError(
-        createNpmError("npm ERR! code E404\nnpm ERR! 404 Not Found"),
-      ),
-    ).toBe(true);
-  });
-
-  test("it rejects unrelated npm failures", function testUnrelatedFailure() {
-    expect(
-      isPackageVersionMissingError(
-        createNpmError("npm ERR! network timeout", { status: 1 }),
-      ),
-    ).toBe(false);
-  });
-});
-
 describe("publishPackages", function describePublishPackages() {
-  test("it skips versions already published on npm", function testSkipPublishedVersion() {
-    const execCalls: ExecCall[] = [];
-    const execFile = jest.fn(function execFile(
-      command: string,
-      args: string[],
-      options?: unknown,
-    ) {
-      execCalls.push({ command, args, options });
+  test("it returns only workspace packages that still need publishing", function testGetUnpublishedPackages() {
+    publishPackagesExecFileSyncMock.mockImplementation(
+      function mockExecFile(command, args, options) {
+        execCalls.push({
+          command: String(command),
+          args: Array.isArray(args) ? [...args] : [],
+          options,
+        });
 
-      if (args[0] === "view") {
-        if (args[1] === "react-day-picker@10.0.0-next.1") {
+        if (command !== "npm" || !Array.isArray(args) || args[0] !== "view") {
+          return "";
+        }
+
+        if (args[1] === "@daypicker/buddhist@10.0.0-next.1") {
+          throw createNpmError("npm ERR! code E404\nnpm ERR! 404 Not Found");
+        }
+
+        return "10.0.0-next.1\n";
+      },
+    );
+
+    expect(getUnpublishedPackages()).toEqual([
+      {
+        packageDir: "packages/buddhist",
+        packageInfo: {
+          name: "@daypicker/buddhist",
+          version: "10.0.0-next.1",
+        },
+      },
+    ]);
+  });
+
+  test("it skips versions already published on npm and publishes missing scoped packages publicly", function testSkipPublishedVersion() {
+    publishPackagesExecFileSyncMock.mockImplementation(
+      function mockExecFile(command, args, options) {
+        execCalls.push({
+          command: String(command),
+          args: Array.isArray(args) ? [...args] : [],
+          options,
+        });
+
+        if (command !== "npm" || !Array.isArray(args)) {
+          return "";
+        }
+
+        if (args[0] === "view") {
+          if (args[1] === "@daypicker/buddhist@10.0.0-next.1") {
+            throw createNpmError("npm ERR! code E404");
+          }
           return "10.0.0-next.1\n";
         }
-        throw createNpmError("npm ERR! code E404");
-      }
 
-      return "";
-    }) as jest.MockedFunction<ExecFile>;
+        return "";
+      },
+    );
 
-    publishPackages("next", {
-      execFile,
-      packages: ["packages/react-day-picker", "packages/buddhist"],
-      readPackage: createPackageReader(),
-    });
+    publishPackages("next");
 
     expect(execCalls.map((call) => call.args)).toEqual([
       ["view", "react-day-picker@10.0.0-next.1", "version"],
       ["view", "@daypicker/buddhist@10.0.0-next.1", "version"],
       ["publish", "--provenance", "--tag", "next", "--access", "public"],
+      ["view", "@daypicker/ethiopic@10.0.0-next.1", "version"],
+      ["view", "@daypicker/hebrew@10.0.0-next.1", "version"],
+      ["view", "@daypicker/hijri@10.0.0-next.1", "version"],
+      ["view", "@daypicker/persian@10.0.0-next.1", "version"],
     ]);
     const publishOptions = execCalls[2]?.options as
       | { cwd?: URL; stdio?: string }
       | undefined;
     expect(publishOptions?.stdio).toBe("inherit");
     expect(publishOptions?.cwd?.href).toContain("packages/buddhist");
+    expect(consoleLogSpy).toHaveBeenCalledWith(
+      "Skipping react-day-picker@10.0.0-next.1; already published.",
+    );
   });
 
   test("it rethrows npm view failures that are not missing versions", function testRethrowUnexpectedViewFailure() {
-    const execFile = jest.fn(function execFile(
-      _command: string,
-      args: string[],
-    ) {
-      if (args[0] === "view") {
-        throw createNpmError("npm ERR! network timeout");
-      }
+    publishPackagesExecFileSyncMock.mockImplementation(
+      function mockExecFile(command, args, options) {
+        execCalls.push({
+          command: String(command),
+          args: Array.isArray(args) ? [...args] : [],
+          options,
+        });
 
-      return "";
-    }) as jest.MockedFunction<ExecFile>;
+        if (command === "npm" && Array.isArray(args) && args[0] === "view") {
+          throw createNpmError("npm ERR! network timeout");
+        }
 
-    expect(() =>
-      publishPackages("next", {
-        execFile,
-        packages: ["packages/react-day-picker"],
-        readPackage: createPackageReader(),
-      }),
-    ).toThrow("npm ERR! network timeout");
+        return "";
+      },
+    );
 
-    expect(execFile).toHaveBeenCalledTimes(1);
+    expect(() => publishPackages("next")).toThrow("npm ERR! network timeout");
+    expect(publishPackagesExecFileSyncMock).toHaveBeenCalledTimes(1);
   });
 
   test("it requires an npm tag", function testMissingTag() {
     expect(() => publishPackages("")).toThrow(
-      "Usage: node ./scripts/publish-packages.mjs <npm-tag>",
+      "Usage: publish-packages <npm-tag>",
     );
   });
 });
