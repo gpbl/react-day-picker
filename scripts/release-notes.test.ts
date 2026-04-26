@@ -31,26 +31,16 @@ const releaseNotesPackageInfoByDir: Record<
 };
 
 let buildReleaseBody: ReleaseNotesModule["buildReleaseBody"];
-let buildReleaseBodyFromRef: ReleaseNotesModule["buildReleaseBodyFromRef"];
-let releaseNotesExecFileSyncMock: jest.Mock;
 let releaseNotesReadFileSyncMock: jest.Mock;
-
-jest.mock("node:child_process", () => ({
-  execFileSync: jest.fn(),
-}));
 
 jest.mock("node:fs", () => ({
   readFileSync: jest.fn(),
 }));
 
 beforeAll(async function loadModule() {
-  releaseNotesExecFileSyncMock = (await import("node:child_process"))
-    .execFileSync as unknown as jest.Mock;
   releaseNotesReadFileSyncMock = (await import("node:fs"))
     .readFileSync as unknown as jest.Mock;
-  ({ buildReleaseBody, buildReleaseBodyFromRef } = await import(
-    "./release-notes"
-  ));
+  ({ buildReleaseBody } = await import("./release-notes"));
 });
 
 beforeEach(function setupReleaseNotesMocks() {
@@ -61,26 +51,6 @@ beforeEach(function setupReleaseNotesMocks() {
   ) {
     return readPackageFile(String(file), "10.0.0-next.4");
   });
-
-  releaseNotesExecFileSyncMock.mockImplementation(
-    function mockGitShow(command, args) {
-      if (
-        command !== "git" ||
-        !Array.isArray(args) ||
-        args[0] !== "show" ||
-        typeof args[1] !== "string"
-      ) {
-        return "";
-      }
-
-      const [ref, path] = args[1].split(":");
-      if (ref !== "v10.0.0-next.3" || !path) {
-        throw new Error(`Unexpected git show target: ${args[1]}`);
-      }
-
-      return readPackageFile(path, "10.0.0-next.3");
-    },
-  );
 });
 
 function readPackageFile(path: string, packageVersion: string): string {
@@ -130,27 +100,23 @@ DayPicker follows [Semantic Versioning](http://semver.org/).
 
 describe("release notes", function describeReleaseNotes() {
   test("it builds release notes from the current worktree", function testCurrentWorktree() {
-    expect(buildReleaseBody("10.0.0-next.4")).toContain("### react-day-picker");
-    expect(buildReleaseBody("10.0.0-next.4")).toContain(
-      "- docs: clarify the public `useCalendar` API documentation. [#2959](https://github.com/gpbl/react-day-picker/pull/2959) by [@gpbl](https://github.com/gpbl)",
-    );
-  });
-
-  test("it previews a historical release from a git ref", function testHistoricalRef() {
-    const releaseBody = buildReleaseBodyFromRef(
-      "10.0.0-next.3",
-      "v10.0.0-next.3",
-    );
+    const releaseBody = buildReleaseBody("10.0.0-next.4");
 
     expect(releaseBody).toContain("## What's Changed");
     expect(releaseBody).toContain("### react-day-picker");
     expect(releaseBody).toContain(
-      "docs: clarify the public `useCalendar` API documentation. [#2959](https://github.com/gpbl/react-day-picker/pull/2959) by [@gpbl](https://github.com/gpbl)",
+      "- docs: clarify the public `useCalendar` API documentation. [#2959](https://github.com/gpbl/react-day-picker/pull/2959) by [@gpbl](https://github.com/gpbl)",
     );
     expect(releaseBody).not.toContain("DayPicker follows");
     expect(releaseBody).not.toContain("Thanks [@gpbl]");
     expect(releaseBody).not.toContain("[`a77f89c`]");
     expect(releaseBody).not.toContain("Updated dependencies");
     expect(releaseBody).not.toContain("@daypicker/buddhist");
+  });
+
+  test("it falls back when no matching package changelog sections exist", function testFallbackBody() {
+    expect(buildReleaseBody("10.0.0-next.999")).toBe(
+      "Published package updates for 10.0.0-next.999.",
+    );
   });
 });

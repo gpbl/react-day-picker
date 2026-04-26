@@ -22,7 +22,6 @@
     "typecheck:packages": "pnpm -r --filter \"@daypicker/*\" typecheck && pnpm --filter react-day-picker typecheck",
     "check:versions": "node --import tsx ./scripts/check-package-versions.ts",
     "pack:dry-run": "node --import tsx ./scripts/npm-pack-dry-run.ts",
-    "preview:release-notes": "node --import tsx ./scripts/preview-release-notes.ts",
     "release:ci": "node --import tsx ./scripts/release-ci.ts",
     "typecheck-watch": "tsc --project ./tsconfig.json --noEmit --watch"
   },

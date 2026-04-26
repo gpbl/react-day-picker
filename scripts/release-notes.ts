@@ -1,15 +1,7 @@
-import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { publishablePackageDirs } from "./publish-packages";
 
 const repoRoot = new URL("../", import.meta.url);
-
-type PackageFileName = "CHANGELOG.md" | "package.json";
-
-type ReadPackageFile = (
-  packageDir: string,
-  fileName: PackageFileName,
-) => string | null;
 
 function extractChangelogVersionSection(
   changelog: string,
@@ -88,15 +80,12 @@ function extractMeaningfulReleaseNotes(section: string): string[] {
   return noteBlocks;
 }
 
-function buildReleaseBodyFromSource(
-  packageVersion: string,
-  readPackageFile: ReadPackageFile,
-): string {
+export function buildReleaseBody(packageVersion: string): string {
   const packageSections = publishablePackageDirs.flatMap((packageDir) => {
-    const packageJson = readPackageFile(packageDir, "package.json");
-    if (!packageJson) {
-      return [];
-    }
+    const packageJson = readFileSync(
+      new URL(`${packageDir}/package.json`, repoRoot),
+      "utf8",
+    );
 
     const packageInfo = JSON.parse(packageJson) as {
       name: string;
@@ -106,10 +95,10 @@ function buildReleaseBodyFromSource(
       return [];
     }
 
-    const changelog = readPackageFile(packageDir, "CHANGELOG.md");
-    if (!changelog) {
-      return [];
-    }
+    const changelog = readFileSync(
+      new URL(`${packageDir}/CHANGELOG.md`, repoRoot),
+      "utf8",
+    );
 
     const versionSection = extractChangelogVersionSection(
       changelog,
@@ -149,45 +138,4 @@ function buildReleaseBodyFromSource(
       ...(index === packageSections.length - 1 ? [] : [""]),
     ]),
   ].join("\n");
-}
-
-/**
- * Builds repo-level release notes from the current worktree's package
- * changelog entries for the published version.
- */
-export function buildReleaseBody(packageVersion: string): string {
-  return buildReleaseBodyFromSource(packageVersion, (packageDir, fileName) =>
-    readFileSync(new URL(`${packageDir}/${fileName}`, repoRoot), "utf8"),
-  );
-}
-
-/**
- * Builds repo-level release notes from a historical git ref without changing
- * the working tree, which is useful for previewing older releases locally.
- */
-export function buildReleaseBodyFromRef(
-  packageVersion: string,
-  ref: string,
-): string {
-  return buildReleaseBodyFromSource(packageVersion, (packageDir, fileName) => {
-    const packagePath = `${packageDir}/${fileName}`;
-
-    try {
-      return String(
-        execFileSync("git", ["show", `${ref}:${packagePath}`], {
-          cwd: repoRoot,
-          encoding: "utf8",
-          stdio: ["ignore", "pipe", "pipe"],
-        }),
-      );
-    } catch (error) {
-      if (
-        error instanceof Error &&
-        /exists on disk, but not in|does not exist in/i.test(error.message)
-      ) {
-        return null;
-      }
-      throw error;
-    }
-  });
 }
