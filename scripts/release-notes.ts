@@ -16,13 +16,8 @@ function extractChangelogVersionSection(
   packageVersion: string,
 ): string | null {
   const lines = changelog.split(/\r?\n/);
-  const normalizedVersion = packageVersion.replace(/^v/, "");
-  const versionHeadings = new Set([
-    `## ${normalizedVersion}`,
-    `## v${normalizedVersion}`,
-  ]);
-  const startIndex = lines.findIndex((line) =>
-    versionHeadings.has(line.trim()),
+  const startIndex = lines.findIndex(
+    (line) => line.trim() === `## ${packageVersion}`,
   );
 
   if (startIndex === -1) {

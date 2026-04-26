@@ -101,14 +101,10 @@ function readPackageFile(path: string, packageVersion: string): string {
   }
 
   if (path.endsWith("/CHANGELOG.md")) {
-    const headingVersion = packageVersion.startsWith("9.")
-      ? `v${packageVersion}`
-      : packageVersion;
-
     if (packageDir === "packages/react-day-picker") {
       return `# react-day-picker
 
-## ${headingVersion}
+## ${packageVersion}
 
 ### Patch Changes
 
@@ -120,7 +116,7 @@ DayPicker follows [Semantic Versioning](http://semver.org/).
 
     return `# package
 
-## ${headingVersion}
+## ${packageVersion}
 
 ### Patch Changes
 
@@ -151,35 +147,5 @@ describe("release notes", function describeReleaseNotes() {
     expect(releaseBody).not.toContain("DayPicker follows");
     expect(releaseBody).not.toContain("Updated dependencies");
     expect(releaseBody).not.toContain("@daypicker/buddhist");
-  });
-
-  test("it recognizes older changelog headings with a v prefix", function testVPrefixedHeading() {
-    releaseNotesExecFileSyncMock.mockImplementation(
-      function mockGitShow(command, args) {
-        if (
-          command !== "git" ||
-          !Array.isArray(args) ||
-          args[0] !== "show" ||
-          typeof args[1] !== "string"
-        ) {
-          return "";
-        }
-
-        const [ref, path] = args[1].split(":");
-        if (ref !== "v9.13.0" || !path) {
-          throw new Error(`Unexpected git show target: ${args[1]}`);
-        }
-
-        return readPackageFile(path, "9.13.0");
-      },
-    );
-
-    const releaseBody = buildReleaseBodyFromRef("9.13.0", "v9.13.0");
-
-    expect(releaseBody).toContain("## What's Changed");
-    expect(releaseBody).toContain("### react-day-picker");
-    expect(releaseBody).toContain(
-      "Clarify the public `useCalendar` API documentation.",
-    );
   });
 });
