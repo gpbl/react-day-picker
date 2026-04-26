@@ -11,7 +11,7 @@ import { shouldPublishRelease } from "./should-publish-release";
 
 const repoRoot = new URL("../", import.meta.url);
 const mainPackageDir = "packages/react-day-picker";
-const expectedReleasePrBranch = "changesets-release/main";
+const expectedReleasePrBranch = "changeset-release/main";
 const expectedReleaseBaseBranch = "main";
 
 // Keep the release workflow's validations in one ordered list so the publish

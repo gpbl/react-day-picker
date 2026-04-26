@@ -146,7 +146,7 @@ describe("releaseCi", function describeReleaseCi() {
       repository: "gpbl/react-day-picker",
       token: "test-token",
       commitSha: "abc123",
-      expectedHeadBranch: "changesets-release/main",
+      expectedHeadBranch: "changeset-release/main",
       expectedBaseBranch: "main",
     });
     expect(

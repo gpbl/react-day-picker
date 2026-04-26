@@ -32,7 +32,7 @@ function createShouldPublishContext(
     repository: "gpbl/react-day-picker",
     token: "test-token",
     commitSha: "abc123",
-    expectedHeadBranch: "changesets-release/main",
+    expectedHeadBranch: "changeset-release/main",
     expectedBaseBranch: "main",
     ...overrides,
   };
@@ -49,7 +49,7 @@ function createPullRequest(
   return {
     user: { login: "github-actions[bot]" },
     base: { ref: "main" },
-    head: { ref: "changesets-release/main" },
+    head: { ref: "changeset-release/main" },
     merged_at: "2026-04-24T10:00:00.000Z",
     ...overrides,
   };
