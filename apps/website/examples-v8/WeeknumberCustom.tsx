@@ -12,11 +12,11 @@ export function WeeknumberCustom() {
       firstWeekContainsDate={1} // Number the first week of the year from day 1
       showWeekNumber
       labels={{
-        labelWeekNumber: (weekNumber: number) => `Week ${weekNumber}`
+        labelWeekNumber: (weekNumber: number) => `Week ${weekNumber}`,
       }}
       formatters={{
         // Add `W` prefix to week number
-        formatWeekNumber: (weekNumber: number) => `W${weekNumber}`
+        formatWeekNumber: (weekNumber: number) => `W${weekNumber}`,
       }}
     />
   );

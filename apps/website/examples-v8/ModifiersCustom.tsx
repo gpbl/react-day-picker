@@ -4,7 +4,7 @@ const bookedDays = [
   new Date(2024, 5, 8),
   new Date(2024, 5, 9),
   new Date(2024, 5, 10),
-  { from: new Date(2024, 5, 15), to: new Date(2024, 5, 20) }
+  { from: new Date(2024, 5, 15), to: new Date(2024, 5, 20) },
 ];
 
 const css = `

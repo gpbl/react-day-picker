@@ -83,8 +83,8 @@ export enum DayFlag {
 }
 
 /**
- * Enum representing selection states that can be applied to the {@link UI | UI.Day}
- * element in selection mode.
+ * Enum representing selection states that can be applied to the
+ * {@link UI | UI.Day} element in selection mode.
  */
 export enum SelectionState {
   /** The day is at the end of a selected range. */

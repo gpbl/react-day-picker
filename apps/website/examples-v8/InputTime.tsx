@@ -18,7 +18,7 @@ export function InputTime() {
       selected.getMonth(),
       selected.getDate(),
       hours,
-      minutes
+      minutes,
     );
     setSelected(newSelectedDate);
     setTimeValue(time);
@@ -37,7 +37,7 @@ export function InputTime() {
       date.getMonth(),
       date.getDate(),
       hours,
-      minutes
+      minutes,
     );
     setSelected(newDate);
   };

@@ -1,32 +1,19 @@
-import process from "node:process";
-import { pathToFileURL } from "node:url";
-
-export interface AssociatedPullRequest {
-  user: { login?: string } | null;
-  base: { ref?: string } | null;
-  head: { ref?: string } | null;
-  merged_at: string | null;
-}
-
-export interface ShouldPublishContext {
-  repository: string;
-  token: string;
-  commitSha: string;
-  expectedHeadBranch: string;
-  expectedAuthor: string;
-  expectedBaseBranch: string;
-}
-
-interface AssociatedPullRequestRequest {
+/**
+ * Reads the pull requests GitHub associates with the given commit SHA.
+ */
+async function fetchAssociatedPullRequests(request: {
   owner: string;
   repo: string;
   commitSha: string;
   token: string;
-}
-
-async function fetchAssociatedPullRequests(
-  request: AssociatedPullRequestRequest,
-): Promise<AssociatedPullRequest[]> {
+}): Promise<
+  Array<{
+    user: { login?: string } | null;
+    base: { ref?: string } | null;
+    head: { ref?: string } | null;
+    merged_at: string | null;
+  }>
+> {
   const { owner, repo, commitSha, token } = request;
   const response = await fetch(
     `https://api.github.com/repos/${owner}/${repo}/commits/${encodeURIComponent(commitSha)}/pulls`,
@@ -34,6 +21,8 @@ async function fetchAssociatedPullRequests(
       headers: {
         Accept: "application/vnd.github+json",
         Authorization: `Bearer ${token}`,
+        // Pin the REST API version so the publish gate keeps the same GitHub
+        // semantics even if the default API version changes later.
         "X-GitHub-Api-Version": "2022-11-28",
       },
     },
@@ -45,12 +34,29 @@ async function fetchAssociatedPullRequests(
     );
   }
 
-  return response.json() as Promise<AssociatedPullRequest[]>;
+  return response.json() as Promise<
+    Array<{
+      user: { login?: string } | null;
+      base: { ref?: string } | null;
+      head: { ref?: string } | null;
+      merged_at: string | null;
+    }>
+  >;
 }
 
-export async function shouldPublishRelease(
-  context: ShouldPublishContext,
-): Promise<boolean> {
+/**
+ * Returns true only when the commit belongs to the merged Changesets release
+ * PR for this repo.
+ *
+ * This protects the publish step from running on arbitrary pushes to `main`.
+ */
+export async function shouldPublishRelease(context: {
+  repository: string;
+  token: string;
+  commitSha: string;
+  expectedHeadBranch: string;
+  expectedBaseBranch: string;
+}): Promise<boolean> {
   const [owner, repo] = context.repository.split("/");
   if (!owner || !repo) {
     throw new Error(`Invalid GITHUB_REPOSITORY value: ${context.repository}`);
@@ -66,49 +72,8 @@ export async function shouldPublishRelease(
   return pullRequests.some((pullRequest) => {
     return (
       pullRequest.head?.ref === context.expectedHeadBranch &&
-      pullRequest.user?.login === context.expectedAuthor &&
       pullRequest.base?.ref === context.expectedBaseBranch &&
       Boolean(pullRequest.merged_at)
     );
-  });
-}
-
-export async function main(): Promise<void> {
-  const repository = process.env.GITHUB_REPOSITORY;
-  const token = process.env.GITHUB_TOKEN;
-  const commitSha = process.env.GITHUB_SHA;
-
-  if (!repository) {
-    throw new Error("Missing required environment variable: GITHUB_REPOSITORY");
-  }
-  if (!token) {
-    throw new Error("Missing required environment variable: GITHUB_TOKEN");
-  }
-  if (!commitSha) {
-    throw new Error("Missing required environment variable: GITHUB_SHA");
-  }
-
-  const shouldPublish = await shouldPublishRelease({
-    repository,
-    token,
-    commitSha,
-    expectedHeadBranch:
-      process.env.EXPECTED_PR_BRANCH || "changesets-release/main",
-    expectedAuthor: process.env.EXPECTED_PR_AUTHOR || "github-actions[bot]",
-    expectedBaseBranch: process.env.EXPECTED_BASE_BRANCH || "main",
-  });
-
-  console.log(shouldPublish ? "true" : "false");
-}
-
-const scriptPath = process.argv[1];
-if (scriptPath && import.meta.url === pathToFileURL(scriptPath).href) {
-  main().catch((error: unknown) => {
-    if (error instanceof Error) {
-      console.error(error.message);
-    } else {
-      console.error(error);
-    }
-    process.exit(1);
   });
 }

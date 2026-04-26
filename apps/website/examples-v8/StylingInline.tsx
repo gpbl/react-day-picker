@@ -4,7 +4,7 @@ export function StylingInline() {
   return (
     <DayPicker
       styles={{
-        caption: { color: "red" }
+        caption: { color: "red" },
       }}
     />
   );

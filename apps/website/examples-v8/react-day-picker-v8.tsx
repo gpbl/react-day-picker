@@ -1,6 +1,6 @@
 import {
   DayPicker as DayPickerV8,
-  type DayPickerProps
+  type DayPickerProps,
 } from "react-day-picker-v8";
 import styles from "react-day-picker-v8/dist/style.module.css";
 
@@ -22,7 +22,7 @@ export {
   useSelectRange,
   useSelectSingle,
   useSelectMultiple,
-  type SelectRangeEventHandler
+  type SelectRangeEventHandler,
 } from "react-day-picker-v8";
 
 export function DayPicker(props: DayPickerProps) {

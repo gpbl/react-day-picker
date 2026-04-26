@@ -6,7 +6,7 @@ import { arSA } from "react-day-picker/locale";
 import {
   DateFormatter,
   DayPicker,
-  WeekNumberFormatter
+  WeekNumberFormatter,
 } from "./react-day-picker-v8";
 
 const NU_LOCALE = "ar-u-nu-arab";

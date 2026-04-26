@@ -14,17 +14,10 @@ const packageDirs = [
   "packages/persian",
 ] as const;
 
-export interface PackageInfo {
+export function readPackageInfo(packageDir: string): {
   name: string;
   version: string;
-}
-
-export interface UnpublishedPackage {
-  packageDir: string;
-  packageInfo: PackageInfo;
-}
-
-export function readPackageInfo(packageDir: string): PackageInfo {
+} {
   const packageJsonPath = new URL(`${packageDir}/package.json`, repoRoot);
   const packageJson = JSON.parse(readFileSync(packageJsonPath, "utf8")) as {
     name: string;
@@ -59,7 +52,10 @@ function isPackageVersionMissingError(error: unknown): boolean {
   );
 }
 
-function isPackageVersionPublished(packageInfo: PackageInfo): boolean {
+function isPackageVersionPublished(packageInfo: {
+  name: string;
+  version: string;
+}): boolean {
   try {
     execFileSync(
       "npm",
@@ -78,28 +74,18 @@ function isPackageVersionPublished(packageInfo: PackageInfo): boolean {
   }
 }
 
-export function getUnpublishedPackages(): UnpublishedPackage[] {
+export function getUnpublishedPackages(): Array<{
+  packageDir: string;
+  packageInfo: {
+    name: string;
+    version: string;
+  };
+}> {
   return packageDirs.flatMap((packageDir) => {
     const packageInfo = readPackageInfo(packageDir);
     return isPackageVersionPublished(packageInfo)
       ? []
       : [{ packageDir, packageInfo }];
-  });
-}
-
-function publishPackage(
-  packageDir: string,
-  packageInfo: PackageInfo,
-  tag: string,
-): void {
-  const publishArgs = ["publish", "--provenance", "--tag", tag];
-  if (packageInfo.name.startsWith("@")) {
-    publishArgs.push("--access", "public");
-  }
-
-  execFileSync("npm", publishArgs, {
-    cwd: new URL(`../${packageDir}`, import.meta.url),
-    stdio: "inherit",
   });
 }
 
@@ -117,11 +103,19 @@ export function publishPackages(tag: string): void {
       continue;
     }
 
-    publishPackage(packageDir, packageInfo, tag);
+    const publishArgs = ["publish", "--provenance", "--tag", tag];
+    if (packageInfo.name.startsWith("@")) {
+      publishArgs.push("--access", "public");
+    }
+
+    execFileSync("npm", publishArgs, {
+      cwd: new URL(`../${packageDir}`, import.meta.url),
+      stdio: "inherit",
+    });
   }
 }
 
-export function main(): void {
+function main(): void {
   publishPackages(process.argv[2] || "");
 }
 

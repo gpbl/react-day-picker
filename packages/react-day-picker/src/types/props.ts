@@ -383,8 +383,8 @@ export interface PropsBase {
   /**
    * Add the language tag to the container element.
    *
-   * When omitted, DayPicker uses the active locale code (`locale.code`).
-   * Set this prop to override the language tag.
+   * When omitted, DayPicker uses the active locale code (`locale.code`). Set
+   * this prop to override the language tag.
    */
   lang?: HTMLDivElement["lang"];
   /**
