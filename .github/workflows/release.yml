@@ -49,7 +49,7 @@ jobs:
         if: github.event_name == 'push'
         uses: changesets/action@v1
         with:
-          branch: "changesets-release/main"
+          branch: "main"
           commit: "build: version packages"
           title: "build: version packages"
           publish: "pnpm release:ci"
