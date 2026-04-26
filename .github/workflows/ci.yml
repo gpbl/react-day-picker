@@ -1,12 +1,14 @@
 name: ci
 
 # How this workflow works:
-# - Pull requests and branch pushes run typecheck, lint, test, and build jobs.
+# - Pull requests run typecheck, lint, test, and build jobs.
+# - Pushes to `main` rerun the same validation suite after merge.
 # - The build job verifies publish-sensitive invariants like matching versions,
 #   npm pack contents, and the built-package smoke test.
 #
 # How to use it:
-# - Open a pull request or push a branch to run the main validation suite.
+# - Open a pull request to run the main validation suite.
+# - Merges to `main` rerun the same checks without duplicating branch push runs.
 # - Package publishing is handled separately by `.github/workflows/release.yml`.
 on:
   pull_request:
@@ -14,7 +16,7 @@ on:
       - "**"
   push:
     branches:
-      - "**"
+      - main
 
 permissions:
   contents: read
