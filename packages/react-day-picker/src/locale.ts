@@ -15,7 +15,6 @@ export type {
  * @since V9.12.0
  */
 export { af } from "./locale/af.js";
-export { amET } from "./locale/am-ET.js";
 export { ar } from "./locale/ar.js";
 export { arDZ } from "./locale/ar-DZ.js";
 export { arEG } from "./locale/ar-EG.js";
