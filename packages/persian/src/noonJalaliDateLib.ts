@@ -1,5 +1,4 @@
 import { TZDate } from "@date-fns/tz";
-import type { EndOfWeekOptions, StartOfWeekOptions } from "date-fns";
 import {
   addDays as addDaysJalali,
   addMonths as addMonthsJalali,
@@ -24,6 +23,8 @@ import type { DateLib } from "./classes/DateLib.js";
 import type { CreateNoonOverridesOptions } from "./noonDateLib.js";
 
 type SupportedDate = Date | number | string | TZDate;
+type StartOfWeekOptions = NonNullable<Parameters<DateLib["startOfWeek"]>[1]>;
+type EndOfWeekOptions = NonNullable<Parameters<DateLib["endOfWeek"]>[1]>;
 type WeekStartsOn = NonNullable<StartOfWeekOptions["weekStartsOn"]>;
 
 /**
