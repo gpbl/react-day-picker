@@ -9,6 +9,17 @@ const today = new Date(2024, 11, 22);
 
 setTestTime(today);
 describe("Ethiopic DayPicker", () => {
+  test("applies dateLib overrides after Ethiopic defaults", () => {
+    render(
+      <DayPicker
+        month={new Date(2024, 8, 10)}
+        dateLib={{ format: () => "custom caption" }}
+      />,
+    );
+
+    expect(grid("custom caption")).toBeInTheDocument();
+  });
+
   test("renders Amharic month with Geez numerals by default", () => {
     render(<DayPicker />);
     // Caption label is also used as grid aria-label

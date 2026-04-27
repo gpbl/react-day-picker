@@ -11,6 +11,17 @@ const gregorianMaxDate = new Date(2077, 10, 16);
 
 setTestTime(today);
 describe("Hijri DayPicker", () => {
+  test("applies dateLib overrides after Hijri defaults", () => {
+    render(
+      <DayPicker
+        month={new Date(2025, 2, 1)}
+        dateLib={{ format: () => "custom caption" }}
+      />,
+    );
+
+    expect(grid("custom caption")).toBeInTheDocument();
+  });
+
   test("renders Hijri month caption by default", () => {
     // Default locale is ar-SA, numerals arab
     // Ramadan 1446 -> رمضان ١٤٤٦

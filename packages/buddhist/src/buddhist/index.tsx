@@ -43,18 +43,21 @@ export function DayPicker(
     dateLib?: DayPickerProps["dateLib"];
   },
 ) {
+  const { dateLib: dateLibProp, ...dayPickerProps } = props;
+  const locale = props.locale ?? th;
   const dateLib = getDateLib({
-    locale: props.locale ?? th,
+    locale,
     weekStartsOn: props.broadcastCalendar ? 1 : props.weekStartsOn,
     firstWeekContainsDate: props.firstWeekContainsDate,
     useAdditionalWeekYearTokens: props.useAdditionalWeekYearTokens,
     useAdditionalDayOfYearTokens: props.useAdditionalDayOfYearTokens,
     timeZone: props.timeZone,
+    overrides: dateLibProp,
   });
   return (
     <DayPickerComponent
-      {...props}
-      locale={props.locale ?? th}
+      {...dayPickerProps}
+      locale={locale}
       numerals={props.numerals ?? "thai"}
       dir={props.dir ?? "ltr"}
       dateLib={dateLib}
@@ -63,8 +66,14 @@ export function DayPicker(
 }
 
 /** Returns the date library used in the Buddhist calendar. */
-export const getDateLib = (options?: DateLibOptions) => {
-  return new DateLib(options, {
+export const getDateLib = (
+  options?: DateLibOptions & {
+    overrides?: DayPickerProps["dateLib"];
+  },
+) => {
+  const { overrides, ...dateLibOptions } = options ?? {};
+  return new DateLib(dateLibOptions, {
     format: buddhistFormat,
+    ...(overrides ?? {}),
   });
 };

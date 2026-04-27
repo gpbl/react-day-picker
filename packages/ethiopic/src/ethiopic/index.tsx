@@ -47,20 +47,29 @@ export function DayPicker(
     numerals?: DayPickerProps["numerals"];
   },
 ) {
+  const { dateLib: dateLibProp, ...dayPickerProps } = props;
   return (
     <DayPickerComponent
-      {...props}
+      {...dayPickerProps}
       locale={(props.locale as Locale) ?? amET}
       numerals={props.numerals ?? "geez"}
       // Pass overrides, not a DateLib instance
-      dateLib={ethiopicDateLib}
+      dateLib={{ ...ethiopicDateLib, ...(dateLibProp ?? {}) }}
     />
   );
 }
 
 /** Returns the date library used in the calendar. */
-export const getDateLib = (options?: DateLibOptions) => {
-  return new DateLib(options, ethiopicDateLib);
+export const getDateLib = (
+  options?: DateLibOptions & {
+    overrides?: DayPickerProps["dateLib"];
+  },
+) => {
+  const { overrides, ...dateLibOptions } = options ?? {};
+  return new DateLib(dateLibOptions, {
+    ...ethiopicDateLib,
+    ...(overrides ?? {}),
+  });
 };
 
 // Export a minimal Amharic (Ethiopia) date-fns locale that uses Intl

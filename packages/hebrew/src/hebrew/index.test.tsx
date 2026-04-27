@@ -9,6 +9,17 @@ const today = new Date(2024, 9, 3);
 
 setTestTime(today);
 describe("Hebrew DayPicker", () => {
+  test("applies dateLib overrides after Hebrew defaults", () => {
+    render(
+      <DayPicker
+        month={new Date(2024, 9, 3)}
+        dateLib={{ format: () => "custom caption" }}
+      />,
+    );
+
+    expect(grid("custom caption")).toBeInTheDocument();
+  });
+
   test("renders Hebrew month caption by default", () => {
     render(<DayPicker />);
     expect(grid("תשרי 5785")).toBeInTheDocument();
