@@ -25,9 +25,6 @@
   "sideEffects": [
     "**/*.css"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "exports": {
     ".": {
       "import": {
