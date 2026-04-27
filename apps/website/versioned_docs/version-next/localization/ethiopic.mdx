@@ -18,18 +18,24 @@ import { DayPicker } from "@daypicker/ethiopic";
 
 ### Basic usage
 
-By default, the locale is `amET` with Ge'ez numerals. The `amET` locale is
-owned and exported by `@daypicker/ethiopic`.
+By default, the locale is `amET` with Ge'ez numerals.
 
 ```tsx
-import { DayPicker, amET } from "@daypicker/ethiopic";
+import { DayPicker } from "@daypicker/ethiopic";
 
-<DayPicker locale={amET} />;
+<DayPicker />;
 ```
 
 <BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/release/v10-next/examples/Ethiopic.tsx">
   <Examples.Ethiopic />
 </BrowserWindow>
+
+If you need the locale object directly, import `amET` from
+`@daypicker/ethiopic`:
+
+```tsx
+import { amET } from "@daypicker/ethiopic";
+```
 
 ### Latin numerals
 
