@@ -30,6 +30,15 @@ const reactDayPickerStylePath = nodeRequire.resolve(
 const reactDayPickerStyleModulePath = nodeRequire.resolve(
   "../../packages/react-day-picker/src/style.module.css",
 );
+const buddhistPath = nodeRequire.resolve(
+  "../../packages/buddhist/src/index.tsx",
+);
+const ethiopicPath = nodeRequire.resolve(
+  "../../packages/ethiopic/src/index.tsx",
+);
+const hebrewPath = nodeRequire.resolve("../../packages/hebrew/src/index.tsx");
+const hijriPath = nodeRequire.resolve("../../packages/hijri/src/index.tsx");
+const persianPath = nodeRequire.resolve("../../packages/persian/src/index.tsx");
 
 const config: Config = {
   title: "React DayPicker",
@@ -138,6 +147,11 @@ const config: Config = {
                 "react-day-picker/locale$": reactDayPickerLocalePath,
                 "react-day-picker/locale": reactDayPickerLocaleDir,
                 "react-day-picker$": reactDayPickerSrcPath,
+                "@daypicker/buddhist$": buddhistPath,
+                "@daypicker/ethiopic$": ethiopicPath,
+                "@daypicker/hebrew$": hebrewPath,
+                "@daypicker/hijri$": hijriPath,
+                "@daypicker/persian$": persianPath,
               },
             },
           };
