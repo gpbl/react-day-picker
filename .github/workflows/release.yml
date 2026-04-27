@@ -57,15 +57,11 @@ jobs:
           createGithubReleases: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # Optional fallback for first-publishing a new npm package before
-          # its trusted publisher can be configured on npmjs.com.
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Recover release for a merged release PR commit
         if: github.event_name == 'workflow_dispatch'
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           RELEASE_COMMIT_SHA: ${{ github.event.inputs.ref }}
         run: pnpm release:ci
