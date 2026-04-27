@@ -1,10 +1,10 @@
-import type { Locale } from "date-fns";
-import React from "react";
 import {
   DateLib,
   type DateLibOptions,
   DayPicker as DayPickerComponent,
-} from "react-day-picker";
+} from "@daypicker/react";
+import type { Locale } from "date-fns";
+import React from "react";
 import amET from "../locale/am-ET.js";
 import type { DayPickerProps } from "../types/props.js";
 import * as ethiopicDateLib from "./lib/index.js";

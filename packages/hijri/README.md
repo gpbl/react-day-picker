@@ -10,18 +10,18 @@ right-to-left direction by default.
 
 ## Installation
 
-Install the v10 prerelease of React DayPicker together with the Hijri calendar
-package:
+Install the v10 prerelease of the scoped React DayPicker package together with
+the Hijri calendar package:
 
 ```bash
-npm install react-day-picker@next @daypicker/hijri@next
+npm install @daypicker/react@next @daypicker/hijri@next
 ```
 
 ## Usage
 
 ```tsx
 import { DayPicker } from "@daypicker/hijri";
-import "react-day-picker/style.css";
+import "@daypicker/react/style.css";
 
 export function HijriCalendar() {
   return <DayPicker mode="single" />;

@@ -10,18 +10,18 @@ and right-to-left direction by default.
 
 ## Installation
 
-Install the v10 prerelease of React DayPicker together with the Hebrew calendar
-package:
+Install the v10 prerelease of the scoped React DayPicker package together with
+the Hebrew calendar package:
 
 ```bash
-npm install react-day-picker@next @daypicker/hebrew@next
+npm install @daypicker/react@next @daypicker/hebrew@next
 ```
 
 ## Usage
 
 ```tsx
 import { DayPicker } from "@daypicker/hebrew";
-import "react-day-picker/style.css";
+import "@daypicker/react/style.css";
 
 export function HebrewCalendar() {
   return <DayPicker mode="single" />;

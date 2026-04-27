@@ -1,15 +1,15 @@
+import {
+  DateLib,
+  type DateLibOptions,
+  type DayPickerLocale,
+  type Modifiers,
+} from "@daypicker/react";
 import type {
   LocaleDayPeriod,
   LocaleOptions,
   LocaleWidth,
   Localize,
 } from "date-fns/locale";
-import {
-  DateLib,
-  type DateLibOptions,
-  type DayPickerLocale,
-  type Modifiers,
-} from "react-day-picker";
 import { enUS } from "./en-US.js";
 
 /**

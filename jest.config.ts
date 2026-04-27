@@ -25,6 +25,20 @@ const config: Config.InitialOptions = {
       roots: ["<rootDir>/packages/react-day-picker/src"],
       moduleNameMapper: {
         "@/test/(.*)": ["<rootDir>/test/$1"],
+        "@daypicker/react/locale/(.*)\\.js": [
+          "<rootDir>/packages/react-day-picker/src/locale/$1.ts",
+        ],
+        "@daypicker/react/locale/(.*)": [
+          "<rootDir>/packages/react-day-picker/src/locale/$1",
+        ],
+        "@daypicker/react/locale": ["<rootDir>/packages/react/src/locale.ts"],
+        "@daypicker/react/style.module.css": [
+          "<rootDir>/packages/react-day-picker/src/style.module.css",
+        ],
+        "@daypicker/react/style.css": [
+          "<rootDir>/packages/react-day-picker/src/style.css",
+        ],
+        "@daypicker/react": ["<rootDir>/packages/react/src/index.ts"],
         "react-day-picker/locale/(.*)\\.js": [
           "<rootDir>/packages/react-day-picker/src/locale/$1.ts",
         ],
@@ -52,6 +66,20 @@ const config: Config.InitialOptions = {
         "@daypicker/hebrew": ["<rootDir>/packages/hebrew/src/index.tsx"],
         "@daypicker/hijri": ["<rootDir>/packages/hijri/src/index.tsx"],
         "@daypicker/persian": ["<rootDir>/packages/persian/src/index.tsx"],
+        "@daypicker/react/locale/(.*)\\.js": [
+          "<rootDir>/packages/react-day-picker/src/locale/$1.ts",
+        ],
+        "@daypicker/react/locale/(.*)": [
+          "<rootDir>/packages/react-day-picker/src/locale/$1",
+        ],
+        "@daypicker/react/locale": ["<rootDir>/packages/react/src/locale.ts"],
+        "@daypicker/react/style.module.css": [
+          "<rootDir>/packages/react-day-picker/src/style.module.css",
+        ],
+        "@daypicker/react/style.css": [
+          "<rootDir>/packages/react-day-picker/src/style.css",
+        ],
+        "@daypicker/react": ["<rootDir>/packages/react/src/index.ts"],
         "react-day-picker/locale/(.*)\\.js": [
           "<rootDir>/packages/react-day-picker/src/locale/$1.ts",
         ],
@@ -76,6 +104,7 @@ const config: Config.InitialOptions = {
         "<rootDir>/packages/hebrew",
         "<rootDir>/packages/hijri",
         "<rootDir>/packages/persian",
+        "<rootDir>/packages/react",
       ],
       moduleNameMapper: {
         "@/test/(.*)": ["<rootDir>/test/$1"],
@@ -84,6 +113,20 @@ const config: Config.InitialOptions = {
         "@daypicker/hebrew": ["<rootDir>/packages/hebrew/src/index.tsx"],
         "@daypicker/hijri": ["<rootDir>/packages/hijri/src/index.tsx"],
         "@daypicker/persian": ["<rootDir>/packages/persian/src/index.tsx"],
+        "@daypicker/react/locale/(.*)\\.js": [
+          "<rootDir>/packages/react-day-picker/src/locale/$1.ts",
+        ],
+        "@daypicker/react/locale/(.*)": [
+          "<rootDir>/packages/react-day-picker/src/locale/$1",
+        ],
+        "@daypicker/react/locale": ["<rootDir>/packages/react/src/locale.ts"],
+        "@daypicker/react/style.module.css": [
+          "<rootDir>/packages/react-day-picker/src/style.module.css",
+        ],
+        "@daypicker/react/style.css": [
+          "<rootDir>/packages/react-day-picker/src/style.css",
+        ],
+        "@daypicker/react": ["<rootDir>/packages/react/src/index.ts"],
         "react-day-picker/locale/(.*)\\.js": [
           "<rootDir>/packages/react-day-picker/src/locale/$1.ts",
         ],
@@ -107,6 +150,20 @@ const config: Config.InitialOptions = {
       fakeTimers: { enableGlobally: false }, // disable fake timers for timezone tests because they interfere with Intl API
       moduleNameMapper: {
         "@/test/(.*)": ["<rootDir>/test/$1"],
+        "@daypicker/react/locale/(.*)\\.js": [
+          "<rootDir>/packages/react-day-picker/src/locale/$1.ts",
+        ],
+        "@daypicker/react/locale/(.*)": [
+          "<rootDir>/packages/react-day-picker/src/locale/$1",
+        ],
+        "@daypicker/react/locale": ["<rootDir>/packages/react/src/locale.ts"],
+        "@daypicker/react/style.module.css": [
+          "<rootDir>/packages/react-day-picker/src/style.module.css",
+        ],
+        "@daypicker/react/style.css": [
+          "<rootDir>/packages/react-day-picker/src/style.css",
+        ],
+        "@daypicker/react": ["<rootDir>/packages/react/src/index.ts"],
         "react-day-picker/locale/(.*)\\.js": [
           "<rootDir>/packages/react-day-picker/src/locale/$1.ts",
         ],
@@ -148,6 +205,22 @@ const config: Config.InitialOptions = {
         "@daypicker/hebrew": ["<rootDir>/packages/hebrew/dist/cjs/index.js"],
         "@daypicker/hijri": ["<rootDir>/packages/hijri/dist/cjs/index.js"],
         "@daypicker/persian": ["<rootDir>/packages/persian/dist/cjs/index.js"],
+        "@daypicker/react/locale/(.*)\\.js": [
+          "<rootDir>/packages/react/dist/cjs/locale/$1.js",
+        ],
+        "@daypicker/react/locale/(.*)": [
+          "<rootDir>/packages/react/dist/cjs/locale/$1",
+        ],
+        "@daypicker/react/locale": [
+          "<rootDir>/packages/react/dist/cjs/locale.js",
+        ],
+        "@daypicker/react/style.module.css": [
+          "<rootDir>/packages/react/dist/style.module.css",
+        ],
+        "@daypicker/react/style.css": [
+          "<rootDir>/packages/react/dist/style.css",
+        ],
+        "@daypicker/react": ["<rootDir>/packages/react/dist/cjs/index.js"],
         "react-day-picker/locale/(.*)\\.js": [
           "<rootDir>/packages/react-day-picker/dist/cjs/locale/$1.js",
         ],

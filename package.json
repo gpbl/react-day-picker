@@ -9,7 +9,9 @@
   "scripts": {
     "build": "pnpm clean:dist && pnpm build:react-day-picker && pnpm build:packages",
     "build:react-day-picker": "pnpm --filter react-day-picker build",
-    "build:packages": "pnpm -r --filter \"@daypicker/*\" build",
+    "build:packages": "pnpm build:daypicker-react && pnpm build:calendar-packages",
+    "build:daypicker-react": "pnpm --filter @daypicker/react build",
+    "build:calendar-packages": "pnpm -r --filter \"@daypicker/*\" --filter \"!@daypicker/react\" build",
     "clean:dist": "rm -rf packages/*/dist",
     "format": "prettier -w \"**/*.{md,mdx,ts,tsx}\"",
     "lint": "biome check",
@@ -30,6 +32,7 @@
     "@changesets/cli": "^2.31.0",
     "@changesets/changelog-github": "^0.5.2",
     "@date-fns/tz": "^1.4.1",
+    "@daypicker/react": "workspace:*",
     "@jest/types": "^30.3.0",
     "@radix-ui/react-select": "^2.2.6",
     "@swc/core": "^1.15.26",
@@ -61,6 +64,8 @@
   },
   "pnpm": {
     "overrides": {
+      "@daypicker/react": "link:packages/react",
+      "@daypicker/react>react-day-picker": "link:packages/react-day-picker",
       "@babel/runtime": "7.28.4",
       "ajv@6": "6.15.0",
       "diff": "4.0.4",

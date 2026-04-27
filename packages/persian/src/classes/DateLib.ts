@@ -4,5 +4,5 @@ export type {
   DayPickerLocaleLabels,
   Locale,
   MonthYearOrder,
-} from "react-day-picker";
-export { DateLib } from "react-day-picker";
+} from "@daypicker/react";
+export { DateLib } from "@daypicker/react";

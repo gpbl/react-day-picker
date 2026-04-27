@@ -11,6 +11,10 @@ const packageInfoByDir: Record<string, { name: string; version: string }> = {
     name: "react-day-picker",
     version: "10.0.0-next.1",
   },
+  "packages/react": {
+    name: "@daypicker/react",
+    version: "10.0.0-next.1",
+  },
   "packages/buddhist": {
     name: "@daypicker/buddhist",
     version: "10.0.0-next.1",
@@ -109,7 +113,7 @@ describe("publishPackages", function describePublishPackages() {
           return "";
         }
 
-        if (args[1] === "@daypicker/buddhist@10.0.0-next.1") {
+        if (args[1] === "@daypicker/react@10.0.0-next.1") {
           throw createNpmError("npm ERR! code E404\nnpm ERR! 404 Not Found");
         }
 
@@ -119,9 +123,9 @@ describe("publishPackages", function describePublishPackages() {
 
     expect(getUnpublishedPackages()).toEqual([
       {
-        packageDir: "packages/buddhist",
+        packageDir: "packages/react",
         packageInfo: {
-          name: "@daypicker/buddhist",
+          name: "@daypicker/react",
           version: "10.0.0-next.1",
         },
       },
@@ -142,7 +146,7 @@ describe("publishPackages", function describePublishPackages() {
         }
 
         if (args[0] === "view") {
-          if (args[1] === "@daypicker/buddhist@10.0.0-next.1") {
+          if (args[1] === "@daypicker/react@10.0.0-next.1") {
             throw createNpmError("npm ERR! code E404");
           }
           return "10.0.0-next.1\n";
@@ -156,8 +160,9 @@ describe("publishPackages", function describePublishPackages() {
 
     expect(execCalls.map((call) => call.args)).toEqual([
       ["view", "react-day-picker@10.0.0-next.1", "version"],
-      ["view", "@daypicker/buddhist@10.0.0-next.1", "version"],
+      ["view", "@daypicker/react@10.0.0-next.1", "version"],
       ["publish", "--provenance", "--tag", "next", "--access", "public"],
+      ["view", "@daypicker/buddhist@10.0.0-next.1", "version"],
       ["view", "@daypicker/ethiopic@10.0.0-next.1", "version"],
       ["view", "@daypicker/hebrew@10.0.0-next.1", "version"],
       ["view", "@daypicker/hijri@10.0.0-next.1", "version"],
@@ -167,7 +172,7 @@ describe("publishPackages", function describePublishPackages() {
       | { cwd?: URL; stdio?: string }
       | undefined;
     expect(publishOptions?.stdio).toBe("inherit");
-    expect(publishOptions?.cwd?.href).toContain("packages/buddhist");
+    expect(publishOptions?.cwd?.href).toContain("packages/react");
     expect(consoleLogSpy).toHaveBeenCalledWith(
       "Skipping react-day-picker@10.0.0-next.1; already published.",
     );

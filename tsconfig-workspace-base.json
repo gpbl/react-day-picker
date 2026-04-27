@@ -6,6 +6,15 @@
     "paths": {
       "@/test": ["./test"],
       "@/test/*": ["./test/*"],
+      "@daypicker/react": ["./packages/react/src/index.ts"],
+      "@daypicker/react/locale": ["./packages/react/src/locale.ts"],
+      "@daypicker/react/locale/*": ["./packages/react-day-picker/src/locale/*"],
+      "@daypicker/react/style.css": [
+        "./packages/react-day-picker/src/style.css"
+      ],
+      "@daypicker/react/style.module.css": [
+        "./packages/react-day-picker/src/style.module.css"
+      ],
       "react-day-picker": ["./packages/react-day-picker/src/index.ts"],
       "react-day-picker/*": ["./packages/react-day-picker/src/*"],
       "@daypicker/buddhist": ["./packages/buddhist/src/index.tsx"],

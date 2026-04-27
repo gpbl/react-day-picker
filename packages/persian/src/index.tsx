@@ -1,12 +1,12 @@
-import * as dateFnsJalali from "date-fns-jalali";
-import React from "react";
 import {
   DateLib,
   type DateLibOptions,
   DayPicker as DayPickerComponent,
   type DayPickerLocale,
   type DayPickerProps,
-} from "react-day-picker";
+} from "@daypicker/react";
+import * as dateFnsJalali from "date-fns-jalali";
+import React from "react";
 import { enUSJalali } from "./locale/en-US-jalali.js";
 import { faIRJalali } from "./locale/fa-IR-jalali.js";
 import { createJalaliNoonOverrides } from "./noonJalaliDateLib.js";

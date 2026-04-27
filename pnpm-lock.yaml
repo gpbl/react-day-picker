@@ -5,6 +5,8 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
+  '@daypicker/react': link:packages/react
+  '@daypicker/react>react-day-picker': link:packages/react-day-picker
   '@babel/runtime': 7.28.4
   ajv@6: 6.15.0
   diff: 4.0.4
@@ -26,6 +28,9 @@ importers:
       '@date-fns/tz':
         specifier: ^1.4.1
         version: 1.4.1
+      '@daypicker/react':
+        specifier: link:packages/react
+        version: link:packages/react
       '@jest/types':
         specifier: ^30.3.0
         version: 30.3.0
@@ -372,45 +377,45 @@ importers:
 
   packages/buddhist:
     dependencies:
+      '@daypicker/react':
+        specifier: link:../react
+        version: link:../react
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
       react:
         specifier: '>=16.8.0'
         version: 19.2.5
-    devDependencies:
-      react-day-picker:
-        specifier: workspace:*
-        version: link:../react-day-picker
 
   packages/ethiopic:
     dependencies:
+      '@daypicker/react':
+        specifier: link:../react
+        version: link:../react
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
       react:
         specifier: '>=16.8.0'
         version: 19.2.5
-    devDependencies:
-      react-day-picker:
-        specifier: workspace:*
-        version: link:../react-day-picker
 
   packages/hebrew:
     dependencies:
+      '@daypicker/react':
+        specifier: link:../react
+        version: link:../react
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
       react:
         specifier: '>=16.8.0'
         version: 19.2.5
-    devDependencies:
-      react-day-picker:
-        specifier: workspace:*
-        version: link:../react-day-picker
 
   packages/hijri:
     dependencies:
+      '@daypicker/react':
+        specifier: link:../react
+        version: link:../react
       '@tabby_ai/hijri-converter':
         specifier: 1.0.5
         version: 1.0.5
@@ -420,25 +425,29 @@ importers:
       react:
         specifier: '>=16.8.0'
         version: 19.2.5
-    devDependencies:
-      react-day-picker:
-        specifier: workspace:*
-        version: link:../react-day-picker
 
   packages/persian:
     dependencies:
       '@date-fns/tz':
         specifier: ^1.4.1
         version: 1.4.1
+      '@daypicker/react':
+        specifier: link:../react
+        version: link:../react
       date-fns-jalali:
         specifier: 4.1.0-0
         version: 4.1.0-0
       react:
         specifier: '>=16.8.0'
         version: 19.2.5
-    devDependencies:
+
+  packages/react:
+    dependencies:
+      react:
+        specifier: '>=16.8.0'
+        version: 19.2.5
       react-day-picker:
-        specifier: workspace:*
+        specifier: link:../react-day-picker
         version: link:../react-day-picker
 
   packages/react-day-picker:

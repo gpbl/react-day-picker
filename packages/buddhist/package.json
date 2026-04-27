@@ -44,13 +44,10 @@
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-day-picker": "10.0.0-next.5"
+    "react": ">=16.8.0"
   },
   "dependencies": {
+    "@daypicker/react": "10.0.0-next.5",
     "date-fns": "^4.1.0"
-  },
-  "devDependencies": {
-    "react-day-picker": "workspace:*"
   }
 }

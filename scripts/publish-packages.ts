@@ -7,6 +7,7 @@ const repoRoot = new URL("../", import.meta.url);
 
 export const publishablePackageDirs = [
   "packages/react-day-picker",
+  "packages/react",
   "packages/buddhist",
   "packages/ethiopic",
   "packages/hebrew",

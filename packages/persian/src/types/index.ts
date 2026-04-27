@@ -1,1 +1,1 @@
-export type { Modifiers } from "react-day-picker";
+export type { Modifiers } from "@daypicker/react";

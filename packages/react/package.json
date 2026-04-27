@@ -1,0 +1,170 @@
+{
+  "name": "@daypicker/react",
+  "version": "10.0.0-next.5",
+  "description": "Scoped alias for react-day-picker",
+  "author": "Giampaolo Bellavite <io@gpbl.dev>",
+  "homepage": "https://daypicker.dev",
+  "packageManager": "pnpm@10.24.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gpbl/react-day-picker.git",
+    "directory": "packages/react"
+  },
+  "bugs": {
+    "url": "https://github.com/gpbl/react-day-picker/issues"
+  },
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/cjs/index.d.ts",
+  "module": "./dist/esm/index.js",
+  "style": "./dist/style.css",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./style": {
+      "sass": "./dist/style.css"
+    },
+    "./style.css": {
+      "style": {
+        "default": "./dist/style.css"
+      },
+      "import": {
+        "types": "./dist/style.css.d.ts",
+        "default": "./dist/style.css"
+      },
+      "require": {
+        "types": "./dist/style.css.d.ts",
+        "default": "./dist/style.css"
+      }
+    },
+    "./style.module": {
+      "sass": "./dist/style.module.css"
+    },
+    "./style.module.css": {
+      "style": {
+        "default": "./dist/style.module.css"
+      },
+      "import": {
+        "types": "./dist/style.module.css.d.ts",
+        "default": "./dist/style.module.css"
+      },
+      "require": {
+        "types": "./dist/style.module.css.d.ts",
+        "default": "./dist/style.module.css"
+      }
+    },
+    "./src/style.css": {
+      "style": {
+        "default": "./dist/style.css"
+      },
+      "import": {
+        "types": "./dist/style.css.d.ts",
+        "default": "./dist/style.css"
+      },
+      "require": {
+        "types": "./dist/style.css.d.ts",
+        "default": "./dist/style.css"
+      }
+    },
+    "./src/style.module.css": {
+      "style": {
+        "default": "./dist/style.module.css"
+      },
+      "import": {
+        "types": "./dist/style.module.css.d.ts",
+        "default": "./dist/style.module.css"
+      },
+      "require": {
+        "types": "./dist/style.module.css.d.ts",
+        "default": "./dist/style.module.css"
+      }
+    },
+    "./dist/style.css": {
+      "style": {
+        "default": "./dist/style.css"
+      },
+      "import": {
+        "types": "./dist/style.css.d.ts",
+        "default": "./dist/style.css"
+      },
+      "require": {
+        "types": "./dist/style.css.d.ts",
+        "default": "./dist/style.css"
+      }
+    },
+    "./dist/style.module.css": {
+      "style": {
+        "default": "./dist/style.module.css"
+      },
+      "import": {
+        "types": "./dist/style.module.css.d.ts",
+        "default": "./dist/style.module.css"
+      },
+      "require": {
+        "types": "./dist/style.module.css.d.ts",
+        "default": "./dist/style.module.css"
+      }
+    },
+    "./package.json": {
+      "import": "./package.json",
+      "require": "./package.json",
+      "default": "./package.json"
+    },
+    "./locale": {
+      "import": {
+        "types": "./dist/esm/locale.d.ts",
+        "default": "./dist/esm/locale.js"
+      },
+      "require": {
+        "types": "./dist/cjs/locale.d.ts",
+        "default": "./dist/cjs/locale.js"
+      }
+    },
+    "./locale/*": {
+      "import": {
+        "types": "./dist/esm/locale/*.d.ts",
+        "default": "./dist/esm/locale/*.js"
+      },
+      "require": {
+        "types": "./dist/cjs/locale/*.d.ts",
+        "default": "./dist/cjs/locale/*.js"
+      }
+    }
+  },
+  "scripts": {
+    "prepublish": "pnpm build",
+    "build": "rm -rf dist && pnpm build:cjs && pnpm build:esm && pnpm build:assets",
+    "build:cjs": "tsc --project tsconfig-cjs.json && echo '{ \"type\": \"commonjs\" }' > dist/cjs/package.json",
+    "build:esm": "tsc --project tsconfig-esm.json",
+    "build:assets": "node ./scripts/build-assets.mjs",
+    "typecheck": "tsc --project ./tsconfig.json --noEmit"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "react-day-picker": "10.0.0-next.5"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/gpbl"
+  }
+}

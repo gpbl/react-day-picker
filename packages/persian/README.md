@@ -10,18 +10,18 @@ direction by default.
 
 ## Installation
 
-Install the v10 prerelease of React DayPicker together with the Persian
-calendar package:
+Install the v10 prerelease of the scoped React DayPicker package together with
+the Persian calendar package:
 
 ```bash
-npm install react-day-picker@next @daypicker/persian@next
+npm install @daypicker/react@next @daypicker/persian@next
 ```
 
 ## Usage
 
 ```tsx
 import { DayPicker } from "@daypicker/persian";
-import "react-day-picker/style.css";
+import "@daypicker/react/style.css";
 
 export function PersianCalendar() {
   return <DayPicker mode="single" />;

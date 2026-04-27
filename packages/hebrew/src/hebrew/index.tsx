@@ -1,10 +1,10 @@
-import type { Locale } from "date-fns";
-import React from "react";
 import {
   DateLib,
   type DateLibOptions,
   DayPicker as DayPickerComponent,
-} from "react-day-picker";
+} from "@daypicker/react";
+import type { Locale } from "date-fns";
+import React from "react";
 import { he } from "../locale/he.js";
 import type { DayPickerProps } from "../types/props.js";
 import * as hebrewDateLib from "./lib/index.js";

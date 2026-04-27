@@ -8,6 +8,10 @@ const releasePackageInfoByDir: Record<
     name: "react-day-picker",
     version: "10.0.0-next.1",
   },
+  "packages/react": {
+    name: "@daypicker/react",
+    version: "10.0.0-next.1",
+  },
   "packages/buddhist": {
     name: "@daypicker/buddhist",
     version: "10.0.0-next.1",

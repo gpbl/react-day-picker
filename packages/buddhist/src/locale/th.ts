@@ -1,1 +1,1 @@
-export { th } from "react-day-picker/locale";
+export { th } from "@daypicker/react/locale";

@@ -1,1 +1,1 @@
-export { arSA } from "react-day-picker/locale";
+export { arSA } from "@daypicker/react/locale";

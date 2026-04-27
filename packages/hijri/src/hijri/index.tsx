@@ -1,10 +1,10 @@
-import type { Locale } from "date-fns";
-import React from "react";
 import {
   DateLib,
   type DateLibOptions,
   DayPicker as DayPickerComponent,
-} from "react-day-picker";
+} from "@daypicker/react";
+import type { Locale } from "date-fns";
+import React from "react";
 import { arSA } from "../locale/ar-SA.js";
 import type { DayPickerProps } from "../types/props.js";
 import * as hijriDateLib from "./lib/index.js";

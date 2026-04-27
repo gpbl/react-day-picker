@@ -10,18 +10,18 @@ digits by default.
 
 ## Installation
 
-Install the v10 prerelease of React DayPicker together with the Buddhist
-calendar package:
+Install the v10 prerelease of the scoped React DayPicker package together with
+the Buddhist calendar package:
 
 ```bash
-npm install react-day-picker@next @daypicker/buddhist@next
+npm install @daypicker/react@next @daypicker/buddhist@next
 ```
 
 ## Usage
 
 ```tsx
 import { DayPicker } from "@daypicker/buddhist";
-import "react-day-picker/style.css";
+import "@daypicker/react/style.css";
 
 export function BuddhistCalendar() {
   return <DayPicker mode="single" />;
