@@ -9,8 +9,8 @@ uses the Amharic locale and Ethiopic numerals by default.
 
 ## Installation
 
-Install the v10 prerelease of the scoped React DayPicker package together with
-the Ethiopic calendar package:
+Install the v10 prerelease of the React DayPicker package together with the
+Ethiopic calendar package:
 
 ```bash
 npm install @daypicker/react@next @daypicker/ethiopic@next

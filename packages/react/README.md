@@ -1,9 +1,9 @@
 # @daypicker/react
 
-Scoped package alias for [React DayPicker](https://daypicker.dev).
+React package for [DayPicker](https://daypicker.dev).
 
-This package re-exports the public API from `react-day-picker` while the
-DayPicker packages move toward the `@daypicker/*` namespace.
+This package re-exports the public API from `react-day-picker` for the
+`@daypicker/*` namespace.
 
 ## Installation
 

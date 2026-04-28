@@ -30,7 +30,7 @@ function CoInstalledMonthCaption(props: MonthCaptionProps) {
   );
 }
 
-test("the scoped React package mirrors the DayPicker public surface", () => {
+test("the React package mirrors the DayPicker public surface", () => {
   const requiredPackage = requirePackage(
     "@daypicker/react",
   ) as typeof import("@daypicker/react");
@@ -63,7 +63,7 @@ test("same-version scoped and legacy imports share the DayPicker implementation"
   );
 });
 
-test("calendar packages render through the scoped React package boundary", () => {
+test("calendar packages render through the React package boundary", () => {
   const calendar = render(
     <BuddhistDayPicker month={new Date(2024, 0, 1)} mode="single" />,
   );

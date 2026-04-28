@@ -10,8 +10,8 @@ and right-to-left direction by default.
 
 ## Installation
 
-Install the v10 prerelease of the scoped React DayPicker package together with
-the Hebrew calendar package:
+Install the v10 prerelease of the React DayPicker package together with the
+Hebrew calendar package:
 
 ```bash
 npm install @daypicker/react@next @daypicker/hebrew@next

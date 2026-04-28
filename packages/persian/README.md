@@ -10,8 +10,8 @@ direction by default.
 
 ## Installation
 
-Install the v10 prerelease of the scoped React DayPicker package together with
-the Persian calendar package:
+Install the v10 prerelease of the React DayPicker package together with the
+Persian calendar package:
 
 ```bash
 npm install @daypicker/react@next @daypicker/persian@next
