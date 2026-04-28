@@ -10,8 +10,8 @@ digits by default.
 
 ## Installation
 
-Install the v10 prerelease of the React DayPicker package together with the
-Buddhist calendar package:
+Install the v10 prerelease of the React DayPicker package with the Buddhist
+calendar addon:
 
 ```bash
 npm install @daypicker/react@next @daypicker/buddhist@next
