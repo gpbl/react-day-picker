@@ -26,6 +26,23 @@ describe("convertMatchersToTimeZone", () => {
     });
   });
 
+  describe("when argument is a date array matcher", () => {
+    const dates = [
+      new Date("2024-09-24T00:00:00.000Z"),
+      new Date("2024-09-26T00:00:00.000Z"),
+    ];
+    let convertedDates: Date[];
+
+    beforeEach(() => {
+      convertedDates = convertMatchersToTimeZone(dates, timeZone) as Date[];
+    });
+
+    test("converts each date entry to a TZDate instance", () => {
+      expect(convertedDates).toHaveLength(dates.length);
+      expect(convertedDates.every((date) => date instanceof TZDate)).toBe(true);
+    });
+  });
+
   describe("when argument is a date range", () => {
     const range: DateRange = {
       from: new Date("2024-09-24T00:00:00.000Z"),

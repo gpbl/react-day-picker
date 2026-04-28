@@ -16,6 +16,10 @@ describe("toTimeZone", () => {
     test("returns the original instance", () => {
       expect(result).toBe(tzDate);
     });
+
+    test("preserves Date behavior", () => {
+      expect(result).toBeInstanceOf(Date);
+    });
   });
 
   describe("when argument is a TZDate in a different zone", () => {
@@ -33,6 +37,10 @@ describe("toTimeZone", () => {
     test("adopts the requested time zone", () => {
       expect(result.timeZone).toBe(timeZone);
     });
+
+    test("preserves Date behavior", () => {
+      expect(result).toBeInstanceOf(Date);
+    });
   });
 
   describe("when argument is a native Date", () => {
@@ -45,6 +53,10 @@ describe("toTimeZone", () => {
 
     test("wraps the value as TZDate", () => {
       expect(result).toBeInstanceOf(TZDate);
+    });
+
+    test("preserves Date behavior", () => {
+      expect(result).toBeInstanceOf(Date);
     });
 
     test("matches the TZDate ISO output", () => {

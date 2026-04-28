@@ -12,16 +12,21 @@ import {
 } from "./useDayPicker";
 
 describe("useDayPicker", () => {
+  const displayedMonth = new Date(2024, 0, 1);
+  const previousMonth = new Date(2023, 11, 1);
+  const nextMonth = new Date(2024, 1, 1);
+  const selectedDate = new Date(2024, 0, 15);
+
   const mockContextValue: DayPickerContext<{
     required: false;
     mode: "single";
   }> = {
-    months: [new CalendarMonth(new Date(), [])],
-    nextMonth: new Date(),
-    previousMonth: new Date(),
+    months: [new CalendarMonth(displayedMonth, [])],
+    nextMonth,
+    previousMonth,
     goToMonth: jest.fn(),
     getModifiers: jest.fn((_day: CalendarDay) => ({}) as Modifiers),
-    selected: undefined,
+    selected: selectedDate,
     select: jest.fn(),
     isSelected: jest.fn((_date: Date) => false),
     components: {
@@ -123,6 +128,10 @@ describe("useDayPicker", () => {
     } as DayPickerProps,
   };
 
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should return the context value when used within a DayPicker provider", () => {
     const wrapper = ({ children }: { children: React.ReactNode }) => (
       <dayPickerContext.Provider value={mockContextValue}>
@@ -132,5 +141,32 @@ describe("useDayPicker", () => {
 
     const { result } = renderHook(() => useDayPicker(), { wrapper });
     expect(result.current).toEqual(mockContextValue);
+  });
+
+  it("keeps public calendar context values Date-shaped", () => {
+    const wrapper = ({ children }: { children: React.ReactNode }) => (
+      <dayPickerContext.Provider value={mockContextValue}>
+        {children}
+      </dayPickerContext.Provider>
+    );
+
+    const { result } = renderHook(() => useDayPicker(), { wrapper });
+    const context = result.current;
+    const targetMonth = new Date(2024, 2, 1);
+
+    expect(context.months[0].date).toBe(displayedMonth);
+    expect(context.months[0].date).toBeInstanceOf(Date);
+    expect(context.nextMonth).toBe(nextMonth);
+    expect(context.nextMonth).toBeInstanceOf(Date);
+    expect(context.previousMonth).toBe(previousMonth);
+    expect(context.previousMonth).toBeInstanceOf(Date);
+    expect(context.selected).toBe(selectedDate);
+    expect(context.selected).toBeInstanceOf(Date);
+
+    context.goToMonth(targetMonth);
+    expect(mockContextValue.goToMonth).toHaveBeenCalledWith(targetMonth);
+
+    context.isSelected?.(selectedDate);
+    expect(mockContextValue.isSelected).toHaveBeenCalledWith(selectedDate);
   });
 });

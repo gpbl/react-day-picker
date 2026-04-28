@@ -32,3 +32,23 @@ describe("DateLib numerals", () => {
     expect(dateLib.formatNumber(123)).toBe(expected);
   });
 });
+
+describe("DateLib overrides", () => {
+  test("returns Date instances supplied by date-producing overrides", () => {
+    const today = new Date(2024, 0, 15);
+    const newDate = new Date(2024, 1, 1);
+    const startOfMonth = new Date(2024, 0, 1);
+    const dateLib = new DateLib(undefined, {
+      today: () => today,
+      newDate: () => newDate,
+      startOfMonth: () => startOfMonth,
+    });
+
+    expect(dateLib.today()).toBe(today);
+    expect(dateLib.today()).toBeInstanceOf(Date);
+    expect(dateLib.newDate(2024, 1, 1)).toBe(newDate);
+    expect(dateLib.newDate(2024, 1, 1)).toBeInstanceOf(Date);
+    expect(dateLib.startOfMonth(today)).toBe(startOfMonth);
+    expect(dateLib.startOfMonth(today)).toBeInstanceOf(Date);
+  });
+});

@@ -45,6 +45,17 @@ describe("addToRange", () => {
     expect(range).toEqual({ from: from, to: date });
   });
 
+  test("preserves Date endpoint instances when completing a range", () => {
+    const from = new Date(2022, 0, 1);
+    const date = new Date(2022, 0, 2);
+    const range = addToRange(date, { from, to: undefined });
+
+    expect(range?.from).toBe(from);
+    expect(range?.from).toBeInstanceOf(Date);
+    expect(range?.to).toBe(date);
+    expect(range?.to).toBeInstanceOf(Date);
+  });
+
   test("add a date to a complete range with same start and end date", () => {
     const date = new Date(2022, 0, 1);
     const from = date;

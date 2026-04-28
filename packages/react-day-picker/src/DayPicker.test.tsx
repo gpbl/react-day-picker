@@ -11,7 +11,7 @@ import {
 import { act, fireEvent, render, screen } from "@/test/render";
 import { setTestTime } from "@/test/setTestTime";
 import { user } from "@/test/user";
-import { defaultLocale } from "./classes/DateLib";
+import { DateLib, defaultLocale } from "./classes/DateLib";
 import type { MonthProps } from "./components/Month";
 import type { MonthsProps } from "./components/Months";
 import { DayPicker } from "./DayPicker";
@@ -19,6 +19,18 @@ import { ja } from "./locale/ja.js";
 
 const testId = "test";
 const dayPicker = () => screen.getByTestId(testId);
+
+function expectFirstOfMonthDate(
+  value: unknown,
+  year: number,
+  monthIndex: number,
+) {
+  expect(value).toBeInstanceOf(Date);
+  const date = value as Date;
+  expect(date.getFullYear()).toBe(year);
+  expect(date.getMonth()).toBe(monthIndex);
+  expect(date.getDate()).toBe(1);
+}
 
 test("should render a date picker component", () => {
   render(<DayPicker data-testid={testId} />);
@@ -105,6 +117,153 @@ test("use custom components", () => {
   expect(dayPicker()).toHaveTextContent("Custom Months");
   expect(dayPicker()).toHaveTextContent("Custom Month");
   expect(dayPicker()).toHaveTextContent("Custom Footer");
+});
+
+test("passes Date-backed calendar data to custom components", () => {
+  const monthDates: unknown[] = [];
+  const dayDates: unknown[] = [];
+
+  render(
+    <DayPicker
+      month={new Date(2024, 0, 1)}
+      components={{
+        Month: ({ calendarMonth, displayIndex, ...divProps }) => {
+          monthDates.push(calendarMonth.date);
+          return <div {...divProps} data-display-index={displayIndex} />;
+        },
+        DayButton: ({ day, modifiers, ...buttonProps }) => {
+          dayDates.push(day.date);
+          return (
+            <button
+              {...buttonProps}
+              data-has-modifiers={Object.keys(modifiers).length > 0}
+            />
+          );
+        },
+      }}
+      mode="single"
+    />,
+  );
+
+  expect(monthDates.length).toBeGreaterThan(0);
+  expect(monthDates.every((monthDate) => monthDate instanceof Date)).toBe(true);
+  expect(dayDates.length).toBeGreaterThan(0);
+  expect(dayDates.every((dayDate) => dayDate instanceof Date)).toBe(true);
+});
+
+test("calls selection and day event callbacks with Date instances", async () => {
+  const selectedDate = new Date(2024, 0, 15);
+  const handleSelect = jest.fn();
+  const handleDayClick = jest.fn();
+
+  render(
+    <DayPicker
+      defaultMonth={selectedDate}
+      mode="single"
+      onDayClick={handleDayClick}
+      onSelect={handleSelect}
+    />,
+  );
+
+  await user.click(dateButton(selectedDate));
+
+  expect(handleSelect).toHaveBeenCalled();
+  expect(handleSelect.mock.calls[0][0]).toBeInstanceOf(Date);
+  expect(handleSelect.mock.calls[0][1]).toBeInstanceOf(Date);
+  expect(handleDayClick).toHaveBeenCalled();
+  expect(handleDayClick.mock.calls[0][0]).toBeInstanceOf(Date);
+});
+
+test("navigates with first-of-month Date callback values", async () => {
+  const handleMonthChange = jest.fn();
+  const handleNextClick = jest.fn();
+  const handlePrevClick = jest.fn();
+
+  render(
+    <DayPicker
+      defaultMonth={new Date(2024, 0, 15)}
+      onMonthChange={handleMonthChange}
+      onNextClick={handleNextClick}
+      onPrevClick={handlePrevClick}
+    />,
+  );
+
+  await user.click(nextButton());
+
+  expectFirstOfMonthDate(handleNextClick.mock.calls[0][0], 2024, 1);
+  expectFirstOfMonthDate(handleMonthChange.mock.calls[0][0], 2024, 1);
+
+  await user.click(previousButton());
+
+  expectFirstOfMonthDate(handlePrevClick.mock.calls[0][0], 2024, 0);
+  expectFirstOfMonthDate(handleMonthChange.mock.calls[1][0], 2024, 0);
+});
+
+test("passes Date values and DateLib options to custom formatters and labels", () => {
+  const formatterDates: unknown[] = [];
+  const formatterOptions: unknown[] = [];
+  const formatterDateLibs: unknown[] = [];
+  const labelDates: unknown[] = [];
+  const labelOptions: unknown[] = [];
+  const labelDateLibs: unknown[] = [];
+
+  render(
+    <DayPicker
+      month={new Date(2024, 0, 1)}
+      mode="single"
+      formatters={{
+        formatCaption: (date, options, dateLib) => {
+          formatterDates.push(date);
+          formatterOptions.push(options);
+          formatterDateLibs.push(dateLib);
+          return dateLib?.format(date, "LLLL y") ?? "";
+        },
+        formatDay: (date, options, dateLib) => {
+          formatterDates.push(date);
+          formatterOptions.push(options);
+          formatterDateLibs.push(dateLib);
+          return dateLib?.format(date, "d") ?? "";
+        },
+      }}
+      labels={{
+        labelGrid: (date, options, dateLib) => {
+          labelDates.push(date);
+          labelOptions.push(options);
+          labelDateLibs.push(dateLib);
+          return dateLib?.format(date, "LLLL y") ?? "";
+        },
+        labelDayButton: (date, _modifiers, options, dateLib) => {
+          labelDates.push(date);
+          labelOptions.push(options);
+          labelDateLibs.push(dateLib);
+          return dateLib?.format(date, "PPPP") ?? "";
+        },
+      }}
+    />,
+  );
+
+  expect(formatterDates.length).toBeGreaterThan(0);
+  expect(formatterDates.every((date) => date instanceof Date)).toBe(true);
+  expect(
+    formatterOptions.every(
+      (options) =>
+        typeof options === "object" && options !== null && "locale" in options,
+    ),
+  ).toBe(true);
+  expect(formatterDateLibs.every((dateLib) => dateLib instanceof DateLib)).toBe(
+    true,
+  );
+  expect(labelDates.length).toBeGreaterThan(0);
+  expect(labelDates.every((date) => date instanceof Date)).toBe(true);
+  expect(
+    labelOptions.every(
+      (options) =>
+        typeof options === "object" && options !== null && "locale" in options,
+    ),
+  ).toBe(true);
+  expect(labelDateLibs.every((dateLib) => dateLib instanceof DateLib)).toBe(
+    true,
+  );
 });
 
 describe("when the date picker is focused", () => {
@@ -242,6 +401,27 @@ describe("when the `month` is changed programmatically", () => {
     expect(grid("January 2023")).toBeInTheDocument();
     rerender(<DayPicker month={newMonth} mode="single" />);
     expect(grid("February 2023")).toBeInTheDocument();
+  });
+
+  test("normalizes rerendered month values to first-of-month Dates", () => {
+    const monthDates: unknown[] = [];
+    const components = {
+      Month: ({ calendarMonth, displayIndex, ...divProps }: MonthProps) => {
+        monthDates.push(calendarMonth.date);
+        return <div {...divProps} data-display-index={displayIndex} />;
+      },
+    };
+
+    const { rerender } = render(
+      <DayPicker month={new Date(2023, 0, 15)} components={components} />,
+    );
+
+    rerender(
+      <DayPicker month={new Date(2023, 1, 20)} components={components} />,
+    );
+
+    expectFirstOfMonthDate(monthDates[0], 2023, 0);
+    expectFirstOfMonthDate(monthDates[monthDates.length - 1], 2023, 1);
   });
 });
 
