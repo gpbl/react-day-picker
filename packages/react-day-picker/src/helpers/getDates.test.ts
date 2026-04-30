@@ -6,7 +6,7 @@ describe("when the first month and the last month are the same", () => {
   describe("when the month has 6 weeks", () => {
     const month = new Date(2023, 11, 1);
     describe("when not using fixed weeks", () => {
-      it("should return 42 dates", () => {
+      test("should return 42 dates", () => {
         const dates = getDates(
           [month],
           undefined,
@@ -21,7 +21,7 @@ describe("when the first month and the last month are the same", () => {
       });
     });
     describe("when using fixed weeks", () => {
-      it("should return 42 dates", () => {
+      test("should return 42 dates", () => {
         const dates = getDates(
           [month],
           undefined,
@@ -39,7 +39,7 @@ describe("when the first month and the last month are the same", () => {
   describe("when the month has 5 weeks", () => {
     const month = new Date(2023, 4, 1);
     describe("when not using fixed weeks", () => {
-      it("should return 35 dates", () => {
+      test("should return 35 dates", () => {
         const dates = getDates(
           [month],
           undefined,
@@ -54,7 +54,7 @@ describe("when the first month and the last month are the same", () => {
       });
     });
     describe("when using fixed weeks", () => {
-      it("should return 42 dates", () => {
+      test("should return 42 dates", () => {
         const dates = getDates(
           [month],
           undefined,
@@ -71,7 +71,7 @@ describe("when the first month and the last month are the same", () => {
   describe("when the month has 4 weeks", () => {
     const month = new Date(2026, 1); // February 2026
     describe("when not using fixed weeks", () => {
-      it("should return 28 dates", () => {
+      test("should return 28 dates", () => {
         const dates = getDates(
           [month],
           undefined,
@@ -84,7 +84,7 @@ describe("when the first month and the last month are the same", () => {
       });
     });
     describe("when using fixed weeks", () => {
-      it("should return 42 dates", () => {
+      test("should return 42 dates", () => {
         const dates = getDates(
           [month],
           undefined,
@@ -98,7 +98,7 @@ describe("when the first month and the last month are the same", () => {
 
   describe("when using Monday as first day of the week", () => {
     const month = new Date(2023, 4, 1);
-    it("the first day should be Monday", () => {
+    test("the first day should be Monday", () => {
       const dates = getDates(
         [month],
         undefined,
@@ -121,7 +121,7 @@ describe("when the first month and the last month are the same", () => {
         dateLib.startOfWeek(month),
       ) + 1;
 
-    it("the last day should be the end of that week", () => {
+    test("the last day should be the end of that week", () => {
       const dates = getDates([month], maxDate, {}, dateLib);
       expect(dates).toHaveLength(expectedLength);
       expect(dates[dates.length - 1]).toEqual(expectedLastDay);
@@ -129,7 +129,7 @@ describe("when the first month and the last month are the same", () => {
   });
   describe("when using ISO weeks", () => {
     const month = new Date(2023, 4, 1);
-    it("the first day should be Monday", () => {
+    test("the first day should be Monday", () => {
       const dates = getDates(
         [month],
         undefined,
@@ -154,7 +154,7 @@ describe("when the first month and the last month are the same", () => {
         dateLib.startOfWeek(month),
       ) + 1;
 
-    it("clamps to the end of the custom week", () => {
+    test("clamps to the end of the custom week", () => {
       const dates = getDates([month], maxDate, {}, dateLib);
       expect(dates[dates.length - 1]).toEqual(expectedLastDay);
       expect(dates).toHaveLength(expectedLength);
@@ -174,7 +174,7 @@ describe("when the first month and the last month are the same", () => {
         defaultDateLib.startOfISOWeek(month),
       ) + 1;
 
-    it("clamps to the end of the ISO week", () => {
+    test("clamps to the end of the ISO week", () => {
       const dates = getDates(
         [month],
         maxDate,
@@ -191,7 +191,7 @@ describe("when the first month and the last month are different", () => {
   const firstMonth = new Date(2023, 4, 1);
   const lastMonth = new Date(2023, 11, 1);
   describe("when not using fixed weeks", () => {
-    it("should return an array of dates", () => {
+    test("should return an array of dates", () => {
       const dates = getDates(
         [firstMonth, lastMonth],
         undefined,
@@ -215,7 +215,7 @@ describe("when the first month and the last month are different", () => {
         dateLib.startOfWeek(firstMonth),
       ) + 1;
 
-    it("the last day should be the end of that week", () => {
+    test("the last day should be the end of that week", () => {
       const dates = getDates([firstMonth, lastMonth], maxDate, {}, dateLib);
       expect(dates).toHaveLength(expectedLength);
       expect(dates[dates.length - 1]).toEqual(expectedLastDay);
@@ -223,7 +223,7 @@ describe("when the first month and the last month are different", () => {
   });
   describe("when using ISO weeks", () => {
     const month = new Date(2023, 4, 1);
-    it("the first day should be Monday", () => {
+    test("the first day should be Monday", () => {
       const dates = getDates(
         [month],
         undefined,

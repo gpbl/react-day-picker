@@ -6,7 +6,7 @@ import type { DayPickerProps } from "../types";
 import { useSingle } from "./useSingle";
 
 describe("useSingle", () => {
-  it("uses the selected value from props when onSelect is provided", () => {
+  test("uses the selected value from props when onSelect is provided", () => {
     const mockOnSelect = jest.fn();
     const selectedDate = new Date(2023, 9, 1);
     const props: DayPickerProps = {
@@ -20,7 +20,7 @@ describe("useSingle", () => {
     expect(result.current.selected).toBe(selectedDate);
   });
 
-  it("uses the internally selected value when onSelect is not provided", () => {
+  test("uses the internally selected value when onSelect is not provided", () => {
     const initialSelectedDate = new Date(2023, 9, 1);
     const props: DayPickerProps = {
       mode: "single",

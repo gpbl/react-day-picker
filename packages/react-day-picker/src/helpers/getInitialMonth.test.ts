@@ -4,7 +4,7 @@ import { defaultDateLib } from "../classes/DateLib";
 
 import { getInitialMonth } from "./getInitialMonth";
 
-it("return start of month", () => {
+test("return start of month", () => {
   const month = new Date(2010, 11, 12);
   const initialMonth = getInitialMonth(
     { month },
@@ -20,7 +20,7 @@ describe("when no startMonth or endMonth is given", () => {
   const defaultMonth = new Date(2011, 11, 12);
   const today = new Date(2012, 11, 12);
   describe("when month is in context", () => {
-    it("return that month", () => {
+    test("return that month", () => {
       const initialMonth = getInitialMonth(
         { month, defaultMonth, today },
         undefined,
@@ -31,7 +31,7 @@ describe("when no startMonth or endMonth is given", () => {
     });
   });
   describe("when defaultMonth is in context and no month is given", () => {
-    it("return that month", () => {
+    test("return that month", () => {
       const initialMonth = getInitialMonth(
         { defaultMonth, today },
         undefined,
@@ -42,7 +42,7 @@ describe("when no startMonth or endMonth is given", () => {
     });
   });
   describe("when no month or defaultMonth", () => {
-    it("return the today month", () => {
+    test("return the today month", () => {
       const initialMonth = getInitialMonth(
         { today },
         undefined,
@@ -55,7 +55,7 @@ describe("when no startMonth or endMonth is given", () => {
 });
 
 describe("when startMonth is given and is after the default initial month", () => {
-  it("return the startMonth", () => {
+  test("return the startMonth", () => {
     const month = new Date(2010, 11, 12);
     const startMonth = addMonths(month, 1);
     const initialMonth = getInitialMonth(
@@ -73,7 +73,7 @@ describe("when endMonth is given", () => {
     const month = new Date(2010, 11, 12);
     const endMonth = addMonths(month, -2);
     describe("when the number of month is 1", () => {
-      it("returns the endMonth as the initial month so the last displayed month does not exceed endMonth", () => {
+      test("returns the endMonth as the initial month so the last displayed month does not exceed endMonth", () => {
         const initialMonth = getInitialMonth(
           { month },
           undefined,
@@ -84,7 +84,7 @@ describe("when endMonth is given", () => {
       });
     });
     describe("when the number of month is 3", () => {
-      it("returns the initial month so that initialMonth + 2 months = endMonth (last displayed month is endMonth)", () => {
+      test("returns the initial month so that initialMonth + 2 months = endMonth (last displayed month is endMonth)", () => {
         const initialMonth = getInitialMonth(
           { month, numberOfMonths: 3 },
           undefined,

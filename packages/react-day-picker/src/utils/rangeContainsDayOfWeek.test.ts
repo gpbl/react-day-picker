@@ -16,7 +16,7 @@ describe("should return false", () => {
   ];
 
   for (const [range, dayOfWeek] of testCases) {
-    it(`range from ${range.from} to ${range.to} should not contain ${JSON.stringify(dayOfWeek)}`, () => {
+    test(`range from ${range.from} to ${range.to} should not contain ${JSON.stringify(dayOfWeek)}`, () => {
       expect(rangeContainsDayOfWeek(range, dayOfWeek, defaultDateLib)).toBe(
         false,
       );
@@ -39,7 +39,7 @@ describe("should return true", () => {
   ];
 
   for (const [range, dayOfWeek] of testCases) {
-    it(`range from ${range.from} to ${range.to} should contain ${JSON.stringify(dayOfWeek)}`, () => {
+    test(`range from ${range.from} to ${range.to} should contain ${JSON.stringify(dayOfWeek)}`, () => {
       expect(rangeContainsDayOfWeek(range, dayOfWeek, defaultDateLib)).toBe(
         true,
       );

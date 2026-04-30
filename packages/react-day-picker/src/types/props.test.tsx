@@ -218,6 +218,6 @@ const Test = () => {
   );
 };
 
-it("should type-check", () => {
+test("should type-check", () => {
   expect(Test).toBeTruthy();
 });

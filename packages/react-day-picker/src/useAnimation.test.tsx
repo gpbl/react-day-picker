@@ -26,7 +26,7 @@ const getMonthWeeksContainers = () => [
 
 describe("useAnimation", () => {
   describe("animate prop is falsy", () => {
-    it("should not render elements with data-animated-* attributes", () => {
+    test("should not render elements with data-animated-* attributes", () => {
       render(<DayPicker />);
 
       expect(getMonthContainers()).toHaveLength(0);
@@ -37,7 +37,7 @@ describe("useAnimation", () => {
   });
 
   describe("animate prop is true", () => {
-    it("should render elements with data-animated-* attributes", () => {
+    test("should render elements with data-animated-* attributes", () => {
       render(<DayPicker animate={true} numberOfMonths={2} />);
 
       expect(getMonthContainers()).toHaveLength(2);
@@ -46,7 +46,7 @@ describe("useAnimation", () => {
       expect(getMonthWeeksContainers()).toHaveLength(2);
     });
 
-    it("should add dom snapshots for each month for animation", async () => {
+    test("should add dom snapshots for each month for animation", async () => {
       render(<DayPicker animate={true} numberOfMonths={2} />);
 
       await user.click(nextButton());
@@ -57,7 +57,7 @@ describe("useAnimation", () => {
       expect(getMonthWeeksContainers()).toHaveLength(4);
     });
 
-    it("should continue animating the same exiting month if month changed during animation", async () => {
+    test("should continue animating the same exiting month if month changed during animation", async () => {
       render(<DayPicker animate={true} />);
 
       await user.click(nextButton());
@@ -71,7 +71,7 @@ describe("useAnimation", () => {
       expect(getMonthCaptionContainers()[1]).toHaveTextContent("April 2025");
     });
 
-    it("should handle month changes during animation to correctly animate the next month change", async () => {
+    test("should handle month changes during animation to correctly animate the next month change", async () => {
       render(<DayPicker animate={true} />);
       await user.click(nextButton());
       await user.click(nextButton());
@@ -95,7 +95,7 @@ describe("useAnimation", () => {
       );
     });
 
-    it("should apply the correct animation class when entering month is after the exiting month", async () => {
+    test("should apply the correct animation class when entering month is after the exiting month", async () => {
       render(<DayPicker animate={true} />);
 
       await user.click(nextButton());
@@ -111,7 +111,7 @@ describe("useAnimation", () => {
       expect(getMonthWeeksContainers()[1]).toHaveClass("rdp-weeks_after_enter");
     });
 
-    it("should apply the correct animation class when entering month is before the exiting month", async () => {
+    test("should apply the correct animation class when entering month is before the exiting month", async () => {
       render(<DayPicker animate={true} />);
 
       await user.click(previousButton());
@@ -129,7 +129,7 @@ describe("useAnimation", () => {
       );
     });
 
-    it("should clean up the exiting month after animation ends", async () => {
+    test("should clean up the exiting month after animation ends", async () => {
       render(<DayPicker animate={true} />);
 
       await user.click(nextButton());

@@ -64,7 +64,7 @@ function getModifiersFactory(
 
 describe("calculateFocusTarget", () => {
   describe("when determining the focus target based on priority", () => {
-    it("should prioritize the day with the 'focused' modifier", () => {
+    test("should prioritize the day with the 'focused' modifier", () => {
       const getModifiers = getModifiersFactory([
         [day1, outsideModifiers],
         [dayToday, todayModifiers],
@@ -84,7 +84,7 @@ describe("calculateFocusTarget", () => {
       expect(focusTarget).toBe(dayFocusedModifier);
     });
 
-    it("should fall back to the last focused day if no day has the 'focused' modifier", () => {
+    test("should fall back to the last focused day if no day has the 'focused' modifier", () => {
       const getModifiers = getModifiersFactory([
         [day1, outsideModifiers],
         [dayToday, todayModifiers],
@@ -104,7 +104,7 @@ describe("calculateFocusTarget", () => {
       expect(focusTarget).toBe(dayLastFocused);
     });
 
-    it("should prioritize the selected day if no day is focused or last focused", () => {
+    test("should prioritize the selected day if no day is focused or last focused", () => {
       const getModifiers = getModifiersFactory([
         [day1, outsideModifiers],
         [dayToday, todayModifiers],
@@ -124,7 +124,7 @@ describe("calculateFocusTarget", () => {
       expect(focusTarget).toBe(daySelected);
     });
 
-    it("should prioritize today if no day is focused, last focused, or selected", () => {
+    test("should prioritize today if no day is focused, last focused, or selected", () => {
       const getModifiers = getModifiersFactory([
         [day1, outsideModifiers],
         [dayToday, todayModifiers],
@@ -144,7 +144,7 @@ describe("calculateFocusTarget", () => {
       expect(focusTarget).toBe(dayToday);
     });
 
-    it("should fall back to the first focusable day if no other priority is met", () => {
+    test("should fall back to the first focusable day if no other priority is met", () => {
       const getModifiers = getModifiersFactory([
         [day1, outsideModifiers],
         [dayToday, todayHiddenModifiers],

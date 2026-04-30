@@ -11,11 +11,11 @@ beforeEach(() => {
   week = new CalendarWeek(1, days);
 });
 
-it("should have a weekNumber", () => {
+test("should have a weekNumber", () => {
   expect(week.weekNumber).toEqual(1);
 });
 
-it("should have an array of days", () => {
+test("should have an array of days", () => {
   expect(week.days).toBe(days);
   expect(week.days[0]).toBeInstanceOf(CalendarDay);
 });

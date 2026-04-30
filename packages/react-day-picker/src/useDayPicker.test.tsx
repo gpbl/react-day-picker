@@ -128,7 +128,7 @@ describe("useDayPicker", () => {
     } as DayPickerProps,
   };
 
-  it("should return the context value when used within a DayPicker provider", () => {
+  test("should return the context value when used within a DayPicker provider", () => {
     const wrapper = ({ children }: { children: React.ReactNode }) => (
       <dayPickerContext.Provider value={mockContextValue}>
         {children}
@@ -139,7 +139,7 @@ describe("useDayPicker", () => {
     expect(result.current).toEqual(mockContextValue);
   });
 
-  it("keeps public calendar context values Date-shaped", () => {
+  test("keeps public calendar context values Date-shaped", () => {
     const wrapper = ({ children }: { children: React.ReactNode }) => (
       <dayPickerContext.Provider value={mockContextValue}>
         {children}

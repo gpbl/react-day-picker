@@ -166,28 +166,28 @@ describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
       beforeEach(() => {
         return user.type(activeElement(), "{pageup}");
       });
-      it("should display the previous month", () => {
+      test("should display the previous month", () => {
         expect(grid("May 2022")).toBeInTheDocument();
       });
-      it("should focus the day in the previous month", () => {
+      test("should focus the day in the previous month", () => {
         expect(dateButton(prevMonth)).toHaveFocus();
       });
     });
     describe("when Page Down is pressed", () => {
       beforeEach(() => user.type(activeElement(), "{pagedown}"));
-      it("should display the next month", () => {
+      test("should display the next month", () => {
         expect(grid("July 2022")).toBeInTheDocument();
       });
-      it("should focus the day in the next month", () => {
+      test("should focus the day in the next month", () => {
         expect(dateButton(nextMonth)).toHaveFocus();
       });
     });
     describe("when Shift + Page Up is pressed", () => {
       beforeEach(() => user.type(activeElement(), "{shift>}{pageup}"));
-      it("should display the previous year", () => {
+      test("should display the previous year", () => {
         expect(grid("June 2021")).toBeInTheDocument();
       });
-      it("should focus the day in the previous year", () => {
+      test("should focus the day in the previous year", () => {
         expect(dateButton(prevYear)).toHaveFocus();
       });
     });
@@ -195,22 +195,22 @@ describe.each(["ltr", "rtl"])("when text direction is %s", (dir: string) => {
       beforeEach(() => {
         return user.type(activeElement(), "{shift>}{pagedown}");
       });
-      it("should display the next year", () => {
+      test("should display the next year", () => {
         expect(grid("June 2023")).toBeInTheDocument();
       });
-      it("should focus the day in the next yeaer", () => {
+      test("should focus the day in the next yeaer", () => {
         expect(dateButton(nextYear)).toHaveFocus();
       });
     });
     describe("when Home is pressed", () => {
       beforeEach(() => user.type(activeElement(), "{home}"));
-      it("should focus the start of the week", () => {
+      test("should focus the start of the week", () => {
         expect(dateButton(startOfWeekDay)).toHaveFocus();
       });
     });
     describe("when End is pressed", () => {
       beforeEach(() => user.type(activeElement(), "{end}"));
-      it("should focus the end of the week", () => {
+      test("should focus the end of the week", () => {
         expect(dateButton(endOfWeekDay)).toHaveFocus();
       });
     });
@@ -294,13 +294,13 @@ describe("when week is set to start on a Monday", () => {
 
   describe("when Home is pressed", () => {
     beforeEach(() => user.type(activeElement(), "{home}"));
-    it("should focus the start of the week being Monday", () => {
+    test("should focus the start of the week being Monday", () => {
       expect(dateButton(startOfWeekDay)).toHaveFocus();
     });
   });
   describe("when End is pressed", () => {
     beforeEach(() => user.type(activeElement(), "{end}"));
-    it("should focus the end of the week being Sunday", () => {
+    test("should focus the end of the week being Sunday", () => {
       expect(dateButton(endOfWeekDay)).toHaveFocus();
     });
   });

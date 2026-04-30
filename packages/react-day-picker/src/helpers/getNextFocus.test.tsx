@@ -12,7 +12,7 @@ const props: Pick<
   hidden: [],
 };
 
-it("should return `undefined` if `attempt` exceeds 365", () => {
+test("should return `undefined` if `attempt` exceeds 365", () => {
   const focusedDay = new CalendarDay(
     new Date(2020, 0, 1),
     new Date(2020, 0, 1),
@@ -33,7 +33,7 @@ it("should return `undefined` if `attempt` exceeds 365", () => {
   expect(result).toBeUndefined();
 });
 
-it("should return the focus date if it is not disabled or hidden", () => {
+test("should return the focus date if it is not disabled or hidden", () => {
   const focusedDay = new CalendarDay(
     new Date(2020, 0, 1),
     new Date(2020, 0, 1),
@@ -52,7 +52,7 @@ it("should return the focus date if it is not disabled or hidden", () => {
   expect(result?.date).toEqual(expectedDate);
 });
 
-it("should return the next focus date if it is disabled", () => {
+test("should return the next focus date if it is disabled", () => {
   const focusedDay = new CalendarDay(
     new Date(2020, 0, 1),
     new Date(2020, 0, 1),
@@ -75,7 +75,7 @@ it("should return the next focus date if it is disabled", () => {
   expect(result?.date).toEqual(expectedDate);
 });
 
-it("should return the next focus date if it is hidden", () => {
+test("should return the next focus date if it is hidden", () => {
   const focusedDay = new CalendarDay(
     new Date(2020, 0, 1),
     new Date(2020, 0, 1),

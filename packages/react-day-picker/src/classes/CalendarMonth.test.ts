@@ -19,10 +19,10 @@ beforeEach(() => {
   month = new CalendarMonth(date, weeks);
 });
 
-it("should have a date property", () => {
+test("should have a date property", () => {
   expect(month.date).toEqual(date);
 });
 
-it("should have a weeks property", () => {
+test("should have a weeks property", () => {
   expect(month.weeks).toEqual(weeks);
 });
