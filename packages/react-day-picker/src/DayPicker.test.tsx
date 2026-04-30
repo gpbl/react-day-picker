@@ -20,18 +20,6 @@ import { ja } from "./locale/ja.js";
 const testId = "test";
 const dayPicker = () => screen.getByTestId(testId);
 
-function expectFirstOfMonthDate(
-  value: unknown,
-  year: number,
-  monthIndex: number,
-) {
-  expect(value).toBeInstanceOf(Date);
-  const date = value as Date;
-  expect(date.getFullYear()).toBe(year);
-  expect(date.getMonth()).toBe(monthIndex);
-  expect(date.getDate()).toBe(1);
-}
-
 test("should render a date picker component", () => {
   render(<DayPicker data-testid={testId} />);
   expect(dayPicker()).toBeInTheDocument();
@@ -174,29 +162,45 @@ test("calls selection and day event callbacks with Date instances", async () => 
   expect(handleDayClick.mock.calls[0][0]).toBeInstanceOf(Date);
 });
 
-test("navigates with first-of-month Date callback values", async () => {
+describe("when navigating with month callbacks", () => {
   const handleMonthChange = jest.fn();
   const handleNextClick = jest.fn();
   const handlePrevClick = jest.fn();
 
-  render(
-    <DayPicker
-      defaultMonth={new Date(2024, 0, 15)}
-      onMonthChange={handleMonthChange}
-      onNextClick={handleNextClick}
-      onPrevClick={handlePrevClick}
-    />,
-  );
+  beforeEach(async () => {
+    render(
+      <DayPicker
+        defaultMonth={new Date(2024, 0, 15)}
+        onMonthChange={handleMonthChange}
+        onNextClick={handleNextClick}
+        onPrevClick={handlePrevClick}
+      />,
+    );
 
-  await user.click(nextButton());
+    await user.click(nextButton());
+  });
 
-  expectFirstOfMonthDate(handleNextClick.mock.calls[0][0], 2024, 1);
-  expectFirstOfMonthDate(handleMonthChange.mock.calls[0][0], 2024, 1);
+  test("calls onNextClick with the first day of the next month", () => {
+    expect(handleNextClick.mock.calls[0][0]).toEqual(new Date(2024, 1, 1));
+  });
 
-  await user.click(previousButton());
+  test("calls onMonthChange with the first day of the next month", () => {
+    expect(handleMonthChange.mock.calls[0][0]).toEqual(new Date(2024, 1, 1));
+  });
 
-  expectFirstOfMonthDate(handlePrevClick.mock.calls[0][0], 2024, 0);
-  expectFirstOfMonthDate(handleMonthChange.mock.calls[1][0], 2024, 0);
+  describe("when navigating back", () => {
+    beforeEach(async () => {
+      await user.click(previousButton());
+    });
+
+    test("calls onPrevClick with the first day of the previous month", () => {
+      expect(handlePrevClick.mock.calls[0][0]).toEqual(new Date(2024, 0, 1));
+    });
+
+    test("calls onMonthChange with the first day of the previous month", () => {
+      expect(handleMonthChange.mock.calls[1][0]).toEqual(new Date(2024, 0, 1));
+    });
+  });
 });
 
 test("passes Date values and DateLib options to custom formatters and labels", () => {
@@ -403,7 +407,7 @@ describe("when the `month` is changed programmatically", () => {
     expect(grid("February 2023")).toBeInTheDocument();
   });
 
-  test("normalizes rerendered month values to first-of-month Dates", () => {
+  describe("when the month prop is rerendered with non-first-of-month dates", () => {
     const monthDates: unknown[] = [];
     const components = {
       Month: ({ calendarMonth, displayIndex, ...divProps }: MonthProps) => {
@@ -412,16 +416,25 @@ describe("when the `month` is changed programmatically", () => {
       },
     };
 
-    const { rerender } = render(
-      <DayPicker month={new Date(2023, 0, 15)} components={components} />,
-    );
+    beforeEach(() => {
+      monthDates.length = 0;
 
-    rerender(
-      <DayPicker month={new Date(2023, 1, 20)} components={components} />,
-    );
+      const { rerender } = render(
+        <DayPicker month={new Date(2023, 0, 15)} components={components} />,
+      );
 
-    expectFirstOfMonthDate(monthDates[0], 2023, 0);
-    expectFirstOfMonthDate(monthDates[monthDates.length - 1], 2023, 1);
+      rerender(
+        <DayPicker month={new Date(2023, 1, 20)} components={components} />,
+      );
+    });
+
+    test("normalizes the initial month to the first day", () => {
+      expect(monthDates[0]).toEqual(new Date(2023, 0, 1));
+    });
+
+    test("normalizes the rerendered month to the first day", () => {
+      expect(monthDates[monthDates.length - 1]).toEqual(new Date(2023, 1, 1));
+    });
   });
 });
 

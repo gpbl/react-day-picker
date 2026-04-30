@@ -5,14 +5,27 @@ import { render, screen, within } from "@/test/render";
 import { user } from "@/test/user";
 import { TimeZoneNoonSafe } from "./TimeZoneNoonSafe";
 
+const getPrimaryGridDayRows = () => {
+  const [primaryGrid] = screen.getAllByRole("grid");
+  return within(primaryGrid)
+    .getAllByRole("row")
+    .filter((row) => {
+      return within(row).queryAllByRole("gridcell").length > 0;
+    });
+};
+
+const getFirstDayRowCells = () => {
+  return within(getPrimaryGridDayRows()[0]).getAllByRole("gridcell");
+};
+
+const getLastDayRowCells = () => {
+  const dayRows = getPrimaryGridDayRows();
+  return within(dayRows[dayRows.length - 1]).getAllByRole("gridcell");
+};
+
 test("the first row should display 7 days", () => {
   render(<TimeZoneNoonSafe />);
-  const grid = screen.getByRole("grid");
-  const rows = within(grid).getAllByRole("row");
-  const firstDayRow = rows.find((row) =>
-    row.querySelector("[role='gridcell']"),
-  );
-  expect(firstDayRow?.querySelectorAll("[role='gridcell']")).toHaveLength(7);
+  expect(getFirstDayRowCells()).toHaveLength(7);
 });
 
 test("week numbers remain valid when using noonSafe", () => {
@@ -31,43 +44,48 @@ test("week numbers remain valid when using noonSafe", () => {
 
 test("the last row should display 7 days", () => {
   render(<TimeZoneNoonSafe />);
-  const grid = screen.getByRole("grid");
-  const rows = within(grid).getAllByRole("row");
-  const lastDayRow = [...rows]
-    .reverse()
-    .find((row) => row.querySelector("[role='gridcell']"));
-  expect(lastDayRow?.querySelectorAll("[role='gridcell']")).toHaveLength(7);
+  expect(getLastDayRowCells()).toHaveLength(7);
 });
 
 describe("TimeZoneNoonSafe navigation", () => {
-  test("previous and next month buttons render full weeks", async () => {
+  beforeEach(() => {
     render(<TimeZoneNoonSafe />);
+  });
 
-    const assertFirstAndLastRowHave7Cells = () => {
-      const [grid] = screen.getAllByRole("grid");
-      const rows = within(grid).getAllByRole("row");
-      const dayRows = rows.filter(
-        (row) => within(row).queryAllByRole("gridcell").length > 0,
-      );
-      const firstCells = within(dayRows[0]).getAllByRole("gridcell");
-      const lastCells = within(dayRows[dayRows.length - 1]).getAllByRole(
-        "gridcell",
-      );
-      expect(firstCells.length).toBe(7);
-      expect(lastCells.length).toBe(7);
-    };
+  test("the current month renders a full first week", () => {
+    expect(getFirstDayRowCells()).toHaveLength(7);
+  });
 
-    // Current month
-    assertFirstAndLastRowHave7Cells();
+  test("the current month renders a full last week", () => {
+    expect(getLastDayRowCells()).toHaveLength(7);
+  });
 
-    // Move to previous month
-    await user.click(screen.getByRole("button", { name: /previous month/i }));
-    assertFirstAndLastRowHave7Cells();
+  describe("when navigating to the previous month", () => {
+    beforeEach(async () => {
+      await user.click(screen.getByRole("button", { name: /previous month/i }));
+    });
 
-    // Move to next month twice (back to original and forward one)
-    await user.click(screen.getByRole("button", { name: /next month/i }));
-    await user.click(screen.getByRole("button", { name: /next month/i }));
-    assertFirstAndLastRowHave7Cells();
+    test("renders a full first week", () => {
+      expect(getFirstDayRowCells()).toHaveLength(7);
+    });
+
+    test("renders a full last week", () => {
+      expect(getLastDayRowCells()).toHaveLength(7);
+    });
+  });
+
+  describe("when navigating to the next month", () => {
+    beforeEach(async () => {
+      await user.click(screen.getByRole("button", { name: /next month/i }));
+    });
+
+    test("renders a full first week", () => {
+      expect(getFirstDayRowCells()).toHaveLength(7);
+    });
+
+    test("renders a full last week", () => {
+      expect(getLastDayRowCells()).toHaveLength(7);
+    });
   });
 });
 
