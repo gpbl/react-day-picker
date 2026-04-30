@@ -24,6 +24,7 @@ describe("useDayPicker", () => {
 
   let mockContextValue: SingleDayPickerContext;
   let wrapper: React.ComponentType<{ children: React.ReactNode }>;
+  let context: SingleDayPickerContext;
 
   function createMockContextValue(): SingleDayPickerContext {
     return {
@@ -149,24 +150,54 @@ describe("useDayPicker", () => {
     expect(result.current).toEqual(mockContextValue);
   });
 
-  test("keeps public calendar context values Date-shaped", () => {
-    const { result } = renderHook(() => useDayPicker(), { wrapper });
-    const context = result.current;
+  describe("when returning public calendar context values", () => {
     const targetMonth = new Date(2024, 2, 1);
 
-    expect(context.months[0].date).toBe(displayedMonth);
-    expect(context.months[0].date).toBeInstanceOf(Date);
-    expect(context.nextMonth).toBe(nextMonth);
-    expect(context.nextMonth).toBeInstanceOf(Date);
-    expect(context.previousMonth).toBe(previousMonth);
-    expect(context.previousMonth).toBeInstanceOf(Date);
-    expect(context.selected).toBe(selectedDate);
-    expect(context.selected).toBeInstanceOf(Date);
+    beforeEach(() => {
+      const { result } = renderHook(() => useDayPicker(), { wrapper });
+      context = result.current;
+    });
 
-    context.goToMonth(targetMonth);
-    expect(mockContextValue.goToMonth).toHaveBeenCalledWith(targetMonth);
+    test("keeps the displayed month date as a Date", () => {
+      expect(context.months[0].date).toBeInstanceOf(Date);
+    });
 
-    context.isSelected?.(selectedDate);
-    expect(mockContextValue.isSelected).toHaveBeenCalledWith(selectedDate);
+    test("keeps the displayed month date value", () => {
+      expect(context.months[0].date).toBe(displayedMonth);
+    });
+
+    test("keeps the next month as a Date", () => {
+      expect(context.nextMonth).toBeInstanceOf(Date);
+    });
+
+    test("keeps the next month value", () => {
+      expect(context.nextMonth).toBe(nextMonth);
+    });
+
+    test("keeps the previous month as a Date", () => {
+      expect(context.previousMonth).toBeInstanceOf(Date);
+    });
+
+    test("keeps the previous month value", () => {
+      expect(context.previousMonth).toBe(previousMonth);
+    });
+
+    test("keeps the selected value as a Date", () => {
+      expect(context.selected).toBeInstanceOf(Date);
+    });
+
+    test("keeps the selected value", () => {
+      expect(context.selected).toBe(selectedDate);
+    });
+
+    test("calls goToMonth with the target Date", () => {
+      context.goToMonth(targetMonth);
+      expect(mockContextValue.goToMonth).toHaveBeenCalledWith(targetMonth);
+    });
+
+    test("calls isSelected with the selected Date", () => {
+      context.isSelected?.(selectedDate);
+      expect(mockContextValue.isSelected).toHaveBeenCalledWith(selectedDate);
+    });
   });
 });
