@@ -24,15 +24,64 @@ const getMonthWeeksContainers = () => [
   ...document.querySelectorAll(`[data-animated-weeks]`),
 ];
 
+function expectAnimatedPartsToHaveLength(length: number) {
+  expect(getMonthContainers()).toHaveLength(length);
+  expect(getMonthCaptionContainers()).toHaveLength(length);
+  expect(getMonthWeekdaysContainers()).toHaveLength(length);
+  expect(getMonthWeeksContainers()).toHaveLength(length);
+}
+
+function expectActiveAnimationState() {
+  const navContainers = getNavContainers();
+  const monthContainers = getMonthContainers();
+  const monthCaptionContainers = getMonthCaptionContainers();
+  const monthWeekdaysContainers = getMonthWeekdaysContainers();
+  const monthWeeksContainers = getMonthWeeksContainers();
+
+  expect(navContainers).toHaveLength(2);
+  expect(monthContainers).toHaveLength(2);
+  expect(monthCaptionContainers).toHaveLength(2);
+  expect(monthWeekdaysContainers).toHaveLength(2);
+  expect(monthWeeksContainers).toHaveLength(2);
+  expect(getRootContainer()).toHaveStyle("isolation: isolate");
+  expect(navContainers[1]).toHaveStyle("z-index: 1");
+  expect(monthContainers[0]).toHaveStyle("position: relative");
+  expect(monthContainers[0]).toHaveStyle("overflow: hidden");
+  expect(monthContainers[1]).toHaveStyle("overflow: hidden");
+  expect(monthContainers[1]).toHaveStyle("pointer-events: none");
+  expect(monthContainers[1]).toHaveStyle("position: absolute");
+  expect(monthContainers[1]).toHaveAttribute("aria-hidden", "true");
+  expect(monthWeekdaysContainers[0]).toHaveStyle("opacity: 0");
+  expect(monthCaptionContainers[1]).toHaveClass("rdp-caption_after_enter");
+  expect(monthWeeksContainers[1]).toHaveClass("rdp-weeks_after_enter");
+}
+
+function expectCleanedAnimationState() {
+  const navContainers = getNavContainers();
+  const monthContainers = getMonthContainers();
+  const monthCaptionContainers = getMonthCaptionContainers();
+  const monthWeekdaysContainers = getMonthWeekdaysContainers();
+  const monthWeeksContainers = getMonthWeeksContainers();
+
+  expect(navContainers).toHaveLength(1);
+  expect(monthContainers).toHaveLength(1);
+  expect(monthCaptionContainers).toHaveLength(1);
+  expect(monthWeekdaysContainers).toHaveLength(1);
+  expect(monthWeeksContainers).toHaveLength(1);
+  expect(getRootContainer()).not.toHaveStyle("isolation: isolate");
+  expect(navContainers[0]).not.toHaveStyle("z-index: 1");
+  expect(monthContainers[0]).not.toHaveStyle("position: relative");
+  expect(monthContainers[0]).not.toHaveStyle("overflow: hidden");
+  expect(monthCaptionContainers[0]).not.toHaveClass("rdp-caption_after_enter");
+  expect(monthWeeksContainers[0]).not.toHaveClass("rdp-weeks_after_enter");
+}
+
 describe("useAnimation", () => {
   describe("animate prop is falsy", () => {
     test("should not render elements with data-animated-* attributes", () => {
       render(<DayPicker />);
 
-      expect(getMonthContainers()).toHaveLength(0);
-      expect(getMonthCaptionContainers()).toHaveLength(0);
-      expect(getMonthWeekdaysContainers()).toHaveLength(0);
-      expect(getMonthWeeksContainers()).toHaveLength(0);
+      expectAnimatedPartsToHaveLength(0);
     });
   });
 
@@ -40,10 +89,7 @@ describe("useAnimation", () => {
     test("should render elements with data-animated-* attributes", () => {
       render(<DayPicker animate={true} numberOfMonths={2} />);
 
-      expect(getMonthContainers()).toHaveLength(2);
-      expect(getMonthCaptionContainers()).toHaveLength(2);
-      expect(getMonthWeekdaysContainers()).toHaveLength(2);
-      expect(getMonthWeeksContainers()).toHaveLength(2);
+      expectAnimatedPartsToHaveLength(2);
     });
 
     test("should add dom snapshots for each month for animation", async () => {
@@ -51,10 +97,7 @@ describe("useAnimation", () => {
 
       await user.click(nextButton());
 
-      expect(getMonthContainers()).toHaveLength(4);
-      expect(getMonthCaptionContainers()).toHaveLength(4);
-      expect(getMonthWeekdaysContainers()).toHaveLength(4);
-      expect(getMonthWeeksContainers()).toHaveLength(4);
+      expectAnimatedPartsToHaveLength(4);
     });
 
     test("should continue animating the same exiting month if month changed during animation", async () => {
@@ -83,10 +126,7 @@ describe("useAnimation", () => {
 
       expect(getMonthCaptionContainers()[0]).toHaveTextContent("April 2025");
       expect(getMonthCaptionContainers()[1]).toHaveTextContent("May 2025");
-      expect(getMonthContainers()).toHaveLength(2);
-      expect(getMonthCaptionContainers()).toHaveLength(2);
-      expect(getMonthWeekdaysContainers()).toHaveLength(2);
-      expect(getMonthWeeksContainers()).toHaveLength(2);
+      expectAnimatedPartsToHaveLength(2);
       expect(getMonthCaptionContainers()[0]).not.toHaveClass(
         "rdp-caption_after_enter",
       );
@@ -134,53 +174,12 @@ describe("useAnimation", () => {
 
       await user.click(nextButton());
 
-      let navContainers = getNavContainers();
-      let monthContainers = getMonthContainers();
-      let monthCaptionContainers = getMonthCaptionContainers();
-      let monthWeekdaysContainers = getMonthWeekdaysContainers();
-      let monthWeeksContainers = getMonthWeeksContainers();
-
-      expect(navContainers).toHaveLength(2);
-      expect(monthContainers).toHaveLength(2);
-      expect(monthCaptionContainers).toHaveLength(2);
-      expect(monthWeekdaysContainers).toHaveLength(2);
-      expect(monthWeeksContainers).toHaveLength(2);
-
-      expect(getRootContainer()).toHaveStyle("isolation: isolate");
-      expect(navContainers[1]).toHaveStyle("z-index: 1");
-      expect(monthContainers[0]).toHaveStyle("position: relative");
-      expect(monthContainers[0]).toHaveStyle("overflow: hidden");
-      expect(monthContainers[1]).toHaveStyle("overflow: hidden");
-      expect(monthContainers[1]).toHaveStyle("pointer-events: none");
-      expect(monthContainers[1]).toHaveStyle("position: absolute");
-      expect(monthContainers[1]).toHaveAttribute("aria-hidden", "true");
-      expect(monthWeekdaysContainers[0]).toHaveStyle("opacity: 0");
-      expect(monthCaptionContainers[1]).toHaveClass("rdp-caption_after_enter");
-      expect(monthWeeksContainers[1]).toHaveClass("rdp-weeks_after_enter");
+      expectActiveAnimationState();
 
       const animationEndEvent = new Event("animationend");
       getMonthCaptionContainers()[0].dispatchEvent(animationEndEvent);
 
-      navContainers = getNavContainers();
-      monthContainers = getMonthContainers();
-      monthCaptionContainers = getMonthCaptionContainers();
-      monthWeekdaysContainers = getMonthWeekdaysContainers();
-      monthWeeksContainers = getMonthWeeksContainers();
-
-      expect(navContainers).toHaveLength(1);
-      expect(monthContainers).toHaveLength(1);
-      expect(monthCaptionContainers).toHaveLength(1);
-      expect(monthWeekdaysContainers).toHaveLength(1);
-      expect(monthWeeksContainers).toHaveLength(1);
-
-      expect(getRootContainer()).not.toHaveStyle("isolation: isolate");
-      expect(navContainers[0]).not.toHaveStyle("z-index: 1");
-      expect(monthContainers[0]).not.toHaveStyle("position: relative");
-      expect(monthContainers[0]).not.toHaveStyle("overflow: hidden");
-      expect(monthCaptionContainers[0]).not.toHaveClass(
-        "rdp-caption_after_enter",
-      );
-      expect(monthWeeksContainers[0]).not.toHaveClass("rdp-weeks_after_enter");
+      expectCleanedAnimationState();
     });
   });
 });
