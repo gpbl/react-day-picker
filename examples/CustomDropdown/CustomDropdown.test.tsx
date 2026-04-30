@@ -6,16 +6,33 @@ import { setTestTime } from "@/test/setTestTime";
 import { user } from "@/test/user";
 import { CustomDropdown } from "./CustomDropdown";
 
-// Mocks for Radix UI
-window.PointerEvent =
-  class PointerEvent extends Event {} as unknown as typeof window.PointerEvent;
-window.HTMLElement.prototype.scrollIntoView = jest.fn();
-window.HTMLElement.prototype.hasPointerCapture = jest.fn();
-window.HTMLElement.prototype.releasePointerCapture = jest.fn();
+const originalPointerEvent = window.PointerEvent;
+const originalScrollIntoView = window.HTMLElement.prototype.scrollIntoView;
+const originalHasPointerCapture =
+  window.HTMLElement.prototype.hasPointerCapture;
+const originalReleasePointerCapture =
+  window.HTMLElement.prototype.releasePointerCapture;
 
 const today = new Date(2015, 6, 1);
 
 setTestTime(today);
+
+beforeAll(() => {
+  window.PointerEvent =
+    class PointerEvent extends Event {} as unknown as typeof window.PointerEvent;
+  window.HTMLElement.prototype.scrollIntoView = jest.fn();
+  window.HTMLElement.prototype.hasPointerCapture = jest.fn();
+  window.HTMLElement.prototype.releasePointerCapture = jest.fn();
+});
+
+afterAll(() => {
+  window.PointerEvent = originalPointerEvent;
+  window.HTMLElement.prototype.scrollIntoView = originalScrollIntoView;
+  window.HTMLElement.prototype.hasPointerCapture = originalHasPointerCapture;
+  window.HTMLElement.prototype.releasePointerCapture =
+    originalReleasePointerCapture;
+});
+
 beforeEach(() => {
   render(<CustomDropdown />);
 });
