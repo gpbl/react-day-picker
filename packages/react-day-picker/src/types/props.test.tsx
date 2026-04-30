@@ -35,8 +35,6 @@ const dateLike: DateLike = {
   getDate: () => date.getDate(),
 };
 
-const acceptDate = (_date: Date) => {};
-const acceptDateRange = (_range: DateRange) => {};
 const dateMatchers: Matcher[] = [
   date,
   [date],
@@ -66,16 +64,16 @@ const dateShapedProps: DayPickerProps = {
     weekend: { dayOfWeek: [0, 6] },
   },
   onDayClick: (clickedDate) => {
-    acceptDate(clickedDate);
+    void (clickedDate satisfies Date);
   },
   onMonthChange: (changedMonth) => {
-    acceptDate(changedMonth);
+    void (changedMonth satisfies Date);
   },
   onNextClick: (nextMonth) => {
-    acceptDate(nextMonth);
+    void (nextMonth satisfies Date);
   },
   onPrevClick: (previousMonth) => {
-    acceptDate(previousMonth);
+    void (previousMonth satisfies Date);
   },
 };
 
@@ -89,16 +87,20 @@ const Test = () => {
         mode="single"
         selected={undefined}
         onSelect={(selectedDate, triggerDate) => {
-          if (selectedDate) acceptDate(selectedDate);
-          acceptDate(triggerDate);
+          if (selectedDate) {
+            void (selectedDate satisfies Date);
+          }
+          void (triggerDate satisfies Date);
         }}
       />
       <DayPicker
         mode="single"
         selected={new Date()}
         onSelect={(selectedDate, triggerDate) => {
-          if (selectedDate) acceptDate(selectedDate);
-          acceptDate(triggerDate);
+          if (selectedDate) {
+            void (selectedDate satisfies Date);
+          }
+          void (triggerDate satisfies Date);
         }}
       />
       {/* @ts-expect-error Missing `selected` */}
@@ -114,8 +116,8 @@ const Test = () => {
         required
         selected={undefined}
         onSelect={(selectedDates, triggerDate) => {
-          selectedDates.forEach(acceptDate);
-          acceptDate(triggerDate);
+          void (selectedDates satisfies Date[]);
+          void (triggerDate satisfies Date);
         }}
       />
       <DayPicker
@@ -123,8 +125,8 @@ const Test = () => {
         required
         selected={undefined}
         onSelect={(selectedRange, triggerDate) => {
-          acceptDateRange(selectedRange);
-          acceptDate(triggerDate);
+          void (selectedRange satisfies DateRange);
+          void (triggerDate satisfies Date);
         }}
       />
       <DayPicker
@@ -148,9 +150,13 @@ const Test = () => {
         mode="range"
         selected={{ from: month, to: endMonth }}
         onSelect={(selectedRange, triggerDate) => {
-          if (selectedRange?.from) acceptDate(selectedRange.from);
-          if (selectedRange?.to) acceptDate(selectedRange.to);
-          acceptDate(triggerDate);
+          if (selectedRange?.from) {
+            void (selectedRange.from satisfies Date);
+          }
+          if (selectedRange?.to) {
+            void (selectedRange.to satisfies Date);
+          }
+          void (triggerDate satisfies Date);
         }}
       />
       <DayPicker modifiers={{ selected: new Date() }} onDayClick={() => {}} />
