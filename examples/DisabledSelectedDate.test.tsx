@@ -30,17 +30,17 @@ describe("selected disabled days", () => {
 });
 
 describe("unselected disabled days", () => {
-  test.each([dayBeforeRangeStart, dayAfterRangeEnd])(
-    "does not render %s with the selected modifier",
-    (day) => {
-      expect(gridcell(day, true)).not.toHaveClass("rdp-selected");
-    },
-  );
+  test.each([
+    dayBeforeRangeStart,
+    dayAfterRangeEnd,
+  ])("does not render %s with the selected modifier", (day) => {
+    expect(gridcell(day, true)).not.toHaveClass("rdp-selected");
+  });
 
-  test.each([dayBeforeRangeStart, dayAfterRangeEnd])(
-    "does not render %s with the selected style",
-    (day) => {
-      expect(gridcell(day, true)).not.toHaveStyle(selectedStyle);
-    },
-  );
+  test.each([
+    dayBeforeRangeStart,
+    dayAfterRangeEnd,
+  ])("does not render %s with the selected style", (day) => {
+    expect(gridcell(day, true)).not.toHaveStyle(selectedStyle);
+  });
 });

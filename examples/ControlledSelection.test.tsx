@@ -28,7 +28,10 @@ describe("when a range is selected", () => {
   });
 
   test("a middle day appears selected", () => {
-    expect(gridcell(rangeMiddle, true)).toHaveAttribute("aria-selected", "true");
+    expect(gridcell(rangeMiddle, true)).toHaveAttribute(
+      "aria-selected",
+      "true",
+    );
   });
 
   test("the day before the range end appears selected", () => {
