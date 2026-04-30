@@ -128,10 +128,6 @@ describe("useDayPicker", () => {
     } as DayPickerProps,
   };
 
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
-
   it("should return the context value when used within a DayPicker provider", () => {
     const wrapper = ({ children }: { children: React.ReactNode }) => (
       <dayPickerContext.Provider value={mockContextValue}>

@@ -5,6 +5,7 @@ if (process.env.TZ) {
 import type { Config } from "@jest/types";
 
 const sharedConfig: Config.InitialOptions = {
+  clearMocks: true,
   testEnvironment: "jsdom",
   setupFilesAfterEnv: ["<rootDir>/test/setup.ts"],
   transform: {
