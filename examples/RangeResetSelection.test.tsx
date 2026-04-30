@@ -14,26 +14,73 @@ beforeEach(() => render(<RangeResetSelection />));
 const getFrom = () => screen.getByTestId("from");
 const getTo = () => screen.getByTestId("to");
 
-test("select same day range", async () => {
-  await user.click(dateButton(today));
-  expect(getFrom()).toHaveTextContent("2022-09-12");
-  expect(getTo()).toHaveTextContent("");
-  await user.click(dateButton(today));
-  expect(getFrom()).toHaveTextContent("2022-09-12");
-  expect(getTo()).toHaveTextContent("—2022-09-12");
+describe("when selecting the same day range", () => {
+  beforeEach(async () => {
+    await user.click(dateButton(today));
+  });
+
+  test("sets the from date", () => {
+    expect(getFrom()).toHaveTextContent("2022-09-12");
+  });
+
+  test("leaves the to date empty", () => {
+    expect(getTo()).toHaveTextContent("");
+  });
+
+  describe("when clicking the day again", () => {
+    beforeEach(async () => {
+      await user.click(dateButton(today));
+    });
+
+    test("keeps the from date", () => {
+      expect(getFrom()).toHaveTextContent("2022-09-12");
+    });
+
+    test("sets the to date", () => {
+      expect(getTo()).toHaveTextContent("—2022-09-12");
+    });
+  });
 });
 
-test("start range after click on day with range selected", async () => {
-  await user.click(dateButton(today));
-  expect(getFrom()).toHaveTextContent("2022-09-12");
-  expect(getTo()).toHaveTextContent("");
-  await user.click(dateButton(addDays(today, 1)));
-  expect(getFrom()).toHaveTextContent("2022-09-12");
-  expect(getTo()).toHaveTextContent("—2022-09-13");
-  await user.click(dateButton(addDays(today, 4)));
-  expect(getFrom()).toHaveTextContent("2022-09-16");
-  expect(getTo()).toHaveTextContent("");
-  await user.click(dateButton(today));
-  expect(getFrom()).toHaveTextContent("2022-09-12");
-  expect(getTo()).toHaveTextContent("—2022-09-16");
+describe("when starting a range from an existing range", () => {
+  beforeEach(async () => {
+    await user.click(dateButton(today));
+    await user.click(dateButton(addDays(today, 1)));
+  });
+
+  test("keeps the first selected day as the from date", () => {
+    expect(getFrom()).toHaveTextContent("2022-09-12");
+  });
+
+  test("sets the second selected day as the to date", () => {
+    expect(getTo()).toHaveTextContent("—2022-09-13");
+  });
+
+  describe("when clicking a later day", () => {
+    beforeEach(async () => {
+      await user.click(dateButton(addDays(today, 4)));
+    });
+
+    test("starts a new range from the later day", () => {
+      expect(getFrom()).toHaveTextContent("2022-09-16");
+    });
+
+    test("clears the to date", () => {
+      expect(getTo()).toHaveTextContent("");
+    });
+
+    describe("when clicking the original first day", () => {
+      beforeEach(async () => {
+        await user.click(dateButton(today));
+      });
+
+      test("sets the original first day as the from date", () => {
+        expect(getFrom()).toHaveTextContent("2022-09-12");
+      });
+
+      test("sets the later day as the to date", () => {
+        expect(getTo()).toHaveTextContent("—2022-09-16");
+      });
+    });
+  });
 });

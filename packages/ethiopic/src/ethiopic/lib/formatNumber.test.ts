@@ -1,47 +1,44 @@
 import { formatNumber } from "./formatNumber";
 
 describe("formatNumber", () => {
-  test("should format numbers using Ethiopian numerals", () => {
-    expect(formatNumber(1, "geez")).toBe("፩");
-    expect(formatNumber(10, "geez")).toBe("፲");
-    expect(formatNumber(12, "geez")).toBe("፲፪");
-    expect(formatNumber(21, "geez")).toBe("፳፩");
-    expect(formatNumber(100, "geez")).toBe("፻");
-    expect(formatNumber(1000, "geez")).toBe("፲፻");
-    expect(formatNumber(10000, "geez")).toBe("፼");
-
-    // years
-    expect(formatNumber(1998, "geez")).toBe("፲፱፻፺፰");
-    expect(formatNumber(2000, "geez")).toBe("፳፻");
-    expect(formatNumber(2002, "geez")).toBe("፳፻፪");
-
-    // Complex numbers
-    expect(formatNumber(140000, "geez")).toBe("፲፬፼");
-    expect(formatNumber(123, "geez")).toBe("፻፳፫");
-    expect(formatNumber(1234, "geez")).toBe("፲፪፻፴፬");
-    expect(formatNumber(38965, "geez")).toBe("፫፼፹፱፻፷፭");
+  test.each([
+    [1, "፩"],
+    [10, "፲"],
+    [12, "፲፪"],
+    [21, "፳፩"],
+    [100, "፻"],
+    [1000, "፲፻"],
+    [10000, "፼"],
+    [1998, "፲፱፻፺፰"],
+    [2000, "፳፻"],
+    [2002, "፳፻፪"],
+    [140000, "፲፬፼"],
+    [123, "፻፳፫"],
+    [1234, "፲፪፻፴፬"],
+    [38965, "፫፼፹፱፻፷፭"],
+  ])("formats %i using Ethiopian numerals", (value, expected) => {
+    expect(formatNumber(value, "geez")).toBe(expected);
   });
 
-  test("should format numbers using latin numerals by default", () => {
-    expect(formatNumber(123)).toBe("123");
-    expect(formatNumber(1234)).toBe("1,234");
-    expect(formatNumber(12345)).toBe("12,345");
-
-    // Explicit latin format
-    expect(formatNumber(123, "latn")).toBe("123");
-    expect(formatNumber(1234, "latn")).toBe("1,234");
-    expect(formatNumber(12345, "latn")).toBe("12,345");
+  test.each([
+    [123, undefined, "123"],
+    [1234, undefined, "1,234"],
+    [12345, undefined, "12,345"],
+    [123, "latn" as const, "123"],
+    [1234, "latn" as const, "1,234"],
+    [12345, "latn" as const, "12,345"],
+  ])("formats %i using latin numerals", (value, numerals, expected) => {
+    expect(formatNumber(value, numerals)).toBe(expected);
   });
 
-  test("should handle zero and negative numbers correctly", () => {
-    // Zero
-    expect(formatNumber(0, "geez")).toBe("-"); // Special case in Geez
-    expect(formatNumber(0, "latn")).toBe("0");
-
-    // Negative numbers
-    expect(formatNumber(-123, "geez")).toBe("-፻፳፫");
-    expect(formatNumber(-1234, "geez")).toBe("-፲፪፻፴፬");
-    expect(formatNumber(-123, "latn")).toBe("-123");
-    expect(formatNumber(-1234, "latn")).toBe("-1,234");
+  test.each([
+    [0, "geez" as const, "-"],
+    [0, "latn" as const, "0"],
+    [-123, "geez" as const, "-፻፳፫"],
+    [-1234, "geez" as const, "-፲፪፻፴፬"],
+    [-123, "latn" as const, "-123"],
+    [-1234, "latn" as const, "-1,234"],
+  ])("formats %i using %s numerals", (value, numerals, expected) => {
+    expect(formatNumber(value, numerals)).toBe(expected);
   });
 });

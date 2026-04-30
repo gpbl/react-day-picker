@@ -2,32 +2,67 @@ import React from "react";
 
 import { dateButton, nextButton, previousButton } from "@/test/elements";
 import { render } from "@/test/render";
+import { setTestTime } from "@/test/setTestTime";
 import { user } from "@/test/user";
 
 import { FocusedDisabledNav } from "./FocusedDisabledNav";
 
-const today = new Date();
+const today = new Date(2025, 2, 8);
+
+setTestTime(today);
 
 describe("FocusedDisabledNav", () => {
-  test("should not focus the aria-disabled navigation button", async () => {
+  beforeEach(() => {
     render(<FocusedDisabledNav />);
-    await user.tab();
-    expect(previousButton()).toHaveFocus();
-    await user.tab();
-    expect(nextButton()).not.toHaveFocus();
-    expect(dateButton(today)).toHaveFocus(); // should ignore next button and focus today's date
   });
-  test("should keep focus on the disabled navigation button", async () => {
-    render(<FocusedDisabledNav />);
-    await user.tab();
-    await user.keyboard("{enter}");
-    expect(previousButton()).toHaveFocus();
-    await user.tab();
-    expect(nextButton()).toHaveFocus();
-    await user.keyboard("{enter}");
-    expect(nextButton()).toHaveFocus();
-    expect(nextButton()).toHaveAttribute("aria-disabled", "true");
-    expect(nextButton()).not.toBeDisabled();
-    expect(dateButton(today)).not.toHaveFocus();
+
+  describe("when navigation receives focus", () => {
+    beforeEach(async () => {
+      await user.tab();
+    });
+
+    test("focuses the previous button", () => {
+      expect(previousButton()).toHaveFocus();
+    });
+  });
+
+  describe("when tabbing through navigation", () => {
+    beforeEach(async () => {
+      await user.tab();
+      await user.tab();
+    });
+
+    test("does not focus the aria-disabled navigation button", () => {
+      expect(nextButton()).not.toHaveFocus();
+    });
+
+    test("focuses today's date after the previous button", () => {
+      expect(dateButton(today)).toHaveFocus();
+    });
+  });
+
+  describe("when pressing the disabled navigation button", () => {
+    beforeEach(async () => {
+      await user.tab();
+      await user.keyboard("{enter}");
+      await user.tab();
+      await user.keyboard("{enter}");
+    });
+
+    test("keeps focus on the disabled navigation button", () => {
+      expect(nextButton()).toHaveFocus();
+    });
+
+    test("marks the disabled navigation button as aria-disabled", () => {
+      expect(nextButton()).toHaveAttribute("aria-disabled", "true");
+    });
+
+    test("does not disable the navigation button element", () => {
+      expect(nextButton()).not.toBeDisabled();
+    });
+
+    test("does not focus today's date", () => {
+      expect(dateButton(today)).not.toHaveFocus();
+    });
   });
 });
