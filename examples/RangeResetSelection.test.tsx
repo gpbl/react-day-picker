@@ -1,8 +1,7 @@
-import { screen } from "@testing-library/react";
 import { addDays } from "date-fns";
 import React from "react";
 import { dateButton } from "@/test/elements";
-import { render } from "@/test/render";
+import { render, screen } from "@/test/render";
 import { setTestTime } from "@/test/setTestTime";
 import { user } from "@/test/user";
 import { RangeResetSelection } from "./RangeResetSelection";

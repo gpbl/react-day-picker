@@ -1,8 +1,8 @@
-import userEvent from "@testing-library/user-event";
 import React from "react";
 import { DayPicker } from "react-day-picker";
 import { dateButton, grid } from "@/test/elements";
 import { render, screen, within } from "@/test/render";
+import { user } from "@/test/user";
 import { TimeZoneNoonSafe } from "./TimeZoneNoonSafe";
 
 test("the first row should display 7 days", () => {
@@ -42,7 +42,6 @@ test("the last row should display 7 days", () => {
 describe("TimeZoneNoonSafe navigation", () => {
   test("previous and next month buttons render full weeks", async () => {
     render(<TimeZoneNoonSafe />);
-    const user = userEvent.setup();
 
     const assertFirstAndLastRowHave7Cells = () => {
       const [grid] = screen.getAllByRole("grid");

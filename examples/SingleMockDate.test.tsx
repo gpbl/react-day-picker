@@ -1,6 +1,6 @@
 /* This test uses mockdate to ensure date mocking works as it should. */
 
-import { render } from "@testing-library/react";
+import { render } from "@/test/render";
 import MockDate from "mockdate";
 import React from "react";
 

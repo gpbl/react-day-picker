@@ -1,7 +1,7 @@
-import { render } from "@testing-library/react";
 import React from "react";
 
 import { dateButton, gridcell } from "@/test/elements";
+import { render } from "@/test/render";
 import { setTestTime } from "@/test/setTestTime";
 import { user } from "@/test/user";
 import { SingleControlled } from "./SingleControlled";

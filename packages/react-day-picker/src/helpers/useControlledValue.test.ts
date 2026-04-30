@@ -1,4 +1,4 @@
-import { act, renderHook } from "@testing-library/react";
+import { act, renderHook } from "@/test/render";
 
 import { useControlledValue } from "./useControlledValue";
 

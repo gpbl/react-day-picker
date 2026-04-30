@@ -1,4 +1,4 @@
-import { renderHook } from "@testing-library/react";
+import { renderHook } from "@/test/render";
 import React from "react";
 import type { CalendarDay } from "./classes/CalendarDay";
 import { CalendarMonth } from "./classes/CalendarMonth";

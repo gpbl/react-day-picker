@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen } from "@/test/render";
 import React from "react";
 
 import { grid, monthDropdown, yearDropdown } from "@/test/elements";
