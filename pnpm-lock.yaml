@@ -293,7 +293,7 @@ importers:
         specifier: workspace:^
         version: link:../../packages/persian
       '@daypicker/react':
-        specifier: workspace:^
+        specifier: link:../../packages/react
         version: link:../../packages/react
       '@docusaurus/core':
         specifier: ^3.10.0
