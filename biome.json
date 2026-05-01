@@ -38,6 +38,42 @@
       }
     }
   },
+  "overrides": [
+    {
+      "includes": ["**/*.test.ts", "**/*.test.tsx"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDoneCallback": "error",
+            "noRestrictedGlobals": {
+              "level": "error",
+              "options": {
+                "deniedGlobals": {
+                  "it": "Use test() instead of it() for test declaration consistency."
+                }
+              }
+            },
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "paths": {
+                  "@testing-library/react": "Use @/test/render so tests share the repo test helpers.",
+                  "@testing-library/user-event": "Use @/test/user so user-event setup is consistent."
+                }
+              }
+            }
+          },
+          "suspicious": {
+            "noDuplicateTestHooks": "error",
+            "noExportsInTest": "error",
+            "noFocusedTests": "error",
+            "noMisplacedAssertion": "error",
+            "noSkippedTests": "error"
+          }
+        }
+      }
+    }
+  ],
   "javascript": {
     "jsxRuntime": "reactClassic",
     "formatter": {
