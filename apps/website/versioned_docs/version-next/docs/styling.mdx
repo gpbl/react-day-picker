@@ -10,7 +10,7 @@ You can also apply your own styles or use a CSS framework like [Tailwind CSS](ht
 
 ## Default Style
 
-To use the included styles, add `react-day-picker/style.css` to your HTML document. This will apply the `.rdp` class names used by DayPicker.
+To use the included styles, add `@daypicker/react/style.css` to your HTML document. This will apply the `.rdp` class names used by DayPicker.
 
 <details>
 <summary>Using a bundler or a React framework</summary>
@@ -18,7 +18,7 @@ To use the included styles, add `react-day-picker/style.css` to your HTML docume
 If you are using a React framework, such as [Next.js](http://nextjs.org) or [Gatsby](https://www.gatsbyjs.com), or a bundler like Webpack with [css-loader](https://webpack.js.org/loaders/css-loader/), import the CSS file in your app's main JavaScript or TypeScript file:
 
 ```tsx title="./App.jsx"
-import "react-day-picker/style.css";
+import "@daypicker/react/style.css";
 ```
 
 </details>
@@ -111,8 +111,8 @@ You can import `style.module.css` if you want your CSS pre-processor to parse it
 | `classNames` | [`ClassNames`](../api/type-aliases/ClassNames.md) | Apply custom class names instead of the defaults. |
 
 ```tsx title="./MyDatePicker.jsx"
-import { DayPicker } from "react-day-picker";
-import classNames from "react-day-picker/style.module.css";
+import { DayPicker } from "@daypicker/react";
+import classNames from "@daypicker/react/style.module.css";
 
 console.log(classNames); // Output the class names as parsed by CSS modules.
 
@@ -147,7 +147,7 @@ If you are including [Tailwind CSS](https://tailwindcss.com) in your project, us
 - Adopt [custom components](../guides/custom-components.mdx) to further customize the HTML elements.
 
 ```tsx
-import { DayPicker, getDefaultClassNames } from "react-day-picker";
+import { DayPicker, getDefaultClassNames } from "@daypicker/react";
 
 export function MyCalendar() {
   const defaultClassNames = getDefaultClassNames();

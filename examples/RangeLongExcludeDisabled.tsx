@@ -1,6 +1,5 @@
+import { type DateRange, DayPicker } from "@daypicker/react";
 import React, { useState } from "react";
-
-import { type DateRange, DayPicker } from "react-day-picker";
 
 export function RangeLongExcludeDisabled() {
   const [range, setRange] = useState<DateRange | undefined>({

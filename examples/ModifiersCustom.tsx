@@ -1,6 +1,5 @@
+import { type DayEventHandler, DayPicker } from "@daypicker/react";
 import React from "react";
-
-import { type DayEventHandler, DayPicker } from "react-day-picker";
 
 const bookedDays = [
   new Date(2024, 5, 8),

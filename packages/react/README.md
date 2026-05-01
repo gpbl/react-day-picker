@@ -1,27 +1,100 @@
-# @daypicker/react
+# React DayPicker
 
-React package for [DayPicker](https://daypicker.dev).
+DayPicker is a [React](https://react.dev) component for creating date pickers, calendars, and date inputs for web applications.
 
-This package re-exports the public API from `react-day-picker` for the
-`@daypicker/*` namespace.
+`@daypicker/react` is the preferred package name for DayPicker v10 and newer.
+
+## Documentation
+
+See **[daypicker.dev](https://daypicker.dev)** for guides, examples, and API reference, or read [the v10 docs in the repository](https://github.com/gpbl/react-day-picker/blob/main/apps/website/versioned_docs/version-next/start.mdx).
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gpbl/react-day-picker/main/apps/website/static/img/screenshot-dark.png" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gpbl/react-day-picker/main/apps/website/static/img/screenshot-light.png" />
+  <img width="460" src="https://raw.githubusercontent.com/gpbl/react-day-picker/main/apps/website/static/img/screenshot.png"  alt="Screenshot of DayPicker displaying the September 2025 calendar, with the date range from the 17th to the 20th selected." />
+</picture>
+
+## Features
+
+- 🛠 Extensive set of props for [customizing](https://daypicker.dev/docs/customization) the calendar.
+- 🎨 Minimal design that can be [easily styled](https://daypicker.dev/docs/styling) with CSS or any CSS framework.
+- 📅 Supports [selections](https://daypicker.dev/docs/selection-modes) of single days, multiple days, ranges of days, or [custom selections](https://daypicker.dev/guides/custom-selections).
+- 🌍 Can be [localized](https://daypicker.dev/docs/localization) into any language and [time zones](https://daypicker.dev/docs/time-zone).
+- 🌐 Support for [ISO 8601](http://daypicker.dev/localization/iso-and-broadcast#iso-8601-calendar) and [broadcast](http://daypicker.dev/localization/iso-and-broadcast#broadcast-calendar) calendars, plus [Persian](http://daypicker.dev/localization/persian), [Hijri](http://daypicker.dev/localization/hijri), [Buddhist (Thai)](http://daypicker.dev/localization/buddhist), [Ethiopic](http://daypicker.dev/localization/ethiopic), and [Hebrew](http://daypicker.dev/localization/hebrew) calendars through `@daypicker/*` add-on packages.
+- 🦮 Complies with WCAG 2.1 AA requirements for [accessibility](https://daypicker.dev/guides/accessibility).
+- ⚙️ [Customizable components](https://daypicker.dev/guides/custom-components) to extend the rendered elements.
+- 🔤 Easy integration [with input fields](https://daypicker.dev/guides/input-fields).
+
+DayPicker is written in TypeScript and compiled to CommonJS and ESM. It relies on [date-fns](https://date-fns.org) for date manipulation and formatting.
 
 ## Installation
+
+Install the preferred DayPicker package name:
 
 ```bash
 npm install @daypicker/react@next
 ```
 
-## Usage
+<a href="https://www.npmjs.com/package/@daypicker/react"><img src="https://img.shields.io/npm/v/%40daypicker%2Freact" alt="npm version"/></a> <img src="https://img.shields.io/npm/dm/%40daypicker%2Freact.svg" alt="npm downloads"/> <img src="https://img.shields.io/bundlephobia/minzip/%40daypicker%2Freact" alt="Min gzipped size"/>
+
+## Example
 
 ```tsx
+import { useState } from "react";
+
 import { DayPicker } from "@daypicker/react";
 import "@daypicker/react/style.css";
 
-export function Calendar() {
-  return <DayPicker mode="single" />;
+function MyDatePicker() {
+  const [selected, setSelected] = useState<Date>();
+
+  return (
+    <DayPicker
+      mode="single"
+      selected={selected}
+      onSelect={setSelected}
+      footer={
+        selected ? `Selected: ${selected.toLocaleDateString()}` : "Pick a day."
+      }
+    />
+  );
 }
 ```
 
+## Compatibility
+
+DayPicker is compatible with React 16.8 and later.
+
 ## License
 
-MIT. See [LICENSE](./LICENSE).
+DayPicker is released under the [MIT License](https://daypicker.dev/license).
+
+## Community
+
+Ask for help and share your experience with DayPicker:
+
+- 💬 [Discussion forums](https://github.com/gpbl/react-day-picker/discussions) - Get support and provide feedback.
+- 🪳 [Report an issue](https://github.com/gpbl/react-day-picker/issues/new/choose) - Report bugs or request features.
+
+## Sponsors
+
+Thank you to everyone supporting DayPicker - your sponsorship keeps this project maintained and evolving.
+
+<p>
+  <a href="https://github.com/CHECK24" title="CHECK24"><img src="https://github.com/CHECK24.png?size=64" alt="CHECK24" width="48" height="48" style="border-radius:50%; margin: 4px;" /></a>
+  <a href="https://github.com/wilsonadenuga" title="wilsonadenuga"><img src="https://github.com/wilsonadenuga.png?size=64" alt="wilsonadenuga" width="48" height="48" style="border-radius:50%; margin: 4px;" /></a>
+  <a href="https://github.com/severinlandolt" title="severinlandolt"><img src="https://github.com/severinlandolt.png?size=64" alt="severinlandolt" width="48" height="48" style="border-radius:50%; margin: 4px;" /></a>
+  <a href="https://github.com/syntaxfm" title="syntaxfm"><img src="https://github.com/syntaxfm.png?size=64" alt="syntaxfm" width="48" height="48" style="border-radius:50%; margin: 4px;" /></a>
+  <a href="https://github.com/thnxdev" title="thnxdev"><img src="https://github.com/thnxdev.png?size=64" alt="thnxdev" width="48" height="48" style="border-radius:50%; margin: 4px;" /></a>
+  <a href="https://github.com/katyabilokur" title="katyabilokur"><img src="https://github.com/katyabilokur.png?size=64" alt="katyabilokur" width="48" height="48" style="border-radius:50%; margin: 4px;" /></a>
+  <a href="https://github.com/bedandbreakfasteu" title="bedandbreakfasteu"><img src="https://github.com/bedandbreakfasteu.png?size=64" alt="bedandbreakfasteu" width="48" height="48" style="border-radius:50%; margin: 4px;" /></a>
+  <a href="https://github.com/Thinkmill" title="Thinkmill"><img src="https://github.com/Thinkmill.png?size=64" alt="Thinkmill" width="48" height="48" style="border-radius:50%; margin: 4px;" /></a>
+  <a href="https://github.com/AlexKDawson" title="AlexKDawson"><img src="https://github.com/AlexKDawson.png?size=64" alt="AlexKDawson" width="48" height="48" style="border-radius:50%; margin: 4px;" /></a>
+  <a href="https://github.com/dimitur2204" title="dimitur2204"><img src="https://github.com/dimitur2204.png?size=64" alt="dimitur2204" width="48" height="48" style="border-radius:50%; margin: 4px;" /></a>
+  <a href="https://github.com/indeedeng" title="indeedeng"><img src="https://github.com/indeedeng.png?size=64" alt="indeedeng" width="48" height="48" style="border-radius:50%; margin: 4px;" /></a>
+  <a href="https://github.com/flexbox" title="flexbox"><img src="https://github.com/flexbox.png?size=64" alt="flexbox" width="48" height="48" style="border-radius:50%; margin: 4px;" /></a>
+  <a href="https://github.com/github" title="github"><img src="https://github.com/github.png?size=64" alt="github" width="48" height="48" style="border-radius:50%; margin: 4px;" /></a>
+  <a href="https://github.com/tjfred35" title="tjfred35"><img src="https://github.com/tjfred35.png?size=64" alt="tjfred35" width="48" height="48" style="border-radius:50%; margin: 4px;" /></a>
+</p>
+
+- 🎗️ Become a sponsor: https://github.com/sponsors/gpbl

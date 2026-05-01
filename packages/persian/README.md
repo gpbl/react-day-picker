@@ -2,16 +2,13 @@
 
 Persian calendar support for [React DayPicker](https://daypicker.dev).
 
-This package renders DayPicker with Jalali calendar month and year logic. It
-uses the Persian Iran locale, Eastern Arabic-Indic numerals, and right-to-left
-direction by default.
+This package renders DayPicker with Jalali calendar month and year logic. It uses the Persian Iran locale, Eastern Arabic-Indic numerals, and right-to-left direction by default.
 
 <a href="https://www.npmjs.com/package/@daypicker/persian"><img src="https://img.shields.io/npm/v/%40daypicker%2Fpersian" alt="npm version"/></a> <img src="https://img.shields.io/npm/dm/%40daypicker%2Fpersian.svg" alt="npm downloads"/> <img src="https://img.shields.io/bundlephobia/minzip/%40daypicker%2Fpersian" alt="Min gzipped size"/>
 
 ## Installation
 
-Install the v10 prerelease of the React DayPicker package with the Persian
-calendar addon:
+Install the v10 prerelease of the React DayPicker package with the Persian calendar addon:
 
 ```bash
 npm install @daypicker/react@next @daypicker/persian@next

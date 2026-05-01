@@ -1,7 +1,6 @@
+import { type DateRange, DayPicker } from "@daypicker/react";
 import { addDays } from "date-fns";
 import React, { useState } from "react";
-
-import { type DateRange, DayPicker } from "react-day-picker";
 
 /** Select a fixed-length range starting from the clicked day. */
 export function CustomRollingWindow() {

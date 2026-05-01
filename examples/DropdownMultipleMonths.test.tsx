@@ -1,6 +1,5 @@
+import { labelMonthDropdown } from "@daypicker/react";
 import React from "react";
-
-import { labelMonthDropdown } from "react-day-picker";
 
 import { grid } from "@/test/elements";
 import { render, screen } from "@/test/render";

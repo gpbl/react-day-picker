@@ -13,6 +13,8 @@
     "noEmit": true,
     "paths": {
       "@site/*": ["./*"],
+      "@daypicker/react": ["../../packages/react-day-picker/src/index.ts"],
+      "@daypicker/react/*": ["../../packages/react-day-picker/src/*"],
       "react-day-picker/examples": ["../../examples/index.ts"],
       "react-day-picker": ["../../packages/react-day-picker/src/index.ts"],
       "react-day-picker/*": ["../../packages/react-day-picker/src/*"],

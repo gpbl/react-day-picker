@@ -1,7 +1,7 @@
+import { DayPicker } from "@daypicker/react";
+import classNames from "@daypicker/react/style.module.css";
 import { ar } from "date-fns/locale";
 import React, { useState } from "react";
-import { DayPicker } from "react-day-picker";
-import classNames from "react-day-picker/style.module.css";
 
 export function AnimateRtl() {
   const [selected, setSelected] = useState<Date>();

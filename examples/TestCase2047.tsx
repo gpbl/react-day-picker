@@ -1,6 +1,5 @@
+import { DayPicker } from "@daypicker/react";
 import React from "react";
-
-import { DayPicker } from "react-day-picker";
 
 const defaultMonth = new Date(2024, 5);
 const defaultSelected = new Date(2024, 5, 10);

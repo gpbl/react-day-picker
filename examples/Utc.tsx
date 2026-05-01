@@ -1,6 +1,5 @@
+import { DayPicker, TZDate } from "@daypicker/react";
 import React, { useState } from "react";
-
-import { DayPicker, TZDate } from "react-day-picker";
 
 export function Utc() {
   const [selected, setSelected] = useState<Date>(TZDate.tz("UTC"));

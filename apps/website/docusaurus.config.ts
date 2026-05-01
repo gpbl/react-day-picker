@@ -147,6 +147,13 @@ const config: Config = {
                 "react-day-picker/locale$": reactDayPickerLocalePath,
                 "react-day-picker/locale": reactDayPickerLocaleDir,
                 "react-day-picker$": reactDayPickerSrcPath,
+                "@daypicker/react/style.css$": reactDayPickerStylePath,
+                "@daypicker/react/style.module.css$":
+                  reactDayPickerStyleModulePath,
+                "@daypicker/react/src": reactDayPickerSrcDir,
+                "@daypicker/react/locale$": reactDayPickerLocalePath,
+                "@daypicker/react/locale": reactDayPickerLocaleDir,
+                "@daypicker/react$": reactDayPickerSrcPath,
                 "@daypicker/buddhist$": buddhistPath,
                 "@daypicker/ethiopic$": ethiopicPath,
                 "@daypicker/hebrew$": hebrewPath,

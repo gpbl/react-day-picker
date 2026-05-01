@@ -1,10 +1,10 @@
 import { amET, getDateLib as getDateLibEthiopic } from "@daypicker/ethiopic";
 import { arSA, getDateLib as getDateLibHijri } from "@daypicker/hijri";
 import { faIR, getDateLib as getDateLibPersian } from "@daypicker/persian";
+import type { Locale } from "@daypicker/react";
+import { DateLib } from "@daypicker/react";
+import * as locales from "@daypicker/react/locale";
 import React from "react";
-import type { Locale } from "react-day-picker";
-import { DateLib } from "react-day-picker";
-import * as locales from "react-day-picker/locale";
 
 import styles from "./styles.module.css";
 import type { DayPickerPropsWithCalendar } from "./useQueryStringSync";

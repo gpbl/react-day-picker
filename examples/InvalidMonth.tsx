@@ -1,6 +1,5 @@
+import { DayPicker } from "@daypicker/react";
 import React, { useState } from "react";
-
-import { DayPicker } from "react-day-picker";
 
 export function InvalidMonth() {
   const [month, setMonth] = useState(new Date(2024, 5));

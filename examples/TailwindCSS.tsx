@@ -1,6 +1,5 @@
+import { DayPicker, getDefaultClassNames } from "@daypicker/react";
 import React from "react";
-
-import { DayPicker, getDefaultClassNames } from "react-day-picker";
 
 export function TailwindCSS() {
   const defaultClassNames = getDefaultClassNames();

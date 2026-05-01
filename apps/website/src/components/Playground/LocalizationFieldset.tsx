@@ -6,13 +6,13 @@ import {
 import { enUS as enUSHebrew, he as heHebrew } from "@daypicker/hebrew";
 import { arSA as arSAHijri, enUS as enUSHijri } from "@daypicker/hijri";
 import { enUS as enUSPersian, faIR as faIRPersian } from "@daypicker/persian";
-import React from "react";
 import {
   type DayPickerProps,
   defaultDateLib,
   type Numerals,
-} from "react-day-picker";
-import * as locales from "react-day-picker/locale";
+} from "@daypicker/react";
+import * as locales from "@daypicker/react/locale";
+import React from "react";
 
 import styles from "./styles.module.css";
 import type { DayPickerPropsWithCalendar } from "./useQueryStringSync";

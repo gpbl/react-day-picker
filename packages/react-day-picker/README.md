@@ -2,9 +2,11 @@
 
 DayPicker is a [React](https://react.dev) component for creating date pickers, calendars, and date inputs for web applications.
 
+You are reading the README for `react-day-picker`, the legacy DayPicker package name. It remains available for compatibility and exposes the same DayPicker API in v10, but new projects should use `@daypicker/react`.
+
 ## Documentation
 
-See **[daypicker.dev](https://daypicker.dev)** for guides, examples and API reference, or read [the docs in the repository](https://github.com/gpbl/react-day-picker/blob/main/apps/website/docs/start.mdx).
+See **[daypicker.dev](https://daypicker.dev)** for guides, examples, and API reference, or read [the v10 docs in the repository](https://github.com/gpbl/react-day-picker/blob/main/apps/website/versioned_docs/version-next/start.mdx).
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gpbl/react-day-picker/main/apps/website/static/img/screenshot-dark.png" />
@@ -27,15 +29,16 @@ DayPicker is written in TypeScript and compiled to CommonJS and ESM. It relies o
 
 ## Installation
 
+Install the legacy DayPicker package name:
+
 ```bash
-npm install react-day-picker
+npm install react-day-picker@next
 ```
 
-If you are trying the v10 prereleases with one of the alternative calendar
-integrations, install both packages together. For example:
+For new projects, prefer the `@daypicker/react` package name:
 
 ```bash
-npm install react-day-picker@next @daypicker/persian@next
+npm install @daypicker/react@next
 ```
 
 <a href="https://www.npmjs.com/package/react-day-picker"><img src="https://img.shields.io/npm/v/react-day-picker" alt="npm version"/></a> <img src="https://img.shields.io/npm/dm/react-day-picker.svg" alt="npm downloads"/> <img src="https://img.shields.io/bundlephobia/minzip/react-day-picker" alt="Min gzipped size"/>
@@ -43,6 +46,8 @@ npm install react-day-picker@next @daypicker/persian@next
 ## Example
 
 ```tsx
+import { useState } from "react";
+
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/style.css";
 

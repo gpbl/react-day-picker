@@ -1,6 +1,6 @@
+import { type DateRange, DayPicker, type PropsRange } from "@daypicker/react";
 import { format, isAfter, isBefore, isValid, parse } from "date-fns";
 import React, { type ChangeEventHandler, useState } from "react";
-import { type DateRange, DayPicker, type PropsRange } from "react-day-picker";
 
 export function InputRange() {
   const [selectedRange, setSelectedRange] = useState<DateRange>();

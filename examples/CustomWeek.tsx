@@ -1,6 +1,6 @@
+import { type DateRange, DayPicker, rangeIncludesDate } from "@daypicker/react";
 import { endOfWeek, startOfWeek } from "date-fns";
 import React, { useState } from "react";
-import { type DateRange, DayPicker, rangeIncludesDate } from "react-day-picker";
 
 /** Select the whole week when the day is clicked. */
 export function CustomWeek() {

@@ -1,7 +1,7 @@
+import type { DayPickerProps } from "@daypicker/react";
+import * as locales from "@daypicker/react/locale";
 import { useHistory, useLocation } from "@docusaurus/router";
 import { useEffect, useMemo, useState } from "react";
-import type { DayPickerProps } from "react-day-picker";
-import * as locales from "react-day-picker/locale";
 import {
   buildPlaygroundQueryString,
   parsePlaygroundSearch,

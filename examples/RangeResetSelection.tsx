@@ -1,11 +1,10 @@
-import { format } from "date-fns";
-import React, { useState } from "react";
-
 import {
   type DateRange,
   DayPicker,
   type OnSelectHandler,
-} from "react-day-picker";
+} from "@daypicker/react";
+import { format } from "date-fns";
+import React, { useState } from "react";
 
 export function RangeResetSelection() {
   const [selected, setSelected] = useState<DateRange>();

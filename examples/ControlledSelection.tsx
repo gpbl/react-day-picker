@@ -1,6 +1,5 @@
+import { type DateRange, DayPicker } from "@daypicker/react";
 import React, { useState } from "react";
-
-import { type DateRange, DayPicker } from "react-day-picker";
 
 export function ControlledSelection() {
   const [selected, setSelected] = useState<DateRange | undefined>();

@@ -4,7 +4,7 @@ sidebar_position: 7
 
 # Advanced Translations
 
-Most apps don’t need to manually translate DayPicker. Locales from `react-day-picker/locale` already include translated month names, weekdays, and ARIA labels.
+Most apps don’t need to manually translate DayPicker. Locales from `@daypicker/react/locale` already include translated month names, weekdays, and ARIA labels.
 
 Use this guide only when you need advanced customization, such as custom wording, accessibility copy, or locale-specific formatting tweaks.
 
@@ -21,8 +21,8 @@ Use this guide only when you need advanced customization, such as custom wording
 Use the `labels` prop to override any DayPicker label. Pass only the labels you want to change.
 
 ```tsx
-import { DayPicker, defaultLocale } from "react-day-picker";
-import { fr } from "react-day-picker/locale";
+import { DayPicker, defaultLocale } from "@daypicker/react";
+import { fr } from "@daypicker/react/locale";
 
 export function CustomLabels() {
   return (
@@ -61,7 +61,7 @@ export function CustomLabels() {
 If you need to adjust date names or formatting, extend `defaultLocale` (or any DayPicker locale) rather than rebuilding everything.
 
 ```tsx
-import { DayPicker, defaultLocale } from "react-day-picker";
+import { DayPicker, defaultLocale } from "@daypicker/react";
 
 const locale = {
   ...defaultLocale,

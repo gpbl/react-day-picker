@@ -1,6 +1,5 @@
+import { DayPicker, type DropdownProps } from "@daypicker/react";
 import React, { createContext, use, useCallback, useState } from "react";
-
-import { DayPicker, type DropdownProps } from "react-day-picker";
 
 import {
   Select,

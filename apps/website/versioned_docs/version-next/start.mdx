@@ -6,25 +6,33 @@ pagination_next: docs/styling
 
 ## Install the Package
 
-DayPicker is available as the `react-day-picker` npm package.
+DayPicker is available as the `@daypicker/react` npm package.
 
 ```bash npm2yarn
-npm install react-day-picker@next
+npm install @daypicker/react@next
 ```
+
+:::note Legacy package name
+
+The `react-day-picker` package name remains available in v10 for
+compatibility, but new projects should install and import from
+`@daypicker/react`.
+
+:::
 
 ## Basic Usage
 
 To add a simple date picker to your app:
 
-1. Import the component and styles from `react-day-picker`.
+1. Import the component and styles from `@daypicker/react`.
 2. Choose a [selection mode](./selections/selection-modes.mdx) using the `mode` prop.
 3. Use the `selected` and `onSelect` props to control the selected date.
 
 ```tsx
 import { useState } from "react";
 
-import { DayPicker } from "react-day-picker";
-import "react-day-picker/style.css";
+import { DayPicker } from "@daypicker/react";
+import "@daypicker/react/style.css";
 
 export function MyDatePicker() {
   const [selected, setSelected] = useState<Date>();

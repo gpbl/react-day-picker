@@ -1,5 +1,5 @@
+import { DayPicker } from "@daypicker/react";
 import React from "react";
-import { DayPicker } from "react-day-picker";
 import { dateButton, grid } from "@/test/elements";
 import { render, screen, within } from "@/test/render";
 import { user } from "@/test/user";

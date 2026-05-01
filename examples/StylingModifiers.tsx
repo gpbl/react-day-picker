@@ -1,6 +1,6 @@
+import { DayPicker } from "@daypicker/react";
 import { addDays } from "date-fns";
 import React from "react";
-import { DayPicker } from "react-day-picker";
 
 import customStyles from "./styles/styling-modifiers.module.css";
 

@@ -2,16 +2,13 @@
 
 Buddhist calendar support for [React DayPicker](https://daypicker.dev).
 
-This package renders DayPicker with Buddhist Era years. The calendar keeps
-Gregorian months and weeks, displays years as BE (`CE + 543`), and uses Thai
-digits by default.
+This package renders DayPicker with Buddhist Era years. The calendar keeps Gregorian months and weeks, displays years as BE (`CE + 543`), and uses Thai digits by default.
 
 <a href="https://www.npmjs.com/package/@daypicker/buddhist"><img src="https://img.shields.io/npm/v/%40daypicker%2Fbuddhist" alt="npm version"/></a> <img src="https://img.shields.io/npm/dm/%40daypicker%2Fbuddhist.svg" alt="npm downloads"/> <img src="https://img.shields.io/bundlephobia/minzip/%40daypicker%2Fbuddhist" alt="Min gzipped size"/>
 
 ## Installation
 
-Install the v10 prerelease of the React DayPicker package with the Buddhist
-calendar addon:
+Install the v10 prerelease of the React DayPicker package with the Buddhist calendar addon:
 
 ```bash
 npm install @daypicker/react@next @daypicker/buddhist@next

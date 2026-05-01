@@ -1,6 +1,5 @@
+import { DayPicker } from "@daypicker/react";
 import React from "react";
-
-import { DayPicker } from "react-day-picker";
 
 const today = new Date(2025, 2, 8);
 const toDate = new Date(today);

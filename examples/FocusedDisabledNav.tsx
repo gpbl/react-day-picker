@@ -1,6 +1,6 @@
+import { DayPicker } from "@daypicker/react";
 import { addMonths } from "date-fns";
 import React from "react";
-import { DayPicker } from "react-day-picker";
 
 /** Example for bug #2630. */
 export function FocusedDisabledNav() {

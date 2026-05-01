@@ -1,6 +1,5 @@
+import { DayPicker } from "@daypicker/react";
 import React from "react";
-
-import { DayPicker } from "react-day-picker";
 
 /**
  * Reproduction for Date[] matchers inside `disabled`. When passing `[dates]` as

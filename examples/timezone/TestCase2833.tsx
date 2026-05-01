@@ -1,6 +1,5 @@
+import { DayPicker, TZDate } from "@daypicker/react";
 import React from "react";
-
-import { DayPicker, TZDate } from "react-day-picker";
 
 const now = new Date();
 

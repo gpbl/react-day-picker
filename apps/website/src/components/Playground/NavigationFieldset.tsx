@@ -1,6 +1,6 @@
+import type { DayPickerProps } from "@daypicker/react";
 import { startOfMonth } from "date-fns";
 import React from "react";
-import type { DayPickerProps } from "react-day-picker";
 
 import styles from "./styles.module.css";
 

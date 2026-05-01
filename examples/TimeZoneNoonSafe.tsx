@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-
 import {
   DayPicker,
   type DayPickerProps,
   type PropsBase,
   type PropsSingle,
   TZDate,
-} from "react-day-picker";
+} from "@daypicker/react";
+import React, { useState } from "react";
 
 type TimeZoneNoonSafeProps = Omit<PropsBase, "mode"> & {
   selected?: Date;

@@ -1,6 +1,6 @@
+import { DateLib, DayPicker } from "@daypicker/react";
 import { enAU } from "date-fns/locale";
 import React from "react";
-import { DateLib, DayPicker } from "react-day-picker";
 
 /**
  * Test case for issue #2511

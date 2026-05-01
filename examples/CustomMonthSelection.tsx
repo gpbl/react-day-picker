@@ -1,7 +1,6 @@
+import { type DateRange, DayPicker } from "@daypicker/react";
 import { endOfMonth, startOfMonth } from "date-fns";
 import React, { useState } from "react";
-
-import { type DateRange, DayPicker } from "react-day-picker";
 
 /** Toggle selection of an entire month. */
 export function CustomMonthSelection() {

@@ -1,6 +1,6 @@
+import { DayPicker } from "@daypicker/react";
 import { format } from "date-fns";
 import React, { useState } from "react";
-import { DayPicker } from "react-day-picker";
 
 export function AccessibleDatePicker() {
   const [meetingDate, setMeetingDate] = useState<Date | undefined>(undefined);

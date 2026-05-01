@@ -20,6 +20,7 @@
     "@daypicker/hebrew": "workspace:^",
     "@daypicker/hijri": "workspace:^",
     "@daypicker/persian": "workspace:^",
+    "@daypicker/react": "workspace:^",
     "@docusaurus/core": "^3.10.0",
     "@docusaurus/faster": "^3.10.0",
     "@docusaurus/plugin-client-redirects": "^3.10.0",

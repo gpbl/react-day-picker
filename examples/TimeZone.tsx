@@ -1,6 +1,5 @@
+import { DayPicker, TZDate } from "@daypicker/react";
 import React, { useState } from "react";
-
-import { DayPicker, TZDate } from "react-day-picker";
 
 export function TimeZone() {
   const timeZone = "Pacific/Honolulu";

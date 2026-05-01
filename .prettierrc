@@ -2,6 +2,12 @@
   "plugins": ["prettier-plugin-jsdoc"],
   "overrides": [
     {
+      "files": ["README.md", "**/README.md"],
+      "options": {
+        "proseWrap": "never"
+      }
+    },
+    {
       "files": ["*.md", "*.mdx"]
     },
     {

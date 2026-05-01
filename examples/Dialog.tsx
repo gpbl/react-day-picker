@@ -1,6 +1,6 @@
+import { DayPicker } from "@daypicker/react";
 import { format, isValid, parse } from "date-fns";
 import React, { useEffect, useId, useRef, useState } from "react";
-import { DayPicker } from "react-day-picker";
 
 export function Dialog() {
   const dialogRef = useRef<HTMLDialogElement>(null);

@@ -1,6 +1,5 @@
+import type { DateRange, DayPickerProps } from "@daypicker/react";
 import React from "react";
-
-import type { DateRange, DayPickerProps } from "react-day-picker";
 
 import styles from "./styles.module.css";
 

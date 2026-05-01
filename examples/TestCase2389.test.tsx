@@ -1,6 +1,5 @@
+import { labelGrid } from "@daypicker/react";
 import React from "react";
-
-import { labelGrid } from "react-day-picker";
 
 import { dateButton, grid, gridcell, nextButton } from "@/test/elements";
 import { render } from "@/test/render";

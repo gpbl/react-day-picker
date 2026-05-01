@@ -17,7 +17,25 @@ If you are upgrading from v8 or earlier, first follow the
 ## 1. Upgrade the package
 
 ```bash npm2yarn
-npm install react-day-picker@next
+npm install @daypicker/react@next
+```
+
+The `react-day-picker` package name remains available in v10 for
+compatibility, but `@daypicker/react` is the preferred package name for new
+projects and upgraded imports.
+
+```diff
+- import { DayPicker } from "react-day-picker";
+- import "react-day-picker/style.css";
++ import { DayPicker } from "@daypicker/react";
++ import "@daypicker/react/style.css";
+```
+
+Locale imports move the same way:
+
+```diff
+- import { es } from "react-day-picker/locale";
++ import { es } from "@daypicker/react/locale";
 ```
 
 ## 2. Replace removed navigation props
@@ -127,7 +145,7 @@ Common migrations:
 | `day_selected` | `selected` |
 | `day_disabled` | `disabled` |
 
-## 7. Update imports
+## 7. Update calendar package imports
 
 These imports were removed in v10:
 

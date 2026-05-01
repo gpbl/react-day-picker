@@ -26,7 +26,7 @@ See the [full source code](https://github.com/gpbl/react-day-picker/blob/release
 import { useId, useState } from "react";
 
 import { format, isValid, parse } from "date-fns";
-import { DayPicker } from "react-day-picker";
+import { DayPicker } from "@daypicker/react";
 
 /** Render an input field bound to a DayPicker calendar. */
 export function Input() {
@@ -107,7 +107,7 @@ If a screen reader keeps the arrow keys for browse mode (for example, NVDA), set
 import { useEffect, useId, useRef, useState } from "react";
 
 import { format, isValid, parse } from "date-fns";
-import { DayPicker } from "react-day-picker";
+import { DayPicker } from "@daypicker/react";
 
 export function Dialog() {
   const dialogRef = useRef<HTMLDialogElement>(null);

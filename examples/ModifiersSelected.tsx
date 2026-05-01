@@ -1,6 +1,6 @@
+import { DayPicker, type PropsSingle } from "@daypicker/react";
 import { subDays } from "date-fns";
 import React from "react";
-import { DayPicker, type PropsSingle } from "react-day-picker";
 
 export function ModifiersSelected() {
   const yesterday = subDays(new Date(), 1);

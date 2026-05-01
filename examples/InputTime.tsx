@@ -1,6 +1,6 @@
+import { DayPicker } from "@daypicker/react";
 import { format, setHours, setMinutes } from "date-fns";
 import React, { type ChangeEventHandler, useEffect, useState } from "react";
-import { DayPicker } from "react-day-picker";
 
 export function InputTime() {
   const [selected, setSelected] = useState<Date>();

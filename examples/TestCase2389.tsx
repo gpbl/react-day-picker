@@ -1,6 +1,5 @@
+import { type DateRange, DayPicker } from "@daypicker/react";
 import React, { useState } from "react";
-
-import { type DateRange, DayPicker } from "react-day-picker";
 
 export function TestCase2389() {
   const [selectedPeriod, setSelectedPeriod] = useState<DateRange | undefined>();

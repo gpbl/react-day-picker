@@ -3,7 +3,7 @@ title: Changing the Locale
 sidebar_position: 1
 ---
 
-DayPicker can localize month names, weekday labels, and other text using the locales provided by [date-fns](https://date-fns.org/docs/I18n). All locales are exported from `react-day-picker/locale`.
+DayPicker can localize month names, weekday labels, and other text using the locales provided by [date-fns](https://date-fns.org/docs/I18n). All locales are exported from `@daypicker/react/locale`.
 
 By default, DayPicker uses the English (US) locale (`en-US`). You can override this via the `locale` prop.
 
@@ -14,8 +14,8 @@ By default, DayPicker uses the English (US) locale (`en-US`). You can override t
 For example, to set the calendar to Spanish, import the `es` locale and pass it to the `locale` prop:
 
 ```tsx
-import { DayPicker } from "react-day-picker";
-import { es } from "react-day-picker/locale";
+import { DayPicker } from "@daypicker/react";
+import { es } from "@daypicker/react/locale";
 
 export function Spanish() {
   return <DayPicker locale={es} />;
@@ -33,7 +33,7 @@ DayPicker sets the root element `lang` attribute from the active locale code (`l
 If you need a different language tag, pass the `lang` prop explicitly.
 
 ```tsx
-import { arSA } from "react-day-picker/locale";
+import { arSA } from "@daypicker/react/locale";
 
 <DayPicker locale={arSA} />;
 ```
@@ -55,8 +55,8 @@ Use the `numerals` prop to select the numbering system used by labels and format
 | `numerals` | [`Numerals`](../api/type-aliases/Numerals.md) | Numbering system for labels and formatted text. |
 
 ```tsx
-import { DayPicker } from "react-day-picker";
-import { hi } from "react-day-picker/locale";
+import { DayPicker } from "@daypicker/react";
+import { hi } from "@daypicker/react/locale";
 
 export function HindiWithDevanagariNumerals() {
   return <DayPicker locale={hi} numerals="deva" />;
@@ -72,7 +72,7 @@ export function HindiWithDevanagariNumerals() {
 Set the text direction to right-to-left with the `dir` prop.
 
 ```tsx
-import { arSA } from "react-day-picker/locale";
+import { arSA } from "@daypicker/react/locale";
 
 <DayPicker locale={arSA} dir="rtl" />;
 ```

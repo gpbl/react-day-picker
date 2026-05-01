@@ -2,15 +2,13 @@
 
 Ethiopic calendar support for [React DayPicker](https://daypicker.dev).
 
-This package renders DayPicker with Ethiopic calendar month and year logic. It
-uses the Amharic locale and Ethiopic numerals by default.
+This package renders DayPicker with Ethiopic calendar month and year logic. It uses the Amharic locale and Ethiopic numerals by default.
 
 <a href="https://www.npmjs.com/package/@daypicker/ethiopic"><img src="https://img.shields.io/npm/v/%40daypicker%2Fethiopic" alt="npm version"/></a> <img src="https://img.shields.io/npm/dm/%40daypicker%2Fethiopic.svg" alt="npm downloads"/> <img src="https://img.shields.io/bundlephobia/minzip/%40daypicker%2Fethiopic" alt="Min gzipped size"/>
 
 ## Installation
 
-Install the v10 prerelease of the React DayPicker package with the Ethiopic
-calendar addon:
+Install the v10 prerelease of the React DayPicker package with the Ethiopic calendar addon:
 
 ```bash
 npm install @daypicker/react@next @daypicker/ethiopic@next

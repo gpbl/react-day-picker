@@ -28,14 +28,14 @@ import {
   faIR as faIRpersian,
   getDateLib as getDateLibPersian,
 } from "@daypicker/persian";
-import React from "react";
 import {
   DateLib,
   type DateRange,
   DayPicker,
   isDateRange,
-} from "react-day-picker";
-import * as locales from "react-day-picker/locale";
+} from "@daypicker/react";
+import * as locales from "@daypicker/react/locale";
+import React from "react";
 import { BrowserWindow } from "../BrowserWindow";
 import { HighlightWithTheme } from "../HighlightWithTheme";
 import { CustomizationFieldset } from "./CustomizationFieldset";
@@ -87,7 +87,7 @@ export function Playground({ basePath = "/playground" }: PlaygroundProps) {
     localeName &&
     (calendarLocale
       ? `import { ${localeName} } from "@daypicker/${props.calendar}";`
-      : `import { ${localeName} } from "react-day-picker/locale";`);
+      : `import { ${localeName} } from "@daypicker/react/locale";`);
 
   const importStatements: string[] = [];
 
@@ -102,7 +102,7 @@ export function Playground({ basePath = "/playground" }: PlaygroundProps) {
   } else if (props.calendar === "hijri") {
     importStatements.push(`import { DayPicker } from "@daypicker/hijri";`);
   } else {
-    importStatements.push(`import { DayPicker } from "react-day-picker";`);
+    importStatements.push(`import { DayPicker } from "@daypicker/react";`);
   }
 
   if (localeImport) {

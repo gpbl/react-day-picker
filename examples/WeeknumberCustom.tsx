@@ -1,6 +1,6 @@
+import { DayPicker, type WeekNumberProps } from "@daypicker/react";
 import { addMonths } from "date-fns";
 import React from "react";
-import { DayPicker, type WeekNumberProps } from "react-day-picker";
 
 const today = new Date(2021, 0, 1);
 

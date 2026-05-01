@@ -1,6 +1,6 @@
+import { type DayEventHandler, DayPicker } from "@daypicker/react";
 import { isSameDay } from "date-fns";
 import React, { useState } from "react";
-import { type DayEventHandler, DayPicker } from "react-day-picker";
 
 export function CustomMultiple() {
   const [value, setValue] = useState<Date[]>([]);
