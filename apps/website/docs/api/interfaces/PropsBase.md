@@ -558,8 +558,8 @@ Adjust the positioning of the navigation buttons.
 - `after`: Displays the buttons after the caption. This ensures the tab order
   matches the visual order.
 
-If not set, the buttons default to being displayed after the caption, but
-the tab order may not align with the visual order.
+If not set, DayPicker preserves its legacy layout, but the tab order may
+not align with the visual order when using `captionLayout="dropdown"`.
 
 #### Since
 

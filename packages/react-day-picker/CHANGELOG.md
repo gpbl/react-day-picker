@@ -30,7 +30,6 @@ DayPicker v10 removes all previously deprecated public APIs from v9.
 
 #### Breaking Changes
 
-- default `navLayout` to `after`
 - remove deprecated props: `fromDate`, `toDate`, `fromMonth`, `toMonth`, `fromYear`, `toYear`, `initialFocus`
 - remove deprecated event props: `onWeekNumberClick`, `onDayKeyUp`, `onDayKeyPress`, `onDayPointerEnter`, `onDayPointerLeave`, `onDayTouchCancel`, `onDayTouchEnd`, `onDayTouchMove`, `onDayTouchStart`
 - remove deprecated type exports from `types/deprecated`

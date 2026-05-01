@@ -60,16 +60,16 @@ Without specifying the `startMonth` and `endMonth` properties, the dropdown will
 ## Navigation Layouts
 
 Use the `navLayout` prop to adjust the positioning of the navigation buttons.
-When omitted, DayPicker defaults to `navLayout="after"`.
 
 | Prop Name   | Type                     | Description                                       |
 | ----------- | ------------------------ | ------------------------------------------------- |
 | `navLayout` | `"around"`<br/>`"after"` | Adjust the positioning of the navigation buttons. |
 
-| Navigation Layout | Description                                                                                |
-| ----------------- | ------------------------------------------------------------------------------------------ |
-| `"around"`        | Buttons are displayed on either side of the caption.                                       |
-| `"after"`         | Buttons are displayed after the caption, ensuring the tab order matches the visual order.  |
+| Navigation Layout | Description                                                                               |
+| ----------------- | ----------------------------------------------------------------------------------------- |
+| `"around"`        | Buttons are displayed on either side of the caption.                                      |
+| `"after"`         | Buttons are displayed after the caption, ensuring the tab order matches the visual order. |
+| `undefined`       | Uses the legacy layout. With dropdown captions, tab order may not match visual order.     |
 
 ```tsx
 <DayPicker navLayout="around" />
@@ -88,6 +88,12 @@ When omitted, DayPicker defaults to `navLayout="after"`.
 </BrowserWindow>
 
 See [Navigation](./navigation.mdx) for additional ways to customize the calendar’s navigation.
+
+:::info Tab Order vs. Visual Order
+
+Leaving `navLayout` undefined preserves the legacy layout for existing integrations. When using `"dropdown"` as caption layout, set `navLayout` to `"after"` or `"around"` to ensure the component [remains accessible](https://www.w3.org/TR/WCAG22/#focus-order).
+
+:::
 
 ### Disabling the Navigation {#disablenavigation}
 

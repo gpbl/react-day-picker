@@ -244,8 +244,8 @@ describe("useAnimation", () => {
         await user.click(nextButton());
       });
 
-      test("renders two animated nav containers", () => {
-        expect(getNavContainers()).toHaveLength(2);
+      test("renders one animated nav container", () => {
+        expect(getNavContainers()).toHaveLength(1);
       });
 
       test("renders two animated month containers", () => {
@@ -268,8 +268,8 @@ describe("useAnimation", () => {
         expect(getRootContainer()).toHaveStyle("isolation: isolate");
       });
 
-      test("places the entering nav container above the exiting nav container", () => {
-        expect(getNavContainers()[1]).toHaveStyle("z-index: 1");
+      test("places the nav container above the exiting month", () => {
+        expect(getNavContainers()[0]).toHaveStyle("z-index: 1");
       });
 
       test("positions the exiting month container relatively", () => {

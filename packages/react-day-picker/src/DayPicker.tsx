@@ -153,12 +153,8 @@ export function DayPicker(initialProps: DayPickerProps) {
       props.classNames,
     ]);
 
-  if (!props.today || props.navLayout === undefined) {
-    props = {
-      ...props,
-      today: props.today ?? dateLib.today(),
-      navLayout: props.navLayout ?? "after",
-    };
+  if (!props.today) {
+    props = { ...props, today: dateLib.today() };
   }
 
   const {
@@ -404,6 +400,18 @@ export function DayPicker(initialProps: DayPickerProps) {
           className={classNames[UI.Months]}
           style={styles?.[UI.Months]}
         >
+          {!props.hideNavigation && !navLayout && (
+            <components.Nav
+              data-animated-nav={props.animate ? "true" : undefined}
+              className={classNames[UI.Nav]}
+              style={styles?.[UI.Nav]}
+              aria-label={labelNav()}
+              onPreviousClick={handlePreviousClick}
+              onNextClick={handleNextClick}
+              previousMonth={previousMonth}
+              nextMonth={nextMonth}
+            />
+          )}
           {months.map((calendarMonth, displayIndex) => {
             return (
               <components.Month

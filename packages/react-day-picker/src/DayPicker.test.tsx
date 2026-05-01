@@ -512,11 +512,11 @@ describe("when navLayout is set", () => {
     beforeEach(() => {
       render(<DayPicker today={today} data-testid={testId} />);
     });
-    test("defaults navigation layout to 'after'", () => {
-      expect(dayPicker()).toHaveAttribute("data-nav-layout", "after");
+    test("does not render a navigation layout data attribute", () => {
+      expect(dayPicker()).not.toHaveAttribute("data-nav-layout");
     });
-    test("renders navigation after the month caption", () => {
-      expect(nav().previousSibling).toHaveTextContent("February 2024");
+    test("renders navigation before the month", () => {
+      expect(nav().nextSibling).toHaveTextContent("February 2024");
     });
   });
   describe("when navLayout is set to 'around'", () => {

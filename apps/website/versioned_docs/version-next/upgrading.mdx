@@ -9,9 +9,6 @@ DayPicker v10 removes the APIs that were deprecated in v9.
 :::note Easy upgrade path
 If your app is already on v9 and does not rely on deprecated APIs, the upgrade
 is mostly mechanical.
-
-The main behavior change outside the removed APIs is that omitting
-`navLayout` now behaves like `navLayout="after"`.
 :::
 
 If you are upgrading from v8 or earlier, first follow the
@@ -156,21 +153,7 @@ example:
 npm install @daypicker/react@next @daypicker/persian@next
 ```
 
-## 8. Review the new `navLayout` default
-
-In v10, omitting [`navLayout`](./api/interfaces/PropsBase.md#navlayout) is
-equivalent to `navLayout="after"`.
-
-Check:
-
-- Navigation button placement
-- Focus order and keyboard navigation
-- Tests or snapshots that assert DOM order or `data-nav-layout`
-
-If you want the behavior to stay explicit across upgrades, set `navLayout`
-directly to `"after"` or `"around"`.
-
-## 9. Audit copied wrappers
+## 8. Audit copied wrappers
 
 If your app uses a copied wrapper around DayPicker, audit that local file after
 upgrading.

@@ -190,7 +190,8 @@ export interface PropsBase {
    * - `after`: Displays the buttons after the caption. This ensures the tab order
    *   matches the visual order.
    *
-   * Default value is `after`.
+   * If not set, DayPicker preserves its legacy layout, but the tab order may
+   * not align with the visual order when using `captionLayout="dropdown"`.
    *
    * @since 9.7.0
    * @see https://daypicker.dev/docs/customization#navigation-layouts
