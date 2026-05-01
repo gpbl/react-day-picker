@@ -4,25 +4,49 @@ sidebar_position: 5
 
 # Upgrading to v10
 
-DayPicker v10 removes the APIs that were deprecated in v9.
+DayPicker v10 is mostly a cleanup release. If your app is already on v9 and
+does not use APIs or props deprecated in v9, most of the upgrade is package and
+import changes.
 
-:::note Easy upgrade path
-If your app is already on v9 and does not rely on deprecated APIs, the upgrade
-is mostly mechanical.
-:::
+The main changes are:
+
+- APIs and props deprecated in v9 were removed.
+- `@daypicker/react` is the new preferred package name. It re-exports
+  `react-day-picker`, which remains available for compatibility.
+- Non-Gregorian calendars moved to separate add-on packages. If you use imports
+  such as `react-day-picker/hebrew`, `react-day-picker/hijri`, or
+  `react-day-picker/persian`, install the matching add-on package.
+
+## Upgrade checklist
 
 If you are upgrading from v8 or earlier, first follow the
 [v9 upgrade guide](/upgrading) and remove the v9 deprecations there.
 
+1. [Upgrade the package](#1-upgrade-the-package): replace `react-day-picker`
+   with `@daypicker/react@next` and update imports.
+2. [Replace deprecated API](#2-replace-deprecated-api): if you use deprecated
+   v9 props or APIs, replace them with the current names.
+3. [Update non-Gregorian package imports](#3-update-non-gregorian-package-imports):
+   if you use a non-Gregorian calendar, install the matching add-on package and
+   update the calendar imports.
+4. [Check local DayPicker wrappers](#4-check-local-daypicker-wrappers): if your
+   app has a local `Calendar` or `DatePicker` wrapper, update that wrapper
+   first, then check the screens that use it.
+
 ## 1. Upgrade the package
 
+The recommended v10 package name is `@daypicker/react`. Remove the previous
+`react-day-picker` dependency, then install the package under its preferred
+name:
+
 ```bash npm2yarn
+npm remove react-day-picker
 npm install @daypicker/react@next
 ```
 
-The `react-day-picker` package name remains available in v10 for
-compatibility, but `@daypicker/react` is the preferred package name for new
-projects and upgraded imports.
+The `react-day-picker` package name remains available in v10 for compatibility,
+so existing imports can still work. Use `@daypicker/react` for new projects and
+upgraded imports.
 
 ```diff
 - import { DayPicker } from "react-day-picker";
@@ -38,7 +62,12 @@ Locale imports move the same way:
 + import { es } from "@daypicker/react/locale";
 ```
 
-## 2. Replace removed navigation props
+## 2. Replace deprecated API
+
+If your app still uses APIs or props deprecated in v9, replace them with the
+current names below. The deprecated names were removed in v10.
+
+### Replace removed navigation props
 
 | Removed prop | Use instead |
 | --- | --- |
@@ -74,7 +103,7 @@ Locale imports move the same way:
 />
 ```
 
-## 3. Replace removed focus and event props
+### Replace removed focus and event props
 
 | Removed prop | Use instead |
 | --- | --- |
@@ -96,7 +125,7 @@ For extra DOM event handlers on each day, compose around the default
 [`DayButton`](./api/functions/DayButton.md) in the
 [Custom Components guide](./guides/custom-components.mdx).
 
-## 4. Replace removed aliases
+### Replace removed aliases
 
 | Removed API | Use instead |
 | --- | --- |
@@ -109,7 +138,7 @@ For extra DOM event handlers on each day, compose around the default
 
 If you already migrated to the v9 names, there is nothing to change here.
 
-## 5. Update custom components
+### Replace `components.Button`
 
 The deprecated `components.Button` entry was removed in v10.
 
@@ -127,7 +156,7 @@ Use
 />
 ```
 
-## 6. Update `classNames` and `styles` keys
+### Update `classNames` and `styles` keys
 
 The deprecated compatibility keys were removed from `classNames` and `styles`.
 Use only the current keys from
@@ -145,38 +174,99 @@ Common migrations:
 | `day_selected` | `selected` |
 | `day_disabled` | `disabled` |
 
-## 7. Update calendar package imports
-
-These imports were removed in v10:
-
-- `react-day-picker/jalali` - use `@daypicker/persian`
-- `react-day-picker/buddhist` - use `@daypicker/buddhist`
-- `react-day-picker/ethiopic` - use `@daypicker/ethiopic`
-- `react-day-picker/hebrew` - use `@daypicker/hebrew`
-- `react-day-picker/hijri` - use `@daypicker/hijri`
-- `react-day-picker/persian` - use `@daypicker/persian`
-- `amET` from `react-day-picker/locale` - use `amET` from
-  `@daypicker/ethiopic`
-- `enUSJalali` from `react-day-picker/locale` - use `enUSJalali` from
-  `@daypicker/persian`
-- `faIRJalali` from `react-day-picker/locale` - use `faIRJalali` from
-  `@daypicker/persian`
-- Deprecated aliases from `types/deprecated`
+## 3. Update non-Gregorian package imports
 
 The calendar packages are now published separately from the main React package.
-Install the add-on package you use alongside `@daypicker/react@next`. For
-example:
+Install the add-on package you use alongside `@daypicker/react@next`.
+
+### Persian calendar
+
+The old `jalali` import path now uses the Persian calendar package.
 
 ```bash npm2yarn
 npm install @daypicker/react@next @daypicker/persian@next
 ```
 
-## 8. Audit copied wrappers
+| Removed import | Use instead |
+| --- | --- |
+| `react-day-picker/jalali` | `@daypicker/persian` |
+| `react-day-picker/persian` | `@daypicker/persian` |
+| `enUSJalali` from `react-day-picker/locale` | `enUSJalali` from `@daypicker/persian` |
+| `faIRJalali` from `react-day-picker/locale` | `faIRJalali` from `@daypicker/persian` |
 
-If your app uses a copied wrapper around DayPicker, audit that local file after
-upgrading.
+### Buddhist calendar
 
-This is especially important for wrappers that still reference removed props
-like `initialFocus`, `fromMonth`, `toMonth`, `fromYear`, or `toYear`, or old
-class name keys like `table`, `nav_button`, `day_selected`, and
-`day_disabled`.
+```bash npm2yarn
+npm install @daypicker/react@next @daypicker/buddhist@next
+```
+
+| Removed import | Use instead |
+| --- | --- |
+| `react-day-picker/buddhist` | `@daypicker/buddhist` |
+
+### Ethiopic calendar
+
+```bash npm2yarn
+npm install @daypicker/react@next @daypicker/ethiopic@next
+```
+
+| Removed import | Use instead |
+| --- | --- |
+| `react-day-picker/ethiopic` | `@daypicker/ethiopic` |
+| `amET` from `react-day-picker/locale` | `amET` from `@daypicker/ethiopic` |
+
+### Hebrew calendar
+
+```bash npm2yarn
+npm install @daypicker/react@next @daypicker/hebrew@next
+```
+
+| Removed import | Use instead |
+| --- | --- |
+| `react-day-picker/hebrew` | `@daypicker/hebrew` |
+
+### Hijri calendar
+
+```bash npm2yarn
+npm install @daypicker/react@next @daypicker/hijri@next
+```
+
+| Removed import | Use instead |
+| --- | --- |
+| `react-day-picker/hijri` | `@daypicker/hijri` |
+
+Deprecated aliases from `types/deprecated` were also removed.
+
+## 4. Check local DayPicker wrappers
+
+A wrapper is a component in your app that renders `DayPicker` with shared
+defaults. Apps often use wrappers to keep styles, class names, localization, or
+custom components in one place.
+
+For example:
+
+```tsx
+import { DayPicker, type DayPickerProps } from "@daypicker/react";
+
+export function Calendar(props: DayPickerProps) {
+  return (
+    <DayPicker classNames={classNames} components={components} {...props} />
+  );
+}
+```
+
+This is common when using a design system, a copied example, or a calendar
+component generated by a UI library.
+
+Update the wrapper first, because every screen that uses it depends on the same
+DayPicker props and imports.
+
+| Check for | What to do |
+| --- | --- |
+| Imports from `react-day-picker` | Move them to `@daypicker/react`. |
+| Removed navigation props like `fromMonth`, `toMonth`, `fromYear`, `toYear`, `fromDate`, or `toDate` | Replace them with `startMonth`, `endMonth`, and `hidden` as needed. |
+| Removed focus prop `initialFocus` | Use `autoFocus`. |
+| Removed event props like `onWeekNumberClick` or `onDayKeyUp` | Move the behavior into a custom `WeekNumber` or `DayButton` component. |
+| `components={{ Button: ... }}` | Use `PreviousMonthButton` and `NextMonthButton`. |
+| Old `classNames` or `styles` keys like `table`, `nav_button`, `day_selected`, or `day_disabled` | Replace them with the current keys. |
+| Non-Gregorian imports like `react-day-picker/hebrew` | Install the matching add-on package and update the import. |

@@ -2,6 +2,7 @@
   "docs": [
     "intro",
     "start",
+    "upgrading",
     {
       "type": "category",
       "label": "Customization",
@@ -62,7 +63,6 @@
       ]
     },
     "changelog",
-    "upgrading",
     "license"
   ],
   "api": [
