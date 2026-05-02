@@ -2,7 +2,12 @@
   "docs": [
     "intro",
     "start",
-    "upgrading",
+    {
+      "type": "category",
+      "label": "Upgrading guide",
+      "collapsed": false,
+      "items": ["upgrading", "upgrading-v8-to-v10"]
+    },
     {
       "type": "category",
       "label": "Customization",

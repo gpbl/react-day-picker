@@ -1,54 +1,79 @@
 ---
-sidebar_position: 5
+sidebar_label: Upgrading from v8
+sidebar_position: 6
 ---
 
-# Upgrading to v9
+# Upgrading from v8 to v10
 
-DayPicker v9 includes significant updates to accessibility, styles,
-internationalization, and performance. If your app is on v8, you can usually
-upgrade in one pass by updating the package, CSS imports, controlled selection,
-custom styles, and any custom components.
+DayPicker v10 removes the compatibility APIs that were deprecated in v9 and
+introduces `@daypicker/react` as the preferred package name. If your app is on
+v8, you can upgrade directly to v10 by applying the v9 migration changes and the
+v10 package changes in one pass.
 
-See the [changelog](./changelog.mdx) for the full list of changes.
+This guide is written for direct v8 to v10 upgrades. If your app is already on
+v9 and does not use deprecated v9 APIs, use the shorter
+[v10 upgrade guide](./upgrading.mdx).
 
-## Upgrading from v7
+The main migration work is:
 
-If you are upgrading from v7 or earlier, first follow the
-[migration guide from v7 to v8](/v8/upgrading), then follow this guide.
+- Replace the package and imports with `@daypicker/react`.
+- Update CSS imports and custom DayPicker styles.
+- Add `onSelect` wherever your app passes a `selected` prop.
+- Replace removed navigation, focus, event, component, formatter, label,
+  hook, utility, and TypeScript aliases.
 
 ## Upgrade checklist
 
 Most apps can migrate in this order:
 
-1. [Upgrade the package](#1-upgrade-the-package): install the latest
-   `react-day-picker` package.
+1. [Upgrade the package](#1-upgrade-the-package): install `@daypicker/react` and
+   update imports.
 2. [Update CSS imports and styles](#2-update-css-imports-and-styles): replace
    v8 CSS imports, CSS variables, class names, and `styles` keys.
 3. [Add `onSelect` when using `selected`](#3-add-onselect-when-using-selected):
    make controlled selections explicit.
 4. [Replace navigation boundary props](#4-replace-navigation-boundary-props):
    move from `from*` and `to*` props to `startMonth`, `endMonth`, and `hidden`.
-5. [Update custom components](#5-update-custom-components): replace renamed
-   component slots.
+5. [Update custom components](#5-update-custom-components): replace renamed or
+   removed component slots.
 6. [Update formatters, labels, and tests](#6-update-formatters-labels-and-tests):
    return strings from formatters and update ARIA label overrides or assertions.
-7. [Replace deprecated aliases and types](#7-replace-deprecated-aliases-and-types):
-   remove names kept only for compatibility.
+7. [Replace removed props, hooks, aliases, and types](#7-replace-removed-props-hooks-aliases-and-types):
+   remove APIs that v9 kept only for compatibility.
 
 If your app wraps DayPicker in a shared `Calendar` or `DatePicker` component,
 update that wrapper first, then check the screens that use it.
 
 ## 1. Upgrade the package
 
-Install the latest v9 release:
+The recommended v10 package name is `@daypicker/react`. While v10 is in
+prerelease, install the `next` tag:
 
 ```bash npm2yarn
-npm install react-day-picker@latest
+npm remove react-day-picker
+npm install @daypicker/react@next
+```
+
+The `react-day-picker` package name remains available in v10 for compatibility,
+but use `@daypicker/react` for upgraded code.
+
+```diff
+- import { DayPicker } from "react-day-picker";
++ import { DayPicker } from "@daypicker/react";
+```
+
+In v8, locale objects were commonly imported from `date-fns/locale`. In v10,
+you can import them from `@daypicker/react/locale`:
+
+```diff
+- import { es } from "date-fns/locale";
++ import { es } from "@daypicker/react/locale";
 ```
 
 If your app installed `date-fns` only because v8 required it as a peer
-dependency, you can remove it. Keep `date-fns` if you use it directly, for
-example for formatting dates or passing locales from `date-fns/locale`.
+dependency or for DayPicker locale objects, you can remove it after moving those
+locale imports. Keep `date-fns` if your app uses it directly, for example for
+formatting, parsing, or date calculations outside DayPicker.
 
 ```bash npm2yarn
 npm remove date-fns
@@ -60,17 +85,17 @@ Replace the v8 bundled CSS import:
 
 ```diff
 - import "react-day-picker/dist/style.css";
-+ import "react-day-picker/style.css";
++ import "@daypicker/react/style.css";
 ```
 
 If you import the CSS module, update that import path as well:
 
 ```diff
 - import classNames from "react-day-picker/dist/style.module.css";
-+ import classNames from "react-day-picker/style.module.css";
++ import classNames from "@daypicker/react/style.module.css";
 ```
 
-The default CSS and the rendered markup changed in v9. If you only import
+The default CSS and the rendered markup changed after v8. If you only import
 DayPicker's default CSS and do not override it, updating the CSS import path may
 be enough. If your app has custom CSS selectors, CSS variables, `classNames`, or
 `styles`, review them carefully.
@@ -82,6 +107,7 @@ Common style updates:
 - The old `day` element is now `day_button`; the old `cell` element is now
   `day`.
 - Class names for several UI elements and day states changed.
+- Deprecated v8 compatibility keys were removed from `classNames` and `styles`.
 
 Example class name prop update:
 
@@ -169,8 +195,6 @@ Example CSS selector update:
 
 </details>
 
-See the current class name keys in the [`UI`](./api/enumerations/UI.md) enum.
-
 ## 3. Add `onSelect` when using `selected`
 
 When you pass `selected`, DayPicker expects you to handle selection changes with
@@ -200,17 +224,17 @@ selection mode, use custom modifiers instead of `selected`.
 
 ## 4. Replace navigation boundary props
 
-The old navigation boundary props are deprecated in v9. Replace them with
-`startMonth`, `endMonth`, and `hidden` so your app is ready for v10.
+The old navigation boundary props were deprecated in v9 and removed in v10.
+Replace them with `startMonth`, `endMonth`, and `hidden`.
 
-| Deprecated prop | Use instead                                                   |
-| --------------- | ------------------------------------------------------------- |
-| `fromMonth`     | `startMonth`                                                  |
-| `fromYear`      | `startMonth` with the first month of that year                |
-| `toMonth`       | `endMonth`                                                    |
-| `toYear`        | `endMonth` with the last month of that year                   |
-| `fromDate`      | `hidden` with a `before` matcher, and optionally `startMonth` |
-| `toDate`        | `hidden` with an `after` matcher, and optionally `endMonth`   |
+| Removed prop | Use instead                                                   |
+| ------------ | ------------------------------------------------------------- |
+| `fromMonth`  | `startMonth`                                                  |
+| `fromYear`   | `startMonth` with the first month of that year                |
+| `toMonth`    | `endMonth`                                                    |
+| `toYear`     | `endMonth` with the last month of that year                   |
+| `fromDate`   | `hidden` with a `before` matcher, and optionally `startMonth` |
+| `toDate`     | `hidden` with an `after` matcher, and optionally `endMonth`   |
 
 Replace year boundaries:
 
@@ -279,7 +303,7 @@ Navigation icons now use one `Chevron` component:
 <details>
 <summary>Component changes from v8</summary>
 
-| v8 component   | v9 replacement                                                       |
+| v8 component   | v10 replacement                                                      |
 | -------------- | -------------------------------------------------------------------- |
 | `Caption`      | `MonthCaption`                                                       |
 | `Day`          | Still available, but interactive days now render a `DayButton`.      |
@@ -292,8 +316,6 @@ Navigation icons now use one `Chevron` component:
 | `Row`          | `Week`                                                               |
 
 </details>
-
-See the [custom components guide](./guides/custom-components.mdx) for details.
 
 ## 6. Update formatters, labels, and tests
 
@@ -328,7 +350,7 @@ Use a custom component when you need React markup:
 
 Rename formatter and label aliases:
 
-| Deprecated API       | Use instead          |
+| Removed API          | Use instead          |
 | -------------------- | -------------------- |
 | `formatMonthCaption` | `formatCaption`      |
 | `formatYearCaption`  | `formatYearDropdown` |
@@ -352,38 +374,84 @@ Update test selectors as needed:
 + screen.getByRole("button", { name: "Go to the Next Month" });
 ```
 
-## 7. Replace deprecated aliases and types
+## 7. Replace removed props, hooks, aliases, and types
 
-Several v8 names still work in v9 for compatibility, but they are deprecated.
-Replace them with the current names before upgrading to v10.
+Several v8 names still worked in v9 for compatibility. They were removed in
+v10.
 
-### Deprecated utility aliases
+### Removed props
 
-| Deprecated API  | Use instead          |
+| Removed prop        | Use instead                                             |
+| ------------------- | ------------------------------------------------------- |
+| `fromDate`          | `hidden={{ before: date }}` and optionally `startMonth` |
+| `toDate`            | `hidden={{ after: date }}` and optionally `endMonth`    |
+| `fromMonth`         | `startMonth`                                            |
+| `toMonth`           | `endMonth`                                              |
+| `fromYear`          | `startMonth={new Date(year, 0)}`                        |
+| `toYear`            | `endMonth={new Date(year, 11)}`                         |
+| `initialFocus`      | `autoFocus`                                             |
+| `onWeekNumberClick` | A custom `WeekNumber` component                         |
+| `onDayKeyUp`        | A custom `DayButton` component                          |
+| `onDayKeyPress`     | A custom `DayButton` component                          |
+| `onDayPointerEnter` | A custom `DayButton` component                          |
+| `onDayPointerLeave` | A custom `DayButton` component                          |
+| `onDayTouchCancel`  | A custom `DayButton` component                          |
+| `onDayTouchEnd`     | A custom `DayButton` component                          |
+| `onDayTouchMove`    | A custom `DayButton` component                          |
+| `onDayTouchStart`   | A custom `DayButton` component                          |
+
+For week-based selections, follow the
+[week selection example](./guides/custom-selections.mdx#week-numbers-and-starts).
+For extra DOM event handlers on days, compose around the default `DayButton` in
+a custom component.
+
+### Removed hooks and internal providers
+
+The v8 custom component guide exposed several hooks and providers that are no
+longer part of the public API. If your app imported any of them, replace that
+code while migrating custom components.
+
+| Removed API | Use instead |
+| --- | --- |
+| `useInput` | Manage the input value, selected date, and visible month in your component state. See the [input fields guide](./guides/input-fields.mdx). |
+| `useNavigation` | [`useDayPicker`](./api/react/functions/useDayPicker.md), which exposes `goToMonth`, `nextMonth`, and `previousMonth`. |
+| `useActiveModifiers` | [`useDayPicker`](./api/react/functions/useDayPicker.md) and its `getModifiers` helper. |
+| `useDayRender` | A custom [`Day`](./api/react/functions/Day.md) or [`DayButton`](./api/react/functions/DayButton.md) component. |
+| `useFocusContext` | A custom [`DayButton`](./api/react/functions/DayButton.md) component with the focus handlers your app needs. |
+| `useSelectSingle`, `useSelectMultiple`, `useSelectRange` | Controlled `selected` and `onSelect` props, or `select` from [`useDayPicker`](./api/react/functions/useDayPicker.md) inside a custom component. |
+| `DayPickerProvider`, `RootProvider`, `NavigationProvider`, `FocusProvider`, `SelectSingleProvider`, `SelectMultipleProvider`, `SelectRangeProvider` | Do not import DayPicker providers directly. Render `DayPicker` and use custom components or [`useDayPicker`](./api/react/functions/useDayPicker.md). |
+
+### Removed utility aliases
+
+| Removed API     | Use instead          |
 | --------------- | -------------------- |
 | `isMatch`       | `dateMatchModifiers` |
 | `isDateInRange` | `rangeIncludesDate`  |
 
-### Deprecated TypeScript names
+### Removed TypeScript and exported names
 
 If you use TypeScript, replace deprecated v8 type names with the shorter current
 names.
 
 ```diff
-- import type { DayPickerDefaultProps } from "react-day-picker";
-+ import type { PropsBase } from "react-day-picker";
+- import type { DayPickerDefaultProps } from "@daypicker/react";
++ import type { PropsBase } from "@daypicker/react";
 ```
 
 <details>
-<summary>TypeScript type changes from v8</summary>
+<summary>TypeScript and exported name changes from v8</summary>
 
-| Deprecated type              | Use instead                                                |
+| Removed name                 | Use instead                                                |
 | ---------------------------- | ---------------------------------------------------------- |
 | `Caption`                    | `MonthCaption`                                             |
+| `Button`                     | Use your own button, or customize `PreviousMonthButton` and `NextMonthButton`. |
+| `CaptionDropdowns`           | Removed                                                    |
+| `CaptionNavigation`          | Removed                                                    |
 | `CaptionProps`               | `MonthCaptionProps`                                        |
 | `HeadRow`                    | Removed                                                    |
 | `Row`                        | `Week`                                                     |
 | `RowProps`                   | `WeekProps`                                                |
+| `ButtonProps`                | Use `React.ComponentProps<"button">`, `PreviousMonthButtonProps`, or `NextMonthButtonProps` depending on the button. |
 | `DayPickerSingleProps`       | `PropsSingle`                                              |
 | `DayPickerMultipleProps`     | `PropsMulti`                                               |
 | `DayPickerRangeProps`        | `PropsRange`                                               |
@@ -395,8 +463,27 @@ names.
 | `SelectMultipleEventHandler` | `PropsMulti["onSelect"]`                                   |
 | `SelectRangeEventHandler`    | `PropsRange["onSelect"]`                                   |
 | `DayPickerProviderProps`     | Removed                                                    |
+| `UseInputOptions`            | Removed with `useInput`                                    |
+| `UseInputValue`              | Removed with `useInput`                                    |
+| `InputDayPickerProps`        | Removed with `useInput`                                    |
+| `InputProps`                 | Use `React.ComponentProps<"input">`                        |
+| `NavigationContextValue`     | Removed. Use `useDayPicker`                                |
+| `FocusContextValue`          | Removed                                                    |
+| `RootContext`                | Removed                                                    |
+| `SelectSingleContextValue`   | Removed                                                    |
+| `SelectMultipleContextValue` | Removed                                                    |
+| `SelectRangeContextValue`    | Removed                                                    |
+| `SelectSingleProviderProps`  | Removed                                                    |
+| `SelectMultipleProviderProps` | Removed                                                    |
+| `SelectRangeProviderProps`   | Removed                                                    |
 | `useNavigation`              | `useDayPicker`                                             |
 | `useDayRender`               | A custom `Day` or `DayButton` component                    |
+| `useActiveModifiers`         | `useDayPicker` and its `getModifiers` helper               |
+| `useFocusContext`            | Removed                                                    |
+| `useInput`                   | Manage input state in your component                       |
+| `useSelectSingle`            | Controlled `selected` and `onSelect`, or `useDayPicker`    |
+| `useSelectMultiple`          | Controlled `selected` and `onSelect`, or `useDayPicker`    |
+| `useSelectRange`             | Controlled `selected` and `onSelect`, or `useDayPicker`    |
 | `ContextProvidersProps`      | Removed                                                    |
 | `DayLabel`                   | `typeof labelDayButton`                                    |
 | `NavButtonLabel`             | `typeof labelNext` or `typeof labelPrevious`               |
@@ -421,5 +508,6 @@ rg "selected=|initialFocus|onWeekNumberClick|onDayKeyUp|onDayKeyPress|onDayPoint
 rg "day_selected|day_disabled|day_today|day_range_|cell|table|tbody|head_cell|nav_button"
 rg "IconLeft|IconRight|IconDropdown|DayContent|Caption|HeadRow|Row"
 rg "formatMonthCaption|formatYearCaption|labelDay|labelCaption|isMatch|isDateInRange"
-rg "DayPickerSingleProps|DayPickerMultipleProps|DayPickerRangeProps|DayPickerDefaultProps|useNavigation|useDayRender"
+rg "DayPickerSingleProps|DayPickerMultipleProps|DayPickerRangeProps|DayPickerDefaultProps|useInput|useNavigation|useDayRender"
+rg "useActiveModifiers|useFocusContext|useSelectSingle|useSelectMultiple|useSelectRange|DayPickerProvider|NavigationProvider|FocusProvider"
 ```
