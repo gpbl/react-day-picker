@@ -40,6 +40,16 @@ const hebrewPath = nodeRequire.resolve("../../packages/hebrew/src/index.tsx");
 const hijriPath = nodeRequire.resolve("../../packages/hijri/src/index.tsx");
 const persianPath = nodeRequire.resolve("../../packages/persian/src/index.tsx");
 
+function createApiReferenceRedirects(path: string): string[] {
+  if (path.startsWith("/api/react/")) {
+    return [path.replace("/api/react/", "/api/")];
+  }
+  if (path.startsWith("/next/api/react/")) {
+    return [path.replace("/next/api/react/", "/next/api/")];
+  }
+  return [];
+}
+
 const config: Config = {
   title: "React DayPicker",
   tagline:
@@ -168,6 +178,7 @@ const config: Config = {
     [
       "@docusaurus/plugin-client-redirects",
       {
+        createRedirects: createApiReferenceRedirects,
         redirects: [
           {
             to: "/guides/accessibility",

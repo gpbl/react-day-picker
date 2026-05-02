@@ -1,0 +1,40 @@
+# Type Alias: OnSelectHandler\<T\>
+
+> **OnSelectHandler**\<`T`\> = (`selected`, `triggerDate`, `modifiers`, `e`) => `void`
+
+Defined in: [packages/react-day-picker/src/types/props.ts:516](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/props.ts#L516)
+
+Shared handler type for `onSelect` callback when a selection mode is set.
+
+## Type Parameters
+
+| Type Parameter | Description |
+| ------ | ------ |
+| `T` | The type of the selected item. |
+
+## Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `selected` | `T` | The selected item after the event. |
+| `triggerDate` | `Date` | The date when the event was triggered. This is typically the day clicked or interacted with. |
+| `modifiers` | [`Modifiers`](Modifiers.md) | The modifiers associated with the event. |
+| `e` | `React.MouseEvent` \| `React.KeyboardEvent` | The event object. |
+
+## Returns
+
+`void`
+
+## Example
+
+```ts
+const handleSelect: OnSelectHandler<Date> = (
+    selected,
+    triggerDate,
+    modifiers,
+    e,
+  ) => {
+    console.log("Selected:", selected);
+    console.log("Triggered by:", triggerDate);
+  };
+```

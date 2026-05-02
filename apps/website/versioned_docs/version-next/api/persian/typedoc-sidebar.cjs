@@ -1,0 +1,4 @@
+// @ts-check
+/** @type {import("@docusaurus/plugin-content-docs").SidebarsConfig} */
+const typedocSidebar = {items:[{type:"category",label:"Functions",items:[{type:"doc",id:"api/persian/functions/DayPicker",label:"DayPicker"},{type:"doc",id:"api/persian/functions/getDateLib",label:"getDateLib"}]},{type:"category",label:"Variables",items:[{type:"doc",id:"api/persian/variables/enUS",label:"enUS"},{type:"doc",id:"api/persian/variables/enUSJalali",label:"enUSJalali"},{type:"doc",id:"api/persian/variables/faIR",label:"faIR"},{type:"doc",id:"api/persian/variables/faIRJalali",label:"faIRJalali"}]}]};
+module.exports = typedocSidebar.items;

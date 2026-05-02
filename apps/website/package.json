@@ -11,6 +11,7 @@
     "serve": "PORT=2000 docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
+    "generate:api:next": "node ./scripts/generate-next-api.mjs",
     "typecheck": "tsc",
     "typecheck-watch": "tsc --noEmit --watch"
   },

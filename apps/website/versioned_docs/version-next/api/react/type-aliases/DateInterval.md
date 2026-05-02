@@ -1,0 +1,34 @@
+# Type Alias: DateInterval
+
+> **DateInterval** = \{ `after`: `Date`; `before`: `Date`; \}
+
+Defined in: [packages/react-day-picker/src/types/shared.ts:190](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L190)
+
+An interval of dates. Unlike [DateRange](DateRange.md), the range ends are not
+included.
+
+## Example
+
+```ts
+// Match days between February 2 and February 5, 2019
+  const matcher: DateInterval = {
+    after: new Date(2019, 1, 2),
+    before: new Date(2019, 1, 5),
+  };
+```
+
+## Properties
+
+### after
+
+> **after**: `Date`
+
+Defined in: [packages/react-day-picker/src/types/shared.ts:190](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L190)
+
+***
+
+### before
+
+> **before**: `Date`
+
+Defined in: [packages/react-day-picker/src/types/shared.ts:190](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L190)

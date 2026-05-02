@@ -108,7 +108,7 @@ You can import `style.module.css` if you want your CSS pre-processor to parse it
 
 | Prop Name    | Type                                              | Description                                       |
 | ------------ | ------------------------------------------------- | ------------------------------------------------- |
-| `classNames` | [`ClassNames`](../api/type-aliases/ClassNames.md) | Apply custom class names instead of the defaults. |
+| `classNames` | [`ClassNames`](../api/react/type-aliases/ClassNames.md) | Apply custom class names instead of the defaults. |
 
 ```tsx title="./MyDatePicker.jsx"
 import { DayPicker } from "@daypicker/react";
@@ -123,7 +123,7 @@ export function MyDatePicker() {
 
 ## Custom Class Names
 
-Use the `classNames` prop to apply custom class names instead of the default ones. The [`ClassNames`](../api/type-aliases/ClassNames.md) type lists all the class names used by DayPicker.
+Use the `classNames` prop to apply custom class names instead of the default ones. The [`ClassNames`](../api/react/type-aliases/ClassNames.md) type lists all the class names used by DayPicker.
 
 For example, to change the class name of the calendar container:
 
@@ -142,7 +142,7 @@ Or the disabled days:
 If you are including [Tailwind CSS](https://tailwindcss.com) in your project, use the Tailwind CSS class names to style the calendar.
 
 - Add the class names you want to override to the `classNames` prop.
-- Extend the default class names with [`getDefaultClassNames`](../api/functions/getDefaultClassNames.md).
+- Extend the default class names with [`getDefaultClassNames`](../api/react/functions/getDefaultClassNames.md).
 - Read the [`style.css`](https://github.com/gpbl/react-day-picker/blob/release/v10-next/src/style.css) file from the source and get familiar with the [UI elements](../docs/anatomy.mdx).
 - Adopt [custom components](../guides/custom-components.mdx) to further customize the HTML elements.
 
