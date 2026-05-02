@@ -97,8 +97,8 @@ const config: Config = {
               noIndex: true,
               path: "/next",
             },
-            "8.10.1": {
-              label: "8.10.1",
+            "8.10.2": {
+              label: "8.10.2",
               badge: true,
               path: "/v8",
             },
@@ -262,7 +262,7 @@ const config: Config = {
         {
           type: "docsVersionDropdown",
           position: "left",
-          versions: ["next", "current", "8.10.1"],
+          versions: ["next", "current", "8.10.2"],
           dropdownActiveClassDisabled: true,
           dropdownItemsBefore: [],
           dropdownItemsAfter: [

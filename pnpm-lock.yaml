@@ -332,8 +332,8 @@ importers:
         specifier: workspace:^
         version: link:../../packages/react-day-picker
       react-day-picker-v8:
-        specifier: npm:react-day-picker@8.10.1
-        version: react-day-picker@8.10.1(date-fns@4.1.0)(react@19.2.5)
+        specifier: npm:react-day-picker@8.10.2
+        version: react-day-picker@8.10.2(date-fns@4.1.0)(react@19.2.5)
       react-day-picker-v9:
         specifier: npm:react-day-picker@9
         version: react-day-picker@9.14.0(react@19.2.5)
@@ -7536,11 +7536,11 @@ packages:
     resolution: {integrity: sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==}
     hasBin: true
 
-  react-day-picker@8.10.1:
-    resolution: {integrity: sha512-TMx7fNbhLk15eqcMt+7Z7S2KF7mfTId/XJDjKE8f+IUcFn0l08/kI4FiYTL/0yuOLmEcbR4Fwe3GJf/NiiMnPA==}
+  react-day-picker@8.10.2:
+    resolution: {integrity: sha512-LK68OTbHB3oJNhl9cA0qVizzp3o26w61YSjAFkYi67N86iro32wx86kSNeFU/hq+gI8m1yzWhnomMLfZ041RzQ==}
     peerDependencies:
       date-fns: ^2.28.0 || ^3.0.0
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   react-day-picker@9.14.0:
     resolution: {integrity: sha512-tBaoDWjPwe0M5pGrum4H0SR6Lyk+BO9oHnp9JbKpGKW2mlraNPgP9BMfsg5pWpwrssARmeqk7YBl2oXutZTaHA==}
@@ -17650,7 +17650,7 @@ snapshots:
       minimist: 1.2.8
       strip-json-comments: 2.0.1
 
-  react-day-picker@8.10.1(date-fns@4.1.0)(react@19.2.5):
+  react-day-picker@8.10.2(date-fns@4.1.0)(react@19.2.5):
     dependencies:
       date-fns: 4.1.0
       react: 19.2.5

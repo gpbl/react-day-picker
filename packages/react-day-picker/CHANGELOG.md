@@ -834,6 +834,14 @@ DayPicker v9 is compatible with React 16.8+.
 
 Get support, report issues, and provide feedback on the [Discussion forums](https://github.com/gpbl/react-day-picker/discussions). Thanks.
 
+## v8.10.2
+
+_Release date: 2026-05-02_
+
+- Expand React peer dependency support to include React 19. This release has no runtime or API changes.
+
+Full release notes at https://github.com/gpbl/react-day-picker/releases
+
 ## v8.10.1
 
 _Release date: 2024-04-16_
