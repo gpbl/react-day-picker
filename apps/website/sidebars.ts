@@ -29,6 +29,7 @@ const sidebars: SidebarsConfig = {
   docs: [
     "intro",
     "start",
+    "upgrading",
     {
       type: "category",
       label: "Customization",
@@ -89,7 +90,6 @@ const sidebars: SidebarsConfig = {
       ],
     },
     "changelog",
-    "upgrading",
     "license",
   ],
   api: ["api/index", typedocSidebarFixed],
