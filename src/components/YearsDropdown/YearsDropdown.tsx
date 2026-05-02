@@ -1,4 +1,4 @@
-import { ChangeEventHandler } from 'react';
+import type { ChangeEventHandler, ReactElement } from 'react';
 
 import { setYear, startOfMonth, startOfYear } from 'date-fns';
 
@@ -20,7 +20,7 @@ export interface YearsDropdownProps {
  * Render a dropdown to change the year. Take in account the `nav.fromDate` and
  * `toDate` from context.
  */
-export function YearsDropdown(props: YearsDropdownProps): JSX.Element {
+export function YearsDropdown(props: YearsDropdownProps): ReactElement {
   const { displayMonth } = props;
   const {
     fromDate,

@@ -1,4 +1,5 @@
-import { createContext, ReactNode, useContext } from 'react';
+import { createContext, useContext } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 
 import { Locale } from 'date-fns';
 import { DayPickerProps } from 'DayPicker';
@@ -68,7 +69,7 @@ export interface DayPickerProviderProps {
  * The provider for the {@link DayPickerContext}, assigning the defaults from the
  * initial DayPicker props.
  */
-export function DayPickerProvider(props: DayPickerProviderProps): JSX.Element {
+export function DayPickerProvider(props: DayPickerProviderProps): ReactElement {
   const { initialProps } = props;
 
   const defaultContextValues = getDefaultContextValues();

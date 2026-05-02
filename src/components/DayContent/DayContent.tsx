@@ -1,3 +1,5 @@
+import type { ReactElement } from 'react';
+
 import { useDayPicker } from 'contexts/DayPicker';
 import { ActiveModifiers } from 'types/Modifiers';
 
@@ -12,7 +14,7 @@ export interface DayContentProps {
 }
 
 /** Render the content of the day cell. */
-export function DayContent(props: DayContentProps): JSX.Element {
+export function DayContent(props: DayContentProps): ReactElement {
   const {
     locale,
     formatters: { formatDay }

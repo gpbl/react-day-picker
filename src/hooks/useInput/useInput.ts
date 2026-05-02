@@ -1,8 +1,8 @@
-import {
+import { useState } from 'react';
+import type {
   ChangeEventHandler,
   FocusEventHandler,
-  InputHTMLAttributes,
-  useState
+  InputHTMLAttributes
 } from 'react';
 
 import { differenceInCalendarDays, format as _format, parse } from 'date-fns';

@@ -1,3 +1,5 @@
+import type { ReactElement } from 'react';
+
 import { render } from '@testing-library/react';
 import { DayPickerProps } from 'DayPicker';
 
@@ -32,7 +34,7 @@ export function renderDayPickerHook<TResult>(
   }
 ): RenderHookResult<TResult> {
   const returnVal = { current: undefined as TResult };
-  function Test(): JSX.Element {
+  function Test(): ReactElement {
     const hookResult: TResult = hook();
     returnVal.current = hookResult;
     return <></>;

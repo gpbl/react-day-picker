@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import type { ReactElement } from 'react';
 
 import { DayPickerProps } from 'DayPicker';
 
@@ -19,7 +20,7 @@ export interface RootProps {
 }
 
 /** Render the container with the months according to the number of months to display. */
-export function Root({ initialProps }: RootProps): JSX.Element {
+export function Root({ initialProps }: RootProps): ReactElement {
   const dayPicker = useDayPicker();
   const focusContext = useFocusContext();
   const navigation = useNavigation();

@@ -1,9 +1,10 @@
 import { forwardRef } from 'react';
+import type { ComponentPropsWithRef } from 'react';
 
 import { useDayPicker } from 'contexts/DayPicker';
 
 /** The props for the {@link Button} component. */
-export type ButtonProps = JSX.IntrinsicElements['button'];
+export type ButtonProps = ComponentPropsWithRef<'button'>;
 
 /** Render a button HTML element applying the reset class name. */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(

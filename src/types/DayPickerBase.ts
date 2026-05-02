@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode } from 'react';
+import type { CSSProperties, ReactElement, ReactNode } from 'react';
 
 import { Locale } from 'date-fns';
 
@@ -386,9 +386,9 @@ export interface DayPickerBase {
  */
 export interface CustomComponents {
   /** The component for the caption element. */
-  Caption?: (props: CaptionProps) => JSX.Element | null;
+  Caption?: (props: CaptionProps) => ReactElement | null;
   /** The component for the caption element. */
-  CaptionLabel?: (props: CaptionLabelProps) => JSX.Element | null;
+  CaptionLabel?: (props: CaptionLabelProps) => ReactElement | null;
   /**
    * The component for the day element.
    *
@@ -400,27 +400,27 @@ export interface CustomComponents {
    * - a `div` or a `span` element, when the day is not interactive
    *
    */
-  Day?: (props: DayProps) => JSX.Element | null;
+  Day?: (props: DayProps) => ReactElement | null;
   /** The component for the content of the day element. */
-  DayContent?: (props: DayContentProps) => JSX.Element | null;
+  DayContent?: (props: DayContentProps) => ReactElement | null;
   /** The component for the drop-down elements. */
-  Dropdown?: (props: DropdownProps) => JSX.Element | null;
+  Dropdown?: (props: DropdownProps) => ReactElement | null;
   /** The component for the table footer. */
-  Footer?: (props: FooterProps) => JSX.Element | null;
+  Footer?: (props: FooterProps) => ReactElement | null;
   /** The component for the table’s head. */
-  Head?: () => JSX.Element | null;
+  Head?: () => ReactElement | null;
   /** The component for the table’s head row. */
-  HeadRow?: () => JSX.Element | null;
+  HeadRow?: () => ReactElement | null;
   /** The component for the small icon in the drop-downs. */
-  IconDropdown?: (props: StyledComponent) => JSX.Element | null;
+  IconDropdown?: (props: StyledComponent) => ReactElement | null;
   /** The arrow right icon (used for the Navigation buttons). */
-  IconRight?: (props: StyledComponent) => JSX.Element | null;
+  IconRight?: (props: StyledComponent) => ReactElement | null;
   /** The arrow left icon (used for the Navigation buttons). */
-  IconLeft?: (props: StyledComponent) => JSX.Element | null;
+  IconLeft?: (props: StyledComponent) => ReactElement | null;
   /** The component wrapping the month grids. */
-  Months?: (props: MonthsProps) => JSX.Element | null;
+  Months?: (props: MonthsProps) => ReactElement | null;
   /** The component for the table rows. */
-  Row?: (props: RowProps) => JSX.Element | null;
+  Row?: (props: RowProps) => ReactElement | null;
   /** The component for the week number in the table rows. */
-  WeekNumber?: (props: WeekNumberProps) => JSX.Element | null;
+  WeekNumber?: (props: WeekNumberProps) => ReactElement | null;
 }

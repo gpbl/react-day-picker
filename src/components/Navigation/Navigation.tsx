@@ -1,4 +1,4 @@
-import { MouseEventHandler } from 'react';
+import type { MouseEventHandler, ReactElement } from 'react';
 
 import { IconLeft } from 'components/IconLeft';
 import { IconRight } from 'components/IconRight';
@@ -25,7 +25,7 @@ export interface NavigationProps {
 }
 
 /** A component rendering the navigation buttons or the drop-downs. */
-export function Navigation(props: NavigationProps): JSX.Element {
+export function Navigation(props: NavigationProps): ReactElement {
   const {
     dir,
     locale,

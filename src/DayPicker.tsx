@@ -1,3 +1,5 @@
+import type { ReactElement } from 'react';
+
 import { DayPickerDefaultProps } from 'types/DayPickerDefault';
 import { DayPickerMultipleProps } from 'types/DayPickerMultiple';
 import { DayPickerRangeProps } from 'types/DayPickerRange';
@@ -105,7 +107,7 @@ export function DayPicker(
     | DayPickerSingleProps
     | DayPickerMultipleProps
     | DayPickerRangeProps
-): JSX.Element {
+): ReactElement {
   return (
     <RootProvider {...props}>
       <Root initialProps={props} />

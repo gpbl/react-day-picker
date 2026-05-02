@@ -1,4 +1,5 @@
-import { createContext, useContext, ReactNode } from 'react';
+import { createContext, useContext } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 
 import { useDayPicker } from 'contexts/DayPicker';
 import { useSelectMultiple } from 'contexts/SelectMultiple';
@@ -14,7 +15,7 @@ export const ModifiersContext = createContext<Modifiers | undefined>(undefined);
 export type ModifiersProviderProps = { children: ReactNode };
 
 /** Provide the value for the {@link ModifiersContext}. */
-export function ModifiersProvider(props: ModifiersProviderProps): JSX.Element {
+export function ModifiersProvider(props: ModifiersProviderProps): ReactElement {
   const dayPicker = useDayPicker();
   const selectMultiple = useSelectMultiple();
   const selectRange = useSelectRange();

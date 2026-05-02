@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 
 /** The style (either via class names or via in-line styles) of an element. */
 export type StyledElement<T = string | CSSProperties> = {

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 
 import { useDayPicker } from 'contexts/DayPicker';
 
@@ -8,7 +8,7 @@ export type MonthsProps = { children: ReactNode };
 /**
  * Render the wrapper for the month grids.
  */
-export function Months(props: MonthsProps): JSX.Element {
+export function Months(props: MonthsProps): ReactElement {
   const { classNames, styles } = useDayPicker();
 
   return (

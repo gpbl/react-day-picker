@@ -1,4 +1,5 @@
-import { createContext, ReactNode, useContext } from 'react';
+import { createContext, useContext } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 
 import { isSameDay } from 'date-fns';
 
@@ -44,7 +45,7 @@ export type SelectMultipleProviderProps = {
 /** Provides the values for the {@link SelectMultipleContext}. */
 export function SelectMultipleProvider(
   props: SelectMultipleProviderProps
-): JSX.Element {
+): ReactElement {
   if (!isDayPickerMultiple(props.initialProps)) {
     const emptyContextValue: SelectMultipleContextValue = {
       selected: undefined,
@@ -75,7 +76,7 @@ export interface SelectMultipleProviderInternalProps {
 export function SelectMultipleProviderInternal({
   initialProps,
   children
-}: SelectMultipleProviderInternalProps): JSX.Element {
+}: SelectMultipleProviderInternalProps): ReactElement {
   const { selected, min, max } = initialProps;
 
   const onDayClick: DayClickEventHandler = (day, activeModifiers, e) => {

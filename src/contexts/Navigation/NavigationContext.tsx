@@ -1,4 +1,5 @@
-import { createContext, ReactNode, useContext } from 'react';
+import { createContext, useContext } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 
 import { addMonths, isBefore, isSameMonth } from 'date-fns';
 
@@ -37,7 +38,7 @@ export const NavigationContext = createContext<
 /** Provides the values for the {@link NavigationContext}. */
 export function NavigationProvider(props: {
   children?: ReactNode;
-}): JSX.Element {
+}): ReactElement {
   const dayPicker = useDayPicker();
   const [currentMonth, goToMonth] = useNavigationState();
 

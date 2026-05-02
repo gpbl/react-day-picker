@@ -1,0 +1,71 @@
+name: react-day-picker v8 release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8.6.2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm test
+      - run: pnpm build
+      - name: Verify npm trusted publishing support
+        run: node .github/scripts/verify-npm-version.mjs
+      - name: Smoke test React 19 consumer installs
+        run: node .github/scripts/smoke-v8-release.mjs react19-runtime
+      - name: Smoke test React 19 TypeScript declarations
+        run: node .github/scripts/smoke-v8-release.mjs react19-types
+      - name: Smoke test React 18 TypeScript declarations
+        run: node .github/scripts/smoke-v8-release.mjs react18-types
+
+  publish:
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8.6.2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org/
+      - name: Block prerelease publishing
+        env:
+          RELEASE_PRERELEASE: ${{ github.event.release.prerelease }}
+        run: |
+          if [ "$RELEASE_PRERELEASE" = "true" ]; then
+            echo "Prerelease GitHub Releases cannot publish stable v8 packages." >&2
+            exit 1
+          fi
+      - name: Verify release tag matches package version
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          expected_tag="v$(node -p "require('./package.json').version")"
+          if [ "$RELEASE_TAG" != "$expected_tag" ]; then
+            echo "Release tag $RELEASE_TAG does not match package version $expected_tag." >&2
+            exit 1
+          fi
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - name: Verify npm trusted publishing support
+        run: node .github/scripts/verify-npm-version.mjs
+      - run: npm publish --tag legacy-v8

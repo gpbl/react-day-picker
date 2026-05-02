@@ -1,4 +1,5 @@
-import { createContext, ReactNode, useContext } from 'react';
+import { createContext, useContext } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 
 import { DayPickerBase } from 'types/DayPickerBase';
 import { DayPickerSingleProps, isDayPickerSingle } from 'types/DayPickerSingle';
@@ -30,7 +31,7 @@ export interface SelectSingleProviderProps {
 /** Provides the values for the {@link SelectSingleProvider}. */
 export function SelectSingleProvider(
   props: SelectSingleProviderProps
-): JSX.Element {
+): ReactElement {
   if (!isDayPickerSingle(props.initialProps)) {
     const emptyContextValue: SelectSingleContextValue = {
       selected: undefined
@@ -58,7 +59,7 @@ export interface SelectSingleProviderInternal {
 export function SelectSingleProviderInternal({
   initialProps,
   children
-}: SelectSingleProviderInternal): JSX.Element {
+}: SelectSingleProviderInternal): ReactElement {
   const onDayClick: DayClickEventHandler = (day, activeModifiers, e) => {
     initialProps.onDayClick?.(day, activeModifiers, e);
 

@@ -30,6 +30,8 @@ pnpm install react-day-picker date-fns # using pnpm
 yarn add react-day-picker date-fns     # using yarn
 ```
 
+DayPicker v8 supports React 16.8, 17, 18, and 19, with date-fns 2 or 3.
+
 <a href="https://www.npmjs.com/package/react-day-picker"><img src="https://img.shields.io/npm/v/react-day-picker.svg?style=flat-square" alt="npm version"/></a> <img src="https://img.shields.io/npm/dm/react-day-picker.svg?style=flat-square" alt="npm downloads"/> <img src="https://img.shields.io/bundlephobia/minzip/react-day-picker" alt="Min gzipped size"/>
 
 ## Example

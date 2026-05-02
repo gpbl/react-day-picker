@@ -1,3 +1,5 @@
+import type { ReactElement } from 'react';
+
 import { addMonths } from 'date-fns';
 
 import { CaptionProps } from 'components/Caption/Caption';
@@ -11,7 +13,7 @@ import { MonthChangeEventHandler } from 'types/EventHandlers';
 /**
  * Render a caption with the dropdowns to navigate between months and years.
  */
-export function CaptionDropdowns(props: CaptionProps): JSX.Element {
+export function CaptionDropdowns(props: CaptionProps): ReactElement {
   const { classNames, styles, components } = useDayPicker();
   const { goToMonth } = useNavigation();
 

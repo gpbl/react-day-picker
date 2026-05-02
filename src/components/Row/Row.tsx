@@ -1,3 +1,5 @@
+import type { ReactElement } from 'react';
+
 import { getUnixTime } from 'date-fns';
 
 import { Day } from 'components/Day';
@@ -17,7 +19,7 @@ export interface RowProps {
 }
 
 /** Render a row in the calendar, with the days and the week number. */
-export function Row(props: RowProps): JSX.Element {
+export function Row(props: RowProps): ReactElement {
   const { styles, classNames, showWeekNumber, components } = useDayPicker();
 
   const DayComponent = components?.Day ?? Day;

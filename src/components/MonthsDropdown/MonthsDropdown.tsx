@@ -1,4 +1,4 @@
-import { ChangeEventHandler } from 'react';
+import type { ChangeEventHandler, ReactElement } from 'react';
 
 import { isSameYear, setMonth, startOfMonth } from 'date-fns';
 
@@ -14,7 +14,7 @@ export interface MonthsDropdownProps {
 }
 
 /** Render the dropdown to navigate between months. */
-export function MonthsDropdown(props: MonthsDropdownProps): JSX.Element {
+export function MonthsDropdown(props: MonthsDropdownProps): ReactElement {
   const {
     fromDate,
     toDate,

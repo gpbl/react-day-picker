@@ -1,4 +1,5 @@
-import { createContext, ReactNode, useContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 
 import { isSameDay } from 'date-fns';
 
@@ -57,7 +58,7 @@ export const FocusContext = createContext<FocusContextValue | undefined>(
 export type FocusProviderProps = { children: ReactNode };
 
 /** The provider for the {@link FocusContext}. */
-export function FocusProvider(props: FocusProviderProps): JSX.Element {
+export function FocusProvider(props: FocusProviderProps): ReactElement {
   const navigation = useNavigation();
   const modifiers = useModifiers();
 

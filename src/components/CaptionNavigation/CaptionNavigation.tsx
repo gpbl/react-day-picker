@@ -1,4 +1,4 @@
-import { MouseEventHandler } from 'react';
+import type { MouseEventHandler, ReactElement } from 'react';
 
 import { isSameMonth } from 'date-fns';
 
@@ -10,7 +10,7 @@ import { useNavigation } from 'contexts/Navigation';
 /**
  * Render a caption with a button-based navigation.
  */
-export function CaptionNavigation(props: CaptionProps): JSX.Element {
+export function CaptionNavigation(props: CaptionProps): ReactElement {
   const { numberOfMonths } = useDayPicker();
   const { previousMonth, nextMonth, goToMonth, displayMonths } =
     useNavigation();

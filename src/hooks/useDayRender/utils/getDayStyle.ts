@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 
 import { DayPickerContextValue } from 'contexts/DayPicker';
 import { ActiveModifiers } from 'types/Modifiers';

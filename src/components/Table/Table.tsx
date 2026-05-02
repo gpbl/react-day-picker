@@ -1,3 +1,5 @@
+import type { ReactElement } from 'react';
+
 import { Footer } from 'components/Footer';
 import { Head } from 'components/Head';
 import { Row } from 'components/Row';
@@ -16,7 +18,7 @@ export interface TableProps {
 }
 
 /** Render the table with the calendar. */
-export function Table(props: TableProps): JSX.Element {
+export function Table(props: TableProps): ReactElement {
   const {
     locale,
     classNames,

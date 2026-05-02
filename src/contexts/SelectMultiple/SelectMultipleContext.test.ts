@@ -1,4 +1,4 @@
-import { MouseEvent } from 'react';
+import type { MouseEvent } from 'react';
 
 import { addDays, addMonths } from 'date-fns';
 import { DayPickerProps } from 'DayPicker';

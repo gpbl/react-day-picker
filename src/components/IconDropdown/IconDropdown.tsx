@@ -1,9 +1,11 @@
+import type { ReactElement } from 'react';
+
 import { StyledComponent } from 'types/Styles';
 
 /**
  * Render the icon in the styled drop-down.
  */
-export function IconDropdown(props: StyledComponent): JSX.Element {
+export function IconDropdown(props: StyledComponent): ReactElement {
   return (
     <svg
       width="8px"

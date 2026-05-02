@@ -1,6 +1,7 @@
-import {
+import type {
   ChangeEventHandler,
   CSSProperties,
+  ReactElement,
   ReactNode,
   SelectHTMLAttributes
 } from 'react';
@@ -27,7 +28,7 @@ export interface DropdownProps {
  * Render a styled select component – displaying a caption and a custom
  * drop-down icon.
  */
-export function Dropdown(props: DropdownProps): JSX.Element {
+export function Dropdown(props: DropdownProps): ReactElement {
   const { onChange, value, children, caption, className, style } = props;
   const dayPicker = useDayPicker();
 

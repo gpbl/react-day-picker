@@ -1,4 +1,5 @@
-import { createContext, ReactNode, useContext } from 'react';
+import { createContext, useContext } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 
 import {
   addDays,
@@ -52,7 +53,7 @@ export interface SelectRangeProviderProps {
 /** Provides the values for the {@link SelectRangeProvider}. */
 export function SelectRangeProvider(
   props: SelectRangeProviderProps
-): JSX.Element {
+): ReactElement {
   if (!isDayPickerRange(props.initialProps)) {
     const emptyContextValue: SelectRangeContextValue = {
       selected: undefined,
@@ -86,7 +87,7 @@ export interface SelectRangeProviderInternalProps {
 export function SelectRangeProviderInternal({
   initialProps,
   children
-}: SelectRangeProviderInternalProps): JSX.Element {
+}: SelectRangeProviderInternalProps): ReactElement {
   const { selected } = initialProps;
   const { from: selectedFrom, to: selectedTo } = selected || {};
   const min = initialProps.min;

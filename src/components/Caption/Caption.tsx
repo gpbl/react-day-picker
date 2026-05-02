@@ -1,3 +1,5 @@
+import type { ReactElement } from 'react';
+
 import { CaptionDropdowns } from 'components/CaptionDropdowns';
 import { CaptionLabel } from 'components/CaptionLabel';
 import { CaptionNavigation } from 'components/CaptionNavigation';
@@ -26,13 +28,13 @@ export type CaptionLayout = 'dropdown' | 'buttons' | 'dropdown-buttons';
  * Render the caption of a month. The caption has a different layout when
  * setting the {@link DayPickerBase.captionLayout} prop.
  */
-export function Caption(props: CaptionProps): JSX.Element {
+export function Caption(props: CaptionProps): ReactElement {
   const { classNames, disableNavigation, styles, captionLayout, components } =
     useDayPicker();
 
   const CaptionLabelComponent = components?.CaptionLabel ?? CaptionLabel;
 
-  let caption: JSX.Element;
+  let caption: ReactElement;
   if (disableNavigation) {
     caption = (
       <CaptionLabelComponent id={props.id} displayMonth={props.displayMonth} />

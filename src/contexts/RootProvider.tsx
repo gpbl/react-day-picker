@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 
 import { ModifiersProvider } from 'contexts/Modifiers/ModifiersContext';
 
@@ -25,7 +25,7 @@ export type RootContext = RootContextProps & {
 };
 
 /** Provide the value for all the context providers. */
-export function RootProvider(props: RootContext): JSX.Element {
+export function RootProvider(props: RootContext): ReactElement {
   const { children, ...initialProps } = props;
 
   return (

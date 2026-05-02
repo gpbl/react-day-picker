@@ -1,3 +1,5 @@
+import type { ReactElement } from 'react';
+
 import { useDayPicker } from 'contexts/DayPicker';
 
 export interface FooterProps {
@@ -6,7 +8,7 @@ export interface FooterProps {
 }
 /** Render the Footer component (empty as default).*/
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function Footer(props: FooterProps): JSX.Element {
+export function Footer(props: FooterProps): ReactElement {
   const {
     footer,
     styles,

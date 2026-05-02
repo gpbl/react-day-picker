@@ -1,29 +1,17 @@
 name: react-day-picker
 
 on:
-  release:
-    types: [published]
   pull_request:
     branches:
       - main
+      - maintenance/v8
   push:
     branches:
       - main
+      - maintenance/v8
   workflow_dispatch:
-    inputs:
-      publish:
-        description: Publish on npm
-        required: false
-        default: false
-        type: boolean
 
 jobs:
-  # print-env:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - run: |
-  #         echo "publish=${{ github.event.inputs.publish || false }}"
-
   typecheck:
     runs-on: ubuntu-latest
     steps:
@@ -84,28 +72,3 @@ jobs:
         with:
           name: rdp-dist
           path: dist
-
-  publish-on-npm:
-    runs-on: ubuntu-latest
-    needs: [build, test]
-    if: ${{ github.event_name == 'release' || github.event.inputs.publish }}
-    permissions:
-      id-token: write
-    steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v3
-        with:
-          version: 8.6.2
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18.16
-          registry-url: https://registry.npmjs.org/
-          always-auth: false
-      - uses: actions/download-artifact@v4
-        with:
-          name: rdp-dist
-          path: dist
-      - run: echo "//<npm-registry>:8080/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
-      - run: npm publish --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}

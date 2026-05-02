@@ -1,4 +1,4 @@
-import { MouseEventHandler } from 'react';
+import type { MouseEventHandler, ReactElement } from 'react';
 
 import { useDayPicker } from 'contexts/DayPicker';
 
@@ -18,7 +18,7 @@ export interface WeekNumberProps {
  * Render the week number element. If `onWeekNumberClick` is passed to DayPicker, it
  * renders a button, otherwise a span element.
  */
-export function WeekNumber(props: WeekNumberProps): JSX.Element {
+export function WeekNumber(props: WeekNumberProps): ReactElement {
   const { number: weekNumber, dates } = props;
   const {
     onWeekNumberClick,

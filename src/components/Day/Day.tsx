@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import type { ReactElement } from 'react';
 
 import { useDayRender } from 'hooks/useDayRender';
 
@@ -16,7 +17,7 @@ export interface DayProps {
  * The content of a day cell – as a button or span element according to its
  * modifiers.
  */
-export function Day(props: DayProps): JSX.Element {
+export function Day(props: DayProps): ReactElement {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const dayRender = useDayRender(props.date, props.displayMonth, buttonRef);
 

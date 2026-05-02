@@ -1,3 +1,5 @@
+import type { ReactElement } from 'react';
+
 import { useDayPicker } from 'contexts/DayPicker';
 
 import { getWeekdays } from './utils';
@@ -5,7 +7,7 @@ import { getWeekdays } from './utils';
 /**
  * Render the HeadRow component - i.e. the table head row with the weekday names.
  */
-export function HeadRow(): JSX.Element {
+export function HeadRow(): ReactElement {
   const {
     classNames,
     styles,
