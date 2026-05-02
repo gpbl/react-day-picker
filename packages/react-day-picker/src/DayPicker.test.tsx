@@ -472,6 +472,50 @@ test("places the year dropdown before the month dropdown for year-first locales"
   );
 });
 
+describe("when using dropdowns with numberOfMonths > 1 (issue #2741)", () => {
+  test("changing the month dropdown on the second calendar updates only that calendar", () => {
+    render(
+      <DayPicker
+        captionLayout="dropdown"
+        numberOfMonths={2}
+        defaultMonth={new Date(2024, 0, 1)}
+      />,
+    );
+    // Dropdowns: [month-1, year-1, month-2, year-2]
+    const combos = screen.getAllByRole("combobox");
+    const secondMonthDropdown = combos[2];
+
+    // Select June (month index 5) from the second calendar's dropdown
+    fireEvent.change(secondMonthDropdown, { target: { value: "5" } });
+
+    const grids = screen.getAllByRole("grid");
+    // First calendar should show May 2024, second should show June 2024
+    expect(grids[0]).toHaveAccessibleName("May 2024");
+    expect(grids[1]).toHaveAccessibleName("June 2024");
+  });
+
+  test("changing the year dropdown on the second calendar updates only that calendar", () => {
+    render(
+      <DayPicker
+        captionLayout="dropdown"
+        numberOfMonths={2}
+        defaultMonth={new Date(2024, 0, 1)}
+      />,
+    );
+    // Dropdowns: [month-1, year-1, month-2, year-2]
+    const combos = screen.getAllByRole("combobox");
+    const secondYearDropdown = combos[3];
+
+    // Select 2025 from the second calendar's year dropdown
+    fireEvent.change(secondYearDropdown, { target: { value: "2025" } });
+
+    const grids = screen.getAllByRole("grid");
+    // First calendar should show January 2025, second should show February 2025
+    expect(grids[0]).toHaveAccessibleName("January 2025");
+    expect(grids[1]).toHaveAccessibleName("February 2025");
+  });
+});
+
 test("should render the custom components", () => {
   render(
     <DayPicker
