@@ -641,7 +641,9 @@ import { DayPicker, TZDate } from "react-day-picker";
 ```
 
 :::note
+
 If you were using the experimental `react-day-picker/utc` module, you can skip now it. Remove the `@date-fns/utc` package and just pass `timeZone="UTC"` to `<DayPicker />`.
+
 :::
 
 #### What's Changed

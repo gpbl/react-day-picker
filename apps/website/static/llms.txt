@@ -1,0 +1,90 @@
+# React DayPicker
+
+> React DayPicker is a TypeScript React component for building accessible date pickers, calendars, and date inputs. The package is published as `react-day-picker` and documented at https://daypicker.dev.
+
+Use the current stable documentation links by default. Use `/next` only when the user asks about unreleased features, and use `/v8` only when the user asks about React DayPicker v8.
+
+Important usage notes:
+
+- Import the component from `react-day-picker`.
+- Import the default stylesheet with `import "react-day-picker/style.css";` unless the app provides custom styles.
+- DayPicker supports single, multiple, range, and custom selection flows.
+- DayPicker supports localization, time zones, ISO and broadcast calendars, and Persian, Hijri, Buddhist, Ethiopic, and Hebrew calendar packages.
+- DayPicker is written in TypeScript and its API reference documents exported components, props, hooks, helpers, labels, formatters, and types.
+
+## Start Here
+
+- [Introduction](https://daypicker.dev/): Overview, feature summary, and a basic DayPicker example.
+- [Getting Started](https://daypicker.dev/start): Install the package and render a basic controlled date picker.
+- [Playground](https://daypicker.dev/playground): Interactive playground for trying DayPicker props and examples.
+- [Upgrading to v9](https://daypicker.dev/upgrading): Migration guide for updating existing apps to React DayPicker v9.
+
+## Core Documentation
+
+- [DayPicker Anatomy](https://daypicker.dev/docs/anatomy): Names and roles of the main rendered UI elements.
+- [Styling and Appearance](https://daypicker.dev/docs/styling): Default styles, CSS variables, CSS modules, class names, and custom styling patterns.
+- [Customization Props](https://daypicker.dev/docs/appearance): Props for changing layout, captions, navigation, displayed months, week numbers, and footer content.
+- [Caption and Navigation Layouts](https://daypicker.dev/docs/caption-and-nav-layouts): `captionLayout`, `navLayout`, dropdown captions, and navigation button placement.
+- [Grid and Months](https://daypicker.dev/docs/grid-and-months): Multiple months, fixed weeks, outside days, hidden weekdays, and month grid behavior.
+- [Months Navigation](https://daypicker.dev/docs/navigation): `defaultMonth`, controlled month navigation, start and end bounds, disabled navigation, and animation.
+- [Week Numbers and Footer](https://daypicker.dev/docs/week-numbers-and-footer): Week number rendering and footer usage, including live-region selection feedback.
+
+## Selection
+
+- [Selection Modes](https://daypicker.dev/selections/selection-modes): Overview of `single`, `multiple`, and `range` selection modes.
+- [Single Mode](https://daypicker.dev/selections/single-mode): Select one day with `selected`, `onSelect`, and `required`.
+- [Multiple Mode](https://daypicker.dev/selections/multiple-mode): Select multiple individual days with min, max, and required constraints.
+- [Range Mode](https://daypicker.dev/selections/range-mode): Select date ranges with min, max, required, reset, and disabled-day behavior.
+- [Disabling Dates](https://daypicker.dev/selections/disabling-dates): Disable dates with matcher values such as dates, ranges, intervals, days of week, and custom functions.
+- [Custom Selections](https://daypicker.dev/guides/custom-selections): Implement selection behavior outside the built-in modes.
+
+## Guides
+
+- [Accessible Date Pickers](https://daypicker.dev/guides/accessibility): Accessibility behavior, ARIA labels, keyboard navigation, focus management, and live-region tips.
+- [Input Fields](https://daypicker.dev/guides/input-fields): Combine DayPicker with text inputs and dialogs.
+- [Date and Time Picker](https://daypicker.dev/guides/timepicker): Combine date and time selection.
+- [Custom Components](https://daypicker.dev/guides/custom-components): Replace or compose rendered elements with the `components` prop while preserving accessibility.
+- [Custom Modifiers](https://daypicker.dev/guides/custom-modifiers): Add custom day states, class names, and styles.
+- [Advanced Translations](https://daypicker.dev/guides/translation): Customize labels and formatters beyond locale defaults.
+
+## Localization And Calendars
+
+- [Changing the Locale](https://daypicker.dev/localization/changing-locale): Use `date-fns` locales via `react-day-picker/locale`.
+- [Setting the Time Zone](https://daypicker.dev/localization/setting-time-zone): Render and select dates in a specific IANA time zone or UTC offset.
+- [ISO and Broadcast Calendars](https://daypicker.dev/localization/iso-and-broadcast): Use ISO 8601 and broadcast calendar behavior.
+- [Persian Calendar](https://daypicker.dev/localization/persian): Use the Persian calendar package.
+- [Hijri Calendar](https://daypicker.dev/localization/hijri): Use the Hijri calendar package.
+- [Buddhist Calendar](https://daypicker.dev/localization/buddhist): Use the Buddhist Thai calendar package.
+- [Ethiopic Calendar](https://daypicker.dev/localization/ethiopic): Use the Ethiopic calendar package.
+- [Hebrew Calendar](https://daypicker.dev/localization/hebrew): Use the Hebrew calendar package.
+
+## API Reference
+
+- [API Reference](https://daypicker.dev/api): Current React DayPicker API index.
+- [DayPicker](https://daypicker.dev/api/functions/DayPicker): Main React component.
+- [DayPickerProps](https://daypicker.dev/api/type-aliases/DayPickerProps): Complete prop type accepted by `DayPicker`.
+- [PropsBase](https://daypicker.dev/api/interfaces/PropsBase): Base props for customization, localization, events, styling, and navigation.
+- [CustomComponents](https://daypicker.dev/api/type-aliases/CustomComponents): Component slots available through the `components` prop.
+- [Matcher](https://daypicker.dev/api/type-aliases/Matcher): Values accepted for matching days, including disabled and modifier matchers.
+- [DateRange](https://daypicker.dev/api/type-aliases/DateRange): Shape used by range selections.
+- [OnSelectHandler](https://daypicker.dev/api/type-aliases/OnSelectHandler): Selection event callback type.
+- [ClassNames](https://daypicker.dev/api/type-aliases/ClassNames): CSS class name map used by DayPicker.
+- [Labels](https://daypicker.dev/api/type-aliases/Labels): ARIA label customizations.
+- [Formatters](https://daypicker.dev/api/type-aliases/Formatters): Display formatter customizations.
+- [useDayPicker](https://daypicker.dev/api/functions/useDayPicker): Hook for reading DayPicker context from custom components.
+
+## Source And Examples
+
+- [GitHub Repository](https://github.com/gpbl/react-day-picker): Source code, issues, discussions, and pull requests.
+- [Examples Source](https://github.com/gpbl/react-day-picker/tree/main/examples): Runnable example components used by the documentation and tests.
+- [Package Source](https://github.com/gpbl/react-day-picker/tree/main/packages/react-day-picker/src): Main package source for components, helpers, formatters, labels, selection logic, and types.
+- [npm Package](https://www.npmjs.com/package/react-day-picker): Published `react-day-picker` package.
+
+## Optional
+
+- [Next Documentation](https://daypicker.dev/next): Unreleased documentation for the next React DayPicker version.
+- [v8 Documentation](https://daypicker.dev/v8): Legacy React DayPicker v8 documentation.
+- [Changelog](https://daypicker.dev/changelog): Release history and notable changes.
+- [Contributing](https://daypicker.dev/development/contributing): Contribution guide for the project.
+- [Source Guide](https://daypicker.dev/development/source): Repository and package source overview.
+- [License](https://daypicker.dev/license): Project license.
