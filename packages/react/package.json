@@ -1,6 +1,6 @@
 {
   "name": "@daypicker/react",
-  "version": "10.0.0-next.5",
+  "version": "10.0.0-next.6",
   "description": "React package for DayPicker",
   "author": "Giampaolo Bellavite <io@gpbl.dev>",
   "homepage": "https://daypicker.dev",
@@ -158,7 +158,7 @@
     "dist"
   ],
   "dependencies": {
-    "react-day-picker": "10.0.0-next.5"
+    "react-day-picker": "10.0.0-next.6"
   },
   "peerDependencies": {
     "react": ">=16.8.0"

@@ -11,11 +11,15 @@
     "@daypicker/hebrew": "10.0.0-next.1",
     "@daypicker/hijri": "10.0.0-next.1",
     "@daypicker/persian": "10.0.0-next.1",
-    "react-day-picker": "10.0.0-next.1"
+    "react-day-picker": "10.0.0-next.1",
+    "@daypicker/react": "10.0.0-next.5"
   },
   "changesets": [
+    "calendar-datelib-overrides",
     "calendar-readmes",
+    "ethiopic-amet-locale",
     "olive-crabs-juggle",
+    "scoped-react-alias",
     "serious-snakes-fix"
   ]
 }
