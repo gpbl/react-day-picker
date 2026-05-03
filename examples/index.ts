@@ -1,4 +1,5 @@
 export * from "./AccessibleDatePicker";
+export * from "./Anatomy";
 export * from "./Animate";
 export * from "./AnimateCSSVars";
 export * from "./AnimateRange";

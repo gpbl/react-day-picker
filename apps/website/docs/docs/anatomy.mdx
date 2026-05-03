@@ -2,9 +2,6 @@
 sidebar_position: 1
 ---
 
-import anatomyDark from "../img/anatomy-dark.png";
-import anatomyLight from "../img/anatomy-light.png";
-
 # DayPicker Anatomy
 
 To better understand the documentation, familiarize yourself with the elements that compose DayPicker:
@@ -16,33 +13,71 @@ To better understand the documentation, familiarize yourself with the elements t
 - **Day**: Represents a day of the month, which can have different modifiers, such as:
   - **selected**: The day is selected.
   - **disabled**: The day is disabled.
+  - **hidden**: The day is hidden.
+  - **focused**: The day has focus.
   - **today**: The day is today.
   - **outside**: The day is outside the current month.
-- **Footer**: An ARIA live region used to announce the selected date.
+  - **range_start**: The day is the start of a selected range.
+  - **range_middle**: The day is inside a selected range.
+  - **range_end**: The day is the end of a selected range.
+- **Footer**: An ARIA live region that displays custom footer content, often used to announce selected dates.
 
-The UI elements are mapped to CSS classes. A complete list can be found in the [`UI`](../api/enumerations/UI.md) enum.
+The stylable UI elements are mapped to CSS classes. A complete list can be found in the [`UI`](../api/enumerations/UI.md) enum.
 
-<BrowserWindow shadow={false}>
-  <div style={{ overflow: "auto" }}>
-    <img
-      style={{
-        maxWidth: 600,
-        width: "100%",
-        margin: "2em auto",
-        display: "block",
-      }}
-      src={`${anatomyLight}#gh-light-mode-only`}
-      alt="Screenshot of DayPicker displaying the September 2025 calendar, with the date range from the 17th to the 20th selected."
-    />
-    <img
-      style={{
-        maxWidth: 600,
-        width: "100%",
-        margin: "2em auto",
-        display: "block",
-      }}
-      src={`${anatomyDark}#gh-dark-mode-only`}
-      alt="Screenshot of DayPicker displaying the September 2025 calendar, with the date range from the 17th to the 20th selected."
-    />
-  </div>
+<BrowserWindow
+  shadow={false}
+  bodyStyle={{ justifyContent: "flex-start", padding: 0 }}
+>
+  <AnatomyDiagram>
+    <Examples.Anatomy />
+  </AnatomyDiagram>
 </BrowserWindow>
+
+## Rendered Structure
+
+DayPicker renders the calendar with this component structure:
+
+```text
+Root
+├── Months
+│   ├── Nav
+│   │   ├── PreviousMonthButton
+│   │   │   └── Chevron
+│   │   └── NextMonthButton
+│   │       └── Chevron
+│   └── Month
+│       ├── MonthCaption
+│       │   ├── CaptionLabel
+│       │   └── DropdownNav
+│       │       ├── MonthsDropdown
+│       │       │   └── Dropdown
+│       │       │       └── DropdownRoot
+│       │       │           ├── Select
+│       │       │           │   └── Option
+│       │       │           └── CaptionLabel
+│       │       │               └── Chevron
+│       │       └── YearsDropdown
+│       │           └── Dropdown
+│       │               └── DropdownRoot
+│       │                   ├── Select
+│       │                   │   └── Option
+│       │                   └── CaptionLabel
+│       │                       └── Chevron
+│       └── MonthGrid
+│           ├── Weekdays
+│           │   ├── WeekNumberHeader
+│           │   └── Weekday
+│           └── Weeks
+│               └── Week
+│                   ├── WeekNumber
+│                   └── Day
+│                       └── DayButton
+└── Footer
+```
+
+Some components are conditional:
+
+- `Footer` renders only when the `footer` prop is set.
+- Week-number elements render only with `showWeekNumber`.
+- Dropdown elements render only with a dropdown `captionLayout`.
+- Navigation placement depends on `navLayout`: the hierarchy above shows the default placement; with `navLayout="around"`, navigation buttons render beside the month caption, and with `navLayout="after"`, the navigation bar renders after the caption in the last month.

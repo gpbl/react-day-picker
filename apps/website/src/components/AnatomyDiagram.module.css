@@ -1,0 +1,155 @@
+.viewport {
+  margin: 0 0 var(--ifm-leading);
+  overflow-x: auto;
+  width: 100%;
+}
+
+.frame {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.diagram {
+  color: #111927;
+  font-family: var(--ifm-font-family-base);
+  height: 590px;
+  margin: 0;
+  position: relative;
+  transform-origin: top left;
+  width: 780px;
+}
+
+:global([data-theme="dark"]) .diagram {
+  color: #f9fafb;
+}
+
+.calendar {
+  left: 260px;
+  position: absolute;
+  top: 125px;
+  z-index: 1;
+}
+
+.lines {
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  transform: translateY(-60px);
+  z-index: 2;
+}
+
+.lines path {
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.15;
+  vector-effect: non-scaling-stroke;
+}
+
+.callout {
+  color: currentColor;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.1;
+  position: absolute;
+  transform: translateY(-60px);
+  white-space: nowrap;
+  z-index: 3;
+}
+
+.leftCallout {
+  text-align: right;
+  width: 178px;
+}
+
+.centerCallout {
+  text-align: center;
+  transform: translate(-50%, -60px);
+}
+
+.monthCaption {
+  left: 300px;
+  top: 90px;
+}
+
+.navigationBar {
+  left: 540px;
+  top: 80px;
+}
+
+.navigationButtons {
+  left: 640px;
+  top: 104px;
+}
+
+.weekdaysRow {
+  left: 20px;
+  top: 240px;
+}
+
+.weekdays {
+  left: 426px;
+  top: 134px;
+}
+
+.weekNumberHeader {
+  left: 20px;
+  top: 192px;
+}
+
+.weekRows {
+  left: 20px;
+  top: 318px;
+}
+
+.weekNumbers {
+  left: 20px;
+  top: 466px;
+}
+
+.dayButton {
+  left: 648px;
+  top: 318px;
+}
+
+.today {
+  left: 648px;
+  top: 278px;
+}
+
+.disabledDay {
+  left: 648px;
+  top: 370px;
+}
+
+.rangeStart {
+  left: 370px;
+  top: 608px;
+}
+
+.rangeMiddle {
+  left: 440px;
+  top: 576px;
+}
+
+.rangeEnd {
+  left: 502px;
+  top: 608px;
+}
+
+.selectedDay {
+  left: 648px;
+  top: 478px;
+}
+
+.outsideDays {
+  left: 648px;
+  top: 592px;
+}
+
+.footer {
+  left: 6px;
+  top: 538px;
+}
