@@ -1,4 +1,3 @@
-import v8Style from "!raw-loader!react-day-picker-v8/dist/style.css";
 import {
   DayPicker as DayPickerV8,
   type DayPickerProps,
@@ -26,10 +25,5 @@ export {
 } from "react-day-picker-v8";
 
 export function DayPicker(props: DayPickerProps) {
-  return (
-    <>
-      <style>{v8Style.toString()}</style>
-      <DayPickerV8 {...props} />
-    </>
-  );
+  return <DayPickerV8 {...props} />;
 }

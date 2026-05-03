@@ -1,9 +1,10 @@
+import v8Style from "!raw-loader!react-day-picker-v8/dist/style.css";
 import { useDocsVersion } from "@docusaurus/plugin-content-docs/client";
 import MDXComponents from "@theme-original/MDXComponents";
 import type { ComponentProps, ComponentType } from "react";
 import * as ExamplesV8 from "../../examples-v8";
 import * as ExamplesV9 from "../../examples-v9";
-import { BrowserWindow } from "../components/BrowserWindow";
+import { BrowserWindow as BaseBrowserWindow } from "../components/BrowserWindow";
 import * as CurrentExamples from "../examples";
 
 type TableComponent = ComponentType<ComponentProps<"table">>;
@@ -62,6 +63,15 @@ function ResponsiveTable(props: ComponentProps<typeof Table>) {
       <Table {...props} />
     </div>
   );
+}
+
+function BrowserWindow(props: ComponentProps<typeof BaseBrowserWindow>) {
+  const version = useDocsVersion();
+  const baseStyleCss =
+    props.baseStyleCss ??
+    (version.version === "8.10.2" ? v8Style.toString() : undefined);
+
+  return <BaseBrowserWindow {...props} baseStyleCss={baseStyleCss} />;
 }
 
 export default {
