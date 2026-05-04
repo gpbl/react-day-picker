@@ -83,30 +83,36 @@ export function Playground({ basePath = "/playground" }: PlaygroundProps) {
     localeEntries.find(([, localeValue]) => localeValue === props.locale);
   const localeName = localeEntry?.[0];
   const localeProp = localeName ? ` locale={${localeName}}` : "";
-  const localeImport =
-    localeName &&
-    (calendarLocale
-      ? `import { ${localeName} } from "@daypicker/${props.calendar}";`
-      : `import { ${localeName} } from "@daypicker/react/locale";`);
 
   const importStatements: string[] = [];
 
   if (props.calendar === "persian") {
-    importStatements.push(`import { DayPicker } from "@daypicker/persian";`);
+    importStatements.push(
+      `import { DayPicker${localeName ? `, ${localeName}` : ""} } from "@daypicker/persian";`,
+    );
   } else if (props.calendar === "ethiopic") {
-    importStatements.push(`import { DayPicker } from "@daypicker/ethiopic";`);
+    importStatements.push(
+      `import { DayPicker${localeName ? `, ${localeName}` : ""} } from "@daypicker/ethiopic";`,
+    );
   } else if (props.calendar === "buddhist") {
-    importStatements.push(`import { DayPicker } from "@daypicker/buddhist";`);
+    importStatements.push(
+      `import { DayPicker${localeName ? `, ${localeName}` : ""} } from "@daypicker/buddhist";`,
+    );
   } else if (props.calendar === "hebrew") {
-    importStatements.push(`import { DayPicker } from "@daypicker/hebrew";`);
+    importStatements.push(
+      `import { DayPicker${localeName ? `, ${localeName}` : ""} } from "@daypicker/hebrew";`,
+    );
   } else if (props.calendar === "hijri") {
-    importStatements.push(`import { DayPicker } from "@daypicker/hijri";`);
+    importStatements.push(
+      `import { DayPicker${localeName ? `, ${localeName}` : ""} } from "@daypicker/hijri";`,
+    );
   } else {
     importStatements.push(`import { DayPicker } from "@daypicker/react";`);
-  }
-
-  if (localeImport) {
-    importStatements.unshift(localeImport);
+    if (localeName) {
+      importStatements.unshift(
+        `import { ${localeName} } from "@daypicker/react/locale";`,
+      );
+    }
   }
 
   const formattedProps = `${importStatements.join("\n")}\n\n<DayPicker${toJSX({
