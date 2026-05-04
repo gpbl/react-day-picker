@@ -40,6 +40,32 @@ const hebrewPath = nodeRequire.resolve("../../packages/hebrew/src/index.tsx");
 const hijriPath = nodeRequire.resolve("../../packages/hijri/src/index.tsx");
 const persianPath = nodeRequire.resolve("../../packages/persian/src/index.tsx");
 
+const googleFontFamilies = [
+  "Inter:wght@400;500;600;700",
+  "Vazirmatn:wght@400;500;600;700",
+  "Noto Sans:wght@400;500;600;700",
+  "Noto Sans Armenian:wght@400;500;600;700",
+  "Noto Sans Bengali:wght@400;500;600;700",
+  "Noto Sans Devanagari:wght@400;500;600;700",
+  "Noto Sans Ethiopic:wght@400;500;600;700",
+  "Noto Sans Georgian:wght@400;500;600;700",
+  "Noto Sans Gujarati:wght@400;500;600;700",
+  "Noto Sans Hebrew:wght@400;500;600;700",
+  "Noto Sans JP:wght@400;500;600;700",
+  "Noto Sans KR:wght@400;500;600;700",
+  "Noto Sans Kannada:wght@400;500;600;700",
+  "Noto Sans Khmer:wght@400;500;600;700",
+  "Noto Sans HK:wght@400;500;600;700",
+  "Noto Sans SC:wght@400;500;600;700",
+  "Noto Sans TC:wght@400;500;600;700",
+  "Noto Sans Tamil:wght@400;500;600;700",
+  "Noto Sans Telugu:wght@400;500;600;700",
+  "Noto Sans Thai:wght@400;500;600;700",
+];
+const googleFontsStylesheet = `https://fonts.googleapis.com/css2?${googleFontFamilies
+  .map((family) => `family=${family.replace(/ /g, "+")}`)
+  .join("&")}&display=swap`;
+
 function createApiReferenceRedirects(path: string): string[] {
   if (path.startsWith("/api/react/")) {
     return [path.replace("/api/react/", "/api/")];
@@ -114,6 +140,7 @@ const config: Config = {
           customCss: [
             "../../packages/react-day-picker/src/style.css",
             "./src/css/site.css",
+            "./src/css/daypicker-locale-fonts.css",
           ],
         },
         sitemap: {
@@ -133,9 +160,7 @@ const config: Config = {
   ],
 
   // Modern font
-  stylesheets: [
-    "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
-  ],
+  stylesheets: [googleFontsStylesheet],
 
   plugins: [
     function currentExamplesAliasPlugin() {

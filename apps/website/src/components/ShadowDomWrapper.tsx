@@ -1,4 +1,5 @@
 import style from "!raw-loader!@daypicker/react/src/style.css";
+import localeFontStyle from "!raw-loader!../css/daypicker-locale-fonts.css";
 import { useColorMode } from "@docusaurus/theme-common";
 import root from "react-shadow";
 
@@ -16,6 +17,7 @@ export function ShadowDomWrapper({
     <root.div>
       {children}
       <style>{baseStyleCss ?? style.toString()}</style>
+      <style>{localeFontStyle.toString()}</style>
       <style>{`
         .rdp-root {
           --rdp-accent-color: var(--ifm-color-primary);

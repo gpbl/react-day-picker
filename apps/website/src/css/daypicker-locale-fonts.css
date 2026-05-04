@@ -1,0 +1,98 @@
+.rdp-root {
+  --rdp-locale-font-fallback: var(
+    --ifm-font-family-base,
+    ui-sans-serif,
+    system-ui,
+    sans-serif
+  );
+}
+
+.rdp-root:lang(ar),
+.rdp-root:lang(fa),
+.rdp-root:lang(ckb),
+.rdp-root:lang(ug) {
+  font-family: "Vazirmatn", var(--rdp-locale-font-fallback);
+}
+
+.rdp-root:lang(he) {
+  font-family: "Noto Sans Hebrew", var(--rdp-locale-font-fallback);
+}
+
+.rdp-root:lang(am) {
+  font-family: "Noto Sans Ethiopic", var(--rdp-locale-font-fallback);
+}
+
+.rdp-root:lang(th) {
+  font-family: "Noto Sans Thai", var(--rdp-locale-font-fallback);
+}
+
+.rdp-root:lang(hy) {
+  font-family: "Noto Sans Armenian", var(--rdp-locale-font-fallback);
+}
+
+.rdp-root:lang(ka) {
+  font-family: "Noto Sans Georgian", var(--rdp-locale-font-fallback);
+}
+
+.rdp-root:lang(bn) {
+  font-family: "Noto Sans Bengali", var(--rdp-locale-font-fallback);
+}
+
+.rdp-root:lang(hi) {
+  font-family: "Noto Sans Devanagari", var(--rdp-locale-font-fallback);
+}
+
+.rdp-root:lang(gu) {
+  font-family: "Noto Sans Gujarati", var(--rdp-locale-font-fallback);
+}
+
+.rdp-root:lang(kn) {
+  font-family: "Noto Sans Kannada", var(--rdp-locale-font-fallback);
+}
+
+.rdp-root:lang(km) {
+  font-family: "Noto Sans Khmer", var(--rdp-locale-font-fallback);
+}
+
+.rdp-root:lang(ta) {
+  font-family: "Noto Sans Tamil", var(--rdp-locale-font-fallback);
+}
+
+.rdp-root:lang(te) {
+  font-family: "Noto Sans Telugu", var(--rdp-locale-font-fallback);
+}
+
+.rdp-root:lang(ja) {
+  font-family: "Noto Sans JP", var(--rdp-locale-font-fallback);
+}
+
+.rdp-root:lang(ko) {
+  font-family: "Noto Sans KR", var(--rdp-locale-font-fallback);
+}
+
+.rdp-root:lang(zh-CN),
+.rdp-root:lang(zh-Hans) {
+  font-family: "Noto Sans SC", var(--rdp-locale-font-fallback);
+}
+
+.rdp-root:lang(zh-HK) {
+  font-family: "Noto Sans HK", var(--rdp-locale-font-fallback);
+}
+
+.rdp-root:lang(zh-TW),
+.rdp-root:lang(zh-Hant) {
+  font-family: "Noto Sans TC", var(--rdp-locale-font-fallback);
+}
+
+.rdp-root:lang(be),
+.rdp-root:lang(bg),
+.rdp-root:lang(el),
+.rdp-root:lang(kk),
+.rdp-root:lang(mk),
+.rdp-root:lang(mn),
+.rdp-root:lang(ru),
+.rdp-root:lang(sr),
+.rdp-root:lang(uk),
+.rdp-root:lang(uz-Cyrl) {
+  font-family: "Noto Sans", var(--rdp-locale-font-fallback);
+}
