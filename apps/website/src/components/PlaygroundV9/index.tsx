@@ -84,40 +84,36 @@ export function Playground({ basePath = "/playground" }: PlaygroundProps) {
     localeEntries.find(([, localeValue]) => localeValue === props.locale);
   const localeName = localeEntry?.[0];
   const localeProp = localeName ? ` locale={${localeName}}` : "";
-  const localeImport =
-    localeName &&
-    (calendarLocale
-      ? `import { ${localeName} } from "react-day-picker/${props.calendar}";`
-      : `import { ${localeName} } from "react-day-picker/locale";`);
 
   const importStatements: string[] = [];
 
   if (props.calendar === "persian") {
     importStatements.push(
-      `import { DayPicker } from "react-day-picker/persian";`,
+      `import { DayPicker${localeName ? `, ${localeName}` : ""} } from "react-day-picker/persian";`,
     );
   } else if (props.calendar === "ethiopic") {
     importStatements.push(
-      `import { DayPicker } from "react-day-picker/ethiopic";`,
+      `import { DayPicker${localeName ? `, ${localeName}` : ""} } from "react-day-picker/ethiopic";`,
     );
   } else if (props.calendar === "buddhist") {
     importStatements.push(
-      `import { DayPicker } from "react-day-picker/buddhist";`,
+      `import { DayPicker${localeName ? `, ${localeName}` : ""} } from "react-day-picker/buddhist";`,
     );
   } else if (props.calendar === "hebrew") {
     importStatements.push(
-      `import { DayPicker } from "react-day-picker/hebrew";`,
+      `import { DayPicker${localeName ? `, ${localeName}` : ""} } from "react-day-picker/hebrew";`,
     );
   } else if (props.calendar === "hijri") {
     importStatements.push(
-      `import { DayPicker } from "react-day-picker/hijri";`,
+      `import { DayPicker${localeName ? `, ${localeName}` : ""} } from "react-day-picker/hijri";`,
     );
   } else {
     importStatements.push(`import { DayPicker } from "react-day-picker";`);
-  }
-
-  if (localeImport) {
-    importStatements.unshift(localeImport);
+    if (localeName) {
+      importStatements.unshift(
+        `import { ${localeName} } from "react-day-picker/locale";`,
+      );
+    }
   }
 
   const formattedProps = `${importStatements.join("\n")}\n\n<DayPicker${toJSX({
