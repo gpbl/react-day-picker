@@ -1,5 +1,4 @@
 import Link from "@docusaurus/Link";
-import { useDocsVersionCandidates } from "@docusaurus/plugin-content-docs/client";
 import { useLocation } from "@docusaurus/router";
 
 type Props = {
@@ -12,17 +11,16 @@ type Props = {
 };
 
 export default function VersionedPlaygroundNavbarItem({
-  docsPluginId,
+  docsPluginId: _docsPluginId,
   label = "Playground",
   className,
   mobile = false,
   position,
   ...props
 }: Props) {
-  const version = useDocsVersionCandidates(docsPluginId)[0];
   const { pathname } = useLocation();
-  const to = version.name === "next" ? "/next/playground" : "/playground";
-  const isActive = /^\/(?:next\/)?playground\/?$/.test(pathname);
+  const to = "/playground";
+  const isActive = /^\/playground\/?$/.test(pathname);
   const activeClassName = mobile
     ? "menu__link--active"
     : "navbar__link--active";

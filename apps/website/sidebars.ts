@@ -2,34 +2,23 @@ import { createRequire } from "node:module";
 import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 
 const require = createRequire(import.meta.url);
-const typedocSidebar =
-  require("./docs/api/typedoc-sidebar.cjs") as SidebarsConfig["api"][1];
-
-// Something doesn't work when using the TypeDoc sidebar with DateLib importing types from date-fns.
-const typedocSidebarFixed = typedocSidebar.map((item) => {
-  if (item.label === "Classes") {
-    return {
-      ...item,
-      items: item.items?.map((item) => {
-        if (item.label === "DateLib") {
-          return {
-            type: "doc",
-            id: "api/classes/DateLib",
-            label: "DateLib",
-          };
-        }
-        return item;
-      }),
-    };
-  }
-  return item;
-});
+const reactSidebar = require("./docs/api/react/typedoc-sidebar.cjs");
+const buddhistSidebar = require("./docs/api/buddhist/typedoc-sidebar.cjs");
+const ethiopicSidebar = require("./docs/api/ethiopic/typedoc-sidebar.cjs");
+const hebrewSidebar = require("./docs/api/hebrew/typedoc-sidebar.cjs");
+const hijriSidebar = require("./docs/api/hijri/typedoc-sidebar.cjs");
+const persianSidebar = require("./docs/api/persian/typedoc-sidebar.cjs");
 
 const sidebars: SidebarsConfig = {
   docs: [
     "intro",
     "start",
-    "upgrading",
+    {
+      type: "category",
+      label: "Upgrading guide",
+      collapsed: false,
+      items: ["upgrading", "upgrading-v8-to-v10"],
+    },
     {
       type: "category",
       label: "Customization",
@@ -92,7 +81,63 @@ const sidebars: SidebarsConfig = {
     "changelog",
     "license",
   ],
-  api: ["api/index", typedocSidebarFixed],
+  api: [
+    "api/index",
+    {
+      type: "category",
+      label: "@daypicker/react",
+      link: {
+        type: "doc",
+        id: "api/react/index",
+      },
+      items: reactSidebar,
+    },
+    {
+      type: "category",
+      label: "@daypicker/persian",
+      link: {
+        type: "doc",
+        id: "api/persian/index",
+      },
+      items: persianSidebar,
+    },
+    {
+      type: "category",
+      label: "@daypicker/buddhist",
+      link: {
+        type: "doc",
+        id: "api/buddhist/index",
+      },
+      items: buddhistSidebar,
+    },
+    {
+      type: "category",
+      label: "@daypicker/ethiopic",
+      link: {
+        type: "doc",
+        id: "api/ethiopic/index",
+      },
+      items: ethiopicSidebar,
+    },
+    {
+      type: "category",
+      label: "@daypicker/hebrew",
+      link: {
+        type: "doc",
+        id: "api/hebrew/index",
+      },
+      items: hebrewSidebar,
+    },
+    {
+      type: "category",
+      label: "@daypicker/hijri",
+      link: {
+        type: "doc",
+        id: "api/hijri/index",
+      },
+      items: hijriSidebar,
+    },
+  ],
 };
 
 export default sidebars;

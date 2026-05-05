@@ -24,11 +24,11 @@ The time zone can be specified as either an [IANA time zone](https://en.wikipedi
 
 ## Working with time-zoned dates
 
-When working with time zones, use the `TZDate` object exported by `react-day-picker` instead of the native `Date` object. `TZDate` ensures your user interface always reads and writes dates in the time zone you specify.
+When working with time zones, use the `TZDate` object exported by `@daypicker/react` instead of the native `Date` object. `TZDate` ensures your user interface always reads and writes dates in the time zone you specify.
 
 ```tsx
 import React, { useState } from "react";
-import { DayPicker, TZDate } from "react-day-picker";
+import { DayPicker, TZDate } from "@daypicker/react";
 
 export function TimeZone() {
   const timeZone = "Pacific/Honolulu";

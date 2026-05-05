@@ -4,33 +4,39 @@ title: Hijri Calendar
 
 DayPicker supports the [Hijri (Umm al-Qura) calendar](https://en.wikipedia.org/wiki/Islamic_calendar) via a dedicated build.
 
-Import `DayPicker` from `react-day-picker/hijri` to render Hijri months and weekdays while keeping the usual DayPicker API.
+Install the React package and the Hijri calendar package:
+
+```bash npm2yarn
+npm install @daypicker/react @daypicker/hijri
+```
+
+Import `DayPicker` from `@daypicker/hijri` to render Hijri months and weekdays while keeping the usual DayPicker API.
 
 ```tsx
-import { DayPicker } from "react-day-picker/hijri";
+import { DayPicker } from "@daypicker/hijri";
 ```
 
 ### Basic usage (Arabic labels, RTL, Arabic-Indic digits)
 
 ```tsx
-import { DayPicker } from "react-day-picker/hijri";
+import { DayPicker } from "@daypicker/hijri";
 
 <DayPicker />;
 ```
 
-<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/v9.14.0/examples/Hijri.tsx">
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/Hijri.tsx">
   <Examples.Hijri />
 </BrowserWindow>
 
 ### English labels, LTR, Latin digits
 
 ```tsx
-import { DayPicker, enUS } from "react-day-picker/hijri";
+import { DayPicker, enUS } from "@daypicker/hijri";
 
 <DayPicker locale={enUS} dir="ltr" numerals="latn" />;
 ```
 
-<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/v9.14.0/examples/HijriEn.tsx">
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/HijriEn.tsx">
   <Examples.HijriEn />
 </BrowserWindow>
 

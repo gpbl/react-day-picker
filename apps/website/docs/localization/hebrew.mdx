@@ -4,33 +4,38 @@ title: Hebrew Calendar
 
 DayPicker supports the [Hebrew calendar](https://en.wikipedia.org/wiki/Hebrew_calendar) via a dedicated build.
 
-Import `DayPicker` from `react-day-picker/hebrew` to render Hebrew months (including Adar I/II in leap years) with RTL layout by default.
+Install the React package and the Hebrew calendar package:
+
+```bash npm2yarn
+npm install @daypicker/react @daypicker/hebrew
+```
+
+Import `DayPicker` from `@daypicker/hebrew` to render Hebrew months (including Adar I/II in leap years) with RTL layout by default.
 
 ```tsx
-import { DayPicker } from "react-day-picker/hebrew";
+import { DayPicker } from "@daypicker/hebrew";
 ```
 
 ### Basic usage
 
 ```tsx
-import { DayPicker } from "react-day-picker/hebrew";
+import { DayPicker } from "@daypicker/hebrew";
 
 <DayPicker />;
 ```
 
-<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/v9.14.0/examples/Hebrew.tsx">
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/Hebrew.tsx">
   <Examples.Hebrew />
 </BrowserWindow>
 
 ### English labels, LTR, Latin digits
 
 ```tsx
-import { DayPicker } from "react-day-picker/hebrew";
-import { enUS } from "react-day-picker/locale";
+import { DayPicker, enUS } from "@daypicker/hebrew";
 
 <DayPicker locale={enUS} dir="ltr" numerals="latn" />;
 ```
 
-<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/v9.14.0/examples/HebrewEn.tsx">
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/HebrewEn.tsx">
   <Examples.HebrewEn />
 </BrowserWindow>

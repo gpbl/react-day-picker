@@ -4,10 +4,16 @@ title: Ethiopic Calendar
 
 DayPicker supports the [Ethiopic calendar](https://en.wikipedia.org/wiki/Ethiopian_calendar) via a dedicated build.
 
-Import `DayPicker` from `react-day-picker/ethiopic` to display Ethiopic months, weekdays, and numerals while keeping the usual DayPicker API.
+Install the React package and the Ethiopic calendar package:
+
+```bash npm2yarn
+npm install @daypicker/react @daypicker/ethiopic
+```
+
+Import `DayPicker` from `@daypicker/ethiopic` to display Ethiopic months, weekdays, and numerals while keeping the usual DayPicker API.
 
 ```tsx
-import { DayPicker } from "react-day-picker/ethiopic";
+import { DayPicker } from "@daypicker/ethiopic";
 ```
 
 ### Basic usage
@@ -15,25 +21,32 @@ import { DayPicker } from "react-day-picker/ethiopic";
 By default, the locale is `amET` with Ge'ez numerals.
 
 ```tsx
-import { DayPicker } from "react-day-picker/ethiopic";
+import { DayPicker } from "@daypicker/ethiopic";
 
 <DayPicker />;
 ```
 
-<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/v9.14.0/examples/Ethiopic.tsx">
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/Ethiopic.tsx">
   <Examples.Ethiopic />
 </BrowserWindow>
+
+If you need the locale object directly, import `amET` from
+`@daypicker/ethiopic`:
+
+```tsx
+import { amET } from "@daypicker/ethiopic";
+```
 
 ### Latin numerals
 
 Switch to Latin numerals:
 
 ```tsx
-import { DayPicker } from "react-day-picker/ethiopic";
+import { DayPicker } from "@daypicker/ethiopic";
 
 <DayPicker numerals="latn" />;
 ```
 
-<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/v9.14.0/examples/EthiopicLatin.tsx">
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/EthiopicLatin.tsx">
   <Examples.EthiopicLatin />
 </BrowserWindow>

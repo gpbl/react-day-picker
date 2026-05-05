@@ -5,11 +5,8 @@ import type { Config } from "@docusaurus/types";
 import { themes as prismThemes } from "prism-react-renderer";
 
 const nodeRequire = createRequire(import.meta.url);
-const nextDocsVersion = nodeRequire(
+const currentDocsVersion = nodeRequire(
   "../../packages/react-day-picker/package.json",
-).version;
-const stableDocsVersion = nodeRequire(
-  "react-day-picker-v9/package.json",
 ).version;
 const currentExamplesPath = nodeRequire.resolve("../../examples/index.ts");
 const reactDayPickerSrcPath = nodeRequire.resolve(
@@ -70,9 +67,6 @@ function createApiReferenceRedirects(path: string): string[] {
   if (path.startsWith("/api/react/")) {
     return [path.replace("/api/react/", "/api/")];
   }
-  if (path.startsWith("/next/api/react/")) {
-    return [path.replace("/next/api/react/", "/next/api/")];
-  }
   return [];
 }
 
@@ -116,12 +110,10 @@ const config: Config = {
           ],
           lastVersion: "current",
           versions: {
-            next: {
-              label: nextDocsVersion,
+            "9.14.0": {
+              label: "9.14.0",
               badge: true,
-              banner: "unreleased",
-              noIndex: true,
-              path: "/next",
+              path: "/v9",
             },
             "8.10.2": {
               label: "8.10.2",
@@ -129,7 +121,7 @@ const config: Config = {
               path: "/v8",
             },
             current: {
-              label: stableDocsVersion,
+              label: currentDocsVersion,
               path: "/",
               badge: false,
             },
@@ -287,7 +279,7 @@ const config: Config = {
         {
           type: "docsVersionDropdown",
           position: "left",
-          versions: ["next", "current", "8.10.2"],
+          versions: ["current", "9.14.0", "8.10.2"],
           dropdownActiveClassDisabled: true,
           dropdownItemsBefore: [],
           dropdownItemsAfter: [

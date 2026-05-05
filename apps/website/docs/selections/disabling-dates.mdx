@@ -8,20 +8,20 @@ Use the `disabled` prop to prevent specific dates from being selected in any mod
 
 ## Matchers Types
 
-The prop accepts a [`Matcher`](../api/type-aliases/Matcher.md) or an array of matchers to specify which dates should be disabled.
+The prop accepts a [`Matcher`](../api/react/type-aliases/Matcher.md) or an array of matchers to specify which dates should be disabled.
 
 | Matcher Type                                          | Description                                                               |
 | ----------------------------------------------------- | ------------------------------------------------------------------------- |
 | `boolean`                                             | Disable all dates.                                                        |
 | `Date`                                                | Matches a specific date.                                                  |
 | `Date[]`                                              | Matches any date in the array of dates.                                   |
-| [`DateRange`](../api/type-aliases/DateRange.md)       | Matches a range of dates, including the start and end dates.              |
-| [`DateBefore`](../api/type-aliases/DateBefore.md)     | Matches all dates before a specific date (exclusive).                     |
-| [`DateAfter`](../api/type-aliases/DateAfter.md)       | Matches all dates after a specific date (exclusive).                      |
-| [`DateInterval`](../api/type-aliases/DateInterval.md) | Matches dates between two dates (exclusive of the start and end dates).   |
-| [`DayOfWeek`](../api/type-aliases/DayOfWeek.md)       | Matches specific days of the week (e.g., Sunday is `0`, Saturday is `6`). |
+| [`DateRange`](../api/react/type-aliases/DateRange.md)       | Matches a range of dates, including the start and end dates.              |
+| [`DateBefore`](../api/react/type-aliases/DateBefore.md)     | Matches all dates before a specific date (exclusive).                     |
+| [`DateAfter`](../api/react/type-aliases/DateAfter.md)       | Matches all dates after a specific date (exclusive).                      |
+| [`DateInterval`](../api/react/type-aliases/DateInterval.md) | Matches dates between two dates (exclusive of the start and end dates).   |
+| [`DayOfWeek`](../api/react/type-aliases/DayOfWeek.md)       | Matches specific days of the week (e.g., Sunday is `0`, Saturday is `6`). |
 | `(date: Date) => boolean`                             | A function that returns `true` if the given date matches the condition.   |
-| [`Matcher[]`](../api/type-aliases/Matcher.md)         | An array of the matchers listed above.                                    |
+| [`Matcher[]`](../api/react/type-aliases/Matcher.md)         | An array of the matchers listed above.                                    |
 
 ```tsx
 // Disable all dates

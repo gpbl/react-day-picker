@@ -1,0 +1,103 @@
+---
+sidebar_position: 7
+---
+
+# Advanced Translations
+
+Most apps don’t need to manually translate DayPicker. Locales from `react-day-picker/locale` already include translated month names, weekdays, and ARIA labels.
+
+Use this guide only when you need advanced customization, such as custom wording, accessibility copy, or locale-specific formatting tweaks.
+
+## Translation props
+
+| Prop Name    | Type                                              | Description                                |
+| ------------ | ------------------------------------------------- | ------------------------------------------ |
+| `labels`     | [`Labels`](../api/type-aliases/Labels.md)         | Map the ARIA labels used within DayPicker. |
+| `formatters` | [`Formatters`](../api/type-aliases/Formatters.md) | Map the functions used as date formatters. |
+| `dir`        | `rtl` \| `ltr`                                    | Set the text direction.                    |
+
+## Override ARIA labels
+
+Use the `labels` prop to override any DayPicker label. Pass only the labels you want to change.
+
+```tsx
+import { DayPicker, defaultLocale } from "react-day-picker";
+import { fr } from "react-day-picker/locale";
+
+export function CustomLabels() {
+  return (
+    <DayPicker
+      locale={fr}
+      labels={{
+        // Shorten the next/previous button copy
+        labelNext: () => "Mois suivant",
+        labelPrevious: () => "Mois précédent",
+        // Keep the default logic for other labels
+        labelDayButton: defaultLocale.labels?.labelDayButton,
+      }}
+    />
+  );
+}
+```
+
+### Translatable labels
+
+| Function                                                             | Description                                                                |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| [`labelDayButton`](../api/functions/labelDayButton.md)               | The ARIA label for the day button.                                         |
+| [`labelGrid`](../api/functions/labelGrid.md)                         | Return an ARIA label for the month grid, announced when entering the grid. |
+| [`labelGridcell`](../api/functions/labelGridcell.md)                 | The label for the day grid cell when the calendar is not interactive.      |
+| [`labelMonthDropdown`](../api/functions/labelMonthDropdown.md)       | The ARIA label for the months dropdown.                                    |
+| [`labelNav`](../api/functions/labelNav.md)                           | The ARIA label for the navigation toolbar.                                 |
+| [`labelNext`](../api/functions/labelNext.md)                         | The ARIA label for the next month button.                                  |
+| [`labelPrevious`](../api/functions/labelPrevious.md)                 | The ARIA label for the previous month button.                              |
+| [`labelWeekday`](../api/functions/labelWeekday.md)                   | The ARIA label for the weekday column header.                              |
+| [`labelWeekNumber`](../api/functions/labelWeekNumber.md)             | The ARIA label for the week number cell (the first cell in the row).       |
+| [`labelWeekNumberHeader`](../api/functions/labelWeekNumberHeader.md) | The ARIA label for the week number header element.                         |
+| [`labelYearDropdown`](../api/functions/labelYearDropdown.md)         | The ARIA label for the years dropdown.                                     |
+
+## Tweak locale data
+
+If you need to adjust date names or formatting, extend `defaultLocale` (or any DayPicker locale) rather than rebuilding everything.
+
+```tsx
+import { DayPicker, defaultLocale } from "react-day-picker";
+
+const locale = {
+  ...defaultLocale,
+  localize: {
+    ...defaultLocale.localize,
+    // Example: shorten weekday names
+    day: (n, opts) =>
+      defaultLocale.localize.day(n, { ...opts, width: "abbreviated" }),
+  },
+};
+
+<DayPicker locale={locale} />;
+```
+
+Keep overrides minimal so you inherit built-in behaviors like translated labels and month/year formatting.
+
+## Custom formatters
+
+Use the `formatters` prop to customize how dates, week numbers, and weekday names are rendered.
+
+```tsx
+import { format } from "date-fns";
+
+<DayPicker
+  formatters={{
+    formatCaption: (date, options) => format(date, "LLLL yyyy", options),
+  }}
+/>;
+```
+
+| Function                                                               | Description                                                     |
+| ---------------------------------------------------------------------- | --------------------------------------------------------------- |
+| [`formatCaption`](../api/functions/formatCaption.md)                   | Format the caption of the month.                                |
+| [`formatDay`](../api/functions/formatDay.md)                           | Format the day date shown in the day cell.                      |
+| [`formatMonthDropdown`](../api/functions/formatMonthDropdown.md)       | Format the month number for the dropdown option label.          |
+| [`formatWeekNumber`](../api/functions/formatWeekNumber.md)             | Format the week number.                                         |
+| [`formatWeekNumberHeader`](../api/functions/formatWeekNumberHeader.md) | Format the week number header.                                  |
+| [`formatWeekdayName`](../api/functions/formatWeekdayName.md)           | Format the weekday name to be displayed in the weekdays header. |
+| [`formatYearDropdown`](../api/functions/formatYearDropdown.md)         | Format the years for the dropdown option label.                 |

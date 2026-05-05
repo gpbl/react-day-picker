@@ -4,12 +4,12 @@ sidebar_position: 2
 
 # Custom Selections
 
-If the built-in [selection modes](../selections/selection-modes.mdx) do not satisfy your app’s requirements, you can control the selection behavior using the [`onDayClick`](../api/interfaces/PropsBase.md#ondayclick) and [`modifiers`](../api/type-aliases/Modifiers.md) props.
+If the built-in [selection modes](../selections/selection-modes.mdx) do not satisfy your app’s requirements, you can control the selection behavior using the [`onDayClick`](../api/react/interfaces/PropsBase.md#ondayclick) and [`modifiers`](../api/react/type-aliases/Modifiers.md) props.
 
 | Prop         | Type                                                        | Description                               |
 | ------------ | ----------------------------------------------------------- | ----------------------------------------- |
-| `onDayClick` | [`DayEventHandler`](../api/type-aliases/DayEventHandler.md) | Callback when a day is clicked.           |
-| `modifiers`  | [`Modifiers`](../api/type-aliases/Modifiers.md)             | An object with the modifiers of the days. |
+| `onDayClick` | [`DayEventHandler`](../api/react/type-aliases/DayEventHandler.md) | Callback when a day is clicked.           |
+| `modifiers`  | [`Modifiers`](../api/react/type-aliases/Modifiers.md)             | An object with the modifiers of the days. |
 
 The `onDayClick` prop is a function that receives the clicked day and its modifiers as arguments.
 
@@ -32,7 +32,7 @@ Note the use of the `startOfWeek` and `endOfWeek` functions from [date-fns](http
 import React, { useState } from "react";
 
 import { endOfWeek, startOfWeek } from "date-fns";
-import { type DateRange, DayPicker, rangeIncludesDate } from "react-day-picker";
+import { type DateRange, DayPicker, rangeIncludesDate } from "@daypicker/react";
 
 /** Select the whole week when the day is clicked. */
 export function CustomWeek() {
@@ -94,7 +94,7 @@ For example, to implement the "single selection" behavior (similar to when `mode
 ```tsx
 import { useState } from "react";
 
-import { DayPicker, DayPickerProps } from "react-day-picker";
+import { DayPicker, DayPickerProps } from "@daypicker/react";
 
 export function CustomSingle() {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>();
@@ -135,7 +135,7 @@ Selecting multiple days is a bit more complex as it involves handling an array o
 import { useState } from "react";
 
 import { isSameDay } from "date-fns";
-import { DayEventHandler, DayPicker } from "react-day-picker";
+import { DayEventHandler, DayPicker } from "@daypicker/react";
 
 export function CustomMultiple() {
   const [value, setValue] = useState<Date[]>([]);
@@ -199,7 +199,7 @@ Create a fixed-length range (for example, 7 days) starting from the clicked day.
 import { addDays } from "date-fns";
 import { useState } from "react";
 
-import { type DateRange, DayPicker } from "react-day-picker";
+import { type DateRange, DayPicker } from "@daypicker/react";
 
 export function CustomRollingWindow() {
   const [range, setRange] = useState<DateRange | undefined>();
@@ -246,7 +246,7 @@ Toggle an entire month at a time.
 import { endOfMonth, startOfMonth } from "date-fns";
 import { useState } from "react";
 
-import { type DateRange, DayPicker } from "react-day-picker";
+import { type DateRange, DayPicker } from "@daypicker/react";
 
 export function CustomMonthSelection() {
   const [monthRange, setMonthRange] = useState<DateRange | undefined>();
@@ -297,18 +297,46 @@ Use `modifiersClassNames` or `modifiersStyles` to surface your custom state (for
 
 ## Week numbers and starts
 
-For week-based selections, set `weekStartsOn` (locale-aware) and consider handling `onWeekNumberClick` to select a week when its number is clicked. Combine it with `showWeekNumber`.
+For week-based selections, set `weekStartsOn` (locale-aware) and provide a custom `WeekNumber` component to select a whole week when its number is clicked. Combine it with `showWeekNumber`.
 
 ```tsx
-<DayPicker
-  showWeekNumber
-  weekStartsOn={1}
-  onWeekNumberClick={(weekNumber, week, e) => {
-    e.preventDefault();
-    setSelectedWeek({ from: week.from, to: week.to });
-  }}
-  modifiers={{ selected: selectedWeek }}
-/>
+import { useState } from "react";
+import {
+  type DateRange,
+  DayPicker,
+  type WeekNumberProps,
+} from "@daypicker/react";
+
+export function WeekSelection() {
+  const [selectedWeek, setSelectedWeek] = useState<DateRange>();
+
+  function CustomWeekNumber({ week, ...props }: WeekNumberProps) {
+    return (
+      <th {...props}>
+        <button
+          type="button"
+          onClick={() =>
+            setSelectedWeek({
+              from: week.days[0].date,
+              to: week.days[week.days.length - 1].date,
+            })
+          }
+        >
+          {props.children}
+        </button>
+      </th>
+    );
+  }
+
+  return (
+    <DayPicker
+      showWeekNumber
+      weekStartsOn={1}
+      components={{ WeekNumber: CustomWeekNumber }}
+      modifiers={{ selected: selectedWeek }}
+    />
+  );
+}
 ```
 
 ## Persisting custom selections

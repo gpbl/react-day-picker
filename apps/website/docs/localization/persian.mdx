@@ -4,32 +4,37 @@ title: Persian Calendar
 
 DayPicker supports the Persian [Solar Hijri](<https://en.wikipedia.org/wiki/Iranian_calendars#Modern_calendar:_Solar_Hijri_(SH)>) calendar via a dedicated build.
 
-Import `DayPicker` from `react-day-picker/persian` to render Persian months and weekdays while keeping the usual DayPicker API.
+Install the React package and the Persian calendar package:
+
+```bash npm2yarn
+npm install @daypicker/react @daypicker/persian
+```
+
+Import `DayPicker` from `@daypicker/persian` to render Persian months and weekdays while keeping the usual DayPicker API.
 
 ```tsx
-import { DayPicker } from "react-day-picker/persian";
+import { DayPicker } from "@daypicker/persian";
 ```
 
 ### Farsi labels, Eastern Arabic-Indic digits
 
 ```tsx
-import { DayPicker } from "react-day-picker/persian";
-import { faIR } from "react-day-picker/persian";
+import { DayPicker, faIR } from "@daypicker/persian";
 <DayPicker locale={faIR} />;
 ```
 
-<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/v9.14.0/examples/Persian.tsx">
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/Persian.tsx">
   <Examples.Persian />
 </BrowserWindow>
 
 ### English labels, LTR, Latin digits
 
 ```tsx
-import { DayPicker, enUS } from "react-day-picker/persian";
+import { DayPicker, enUS } from "@daypicker/persian";
 
 <DayPicker locale={enUS} dir="ltr" numerals="latn" />;
 ```
 
-<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/v9.14.0/examples/PersianEn.tsx">
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/PersianEn.tsx">
   <Examples.PersianEn />
 </BrowserWindow>

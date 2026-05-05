@@ -1,13 +1,13 @@
 # React DayPicker
 
-> React DayPicker is a TypeScript React component for building accessible date pickers, calendars, and date inputs. The package is published as `react-day-picker` and documented at https://daypicker.dev.
+> React DayPicker is a TypeScript React component for building accessible date pickers, calendars, and date inputs. The current package is published as `@daypicker/react` and documented at https://daypicker.dev.
 
-Use the current stable documentation links by default. Use `/next` only when the user asks about unreleased features, and use `/v8` only when the user asks about React DayPicker v8.
+Use the current stable documentation links by default. Use `/v9` only when the user asks about React DayPicker v9, and use `/v8` only when the user asks about React DayPicker v8.
 
 Important usage notes:
 
-- Import the component from `react-day-picker`.
-- Import the default stylesheet with `import "react-day-picker/style.css";` unless the app provides custom styles.
+- Import the component from `@daypicker/react`.
+- Import the default stylesheet with `import "@daypicker/react/style.css";` unless the app provides custom styles.
 - DayPicker supports single, multiple, range, and custom selection flows.
 - DayPicker supports localization, time zones, ISO and broadcast calendars, and Persian, Hijri, Buddhist, Ethiopic, and Hebrew calendar packages.
 - DayPicker is written in TypeScript and its API reference documents exported components, props, hooks, helpers, labels, formatters, and types.
@@ -17,7 +17,7 @@ Important usage notes:
 - [Introduction](https://daypicker.dev/): Overview, feature summary, and a basic DayPicker example.
 - [Getting Started](https://daypicker.dev/start): Install the package and render a basic controlled date picker.
 - [Playground](https://daypicker.dev/playground): Interactive playground for trying DayPicker props and examples.
-- [Upgrading to v9](https://daypicker.dev/upgrading): Migration guide for updating existing apps to React DayPicker v9.
+- [Upgrading to v10](https://daypicker.dev/upgrading): Migration guide for updating existing apps to React DayPicker v10.
 
 ## Core Documentation
 
@@ -49,7 +49,7 @@ Important usage notes:
 
 ## Localization And Calendars
 
-- [Changing the Locale](https://daypicker.dev/localization/changing-locale): Use `date-fns` locales via `react-day-picker/locale`.
+- [Changing the Locale](https://daypicker.dev/localization/changing-locale): Use `date-fns` locales via `@daypicker/react/locale`.
 - [Setting the Time Zone](https://daypicker.dev/localization/setting-time-zone): Render and select dates in a specific IANA time zone or UTC offset.
 - [ISO and Broadcast Calendars](https://daypicker.dev/localization/iso-and-broadcast): Use ISO 8601 and broadcast calendar behavior.
 - [Persian Calendar](https://daypicker.dev/localization/persian): Use the Persian calendar package.
@@ -78,11 +78,11 @@ Important usage notes:
 - [GitHub Repository](https://github.com/gpbl/react-day-picker): Source code, issues, discussions, and pull requests.
 - [Examples Source](https://github.com/gpbl/react-day-picker/tree/main/examples): Runnable example components used by the documentation and tests.
 - [Package Source](https://github.com/gpbl/react-day-picker/tree/main/packages/react-day-picker/src): Main package source for components, helpers, formatters, labels, selection logic, and types.
-- [npm Package](https://www.npmjs.com/package/react-day-picker): Published `react-day-picker` package.
+- [npm Package](https://www.npmjs.com/package/@daypicker/react): Published `@daypicker/react` package.
 
 ## Optional
 
-- [Next Documentation](https://daypicker.dev/next): Unreleased documentation for the next React DayPicker version.
+- [v9 Documentation](https://daypicker.dev/v9): Legacy React DayPicker v9 documentation.
 - [v8 Documentation](https://daypicker.dev/v8): Legacy React DayPicker v8 documentation.
 - [Changelog](https://daypicker.dev/changelog): Release history and notable changes.
 - [Contributing](https://daypicker.dev/development/contributing): Contribution guide for the project.

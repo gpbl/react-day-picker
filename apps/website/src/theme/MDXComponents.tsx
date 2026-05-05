@@ -18,8 +18,8 @@ const Table: TableComponent =
   ((props) => <table {...props} />);
 
 const exampleModulesByVersion: Record<string, ExampleModule> = {
-  current: ExamplesV9 as unknown as ExampleModule,
-  next: CurrentExamples as unknown as ExampleModule,
+  current: CurrentExamples as unknown as ExampleModule,
+  "9.14.0": ExamplesV9 as unknown as ExampleModule,
 };
 const exampleComponentCache = new Map<string, ExampleComponent>();
 
@@ -33,9 +33,9 @@ function getVersionedExampleComponent(name: string): ExampleComponent {
     const version = useDocsVersion();
     const examples =
       exampleModulesByVersion[version.version] ??
-      (ExamplesV9 as unknown as ExampleModule);
+      (CurrentExamples as unknown as ExampleModule);
     const Example =
-      examples[name] ?? (ExamplesV9 as unknown as ExampleModule)[name];
+      examples[name] ?? (CurrentExamples as unknown as ExampleModule)[name];
 
     if (!Example) {
       return null;
