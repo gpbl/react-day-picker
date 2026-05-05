@@ -13,6 +13,7 @@ let getUnpublishedPackagesMock: jest.Mock;
 let publishPackagesMock: jest.Mock;
 let readPackageInfoMock: jest.Mock;
 let shouldPublishReleaseMock: jest.Mock;
+let verifyPackageDistTagsMock: jest.Mock;
 let releaseCiExecCalls: ReleaseCiExecCall[];
 let originalEnv: NodeJS.ProcessEnv;
 
@@ -28,6 +29,7 @@ jest.mock("./publish-packages", () => ({
   getUnpublishedPackages: jest.fn(),
   publishPackages: jest.fn(),
   readPackageInfo: jest.fn(),
+  verifyPackageDistTags: jest.fn(),
 }));
 
 jest.mock("./should-publish-release", () => ({
@@ -45,6 +47,8 @@ beforeAll(async function loadModule() {
     .publishPackages as unknown as jest.Mock;
   readPackageInfoMock = (await import("./publish-packages"))
     .readPackageInfo as unknown as jest.Mock;
+  verifyPackageDistTagsMock = (await import("./publish-packages"))
+    .verifyPackageDistTags as unknown as jest.Mock;
   shouldPublishReleaseMock = (await import("./should-publish-release"))
     .shouldPublishRelease as unknown as jest.Mock;
   ({ releaseCi } = await import("./release-ci"));
@@ -96,6 +100,9 @@ beforeEach(function setupReleaseCiTestState() {
   });
 
   publishPackagesMock.mockImplementation(function mockPublish() {});
+  verifyPackageDistTagsMock.mockImplementation(
+    function mockVerifyDistTags() {},
+  );
 
   shouldPublishReleaseMock.mockImplementation(
     async function mockShouldPublish() {
@@ -165,6 +172,7 @@ describe("releaseCi", function describeReleaseCi() {
     ]);
     expect(getUnpublishedPackagesMock).toHaveBeenCalledWith();
     expect(publishPackagesMock).toHaveBeenCalledWith("next");
+    expect(verifyPackageDistTagsMock).toHaveBeenCalledWith("next");
     expect(createGitHubReleaseMock).toHaveBeenCalledWith({
       repository: "gpbl/react-day-picker",
       token: "test-token",
@@ -203,7 +211,7 @@ describe("releaseCi", function describeReleaseCi() {
     });
   });
 
-  test("it still creates the repo release when packages are already published", async function testCreateReleaseWithoutPublishing() {
+  test("it skips dist-tag verification when recovering already-published versions", async function testRecoverPublishedVersions() {
     getUnpublishedPackagesMock.mockReturnValue([]);
 
     await expect(releaseCi()).resolves.toEqual({
@@ -216,6 +224,28 @@ describe("releaseCi", function describeReleaseCi() {
       releaseCiExecCalls.map((call) => [call.command, ...call.args]),
     ).toEqual([["git", "rev-parse", "HEAD"]]);
     expect(publishPackagesMock).not.toHaveBeenCalled();
+    expect(verifyPackageDistTagsMock).not.toHaveBeenCalled();
     expect(createGitHubReleaseMock).toHaveBeenCalledTimes(1);
+  });
+
+  test("it publishes stable versions with the latest dist-tag", async function testStableReleaseTag() {
+    readPackageInfoMock.mockReturnValue({
+      name: "react-day-picker",
+      version: "10.0.0",
+    });
+    getUnpublishedPackagesMock.mockReturnValue([
+      {
+        packageDir: "packages/react-day-picker",
+        packageInfo: {
+          name: "react-day-picker",
+          version: "10.0.0",
+        },
+      },
+    ]);
+
+    await releaseCi();
+
+    expect(publishPackagesMock).toHaveBeenCalledWith("latest");
+    expect(verifyPackageDistTagsMock).toHaveBeenCalledWith("latest");
   });
 });

@@ -75,6 +75,28 @@ function isPackageVersionPublished(packageInfo: {
   }
 }
 
+function readPackageVersionFromDistTag(
+  packageInfo: {
+    name: string;
+    version: string;
+  },
+  tag: string,
+): string | undefined {
+  try {
+    return String(
+      execFileSync("npm", ["view", `${packageInfo.name}@${tag}`, "version"], {
+        encoding: "utf8",
+        stdio: ["ignore", "pipe", "pipe"],
+      }),
+    ).trim();
+  } catch (error) {
+    if (isPackageVersionMissingError(error)) {
+      return undefined;
+    }
+    throw error;
+  }
+}
+
 export function getUnpublishedPackages(): Array<{
   packageDir: string;
   packageInfo: {
@@ -88,6 +110,25 @@ export function getUnpublishedPackages(): Array<{
       ? []
       : [{ packageDir, packageInfo }];
   });
+}
+
+export function verifyPackageDistTags(tag: string): void {
+  if (!tag) {
+    throw new Error("Usage: verifyPackageDistTags <npm-tag>");
+  }
+
+  for (const packageDir of publishablePackageDirs) {
+    const packageInfo = readPackageInfo(packageDir);
+    const taggedVersion = readPackageVersionFromDistTag(packageInfo, tag);
+    if (taggedVersion === packageInfo.version) {
+      continue;
+    }
+
+    const actualVersion = taggedVersion ?? "no published version";
+    throw new Error(
+      `Expected npm dist-tag ${tag} for ${packageInfo.name} to point to ${packageInfo.version}, got ${actualVersion}. Trusted publishing only authenticates npm publish, so repair the tag manually with: npm dist-tag add ${packageInfo.name}@${packageInfo.version} ${tag}`,
+    );
+  }
 }
 
 export function publishPackages(tag: string): void {

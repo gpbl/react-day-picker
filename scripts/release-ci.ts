@@ -6,6 +6,7 @@ import {
   getUnpublishedPackages,
   publishPackages,
   readPackageInfo,
+  verifyPackageDistTags,
 } from "./publish-packages";
 import { shouldPublishRelease } from "./should-publish-release";
 
@@ -82,6 +83,7 @@ export async function releaseCi(): Promise<{
   }
 
   const unpublishedPackageVersions = getUnpublishedPackages();
+  const npmTag = packageInfo.version.includes("-next") ? "next" : "latest";
   let publishedPackages = false;
 
   if (unpublishedPackageVersions.length > 0) {
@@ -92,12 +94,14 @@ export async function releaseCi(): Promise<{
       });
     }
 
-    const npmTag = packageInfo.version.includes("-next") ? "next" : "latest";
     console.log(`Publishing ${packageInfo.version} with dist-tag ${npmTag}.`);
     publishPackages(npmTag);
+    verifyPackageDistTags(npmTag);
     publishedPackages = true;
   } else {
     console.log("All publishable package versions are already on npm.");
+    // Recovery may backfill an older GitHub Release after latest/next has
+    // legitimately moved to a newer published version.
   }
 
   // Recovery runs are idempotent, but GitHub may reject backfilling a missing

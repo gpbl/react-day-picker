@@ -39,6 +39,7 @@ const packageInfoByDir: Record<string, { name: string; version: string }> = {
 
 let getUnpublishedPackages: PublishPackagesScriptModule["getUnpublishedPackages"];
 let publishPackages: PublishPackagesScriptModule["publishPackages"];
+let verifyPackageDistTags: PublishPackagesScriptModule["verifyPackageDistTags"];
 let publishPackagesExecFileSyncMock: jest.Mock;
 let publishPackagesReadFileSyncMock: jest.Mock;
 let consoleLogSpy: jest.SpiedFunction<typeof console.log>;
@@ -57,9 +58,8 @@ beforeAll(async function loadModule() {
     .execFileSync as unknown as jest.Mock;
   publishPackagesReadFileSyncMock = (await import("node:fs"))
     .readFileSync as unknown as jest.Mock;
-  ({ getUnpublishedPackages, publishPackages } = await import(
-    "./publish-packages"
-  ));
+  ({ getUnpublishedPackages, publishPackages, verifyPackageDistTags } =
+    await import("./publish-packages"));
 });
 
 beforeEach(function setupPublishPackagesTestState() {
@@ -202,6 +202,50 @@ describe("publishPackages", function describePublishPackages() {
   test("it requires an npm tag", function testMissingTag() {
     expect(() => publishPackages("")).toThrow(
       "Usage: publish-packages <npm-tag>",
+    );
+  });
+});
+
+describe("verifyPackageDistTags", function describeVerifyPackageDistTags() {
+  test("it accepts package dist-tags that point to the current versions", function testMatchingDistTags() {
+    publishPackagesExecFileSyncMock.mockImplementation(
+      function mockExecFile(command, args, options) {
+        execCalls.push({
+          command: String(command),
+          args: Array.isArray(args) ? [...args] : [],
+          options,
+        });
+
+        return "10.0.0-next.1\n";
+      },
+    );
+
+    expect(() => verifyPackageDistTags("next")).not.toThrow();
+  });
+
+  test("it explains how to repair mismatched package dist-tags", function testMismatchedDistTag() {
+    publishPackagesExecFileSyncMock.mockImplementation(
+      function mockExecFile(command, args, options) {
+        execCalls.push({
+          command: String(command),
+          args: Array.isArray(args) ? [...args] : [],
+          options,
+        });
+
+        if (
+          command === "npm" &&
+          Array.isArray(args) &&
+          args[1] === "@daypicker/react@next"
+        ) {
+          return "10.0.0-next.0\n";
+        }
+
+        return "10.0.0-next.1\n";
+      },
+    );
+
+    expect(() => verifyPackageDistTags("next")).toThrow(
+      "Expected npm dist-tag next for @daypicker/react to point to 10.0.0-next.1, got 10.0.0-next.0. Trusted publishing only authenticates npm publish, so repair the tag manually with: npm dist-tag add @daypicker/react@10.0.0-next.1 next",
     );
   });
 });
