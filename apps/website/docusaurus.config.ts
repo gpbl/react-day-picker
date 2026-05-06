@@ -70,6 +70,29 @@ function createApiReferenceRedirects(path: string): string[] {
   return [];
 }
 
+function createNextVersionRedirects(path: string): string[] {
+  if (path === "/") {
+    return ["/next"];
+  }
+  if (
+    path === "/404.html" ||
+    path === "/v8" ||
+    path === "/v9" ||
+    path.startsWith("/v8/") ||
+    path.startsWith("/v9/")
+  ) {
+    return [];
+  }
+  return [`/next${path}`];
+}
+
+function createClientRedirects(path: string): string[] {
+  return [
+    ...createApiReferenceRedirects(path),
+    ...createNextVersionRedirects(path),
+  ];
+}
+
 const config: Config = {
   title: "React DayPicker",
   tagline:
@@ -195,7 +218,7 @@ const config: Config = {
     [
       "@docusaurus/plugin-client-redirects",
       {
-        createRedirects: createApiReferenceRedirects,
+        createRedirects: createClientRedirects,
         redirects: [
           {
             to: "/guides/accessibility",
