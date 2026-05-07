@@ -19,4 +19,3 @@ npm install @daypicker/react @daypicker/buddhist
 - feat: publish Buddhist calendar support as a standalone package
 - feat: update the package to consume `@daypicker/react` by [@gpbl](https://github.com/gpbl) in [#2970](https://github.com/gpbl/react-day-picker/pull/2970)
 - fix: respect custom `dateLib` overrides in calendar wrappers by [@gpbl](https://github.com/gpbl) in [#2964](https://github.com/gpbl/react-day-picker/pull/2964)
-- docs: simplify standalone calendar package README by [@gpbl](https://github.com/gpbl) in [#2962](https://github.com/gpbl/react-day-picker/pull/2962)

@@ -18,4 +18,3 @@ npm install @daypicker/react @daypicker/hijri
 
 - feat: publish Hijri calendar support as a standalone package
 - feat: update the package to consume `@daypicker/react` by [@gpbl](https://github.com/gpbl) in [#2970](https://github.com/gpbl/react-day-picker/pull/2970)
-- docs: simplify standalone calendar package README by [@gpbl](https://github.com/gpbl) in [#2962](https://github.com/gpbl/react-day-picker/pull/2962)
