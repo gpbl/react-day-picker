@@ -48,7 +48,6 @@ npm install @daypicker/react @daypicker/persian
 - feat: publish calendar add-on packages under the `@daypicker/*` scope
 - fix: keep multi-month dropdown selections on the edited calendar by [@hackgray47-eng](https://github.com/hackgray47-eng) in [#2977](https://github.com/gpbl/react-day-picker/pull/2977)
 - fix: move the `amET` locale export to `@daypicker/ethiopic` by [@gpbl](https://github.com/gpbl) in [#2968](https://github.com/gpbl/react-day-picker/pull/2968)
-- docs: clarify the public `useCalendar` API documentation by [@gpbl](https://github.com/gpbl) in [#2959](https://github.com/gpbl/react-day-picker/pull/2959)
 
 ## v9.14.0
 
