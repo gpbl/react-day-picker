@@ -15,6 +15,7 @@ import { DateLib, defaultLocale } from "./classes/DateLib";
 import type { MonthProps } from "./components/Month";
 import type { MonthsProps } from "./components/Months";
 import { DayPicker } from "./DayPicker";
+import { labelMonthDropdown, labelYearDropdown } from "./labels/index.js";
 import { ja } from "./locale/ja.js";
 
 const testId = "test";
@@ -473,7 +474,7 @@ test("places the year dropdown before the month dropdown for year-first locales"
 });
 
 describe("when using dropdowns with numberOfMonths > 1 (issue #2741)", () => {
-  test("changing the month dropdown on the second calendar updates only that calendar", () => {
+  beforeEach(() => {
     render(
       <DayPicker
         captionLayout="dropdown"
@@ -481,38 +482,85 @@ describe("when using dropdowns with numberOfMonths > 1 (issue #2741)", () => {
         defaultMonth={new Date(2024, 0, 1)}
       />,
     );
-    // Dropdowns: [month-1, year-1, month-2, year-2]
-    const combos = screen.getAllByRole("combobox");
-    const secondMonthDropdown = combos[2];
-
-    // Select June (month index 5) from the second calendar's dropdown
-    fireEvent.change(secondMonthDropdown, { target: { value: "5" } });
-
-    const grids = screen.getAllByRole("grid");
-    // First calendar should show May 2024, second should show June 2024
-    expect(grids[0]).toHaveAccessibleName("May 2024");
-    expect(grids[1]).toHaveAccessibleName("June 2024");
   });
 
-  test("changing the year dropdown on the second calendar updates only that calendar", () => {
+  describe("when choosing June from the second month dropdown", () => {
+    let grids: HTMLElement[];
+
+    beforeEach(async () => {
+      const secondMonthDropdown = screen.getAllByRole("combobox", {
+        name: labelMonthDropdown(),
+      })[1];
+
+      await user.selectOptions(secondMonthDropdown, "5");
+
+      grids = screen.getAllByRole("grid");
+    });
+
+    test("updates the first calendar to May 2024", () => {
+      expect(grids[0]).toHaveAccessibleName("May 2024");
+    });
+
+    test("updates the second calendar to June 2024", () => {
+      expect(grids[1]).toHaveAccessibleName("June 2024");
+    });
+  });
+
+  describe("when choosing 2025 from the second year dropdown", () => {
+    let grids: HTMLElement[];
+
+    beforeEach(async () => {
+      const secondYearDropdown = screen.getAllByRole("combobox", {
+        name: labelYearDropdown(),
+      })[1];
+
+      await user.selectOptions(secondYearDropdown, "2025");
+
+      grids = screen.getAllByRole("grid");
+    });
+
+    test("updates the first calendar to January 2025", () => {
+      expect(grids[0]).toHaveAccessibleName("January 2025");
+    });
+
+    test("updates the second calendar to February 2025", () => {
+      expect(grids[1]).toHaveAccessibleName("February 2025");
+    });
+  });
+});
+
+describe("when using reversed dropdowns with numberOfMonths > 1 (issue #2741)", () => {
+  beforeEach(() => {
     render(
       <DayPicker
         captionLayout="dropdown"
         numberOfMonths={2}
         defaultMonth={new Date(2024, 0, 1)}
+        reverseMonths
       />,
     );
-    // Dropdowns: [month-1, year-1, month-2, year-2]
-    const combos = screen.getAllByRole("combobox");
-    const secondYearDropdown = combos[3];
+  });
 
-    // Select 2025 from the second calendar's year dropdown
-    fireEvent.change(secondYearDropdown, { target: { value: "2025" } });
+  describe("when choosing June from the second month dropdown", () => {
+    let grids: HTMLElement[];
 
-    const grids = screen.getAllByRole("grid");
-    // First calendar should show January 2025, second should show February 2025
-    expect(grids[0]).toHaveAccessibleName("January 2025");
-    expect(grids[1]).toHaveAccessibleName("February 2025");
+    beforeEach(async () => {
+      const secondMonthDropdown = screen.getAllByRole("combobox", {
+        name: labelMonthDropdown(),
+      })[1];
+
+      await user.selectOptions(secondMonthDropdown, "5");
+
+      grids = screen.getAllByRole("grid");
+    });
+
+    test("updates the first calendar to July 2024", () => {
+      expect(grids[0]).toHaveAccessibleName("July 2024");
+    });
+
+    test("updates the second calendar to June 2024", () => {
+      expect(grids[1]).toHaveAccessibleName("June 2024");
+    });
   });
 });
 

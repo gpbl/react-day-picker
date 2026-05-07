@@ -326,21 +326,24 @@ export function DayPicker(initialProps: DayPickerProps) {
   );
 
   const handleMonthChange = useCallback(
-    (date: Date, displayIndex: number) =>
+    (date: Date, monthOffset: number) =>
       (e: ChangeEvent<HTMLSelectElement>) => {
         const selectedMonth = Number(e.target.value);
-        const month = dateLib.setMonth(dateLib.startOfMonth(date), selectedMonth);
-        goToMonth(dateLib.addMonths(month, -displayIndex));
+        const month = dateLib.setMonth(
+          dateLib.startOfMonth(date),
+          selectedMonth,
+        );
+        goToMonth(dateLib.addMonths(month, -monthOffset));
       },
     [dateLib, goToMonth],
   );
 
   const handleYearChange = useCallback(
-    (date: Date, displayIndex: number) =>
+    (date: Date, monthOffset: number) =>
       (e: ChangeEvent<HTMLSelectElement>) => {
         const selectedYear = Number(e.target.value);
         const month = dateLib.setYear(dateLib.startOfMonth(date), selectedYear);
-        goToMonth(dateLib.addMonths(month, -displayIndex));
+        goToMonth(dateLib.addMonths(month, -monthOffset));
       },
     [dateLib, goToMonth],
   );
@@ -415,6 +418,10 @@ export function DayPicker(initialProps: DayPickerProps) {
             />
           )}
           {months.map((calendarMonth, displayIndex) => {
+            const monthOffset = props.reverseMonths
+              ? months.length - 1 - displayIndex
+              : displayIndex;
+
             return (
               <components.Month
                 data-animated-month={props.animate ? "true" : undefined}
@@ -465,7 +472,10 @@ export function DayPicker(initialProps: DayPickerProps) {
                               className={classNames[UI.MonthsDropdown]}
                               aria-label={labelMonthDropdown()}
                               disabled={Boolean(props.disableNavigation)}
-                              onChange={handleMonthChange(calendarMonth.date, displayIndex)}
+                              onChange={handleMonthChange(
+                                calendarMonth.date,
+                                monthOffset,
+                              )}
                               options={getMonthOptions(
                                 calendarMonth.date,
                                 navStart,
@@ -490,7 +500,10 @@ export function DayPicker(initialProps: DayPickerProps) {
                               className={classNames[UI.YearsDropdown]}
                               aria-label={labelYearDropdown(dateLib.options)}
                               disabled={Boolean(props.disableNavigation)}
-                              onChange={handleYearChange(calendarMonth.date, displayIndex)}
+                              onChange={handleYearChange(
+                                calendarMonth.date,
+                                monthOffset,
+                              )}
                               options={getYearOptions(
                                 navStart,
                                 navEnd,
