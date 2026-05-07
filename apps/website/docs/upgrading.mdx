@@ -5,12 +5,17 @@ sidebar_position: 5
 # Upgrading to v10
 
 DayPicker v10 is mostly a cleanup release. If your app is already on v9 and
-does not use APIs or props deprecated in v9, most of the upgrade is package and
-import changes.
+does not use deprecated v9 APIs, props, `classNames`, or `styles` keys, most of
+the upgrade is package and import changes.
 
 The main changes are:
 
-- APIs and props deprecated in v9 were removed.
+- Deprecated v9 compatibility APIs were removed, including old prop names,
+  aliases, and component slots.
+- Deprecated `classNames` and `styles` compatibility keys were removed.
+  - shadcn/ui users with a copied `Calendar` component should also update their
+    local class name mappings. See
+    [Update `classNames` and `styles` keys](#3-update-classnames-and-styles-keys).
 - `@daypicker/react` is the new preferred package name. The
   `react-day-picker` package name remains available for compatibility.
   - The scoped package name gives us room to support multiple calendars and
@@ -28,7 +33,9 @@ If you are upgrading directly from v8, use the
    with `@daypicker/react` and update imports.
 2. [Replace deprecated API](#2-replace-deprecated-api): if you use deprecated
    v9 props or APIs, replace them with the current names.
-3. [Update non-Gregorian package imports](#3-update-non-gregorian-package-imports):
+3. [Update `classNames` and `styles` keys](#3-update-classnames-and-styles-keys):
+   if you customize class names or inline styles, replace deprecated v9 keys.
+4. [Update non-Gregorian package imports](#4-update-non-gregorian-package-imports):
    if you use a non-Gregorian calendar, install the matching add-on package and
    update the calendar imports.
 
@@ -158,7 +165,7 @@ Use
 />
 ```
 
-### Update `classNames` and `styles` keys
+## 3. Update `classNames` and `styles` keys
 
 The deprecated compatibility keys were removed from `classNames` and `styles`.
 Use only the current keys from
@@ -176,7 +183,39 @@ Common migrations:
 | `day_selected` | `selected` |
 | `day_disabled` | `disabled` |
 
-## 3. Update non-Gregorian package imports
+```diff
+<DayPicker
+  classNames={{
+-   table: "my-table",
+-   nav_button: "my-nav-button",
+-   day_selected: "my-selected",
++   month_grid: "my-table",
++   button_previous: "my-nav-button",
++   button_next: "my-nav-button",
++   selected: "my-selected"
+  }}
+  styles={{
+-   table: { borderCollapse: "collapse" },
++   month_grid: { borderCollapse: "collapse" }
+  }}
+/>
+```
+
+:::note shadcn/ui Calendar components
+
+If your app uses a copied `Calendar` component from shadcn/ui, update the
+`classNames` mapping in that component too. Older generated Calendar components
+may still use deprecated DayPicker v9 keys such as `table`, `nav_button`, and
+`day_selected`.
+
+Use the v10 keys shown above, and check whether your local component needs the
+latest shadcn/ui Calendar changes for dropdown captions. See
+[shadcn-ui/ui#10441](https://github.com/shadcn-ui/ui/pull/10441) for the
+related shadcn/ui Calendar template update.
+
+:::
+
+## 4. Update non-Gregorian package imports
 
 The calendar packages are now published separately from the main React package.
 Install the add-on package you use alongside `@daypicker/react`.
