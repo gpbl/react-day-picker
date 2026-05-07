@@ -91,4 +91,5 @@ export function Nav(
   );
 }
 
+/** Props accepted by the {@link Nav} component. */
 export type NavProps = Parameters<typeof Nav>[0];

@@ -1,6 +1,6 @@
 # Interface: PropsSingleRequired
 
-Defined in: [packages/react-day-picker/src/types/props.ts:529](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/props.ts#L529)
+Defined in: [packages/react-day-picker/src/types/props.ts:529](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/props.ts#L529)
 
 The props when the single selection is required.
 
@@ -14,7 +14,7 @@ https://daypicker.dev/docs/selection-modes#single-mode
 
 > **mode**: `"single"`
 
-Defined in: [packages/react-day-picker/src/types/props.ts:530](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/props.ts#L530)
+Defined in: [packages/react-day-picker/src/types/props.ts:530](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/props.ts#L530)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [packages/react-day-picker/src/types/props.ts:530](https://github.co
 
 > `optional` **onSelect?**: [`OnSelectHandler`](../type-aliases/OnSelectHandler.md)\<`Date`\>
 
-Defined in: [packages/react-day-picker/src/types/props.ts:535](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/props.ts#L535)
+Defined in: [packages/react-day-picker/src/types/props.ts:535](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/props.ts#L535)
 
 Event handler when a day is selected.
 
@@ -32,7 +32,7 @@ Event handler when a day is selected.
 
 > **required**: `true`
 
-Defined in: [packages/react-day-picker/src/types/props.ts:531](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/props.ts#L531)
+Defined in: [packages/react-day-picker/src/types/props.ts:531](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/props.ts#L531)
 
 ***
 
@@ -40,6 +40,6 @@ Defined in: [packages/react-day-picker/src/types/props.ts:531](https://github.co
 
 > **selected**: `Date` \| `undefined`
 
-Defined in: [packages/react-day-picker/src/types/props.ts:533](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/props.ts#L533)
+Defined in: [packages/react-day-picker/src/types/props.ts:533](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/props.ts#L533)
 
 The selected date.

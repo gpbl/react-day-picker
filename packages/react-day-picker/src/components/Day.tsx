@@ -25,4 +25,5 @@ export function Day(
   return <td {...tdProps} />;
 }
 
+/** Props accepted by the {@link Day} component. */
 export type DayProps = Parameters<typeof Day>[0];

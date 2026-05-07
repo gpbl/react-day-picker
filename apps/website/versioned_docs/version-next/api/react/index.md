@@ -1,4 +1,4 @@
-# `@daypicker/react` v10.0.0-next.5
+# `@daypicker/react` v10.0.0-next.6
 
 ## DayPicker
 
@@ -124,64 +124,64 @@
 
 | Type Alias | Description |
 | ------ | ------ |
-| [CaptionLabelProps](type-aliases/CaptionLabelProps.md) | - |
-| [ChevronProps](type-aliases/ChevronProps.md) | - |
+| [CaptionLabelProps](type-aliases/CaptionLabelProps.md) | Props accepted by the [CaptionLabel](functions/CaptionLabel.md) component. |
+| [ChevronProps](type-aliases/ChevronProps.md) | Props accepted by the [Chevron](functions/Chevron.md) component. |
 | [ClassNames](type-aliases/ClassNames.md) | The CSS classnames to use for the [UI](enumerations/UI.md) elements, the [SelectionState](enumerations/SelectionState.md) and the [DayFlag](enumerations/DayFlag.md). |
 | [CustomComponents](type-aliases/CustomComponents.md) | The components that can be customized using the `components` prop. |
 | [DateAfter](type-aliases/DateAfter.md) | Match a day falling after the specified date (exclusive). |
 | [DateBefore](type-aliases/DateBefore.md) | Match a day falling before the specified date (exclusive). |
 | [DateInterval](type-aliases/DateInterval.md) | An interval of dates. Unlike [DateRange](type-aliases/DateRange.md), the range ends are not included. |
 | [DateRange](type-aliases/DateRange.md) | A range of dates. Unlike [DateInterval](type-aliases/DateInterval.md), the range ends are included. |
-| [DayButtonProps](type-aliases/DayButtonProps.md) | - |
+| [DayButtonProps](type-aliases/DayButtonProps.md) | Props accepted by the [DayButton](functions/DayButton.md) component. |
 | [DayEventHandler](type-aliases/DayEventHandler.md) | The event handler triggered when clicking or interacting with a day. |
 | [DayOfWeek](type-aliases/DayOfWeek.md) | Match days of the week (`0-6`, where `0` is Sunday). |
 | [DayPickerContext](type-aliases/DayPickerContext.md) | Represents the context for the DayPicker component, providing various properties and methods to interact with the calendar. |
 | [DayPickerLocaleLabels](type-aliases/DayPickerLocaleLabels.md) | Translations for DayPicker-specific labels. |
-| [DayProps](type-aliases/DayProps.md) | - |
-| [DropdownNavProps](type-aliases/DropdownNavProps.md) | - |
+| [DayProps](type-aliases/DayProps.md) | Props accepted by the [Day](functions/Day.md) component. |
+| [DropdownNavProps](type-aliases/DropdownNavProps.md) | Props accepted by the [DropdownNav](functions/DropdownNav.md) component. |
 | [DropdownOption](type-aliases/DropdownOption.md) | An option to use in the dropdown. Maps to the `<option>` HTML element. |
-| [DropdownProps](type-aliases/DropdownProps.md) | - |
-| [FooterProps](type-aliases/FooterProps.md) | - |
+| [DropdownProps](type-aliases/DropdownProps.md) | Props accepted by the [Dropdown](functions/Dropdown.md) component. |
+| [FooterProps](type-aliases/FooterProps.md) | Props accepted by the [Footer](functions/Footer.md) component. |
 | [Formatters](type-aliases/Formatters.md) | Represents a map of formatters used to render localized content. |
 | [Labels](type-aliases/Labels.md) | A map of functions to translate ARIA labels for various elements. |
-| [Locale](type-aliases/Locale.md) | - |
+| [Locale](type-aliases/Locale.md) | Alias for the locale shape accepted by DayPicker APIs. |
 | [Matcher](type-aliases/Matcher.md) | A value or a function that matches specific days. |
 | [Mode](type-aliases/Mode.md) | Selection modes supported by DayPicker. |
 | [Modifiers](type-aliases/Modifiers.md) | Represents the modifiers that match a specific day in the calendar. |
 | [ModifiersClassNames](type-aliases/ModifiersClassNames.md) | The classnames to assign to each day element matching a modifier. |
 | [ModifiersStyles](type-aliases/ModifiersStyles.md) | The style to apply to each day element matching a modifier. |
-| [MonthCaptionProps](type-aliases/MonthCaptionProps.md) | - |
+| [MonthCaptionProps](type-aliases/MonthCaptionProps.md) | Props accepted by the [MonthCaption](functions/MonthCaption.md) component. |
 | [MonthChangeEventHandler](type-aliases/MonthChangeEventHandler.md) | The event handler when a month is changed in the calendar. |
-| [MonthGridProps](type-aliases/MonthGridProps.md) | - |
-| [MonthProps](type-aliases/MonthProps.md) | - |
-| [MonthsProps](type-aliases/MonthsProps.md) | - |
+| [MonthGridProps](type-aliases/MonthGridProps.md) | Props accepted by the [MonthGrid](functions/MonthGrid.md) component. |
+| [MonthProps](type-aliases/MonthProps.md) | Props accepted by the [Month](functions/Month.md) component. |
+| [MonthsProps](type-aliases/MonthsProps.md) | Props accepted by the [Months](functions/Months.md) component. |
 | [MonthYearOrder](type-aliases/MonthYearOrder.md) | Indicates the preferred ordering of month and year for localized labels. |
 | [MoveFocusBy](type-aliases/MoveFocusBy.md) | The temporal unit to move the focus by. |
 | [MoveFocusDir](type-aliases/MoveFocusDir.md) | The direction to move the focus relative to the current focused date. |
-| [NavProps](type-aliases/NavProps.md) | - |
-| [NextMonthButtonProps](type-aliases/NextMonthButtonProps.md) | - |
+| [NavProps](type-aliases/NavProps.md) | Props accepted by the [Nav](functions/Nav.md) component. |
+| [NextMonthButtonProps](type-aliases/NextMonthButtonProps.md) | Props accepted by the [NextMonthButton](functions/NextMonthButton.md) component. |
 | [Numerals](type-aliases/Numerals.md) | The numbering system supported by DayPicker. |
 | [OnSelectHandler](type-aliases/OnSelectHandler.md) | Shared handler type for `onSelect` callback when a selection mode is set. |
-| [OptionProps](type-aliases/OptionProps.md) | - |
-| [PreviousMonthButtonProps](type-aliases/PreviousMonthButtonProps.md) | - |
-| [RootProps](type-aliases/RootProps.md) | - |
-| [SelectedMulti](type-aliases/SelectedMulti.md) | - |
-| [SelectedRange](type-aliases/SelectedRange.md) | - |
-| [SelectedSingle](type-aliases/SelectedSingle.md) | - |
+| [OptionProps](type-aliases/OptionProps.md) | Props accepted by the [Option](functions/Option.md) component. |
+| [PreviousMonthButtonProps](type-aliases/PreviousMonthButtonProps.md) | Props accepted by the [PreviousMonthButton](functions/PreviousMonthButton.md) component. |
+| [RootProps](type-aliases/RootProps.md) | Props accepted by the [Root](functions/Root.md) component. |
+| [SelectedMulti](type-aliases/SelectedMulti.md) | Selected value for multiple selection mode, respecting required selections. |
+| [SelectedRange](type-aliases/SelectedRange.md) | Selected value for range selection mode, respecting required selections. |
+| [SelectedSingle](type-aliases/SelectedSingle.md) | Selected value for single selection mode, respecting required selections. |
 | [SelectedValue](type-aliases/SelectedValue.md) | Represents the selected value based on the selection mode. |
 | [SelectHandler](type-aliases/SelectHandler.md) | The handler to set a selection based on the mode. |
-| [SelectHandlerMulti](type-aliases/SelectHandlerMulti.md) | - |
-| [SelectHandlerRange](type-aliases/SelectHandlerRange.md) | - |
-| [SelectHandlerSingle](type-aliases/SelectHandlerSingle.md) | - |
-| [Selection](type-aliases/Selection.md) | - |
-| [SelectProps](type-aliases/SelectProps.md) | - |
+| [SelectHandlerMulti](type-aliases/SelectHandlerMulti.md) | Selection handler for multiple selection mode. |
+| [SelectHandlerRange](type-aliases/SelectHandlerRange.md) | Selection handler for range selection mode. |
+| [SelectHandlerSingle](type-aliases/SelectHandlerSingle.md) | Selection handler for single selection mode. |
+| [Selection](type-aliases/Selection.md) | Selection state and helpers for the active selection mode. |
+| [SelectProps](type-aliases/SelectProps.md) | Props accepted by the [Select](functions/Select.md) component. |
 | [Styles](type-aliases/Styles.md) | The CSS styles to use for the [UI](enumerations/UI.md) elements, the [SelectionState](enumerations/SelectionState.md) and the [DayFlag](enumerations/DayFlag.md). |
-| [WeekdayProps](type-aliases/WeekdayProps.md) | - |
-| [WeekdaysProps](type-aliases/WeekdaysProps.md) | - |
-| [WeekNumberHeaderProps](type-aliases/WeekNumberHeaderProps.md) | - |
-| [WeekNumberProps](type-aliases/WeekNumberProps.md) | - |
-| [WeekProps](type-aliases/WeekProps.md) | - |
-| [WeeksProps](type-aliases/WeeksProps.md) | - |
+| [WeekdayProps](type-aliases/WeekdayProps.md) | Props accepted by the [Weekday](functions/Weekday.md) component. |
+| [WeekdaysProps](type-aliases/WeekdaysProps.md) | Props accepted by the [Weekdays](functions/Weekdays.md) component. |
+| [WeekNumberHeaderProps](type-aliases/WeekNumberHeaderProps.md) | Props accepted by the [WeekNumberHeader](functions/WeekNumberHeader.md) component. |
+| [WeekNumberProps](type-aliases/WeekNumberProps.md) | Props accepted by the [WeekNumber](functions/WeekNumber.md) component. |
+| [WeekProps](type-aliases/WeekProps.md) | Props accepted by the [Week](functions/Week.md) component. |
+| [WeeksProps](type-aliases/WeeksProps.md) | Props accepted by the [Weeks](functions/Weeks.md) component. |
 
 ## Variables
 

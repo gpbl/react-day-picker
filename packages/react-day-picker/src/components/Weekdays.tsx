@@ -14,4 +14,5 @@ export function Weekdays(props: HTMLAttributes<HTMLTableRowElement>) {
   );
 }
 
+/** Props accepted by the {@link Weekdays} component. */
 export type WeekdaysProps = Parameters<typeof Weekdays>[0];

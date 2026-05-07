@@ -10,4 +10,5 @@ export function CaptionLabel(props: HTMLAttributes<HTMLSpanElement>) {
   return <span {...props} />;
 }
 
+/** Props accepted by the {@link CaptionLabel} component. */
 export type CaptionLabelProps = Parameters<typeof CaptionLabel>[0];

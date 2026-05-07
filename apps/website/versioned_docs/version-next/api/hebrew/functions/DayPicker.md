@@ -2,7 +2,7 @@
 
 > **DayPicker**(`props`): `Element`
 
-Defined in: [packages/hebrew/src/hebrew/index.tsx:24](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/hebrew/src/hebrew/index.tsx#L24)
+Defined in: [packages/hebrew/src/hebrew/index.tsx:24](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/hebrew/src/hebrew/index.tsx#L24)
 
 Render the Hebrew (lunisolar) calendar.
 

@@ -40,4 +40,5 @@ export function Chevron(props: {
   );
 }
 
+/** Props accepted by the {@link Chevron} component. */
 export type ChevronProps = Parameters<typeof Chevron>[0];

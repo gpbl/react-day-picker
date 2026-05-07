@@ -2,7 +2,7 @@
 
 > **DayEventHandler**\<`EventType`\> = (`date`, `modifiers`, `e`) => `void`
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:224](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L224)
+Defined in: [packages/react-day-picker/src/types/shared.ts:224](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L224)
 
 The event handler triggered when clicking or interacting with a day.
 

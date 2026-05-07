@@ -18,4 +18,5 @@ export function Week(
   return <tr {...trProps} />;
 }
 
+/** Props accepted by the {@link Week} component. */
 export type WeekProps = Parameters<typeof Week>[0];

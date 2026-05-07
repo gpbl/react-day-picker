@@ -12,4 +12,5 @@ export function WeekNumberHeader(
   return <th {...props} />;
 }
 
+/** Props accepted by the {@link WeekNumberHeader} component. */
 export type WeekNumberHeaderProps = Parameters<typeof WeekNumberHeader>[0];

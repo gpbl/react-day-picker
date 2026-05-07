@@ -2,7 +2,7 @@
 
 > **OnSelectHandler**\<`T`\> = (`selected`, `triggerDate`, `modifiers`, `e`) => `void`
 
-Defined in: [packages/react-day-picker/src/types/props.ts:516](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/props.ts#L516)
+Defined in: [packages/react-day-picker/src/types/props.ts:516](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/props.ts#L516)
 
 Shared handler type for `onSelect` callback when a selection mode is set.
 

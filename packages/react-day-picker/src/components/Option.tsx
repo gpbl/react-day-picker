@@ -10,4 +10,5 @@ export function Option(props: OptionHTMLAttributes<HTMLOptionElement>) {
   return <option {...props} />;
 }
 
+/** Props accepted by the {@link Option} component. */
 export type OptionProps = Parameters<typeof Option>[0];

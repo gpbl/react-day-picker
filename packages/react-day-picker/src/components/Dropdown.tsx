@@ -56,4 +56,5 @@ export function Dropdown(
   );
 }
 
+/** Props accepted by the {@link Dropdown} component. */
 export type DropdownProps = Parameters<typeof Dropdown>[0];

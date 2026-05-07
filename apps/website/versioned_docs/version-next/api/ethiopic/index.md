@@ -1,4 +1,4 @@
-# `@daypicker/ethiopic` v10.0.0-next.5
+# `@daypicker/ethiopic` v10.0.0-next.6
 
 ## Functions
 

@@ -1,4 +1,4 @@
-# `@daypicker/hijri` v10.0.0-next.5
+# `@daypicker/hijri` v10.0.0-next.6
 
 ## Functions
 

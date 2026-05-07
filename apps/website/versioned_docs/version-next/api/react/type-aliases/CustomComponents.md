@@ -2,7 +2,7 @@
 
 > **CustomComponents** = \{ `CaptionLabel`: *typeof* [`CaptionLabel`](../functions/CaptionLabel.md); `Chevron`: *typeof* [`Chevron`](../functions/Chevron.md); `Day`: *typeof* [`Day`](../functions/Day.md); `DayButton`: *typeof* [`DayButton`](../functions/DayButton.md); `Dropdown`: *typeof* [`Dropdown`](../functions/Dropdown.md); `DropdownNav`: *typeof* [`DropdownNav`](../functions/DropdownNav.md); `Footer`: *typeof* [`Footer`](../functions/Footer.md); `Month`: *typeof* [`Month`](../functions/Month.md); `MonthCaption`: *typeof* [`MonthCaption`](../functions/MonthCaption.md); `MonthGrid`: *typeof* [`MonthGrid`](../functions/MonthGrid.md); `Months`: *typeof* [`Months`](../functions/Months.md); `MonthsDropdown`: *typeof* [`MonthsDropdown`](../functions/MonthsDropdown.md); `Nav`: *typeof* [`Nav`](../functions/Nav.md); `NextMonthButton`: *typeof* [`NextMonthButton`](../functions/NextMonthButton.md); `Option`: *typeof* [`Option`](../functions/Option.md); `PreviousMonthButton`: *typeof* [`PreviousMonthButton`](../functions/PreviousMonthButton.md); `Root`: *typeof* [`Root`](../functions/Root.md); `Select`: *typeof* [`Select`](../functions/Select.md); `Week`: *typeof* [`Week`](../functions/Week.md); `Weekday`: *typeof* [`Weekday`](../functions/Weekday.md); `Weekdays`: *typeof* [`Weekdays`](../functions/Weekdays.md); `WeekNumber`: *typeof* [`WeekNumber`](../functions/WeekNumber.md); `WeekNumberHeader`: *typeof* [`WeekNumberHeader`](../functions/WeekNumberHeader.md); `Weeks`: *typeof* [`Weeks`](../functions/Weeks.md); `YearsDropdown`: *typeof* [`YearsDropdown`](../functions/YearsDropdown.md); \}
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:43](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L43)
+Defined in: [packages/react-day-picker/src/types/shared.ts:43](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L43)
 
 The components that can be customized using the `components` prop.
 
@@ -16,7 +16,7 @@ https://daypicker.dev/guides/custom-components
 
 > **CaptionLabel**: *typeof* [`CaptionLabel`](../functions/CaptionLabel.md)
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:47](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L47)
+Defined in: [packages/react-day-picker/src/types/shared.ts:47](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L47)
 
 Render the caption label of the month grid.
 
@@ -26,7 +26,7 @@ Render the caption label of the month grid.
 
 > **Chevron**: *typeof* [`Chevron`](../functions/Chevron.md)
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:45](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L45)
+Defined in: [packages/react-day-picker/src/types/shared.ts:45](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L45)
 
 Render the chevron icon used in the navigation buttons and dropdowns.
 
@@ -36,7 +36,7 @@ Render the chevron icon used in the navigation buttons and dropdowns.
 
 > **Day**: *typeof* [`Day`](../functions/Day.md)
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:49](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L49)
+Defined in: [packages/react-day-picker/src/types/shared.ts:49](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L49)
 
 Render the day cell in the month grid.
 
@@ -46,7 +46,7 @@ Render the day cell in the month grid.
 
 > **DayButton**: *typeof* [`DayButton`](../functions/DayButton.md)
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:51](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L51)
+Defined in: [packages/react-day-picker/src/types/shared.ts:51](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L51)
 
 Render the button containing the day in the day cell.
 
@@ -56,7 +56,7 @@ Render the button containing the day in the day cell.
 
 > **Dropdown**: *typeof* [`Dropdown`](../functions/Dropdown.md)
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:53](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L53)
+Defined in: [packages/react-day-picker/src/types/shared.ts:53](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L53)
 
 Render the dropdown element to select years and months.
 
@@ -66,7 +66,7 @@ Render the dropdown element to select years and months.
 
 > **DropdownNav**: *typeof* [`DropdownNav`](../functions/DropdownNav.md)
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:55](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L55)
+Defined in: [packages/react-day-picker/src/types/shared.ts:55](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L55)
 
 Render the container of the dropdowns.
 
@@ -76,7 +76,7 @@ Render the container of the dropdowns.
 
 > **Footer**: *typeof* [`Footer`](../functions/Footer.md)
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:57](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L57)
+Defined in: [packages/react-day-picker/src/types/shared.ts:57](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L57)
 
 Render the footer element announced by screen readers.
 
@@ -86,7 +86,7 @@ Render the footer element announced by screen readers.
 
 > **Month**: *typeof* [`Month`](../functions/Month.md)
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:59](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L59)
+Defined in: [packages/react-day-picker/src/types/shared.ts:59](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L59)
 
 Render the container of the MonthGrid.
 
@@ -96,7 +96,7 @@ Render the container of the MonthGrid.
 
 > **MonthCaption**: *typeof* [`MonthCaption`](../functions/MonthCaption.md)
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:61](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L61)
+Defined in: [packages/react-day-picker/src/types/shared.ts:61](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L61)
 
 Render the caption of the month grid.
 
@@ -106,7 +106,7 @@ Render the caption of the month grid.
 
 > **MonthGrid**: *typeof* [`MonthGrid`](../functions/MonthGrid.md)
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:63](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L63)
+Defined in: [packages/react-day-picker/src/types/shared.ts:63](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L63)
 
 Render the grid of days in a month.
 
@@ -116,7 +116,7 @@ Render the grid of days in a month.
 
 > **Months**: *typeof* [`Months`](../functions/Months.md)
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:65](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L65)
+Defined in: [packages/react-day-picker/src/types/shared.ts:65](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L65)
 
 Wrapper of the month grids.
 
@@ -126,7 +126,7 @@ Wrapper of the month grids.
 
 > **MonthsDropdown**: *typeof* [`MonthsDropdown`](../functions/MonthsDropdown.md)
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:91](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L91)
+Defined in: [packages/react-day-picker/src/types/shared.ts:91](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L91)
 
 Render the dropdown for selecting months.
 
@@ -136,7 +136,7 @@ Render the dropdown for selecting months.
 
 > **Nav**: *typeof* [`Nav`](../functions/Nav.md)
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:67](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L67)
+Defined in: [packages/react-day-picker/src/types/shared.ts:67](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L67)
 
 Render the navigation element with the next and previous buttons.
 
@@ -146,7 +146,7 @@ Render the navigation element with the next and previous buttons.
 
 > **NextMonthButton**: *typeof* [`NextMonthButton`](../functions/NextMonthButton.md)
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:73](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L73)
+Defined in: [packages/react-day-picker/src/types/shared.ts:73](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L73)
 
 Render the next month button element in the navigation.
 
@@ -156,7 +156,7 @@ Render the next month button element in the navigation.
 
 > **Option**: *typeof* [`Option`](../functions/Option.md)
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:69](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L69)
+Defined in: [packages/react-day-picker/src/types/shared.ts:69](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L69)
 
 Render the `<option>` HTML element in the dropdown.
 
@@ -166,7 +166,7 @@ Render the `<option>` HTML element in the dropdown.
 
 > **PreviousMonthButton**: *typeof* [`PreviousMonthButton`](../functions/PreviousMonthButton.md)
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:71](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L71)
+Defined in: [packages/react-day-picker/src/types/shared.ts:71](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L71)
 
 Render the previous month button element in the navigation.
 
@@ -176,7 +176,7 @@ Render the previous month button element in the navigation.
 
 > **Root**: *typeof* [`Root`](../functions/Root.md)
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:75](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L75)
+Defined in: [packages/react-day-picker/src/types/shared.ts:75](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L75)
 
 Render the root element of the calendar.
 
@@ -186,7 +186,7 @@ Render the root element of the calendar.
 
 > **Select**: *typeof* [`Select`](../functions/Select.md)
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:77](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L77)
+Defined in: [packages/react-day-picker/src/types/shared.ts:77](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L77)
 
 Render the select element in the dropdowns.
 
@@ -196,7 +196,7 @@ Render the select element in the dropdowns.
 
 > **Week**: *typeof* [`Week`](../functions/Week.md)
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:81](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L81)
+Defined in: [packages/react-day-picker/src/types/shared.ts:81](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L81)
 
 Render the week rows.
 
@@ -206,7 +206,7 @@ Render the week rows.
 
 > **Weekday**: *typeof* [`Weekday`](../functions/Weekday.md)
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:83](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L83)
+Defined in: [packages/react-day-picker/src/types/shared.ts:83](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L83)
 
 Render the weekday name in the header.
 
@@ -216,7 +216,7 @@ Render the weekday name in the header.
 
 > **Weekdays**: *typeof* [`Weekdays`](../functions/Weekdays.md)
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:85](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L85)
+Defined in: [packages/react-day-picker/src/types/shared.ts:85](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L85)
 
 Render the row containing the week days.
 
@@ -226,7 +226,7 @@ Render the row containing the week days.
 
 > **WeekNumber**: *typeof* [`WeekNumber`](../functions/WeekNumber.md)
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:87](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L87)
+Defined in: [packages/react-day-picker/src/types/shared.ts:87](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L87)
 
 Render the cell with the number of the week.
 
@@ -236,7 +236,7 @@ Render the cell with the number of the week.
 
 > **WeekNumberHeader**: *typeof* [`WeekNumberHeader`](../functions/WeekNumberHeader.md)
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:89](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L89)
+Defined in: [packages/react-day-picker/src/types/shared.ts:89](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L89)
 
 Render the header of the week number column.
 
@@ -246,7 +246,7 @@ Render the header of the week number column.
 
 > **Weeks**: *typeof* [`Weeks`](../functions/Weeks.md)
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:79](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L79)
+Defined in: [packages/react-day-picker/src/types/shared.ts:79](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L79)
 
 Render the weeks section in the month grid.
 
@@ -256,6 +256,6 @@ Render the weeks section in the month grid.
 
 > **YearsDropdown**: *typeof* [`YearsDropdown`](../functions/YearsDropdown.md)
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:93](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L93)
+Defined in: [packages/react-day-picker/src/types/shared.ts:93](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L93)
 
 Render the dropdown for selecting years.

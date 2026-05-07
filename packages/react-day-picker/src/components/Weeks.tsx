@@ -10,4 +10,5 @@ export function Weeks(props: HTMLAttributes<HTMLTableSectionElement>) {
   return <tbody {...props} />;
 }
 
+/** Props accepted by the {@link Weeks} component. */
 export type WeeksProps = Parameters<typeof Weeks>[0];

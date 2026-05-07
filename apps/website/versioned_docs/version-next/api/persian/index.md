@@ -1,4 +1,4 @@
-# `@daypicker/persian` v10.0.0-next.5
+# `@daypicker/persian` v10.0.0-next.6
 
 ## Functions
 

@@ -10,4 +10,5 @@ export function Footer(props: HTMLAttributes<HTMLDivElement>) {
   return <div {...props} />;
 }
 
+/** Props accepted by the {@link Footer} component. */
 export type FooterProps = Parameters<typeof Footer>[0];

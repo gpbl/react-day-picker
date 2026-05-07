@@ -2,7 +2,7 @@
 
 > **DateRange** = \{ `from`: `Date` \| `undefined`; `to?`: `Date`; \}
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:202](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L202)
+Defined in: [packages/react-day-picker/src/types/shared.ts:202](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L202)
 
 A range of dates. Unlike [DateInterval](DateInterval.md), the range ends are included.
 
@@ -22,7 +22,7 @@ A range of dates. Unlike [DateInterval](DateInterval.md), the range ends are inc
 
 > **from**: `Date` \| `undefined`
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:202](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L202)
+Defined in: [packages/react-day-picker/src/types/shared.ts:202](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L202)
 
 ***
 
@@ -30,4 +30,4 @@ Defined in: [packages/react-day-picker/src/types/shared.ts:202](https://github.c
 
 > `optional` **to?**: `Date`
 
-Defined in: [packages/react-day-picker/src/types/shared.ts:202](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/shared.ts#L202)
+Defined in: [packages/react-day-picker/src/types/shared.ts:202](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/shared.ts#L202)

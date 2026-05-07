@@ -18,4 +18,5 @@ export function WeekNumber(
   return <th {...thProps} />;
 }
 
+/** Props accepted by the {@link WeekNumber} component. */
 export type WeekNumberProps = Parameters<typeof WeekNumber>[0];

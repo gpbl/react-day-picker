@@ -2,7 +2,7 @@
 
 > **useDayPicker**\<`T`\>(): [`DayPickerContext`](../type-aliases/DayPickerContext.md)\<`T`\>
 
-Defined in: [packages/react-day-picker/src/useDayPicker.ts:83](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/useDayPicker.ts#L83)
+Defined in: [packages/react-day-picker/src/useDayPicker.ts:83](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/useDayPicker.ts#L83)
 
 Provides access to the DayPicker context, which includes properties and
 methods to interact with the DayPicker component. This hook must be used

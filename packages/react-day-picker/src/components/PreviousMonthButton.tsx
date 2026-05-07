@@ -12,6 +12,7 @@ export function PreviousMonthButton(
   return <button {...props} />;
 }
 
+/** Props accepted by the {@link PreviousMonthButton} component. */
 export type PreviousMonthButtonProps = Parameters<
   typeof PreviousMonthButton
 >[0];

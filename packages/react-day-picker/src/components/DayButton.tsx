@@ -26,4 +26,5 @@ export function DayButton(
   return <button ref={ref} {...buttonProps} />;
 }
 
+/** Props accepted by the {@link DayButton} component. */
 export type DayButtonProps = Parameters<typeof DayButton>[0];

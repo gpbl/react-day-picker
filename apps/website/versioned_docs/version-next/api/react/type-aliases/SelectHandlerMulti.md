@@ -2,7 +2,9 @@
 
 > **SelectHandlerMulti**\<`T`\> = (`triggerDate`, `modifiers`, `e`) => `T`\[`"required"`\] *extends* `true` ? `Date`[] : `Date`[] \| `undefined`
 
-Defined in: [packages/react-day-picker/src/types/selection.ts:54](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/types/selection.ts#L54)
+Defined in: [packages/react-day-picker/src/types/selection.ts:61](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/types/selection.ts#L61)
+
+Selection handler for multiple selection mode.
 
 ## Type Parameters
 

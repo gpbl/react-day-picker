@@ -1,6 +1,6 @@
 # Class: CalendarWeek
 
-Defined in: [packages/react-day-picker/src/classes/CalendarWeek.ts:8](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/classes/CalendarWeek.ts#L8)
+Defined in: [packages/react-day-picker/src/classes/CalendarWeek.ts:8](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/classes/CalendarWeek.ts#L8)
 
 Represents a week in a calendar month.
 
@@ -12,7 +12,7 @@ A `CalendarWeek` contains the days within the week and the week number.
 
 > **new CalendarWeek**(`weekNumber`, `days`): `CalendarWeek`
 
-Defined in: [packages/react-day-picker/src/classes/CalendarWeek.ts:9](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/classes/CalendarWeek.ts#L9)
+Defined in: [packages/react-day-picker/src/classes/CalendarWeek.ts:9](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/classes/CalendarWeek.ts#L9)
 
 #### Parameters
 
@@ -31,7 +31,7 @@ Defined in: [packages/react-day-picker/src/classes/CalendarWeek.ts:9](https://gi
 
 > **days**: [`CalendarDay`](CalendarDay.md)[]
 
-Defined in: [packages/react-day-picker/src/classes/CalendarWeek.ts:18](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/classes/CalendarWeek.ts#L18)
+Defined in: [packages/react-day-picker/src/classes/CalendarWeek.ts:18](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/classes/CalendarWeek.ts#L18)
 
 The days that belong to this week.
 
@@ -41,6 +41,6 @@ The days that belong to this week.
 
 > **weekNumber**: `number`
 
-Defined in: [packages/react-day-picker/src/classes/CalendarWeek.ts:15](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/classes/CalendarWeek.ts#L15)
+Defined in: [packages/react-day-picker/src/classes/CalendarWeek.ts:15](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/classes/CalendarWeek.ts#L15)
 
 The number of the week within the year.

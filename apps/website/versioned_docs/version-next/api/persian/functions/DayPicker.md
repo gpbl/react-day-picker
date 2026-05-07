@@ -2,7 +2,7 @@
 
 > **DayPicker**(`props`): `Element`
 
-Defined in: [packages/persian/src/index.tsx:33](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/persian/src/index.tsx#L33)
+Defined in: [packages/persian/src/index.tsx:33](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/persian/src/index.tsx#L33)
 
 Renders the Persian calendar using the DayPicker component.
 

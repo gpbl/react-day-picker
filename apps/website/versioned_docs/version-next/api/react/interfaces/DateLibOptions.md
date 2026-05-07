@@ -1,6 +1,6 @@
 # Interface: DateLibOptions
 
-Defined in: [packages/react-day-picker/src/classes/DateLib.ts:85](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/classes/DateLib.ts#L85)
+Defined in: [packages/react-day-picker/src/classes/DateLib.ts:86](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/classes/DateLib.ts#L86)
 
 The options for the `DateLib` class.
 
@@ -22,7 +22,7 @@ Extends `date-fns` [format](https://date-fns.org/docs/format),
 
 > `optional` **Date?**: `DateConstructor`
 
-Defined in: [packages/react-day-picker/src/classes/DateLib.ts:90](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/classes/DateLib.ts#L90)
+Defined in: [packages/react-day-picker/src/classes/DateLib.ts:91](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/classes/DateLib.ts#L91)
 
 A constructor for the `Date` object.
 
@@ -32,7 +32,7 @@ A constructor for the `Date` object.
 
 > `optional` **locale?**: [`DayPickerLocale`](DayPickerLocale.md)
 
-Defined in: [packages/react-day-picker/src/classes/DateLib.ts:92](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/classes/DateLib.ts#L92)
+Defined in: [packages/react-day-picker/src/classes/DateLib.ts:93](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/classes/DateLib.ts#L93)
 
 A locale to use for formatting dates.
 
@@ -46,7 +46,7 @@ A locale to use for formatting dates.
 
 > `optional` **numerals?**: [`Numerals`](../type-aliases/Numerals.md)
 
-Defined in: [packages/react-day-picker/src/classes/DateLib.ts:104](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/classes/DateLib.ts#L104)
+Defined in: [packages/react-day-picker/src/classes/DateLib.ts:105](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/classes/DateLib.ts#L105)
 
 The numbering system to use for formatting numbers.
 
@@ -60,7 +60,7 @@ The numbering system to use for formatting numbers.
 
 > `optional` **timeZone?**: `string`
 
-Defined in: [packages/react-day-picker/src/classes/DateLib.ts:98](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/classes/DateLib.ts#L98)
+Defined in: [packages/react-day-picker/src/classes/DateLib.ts:99](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/classes/DateLib.ts#L99)
 
 A time zone to use for dates.
 

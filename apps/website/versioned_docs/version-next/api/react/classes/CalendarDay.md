@@ -1,6 +1,6 @@
 # Class: CalendarDay
 
-Defined in: [packages/react-day-picker/src/classes/CalendarDay.ts:10](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/classes/CalendarDay.ts#L10)
+Defined in: [packages/react-day-picker/src/classes/CalendarDay.ts:10](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/classes/CalendarDay.ts#L10)
 
 Represents a day displayed in the calendar.
 
@@ -14,7 +14,7 @@ the displayed month.
 
 > **new CalendarDay**(`date`, `displayMonth`, `dateLib?`): `CalendarDay`
 
-Defined in: [packages/react-day-picker/src/classes/CalendarDay.ts:11](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/classes/CalendarDay.ts#L11)
+Defined in: [packages/react-day-picker/src/classes/CalendarDay.ts:11](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/classes/CalendarDay.ts#L11)
 
 #### Parameters
 
@@ -34,7 +34,7 @@ Defined in: [packages/react-day-picker/src/classes/CalendarDay.ts:11](https://gi
 
 > **isEqualTo**(`day`): `boolean`
 
-Defined in: [packages/react-day-picker/src/classes/CalendarDay.ts:82](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/classes/CalendarDay.ts#L82)
+Defined in: [packages/react-day-picker/src/classes/CalendarDay.ts:82](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/classes/CalendarDay.ts#L82)
 
 Checks if this day is equal to another `CalendarDay`, considering both the
 date and the displayed month.
@@ -57,7 +57,7 @@ date and the displayed month.
 
 > `readonly` **date**: `Date`
 
-Defined in: [packages/react-day-picker/src/classes/CalendarDay.ts:52](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/classes/CalendarDay.ts#L52)
+Defined in: [packages/react-day-picker/src/classes/CalendarDay.ts:52](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/classes/CalendarDay.ts#L52)
 
 The date represented by this day.
 
@@ -67,7 +67,7 @@ The date represented by this day.
 
 > `readonly` **dateMonthId**: `string`
 
-Defined in: [packages/react-day-picker/src/classes/CalendarDay.ts:73](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/classes/CalendarDay.ts#L73)
+Defined in: [packages/react-day-picker/src/classes/CalendarDay.ts:73](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/classes/CalendarDay.ts#L73)
 
 Stable `yyyy-MM` representation of the date's actual month.
 
@@ -81,7 +81,7 @@ V9.11.2
 
 > `readonly` **displayMonth**: `Date`
 
-Defined in: [packages/react-day-picker/src/classes/CalendarDay.ts:49](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/classes/CalendarDay.ts#L49)
+Defined in: [packages/react-day-picker/src/classes/CalendarDay.ts:49](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/classes/CalendarDay.ts#L49)
 
 The month that is currently displayed in the calendar.
 
@@ -95,7 +95,7 @@ enabled.
 
 > `readonly` **displayMonthId**: `string`
 
-Defined in: [packages/react-day-picker/src/classes/CalendarDay.ts:66](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/classes/CalendarDay.ts#L66)
+Defined in: [packages/react-day-picker/src/classes/CalendarDay.ts:66](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/classes/CalendarDay.ts#L66)
 
 Stable `yyyy-MM` representation of the displayed month.
 
@@ -109,7 +109,7 @@ V9.11.2
 
 > `readonly` **isoDate**: `string`
 
-Defined in: [packages/react-day-picker/src/classes/CalendarDay.ts:59](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/classes/CalendarDay.ts#L59)
+Defined in: [packages/react-day-picker/src/classes/CalendarDay.ts:59](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/classes/CalendarDay.ts#L59)
 
 Stable `yyyy-MM-dd` representation for reuse in keys/data attrs.
 
@@ -123,7 +123,7 @@ V9.11.2
 
 > `readonly` **outside**: `boolean`
 
-Defined in: [packages/react-day-picker/src/classes/CalendarDay.ts:40](https://github.com/gpbl/react-day-picker/blob/f96815cbda74d7e7b588e8e7e32923ebd787cc35/packages/react-day-picker/src/classes/CalendarDay.ts#L40)
+Defined in: [packages/react-day-picker/src/classes/CalendarDay.ts:40](https://github.com/gpbl/react-day-picker/blob/4f05162215b4f525bb715406bc3c84dac5de42bb/packages/react-day-picker/src/classes/CalendarDay.ts#L40)
 
 Indicates whether the day does not belong to the displayed month.
 

@@ -1,6 +1,7 @@
 import type { DayPickerProps } from "./props.js";
 import type { DateRange, Mode, Modifiers } from "./shared.js";
 
+/** Selection state and helpers for the active selection mode. */
 export type Selection<T extends DayPickerProps> = {
   /** The selected date(s). */
   selected: SelectedValue<T> | undefined;
@@ -10,10 +11,13 @@ export type Selection<T extends DayPickerProps> = {
   isSelected: (date: Date) => boolean;
 };
 
+/** Selected value for single selection mode, respecting required selections. */
 export type SelectedSingle<T extends { required?: boolean }> =
   T["required"] extends true ? Date : Date | undefined;
+/** Selected value for multiple selection mode, respecting required selections. */
 export type SelectedMulti<T extends { required?: boolean }> =
   T["required"] extends true ? Date[] : Date[] | undefined;
+/** Selected value for range selection mode, respecting required selections. */
 export type SelectedRange<T extends { required?: boolean }> =
   T["required"] extends true ? DateRange : DateRange | undefined;
 
@@ -44,6 +48,7 @@ export type SelectedValue<T> = T extends { mode: "single"; required?: boolean }
       ? SelectedRange<T>
       : undefined;
 
+/** Selection handler for single selection mode. */
 export type SelectHandlerSingle<T extends { required?: boolean | undefined }> =
   (
     triggerDate: Date,
@@ -51,12 +56,14 @@ export type SelectHandlerSingle<T extends { required?: boolean | undefined }> =
     e: React.MouseEvent | React.KeyboardEvent,
   ) => T["required"] extends true ? Date : Date | undefined;
 
+/** Selection handler for multiple selection mode. */
 export type SelectHandlerMulti<T extends { required?: boolean | undefined }> = (
   triggerDate: Date,
   modifiers: Modifiers,
   e: React.MouseEvent | React.KeyboardEvent,
 ) => T["required"] extends true ? Date[] : Date[] | undefined;
 
+/** Selection handler for range selection mode. */
 export type SelectHandlerRange<T extends { required?: boolean | undefined }> = (
   triggerDate: Date,
   modifiers: Modifiers,

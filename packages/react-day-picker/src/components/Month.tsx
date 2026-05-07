@@ -21,4 +21,5 @@ export function Month(
   return <div {...divProps}>{props.children}</div>;
 }
 
+/** Props accepted by the {@link Month} component. */
 export type MonthProps = Parameters<typeof Month>[0];

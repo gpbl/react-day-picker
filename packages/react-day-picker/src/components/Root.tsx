@@ -16,4 +16,5 @@ export function Root(
   return <div {...rest} ref={rootRef} />;
 }
 
+/** Props accepted by the {@link Root} component. */
 export type RootProps = Parameters<typeof Root>[0];

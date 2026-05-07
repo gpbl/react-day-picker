@@ -10,4 +10,5 @@ export function Weekday(props: ThHTMLAttributes<HTMLTableCellElement>) {
   return <th {...props} />;
 }
 
+/** Props accepted by the {@link Weekday} component. */
 export type WeekdayProps = Parameters<typeof Weekday>[0];

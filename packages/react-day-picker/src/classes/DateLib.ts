@@ -68,6 +68,7 @@ export interface DayPickerLocale extends DateFnsLocale {
   /** Localized DayPicker-specific labels. */
   labels?: DayPickerLocaleLabels;
 }
+/** Alias for the locale shape accepted by DayPicker APIs. */
 export type Locale = DayPickerLocale;
 
 /** Indicates the preferred ordering of month and year for localized labels. */

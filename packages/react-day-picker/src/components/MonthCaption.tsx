@@ -20,4 +20,5 @@ export function MonthCaption(
   return <div {...divProps} />;
 }
 
+/** Props accepted by the {@link MonthCaption} component. */
 export type MonthCaptionProps = Parameters<typeof MonthCaption>[0];

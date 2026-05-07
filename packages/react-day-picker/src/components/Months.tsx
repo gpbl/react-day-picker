@@ -10,4 +10,5 @@ export function Months(props: HTMLAttributes<HTMLDivElement>) {
   return <div {...props} />;
 }
 
+/** Props accepted by the {@link Months} component. */
 export type MonthsProps = Parameters<typeof Months>[0];

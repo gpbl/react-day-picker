@@ -10,4 +10,5 @@ export function DropdownNav(props: HTMLAttributes<HTMLDivElement>) {
   return <div {...props} />;
 }
 
+/** Props accepted by the {@link DropdownNav} component. */
 export type DropdownNavProps = Parameters<typeof DropdownNav>[0];
