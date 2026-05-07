@@ -8,6 +8,8 @@ Important usage notes:
 
 - Import the component from `@daypicker/react`.
 - Import the default stylesheet with `import "@daypicker/react/style.css";` unless the app provides custom styles.
+- Use `@daypicker/react` for new v10 imports. The `react-day-picker` package name remains available in v10 for compatibility with existing apps.
+- When upgrading non-Gregorian calendars, replace old `react-day-picker/*` subpath imports with the matching add-on package, such as `@daypicker/persian`, `@daypicker/hijri`, `@daypicker/buddhist`, `@daypicker/ethiopic`, or `@daypicker/hebrew`.
 - DayPicker supports single, multiple, range, and custom selection flows.
 - DayPicker supports localization, time zones, ISO and broadcast calendars, and Persian, Hijri, Buddhist, Ethiopic, and Hebrew calendar packages.
 - DayPicker is written in TypeScript and its API reference documents exported components, props, hooks, helpers, labels, formatters, and types.

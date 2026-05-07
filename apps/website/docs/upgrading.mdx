@@ -13,6 +13,8 @@ The main changes are:
 - APIs and props deprecated in v9 were removed.
 - `@daypicker/react` is the new preferred package name. The
   `react-day-picker` package name remains available for compatibility.
+  - The scoped package name gives us room to support multiple calendars and
+    future Temporal API integrations under dedicated namespaces.
 - Non-Gregorian calendars moved to separate add-on packages. If you use imports
   such as `react-day-picker/hebrew`, `react-day-picker/hijri`, or
   `react-day-picker/persian`, install the matching add-on package.
