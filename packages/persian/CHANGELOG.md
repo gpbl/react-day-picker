@@ -8,6 +8,10 @@ _Release date: 2026-05-05_
 
 This is the first stable release of `@daypicker/persian`, the DayPicker package for Persian calendar support. It is published under the `@daypicker/*` scope and is intended to be installed alongside `@daypicker/react`.
 
+#### Upgrading to v10
+
+See the [upgrading guide](https://daypicker.dev/upgrading) for details on moving calendar usage to the standalone `@daypicker/*` packages.
+
 #### Installation
 
 ```bash
