@@ -564,7 +564,7 @@ Bug fixes.
 
 _Release date: 2024-11-05_
 
-This release adds the `dayPickerProps` to the values returned by [useDayPicker](/api/functions/useDayPicker), enabling access to these props from custom components.
+This release adds the `dayPickerProps` to the values returned by [useDayPicker](/api/react/functions/useDayPicker), enabling access to these props from custom components.
 
 Thanks to the work by [@rodgobbi](https://github.com/rodgobbi), we could enhance the performance when selecting a range of days.
 
