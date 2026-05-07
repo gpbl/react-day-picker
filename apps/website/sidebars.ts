@@ -15,7 +15,7 @@ const sidebars: SidebarsConfig = {
     "start",
     {
       type: "category",
-      label: "Upgrading guide",
+      label: "Upgrading Guide",
       collapsed: false,
       items: ["upgrading", "upgrading-v8-to-v10"],
     },
