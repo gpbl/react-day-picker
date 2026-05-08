@@ -4,7 +4,7 @@ DayPicker follows [Semantic Versioning](http://semver.org/). See the [Releases p
 
 ## v10.0.0
 
-_Release date: 2026-05-05_
+_Release date: 2026-05-08_
 
 This is the first stable release of `@daypicker/ethiopic`, the DayPicker package for Ethiopic calendar support. It is published under the `@daypicker/*` scope and is intended to be installed alongside `@daypicker/react`.
 
