@@ -4,6 +4,8 @@ import process from "node:process";
 import { pathToFileURL } from "node:url";
 
 const repoRoot = new URL("../", import.meta.url);
+const distTagVerificationAttempts = 12;
+const distTagVerificationDelayMs = 5_000;
 
 export const publishablePackageDirs = [
   "packages/react-day-picker",
@@ -97,6 +99,35 @@ function readPackageVersionFromDistTag(
   }
 }
 
+async function waitForDistTagVerificationRetry(): Promise<void> {
+  await new Promise((resolve) => {
+    setTimeout(resolve, distTagVerificationDelayMs);
+  });
+}
+
+async function readPackageVersionFromDistTagWithRetry(
+  packageInfo: {
+    name: string;
+    version: string;
+  },
+  tag: string,
+): Promise<string | undefined> {
+  let taggedVersion: string | undefined;
+
+  for (let attempt = 1; attempt <= distTagVerificationAttempts; attempt++) {
+    taggedVersion = readPackageVersionFromDistTag(packageInfo, tag);
+    if (taggedVersion === packageInfo.version) {
+      return taggedVersion;
+    }
+
+    if (attempt < distTagVerificationAttempts) {
+      await waitForDistTagVerificationRetry();
+    }
+  }
+
+  return taggedVersion;
+}
+
 export function getUnpublishedPackages(): Array<{
   packageDir: string;
   packageInfo: {
@@ -112,14 +143,17 @@ export function getUnpublishedPackages(): Array<{
   });
 }
 
-export function verifyPackageDistTags(tag: string): void {
+export async function verifyPackageDistTags(tag: string): Promise<void> {
   if (!tag) {
     throw new Error("Usage: verifyPackageDistTags <npm-tag>");
   }
 
   for (const packageDir of publishablePackageDirs) {
     const packageInfo = readPackageInfo(packageDir);
-    const taggedVersion = readPackageVersionFromDistTag(packageInfo, tag);
+    const taggedVersion = await readPackageVersionFromDistTagWithRetry(
+      packageInfo,
+      tag,
+    );
     if (taggedVersion === packageInfo.version) {
       continue;
     }

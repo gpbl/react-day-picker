@@ -96,7 +96,7 @@ export async function releaseCi(): Promise<{
 
     console.log(`Publishing ${packageInfo.version} with dist-tag ${npmTag}.`);
     publishPackages(npmTag);
-    verifyPackageDistTags(npmTag);
+    await verifyPackageDistTags(npmTag);
     publishedPackages = true;
   } else {
     console.log("All publishable package versions are already on npm.");

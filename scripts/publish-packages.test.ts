@@ -84,6 +84,7 @@ beforeEach(function setupPublishPackagesTestState() {
 });
 
 afterEach(function restoreConsoleSpy() {
+  jest.useRealTimers();
   consoleLogSpy.mockRestore();
 });
 
@@ -207,7 +208,7 @@ describe("publishPackages", function describePublishPackages() {
 });
 
 describe("verifyPackageDistTags", function describeVerifyPackageDistTags() {
-  test("it accepts package dist-tags that point to the current versions", function testMatchingDistTags() {
+  test("it accepts package dist-tags that point to the current versions", async function testMatchingDistTags() {
     publishPackagesExecFileSyncMock.mockImplementation(
       function mockExecFile(command, args, options) {
         execCalls.push({
@@ -220,10 +221,55 @@ describe("verifyPackageDistTags", function describeVerifyPackageDistTags() {
       },
     );
 
-    expect(() => verifyPackageDistTags("next")).not.toThrow();
+    await expect(verifyPackageDistTags("next")).resolves.toBeUndefined();
   });
 
-  test("it explains how to repair mismatched package dist-tags", function testMismatchedDistTag() {
+  test("it retries stale package dist-tags until npm returns the current version", async function testStaleDistTagRetry() {
+    jest.useFakeTimers();
+
+    publishPackagesExecFileSyncMock.mockImplementation(
+      function mockExecFile(command, args, options) {
+        execCalls.push({
+          command: String(command),
+          args: Array.isArray(args) ? [...args] : [],
+          options,
+        });
+
+        if (
+          command === "npm" &&
+          Array.isArray(args) &&
+          args[1] === "@daypicker/react@next"
+        ) {
+          const packageReads = execCalls.filter(
+            (call) => call.args[1] === "@daypicker/react@next",
+          );
+          return packageReads.length < 3
+            ? "10.0.0-next.0\n"
+            : "10.0.0-next.1\n";
+        }
+
+        return "10.0.0-next.1\n";
+      },
+    );
+
+    const verification = verifyPackageDistTags("next");
+    await jest.advanceTimersByTimeAsync(10_000);
+    await verification;
+
+    expect(
+      execCalls
+        .filter((call) => call.args[1] === "@daypicker/react@next")
+        .map((call) => call.args),
+    ).toEqual([
+      ["view", "@daypicker/react@next", "version"],
+      ["view", "@daypicker/react@next", "version"],
+      ["view", "@daypicker/react@next", "version"],
+    ]);
+  });
+
+  test("it explains how to repair mismatched package dist-tags", async function testMismatchedDistTag() {
+    jest.useFakeTimers();
+
     publishPackagesExecFileSyncMock.mockImplementation(
       function mockExecFile(command, args, options) {
         execCalls.push({
@@ -244,8 +290,12 @@ describe("verifyPackageDistTags", function describeVerifyPackageDistTags() {
       },
     );
 
-    expect(() => verifyPackageDistTags("next")).toThrow(
+    const verification = verifyPackageDistTags("next");
+    const expectation = expect(verification).rejects.toThrow(
       "Expected npm dist-tag next for @daypicker/react to point to 10.0.0-next.1, got 10.0.0-next.0. Trusted publishing only authenticates npm publish, so repair the tag manually with: npm dist-tag add @daypicker/react@10.0.0-next.1 next",
     );
+
+    await jest.advanceTimersByTimeAsync(60_000);
+    await expectation;
   });
 });
