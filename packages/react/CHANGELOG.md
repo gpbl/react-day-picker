@@ -4,7 +4,7 @@ DayPicker follows [Semantic Versioning](http://semver.org/). See the [Releases p
 
 ## v10.0.0
 
-_Release date: 2026-05-05_
+_Release date: 2026-05-08_
 
 This major release introduces the `@daypicker/react` package name, publishes calendar add-on packages under the `@daypicker/*` scope, and removes public APIs that were deprecated in v9.
 
