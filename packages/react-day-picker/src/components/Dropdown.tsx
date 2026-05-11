@@ -25,7 +25,7 @@ export function Dropdown(
   } & Omit<SelectHTMLAttributes<HTMLSelectElement>, "children">,
 ) {
   const { options, className, ...selectProps } = props;
-  const { classNames, components } = useDayPicker();
+  const { classNames, components, styles } = useDayPicker();
 
   const cssClassSelect = [classNames[UI.Dropdown], className].join(" ");
 
@@ -36,6 +36,7 @@ export function Dropdown(
     <span
       data-disabled={selectProps.disabled}
       className={classNames[UI.DropdownRoot]}
+      style={styles?.[UI.DropdownRoot]}
     >
       <components.Select className={cssClassSelect} {...selectProps}>
         {options?.map(({ value, label, disabled }) => (
@@ -44,12 +45,17 @@ export function Dropdown(
           </components.Option>
         ))}
       </components.Select>
-      <span className={classNames[UI.CaptionLabel]} aria-hidden>
+      <span
+        className={classNames[UI.CaptionLabel]}
+        style={styles?.[UI.CaptionLabel]}
+        aria-hidden
+      >
         {selectedOption?.label}
         <components.Chevron
           orientation="down"
           size={18}
           className={classNames[UI.Chevron]}
+          style={styles?.[UI.Chevron]}
         />
       </span>
     </span>

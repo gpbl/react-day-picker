@@ -36,6 +36,7 @@ export function Nav(
   const {
     components,
     classNames,
+    styles,
     labels: { labelPrevious, labelNext },
   } = useDayPicker();
 
@@ -62,6 +63,7 @@ export function Nav(
       <components.PreviousMonthButton
         type="button"
         className={classNames[UI.PreviousMonthButton]}
+        style={styles?.[UI.PreviousMonthButton]}
         tabIndex={previousMonth ? undefined : -1}
         aria-disabled={previousMonth ? undefined : true}
         aria-label={labelPrevious(previousMonth)}
@@ -70,12 +72,14 @@ export function Nav(
         <components.Chevron
           disabled={previousMonth ? undefined : true}
           className={classNames[UI.Chevron]}
+          style={styles?.[UI.Chevron]}
           orientation="left"
         />
       </components.PreviousMonthButton>
       <components.NextMonthButton
         type="button"
         className={classNames[UI.NextMonthButton]}
+        style={styles?.[UI.NextMonthButton]}
         tabIndex={nextMonth ? undefined : -1}
         aria-disabled={nextMonth ? undefined : true}
         aria-label={labelNext(nextMonth)}
@@ -85,6 +89,7 @@ export function Nav(
           disabled={nextMonth ? undefined : true}
           orientation="right"
           className={classNames[UI.Chevron]}
+          style={styles?.[UI.Chevron]}
         />
       </components.NextMonthButton>
     </nav>

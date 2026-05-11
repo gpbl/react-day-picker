@@ -17,6 +17,7 @@ import type { MonthsProps } from "./components/Months";
 import { DayPicker } from "./DayPicker";
 import { labelMonthDropdown, labelYearDropdown } from "./labels/index.js";
 import { ja } from "./locale/ja.js";
+import { UI } from "./UI";
 
 const testId = "test";
 const dayPicker = () => screen.getByTestId(testId);
@@ -47,6 +48,99 @@ test("apply classnames and style according to props", () => {
   expect(dayPicker()).toHaveClass("rdp-root");
   expect(dayPicker()).toHaveClass("custom-class");
   expect(dayPicker()).toHaveStyle({ color: "rgb(255, 0, 0)" });
+});
+
+describe("when rendering custom inline styles for component slots", () => {
+  beforeEach(() => {
+    render(
+      <DayPicker
+        data-testid={testId}
+        styles={{
+          [UI.CaptionLabel]: { color: "purple" },
+          [UI.Chevron]: { fill: "red" },
+          [UI.NextMonthButton]: { backgroundColor: "green" },
+          [UI.PreviousMonthButton]: { backgroundColor: "blue" },
+        }}
+      />,
+    );
+  });
+
+  test("applies the previous button style", () => {
+    expect(previousButton()).toHaveAttribute(
+      "style",
+      "background-color: blue;",
+    );
+  });
+
+  test("applies the next button style", () => {
+    expect(nextButton()).toHaveAttribute("style", "background-color: green;");
+  });
+
+  test("applies the chevron style", () => {
+    expect(document.querySelector(".rdp-chevron")).toHaveAttribute(
+      "style",
+      "fill: red;",
+    );
+  });
+
+  test("applies the caption label style", () => {
+    expect(document.querySelector(".rdp-caption_label")).toHaveAttribute(
+      "style",
+      "color: purple;",
+    );
+  });
+});
+
+describe("when rendering custom inline styles for dropdown slots", () => {
+  beforeEach(() => {
+    render(
+      <DayPicker
+        captionLayout="dropdown"
+        endMonth={new Date(2025, 11)}
+        month={new Date(2024, 0)}
+        startMonth={new Date(2024, 0)}
+        styles={{
+          [UI.CaptionLabel]: { color: "purple" },
+          [UI.Chevron]: { fill: "red" },
+          [UI.Dropdown]: { backgroundColor: "yellow" },
+          [UI.DropdownRoot]: { borderColor: "blue" },
+          [UI.MonthsDropdown]: { color: "green" },
+          [UI.YearsDropdown]: { fontWeight: 700 },
+        }}
+      />,
+    );
+  });
+
+  test("applies the dropdown root style", () => {
+    expect(
+      screen.getByRole("combobox", { name: labelMonthDropdown() })
+        .parentElement,
+    ).toHaveAttribute("style", "border-color: blue;");
+  });
+
+  test("applies the month dropdown style with the base dropdown style", () => {
+    expect(
+      screen.getByRole("combobox", { name: labelMonthDropdown() }),
+    ).toHaveAttribute("style", "background-color: yellow; color: green;");
+  });
+
+  test("applies the year dropdown style with the base dropdown style", () => {
+    expect(
+      screen.getByRole("combobox", { name: labelYearDropdown() }),
+    ).toHaveAttribute("style", "background-color: yellow; font-weight: 700;");
+  });
+
+  test("applies the dropdown caption label style", () => {
+    expect(
+      document.querySelector(".rdp-dropdown_root .rdp-caption_label"),
+    ).toHaveAttribute("style", "color: purple;");
+  });
+
+  test("applies the dropdown chevron style", () => {
+    expect(
+      document.querySelector(".rdp-dropdown_root .rdp-chevron"),
+    ).toHaveAttribute("style", "fill: red;");
+  });
 });
 
 test("forward aria attributes to the root element", () => {

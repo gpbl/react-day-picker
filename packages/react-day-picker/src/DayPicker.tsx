@@ -360,6 +360,20 @@ export function DayPicker(initialProps: DayPickerProps) {
 
   const dataAttributes = getDataAttributes(props);
 
+  const getDropdownStyle = (dropdown: UI.MonthsDropdown | UI.YearsDropdown) => {
+    const dropdownStyle = styles?.[UI.Dropdown];
+    const specificDropdownStyle = styles?.[dropdown];
+
+    if (!dropdownStyle && !specificDropdownStyle) {
+      return undefined;
+    }
+
+    return {
+      ...dropdownStyle,
+      ...specificDropdownStyle,
+    };
+  };
+
   const rootElRef = useRef<HTMLDivElement>(null);
   useAnimation(rootElRef, Boolean(props.animate), {
     classNames,
@@ -438,6 +452,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                     <components.PreviousMonthButton
                       type="button"
                       className={classNames[UI.PreviousMonthButton]}
+                      style={styles?.[UI.PreviousMonthButton]}
                       tabIndex={previousMonth ? undefined : -1}
                       aria-disabled={previousMonth ? undefined : true}
                       aria-label={labelPrevious(previousMonth)}
@@ -447,6 +462,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                       <components.Chevron
                         disabled={previousMonth ? undefined : true}
                         className={classNames[UI.Chevron]}
+                        style={styles?.[UI.Chevron]}
                         orientation={props.dir === "rtl" ? "right" : "left"}
                       />
                     </components.PreviousMonthButton>
@@ -483,7 +499,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                                 formatters,
                                 dateLib,
                               )}
-                              style={styles?.[UI.Dropdown]}
+                              style={getDropdownStyle(UI.MonthsDropdown)}
                               value={dateLib.getMonth(calendarMonth.date)}
                             />
                           ) : (
@@ -511,7 +527,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                                 dateLib,
                                 Boolean(props.reverseYears),
                               )}
-                              style={styles?.[UI.Dropdown]}
+                              style={getDropdownStyle(UI.YearsDropdown)}
                               value={dateLib.getYear(calendarMonth.date)}
                             />
                           ) : (
@@ -553,6 +569,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                   ) : (
                     <components.CaptionLabel
                       className={classNames[UI.CaptionLabel]}
+                      style={styles?.[UI.CaptionLabel]}
                       role="status"
                       aria-live="polite"
                     >
@@ -570,6 +587,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                     <components.NextMonthButton
                       type="button"
                       className={classNames[UI.NextMonthButton]}
+                      style={styles?.[UI.NextMonthButton]}
                       tabIndex={nextMonth ? undefined : -1}
                       aria-disabled={nextMonth ? undefined : true}
                       aria-label={labelNext(nextMonth)}
@@ -579,6 +597,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                       <components.Chevron
                         disabled={nextMonth ? undefined : true}
                         className={classNames[UI.Chevron]}
+                        style={styles?.[UI.Chevron]}
                         orientation={props.dir === "rtl" ? "left" : "right"}
                       />
                     </components.NextMonthButton>

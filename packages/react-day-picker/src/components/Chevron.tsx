@@ -8,6 +8,7 @@ import React from "react";
  */
 export function Chevron(props: {
   className?: string;
+  style?: React.CSSProperties;
   /**
    * The size of the chevron.
    *
@@ -19,11 +20,17 @@ export function Chevron(props: {
   /** The orientation of the chevron. */
   orientation?: "up" | "down" | "left" | "right";
 }) {
-  const { size = 24, orientation = "left", className } = props;
+  const { size = 24, orientation = "left", className, style } = props;
 
   return (
     // biome-ignore lint/a11y/noSvgWithoutTitle: handled by the parent component
-    <svg className={className} width={size} height={size} viewBox="0 0 24 24">
+    <svg
+      className={className}
+      style={style}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+    >
       {orientation === "up" && (
         <polygon points="6.77 17 12.5 11.43 18.24 17 20 15.28 12.5 8 5 15.28" />
       )}
