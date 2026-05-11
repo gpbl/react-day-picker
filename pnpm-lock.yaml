@@ -387,6 +387,9 @@ importers:
       '@daypicker/react':
         specifier: link:../react
         version: link:../react
+      '@types/react':
+        specifier: '>=16.8.0'
+        version: 19.2.14
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
@@ -399,6 +402,9 @@ importers:
       '@daypicker/react':
         specifier: link:../react
         version: link:../react
+      '@types/react':
+        specifier: '>=16.8.0'
+        version: 19.2.14
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
@@ -411,6 +417,9 @@ importers:
       '@daypicker/react':
         specifier: link:../react
         version: link:../react
+      '@types/react':
+        specifier: '>=16.8.0'
+        version: 19.2.14
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
@@ -426,6 +435,9 @@ importers:
       '@tabby_ai/hijri-converter':
         specifier: 1.0.5
         version: 1.0.5
+      '@types/react':
+        specifier: '>=16.8.0'
+        version: 19.2.14
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
@@ -441,6 +453,9 @@ importers:
       '@daypicker/react':
         specifier: link:../react
         version: link:../react
+      '@types/react':
+        specifier: '>=16.8.0'
+        version: 19.2.14
       date-fns-jalali:
         specifier: 4.1.0-0
         version: 4.1.0-0
@@ -450,6 +465,9 @@ importers:
 
   packages/react:
     dependencies:
+      '@types/react':
+        specifier: '>=16.8.0'
+        version: 19.2.14
       react:
         specifier: '>=16.8.0'
         version: 19.2.5
@@ -462,6 +480,9 @@ importers:
       '@date-fns/tz':
         specifier: ^1.4.1
         version: 1.4.1
+      '@types/react':
+        specifier: '>=16.8.0'
+        version: 19.2.14
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
