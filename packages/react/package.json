@@ -161,7 +161,13 @@
     "react-day-picker": "10.0.0"
   },
   "peerDependencies": {
-    "react": ">=16.8.0"
+    "react": ">=16.8.0",
+    "@types/react": ">=16.8.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
   },
   "funding": {
     "type": "individual",
