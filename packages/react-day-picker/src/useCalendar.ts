@@ -17,6 +17,7 @@ import { getPreviousMonth } from "./helpers/getPreviousMonth.js";
 import { getWeeks } from "./helpers/getWeeks.js";
 import { useControlledValue } from "./helpers/useControlledValue.js";
 import type { DayPickerProps } from "./types/props.js";
+import type { VisibleMonthsChangeSource } from "./types/shared.js";
 
 /**
  * Returns the calendar object used by DayPicker custom components.
@@ -54,12 +55,23 @@ export interface Calendar {
   /** Navigate to the specified month. Will fire the `onMonthChange` callback. */
   goToMonth: (month: Date) => void;
   /**
+   * Navigate one displayed month by index. Will fire the
+   * `onVisibleMonthsChange` callback.
+   */
+  goToVisibleMonth: (
+    index: number,
+    month: Date,
+    source: VisibleMonthsChangeSource,
+  ) => Date | undefined;
+  /**
    * Navigate to the month containing the specified day when it falls outside
    * the currently displayed calendar.
    *
    * @param day - The date to navigate to.
    */
-  goToDay: (day: CalendarDay) => void;
+  goToDay: (day: CalendarDay, refDay?: CalendarDay) => void;
+  /** Whether the calendar is using the `visibleMonths` display model. */
+  usesVisibleMonths: boolean;
 }
 
 /**
@@ -85,10 +97,14 @@ export function useCalendar(
     | "reverseMonths"
     | "disableNavigation"
     | "onMonthChange"
+    | "onVisibleMonthsChange"
     | "month"
     | "defaultMonth"
+    | "mode"
     | "timeZone"
     | "broadcastCalendar"
+    | "visibleMonths"
+    | "defaultVisibleMonths"
   >,
   dateLib: DateLib,
 ): Calendar {
@@ -101,22 +117,49 @@ export function useCalendar(
     // initialMonth is always computed from props.month if provided
     props.month ? initialMonth : undefined,
   );
+  const usesVisibleMonths =
+    props.visibleMonths !== undefined ||
+    props.defaultVisibleMonths !== undefined;
+  const normalizeVisibleMonths = (
+    months: Date[] | undefined,
+    fallbackMonth: Date,
+  ) => {
+    const sourceMonths = months && months.length > 0 ? months : [fallbackMonth];
+    return sourceMonths.map((month) => startOfMonth(month));
+  };
+  const getInitialVisibleMonths = (fallbackMonth: Date) => {
+    const initialVisibleMonths =
+      props.defaultVisibleMonths ?? props.visibleMonths;
+    return normalizeVisibleMonths(initialVisibleMonths, fallbackMonth);
+  };
+  const controlledVisibleMonths = props.visibleMonths
+    ? normalizeVisibleMonths(props.visibleMonths, initialMonth)
+    : undefined;
+  const [visibleMonths, setVisibleMonths] = useControlledValue(
+    getInitialVisibleMonths(initialMonth),
+    controlledVisibleMonths,
+  );
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: change the initial month when the time zone changes.
   useEffect(() => {
     const newInitialMonth = getInitialMonth(props, navStart, navEnd, dateLib);
     setFirstMonth(newInitialMonth);
+    if (usesVisibleMonths) {
+      setVisibleMonths(getInitialVisibleMonths(newInitialMonth));
+    }
   }, [props.timeZone]);
 
   /** The months displayed in the calendar. */
   // biome-ignore lint/correctness/useExhaustiveDependencies: We want to recompute only when specific props change.
   const { months, weeks, days, previousMonth, nextMonth } = useMemo(() => {
-    const displayMonths = getDisplayMonths(
-      firstMonth,
-      navEnd,
-      { numberOfMonths: props.numberOfMonths },
-      dateLib,
-    );
+    const displayMonths = usesVisibleMonths
+      ? visibleMonths
+      : getDisplayMonths(
+          firstMonth,
+          navEnd,
+          { numberOfMonths: props.numberOfMonths },
+          dateLib,
+        );
 
     const dates = getDates(
       displayMonths,
@@ -136,7 +179,7 @@ export function useCalendar(
         broadcastCalendar: props.broadcastCalendar,
         fixedWeeks: props.fixedWeeks,
         ISOWeek: props.ISOWeek,
-        reverseMonths: props.reverseMonths,
+        reverseMonths: usesVisibleMonths ? false : props.reverseMonths,
       },
       dateLib,
     );
@@ -145,12 +188,18 @@ export function useCalendar(
     const days = getDays(months);
 
     const previousMonth = getPreviousMonth(
-      firstMonth,
+      displayMonths[0],
       navStart,
-      props,
+      usesVisibleMonths ? { ...props, numberOfMonths: 1 } : props,
       dateLib,
     );
-    const nextMonth = getNextMonth(firstMonth, navEnd, props, dateLib);
+    const lastDisplayMonth = displayMonths[displayMonths.length - 1];
+    const nextMonth = getNextMonth(
+      usesVisibleMonths ? lastDisplayMonth : firstMonth,
+      navEnd,
+      usesVisibleMonths ? { ...props, numberOfMonths: 1 } : props,
+      dateLib,
+    );
 
     return {
       months,
@@ -162,6 +211,7 @@ export function useCalendar(
   }, [
     dateLib,
     firstMonth.getTime(),
+    visibleMonths.map((month) => month.getTime()).join("-"),
     navEnd?.getTime(),
     navStart?.getTime(),
     props.disableNavigation,
@@ -172,9 +222,10 @@ export function useCalendar(
     props.numberOfMonths,
     props.pagedNavigation,
     props.reverseMonths,
+    usesVisibleMonths,
   ]);
 
-  const { disableNavigation, onMonthChange } = props;
+  const { disableNavigation, onMonthChange, onVisibleMonthsChange } = props;
 
   const isDayInCalendar = (day: CalendarDay) =>
     weeks.some((week: CalendarWeek) => week.days.some((d) => d.isEqualTo(day)));
@@ -196,9 +247,49 @@ export function useCalendar(
     onMonthChange?.(newMonth);
   };
 
-  const goToDay = (day: CalendarDay) => {
+  const goToVisibleMonth = (
+    index: number,
+    date: Date,
+    source: VisibleMonthsChangeSource,
+  ) => {
+    if (disableNavigation || !usesVisibleMonths) {
+      return undefined;
+    }
+    let newMonth = startOfMonth(date);
+    if (navStart && newMonth < startOfMonth(navStart)) {
+      newMonth = startOfMonth(navStart);
+    }
+    if (navEnd && newMonth > startOfMonth(navEnd)) {
+      newMonth = startOfMonth(navEnd);
+    }
+    const newVisibleMonths = visibleMonths.map((month, monthIndex) =>
+      monthIndex === index ? newMonth : month,
+    );
+    setVisibleMonths(newVisibleMonths);
+    onVisibleMonthsChange?.(newVisibleMonths, {
+      changedIndex: index,
+      month: newMonth,
+      source,
+    });
+    return newMonth;
+  };
+
+  const goToDay = (day: CalendarDay, refDay?: CalendarDay) => {
     // is this check necessary?
     if (isDayInCalendar(day)) {
+      return;
+    }
+    if (usesVisibleMonths) {
+      const visibleMonthIndex = months.findIndex(
+        (month) =>
+          startOfMonth(month.date).getTime() ===
+          startOfMonth(refDay?.displayMonth ?? day.displayMonth).getTime(),
+      );
+      goToVisibleMonth(
+        visibleMonthIndex === -1 ? 0 : visibleMonthIndex,
+        day.date,
+        "keyboard",
+      );
       return;
     }
     goToMonth(day.date);
@@ -216,7 +307,9 @@ export function useCalendar(
     nextMonth,
 
     goToMonth,
+    goToVisibleMonth,
     goToDay,
+    usesVisibleMonths,
   };
 
   return calendar;

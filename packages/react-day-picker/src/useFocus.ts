@@ -89,7 +89,7 @@ export function useFocus<T extends DayPickerProps>(
       }
     }
 
-    calendar.goToDay(nextFocus);
+    calendar.goToDay(nextFocus, focusedDay);
     setFocused(nextFocus);
   };
 

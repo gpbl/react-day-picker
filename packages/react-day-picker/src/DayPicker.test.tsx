@@ -658,6 +658,160 @@ describe("when using reversed dropdowns with numberOfMonths > 1 (issue #2741)", 
   });
 });
 
+describe("when using visibleMonths in range mode", () => {
+  const january2024 = new Date(2024, 0, 1);
+  const december2025 = new Date(2025, 11, 1);
+
+  test("renders the visible months", () => {
+    render(
+      <DayPicker mode="range" visibleMonths={[january2024, december2025]} />,
+    );
+
+    expect(grid("January 2024")).toBeInTheDocument();
+    expect(grid("December 2025")).toBeInTheDocument();
+  });
+
+  test("changes only the selected panel from its month dropdown", async () => {
+    const handleVisibleMonthsChange = jest.fn();
+
+    function TestDayPicker() {
+      const [visibleMonths, setVisibleMonths] = React.useState([
+        january2024,
+        december2025,
+      ]);
+
+      return (
+        <DayPicker
+          captionLayout="dropdown"
+          mode="range"
+          onVisibleMonthsChange={(months, context) => {
+            handleVisibleMonthsChange(months, context);
+            setVisibleMonths(months);
+          }}
+          visibleMonths={visibleMonths}
+        />
+      );
+    }
+
+    render(<TestDayPicker />);
+
+    const secondMonthDropdown = screen.getAllByRole("combobox", {
+      name: labelMonthDropdown(),
+    })[1];
+
+    await user.selectOptions(secondMonthDropdown, "5");
+
+    const grids = screen.getAllByRole("grid");
+    expect(grids[0]).toHaveAccessibleName("January 2024");
+    expect(grids[1]).toHaveAccessibleName("June 2025");
+    expect(handleVisibleMonthsChange).toHaveBeenCalledWith(
+      [january2024, new Date(2025, 5, 1)],
+      {
+        changedIndex: 1,
+        month: new Date(2025, 5, 1),
+        source: "dropdown",
+      },
+    );
+  });
+
+  test("updates only the first visible month when clicking previous", async () => {
+    render(
+      <DayPicker
+        defaultVisibleMonths={[january2024, december2025]}
+        mode="range"
+      />,
+    );
+
+    await user.click(previousButton());
+
+    const grids = screen.getAllByRole("grid");
+    expect(grids[0]).toHaveAccessibleName("December 2023");
+    expect(grids[1]).toHaveAccessibleName("December 2025");
+  });
+
+  test("updates only the last visible month when clicking next", async () => {
+    render(
+      <DayPicker
+        defaultVisibleMonths={[january2024, december2025]}
+        mode="range"
+      />,
+    );
+
+    await user.click(nextButton());
+
+    const grids = screen.getAllByRole("grid");
+    expect(grids[0]).toHaveAccessibleName("January 2024");
+    expect(grids[1]).toHaveAccessibleName("January 2026");
+  });
+
+  test("allows dropdown navigation to make visible months non-chronological", async () => {
+    const handleVisibleMonthsChange = jest.fn();
+    const handleSelect = jest.fn();
+
+    render(
+      <DayPicker
+        captionLayout="dropdown"
+        defaultVisibleMonths={[january2024, new Date(2024, 1, 1)]}
+        mode="range"
+        onVisibleMonthsChange={handleVisibleMonthsChange}
+        onSelect={handleSelect}
+        selected={{
+          from: new Date(2024, 0, 15),
+          to: new Date(2024, 1, 10),
+        }}
+      />,
+    );
+
+    const firstMonthDropdown = screen.getAllByRole("combobox", {
+      name: labelMonthDropdown(),
+    })[0];
+
+    await user.selectOptions(firstMonthDropdown, "2");
+
+    const grids = screen.getAllByRole("grid");
+    expect(grids[0]).toHaveAccessibleName("March 2024");
+    expect(grids[1]).toHaveAccessibleName("February 2024");
+    expect(dateButton(new Date(2024, 2, 15))).toBeInTheDocument();
+    expect(dateButton(new Date(2024, 1, 15))).toBeInTheDocument();
+    expect(handleVisibleMonthsChange).toHaveBeenCalledWith(
+      [new Date(2024, 2, 1), new Date(2024, 1, 1)],
+      {
+        changedIndex: 0,
+        month: new Date(2024, 2, 1),
+        source: "dropdown",
+      },
+    );
+    expect(handleSelect).not.toHaveBeenCalled();
+  });
+
+  test("changes the focused panel from keyboard navigation", async () => {
+    const handleVisibleMonthsChange = jest.fn();
+
+    render(
+      <DayPicker
+        defaultVisibleMonths={[january2024, december2025]}
+        mode="range"
+        onVisibleMonthsChange={handleVisibleMonthsChange}
+      />,
+    );
+
+    await user.click(dateButton(new Date(2024, 0, 15)));
+    await user.keyboard("{PageDown}");
+
+    const grids = screen.getAllByRole("grid");
+    expect(grids[0]).toHaveAccessibleName("February 2024");
+    expect(grids[1]).toHaveAccessibleName("December 2025");
+    expect(handleVisibleMonthsChange).toHaveBeenCalledWith(
+      [new Date(2024, 1, 1), december2025],
+      {
+        changedIndex: 0,
+        month: new Date(2024, 1, 1),
+        source: "keyboard",
+      },
+    );
+  });
+});
+
 test("should render the custom components", () => {
   render(
     <DayPicker
