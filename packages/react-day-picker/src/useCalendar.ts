@@ -108,6 +108,26 @@ export function useCalendar(
     setFirstMonth(newInitialMonth);
   }, [props.timeZone]);
 
+  // Keep the internal month within navigation bounds when constraints change.
+  // biome-ignore lint/correctness/useExhaustiveDependencies: clamp only when the displayed month or relevant navigation constraints change.
+  useEffect(() => {
+    const constrainedMonth = getInitialMonth(
+      { month: firstMonth, numberOfMonths: props.numberOfMonths },
+      navStart,
+      navEnd,
+      dateLib,
+    );
+
+    if (!dateLib.isSameMonth(firstMonth, constrainedMonth)) {
+      setFirstMonth(constrainedMonth);
+    }
+  }, [
+    navEnd?.getTime(),
+    navStart?.getTime(),
+    props.numberOfMonths,
+    firstMonth.getTime(),
+  ]);
+
   /** The months displayed in the calendar. */
   // biome-ignore lint/correctness/useExhaustiveDependencies: We want to recompute only when specific props change.
   const { months, weeks, days, previousMonth, nextMonth } = useMemo(() => {
