@@ -5,88 +5,92 @@ import { defaultDateLib } from "../classes/DateLib";
 import { getValidDisplayedFirstMonth } from "./getValidDisplayedFirstMonth";
 
 test("return start of month", () => {
-  const month = new Date(2010, 11, 12);
-  const initialMonth = getValidDisplayedFirstMonth(
-    month,
+  const displayedFirstMonth = new Date(2010, 11, 12);
+  const validDisplayedFirstMonth = getValidDisplayedFirstMonth(
+    displayedFirstMonth,
     1,
     undefined,
     undefined,
     defaultDateLib,
   );
-  expect(isSameDay(initialMonth, startOfMonth(month))).toBe(true);
+  expect(
+    isSameDay(validDisplayedFirstMonth, startOfMonth(displayedFirstMonth)),
+  ).toBe(true);
 });
 
-describe("when no startMonth and endMonth are given", () => {
-  const month = new Date(2010, 11, 12);
-  const startMonth = addMonths(month, -1);
-  const endMonth = addMonths(month, 1);
-  test("return month if within range", () => {
-    const initialMonth = getValidDisplayedFirstMonth(
-      month,
+describe("when no navStart and navEnd are given", () => {
+  const displayedFirstMonth = new Date(2010, 11, 12);
+  const navStart = addMonths(displayedFirstMonth, -1);
+  const navEnd = addMonths(displayedFirstMonth, 1);
+  test("return displayedFirstMonth if within range", () => {
+    const validDisplayedFirstMonth = getValidDisplayedFirstMonth(
+      displayedFirstMonth,
       1,
-      startMonth,
-      endMonth,
+      navStart,
+      navEnd,
       defaultDateLib,
     );
-    expect(isSameMonth(initialMonth, month)).toBe(true);
+    expect(isSameMonth(validDisplayedFirstMonth, displayedFirstMonth)).toBe(
+      true,
+    );
   });
 
-  test("return startMonth if numberOfMonths value is longer than the valid range when month is after endMonth", () => {
-    const newMonth = addMonths(month, 2);
-    const initialMonth = getValidDisplayedFirstMonth(
-      newMonth,
+  test("return navStart if numberOfMonths value is longer than the valid range when month is after navEnd", () => {
+    const newDisplayedFirstMonth = addMonths(displayedFirstMonth, 2);
+    const validDisplayedFirstMonth = getValidDisplayedFirstMonth(
+      newDisplayedFirstMonth,
       6,
-      startMonth,
-      endMonth,
+      navStart,
+      navEnd,
       defaultDateLib,
     );
-    expect(isSameMonth(initialMonth, startMonth)).toBe(true);
+    expect(isSameMonth(validDisplayedFirstMonth, navStart)).toBe(true);
   });
 });
 
-describe("when startMonth is given and is after the default initial month", () => {
-  test("return the startMonth", () => {
-    const month = new Date(2010, 11, 12);
-    const startMonth = addMonths(month, 1);
-    const initialMonth = getValidDisplayedFirstMonth(
-      month,
+describe("when navStart is given and is after the displayedFirstMonth", () => {
+  test("return the navStart", () => {
+    const displayedFirstMonth = new Date(2010, 11, 12);
+    const navStart = addMonths(displayedFirstMonth, 1);
+    const validDisplayedFirstMonth = getValidDisplayedFirstMonth(
+      displayedFirstMonth,
       3,
-      startMonth,
+      navStart,
       undefined,
       defaultDateLib,
     );
-    expect(isSameMonth(initialMonth, startMonth)).toBe(true);
+    expect(isSameMonth(validDisplayedFirstMonth, navStart)).toBe(true);
   });
 });
 
-describe("when endMonth is given", () => {
-  describe("when endMonth is before the default initial month", () => {
-    const month = new Date(2010, 11, 12);
-    const endMonth = addMonths(month, -2);
+describe("when navEnd is given", () => {
+  describe("when navEnd is before the displayedFirstMonth", () => {
+    const displayedFirstMonth = new Date(2010, 11, 12);
+    const navEnd = addMonths(displayedFirstMonth, -2);
     describe("when the number of month is 1", () => {
-      test("returns the endMonth as the initial month so the last displayed month does not exceed endMonth", () => {
-        const initialMonth = getValidDisplayedFirstMonth(
-          month,
+      test("returns the navEnd so the last displayed month does not exceed navEnd", () => {
+        const validDisplayedFirstMonth = getValidDisplayedFirstMonth(
+          displayedFirstMonth,
           1,
           undefined,
-          endMonth,
+          navEnd,
           defaultDateLib,
         );
-        expect(isSameMonth(initialMonth, endMonth)).toBe(true);
+        expect(isSameMonth(validDisplayedFirstMonth, navEnd)).toBe(true);
       });
     });
     describe("when the number of month is 3", () => {
-      test("returns the initial month so that initialMonth + 2 months = endMonth (last displayed month is endMonth)", () => {
-        const initialMonth = getValidDisplayedFirstMonth(
-          month,
+      test("returns the month so that displayedFirstMonth + 2 months = navEnd (last displayed month is navEnd)", () => {
+        const validDisplayedFirstMonth = getValidDisplayedFirstMonth(
+          displayedFirstMonth,
           3,
           undefined,
-          endMonth,
+          navEnd,
           defaultDateLib,
         );
-        // The last displayed month should be endMonth, so initialMonth = endMonth - 2 months
-        const expectedMonth = addMonths(endMonth, -2);
-        expect(isSameMonth(initialMonth, expectedMonth)).toBe(true);
+        // The last displayed month should be navEnd, so initialMonth = navEnd - 2 months
+        const expectedMonth = addMonths(navEnd, -2);
+        expect(isSameMonth(validDisplayedFirstMonth, expectedMonth)).toBe(true);
       });
     });
   });
