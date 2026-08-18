@@ -1,4 +1,4 @@
-import { zhCN as dateFnsZhCN } from "date-fns/locale";
+import { zhCN as dateFnsZhCN } from "date-fns/locale/zh-CN";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";

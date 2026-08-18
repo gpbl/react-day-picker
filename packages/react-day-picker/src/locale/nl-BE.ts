@@ -1,4 +1,4 @@
-import { nlBE as dateFnsNlBE } from "date-fns/locale";
+import { nlBE as dateFnsNlBE } from "date-fns/locale/nl-BE";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";

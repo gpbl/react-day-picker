@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-import { enUS as dateFnsEnUS } from "date-fns/locale";
+import { enUS as dateFnsEnUS } from "date-fns/locale/en-US";
 
 import type {
   DateLib,

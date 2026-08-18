@@ -1,4 +1,4 @@
-import { arDZ as dateFnsArDZ } from "date-fns/locale";
+import { arDZ as dateFnsArDZ } from "date-fns/locale/ar-DZ";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";

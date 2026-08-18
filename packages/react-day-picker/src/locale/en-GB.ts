@@ -1,4 +1,4 @@
-import { enGB as dateFnsEnGB } from "date-fns/locale";
+import { enGB as dateFnsEnGB } from "date-fns/locale/en-GB";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";

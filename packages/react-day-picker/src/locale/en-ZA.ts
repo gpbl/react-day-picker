@@ -1,4 +1,4 @@
-import { enZA as dateFnsEnZA } from "date-fns/locale";
+import { enZA as dateFnsEnZA } from "date-fns/locale/en-ZA";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";

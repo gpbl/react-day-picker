@@ -1,4 +1,4 @@
-import { faIR as dateFnsFaIR } from "date-fns/locale";
+import { faIR as dateFnsFaIR } from "date-fns/locale/fa-IR";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";

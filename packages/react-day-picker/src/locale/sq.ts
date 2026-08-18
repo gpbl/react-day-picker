@@ -1,4 +1,4 @@
-import { sq as dateFnsSq } from "date-fns/locale";
+import { sq as dateFnsSq } from "date-fns/locale/sq";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";

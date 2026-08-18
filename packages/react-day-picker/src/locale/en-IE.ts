@@ -1,4 +1,4 @@
-import { enIE as dateFnsEnIE } from "date-fns/locale";
+import { enIE as dateFnsEnIE } from "date-fns/locale/en-IE";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";

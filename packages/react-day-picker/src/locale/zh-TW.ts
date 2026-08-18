@@ -1,4 +1,4 @@
-import { zhTW as dateFnsZhTW } from "date-fns/locale";
+import { zhTW as dateFnsZhTW } from "date-fns/locale/zh-TW";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";

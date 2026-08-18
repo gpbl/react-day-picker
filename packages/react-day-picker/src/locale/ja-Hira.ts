@@ -1,4 +1,4 @@
-import { jaHira as dateFnsJaHira } from "date-fns/locale";
+import { jaHira as dateFnsJaHira } from "date-fns/locale/ja-Hira";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";

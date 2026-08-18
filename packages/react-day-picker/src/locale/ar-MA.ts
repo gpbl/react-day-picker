@@ -1,4 +1,4 @@
-import { arMA as dateFnsArMA } from "date-fns/locale";
+import { arMA as dateFnsArMA } from "date-fns/locale/ar-MA";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";

@@ -1,4 +1,4 @@
-import { uzCyrl as dateFnsUzCyrl } from "date-fns/locale";
+import { uzCyrl as dateFnsUzCyrl } from "date-fns/locale/uz-Cyrl";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";

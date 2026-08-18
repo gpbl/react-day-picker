@@ -1,4 +1,4 @@
-import { is as dateFnsIs } from "date-fns/locale";
+import { is as dateFnsIs } from "date-fns/locale/is";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
