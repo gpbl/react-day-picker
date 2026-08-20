@@ -533,6 +533,34 @@ describe("when the `month` is changed programmatically", () => {
   });
 });
 
+test("clamps the displayed month when endMonth changes before the current month", () => {
+  const { rerender } = render(
+    <DayPicker
+      captionLayout="dropdown"
+      defaultMonth={new Date(2024, 8, 1)}
+      endMonth={new Date(2024, 11, 1)}
+    />,
+  );
+
+  expect(grid("September 2024")).toBeInTheDocument();
+
+  rerender(
+    <DayPicker
+      captionLayout="dropdown"
+      defaultMonth={new Date(2024, 8, 1)}
+      endMonth={new Date(2024, 2, 1)}
+    />,
+  );
+
+  expect(grid("March 2024")).toBeInTheDocument();
+  expect(
+    screen.getByRole("combobox", { name: labelMonthDropdown() }),
+  ).toBeInTheDocument();
+  expect(
+    screen.getByRole("combobox", { name: labelYearDropdown() }),
+  ).toBeInTheDocument();
+});
+
 test("extends the default locale", () => {
   render(
     <DayPicker
