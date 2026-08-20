@@ -1,4 +1,4 @@
-import { arEG as dateFnsArEG } from "date-fns/locale";
+import { arEG as dateFnsArEG } from "date-fns/locale/ar-EG";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";

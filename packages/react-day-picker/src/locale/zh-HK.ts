@@ -1,4 +1,4 @@
-import { zhHK as dateFnsZhHK } from "date-fns/locale";
+import { zhHK as dateFnsZhHK } from "date-fns/locale/zh-HK";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";

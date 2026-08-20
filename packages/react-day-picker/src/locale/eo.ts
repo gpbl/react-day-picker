@@ -1,4 +1,4 @@
-import { eo as dateFnsEo } from "date-fns/locale";
+import { eo as dateFnsEo } from "date-fns/locale/eo";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";

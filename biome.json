@@ -40,6 +40,23 @@
   },
   "overrides": [
     {
+      "includes": ["packages/react-day-picker/src/locale/*.ts"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "paths": {
+                  "date-fns/locale": "Import each locale from its date-fns locale subpath."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "includes": ["**/*.test.ts", "**/*.test.tsx"],
       "linter": {
         "rules": {

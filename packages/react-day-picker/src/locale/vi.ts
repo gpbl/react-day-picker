@@ -1,4 +1,4 @@
-import { vi as dateFnsVi } from "date-fns/locale";
+import { vi as dateFnsVi } from "date-fns/locale/vi";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";

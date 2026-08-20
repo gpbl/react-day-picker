@@ -1,4 +1,4 @@
-import { kn as dateFnsKn } from "date-fns/locale";
+import { kn as dateFnsKn } from "date-fns/locale/kn";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";

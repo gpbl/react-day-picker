@@ -1,4 +1,4 @@
-import { enNZ as dateFnsEnNZ } from "date-fns/locale";
+import { enNZ as dateFnsEnNZ } from "date-fns/locale/en-NZ";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";

@@ -1,4 +1,4 @@
-import { hu as dateFnsHu } from "date-fns/locale";
+import { hu as dateFnsHu } from "date-fns/locale/hu";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";

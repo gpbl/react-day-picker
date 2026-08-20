@@ -1,4 +1,4 @@
-import { km as dateFnsKm } from "date-fns/locale";
+import { km as dateFnsKm } from "date-fns/locale/km";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";

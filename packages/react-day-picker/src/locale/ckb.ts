@@ -1,4 +1,4 @@
-import { ckb as dateFnsCkb } from "date-fns/locale";
+import { ckb as dateFnsCkb } from "date-fns/locale/ckb";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
