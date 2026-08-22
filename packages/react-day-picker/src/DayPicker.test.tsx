@@ -605,6 +605,33 @@ describe("when the `month` is changed programmatically", () => {
   });
 });
 
+describe("when the timeZone changes after mount", () => {
+  const defaultMonth = new Date("2024-01-01T00:30:00.000Z");
+  let rerender: ReturnType<typeof render>["rerender"];
+
+  beforeEach(() => {
+    ({ rerender } = render(
+      <DayPicker defaultMonth={defaultMonth} timeZone="America/New_York" />,
+    ));
+  });
+
+  test("displays the month in the initial time zone", () => {
+    expect(grid("December 2023")).toBeInTheDocument();
+  });
+
+  describe("when the instant falls in the following month in the new time zone", () => {
+    beforeEach(() => {
+      rerender(
+        <DayPicker defaultMonth={defaultMonth} timeZone="Europe/Berlin" />,
+      );
+    });
+
+    test("displays the month in the new time zone", () => {
+      expect(grid("January 2024")).toBeInTheDocument();
+    });
+  });
+});
+
 test("extends the default locale", () => {
   render(
     <DayPicker
