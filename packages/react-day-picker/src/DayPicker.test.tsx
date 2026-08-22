@@ -502,6 +502,78 @@ describe("when the `month` is changed programmatically", () => {
     expect(grid("February 2023")).toBeInTheDocument();
   });
 
+  describe("when the controlled month removes the focused day", () => {
+    const initialDay = new Date(2026, 2, 15);
+    const newDay = new Date(2026, 10, 15);
+    const onSelect = jest.fn();
+
+    describe("when a day has focus", () => {
+      beforeEach(() => {
+        const { rerender } = render(
+          <DayPicker
+            month={initialDay}
+            mode="single"
+            onSelect={onSelect}
+            selected={initialDay}
+          />,
+        );
+        act(() => dateButton(initialDay).focus());
+
+        rerender(
+          <DayPicker
+            month={newDay}
+            mode="single"
+            onSelect={onSelect}
+            selected={newDay}
+          />,
+        );
+      });
+
+      test("moves focus to the selected day in the new month", () => {
+        expect(activeElement()).toBe(dateButton(newDay));
+      });
+    });
+
+    describe("when focus is outside the day grid", () => {
+      let outsideButton: HTMLButtonElement;
+
+      beforeEach(() => {
+        const { rerender } = render(
+          <>
+            <button type="button">Outside the calendar</button>
+            <DayPicker
+              month={initialDay}
+              mode="single"
+              onSelect={onSelect}
+              selected={initialDay}
+            />
+          </>,
+        );
+        outsideButton = screen.getByRole("button", {
+          name: "Outside the calendar",
+        });
+        act(() => dateButton(initialDay).focus());
+        act(() => outsideButton.focus());
+
+        rerender(
+          <>
+            <button type="button">Outside the calendar</button>
+            <DayPicker
+              month={newDay}
+              mode="single"
+              onSelect={onSelect}
+              selected={newDay}
+            />
+          </>,
+        );
+      });
+
+      test("does not move focus", () => {
+        expect(activeElement()).toBe(outsideButton);
+      });
+    });
+  });
+
   describe("when the month prop is rerendered with non-first-of-month dates", () => {
     const monthDates: unknown[] = [];
     const components = {
