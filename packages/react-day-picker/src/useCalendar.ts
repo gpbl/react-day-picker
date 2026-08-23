@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 
 import type {
   CalendarDay,
@@ -110,6 +110,18 @@ export function useCalendar(
     navEnd,
     dateLib,
   );
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: change the initial month when the time zone changes.
+  useEffect(() => {
+    const newValidDisplayedFirstMonth = getValidDisplayedFirstMonth(
+      props.month || props.defaultMonth || today,
+      props.numberOfMonths || 1,
+      navStart,
+      navEnd,
+      dateLib,
+    );
+    setFirstMonth(newValidDisplayedFirstMonth);
+  }, [props.timeZone]);
 
   /** The months displayed in the calendar. */
   // biome-ignore lint/correctness/useExhaustiveDependencies: We want to recompute only when specific props change.
