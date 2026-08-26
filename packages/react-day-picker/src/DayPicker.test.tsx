@@ -4,9 +4,11 @@ import {
   activeElement,
   dateButton,
   grid,
+  monthDropdown,
   nav,
   nextButton,
   previousButton,
+  yearDropdown,
 } from "@/test/elements";
 import { act, fireEvent, render, screen } from "@/test/render";
 import { setTestTime } from "@/test/setTestTime";
@@ -832,5 +834,80 @@ describe("when navLayout is set", () => {
     test("render the navigation after the month caption", () => {
       expect(nav().previousSibling).toHaveTextContent("February 2024");
     });
+  });
+});
+
+describe("when the navigation range changes after the calendar is rendered", () => {
+  test("clamps the displayed month to the new endMonth", () => {
+    const { rerender } = render(
+      <DayPicker
+        captionLayout="dropdown"
+        defaultMonth={new Date(2025, 5)}
+        startMonth={new Date(2024, 0)}
+        endMonth={new Date(2025, 11)}
+      />,
+    );
+    expect(grid("June 2025")).toBeInTheDocument();
+
+    rerender(
+      <DayPicker
+        captionLayout="dropdown"
+        defaultMonth={new Date(2025, 5)}
+        startMonth={new Date(2024, 0)}
+        endMonth={new Date(2025, 0)}
+      />,
+    );
+
+    expect(grid("January 2025")).toBeInTheDocument();
+    expect(monthDropdown()).toBeInTheDocument();
+    expect(yearDropdown()).toBeInTheDocument();
+  });
+
+  test("clamps the displayed month to the new startMonth", () => {
+    const { rerender } = render(
+      <DayPicker
+        captionLayout="dropdown"
+        defaultMonth={new Date(2025, 5)}
+        startMonth={new Date(2024, 0)}
+        endMonth={new Date(2025, 11)}
+      />,
+    );
+    expect(grid("June 2025")).toBeInTheDocument();
+
+    rerender(
+      <DayPicker
+        captionLayout="dropdown"
+        defaultMonth={new Date(2025, 5)}
+        startMonth={new Date(2025, 9)}
+        endMonth={new Date(2025, 11)}
+      />,
+    );
+
+    expect(grid("October 2025")).toBeInTheDocument();
+    expect(monthDropdown()).toBeInTheDocument();
+    expect(yearDropdown()).toBeInTheDocument();
+  });
+
+  test("keeps every month visible with numberOfMonths", () => {
+    const { rerender } = render(
+      <DayPicker
+        numberOfMonths={2}
+        defaultMonth={new Date(2025, 5)}
+        endMonth={new Date(2025, 11)}
+      />,
+    );
+    expect(grid("June 2025")).toBeInTheDocument();
+    expect(grid("July 2025")).toBeInTheDocument();
+
+    rerender(
+      <DayPicker
+        numberOfMonths={2}
+        defaultMonth={new Date(2025, 5)}
+        endMonth={new Date(2025, 2)}
+      />,
+    );
+
+    expect(grid("February 2025")).toBeInTheDocument();
+    expect(grid("March 2025")).toBeInTheDocument();
   });
 });
