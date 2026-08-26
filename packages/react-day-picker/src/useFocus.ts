@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import type { CalendarDay, DateLib } from "./classes/index.js";
 import { calculateFocusTarget } from "./helpers/calculateFocusTarget.js";
@@ -61,6 +61,16 @@ export function useFocus<T extends DayPickerProps>(
   const [focusedDay, setFocused] = useState<CalendarDay | undefined>(
     autoFocus ? focusTarget : undefined,
   );
+
+  useEffect(() => {
+    // If a day was focused but a controlled `month` change (or similar)
+    // removed it from the displayed days, move focus to the closest new
+    // target instead of leaving focus stranded on a removed element. Don't
+    // move focus if it wasn't in the grid to begin with.
+    if (focusedDay && !calendar.days.some((day) => day.isEqualTo(focusedDay))) {
+      setFocused(focusTarget);
+    }
+  }, [calendar.days, focusedDay, focusTarget]);
 
   const blur = () => {
     setLastFocused(focusedDay);

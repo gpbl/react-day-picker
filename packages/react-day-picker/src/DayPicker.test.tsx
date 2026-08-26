@@ -531,6 +531,67 @@ describe("when the `month` is changed programmatically", () => {
       expect(monthDates[monthDates.length - 1]).toEqual(new Date(2023, 1, 1));
     });
   });
+
+  describe("when the focused day is removed by the month change", () => {
+    test("moves focus to a day in the new month instead of losing it", () => {
+      const march = new Date(2024, 2, 15);
+      const november = new Date(2024, 10, 15);
+      const onSelect = jest.fn();
+
+      const { rerender } = render(
+        <DayPicker
+          mode="single"
+          month={march}
+          selected={march}
+          onSelect={onSelect}
+        />,
+      );
+
+      act(() => dateButton(march).focus());
+      expect(activeElement()).toBe(dateButton(march));
+
+      // A controlled update to both `month` and `selected`, as would happen
+      // e.g. after an external action changes the selection (see #3009).
+      rerender(
+        <DayPicker
+          mode="single"
+          month={november}
+          selected={november}
+          onSelect={onSelect}
+        />,
+      );
+
+      // Focus should land on the newly selected day, which calculateFocusTarget
+      // prioritizes above other days in the new month.
+      expect(activeElement()).toBe(dateButton(november));
+    });
+
+    test("does not move focus when it wasn't in the grid to begin with", () => {
+      const march = new Date(2024, 2, 15);
+      const november = new Date(2024, 10, 15);
+      const onSelect = jest.fn();
+
+      const { rerender } = render(
+        <DayPicker
+          mode="single"
+          month={march}
+          selected={march}
+          onSelect={onSelect}
+        />,
+      );
+
+      rerender(
+        <DayPicker
+          mode="single"
+          month={november}
+          selected={november}
+          onSelect={onSelect}
+        />,
+      );
+
+      expect(activeElement()).toBe(document.body);
+    });
+  });
 });
 
 describe("when the timeZone changes after mount", () => {
