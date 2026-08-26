@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import type { CalendarDay, DateLib } from "./classes/index.js";
 import { calculateFocusTarget } from "./helpers/calculateFocusTarget.js";
@@ -61,6 +61,17 @@ export function useFocus<T extends DayPickerProps>(
   const [focusedDay, setFocused] = useState<CalendarDay | undefined>(
     autoFocus ? focusTarget : undefined,
   );
+
+  useEffect(() => {
+    if (!focusedDay || !focusTarget) return;
+
+    const isFocusedDayDisplayed = calendar.days.some((day) =>
+      day.isEqualTo(focusedDay),
+    );
+    if (!isFocusedDayDisplayed) {
+      setFocused(focusTarget);
+    }
+  }, [calendar.days, focusedDay, focusTarget]);
 
   const blur = () => {
     setLastFocused(focusedDay);

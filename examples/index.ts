@@ -11,6 +11,7 @@ export * from "./Buddhist";
 export * from "./BuddhistEn";
 export * from "./ContainerAttributes";
 export * from "./Controlled";
+export * from "./ControlledMonthFocus";
 export * from "./ControlledSelection";
 export * from "./CssModules";
 export * from "./CssVariables";
