@@ -59,6 +59,16 @@ export function DayPicker(initialProps: DayPickerProps) {
     if (props.defaultMonth) {
       props.defaultMonth = toTimeZone(props.defaultMonth, timeZone);
     }
+    if (props.visibleMonths) {
+      props.visibleMonths = props.visibleMonths.map((month) =>
+        toTimeZone(month, timeZone),
+      );
+    }
+    if (props.defaultVisibleMonths) {
+      props.defaultVisibleMonths = props.defaultVisibleMonths.map((month) =>
+        toTimeZone(month, timeZone),
+      );
+    }
     if (props.startMonth) {
       props.startMonth = toTimeZone(props.startMonth, timeZone);
     }
@@ -161,7 +171,6 @@ export function DayPicker(initialProps: DayPickerProps) {
     captionLayout,
     mode,
     navLayout,
-    numberOfMonths = 1,
     onDayBlur,
     onDayClick,
     onDayFocus,
@@ -194,6 +203,8 @@ export function DayPicker(initialProps: DayPickerProps) {
     previousMonth,
     nextMonth,
     goToMonth,
+    goToVisibleMonth,
+    usesVisibleMonths,
   } = calendar;
 
   const getModifiers = createGetModifiers(
@@ -242,15 +253,46 @@ export function DayPicker(initialProps: DayPickerProps) {
 
   const handlePreviousClick = useCallback(() => {
     if (!previousMonth) return;
+    if (usesVisibleMonths) {
+      const changedMonth = goToVisibleMonth(0, previousMonth, "navigation");
+      if (changedMonth) {
+        onPrevClick?.(changedMonth);
+      }
+      return;
+    }
     goToMonth(previousMonth);
     onPrevClick?.(previousMonth);
-  }, [previousMonth, goToMonth, onPrevClick]);
+  }, [
+    previousMonth,
+    usesVisibleMonths,
+    goToVisibleMonth,
+    goToMonth,
+    onPrevClick,
+  ]);
 
   const handleNextClick = useCallback(() => {
     if (!nextMonth) return;
+    if (usesVisibleMonths) {
+      const changedMonth = goToVisibleMonth(
+        months.length - 1,
+        nextMonth,
+        "navigation",
+      );
+      if (changedMonth) {
+        onNextClick?.(changedMonth);
+      }
+      return;
+    }
     goToMonth(nextMonth);
     onNextClick?.(nextMonth);
-  }, [goToMonth, nextMonth, onNextClick]);
+  }, [
+    goToMonth,
+    goToVisibleMonth,
+    months.length,
+    nextMonth,
+    onNextClick,
+    usesVisibleMonths,
+  ]);
 
   const handleDayClick = useCallback(
     (day: CalendarDay, m: Modifiers) => (e: MouseEvent) => {
@@ -326,26 +368,34 @@ export function DayPicker(initialProps: DayPickerProps) {
   );
 
   const handleMonthChange = useCallback(
-    (date: Date, monthOffset: number) =>
+    (date: Date, monthOffset: number, displayIndex: number) =>
       (e: ChangeEvent<HTMLSelectElement>) => {
         const selectedMonth = Number(e.target.value);
         const month = dateLib.setMonth(
           dateLib.startOfMonth(date),
           selectedMonth,
         );
+        if (usesVisibleMonths) {
+          goToVisibleMonth(displayIndex, month, "dropdown");
+          return;
+        }
         goToMonth(dateLib.addMonths(month, -monthOffset));
       },
-    [dateLib, goToMonth],
+    [dateLib, goToMonth, goToVisibleMonth, usesVisibleMonths],
   );
 
   const handleYearChange = useCallback(
-    (date: Date, monthOffset: number) =>
+    (date: Date, monthOffset: number, displayIndex: number) =>
       (e: ChangeEvent<HTMLSelectElement>) => {
         const selectedYear = Number(e.target.value);
         const month = dateLib.setYear(dateLib.startOfMonth(date), selectedYear);
+        if (usesVisibleMonths) {
+          goToVisibleMonth(displayIndex, month, "dropdown");
+          return;
+        }
         goToMonth(dateLib.addMonths(month, -monthOffset));
       },
-    [dateLib, goToMonth],
+    [dateLib, goToMonth, goToVisibleMonth, usesVisibleMonths],
   );
 
   const { className, style } = useMemo(
@@ -491,6 +541,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                               onChange={handleMonthChange(
                                 calendarMonth.date,
                                 monthOffset,
+                                displayIndex,
                               )}
                               options={getMonthOptions(
                                 calendarMonth.date,
@@ -519,6 +570,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                               onChange={handleYearChange(
                                 calendarMonth.date,
                                 monthOffset,
+                                displayIndex,
                               )}
                               options={getYearOptions(
                                 navStart,
@@ -583,7 +635,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                 </components.MonthCaption>
                 {navLayout === "around" &&
                   !props.hideNavigation &&
-                  displayIndex === numberOfMonths - 1 && (
+                  displayIndex === months.length - 1 && (
                     <components.NextMonthButton
                       type="button"
                       className={classNames[UI.NextMonthButton]}
@@ -602,7 +654,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                       />
                     </components.NextMonthButton>
                   )}
-                {displayIndex === numberOfMonths - 1 &&
+                {displayIndex === months.length - 1 &&
                   navLayout === "after" &&
                   !props.hideNavigation && (
                     <components.Nav

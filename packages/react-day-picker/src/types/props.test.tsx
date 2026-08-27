@@ -50,6 +50,8 @@ const dateShapedProps: DayPickerProps = {
   today: date,
   month,
   defaultMonth: month,
+  visibleMonths: [month, endMonth],
+  defaultVisibleMonths: [month, endMonth],
   startMonth: month,
   endMonth,
   disabled: dateMatchers,
@@ -68,6 +70,16 @@ const dateShapedProps: DayPickerProps = {
   },
   onMonthChange: (changedMonth) => {
     void (changedMonth satisfies Date);
+  },
+  onVisibleMonthsChange: (visibleMonths, context) => {
+    void (visibleMonths satisfies Date[]);
+    void (context.changedIndex satisfies number | undefined);
+    void (context.month satisfies Date | undefined);
+    void (context.source satisfies
+      | "navigation"
+      | "dropdown"
+      | "keyboard"
+      | undefined);
   },
   onNextClick: (nextMonth) => {
     void (nextMonth satisfies Date);
@@ -179,6 +191,10 @@ const Test = () => {
       <DayPicker month={dateLike} />
       {/* @ts-expect-error `defaultMonth` must be a Date */}
       <DayPicker defaultMonth={plainDateLike} />
+      {/* @ts-expect-error `visibleMonths` must contain Date values */}
+      <DayPicker visibleMonths={[plainDateLike]} />
+      {/* @ts-expect-error `defaultVisibleMonths` must contain Date values */}
+      <DayPicker defaultVisibleMonths={[plainDateLike]} />
       {/* @ts-expect-error `startMonth` must be a Date */}
       <DayPicker startMonth={plainDateLike} />
       {/* @ts-expect-error `endMonth` must be a Date */}
