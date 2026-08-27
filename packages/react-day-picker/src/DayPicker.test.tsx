@@ -4,6 +4,7 @@ import {
   activeElement,
   dateButton,
   grid,
+  gridcell,
   nav,
   nextButton,
   previousButton,
@@ -255,6 +256,23 @@ test("calls selection and day event callbacks with Date instances", async () => 
   expect(handleSelect.mock.calls[0][1]).toBeInstanceOf(Date);
   expect(handleDayClick).toHaveBeenCalled();
   expect(handleDayClick.mock.calls[0][0]).toBeInstanceOf(Date);
+});
+
+test("renders defaultSelected as the initial selection", () => {
+  const defaultSelected = new Date(2024, 0, 15);
+
+  render(
+    <DayPicker
+      defaultMonth={defaultSelected}
+      defaultSelected={defaultSelected}
+      mode="single"
+    />,
+  );
+
+  expect(gridcell(defaultSelected, true)).toHaveAttribute(
+    "aria-selected",
+    "true",
+  );
 });
 
 describe("when navigating with month callbacks", () => {

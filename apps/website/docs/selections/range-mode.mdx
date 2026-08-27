@@ -16,15 +16,18 @@ Set the `mode` prop to `"range"` to enable the selection of a continuous range o
 
 ## Range Mode Props
 
-| Prop Name         | Type                                                                                | Description                                |
-| ----------------- | ----------------------------------------------------------------------------------- | ------------------------------------------ |
-| `selected`        | [`DateRange`](../api/react/type-aliases/DateRange.md)                                     | The selected range.                        |
-| `onSelect`        | [`OnSelectHandler<DateRange \| undefined>`](../api/react/type-aliases/OnSelectHandler.md) | Event callback when a date is selected.    |
-| `required`        | `boolean`                                                                           | Make the selection required.               |
-| `resetOnSelect`   | `boolean`                                                                           | Start a new range after a completed one.   |
-| `min`             | `number`                                                                            | The minimum number of nights in the range. |
-| `max`             | `number`                                                                            | The maximum number of nights in the range. |
-| `excludeDisabled` | `boolean`                                                                           | Exclude disabled dates from the range.     |
+| Prop Name         | Type                                                                                      | Description                                              |
+| ----------------- | ----------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| `defaultSelected` | [`DateRange`](../api/react/type-aliases/DateRange.md)                                     | The initially selected range for uncontrolled selection. |
+| `selected`        | [`DateRange`](../api/react/type-aliases/DateRange.md)                                     | The selected range.                                      |
+| `onSelect`        | [`OnSelectHandler<DateRange \| undefined>`](../api/react/type-aliases/OnSelectHandler.md) | Event callback when a date is selected.                  |
+| `required`        | `boolean`                                                                                 | Make the selection required.                             |
+| `resetOnSelect`   | `boolean`                                                                                 | Start a new range after a completed one.                 |
+| `min`             | `number`                                                                                  | The minimum number of nights in the range.               |
+| `max`             | `number`                                                                                  | The maximum number of nights in the range.               |
+| `excludeDisabled` | `boolean`                                                                                 | Exclude disabled dates from the range.                   |
+
+Use `defaultSelected` to set the initial value for an uncontrolled selection. Use `selected` with `onSelect` to control the selected range. For a read-only controlled selection, pass a no-op handler such as `onSelect={() => undefined}`.
 
 ## Min and Max Dates
 

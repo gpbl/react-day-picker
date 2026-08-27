@@ -83,6 +83,7 @@ const Test = () => {
       <DayPicker />
       <DayPicker {...dateShapedProps} />
       <DayPicker mode="single" />
+      <DayPicker mode="single" defaultSelected={new Date()} />
       <DayPicker
         mode="single"
         selected={undefined}
@@ -139,6 +140,7 @@ const Test = () => {
       {/** @ts-expect-error Wrong selected prop */}
       <DayPicker mode="multiple" selected={new Date()} />
       <DayPicker mode="multiple" onSelect={(_date: Date[] | undefined) => {}} />
+      <DayPicker mode="multiple" defaultSelected={[new Date()]} />
       <DayPicker
         mode="multiple"
         required
@@ -146,6 +148,7 @@ const Test = () => {
         onSelect={(_date: Date[]) => {}}
       />
       <DayPicker mode="single" selected={new Date()} />
+      <DayPicker mode="range" defaultSelected={{ from: month, to: endMonth }} />
       <DayPicker
         mode="range"
         selected={{ from: month, to: endMonth }}
@@ -185,10 +188,16 @@ const Test = () => {
       <DayPicker endMonth={plainDateLike} />
       {/* @ts-expect-error single selection is Date-shaped */}
       <DayPicker mode="single" selected={plainDateLike} />
+      {/* @ts-expect-error single default selection is Date-shaped */}
+      <DayPicker mode="single" defaultSelected={plainDateLike} />
       {/* @ts-expect-error multiple selection contains Date values */}
       <DayPicker mode="multiple" selected={[plainDateLike]} />
+      {/* @ts-expect-error multiple default selection contains Date values */}
+      <DayPicker mode="multiple" defaultSelected={[plainDateLike]} />
       {/* @ts-expect-error range endpoints must be Date values */}
       <DayPicker mode="range" selected={{ from: plainDateLike }} />
+      {/* @ts-expect-error range default selection endpoints must be Date values */}
+      <DayPicker mode="range" defaultSelected={{ from: plainDateLike }} />
       {/* @ts-expect-error matchers must use Date values */}
       <DayPicker disabled={plainDateLike} />
       {/* @ts-expect-error matcher arrays must use Date values */}

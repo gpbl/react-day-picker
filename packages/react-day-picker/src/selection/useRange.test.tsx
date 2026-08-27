@@ -241,6 +241,21 @@ describe("useRange", () => {
     expect(result.current.selected).toBe(selectedRange);
   });
 
+  test("uses defaultSelected for uncontrolled selection", () => {
+    const defaultSelected = {
+      from: new Date(2023, 9, 1),
+      to: new Date(2023, 9, 5),
+    };
+    const props: DayPickerProps = {
+      mode: "range",
+      defaultSelected,
+    };
+
+    const { result } = renderHook(() => useRange(props, defaultDateLib));
+
+    expect(result.current.selected).toBe(defaultSelected);
+  });
+
   test("uses the internally selected value when onSelect is not provided", () => {
     const initialSelectedRange = {
       from: new Date(2023, 9, 1),

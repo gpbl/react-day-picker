@@ -20,6 +20,18 @@ describe("useMulti", () => {
     expect(result.current.selected).toBe(selectedDates);
   });
 
+  test("uses defaultSelected for uncontrolled selection", () => {
+    const defaultSelected = [new Date(2023, 9, 1), new Date(2023, 9, 2)];
+    const props: DayPickerProps = {
+      mode: "multiple",
+      defaultSelected,
+    };
+
+    const { result } = renderHook(() => useMulti(props, defaultDateLib));
+
+    expect(result.current.selected).toBe(defaultSelected);
+  });
+
   test("uses the internally selected value when onSelect is not provided", () => {
     const initialSelectedDates = [new Date(2023, 9, 1), new Date(2023, 9, 2)];
     const props: DayPickerProps = {

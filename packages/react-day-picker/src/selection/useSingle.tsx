@@ -31,13 +31,14 @@ export function useSingle<T extends DayPickerProps>(
   dateLib: DateLib,
 ): Selection<T> {
   const {
+    defaultSelected,
     selected: initiallySelected,
     required,
     onSelect,
   } = props as PropsSingle;
 
   const [internallySelected, setSelected] = useControlledValue(
-    initiallySelected,
+    defaultSelected ?? initiallySelected,
     onSelect ? initiallySelected : undefined,
   );
 
