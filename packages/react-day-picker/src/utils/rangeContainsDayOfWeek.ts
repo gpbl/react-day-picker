@@ -1,4 +1,5 @@
 import { type DateLib, defaultDateLib } from "../classes/DateLib.js";
+import { createDateAdapter } from "../internal/dateAdapter.js";
 
 /**
  * Checks if a date range contains one or more specified days of the week.
@@ -18,13 +19,14 @@ export function rangeContainsDayOfWeek(
   dateLib: DateLib = defaultDateLib,
 ) {
   const dayOfWeekArr = !Array.isArray(dayOfWeek) ? [dayOfWeek] : dayOfWeek;
+  const dateAdapter = createDateAdapter(dateLib);
   let date = range.from;
   const totalDays = dateLib.differenceInCalendarDays(range.to, range.from);
 
   // iterate at maximum one week or the total days if the range is shorter than one week
   const totalDaysLimit = Math.min(totalDays, 6);
   for (let i = 0; i <= totalDaysLimit; i++) {
-    if (dayOfWeekArr.includes(date.getDay())) {
+    if (dayOfWeekArr.includes(dateAdapter.getDay(date))) {
       return true;
     }
     date = dateLib.addDays(date, 1);

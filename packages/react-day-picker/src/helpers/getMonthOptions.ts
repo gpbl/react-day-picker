@@ -1,5 +1,6 @@
 import type { DateLib } from "../classes/DateLib.js";
 import type { DropdownOption } from "../components/Dropdown.js";
+import { createDateAdapter } from "../internal/dateAdapter.js";
 import type { Formatters } from "../types/index.js";
 
 /**
@@ -31,6 +32,7 @@ export function getMonthOptions(
     eachMonthOfInterval,
     getMonth,
   } = dateLib;
+  const dateAdapter = createDateAdapter(dateLib);
 
   const months = eachMonthOfInterval({
     start: startOfYear(displayMonth),
@@ -41,8 +43,8 @@ export function getMonthOptions(
     const label = formatters.formatMonthDropdown(month, dateLib);
     const value = getMonth(month);
     const disabled =
-      (navStart && month < startOfMonth(navStart)) ||
-      (navEnd && month > startOfMonth(navEnd)) ||
+      (navStart && dateAdapter.compare(month, startOfMonth(navStart)) < 0) ||
+      (navEnd && dateAdapter.compare(month, startOfMonth(navEnd)) > 0) ||
       false;
     return { value, label, disabled };
   });

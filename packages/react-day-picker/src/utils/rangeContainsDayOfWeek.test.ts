@@ -1,3 +1,5 @@
+import { TZDate } from "@date-fns/tz";
+
 import { defaultDateLib } from "../classes/DateLib";
 
 import { rangeContainsDayOfWeek } from "./rangeContainsDayOfWeek";
@@ -45,4 +47,21 @@ describe("should return true", () => {
       );
     });
   }
+});
+
+describe("when the range contains a TZDate", () => {
+  const sunday = new TZDate(2024, 8, 1, "Pacific/Honolulu");
+  let result: boolean;
+
+  beforeEach(() => {
+    result = rangeContainsDayOfWeek(
+      { from: sunday, to: sunday },
+      sunday.getDay(),
+      defaultDateLib,
+    );
+  });
+
+  test("should match the day of week", () => {
+    expect(result).toBe(true);
+  });
 });

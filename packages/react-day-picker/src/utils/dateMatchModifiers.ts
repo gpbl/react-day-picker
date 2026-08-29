@@ -1,4 +1,5 @@
 import { type DateLib, defaultDateLib } from "../classes/DateLib.js";
+import { createDateAdapter } from "../internal/dateAdapter.js";
 import type { Matcher } from "../types/index.js";
 
 import { rangeIncludesDate } from "./rangeIncludesDate.js";
@@ -26,32 +27,39 @@ export function dateMatchModifiers(
   dateLib: DateLib = defaultDateLib,
 ): boolean {
   const matchersArr = !Array.isArray(matchers) ? [matchers] : matchers;
-  const { isSameDay, differenceInCalendarDays, isAfter } = dateLib;
+  const dateAdapter = createDateAdapter(dateLib);
+  const { differenceInCalendarDays } = dateLib;
   return matchersArr.some((matcher: Matcher) => {
     if (typeof matcher === "boolean") {
       return matcher;
     }
-    if (dateLib.isDate(matcher)) {
-      return isSameDay(date, matcher);
+    if (dateAdapter.isDate(matcher)) {
+      return dateAdapter.isSameDay(date, matcher);
     }
     if (isDatesArray(matcher, dateLib)) {
-      return matcher.some((matcherDate) => isSameDay(date, matcherDate));
+      return matcher.some((matcherDate) =>
+        dateAdapter.isSameDay(date, matcherDate),
+      );
     }
     if (isDateRange(matcher)) {
       return rangeIncludesDate(matcher, date, false, dateLib);
     }
     if (isDayOfWeekType(matcher)) {
+      const dayOfWeek = dateAdapter.getDay(date);
       if (!Array.isArray(matcher.dayOfWeek)) {
-        return matcher.dayOfWeek === date.getDay();
+        return matcher.dayOfWeek === dayOfWeek;
       }
-      return matcher.dayOfWeek.includes(date.getDay());
+      return matcher.dayOfWeek.includes(dayOfWeek);
     }
     if (isDateInterval(matcher)) {
       const diffBefore = differenceInCalendarDays(matcher.before, date);
       const diffAfter = differenceInCalendarDays(matcher.after, date);
       const isDayBefore = diffBefore > 0;
       const isDayAfter = diffAfter < 0;
-      const isClosedInterval = isAfter(matcher.before, matcher.after);
+      const isClosedInterval = dateAdapter.isAfter(
+        matcher.before,
+        matcher.after,
+      );
       if (isClosedInterval) {
         return isDayAfter && isDayBefore;
       } else {

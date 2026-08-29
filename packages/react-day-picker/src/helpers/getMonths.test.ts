@@ -86,3 +86,30 @@ test("should handle months with no dates", () => {
   expect(result[0]).toBeInstanceOf(CalendarMonth);
   expect(result[0].weeks).toHaveLength(0); // No dates should result in no weeks
 });
+
+describe("when dates fall on displayed week boundaries", () => {
+  const displayMonth = new Date(2024, 0, 1);
+  const firstBoundaryDate = dateLib.startOfWeek(displayMonth);
+  const lastBoundaryDate = dateLib.endOfWeek(dateLib.endOfMonth(displayMonth));
+  const outsideDates = [
+    dateLib.addDays(firstBoundaryDate, -1),
+    dateLib.addDays(lastBoundaryDate, 1),
+  ];
+  let monthDates: Date[];
+
+  beforeEach(() => {
+    const result = getMonths(
+      [displayMonth],
+      [outsideDates[0], firstBoundaryDate, lastBoundaryDate, outsideDates[1]],
+      mockProps,
+      dateLib,
+    );
+    monthDates = result[0].weeks.flatMap((week) =>
+      week.days.map((day) => day.date),
+    );
+  });
+
+  test("includes only the boundary dates", () => {
+    expect(monthDates).toEqual([firstBoundaryDate, lastBoundaryDate]);
+  });
+});

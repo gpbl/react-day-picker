@@ -2,6 +2,7 @@ import type React from "react";
 
 import type { DateLib } from "../classes/DateLib.js";
 import { useControlledValue } from "../helpers/useControlledValue.js";
+import { createDateAdapter } from "../internal/dateAdapter.js";
 import type {
   DayPickerProps,
   Modifiers,
@@ -39,6 +40,7 @@ export function useRange<T extends DayPickerProps>(
   );
 
   const selected = !onSelect ? internallySelected : initiallySelected;
+  const dateAdapter = createDateAdapter(dateLib);
 
   const isSelected = (date: Date) =>
     selected && rangeIncludesDate(selected, date, false, dateLib);
@@ -57,8 +59,8 @@ export function useRange<T extends DayPickerProps>(
       const isClickingSingleDayRange =
         !!selectedFrom &&
         !!selectedTo &&
-        dateLib.isSameDay(selectedFrom, selectedTo) &&
-        dateLib.isSameDay(triggerDate, selectedFrom);
+        dateAdapter.isSameDay(selectedFrom, selectedTo) &&
+        dateAdapter.isSameDay(triggerDate, selectedFrom);
 
       if (resetOnSelect && (hasFullRange || !selected?.from)) {
         if (!required && isClickingSingleDayRange) {

@@ -1,4 +1,5 @@
 import type { DateLib } from "../classes/index.js";
+import { createDateAdapter } from "../internal/dateAdapter.js";
 
 /**
  * Returns the start date of the week in the broadcast calendar.
@@ -13,8 +14,9 @@ import type { DateLib } from "../classes/index.js";
  * @returns The start date of the broadcast week.
  */
 export function startOfBroadcastWeek(date: Date, dateLib: DateLib): Date {
+  const dateAdapter = createDateAdapter(dateLib);
   const firstOfMonth = dateLib.startOfMonth(date);
-  const dayOfWeek = firstOfMonth.getDay();
+  const dayOfWeek = dateAdapter.getDay(firstOfMonth);
 
   if (dayOfWeek === 1) {
     return firstOfMonth;

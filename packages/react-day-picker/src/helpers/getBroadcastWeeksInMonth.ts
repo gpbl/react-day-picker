@@ -1,4 +1,5 @@
 import type { DateLib } from "../classes/index.js";
+import { createDateAdapter } from "../internal/dateAdapter.js";
 
 const FIVE_WEEKS = 5;
 const FOUR_WEEKS = 4;
@@ -16,12 +17,13 @@ const FOUR_WEEKS = 4;
  * @returns The number of weeks in the broadcast calendar (4 or 5).
  */
 export function getBroadcastWeeksInMonth(month: Date, dateLib: DateLib): 4 | 5 {
+  const dateAdapter = createDateAdapter(dateLib);
   // Get the first day of the month
   const firstDayOfMonth = dateLib.startOfMonth(month);
 
   // Get the day of the week for the first day of the month (1-7, where 1 is Monday)
-  const firstDayOfWeek =
-    firstDayOfMonth.getDay() > 0 ? firstDayOfMonth.getDay() : 7;
+  const firstDay = dateAdapter.getDay(firstDayOfMonth);
+  const firstDayOfWeek = firstDay > 0 ? firstDay : 7;
 
   const broadcastStartDate = dateLib.addDays(month, -firstDayOfWeek + 1);
 
