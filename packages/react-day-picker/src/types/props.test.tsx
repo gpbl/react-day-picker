@@ -3,7 +3,7 @@ import React from "react";
 import { DayPicker } from "../DayPicker";
 
 import type { DayPickerProps } from "./props";
-import type { DateRange, Matcher } from "./shared";
+import type { ClassNames, DateRange, Matcher } from "./shared";
 
 type PlainDateLike = {
   year: number;
@@ -18,6 +18,12 @@ type DateLike = {
   getMonth(): number;
   getDate(): number;
 };
+
+// ClassNames values must include `undefined` so `Partial<ClassNames>` accepts
+// `string | undefined` under `exactOptionalPropertyTypes` (issue #3015).
+void (true satisfies undefined extends ClassNames[keyof ClassNames]
+  ? true
+  : false);
 
 const date = new Date(2024, 0, 15);
 const month = new Date(2024, 0, 1);

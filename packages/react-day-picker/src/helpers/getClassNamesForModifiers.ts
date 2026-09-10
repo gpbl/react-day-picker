@@ -24,10 +24,17 @@ export function getClassNamesForModifiers(
       (previousValue, [key]) => {
         if (modifiersClassNames[key]) {
           previousValue.push(modifiersClassNames[key as string]);
-        } else if (classNames[DayFlag[key as DayFlag]]) {
-          previousValue.push(classNames[DayFlag[key as DayFlag]]);
-        } else if (classNames[SelectionState[key as SelectionState]]) {
-          previousValue.push(classNames[SelectionState[key as SelectionState]]);
+        } else {
+          const dayFlagClassName = classNames[DayFlag[key as DayFlag]];
+          if (dayFlagClassName) {
+            previousValue.push(dayFlagClassName);
+          } else {
+            const selectionClassName =
+              classNames[SelectionState[key as SelectionState]];
+            if (selectionClassName) {
+              previousValue.push(selectionClassName);
+            }
+          }
         }
         return previousValue;
       },

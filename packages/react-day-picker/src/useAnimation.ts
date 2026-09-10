@@ -115,12 +115,12 @@ export function useAnimation(
 
         // remove animation classes from the new month snapshots
         const captionEl = queryCaptionEl(currentMonthElSnapshot);
-        if (captionEl) {
+        if (captionEl && captionAnimationClass) {
           captionEl.classList.remove(captionAnimationClass);
         }
 
         const weeksEl = queryWeeksEl(currentMonthElSnapshot);
-        if (weeksEl) {
+        if (weeksEl && weeksAnimationClass) {
           weeksEl.classList.remove(weeksAnimationClass);
         }
       });
@@ -172,12 +172,12 @@ export function useAnimation(
         currentMonthEl.style.position = "relative";
         currentMonthEl.style.overflow = "hidden";
         const captionEl = queryCaptionEl(currentMonthEl);
-        if (captionEl) {
+        if (captionEl && captionAnimationClass) {
           captionEl.classList.add(captionAnimationClass);
         }
 
         const weeksEl = queryWeeksEl(currentMonthEl);
-        if (weeksEl) {
+        if (weeksEl && weeksAnimationClass) {
           weeksEl.classList.add(weeksAnimationClass);
         }
         // animate new displayed month end
@@ -192,10 +192,10 @@ export function useAnimation(
             navEl.style.zIndex = "";
           }
 
-          if (captionEl) {
+          if (captionEl && captionAnimationClass) {
             captionEl.classList.remove(captionAnimationClass);
           }
-          if (weeksEl) {
+          if (weeksEl && weeksAnimationClass) {
             weeksEl.classList.remove(weeksAnimationClass);
           }
           currentMonthEl.style.position = "";
@@ -220,21 +220,23 @@ export function useAnimation(
 
         const previousCaptionEl = queryCaptionEl(previousMonthEl);
         if (previousCaptionEl) {
-          previousCaptionEl.classList.add(
-            isAfterPreviousMonth
-              ? classNames[Animation.caption_before_exit]
-              : classNames[Animation.caption_after_exit],
-          );
+          const captionExitClass = isAfterPreviousMonth
+            ? classNames[Animation.caption_before_exit]
+            : classNames[Animation.caption_after_exit];
+          if (captionExitClass) {
+            previousCaptionEl.classList.add(captionExitClass);
+          }
           previousCaptionEl.addEventListener("animationend", cleanUp);
         }
 
         const previousWeeksEl = queryWeeksEl(previousMonthEl);
         if (previousWeeksEl) {
-          previousWeeksEl.classList.add(
-            isAfterPreviousMonth
-              ? classNames[Animation.weeks_before_exit]
-              : classNames[Animation.weeks_after_exit],
-          );
+          const weeksExitClass = isAfterPreviousMonth
+            ? classNames[Animation.weeks_before_exit]
+            : classNames[Animation.weeks_after_exit];
+          if (weeksExitClass) {
+            previousWeeksEl.classList.add(weeksExitClass);
+          }
         }
 
         currentMonthEl.insertBefore(previousMonthEl, currentMonthEl.firstChild);
