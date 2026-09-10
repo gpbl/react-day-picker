@@ -3,7 +3,7 @@ import React from "react";
 import { DayPicker } from "../DayPicker";
 
 import type { DayPickerProps } from "./props";
-import type { DateRange, Matcher } from "./shared";
+import type { ClassNames, DateRange, Matcher } from "./shared";
 
 type PlainDateLike = {
   year: number;
@@ -34,6 +34,17 @@ const dateLike: DateLike = {
   getMonth: () => date.getMonth(),
   getDate: () => date.getDate(),
 };
+
+
+
+const maybeClass: string | undefined =
+  Math.random() > 0.5 ? "rdp-root" : undefined;
+
+const classNamesProp = {
+  root: maybeClass,
+} satisfies Partial<ClassNames>;
+
+void classNamesProp;
 
 const dateMatchers: Matcher[] = [
   date,
