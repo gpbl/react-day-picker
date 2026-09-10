@@ -251,7 +251,7 @@ export type MonthChangeEventHandler = (month: Date) => void;
  *   };
  */
 export type ClassNames = {
-  [key in UI | SelectionState | DayFlag | Animation]: string | undefined;
+  [key in UI | SelectionState | DayFlag | Animation]: string;
 };
 
 /**

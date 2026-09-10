@@ -66,7 +66,9 @@ export interface PropsBase {
    *
    * @see https://daypicker.dev/docs/styling
    */
-  classNames?: Partial<ClassNames>;
+  classNames?: {
+    [K in keyof ClassNames]?: ClassNames[K] | undefined;
+  };
   /**
    * Change the class name for the day matching the `modifiers`.
    *

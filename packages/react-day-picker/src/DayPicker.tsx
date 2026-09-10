@@ -134,7 +134,14 @@ export function DayPicker(initialProps: DayPickerProps) {
         formatters: getFormatters(props.formatters),
         labels: getLabels(props.labels, dateLib.options),
         locale,
-        classNames: { ...getDefaultClassNames(), ...props.classNames },
+        classNames: {
+          ...getDefaultClassNames(),
+          ...Object.fromEntries(
+            Object.entries(props.classNames ?? {}).filter(
+              (entry): entry is [string, string] => entry[1] != null,
+            ),
+          ),
+        },
       };
     }, [
       props.locale,
