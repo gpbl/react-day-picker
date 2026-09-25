@@ -1,4 +1,7 @@
-import { type EndOfWeekOptions, endOfWeek as endOfWeekFns } from "date-fns";
+import {
+  type EndOfWeekOptions,
+  endOfWeek as endOfWeekFns,
+} from "date-fns/endOfWeek";
 
 /**
  * End of week

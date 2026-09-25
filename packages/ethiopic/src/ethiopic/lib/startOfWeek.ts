@@ -1,7 +1,7 @@
 import {
   type StartOfWeekOptions,
   startOfWeek as startOfWeekFns,
-} from "date-fns";
+} from "date-fns/startOfWeek";
 
 /**
  * Start of week

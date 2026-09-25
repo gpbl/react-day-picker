@@ -1,4 +1,4 @@
-import { format as dfFormat } from "date-fns";
+import { format as dfFormat } from "date-fns/format";
 import type { DateLibOptions } from "../../classes/DateLib.js";
 
 /** Format override adding +543 to year tokens for Buddhist Era (BE). */

@@ -1,1 +1,1 @@
-export { he } from "@daypicker/react/locale";
+export { he } from "@daypicker/react/locale/he";
