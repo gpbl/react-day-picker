@@ -1,11 +1,11 @@
 import { TZDate } from "@date-fns/tz";
-import type { EndOfWeekOptions, Locale, StartOfWeekOptions } from "date-fns";
-import {
-  differenceInCalendarDays as differenceInCalendarDaysFn,
-  differenceInCalendarMonths as differenceInCalendarMonthsFn,
-  getISOWeek as getISOWeekFn,
-  getWeek as getWeekFn,
-} from "date-fns";
+import type { Locale } from "date-fns";
+import { differenceInCalendarDays as differenceInCalendarDaysFn } from "date-fns/differenceInCalendarDays";
+import { differenceInCalendarMonths as differenceInCalendarMonthsFn } from "date-fns/differenceInCalendarMonths";
+import type { EndOfWeekOptions } from "date-fns/endOfWeek";
+import { getISOWeek as getISOWeekFn } from "date-fns/getISOWeek";
+import { getWeek as getWeekFn } from "date-fns/getWeek";
+import type { StartOfWeekOptions } from "date-fns/startOfWeek";
 import type { DateLib } from "./classes/DateLib.js";
 
 export interface CreateNoonOverridesOptions {
