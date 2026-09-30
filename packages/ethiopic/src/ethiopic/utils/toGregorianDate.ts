@@ -1,4 +1,4 @@
-import { getDaysInMonth } from "date-fns";
+import { getDaysInMonth } from "date-fns/getDaysInMonth";
 
 import type { EthiopicDate } from "./EthiopicDate.js";
 import { isEthiopicDateValid } from "./isEthiopicDateValid.js";
