@@ -1,6 +1,6 @@
 import { act, renderHook } from "@/test/render";
 
-import { defaultDateLib } from "../classes/DateLib";
+import { DateLib, defaultDateLib } from "../classes/DateLib";
 import type { DayPickerProps } from "../types";
 
 import { useRange } from "./useRange";
@@ -146,6 +146,44 @@ describe("useRange", () => {
       expect(result.current.selected).toEqual({
         from: date,
         to: undefined,
+      });
+    });
+
+    describe("when DateLib treats the trigger date as a single-day range", () => {
+      let selected: unknown;
+
+      beforeEach(() => {
+        const dateLib = new DateLib(undefined, {
+          isSameDay: () => true,
+        });
+        const { result } = renderHook(() =>
+          useRange(
+            {
+              mode: "range",
+              selected: {
+                from: new Date(2023, 6, 15),
+                to: new Date(2023, 6, 16),
+              },
+              required: false,
+              resetOnSelect: true,
+            },
+            dateLib,
+          ),
+        );
+
+        act(() => {
+          result.current.select?.(
+            new Date(2023, 6, 17),
+            {},
+            {} as React.MouseEvent,
+          );
+        });
+
+        selected = result.current.selected;
+      });
+
+      test("clears the selected range", () => {
+        expect(selected).toBeUndefined();
       });
     });
 

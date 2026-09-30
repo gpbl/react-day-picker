@@ -1,3 +1,4 @@
+import { createDateAdapter } from "../internal/dateAdapter.js";
 import { type DateLib, defaultDateLib } from "./DateLib.js";
 
 /**
@@ -13,15 +14,16 @@ export class CalendarDay {
     displayMonth: Date,
     dateLib: DateLib = defaultDateLib,
   ) {
+    const dateAdapter = createDateAdapter(dateLib);
     this.date = date;
     this.displayMonth = displayMonth;
     this.outside = Boolean(
-      displayMonth && !dateLib.isSameMonth(date, displayMonth),
+      displayMonth && !dateAdapter.isSameMonth(date, displayMonth),
     );
     this.dateLib = dateLib;
-    this.isoDate = dateLib.format(date, "yyyy-MM-dd");
-    this.displayMonthId = dateLib.format(displayMonth, "yyyy-MM");
-    this.dateMonthId = dateLib.format(date, "yyyy-MM");
+    this.isoDate = dateAdapter.dayKey(date);
+    this.displayMonthId = dateAdapter.monthKey(displayMonth);
+    this.dateMonthId = dateAdapter.monthKey(date);
   }
 
   /**
@@ -80,9 +82,10 @@ export class CalendarDay {
    * @returns `true` if the days are equal, otherwise `false`.
    */
   isEqualTo(day: CalendarDay) {
+    const dateAdapter = createDateAdapter(this.dateLib);
     return (
-      this.dateLib.isSameDay(day.date, this.date) &&
-      this.dateLib.isSameMonth(day.displayMonth, this.displayMonth)
+      dateAdapter.isSameDay(day.date, this.date) &&
+      dateAdapter.isSameMonth(day.displayMonth, this.displayMonth)
     );
   }
 }

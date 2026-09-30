@@ -1,3 +1,4 @@
+import { TZDate } from "@date-fns/tz";
 import { addDays, subDays } from "date-fns";
 
 import { defaultDateLib } from "../classes/DateLib";
@@ -56,6 +57,22 @@ describe("when matching the day of week", () => {
     dayOfWeek: [testDay.getDay()],
   };
   const result = dateMatchModifiers(testDay, [matcher], defaultDateLib);
+  test("should return true", () => {
+    expect(result).toBe(true);
+  });
+});
+
+describe("when matching the day of week for a TZDate", () => {
+  const testDay = new TZDate(2024, 0, 7, "Pacific/Honolulu");
+  const matcher: DayOfWeek = {
+    dayOfWeek: [testDay.getDay()],
+  };
+  let result: boolean;
+
+  beforeEach(() => {
+    result = dateMatchModifiers(testDay, [matcher], defaultDateLib);
+  });
+
   test("should return true", () => {
     expect(result).toBe(true);
   });

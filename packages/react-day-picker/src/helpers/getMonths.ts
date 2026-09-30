@@ -1,5 +1,9 @@
 import type { DateLib } from "../classes/DateLib.js";
 import { CalendarDay, CalendarMonth, CalendarWeek } from "../classes/index.js";
+import {
+  createDateAdapter,
+  type DateAdapter,
+} from "../internal/dateAdapter.js";
 import type { DayPickerProps } from "../types/index.js";
 
 /**
@@ -13,6 +17,7 @@ import type { DayPickerProps } from "../types/index.js";
  * @param dates The dates to display in the calendar.
  * @param props Options from the DayPicker props context.
  * @param dateLib The date library to use for date manipulation.
+ * @param dateAdapter Internal date boundary used for filtering calendar dates.
  * @returns An array of `CalendarMonth` objects representing the months to
  *   display.
  */
@@ -24,6 +29,7 @@ export function getMonths(
     "broadcastCalendar" | "fixedWeeks" | "ISOWeek" | "reverseMonths"
   >,
   dateLib: DateLib,
+  dateAdapter: DateAdapter<Date> = createDateAdapter(dateLib),
 ): CalendarMonth[] {
   const {
     addDays,
@@ -54,7 +60,10 @@ export function getMonths(
 
       /** The dates to display in the month. */
       const monthDates = dates.filter((date) => {
-        return date >= firstDateOfFirstWeek && date <= lastDateOfLastWeek;
+        return (
+          dateAdapter.compare(date, firstDateOfFirstWeek) >= 0 &&
+          dateAdapter.compare(date, lastDateOfLastWeek) <= 0
+        );
       });
 
       const nrOfDaysWithFixedWeeks = props.broadcastCalendar ? 35 : 42;
@@ -63,8 +72,9 @@ export function getMonths(
         const extraDates = dates.filter((date) => {
           const daysToAdd = nrOfDaysWithFixedWeeks - monthDates.length;
           return (
-            date > lastDateOfLastWeek &&
-            date <= addDays(lastDateOfLastWeek, daysToAdd)
+            dateAdapter.compare(date, lastDateOfLastWeek) > 0 &&
+            dateAdapter.compare(date, addDays(lastDateOfLastWeek, daysToAdd)) <=
+              0
           );
         });
         monthDates.push(...extraDates);

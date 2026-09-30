@@ -2,6 +2,7 @@ import type React from "react";
 
 import type { DateLib } from "../classes/DateLib.js";
 import { useControlledValue } from "../helpers/useControlledValue.js";
+import { createDateAdapter } from "../internal/dateAdapter.js";
 import type {
   DayPickerProps,
   Modifiers,
@@ -43,10 +44,10 @@ export function useSingle<T extends DayPickerProps>(
 
   const selected = !onSelect ? internallySelected : initiallySelected;
 
-  const { isSameDay } = dateLib;
+  const dateAdapter = createDateAdapter(dateLib);
 
   const isSelected = (compareDate: Date) => {
-    return selected ? isSameDay(selected, compareDate) : false;
+    return selected ? dateAdapter.isSameDay(selected, compareDate) : false;
   };
 
   const select = (
@@ -55,7 +56,12 @@ export function useSingle<T extends DayPickerProps>(
     e: React.MouseEvent | React.KeyboardEvent,
   ) => {
     let newDate: Date | undefined = triggerDate;
-    if (!required && selected && selected && isSameDay(triggerDate, selected)) {
+    if (
+      !required &&
+      selected &&
+      selected &&
+      dateAdapter.isSameDay(triggerDate, selected)
+    ) {
       // If the date is the same, clear the selection.
       newDate = undefined;
     }
