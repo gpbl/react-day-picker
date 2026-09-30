@@ -16,13 +16,16 @@ Set the `mode` prop to `"multiple"` to enable the selection of multiple dates in
 
 ## Multiple Mode Props
 
-| Prop Name  | Type                                                                             | Description                                       |
-| ---------- | -------------------------------------------------------------------------------- | ------------------------------------------------- |
-| `selected` | `Date[] \| undefined`                                                            | The selected dates.                               |
-| `onSelect` | [`OnSelectHandler<Date[] \| undefined>`](../api/react/type-aliases/OnSelectHandler.md) | Event callback when a date is selected.           |
-| `min`      | `number`                                                                         | The minimum number of dates that can be selected. |
-| `max`      | `number`                                                                         | The maximum number of dates that can be selected. |
-| `required` | `boolean`                                                                        | Make the selection required.                      |
+| Prop Name         | Type                                                                                   | Description                                              |
+| ----------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| `defaultSelected` | `Date[] \| undefined`                                                                  | The initially selected dates for uncontrolled selection. |
+| `selected`        | `Date[] \| undefined`                                                                  | The selected dates.                                      |
+| `onSelect`        | [`OnSelectHandler<Date[] \| undefined>`](../api/react/type-aliases/OnSelectHandler.md) | Event callback when a date is selected.                  |
+| `min`             | `number`                                                                               | The minimum number of dates that can be selected.        |
+| `max`             | `number`                                                                               | The maximum number of dates that can be selected.        |
+| `required`        | `boolean`                                                                              | Make the selection required.                             |
+
+Use `defaultSelected` to set the initial value for an uncontrolled selection. Use `selected` with `onSelect` to control the selected dates. For a read-only controlled selection, pass a no-op handler such as `onSelect={() => undefined}`.
 
 Use the `selected` and `onSelect` props to manage the selected dates:
 

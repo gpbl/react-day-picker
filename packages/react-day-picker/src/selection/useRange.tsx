@@ -25,6 +25,7 @@ export function useRange<T extends DayPickerProps>(
   dateLib: DateLib,
 ): Selection<T> {
   const {
+    defaultSelected,
     disabled,
     excludeDisabled,
     resetOnSelect,
@@ -34,7 +35,7 @@ export function useRange<T extends DayPickerProps>(
   } = props as PropsRange;
 
   const [internallySelected, setSelected] = useControlledValue(
-    initiallySelected,
+    defaultSelected ?? initiallySelected,
     onSelect ? initiallySelected : undefined,
   );
 

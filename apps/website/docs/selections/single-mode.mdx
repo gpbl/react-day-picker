@@ -16,11 +16,14 @@ When the `mode` prop is set to `"single"`, only one date can be selected at a ti
 
 ## Single Mode Props
 
-| Prop Name  | Type                                                                           | Description                             |
-| ---------- | ------------------------------------------------------------------------------ | --------------------------------------- |
-| `selected` | `Date \| undefined`                                                            | The selected date.                      |
-| `onSelect` | [`OnSelectHandler<Date \| undefined>`](../api/react/type-aliases/OnSelectHandler.md) | Event callback when a date is selected. |
-| `required` | `boolean`                                                                      | Make the selection required.            |
+| Prop Name         | Type                                                                                 | Description                                             |
+| ----------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------- |
+| `defaultSelected` | `Date \| undefined`                                                                  | The initially selected date for uncontrolled selection. |
+| `selected`        | `Date \| undefined`                                                                  | The selected date.                                      |
+| `onSelect`        | [`OnSelectHandler<Date \| undefined>`](../api/react/type-aliases/OnSelectHandler.md) | Event callback when a date is selected.                 |
+| `required`        | `boolean`                                                                            | Make the selection required.                            |
+
+Use `defaultSelected` to set the initial value for an uncontrolled selection. Use `selected` with `onSelect` to control the selected date. For a read-only controlled selection, pass a no-op handler such as `onSelect={() => undefined}`.
 
 ## Controlled Selections
 

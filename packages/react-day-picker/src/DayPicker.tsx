@@ -65,21 +65,45 @@ export function DayPicker(initialProps: DayPickerProps) {
     if (props.endMonth) {
       props.endMonth = toTimeZone(props.endMonth, timeZone);
     }
-    if (props.mode === "single" && props.selected) {
-      props.selected = toTimeZone(props.selected, timeZone);
-    } else if (props.mode === "multiple" && props.selected) {
-      props.selected = props.selected?.map((date) =>
-        toTimeZone(date, timeZone),
-      );
-    } else if (props.mode === "range" && props.selected) {
-      props.selected = {
-        from: props.selected.from
-          ? toTimeZone(props.selected.from, timeZone)
-          : props.selected.from,
-        to: props.selected.to
-          ? toTimeZone(props.selected.to, timeZone)
-          : props.selected.to,
-      };
+    if (props.mode === "single") {
+      if (props.selected) {
+        props.selected = toTimeZone(props.selected, timeZone);
+      }
+      if (props.defaultSelected) {
+        props.defaultSelected = toTimeZone(props.defaultSelected, timeZone);
+      }
+    } else if (props.mode === "multiple") {
+      if (props.selected) {
+        props.selected = props.selected.map((date) =>
+          toTimeZone(date, timeZone),
+        );
+      }
+      if (props.defaultSelected) {
+        props.defaultSelected = props.defaultSelected.map((date) =>
+          toTimeZone(date, timeZone),
+        );
+      }
+    } else if (props.mode === "range") {
+      if (props.selected) {
+        props.selected = {
+          from: props.selected.from
+            ? toTimeZone(props.selected.from, timeZone)
+            : props.selected.from,
+          to: props.selected.to
+            ? toTimeZone(props.selected.to, timeZone)
+            : props.selected.to,
+        };
+      }
+      if (props.defaultSelected) {
+        props.defaultSelected = {
+          from: props.defaultSelected.from
+            ? toTimeZone(props.defaultSelected.from, timeZone)
+            : props.defaultSelected.from,
+          to: props.defaultSelected.to
+            ? toTimeZone(props.defaultSelected.to, timeZone)
+            : props.defaultSelected.to,
+        };
+      }
     }
     if (props.disabled !== undefined) {
       props.disabled = convertMatchersToTimeZone(props.disabled, timeZone);
