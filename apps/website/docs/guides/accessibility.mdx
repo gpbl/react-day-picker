@@ -37,6 +37,50 @@ DayPicker automatically manages focus when users interact with the calendar. To 
 <DayPicker mode="single" autoFocus />
 ```
 
+## Focus Dates as Grid Cells
+
+Use `dayInteraction="cell"` to focus the date cell directly. This avoids a nested date button, which can cause NVDA in Chrome to announce the same date twice.
+
+```tsx
+<DayPicker mode="single" dayInteraction="cell" />
+```
+
+The default, `dayInteraction="button"`, preserves the existing markup, labels, and custom `DayButton` components. Cell interaction works with single, multiple, range, and custom selection through `onDayClick`.
+
+In cell mode:
+
+- The cell handles focus, arrow navigation, clicks, and Enter/Space selection. Its content is a noninteractive `DayContent` component.
+- The accessible date name comes from the displayed day number. Weekday headers are exposed to assistive technology, and each grid is associated with its month caption.
+- Selection and today are conveyed through `aria-selected` and `aria-current="date"`, without repeating them in the default date name.
+- Keyboard instructions are announced shortly after focus enters the dates. Moving between dates does not repeat the instructions.
+
+Actual announcements depend on the browser and screen reader. Test this mode with the assistive technologies you support. This prop does not create a dialog or change the root `role`.
+
+### Customize Labels and Instructions
+
+An explicit `labels.labelGridcell` overrides the short date name in cell mode. If it is absent, an explicit `labels.labelDayButton` is also honored. An explicit `labels.labelGrid` overrides the month caption association. When `hideWeekdays` is set, or a date belongs to an adjacent month, the default date name includes the full date to retain context.
+
+The default keyboard instructions are in English. Translate them with `labels.labelKeyboardHelp`, or supply `labelKeyboardHelp` in your locale's `labels` map. An explicit label prop takes precedence over the locale.
+
+```tsx
+<DayPicker
+  mode="single"
+  dayInteraction="cell"
+  labels={{
+    labelKeyboardHelp: () =>
+      "Usa las flechas para navegar por las fechas. Pulsa Intro o Espacio para seleccionar.",
+  }}
+/>
+```
+
+Return an empty string from `labelKeyboardHelp` to disable the announcement when your application supplies its own instructions.
+
+### Customize Cell Content
+
+Use `components.DayContent` for decorations and noninteractive content in cell mode. Existing `components.DayButton` overrides apply only to button mode. The default content retains the `day_button` class and style slot; CSS selectors that target the `button` tag need a cell-mode equivalent.
+
+Keep interactive controls out of `DayContent`. If you customize `Day`, compose the exported `Day` component and forward its props to preserve focus management and keyboard handlers. Custom `Weekdays` and `CaptionLabel` components should forward `aria-hidden` and `id`, respectively, to preserve header exposure and caption association.
+
 ## Keyboard Navigation
 
 DayPicker supports keyboard navigation to make it easier for users to navigate the calendar. The following keys are supported:
