@@ -103,8 +103,18 @@
   border-radius: var(--rdp-day_button-border-radius);
 }
 
-.rdp-day_button:disabled {
+.rdp-day_button:disabled,
+.rdp-root[data-day-interaction="cell"] .rdp-day[aria-disabled="true"] .rdp-day_button {
   cursor: revert;
+}
+
+.rdp-root[data-day-interaction="cell"] .rdp-day:focus-visible {
+  outline: none;
+}
+
+.rdp-root[data-day-interaction="cell"] .rdp-day:focus-visible .rdp-day_button {
+  outline: 2px solid var(--rdp-accent-color);
+  outline-offset: -2px;
 }
 
 .rdp-caption_label {

@@ -2,6 +2,7 @@ export * from "./labelDayButton.js";
 export * from "./labelGrid.js";
 export * from "./labelGrid.js";
 export * from "./labelGridcell.js";
+export * from "./labelKeyboardHelp.js";
 export * from "./labelMonthDropdown.js";
 export * from "./labelNav.js";
 export * from "./labelNext.js";

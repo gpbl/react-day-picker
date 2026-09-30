@@ -13,6 +13,7 @@ import { getMonthOptions } from "./helpers/getMonthOptions.js";
 import { getStyleForModifiers } from "./helpers/getStyleForModifiers.js";
 import { getWeekdays } from "./helpers/getWeekdays.js";
 import { getYearOptions } from "./helpers/getYearOptions.js";
+import { KeyboardHelp } from "./KeyboardHelp.js";
 import { createNoonOverrides } from "./noonDateLib.js";
 import type {
   DayPickerProps,
@@ -28,6 +29,7 @@ import { useCalendar } from "./useCalendar.js";
 import { type DayPickerContext, dayPickerContext } from "./useDayPicker.js";
 import { useFocus } from "./useFocus.js";
 import { useSelection } from "./useSelection.js";
+import { useUniqueId } from "./useUniqueId.js";
 import { convertMatchersToTimeZone } from "./utils/convertMatchersToTimeZone.js";
 import { rangeIncludesDate } from "./utils/rangeIncludesDate.js";
 import { toTimeZone } from "./utils/toTimeZone.js";
@@ -42,6 +44,7 @@ import { isDateRange } from "./utils/typeguards.js";
  * @see https://daypicker.dev
  */
 export function DayPicker(initialProps: DayPickerProps) {
+  const generatedId = useUniqueId();
   let props = initialProps;
   const timeZone = props.timeZone;
 
@@ -239,6 +242,8 @@ export function DayPicker(initialProps: DayPickerProps) {
   );
 
   const isInteractive = mode !== undefined || onDayClick !== undefined;
+  const cellInteraction = props.dayInteraction === "cell";
+  const calendarId = props.id ?? generatedId;
 
   const handlePreviousClick = useCallback(() => {
     if (!previousMonth) return;
@@ -305,10 +310,33 @@ export function DayPicker(initialProps: DayPickerProps) {
         e.stopPropagation();
         const [moveBy, moveDir] = keyMap[e.key];
         moveFocus(moveBy, moveDir);
+      } else if (
+        cellInteraction &&
+        e.target === e.currentTarget &&
+        (e.key === "Enter" || e.key === " ")
+      ) {
+        e.preventDefault();
+        e.stopPropagation();
+        const view = e.currentTarget.ownerDocument.defaultView;
+        if (!modifiers.disabled && !e.repeat && view) {
+          // Keep pointer and keyboard activation on the same custom Day handler,
+          // including modifier keys used by custom selection implementations.
+          e.currentTarget.dispatchEvent(
+            new view.MouseEvent("click", {
+              bubbles: true,
+              cancelable: true,
+              view,
+              shiftKey: e.shiftKey,
+              ctrlKey: e.ctrlKey,
+              altKey: e.altKey,
+              metaKey: e.metaKey,
+            }),
+          );
+        }
       }
       onDayKeyDown?.(day.date, modifiers, e);
     },
-    [moveFocus, onDayKeyDown, props.dir],
+    [moveFocus, onDayKeyDown, props.dir, cellInteraction],
   );
 
   const handleDayMouseEnter = useCallback(
@@ -414,6 +442,7 @@ export function DayPicker(initialProps: DayPickerProps) {
         aria-label={props["aria-label"]}
         aria-labelledby={props["aria-labelledby"]}
         {...dataAttributes}
+        data-day-interaction={cellInteraction ? "cell" : undefined}
       >
         <components.Months
           className={classNames[UI.Months]}
@@ -432,6 +461,13 @@ export function DayPicker(initialProps: DayPickerProps) {
             />
           )}
           {months.map((calendarMonth, displayIndex) => {
+            const captionId =
+              cellInteraction && calendarId
+                ? `${calendarId}-caption-${displayIndex}`
+                : undefined;
+            const gridLabelledBy = props.labels?.labelGrid
+              ? undefined
+              : captionId;
             const monthOffset = props.reverseMonths
               ? months.length - 1 - displayIndex
               : displayIndex;
@@ -544,6 +580,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                         return controls;
                       })()}
                       <span
+                        id={captionId}
                         role="status"
                         aria-live="polite"
                         style={{
@@ -568,6 +605,7 @@ export function DayPicker(initialProps: DayPickerProps) {
                     </components.DropdownNav>
                   ) : (
                     <components.CaptionLabel
+                      id={captionId}
                       className={classNames[UI.CaptionLabel]}
                       style={styles?.[UI.CaptionLabel]}
                       role="status"
@@ -620,15 +658,22 @@ export function DayPicker(initialProps: DayPickerProps) {
                 <components.MonthGrid
                   role="grid"
                   aria-multiselectable={mode === "multiple" || mode === "range"}
+                  aria-labelledby={gridLabelledBy}
                   aria-label={
-                    labelGrid(calendarMonth.date, dateLib.options, dateLib) ||
-                    undefined
+                    gridLabelledBy
+                      ? undefined
+                      : labelGrid(
+                          calendarMonth.date,
+                          dateLib.options,
+                          dateLib,
+                        ) || undefined
                   }
                   className={classNames[UI.MonthGrid]}
                   style={styles?.[UI.MonthGrid]}
                 >
                   {!props.hideWeekdays && (
                     <components.Weekdays
+                      aria-hidden={cellInteraction ? false : undefined}
                       data-animated-weekdays={
                         props.animate ? "true" : undefined
                       }
@@ -730,15 +775,35 @@ export function DayPicker(initialProps: DayPickerProps) {
                               props.modifiersClassNames,
                             );
 
-                            const ariaLabel =
-                              !isInteractive && !modifiers.hidden
-                                ? labelGridcell(
-                                    date,
-                                    modifiers,
-                                    dateLib.options,
-                                    dateLib,
-                                  )
-                                : undefined;
+                            const isInteractiveCell =
+                              cellInteraction &&
+                              isInteractive &&
+                              !modifiers.hidden;
+                            let ariaLabel: string | undefined;
+                            if (!modifiers.hidden) {
+                              if (isInteractiveCell) {
+                                const customLabel =
+                                  props.labels?.labelGridcell ??
+                                  props.labels?.labelDayButton;
+                                ariaLabel = customLabel
+                                  ? customLabel(
+                                      date,
+                                      modifiers,
+                                      dateLib.options,
+                                      dateLib,
+                                    )
+                                  : props.hideWeekdays || modifiers.outside
+                                    ? dateLib.format(date, "PPPP")
+                                    : undefined;
+                              } else if (!isInteractive) {
+                                ariaLabel = labelGridcell(
+                                  date,
+                                  modifiers,
+                                  dateLib.options,
+                                  dateLib,
+                                );
+                              }
+                            }
 
                             return (
                               <components.Day
@@ -750,6 +815,31 @@ export function DayPicker(initialProps: DayPickerProps) {
                                 role="gridcell"
                                 aria-selected={modifiers.selected || undefined}
                                 aria-label={ariaLabel}
+                                {...(isInteractiveCell
+                                  ? {
+                                      "aria-current": modifiers.today
+                                        ? ("date" as const)
+                                        : undefined,
+                                      "aria-disabled":
+                                        modifiers.disabled || undefined,
+                                      tabIndex: isFocusTarget(day) ? 0 : -1,
+                                      onClick: handleDayClick(day, modifiers),
+                                      onBlur: handleDayBlur(day, modifiers),
+                                      onFocus: handleDayFocus(day, modifiers),
+                                      onKeyDown: handleDayKeyDown(
+                                        day,
+                                        modifiers,
+                                      ),
+                                      onMouseEnter: handleDayMouseEnter(
+                                        day,
+                                        modifiers,
+                                      ),
+                                      onMouseLeave: handleDayMouseLeave(
+                                        day,
+                                        modifiers,
+                                      ),
+                                    }
+                                  : {})}
                                 data-day={day.isoDate}
                                 data-month={
                                   day.outside ? day.dateMonthId : undefined
@@ -761,7 +851,16 @@ export function DayPicker(initialProps: DayPickerProps) {
                                 data-focused={modifiers.focused || undefined}
                                 data-today={modifiers.today || undefined}
                               >
-                                {!modifiers.hidden && isInteractive ? (
+                                {isInteractiveCell ? (
+                                  <components.DayContent
+                                    className={classNames[UI.DayButton]}
+                                    style={styles?.[UI.DayButton]}
+                                    day={day}
+                                    modifiers={modifiers}
+                                  >
+                                    {formatDay(date, dateLib.options, dateLib)}
+                                  </components.DayContent>
+                                ) : !modifiers.hidden && isInteractive ? (
                                   <components.DayButton
                                     className={classNames[UI.DayButton]}
                                     style={styles?.[UI.DayButton]}
@@ -816,6 +915,12 @@ export function DayPicker(initialProps: DayPickerProps) {
             );
           })}
         </components.Months>
+        {cellInteraction && isInteractive && (
+          <KeyboardHelp
+            active={Boolean(focused)}
+            text={labels.labelKeyboardHelp?.() ?? ""}
+          />
+        )}
         {props.footer && (
           <components.Footer
             className={classNames[UI.Footer]}
