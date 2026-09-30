@@ -1,9 +1,17 @@
 import React from "react";
 
 import { DayPicker } from "../DayPicker";
+import { getDefaultClassNames } from "../helpers/getDefaultClassNames";
+import type { useDayPicker } from "../useDayPicker";
 
 import type { DayPickerProps } from "./props";
 import type { ClassNames, DateRange, Matcher } from "./shared";
+
+// Keep public class name outputs assignable to string for existing consumers.
+void (getDefaultClassNames().root satisfies string);
+
+type ContextRootClass = ReturnType<typeof useDayPicker>["classNames"]["root"];
+void (true satisfies ContextRootClass extends string ? true : false);
 
 type PlainDateLike = {
   year: number;

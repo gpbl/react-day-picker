@@ -448,7 +448,7 @@ The locale object used to localize dates. Pass a locale from
 #### Example
 
 ```ts
-import { es } from "react-day-picker/locale";
+import { es } from "react-day-picker/locale/es";
   <DayPicker locale={es} />
 ```
 
