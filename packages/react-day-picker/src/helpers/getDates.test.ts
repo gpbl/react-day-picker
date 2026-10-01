@@ -203,6 +203,22 @@ describe("when the first month and the last month are different", () => {
       expect(dates[dates.length - 1]).toEqual(new Date(2024, 0, 6));
     });
   });
+  describe("when the display months are not chronological", () => {
+    const firstMonth = new Date(2026, 0, 1);
+    const lastMonth = new Date(2025, 10, 1);
+
+    test("should return dates between the earliest and latest months", () => {
+      const dates = getDates(
+        [firstMonth, lastMonth],
+        undefined,
+        { fixedWeeks: false },
+        defaultDateLib,
+      );
+
+      expect(dates[0]).toEqual(new Date(2025, 9, 26));
+      expect(dates[dates.length - 1]).toEqual(new Date(2026, 0, 31));
+    });
+  });
   describe("when using a max date", () => {
     const firstMonth = new Date(2023, 4, 1);
     const lastMonth = new Date(2023, 11, 1);

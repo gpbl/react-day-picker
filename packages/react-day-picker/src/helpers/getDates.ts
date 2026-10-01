@@ -19,8 +19,8 @@ export function getDates(
   props: Pick<DayPickerProps, "ISOWeek" | "fixedWeeks" | "broadcastCalendar">,
   dateLib: DateLib,
 ): Date[] {
-  const firstMonth = displayMonths[0];
-  const lastMonth = displayMonths[displayMonths.length - 1];
+  const firstMonth = dateLib.min(displayMonths);
+  const lastMonth = dateLib.max(displayMonths);
 
   const { ISOWeek, fixedWeeks, broadcastCalendar } = props ?? {};
   const {
