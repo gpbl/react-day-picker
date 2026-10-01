@@ -9,11 +9,11 @@ import type {
 import { getDates } from "./helpers/getDates.js";
 import { getDays } from "./helpers/getDays.js";
 import { getDisplayMonths } from "./helpers/getDisplayMonths.js";
-import { getInitialMonth } from "./helpers/getInitialMonth.js";
 import { getMonths } from "./helpers/getMonths.js";
 import { getNavMonths } from "./helpers/getNavMonth.js";
 import { getNextMonth } from "./helpers/getNextMonth.js";
 import { getPreviousMonth } from "./helpers/getPreviousMonth.js";
+import { getValidDisplayedFirstMonth } from "./helpers/getValidDisplayedFirstMonth.js";
 import { getWeeks } from "./helpers/getWeeks.js";
 import { useControlledValue } from "./helpers/useControlledValue.js";
 import type { DayPickerProps } from "./types/props.js";
@@ -95,24 +95,39 @@ export function useCalendar(
   const [navStart, navEnd] = getNavMonths(props, dateLib);
 
   const { startOfMonth, endOfMonth } = dateLib;
-  const initialMonth = getInitialMonth(props, navStart, navEnd, dateLib);
+
+  const today = props.today || dateLib.today();
+
   const [firstMonth, setFirstMonth] = useControlledValue(
-    initialMonth,
-    // initialMonth is always computed from props.month if provided
-    props.month ? initialMonth : undefined,
+    props.defaultMonth || today,
+    props.month || undefined,
+  );
+
+  const validDisplayedFirstMonth = getValidDisplayedFirstMonth(
+    firstMonth,
+    props.numberOfMonths || 1,
+    navStart,
+    navEnd,
+    dateLib,
   );
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: change the initial month when the time zone changes.
   useEffect(() => {
-    const newInitialMonth = getInitialMonth(props, navStart, navEnd, dateLib);
-    setFirstMonth(newInitialMonth);
+    const newValidDisplayedFirstMonth = getValidDisplayedFirstMonth(
+      props.month || props.defaultMonth || today,
+      props.numberOfMonths || 1,
+      navStart,
+      navEnd,
+      dateLib,
+    );
+    setFirstMonth(newValidDisplayedFirstMonth);
   }, [props.timeZone]);
 
   /** The months displayed in the calendar. */
   // biome-ignore lint/correctness/useExhaustiveDependencies: We want to recompute only when specific props change.
   const { months, weeks, days, previousMonth, nextMonth } = useMemo(() => {
     const displayMonths = getDisplayMonths(
-      firstMonth,
+      validDisplayedFirstMonth,
       navEnd,
       { numberOfMonths: props.numberOfMonths },
       dateLib,
@@ -145,12 +160,17 @@ export function useCalendar(
     const days = getDays(months);
 
     const previousMonth = getPreviousMonth(
-      firstMonth,
+      validDisplayedFirstMonth,
       navStart,
       props,
       dateLib,
     );
-    const nextMonth = getNextMonth(firstMonth, navEnd, props, dateLib);
+    const nextMonth = getNextMonth(
+      validDisplayedFirstMonth,
+      navEnd,
+      props,
+      dateLib,
+    );
 
     return {
       months,
@@ -161,7 +181,7 @@ export function useCalendar(
     };
   }, [
     dateLib,
-    firstMonth.getTime(),
+    validDisplayedFirstMonth.getTime(),
     navEnd?.getTime(),
     navStart?.getTime(),
     props.disableNavigation,
