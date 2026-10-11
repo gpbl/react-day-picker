@@ -1,5 +1,5 @@
 import { DayPicker } from "@daypicker/react";
-import { it } from "@daypicker/react/locale";
+import { it } from "@daypicker/react/locale/it";
 import { format } from "date-fns";
 import React from "react";
 

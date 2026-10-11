@@ -40,7 +40,14 @@
   },
   "overrides": [
     {
-      "includes": ["packages/react-day-picker/src/locale/*.ts"],
+      "includes": [
+        "packages/*/src/**/*.ts",
+        "packages/*/src/**/*.tsx",
+        "!**/*.test.ts",
+        "!**/*.test.tsx",
+        "!packages/react-day-picker/src/locale.ts",
+        "!packages/react/src/locale.ts"
+      ],
       "linter": {
         "rules": {
           "style": {
@@ -48,7 +55,20 @@
               "level": "error",
               "options": {
                 "paths": {
-                  "date-fns/locale": "Import each locale from its date-fns locale subpath."
+                  "date-fns": {
+                    "message": "Import each function (and its options type) from its date-fns subpath.",
+                    "allowImportNames": ["Interval", "Locale", "Month"]
+                  },
+                  "date-fns/locale": {
+                    "message": "Import each locale from its date-fns locale subpath.",
+                    "allowImportNames": [
+                      "Locale",
+                      "LocaleDayPeriod",
+                      "LocaleOptions",
+                      "LocaleWidth",
+                      "Localize"
+                    ]
+                  }
                 }
               }
             }

@@ -1,4 +1,5 @@
-import { type Interval, toDate } from "date-fns";
+import type { Interval } from "date-fns";
+import { toDate } from "date-fns/toDate";
 import { toGregorianDate, toHebrewDate } from "../utils/dateConversion.js";
 import { monthIndexToHebrewDate, monthsSinceEpoch } from "../utils/serial.js";
 

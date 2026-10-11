@@ -15,7 +15,7 @@ For example, to set the calendar to Spanish, import the `es` locale and pass it 
 
 ```tsx
 import { DayPicker } from "@daypicker/react";
-import { es } from "@daypicker/react/locale";
+import { es } from "@daypicker/react/locale/es";
 
 export function Spanish() {
   return <DayPicker locale={es} />;
@@ -33,7 +33,7 @@ DayPicker sets the root element `lang` attribute from the active locale code (`l
 If you need a different language tag, pass the `lang` prop explicitly.
 
 ```tsx
-import { arSA } from "@daypicker/react/locale";
+import { arSA } from "@daypicker/react/locale/ar-SA";
 
 <DayPicker locale={arSA} />;
 ```
@@ -56,7 +56,7 @@ Use the `numerals` prop to select the numbering system used by labels and format
 
 ```tsx
 import { DayPicker } from "@daypicker/react";
-import { hi } from "@daypicker/react/locale";
+import { hi } from "@daypicker/react/locale/hi";
 
 export function HindiWithDevanagariNumerals() {
   return <DayPicker locale={hi} numerals="deva" />;
@@ -72,7 +72,7 @@ export function HindiWithDevanagariNumerals() {
 Set the text direction to right-to-left with the `dir` prop.
 
 ```tsx
-import { arSA } from "@daypicker/react/locale";
+import { arSA } from "@daypicker/react/locale/ar-SA";
 
 <DayPicker locale={arSA} dir="rtl" />;
 ```

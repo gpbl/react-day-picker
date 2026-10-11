@@ -50,6 +50,16 @@ test("apply classnames and style according to props", () => {
   expect(dayPicker()).toHaveStyle({ color: "rgb(255, 0, 0)" });
 });
 
+describe("when a class name is explicitly undefined", () => {
+  beforeEach(() => {
+    render(<DayPicker data-testid={testId} classNames={{ root: undefined }} />);
+  });
+
+  test("removes the default root class", () => {
+    expect(dayPicker()).toHaveAttribute("class", "");
+  });
+});
+
 describe("when rendering custom inline styles for component slots", () => {
   beforeEach(() => {
     render(

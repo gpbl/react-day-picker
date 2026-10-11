@@ -1,4 +1,4 @@
-import type { FormatOptions as DateFnsFormatOptions } from "date-fns";
+import type { FormatOptions as DateFnsFormatOptions } from "date-fns/format";
 
 import type { DateLibOptions } from "../../classes/DateLib.js";
 import { toEthiopicDate } from "../utils/index.js";

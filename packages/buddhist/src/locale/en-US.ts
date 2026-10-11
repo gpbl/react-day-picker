@@ -1,1 +1,1 @@
-export { enUS } from "@daypicker/react/locale";
+export { enUS } from "@daypicker/react/locale/en-US";

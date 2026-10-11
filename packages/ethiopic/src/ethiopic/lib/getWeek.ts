@@ -1,8 +1,5 @@
-import {
-  differenceInDays,
-  type GetWeekOptions,
-  getWeek as getWeekFns,
-} from "date-fns";
+import { differenceInDays } from "date-fns/differenceInDays";
+import { type GetWeekOptions, getWeek as getWeekFns } from "date-fns/getWeek";
 
 import { toEthiopicDate, toGregorianDate } from "../utils/index.js";
 
