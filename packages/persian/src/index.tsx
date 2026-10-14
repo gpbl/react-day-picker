@@ -9,13 +9,19 @@ import * as dateFnsJalali from "date-fns-jalali";
 import React from "react";
 import { enUSJalali } from "./locale/en-US-jalali.js";
 import { faIRJalali } from "./locale/fa-IR-jalali.js";
+import { psAFEnJalali } from "./locale/ps-AF-en-jalali.js";
+import { psAFJalali } from "./locale/ps-AF-jalali.js";
 import { createJalaliNoonOverrides } from "./noonJalaliDateLib.js";
 
 /** Persian (Iran) Jalali locale with DayPicker labels. */
 export const faIR: typeof faIRJalali = faIRJalali;
 /** English (US) Jalali locale with DayPicker labels. */
 export const enUS: typeof enUSJalali = enUSJalali;
-export { enUSJalali, faIRJalali };
+/** Pashto (Afghanistan) Jalali locale with DayPicker labels. */
+export const psAF: typeof psAFJalali = psAFJalali;
+/** Romanized Afghan Pashto months with English labels for the Jalali calendar. */
+export const psAFEn: typeof psAFEnJalali = psAFEnJalali;
+export { enUSJalali, faIRJalali, psAFEnJalali, psAFJalali };
 
 /**
  * Renders the Persian calendar using the DayPicker component.
