@@ -16,6 +16,7 @@ import type {
   MonthChangeEventHandler,
   Numerals,
   Styles,
+  VisibleMonthsChangeEventHandler,
 } from "./shared.js";
 
 /**
@@ -108,6 +109,18 @@ export interface PropsBase {
    * @see https://daypicker.dev/docs/navigation
    */
   month?: Date;
+  /**
+   * The months displayed in the calendar.
+   *
+   * Use this prop with {@link onVisibleMonthsChange} to control each displayed
+   * month independently.
+   */
+  visibleMonths?: Date[];
+  /**
+   * The initial months to show in the calendar when using independently
+   * controlled visible months.
+   */
+  defaultVisibleMonths?: Date[];
   /**
    * The number of displayed months.
    *
@@ -455,6 +468,11 @@ export interface PropsBase {
    * @see https://daypicker.dev/docs/navigation#onmonthchange
    */
   onMonthChange?: MonthChangeEventHandler;
+
+  /**
+   * Event fired when the visible months change.
+   */
+  onVisibleMonthsChange?: VisibleMonthsChangeEventHandler;
 
   /**
    * Event handler when the next month button is clicked.

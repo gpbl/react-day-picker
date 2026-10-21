@@ -12,11 +12,14 @@ import type { DayPickerProps } from "../types/index.js";
 export function getDataAttributes(
   props: DayPickerProps,
 ): Record<string, unknown> {
+  const displayedMonths = props.visibleMonths ?? props.defaultVisibleMonths;
   const dataAttributes: Record<string, unknown> = {
     "data-mode": props.mode ?? undefined,
     "data-required": "required" in props ? props.required : undefined,
     "data-multiple-months":
-      (props.numberOfMonths && props.numberOfMonths > 1) || undefined,
+      (displayedMonths
+        ? displayedMonths.length > 1
+        : props.numberOfMonths && props.numberOfMonths > 1) || undefined,
     "data-week-numbers": props.showWeekNumber || undefined,
     "data-broadcast-calendar": props.broadcastCalendar || undefined,
     "data-nav-layout": props.navLayout || undefined,

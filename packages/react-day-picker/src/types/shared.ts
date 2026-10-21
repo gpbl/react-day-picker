@@ -239,6 +239,28 @@ export type DayEventHandler<EventType> = (
 export type MonthChangeEventHandler = (month: Date) => void;
 
 /**
+ * The source of a visible months change.
+ */
+export type VisibleMonthsChangeSource = "navigation" | "dropdown" | "keyboard";
+
+/**
+ * Additional information about a visible months change.
+ */
+export type VisibleMonthsChangeContext = {
+  changedIndex?: number;
+  month?: Date;
+  source?: VisibleMonthsChangeSource;
+};
+
+/**
+ * The event handler when the visible months are changed in the calendar.
+ */
+export type VisibleMonthsChangeEventHandler = (
+  months: Date[],
+  context: VisibleMonthsChangeContext,
+) => void;
+
+/**
  * The CSS classnames to use for the {@link UI} elements, the
  * {@link SelectionState} and the {@link DayFlag}.
  *
