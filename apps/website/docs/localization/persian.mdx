@@ -38,3 +38,37 @@ import { DayPicker, enUS } from "@daypicker/persian";
 <BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/PersianEn.tsx">
   <Examples.PersianEn />
 </BrowserWindow>
+
+### Afghan Pashto, Solar Hijri calendar
+
+`psAF` from `@daypicker/persian` uses Afghan Pashto Solar Hijri month names (وری through کب), the Jalali calendar, Saturday as the first day of the week, and Pashto accessibility labels. It displays Pashto month names and Eastern Arabic-Indic digits by default (for example, `تله ۱۴۰۵`).
+
+```tsx
+import { DayPicker, psAF } from "@daypicker/persian";
+
+export function Pashto() {
+  return <DayPicker locale={psAF} />;
+}
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/Pashto.tsx">
+  <Examples.Pashto />
+</BrowserWindow>
+
+For romanized Pashto month names, English weekday labels, and Latin digits, use the `psAFEn` locale:
+
+```tsx
+import { DayPicker, psAFEn } from "@daypicker/persian";
+
+<DayPicker locale={psAFEn} numerals="latn" showWeekNumber showOutsideDays />;
+```
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/PashtoEn.tsx">
+  <Examples.PashtoEn />
+</BrowserWindow>
+
+To show a selected Jalali date in the footer, format it with the Persian package's `getDateLib` and the same Pashto locale:
+
+<BrowserWindow sourceUrl="https://github.com/gpbl/react-day-picker/blob/main/examples/PashtoFormatted.tsx">
+  <Examples.PashtoFormatted />
+</BrowserWindow>
