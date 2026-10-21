@@ -102,6 +102,20 @@ export function useCalendar(
     props.month ? initialMonth : undefined,
   );
 
+  /**
+   * The first month to display, clamped to the navigable range.
+   *
+   * `startMonth` and `endMonth` can change after the calendar has been
+   * navigated, leaving the stored month out of range. When `month` is
+   * controlled, the clamping already happens in `initialMonth` above.
+   */
+  const displayMonth = getInitialMonth(
+    { ...props, month: firstMonth },
+    navStart,
+    navEnd,
+    dateLib,
+  );
+
   // biome-ignore lint/correctness/useExhaustiveDependencies: change the initial month when the time zone changes.
   useEffect(() => {
     const newInitialMonth = getInitialMonth(props, navStart, navEnd, dateLib);
@@ -112,7 +126,7 @@ export function useCalendar(
   // biome-ignore lint/correctness/useExhaustiveDependencies: We want to recompute only when specific props change.
   const { months, weeks, days, previousMonth, nextMonth } = useMemo(() => {
     const displayMonths = getDisplayMonths(
-      firstMonth,
+      displayMonth,
       navEnd,
       { numberOfMonths: props.numberOfMonths },
       dateLib,
@@ -145,12 +159,12 @@ export function useCalendar(
     const days = getDays(months);
 
     const previousMonth = getPreviousMonth(
-      firstMonth,
+      displayMonth,
       navStart,
       props,
       dateLib,
     );
-    const nextMonth = getNextMonth(firstMonth, navEnd, props, dateLib);
+    const nextMonth = getNextMonth(displayMonth, navEnd, props, dateLib);
 
     return {
       months,
@@ -161,7 +175,7 @@ export function useCalendar(
     };
   }, [
     dateLib,
-    firstMonth.getTime(),
+    displayMonth.getTime(),
     navEnd?.getTime(),
     navStart?.getTime(),
     props.disableNavigation,
