@@ -114,14 +114,21 @@ export function useAnimation(
         }
 
         // remove animation classes from the new month snapshots
+        // remove both directions: a re-render with the same month can't tell which one is running
         const captionEl = queryCaptionEl(currentMonthElSnapshot);
         if (captionEl) {
-          captionEl.classList.remove(captionAnimationClass);
+          captionEl.classList.remove(
+            classNames[Animation.caption_after_enter],
+            classNames[Animation.caption_before_enter],
+          );
         }
 
         const weeksEl = queryWeeksEl(currentMonthElSnapshot);
         if (weeksEl) {
-          weeksEl.classList.remove(weeksAnimationClass);
+          weeksEl.classList.remove(
+            classNames[Animation.weeks_after_enter],
+            classNames[Animation.weeks_before_enter],
+          );
         }
       });
 
