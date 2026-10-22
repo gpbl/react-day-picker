@@ -7,8 +7,8 @@ import type { Modifiers } from "../types/index.js";
  * Render a grid cell for a specific day in the calendar.
  *
  * Handles interaction and focus for the day. If you only need to change the
- * content of the day cell, consider swapping the `DayButton` component
- * instead.
+ * content of the day cell, use `DayButton` in button interaction mode or
+ * `DayContent` in cell interaction mode.
  *
  * @group Components
  * @see https://daypicker.dev/guides/custom-components
@@ -22,7 +22,13 @@ export function Day(
   } & HTMLAttributes<HTMLDivElement>,
 ) {
   const { day, modifiers, ...tdProps } = props;
-  return <td {...tdProps} />;
+  const ref = React.useRef<HTMLTableCellElement>(null);
+  React.useEffect(() => {
+    if (modifiers.focused && tdProps.tabIndex !== undefined) {
+      ref.current?.focus();
+    }
+  }, [modifiers.focused, tdProps.tabIndex]);
+  return <td ref={ref} {...tdProps} />;
 }
 
 /** Props accepted by the {@link Day} component. */

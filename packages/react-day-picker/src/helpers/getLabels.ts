@@ -45,6 +45,11 @@ export function getLabels(
   return {
     ...defaultLabels,
     ...(customLabels ?? {}),
+    labelKeyboardHelp: resolveLabel(
+      defaultLabels.labelKeyboardHelp,
+      customLabels?.labelKeyboardHelp,
+      localeLabels.labelKeyboardHelp,
+    ),
     labelDayButton: resolveLabel(
       defaultLabels.labelDayButton,
       customLabels?.labelDayButton,

@@ -13,6 +13,7 @@ import type {
   labelDayButton,
   labelGrid,
   labelGridcell,
+  labelKeyboardHelp,
   labelMonthDropdown,
   labelNav,
   labelNext,
@@ -49,6 +50,8 @@ export type CustomComponents = {
   Day: typeof components.Day;
   /** Render the button containing the day in the day cell. */
   DayButton: typeof components.DayButton;
+  /** Render noninteractive content inside a day when `dayInteraction="cell"`. */
+  DayContent?: typeof components.DayContent;
   /** Render the dropdown element to select years and months. */
   Dropdown: typeof components.Dropdown;
   /** Render the container of the dropdowns. */
@@ -117,8 +120,10 @@ export type Labels = {
   labelNav: typeof labelNav;
   /** The label for the month grid. */
   labelGrid: typeof labelGrid;
-  /** The label for the gridcell, when the calendar is not interactive. */
+  /** The gridcell label for noninteractive calendars or a custom cell-mode label. */
   labelGridcell: typeof labelGridcell;
+  /** Keyboard instructions announced on entering a grid in cell interaction mode. */
+  labelKeyboardHelp?: typeof labelKeyboardHelp;
   /** The label for the month dropdown. */
   labelMonthDropdown: typeof labelMonthDropdown;
   /** The label for the year dropdown. */

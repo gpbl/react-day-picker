@@ -2,6 +2,7 @@ export * from "./CaptionLabel.js";
 export * from "./Chevron.js";
 export * from "./Day.js";
 export * from "./DayButton.js";
+export * from "./DayContent.js";
 export * from "./Dropdown.js";
 export * from "./DropdownNav.js";
 export * from "./Footer.js";

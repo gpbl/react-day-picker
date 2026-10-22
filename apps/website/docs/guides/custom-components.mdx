@@ -68,6 +68,7 @@ The `components` prop accepts a **partial** map, so pass only the entries you wa
 | [`Chevron`](../api/react/functions/Chevron.md)                         | The chevron icon used in the navigation buttons and dropdowns. |
 | [`Day`](../api/react/functions/Day.md)                                 | The day cell in the month grid.                                |
 | [`DayButton`](../api/react/functions/DayButton.md)                     | The button containing the day in the day cell.                 |
+| `DayContent`                                                           | Noninteractive date content when `dayInteraction="cell"`; receives `DayContentProps`. |
 | [`Dropdown`](../api/react/functions/Dropdown.md)                       | The dropdown element to select years and months.               |
 | [`DropdownNav`](../api/react/functions/DropdownNav.md)                 | The container of the dropdowns.                                |
 | [`Footer`](../api/react/functions/Footer.md)                           | The footer element announced by screen readers.                |
@@ -89,6 +90,8 @@ The `components` prop accepts a **partial** map, so pass only the entries you wa
 | [`Weekdays`](../api/react/functions/Weekdays.md)                       | The row containing the week days.                              |
 | [`Weeks`](../api/react/functions/Weeks.md)                             | The weeks section in the month grid.                           |
 | [`YearsDropdown`](../api/react/functions/YearsDropdown.md)             | The dropdown with the years.                                   |
+
+In [cell interaction mode](./accessibility.mdx#focus-dates-as-grid-cells), customize `DayContent` instead of `DayButton`. The exported `Day` component manages focus and events in this mode. Compose it when customizing the cell, and keep `DayContent` noninteractive.
 
 ## DayPicker Hook
 

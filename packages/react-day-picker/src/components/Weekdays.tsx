@@ -7,9 +7,10 @@ import React, { type HTMLAttributes } from "react";
  * @see https://daypicker.dev/guides/custom-components
  */
 export function Weekdays(props: HTMLAttributes<HTMLTableRowElement>) {
+  const { "aria-hidden": ariaHidden, ...rowProps } = props;
   return (
-    <thead aria-hidden>
-      <tr {...props} />
+    <thead aria-hidden={ariaHidden ?? true}>
+      <tr {...rowProps} />
     </thead>
   );
 }

@@ -9,6 +9,7 @@ export * from "./AutoFocus";
 export * from "./BroadcastCalendar";
 export * from "./Buddhist";
 export * from "./BuddhistEn";
+export * from "./CellInteraction";
 export * from "./ContainerAttributes";
 export * from "./Controlled";
 export * from "./ControlledMonthFocus";

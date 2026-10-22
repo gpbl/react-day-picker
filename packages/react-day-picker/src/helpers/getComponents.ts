@@ -13,9 +13,10 @@ import type { CustomComponents, DayPickerProps } from "../types/index.js";
  */
 export function getComponents(
   customComponents: DayPickerProps["components"],
-): CustomComponents {
+): CustomComponents & Pick<typeof components, "DayContent"> {
   return {
     ...components,
     ...customComponents,
+    DayContent: customComponents?.DayContent ?? components.DayContent,
   };
 }

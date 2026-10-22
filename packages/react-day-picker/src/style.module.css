@@ -103,8 +103,18 @@
   border-radius: var(--rdp-day_button-border-radius);
 }
 
-.day_button:disabled {
+.day_button:disabled,
+.root[data-day-interaction="cell"] .day[aria-disabled="true"] .day_button {
   cursor: revert;
+}
+
+.root[data-day-interaction="cell"] .day:focus-visible {
+  outline: none;
+}
+
+.root[data-day-interaction="cell"] .day:focus-visible .day_button {
+  outline: 2px solid var(--rdp-accent-color);
+  outline-offset: -2px;
 }
 
 .caption_label {

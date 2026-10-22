@@ -49,6 +49,15 @@ export interface PropsBase {
    */
   mode?: Mode | undefined;
   /**
+   * Choose whether dates are operated through buttons or focusable grid cells.
+   * Cell interaction exposes weekday headers, uses shorter date labels, and
+   * announces keyboard help. Customize cell content with `components.DayContent`.
+   *
+   * @defaultValue "button"
+   * @see https://daypicker.dev/guides/accessibility
+   */
+  dayInteraction?: "button" | "cell";
+  /**
    * Whether the selection is required.
    *
    * @see https://daypicker.dev/docs/selection-modes
