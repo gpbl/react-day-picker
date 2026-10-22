@@ -1,6 +1,7 @@
 export * from "./AccessibleDatePicker";
 export * from "./Anatomy";
 export * from "./Animate";
+export * from "./AnimateControlledRerender";
 export * from "./AnimateCSSVars";
 export * from "./AnimateRange";
 export * from "./AnimateRtl";

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { nextButton, previousButton } from "@/test/elements";
 import { render } from "@/test/render";
 import { setTestTime } from "@/test/setTestTime";
@@ -23,6 +23,11 @@ const getMonthWeekdaysContainers = () => [
 const getMonthWeeksContainers = () => [
   ...document.querySelectorAll(`[data-animated-weeks]`),
 ];
+
+function ControlledMonth() {
+  const [month, setMonth] = useState(new Date(2025, 1));
+  return <DayPicker animate={true} month={month} onMonthChange={setMonth} />;
+}
 
 describe("useAnimation", () => {
   describe("animate prop is falsy", () => {
@@ -173,6 +178,65 @@ describe("useAnimation", () => {
         expect(getMonthWeeksContainers()[0]).not.toHaveClass(
           "rdp-weeks_after_enter",
         );
+      });
+    });
+
+    describe("when the parent re-renders a controlled month during the animation", () => {
+      describe("when navigating to the next month again", () => {
+        beforeEach(async () => {
+          const { rerender } = render(<ControlledMonth />);
+          await user.click(nextButton());
+          rerender(<ControlledMonth />);
+
+          const animationEndEvent = new Event("animationend");
+          getMonthCaptionContainers()[0].dispatchEvent(animationEndEvent);
+
+          await user.click(nextButton());
+        });
+
+        test("marks the exiting caption only as before exit", () => {
+          expect(getMonthCaptionContainers()[0]).toHaveClass(
+            "rdp-month_caption rdp-caption_before_exit",
+            { exact: true },
+          );
+        });
+
+        test("marks the exiting weeks only as before exit", () => {
+          expect(getMonthWeeksContainers()[0]).toHaveClass(
+            "rdp-weeks rdp-weeks_before_exit",
+            { exact: true },
+          );
+        });
+      });
+
+      // This direction already worked by accident: the re-render computed the
+      // "before enter" classes, which happen to match a previous navigation.
+      // Covered to protect against regressions.
+      describe("when navigating to the previous month again", () => {
+        beforeEach(async () => {
+          const { rerender } = render(<ControlledMonth />);
+          await user.click(previousButton());
+          rerender(<ControlledMonth />);
+
+          const animationEndEvent = new Event("animationend");
+          getMonthCaptionContainers()[0].dispatchEvent(animationEndEvent);
+
+          await user.click(previousButton());
+        });
+
+        test("marks the exiting caption only as after exit", () => {
+          expect(getMonthCaptionContainers()[0]).toHaveClass(
+            "rdp-month_caption rdp-caption_after_exit",
+            { exact: true },
+          );
+        });
+
+        test("marks the exiting weeks only as after exit", () => {
+          expect(getMonthWeeksContainers()[0]).toHaveClass(
+            "rdp-weeks rdp-weeks_after_exit",
+            { exact: true },
+          );
+        });
       });
     });
 
