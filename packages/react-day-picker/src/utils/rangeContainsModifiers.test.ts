@@ -153,6 +153,28 @@ describe("when matching date interval (closed)", () => {
     const result = rangeContainsModifiers(testRange, [matcher], defaultDateLib);
     expect(result).toBe(false);
   });
+  test("should return false when no day is between adjacent days", () => {
+    const matcher = { after: tuesday, before: wednesday };
+    const result = rangeContainsModifiers(testRange, [matcher], defaultDateLib);
+    expect(result).toBe(false);
+  });
+  test("should return false when no day is between times of the same day", () => {
+    const matcher = {
+      after: new Date(2024, 8, 4, 9),
+      before: new Date(2024, 8, 4, 17),
+    };
+    const result = rangeContainsModifiers(testRange, [matcher], defaultDateLib);
+    expect(result).toBe(false);
+  });
+  test("should return true when one day is between the interval days", () => {
+    const matcher = { after: tuesday, before: thursday };
+    const result = rangeContainsModifiers(
+      { from: wednesday, to: wednesday },
+      [matcher],
+      defaultDateLib,
+    );
+    expect(result).toBe(true);
+  });
 });
 
 describe("when matching date interval (open)", () => {

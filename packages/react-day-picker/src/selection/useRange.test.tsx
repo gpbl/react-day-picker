@@ -124,6 +124,37 @@ describe("useRange", () => {
     });
   });
 
+  test("keep the range when a closed disabled interval contains no days", () => {
+    const disabled = [
+      { after: new Date(2024, 0, 10), before: new Date(2024, 0, 11) },
+    ];
+    const { result } = renderHook(() =>
+      useRange(
+        {
+          mode: "range",
+          selected: { from: new Date(2024, 0, 5), to: undefined },
+          required: false,
+          excludeDisabled: true,
+          disabled,
+        },
+        defaultDateLib,
+      ),
+    );
+
+    act(() => {
+      result.current.select?.(
+        new Date(2024, 0, 15),
+        {},
+        {} as React.MouseEvent,
+      );
+    });
+
+    expect(result.current.selected).toEqual({
+      from: new Date(2024, 0, 5),
+      to: new Date(2024, 0, 15),
+    });
+  });
+
   describe("resetOnSelect", () => {
     test("sets only from when selected is undefined", () => {
       const date = new Date(2023, 6, 15);
