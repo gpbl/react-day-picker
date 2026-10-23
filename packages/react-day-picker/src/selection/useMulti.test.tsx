@@ -1,6 +1,6 @@
 import { act, renderHook } from "@/test/render";
 
-import { defaultDateLib } from "../classes/DateLib";
+import { DateLib, defaultDateLib } from "../classes/DateLib";
 import type { DayPickerProps } from "../types";
 
 import { useMulti } from "./useMulti";
@@ -37,5 +37,36 @@ describe("useMulti", () => {
       ...initialSelectedDates,
       new Date(2023, 9, 3),
     ]);
+  });
+
+  describe("when DateLib treats the trigger date as already selected", () => {
+    const selectedDates = [new Date(2023, 9, 1)];
+    let selected: unknown;
+
+    beforeEach(() => {
+      const dateLib = new DateLib(undefined, {
+        isSameDay: () => true,
+      });
+      const props: DayPickerProps = {
+        mode: "multiple",
+        selected: selectedDates,
+      };
+
+      const { result } = renderHook(() => useMulti(props, dateLib));
+
+      act(() => {
+        result.current.select?.(
+          new Date(2023, 9, 2),
+          {},
+          {} as React.MouseEvent,
+        );
+      });
+
+      selected = result.current.selected;
+    });
+
+    test("removes the selected value", () => {
+      expect(selected).toEqual([]);
+    });
   });
 });

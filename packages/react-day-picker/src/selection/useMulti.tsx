@@ -2,6 +2,7 @@ import type React from "react";
 
 import type { DateLib } from "../classes/DateLib.js";
 import { useControlledValue } from "../helpers/useControlledValue.js";
+import { createDateAdapter } from "../internal/dateAdapter.js";
 import type {
   DayPickerProps,
   Modifiers,
@@ -35,10 +36,10 @@ export function useMulti<T extends DayPickerProps>(
 
   const selected = !onSelect ? internallySelected : initiallySelected;
 
-  const { isSameDay } = dateLib;
+  const dateAdapter = createDateAdapter(dateLib);
 
   const isSelected = (date: Date) => {
-    return selected?.some((d) => isSameDay(d, date)) ?? false;
+    return selected?.some((d) => dateAdapter.isSameDay(d, date)) ?? false;
   };
 
   const { min, max } = props as PropsMulti;
@@ -58,7 +59,9 @@ export function useMulti<T extends DayPickerProps>(
         // Required value already selected do nothing
         return;
       }
-      newDates = selected?.filter((d) => !isSameDay(d, triggerDate));
+      newDates = selected?.filter(
+        (d) => !dateAdapter.isSameDay(d, triggerDate),
+      );
     } else {
       if (selected?.length === max) {
         // Max value reached, reset the selection to date

@@ -1,4 +1,5 @@
 import { type DateLib, defaultDateLib } from "../classes/DateLib.js";
+import { createDateAdapter } from "../internal/dateAdapter.js";
 import type { DateRange } from "../types/index.js";
 
 /**
@@ -23,7 +24,7 @@ export function addToRange(
   dateLib: DateLib = defaultDateLib,
 ): DateRange | undefined {
   const { from, to } = initialRange || {};
-  const { isSameDay, isAfter, isBefore } = dateLib;
+  const dateAdapter = createDateAdapter(dateLib);
 
   let range: DateRange | undefined;
 
@@ -32,7 +33,7 @@ export function addToRange(
     range = { from: date, to: min > 0 ? undefined : date };
   } else if (from && !to) {
     // adding date to an incomplete range
-    if (isSameDay(from, date)) {
+    if (dateAdapter.isSameDay(from, date)) {
       // adding a date equal to the start of the range
       if (min === 0) {
         range = { from, to: date };
@@ -41,7 +42,7 @@ export function addToRange(
       } else {
         range = undefined;
       }
-    } else if (isBefore(date, from)) {
+    } else if (dateAdapter.isBefore(date, from)) {
       // adding a date before the start of the range
       range = { from: date, to: from };
     } else {
@@ -50,26 +51,26 @@ export function addToRange(
     }
   } else if (from && to) {
     // adding date to a complete range
-    if (isSameDay(from, date) && isSameDay(to, date)) {
+    if (dateAdapter.isSameDay(from, date) && dateAdapter.isSameDay(to, date)) {
       // adding a date that is equal to both start and end of the range
       if (required) {
         range = { from, to };
       } else {
         range = undefined;
       }
-    } else if (isSameDay(from, date)) {
+    } else if (dateAdapter.isSameDay(from, date)) {
       // adding a date equal to the the start of the range
       range = { from, to: min > 0 ? undefined : date };
-    } else if (isSameDay(to, date)) {
+    } else if (dateAdapter.isSameDay(to, date)) {
       // adding a dare equal to the end of the range
       range = { from: date, to: min > 0 ? undefined : date };
-    } else if (isBefore(date, from)) {
+    } else if (dateAdapter.isBefore(date, from)) {
       // adding a date before the start of the range
       range = { from: date, to: to };
-    } else if (isAfter(date, from)) {
+    } else if (dateAdapter.isAfter(date, from)) {
       // adding a date after the start of the range
       range = { from, to: date };
-    } else if (isAfter(date, to)) {
+    } else if (dateAdapter.isAfter(date, to)) {
       // adding a date after the end of the range
       range = { from, to: date };
     } else {

@@ -16,6 +16,7 @@ import { getNextMonth } from "./helpers/getNextMonth.js";
 import { getPreviousMonth } from "./helpers/getPreviousMonth.js";
 import { getWeeks } from "./helpers/getWeeks.js";
 import { useControlledValue } from "./helpers/useControlledValue.js";
+import { createDateAdapter } from "./internal/dateAdapter.js";
 import type { DayPickerProps } from "./types/props.js";
 
 /**
@@ -92,6 +93,7 @@ export function useCalendar(
   >,
   dateLib: DateLib,
 ): Calendar {
+  const dateAdapter = useMemo(() => createDateAdapter(dateLib), [dateLib]);
   const [navStart, navEnd] = getNavMonths(props, dateLib);
 
   const { startOfMonth, endOfMonth } = dateLib;
@@ -116,6 +118,7 @@ export function useCalendar(
       navEnd,
       { numberOfMonths: props.numberOfMonths },
       dateLib,
+      dateAdapter,
     );
 
     const dates = getDates(
@@ -161,12 +164,13 @@ export function useCalendar(
     };
   }, [
     dateLib,
-    firstMonth.getTime(),
-    navEnd?.getTime(),
-    navStart?.getTime(),
+    dateAdapter,
+    dateAdapter.timeKey(firstMonth),
+    navEnd ? dateAdapter.timeKey(navEnd) : undefined,
+    navStart ? dateAdapter.timeKey(navStart) : undefined,
     props.disableNavigation,
     props.broadcastCalendar,
-    props.endMonth?.getTime(),
+    props.endMonth ? dateAdapter.timeKey(props.endMonth) : undefined,
     props.fixedWeeks,
     props.ISOWeek,
     props.numberOfMonths,
@@ -185,11 +189,11 @@ export function useCalendar(
     }
     let newMonth = startOfMonth(date);
     // if month is before start, use the first month instead
-    if (navStart && newMonth < startOfMonth(navStart)) {
+    if (navStart && dateAdapter.compare(newMonth, startOfMonth(navStart)) < 0) {
       newMonth = startOfMonth(navStart);
     }
     // if month is after endMonth, use the last month instead
-    if (navEnd && newMonth > startOfMonth(navEnd)) {
+    if (navEnd && dateAdapter.compare(newMonth, startOfMonth(navEnd)) > 0) {
       newMonth = startOfMonth(navEnd);
     }
     setFirstMonth(newMonth);
