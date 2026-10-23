@@ -67,6 +67,12 @@ export function rangeContainsModifiers(
     if (isDateInterval(matcher)) {
       const isClosedInterval = dateLib.isAfter(matcher.before, matcher.after);
       if (isClosedInterval) {
+        // No days lie strictly between `after` and `before`.
+        if (
+          dateLib.differenceInCalendarDays(matcher.before, matcher.after) < 2
+        ) {
+          return false;
+        }
         return rangeOverlaps(
           range,
           {
