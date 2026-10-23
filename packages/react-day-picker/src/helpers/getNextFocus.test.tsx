@@ -148,14 +148,14 @@ describe("when the target day is disabled", () => {
     ).toEqual(new Date(2026, 1, 13));
   });
 
-  test("moving by month continues after a month without focusable days", () => {
-    const disabled = { from: new Date(2026, 1, 1), to: new Date(2026, 1, 28) };
+  test("moving by month skips months without focusable days", () => {
+    const disabled = { from: new Date(2026, 1, 1), to: new Date(2027, 1, 28) };
     expect(
       getNextFocusDate("month", "after", new Date(2026, 0, 14), disabled),
-    ).toEqual(new Date(2026, 2, 1));
+    ).toEqual(new Date(2027, 2, 14));
     expect(
-      getNextFocusDate("month", "before", new Date(2026, 2, 14), disabled),
-    ).toEqual(new Date(2026, 0, 31));
+      getNextFocusDate("month", "before", new Date(2027, 2, 14), disabled),
+    ).toEqual(new Date(2026, 0, 14));
   });
 
   test("moving by month returns `undefined` when no later day is focusable", () => {
@@ -236,5 +236,39 @@ describe("when the target day is disabled", () => {
     expect(
       getNextFocusDate("endOfWeek", "after", new Date(2026, 0, 14), disabled),
     ).toBeUndefined();
+  });
+
+  test("moving to the start or end of a broadcast week does not search the broadcast month", () => {
+    // With broadcastCalendar, these moves reach the broadcast month bounds:
+    // 29 December 2025 and 25 January 2026 for 14 January 2026
+    const disabled = [new Date(2025, 11, 29), new Date(2026, 0, 25)];
+    const focusedDay = new CalendarDay(
+      new Date(2026, 0, 14),
+      new Date(2026, 0, 14),
+      defaultDateLib,
+    );
+    const broadcastProps = { ...props, disabled, broadcastCalendar: true };
+    expect(
+      getNextFocus(
+        "startOfWeek",
+        "before",
+        focusedDay,
+        undefined,
+        undefined,
+        broadcastProps,
+        defaultDateLib,
+      )?.date,
+    ).not.toEqual(new Date(2025, 11, 30));
+    expect(
+      getNextFocus(
+        "endOfWeek",
+        "after",
+        focusedDay,
+        undefined,
+        undefined,
+        broadcastProps,
+        defaultDateLib,
+      )?.date,
+    ).not.toEqual(new Date(2026, 0, 24));
   });
 });

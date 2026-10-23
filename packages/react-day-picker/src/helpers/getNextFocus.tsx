@@ -34,7 +34,12 @@ export function getNextFocus(
   calendarEndMonth: Date | undefined,
   props: Pick<
     DayPickerProps,
-    "disabled" | "hidden" | "modifiers" | "ISOWeek" | "timeZone"
+    | "disabled"
+    | "hidden"
+    | "modifiers"
+    | "ISOWeek"
+    | "broadcastCalendar"
+    | "timeZone"
   >,
   dateLib: DateLib,
   attempt: number = 0,
@@ -73,9 +78,17 @@ export function getNextFocus(
 
   const isWeekBoundary = moveBy === "startOfWeek" || moveBy === "endOfWeek";
 
-  if (isWeekBoundary || moveBy === "month" || moveBy === "year") {
-    // Stay in the target week or month: moving again by the same unit would
-    // skip a whole month or year, or reach the same start/end of the week.
+  // When the first move reaches a day that is not focusable, focus the nearest
+  // focusable day in the target week or month: moving again by the same unit
+  // would skip a whole month or year, or reach the same start/end of the week.
+  // With `broadcastCalendar`, the start/end of week moves reach the bounds of
+  // the broadcast month instead of a week, so they are not searched.
+  if (
+    attempt === 0 &&
+    (moveBy === "month" ||
+      moveBy === "year" ||
+      (isWeekBoundary && !props.broadcastCalendar))
+  ) {
     const [periodStart, periodEnd] = isWeekBoundary
       ? [
           getFocusableDate(
@@ -123,17 +136,6 @@ export function getNextFocus(
     if (isWeekBoundary) {
       return undefined;
     }
-    // No focusable day in the target month: continue day by day.
-    return getNextFocus(
-      "day",
-      moveDir,
-      focusDay,
-      calendarStartMonth,
-      calendarEndMonth,
-      props,
-      dateLib,
-      attempt + 1,
-    );
   }
 
   // Recursively attempt to find the next focusable date
