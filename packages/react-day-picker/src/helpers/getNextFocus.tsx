@@ -54,20 +54,86 @@ export function getNextFocus(
     dateLib,
   );
 
-  const isDisabled = Boolean(
-    props.disabled &&
-      dateMatchModifiers(focusableDate, props.disabled, dateLib),
-  );
-
-  const isHidden = Boolean(
-    props.hidden && dateMatchModifiers(focusableDate, props.hidden, dateLib),
-  );
+  const isFocusable = (date: Date) => {
+    const isDisabled = Boolean(
+      props.disabled && dateMatchModifiers(date, props.disabled, dateLib),
+    );
+    const isHidden = Boolean(
+      props.hidden && dateMatchModifiers(date, props.hidden, dateLib),
+    );
+    return !isDisabled && !isHidden;
+  };
 
   const targetMonth = focusableDate;
   const focusDay = new CalendarDay(focusableDate, targetMonth, dateLib);
 
-  if (!isDisabled && !isHidden) {
+  if (isFocusable(focusableDate)) {
     return focusDay;
+  }
+
+  const isWeekBoundary = moveBy === "startOfWeek" || moveBy === "endOfWeek";
+
+  if (isWeekBoundary || moveBy === "month" || moveBy === "year") {
+    // Stay in the target week or month: moving again by the same unit would
+    // skip a whole month or year, or reach the same start/end of the week.
+    const [periodStart, periodEnd] = isWeekBoundary
+      ? [
+          getFocusableDate(
+            "startOfWeek",
+            "before",
+            refDay.date,
+            calendarStartMonth,
+            calendarEndMonth,
+            props,
+            dateLib,
+          ),
+          getFocusableDate(
+            "endOfWeek",
+            "after",
+            refDay.date,
+            calendarStartMonth,
+            calendarEndMonth,
+            props,
+            dateLib,
+          ),
+        ]
+      : [
+          calendarStartMonth
+            ? dateLib.max([
+                calendarStartMonth,
+                dateLib.startOfMonth(focusableDate),
+              ])
+            : dateLib.startOfMonth(focusableDate),
+          calendarEndMonth
+            ? dateLib.min([calendarEndMonth, dateLib.endOfMonth(focusableDate)])
+            : dateLib.endOfMonth(focusableDate),
+        ];
+
+    const nearestDate = getNearestFocusableDate(
+      focusableDate,
+      periodStart,
+      periodEnd,
+      moveDir,
+      isFocusable,
+      dateLib,
+    );
+    if (nearestDate) {
+      return new CalendarDay(nearestDate, nearestDate, dateLib);
+    }
+    if (isWeekBoundary) {
+      return undefined;
+    }
+    // No focusable day in the target month: continue day by day.
+    return getNextFocus(
+      "day",
+      moveDir,
+      focusDay,
+      calendarStartMonth,
+      calendarEndMonth,
+      props,
+      dateLib,
+      attempt + 1,
+    );
   }
 
   // Recursively attempt to find the next focusable date
@@ -81,4 +147,37 @@ export function getNextFocus(
     dateLib,
     attempt + 1,
   );
+}
+
+/**
+ * Returns the focusable date closest to `date` between `start` and `end`,
+ * preferring the move direction when two dates are at the same distance.
+ */
+function getNearestFocusableDate(
+  date: Date,
+  start: Date,
+  end: Date,
+  moveDir: MoveFocusDir,
+  isFocusable: (date: Date) => boolean,
+  dateLib: DateLib,
+): Date | undefined {
+  const { addDays, differenceInCalendarDays } = dateLib;
+  const isInPeriod = (day: Date) =>
+    differenceInCalendarDays(day, start) >= 0 &&
+    differenceInCalendarDays(end, day) >= 0;
+  const step = moveDir === "after" ? 1 : -1;
+
+  for (let distance = 1; ; distance++) {
+    const candidates = [
+      addDays(date, distance * step),
+      addDays(date, -distance * step),
+    ].filter(isInPeriod);
+    if (candidates.length === 0) {
+      return undefined;
+    }
+    const nearestDate = candidates.find(isFocusable);
+    if (nearestDate) {
+      return nearestDate;
+    }
+  }
 }
