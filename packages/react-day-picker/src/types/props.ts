@@ -529,6 +529,8 @@ export type OnSelectHandler<T> = (
 export interface PropsSingleRequired {
   mode: "single";
   required: true;
+  /** The initially selected date for uncontrolled selection. */
+  defaultSelected?: Date | undefined;
   /** The selected date. */
   selected: Date | undefined;
   /** Event handler when a day is selected. */
@@ -544,6 +546,8 @@ export interface PropsSingleRequired {
 export interface PropsSingle {
   mode: "single";
   required?: false | undefined;
+  /** The initially selected date for uncontrolled selection. */
+  defaultSelected?: Date | undefined;
   /** The selected date. */
   selected?: Date | undefined;
   /** Event handler when a day is selected. */
@@ -559,6 +563,8 @@ export interface PropsSingle {
 export interface PropsMultiRequired {
   mode: "multiple";
   required: true;
+  /** The initially selected dates for uncontrolled selection. */
+  defaultSelected?: Date[] | undefined;
   /** The selected dates. */
   selected: Date[] | undefined;
   /** Event handler when days are selected. */
@@ -578,6 +584,8 @@ export interface PropsMultiRequired {
 export interface PropsMulti {
   mode: "multiple";
   required?: false | undefined;
+  /** The initially selected dates for uncontrolled selection. */
+  defaultSelected?: Date[] | undefined;
   /** The selected dates. */
   selected?: Date[] | undefined;
   /** Event handler when days are selected. */
@@ -618,6 +626,8 @@ export interface PropsRangeRequired {
    * @see https://daypicker.dev/selections/range-mode#reset-selection
    */
   resetOnSelect?: boolean | undefined;
+  /** The initially selected range for uncontrolled selection. */
+  defaultSelected?: DateRange | undefined;
   /** The selected range. */
   selected: DateRange | undefined;
   /** Event handler when a range is selected. */
@@ -660,6 +670,8 @@ export interface PropsRange {
    * @see https://daypicker.dev/selections/range-mode#reset-selection
    */
   resetOnSelect?: boolean | undefined;
+  /** The initially selected range for uncontrolled selection. */
+  defaultSelected?: DateRange | undefined;
   /** The selected range. */
   selected?: DateRange | undefined;
   /** Event handler when the selection changes. */

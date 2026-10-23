@@ -20,6 +20,18 @@ describe("useSingle", () => {
     expect(result.current.selected).toBe(selectedDate);
   });
 
+  test("uses defaultSelected for uncontrolled selection", () => {
+    const defaultSelected = new Date(2023, 9, 1);
+    const props: DayPickerProps = {
+      mode: "single",
+      defaultSelected,
+    };
+
+    const { result } = renderHook(() => useSingle(props, defaultDateLib));
+
+    expect(result.current.selected).toBe(defaultSelected);
+  });
+
   test("uses the internally selected value when onSelect is not provided", () => {
     const initialSelectedDate = new Date(2023, 9, 1);
     const props: DayPickerProps = {

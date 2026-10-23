@@ -11,13 +11,16 @@ DayPicker offers predefined rules for date selection.
 - [Multiple mode](./multiple-mode.mdx): Allows the selection of multiple individual dates.
 - [Range mode](./range-mode.mdx): Allows the selection of a continuous range of dates.
 
-| Prop Name  | Type                                                                                 | Description                             |
-| ---------- | ------------------------------------------------------------------------------------ | --------------------------------------- |
-| `mode`     | `"single"` \| `"multiple"` \| `"range"`                                              | Enter a selection mode.                 |
-| `disabled` | [`Matcher`](../api/react/type-aliases/Matcher.md) \| `Matcher[]`                           | Disabled dates that cannot be selected. |
-| `selected` | `Date` \| `Date[]` \| [`DateRange`](../api/react/type-aliases/DateRange.md) \| `undefined` | The selected date(s).                   |
-| `required` | `boolean`                                                                            | When `true`, the selection is required. |
-| `onSelect` | [`OnSelectHandler`](../api/react/type-aliases/OnSelectHandler.md)                          | Event callback when a date is selected. |
+| Prop Name         | Type                                                                                       | Description                                                |
+| ----------------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
+| `mode`            | `"single"` \| `"multiple"` \| `"range"`                                                    | Enter a selection mode.                                    |
+| `disabled`        | [`Matcher`](../api/react/type-aliases/Matcher.md) \| `Matcher[]`                           | Disabled dates that cannot be selected.                    |
+| `defaultSelected` | `Date` \| `Date[]` \| [`DateRange`](../api/react/type-aliases/DateRange.md) \| `undefined` | The initially selected date(s) for uncontrolled selection. |
+| `selected`        | `Date` \| `Date[]` \| [`DateRange`](../api/react/type-aliases/DateRange.md) \| `undefined` | The selected date(s).                                      |
+| `required`        | `boolean`                                                                                  | When `true`, the selection is required.                    |
+| `onSelect`        | [`OnSelectHandler`](../api/react/type-aliases/OnSelectHandler.md)                          | Event callback when a date is selected.                    |
+
+Use `defaultSelected` to set the initial value for an uncontrolled selection. Use `selected` with `onSelect` to control the selection from your state. For a read-only controlled selection, pass a no-op handler such as `onSelect={() => undefined}`.
 
 ## Customizing Selections
 
