@@ -6,7 +6,25 @@ import type {
   DateLibOptions,
   DayPickerLocale,
 } from "../classes/DateLib.js";
+import { getFullDatePattern } from "../helpers/getFullDatePattern.js";
 import type { Modifiers } from "../types/index.js";
+
+function formatFullDate(
+  date: Date,
+  options?: DateLibOptions,
+  dateLib?: DateLib,
+): string {
+  if (dateLib && typeof dateLib.formatFullDate === "function") {
+    return dateLib.formatFullDate(date);
+  }
+  if (dateLib && typeof dateLib.format === "function") {
+    return dateLib.format(date, "PPPP");
+  }
+  const formatDate = (d: Date, pattern: string) =>
+    format(d, pattern, { locale: dateFnsEnUS, ...options });
+  const locale = options?.locale ?? dateFnsEnUS;
+  return formatDate(date, getFullDatePattern(date, locale, formatDate));
+}
 
 /** English (United States) locale extended with DayPicker-specific translations. */
 export const enUS: DayPickerLocale = {
@@ -18,14 +36,7 @@ export const enUS: DayPickerLocale = {
       options?: DateLibOptions,
       dateLib?: DateLib,
     ) => {
-      let formatDate: (d: Date, pattern: string) => string;
-      if (dateLib && typeof dateLib.format === "function") {
-        formatDate = dateLib.format.bind(dateLib);
-      } else {
-        formatDate = (d, pattern) =>
-          format(d, pattern, { locale: dateFnsEnUS, ...options });
-      }
-      let label = formatDate(date, "PPPP");
+      let label = formatFullDate(date, options, dateLib);
       if (modifiers.today) label = `Today, ${label}`;
       if (modifiers.selected) label = `${label}, selected`;
       return label;
@@ -51,14 +62,7 @@ export const enUS: DayPickerLocale = {
       options?: DateLibOptions,
       dateLib?: DateLib,
     ) => {
-      let formatDate: (d: Date, pattern: string) => string;
-      if (dateLib && typeof dateLib.format === "function") {
-        formatDate = dateLib.format.bind(dateLib);
-      } else {
-        formatDate = (d, pattern) =>
-          format(d, pattern, { locale: dateFnsEnUS, ...options });
-      }
-      let label = formatDate(date, "PPPP");
+      let label = formatFullDate(date, options, dateLib);
       if (modifiers?.today) {
         label = `Today, ${label}`;
       }

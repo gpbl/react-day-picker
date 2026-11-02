@@ -15,7 +15,7 @@ export const lv: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = lib.formatFullDate(date);
       if (modifiers.today) label = `Šodien, ${label}`;
       if (modifiers.selected) label = `${label}, izvēlēts`;
       return label;
@@ -34,7 +34,7 @@ export const lv: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = lib.formatFullDate(date);
       if (modifiers?.today) {
         label = `Šodien, ${label}`;
       }

@@ -37,6 +37,7 @@ import { startOfMonth } from "date-fns/startOfMonth";
 import { type StartOfWeekOptions, startOfWeek } from "date-fns/startOfWeek";
 import { startOfYear } from "date-fns/startOfYear";
 import { endOfBroadcastWeek } from "../helpers/endOfBroadcastWeek.js";
+import { getFullDatePattern } from "../helpers/getFullDatePattern.js";
 import { startOfBroadcastWeek } from "../helpers/startOfBroadcastWeek.js";
 import { enUS } from "../locale/en-US.js";
 import type { Labels, Numerals } from "../types/shared.js";
@@ -213,6 +214,26 @@ export class DateLib {
     const pattern =
       this.getMonthYearOrder() === "year-first" ? "y LLLL" : "LLLL y";
     return this.format(date, pattern);
+  }
+
+  /**
+   * Formats the full date (`PPPP`) used in the day labels, writing the day of
+   * the month as the day number shown in the day button. For example,
+   * `Thursday, January 22, 2026` instead of `Thursday, January 22nd, 2026`.
+   *
+   * When the `format` function is overridden, the date is formatted with
+   * `PPPP`.
+   *
+   * @since 10.0.3
+   * @param date The date to format.
+   * @returns The formatted date.
+   */
+  formatFullDate(date: Date): string {
+    if (this.overrides?.format) return this.format(date, "PPPP");
+    return this.format(
+      date,
+      getFullDatePattern(date, this.options.locale, this.format),
+    );
   }
 
   private static readonly yearFirstLocales = new Set([

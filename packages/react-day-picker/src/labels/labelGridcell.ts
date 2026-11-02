@@ -18,7 +18,7 @@ export function labelGridcell(
   options?: DateLibOptions,
   dateLib?: DateLib,
 ) {
-  let label = (dateLib ?? new DateLib(options)).format(date, "PPPP");
+  let label = (dateLib ?? new DateLib(options)).formatFullDate(date);
   if (modifiers?.today) {
     label = `Today, ${label}`;
   }

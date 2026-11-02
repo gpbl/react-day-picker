@@ -18,7 +18,7 @@ export const zhTW: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = lib.formatFullDate(date);
       if (modifiers.today) label = `今天，${label}`;
       if (modifiers.selected) label = `${label}，已選取`;
       return label;
@@ -37,7 +37,7 @@ export const zhTW: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = lib.formatFullDate(date);
       if (modifiers?.today) {
         label = `今天，${label}`;
       }

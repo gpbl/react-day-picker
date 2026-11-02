@@ -15,7 +15,7 @@ export const ko: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = lib.formatFullDate(date);
       if (modifiers.today) label = `오늘, ${label}`;
       if (modifiers.selected) label = `${label}, 선택됨`;
       return label;
@@ -34,7 +34,7 @@ export const ko: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = lib.formatFullDate(date);
       if (modifiers?.today) {
         label = `오늘, ${label}`;
       }

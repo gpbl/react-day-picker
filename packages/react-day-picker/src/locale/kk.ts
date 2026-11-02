@@ -15,7 +15,7 @@ export const kk: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = lib.formatFullDate(date);
       if (modifiers.today) label = `Бүгін, ${label}`;
       if (modifiers.selected) label = `${label}, таңдалған`;
       return label;
@@ -34,7 +34,7 @@ export const kk: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = lib.formatFullDate(date);
       if (modifiers?.today) {
         label = `Бүгін, ${label}`;
       }

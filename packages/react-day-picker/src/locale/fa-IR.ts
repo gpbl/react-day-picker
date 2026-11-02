@@ -15,7 +15,7 @@ export const faIR: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = lib.formatFullDate(date);
       if (modifiers.today) label = `امروز، ${label}`;
       if (modifiers.selected) label = `${label}، انتخاب شده`;
       return label;
@@ -34,7 +34,7 @@ export const faIR: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = lib.formatFullDate(date);
       if (modifiers?.today) {
         label = `امروز، ${label}`;
       }

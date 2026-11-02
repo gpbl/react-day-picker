@@ -15,7 +15,7 @@ export const ta: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = lib.formatFullDate(date);
       if (modifiers.today) label = `இன்று, ${label}`;
       if (modifiers.selected) label = `${label}, தேர்ந்தெடுக்கப்பட்டது`;
       return label;
@@ -34,7 +34,7 @@ export const ta: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = lib.formatFullDate(date);
       if (modifiers?.today) {
         label = `இன்று, ${label}`;
       }

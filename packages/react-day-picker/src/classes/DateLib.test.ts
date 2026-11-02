@@ -1,3 +1,6 @@
+import { bg } from "../locale/bg.js";
+import { de } from "../locale/de.js";
+import { hi } from "../locale/hi.js";
 import type { Numerals } from "../types/shared.js";
 import { DateLib } from "./DateLib.js";
 
@@ -50,5 +53,41 @@ describe("DateLib overrides", () => {
     expect(dateLib.newDate(2024, 1, 1)).toBeInstanceOf(Date);
     expect(dateLib.startOfMonth(today)).toBe(startOfMonth);
     expect(dateLib.startOfMonth(today)).toBeInstanceOf(Date);
+  });
+});
+
+describe("DateLib formatFullDate", () => {
+  const date = new Date(2026, 0, 22);
+
+  test("writes the day as a number instead of an ordinal", () => {
+    expect(new DateLib().formatFullDate(date)).toBe(
+      "Thursday, January 22, 2026",
+    );
+  });
+
+  test("keeps the locale's full date when the day is already a word", () => {
+    expect(new DateLib({ locale: de }).formatFullDate(date)).toBe(
+      "Donnerstag, 22. Januar 2026",
+    );
+  });
+
+  test("does not zero-pad the day", () => {
+    expect(
+      new DateLib({ locale: bg }).formatFullDate(new Date(2026, 0, 1)),
+    ).toBe("четвъртък, 1 януари 2026");
+  });
+
+  test("applies the configured numerals", () => {
+    expect(
+      new DateLib({ locale: hi, numerals: "deva" }).formatFullDate(date),
+    ).toBe("गुरुवार, २२ जनवरी, २०२६");
+  });
+
+  test("formats with PPPP when format is overridden", () => {
+    const format = jest.fn(() => "formatted");
+    const dateLib = new DateLib({}, { format });
+    expect(dateLib.formatFullDate(date)).toBe("formatted");
+    expect(format).toHaveBeenCalledTimes(1);
+    expect(format).toHaveBeenCalledWith(date, "PPPP", dateLib.options);
   });
 });

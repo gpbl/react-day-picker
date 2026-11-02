@@ -15,7 +15,7 @@ export const gd: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = lib.formatFullDate(date);
       if (modifiers.today) label = `An-diugh, ${label}`;
       if (modifiers.selected) label = `${label}, air a thaghadh`;
       return label;
@@ -34,7 +34,7 @@ export const gd: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = lib.formatFullDate(date);
       if (modifiers?.today) {
         label = `An-diugh, ${label}`;
       }

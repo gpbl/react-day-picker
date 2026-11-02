@@ -15,7 +15,7 @@ export const vi: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = lib.formatFullDate(date);
       if (modifiers.today) label = `Hôm nay, ${label}`;
       if (modifiers.selected) label = `${label}, đã chọn`;
       return label;
@@ -34,7 +34,7 @@ export const vi: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = lib.formatFullDate(date);
       if (modifiers?.today) {
         label = `Hôm nay, ${label}`;
       }
