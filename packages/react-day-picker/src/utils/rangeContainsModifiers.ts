@@ -101,8 +101,13 @@ export function rangeContainsModifiers(
   );
 
   if (functionMatchers.length) {
-    let date = range.from;
-    const totalDays = dateLib.differenceInCalendarDays(range.to, range.from);
+    // normalize inverted ranges, consistently with `rangeIncludesDate`
+    const isRangeInverted =
+      dateLib.differenceInCalendarDays(range.to, range.from) < 0;
+    const from = isRangeInverted ? range.to : range.from;
+    const to = isRangeInverted ? range.from : range.to;
+    let date = from;
+    const totalDays = dateLib.differenceInCalendarDays(to, from);
 
     for (let i = 0; i <= totalDays; i++) {
       if (functionMatchers.some((matcher) => matcher(date))) {

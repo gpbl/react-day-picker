@@ -18,8 +18,13 @@ export function rangeContainsDayOfWeek(
   dateLib: DateLib = defaultDateLib,
 ) {
   const dayOfWeekArr = !Array.isArray(dayOfWeek) ? [dayOfWeek] : dayOfWeek;
-  let date = range.from;
-  const totalDays = dateLib.differenceInCalendarDays(range.to, range.from);
+  // normalize inverted ranges, consistently with `rangeIncludesDate`
+  const isRangeInverted =
+    dateLib.differenceInCalendarDays(range.to, range.from) < 0;
+  const from = isRangeInverted ? range.to : range.from;
+  const to = isRangeInverted ? range.from : range.to;
+  let date = from;
+  const totalDays = dateLib.differenceInCalendarDays(to, from);
 
   // iterate at maximum one week or the total days if the range is shorter than one week
   const totalDaysLimit = Math.min(totalDays, 6);
