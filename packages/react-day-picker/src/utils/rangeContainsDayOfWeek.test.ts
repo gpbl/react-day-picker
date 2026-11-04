@@ -46,3 +46,16 @@ describe("should return true", () => {
     });
   }
 });
+
+describe("when the range is inverted", () => {
+  test("should return true when the range contains the day of the week", () => {
+    expect(
+      rangeContainsDayOfWeek({ from: friday, to: monday }, 3, defaultDateLib),
+    ).toBe(true);
+  });
+  test("should return false when the range does not contain the day of the week", () => {
+    expect(
+      rangeContainsDayOfWeek({ from: friday, to: monday }, 0, defaultDateLib),
+    ).toBe(false);
+  });
+});

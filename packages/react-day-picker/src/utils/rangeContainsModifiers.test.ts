@@ -228,3 +228,25 @@ describe("when the matcher is a function", () => {
     expect(result).toBe(false);
   });
 });
+
+describe("when the matcher is a function and the range is inverted", () => {
+  const invertedRange = { from: saturday, to: monday };
+  test("should return true when matching a date in the range", () => {
+    const matcher = (date: Date) => date.getTime() === wednesday.getTime();
+    const result = rangeContainsModifiers(
+      invertedRange,
+      [matcher],
+      defaultDateLib,
+    );
+    expect(result).toBe(true);
+  });
+  test("should return false when not matching any date in the range", () => {
+    const matcher = (date: Date) => date.getTime() === nextWeekSunday.getTime();
+    const result = rangeContainsModifiers(
+      invertedRange,
+      [matcher],
+      defaultDateLib,
+    );
+    expect(result).toBe(false);
+  });
+});
