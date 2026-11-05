@@ -1,10 +1,15 @@
 import type React from "react";
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import type { CalendarDay } from "./classes/CalendarDay.js";
 import type { CalendarMonth } from "./classes/CalendarMonth.js";
 import type { DateLib } from "./classes/DateLib.js";
 import type { ClassNames } from "./types/shared.js";
 import { Animation } from "./UI.js";
+
+// React < 19 warns when `useLayoutEffect` is called on the server. Effects do
+// not run there, so `useEffect` behaves the same without the warning.
+const useIsomorphicLayoutEffect =
+  typeof document !== "undefined" ? useLayoutEffect : useEffect;
 
 const asHtmlElement = (element: Element | null): HTMLElement | null => {
   if (element instanceof HTMLElement) return element;
@@ -55,7 +60,7 @@ export function useAnimation(
   const previousMonthsRef = useRef(months);
   const animatingRef = useRef(false);
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     // get previous months before updating the previous months ref
     const previousMonths = previousMonthsRef.current;
     // update previous months ref for next effect trigger
