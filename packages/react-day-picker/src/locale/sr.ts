@@ -2,6 +2,7 @@ import { sr as dateFnsSr } from "date-fns/locale/sr";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
+import { formatFullDate } from "../helpers/formatFullDate.js";
 import type { Modifiers } from "../types/index.js";
 
 /** Serbian (Cyrillic) locale extended with DayPicker-specific translations. */
@@ -15,7 +16,7 @@ export const sr: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.formatFullDate(date);
+      let label = formatFullDate(lib, date);
       if (modifiers.today) label = `Данас, ${label}`;
       if (modifiers.selected) label = `${label}, изабрано`;
       return label;
@@ -34,7 +35,7 @@ export const sr: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.formatFullDate(date);
+      let label = formatFullDate(lib, date);
       if (modifiers?.today) {
         label = `Данас, ${label}`;
       }

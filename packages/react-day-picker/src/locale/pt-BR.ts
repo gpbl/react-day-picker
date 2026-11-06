@@ -2,6 +2,7 @@ import { ptBR as dateFnsPtBR } from "date-fns/locale/pt-BR";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
+import { formatFullDate } from "../helpers/formatFullDate.js";
 import type { Modifiers } from "../types/index.js";
 
 /** Portuguese (Brazil) locale extended with DayPicker-specific translations. */
@@ -15,7 +16,7 @@ export const ptBR: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.formatFullDate(date);
+      let label = formatFullDate(lib, date);
       if (modifiers.today) label = `Hoje, ${label}`;
       if (modifiers.selected) label = `${label}, selecionado`;
       return label;
@@ -34,7 +35,7 @@ export const ptBR: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.formatFullDate(date);
+      let label = formatFullDate(lib, date);
       if (modifiers?.today) {
         label = `Hoje, ${label}`;
       }

@@ -2,6 +2,7 @@ import { itCH as dateFnsItCH } from "date-fns/locale/it-CH";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
+import { formatFullDate } from "../helpers/formatFullDate.js";
 import type { Modifiers } from "../types/index.js";
 
 /** Italian (Switzerland) locale extended with DayPicker-specific translations. */
@@ -15,7 +16,7 @@ export const itCH: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.formatFullDate(date);
+      let label = formatFullDate(lib, date);
       if (modifiers.today) label = `Oggi, ${label}`;
       if (modifiers.selected) label = `${label}, selezionato`;
       return label;
@@ -34,7 +35,7 @@ export const itCH: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.formatFullDate(date);
+      let label = formatFullDate(lib, date);
       if (modifiers?.today) {
         label = `Oggi, ${label}`;
       }

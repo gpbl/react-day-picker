@@ -2,6 +2,7 @@ import { arDZ as dateFnsArDZ } from "date-fns/locale/ar-DZ";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
+import { formatFullDate } from "../helpers/formatFullDate.js";
 import type { Modifiers } from "../types/index.js";
 
 /** Arabic (Algeria) locale extended with DayPicker-specific translations. */
@@ -15,7 +16,7 @@ export const arDZ: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.formatFullDate(date);
+      let label = formatFullDate(lib, date);
       if (modifiers.today) label = `اليوم، ${label}`;
       if (modifiers.selected) label = `${label}، محدد`;
       return label;
@@ -34,7 +35,7 @@ export const arDZ: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.formatFullDate(date);
+      let label = formatFullDate(lib, date);
       if (modifiers?.today) {
         label = `اليوم، ${label}`;
       }

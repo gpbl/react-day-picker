@@ -2,6 +2,7 @@ import { beTarask as dateFnsBeTarask } from "date-fns/locale/be-tarask";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
+import { formatFullDate } from "../helpers/formatFullDate.js";
 import type { Modifiers } from "../types/index.js";
 
 /**
@@ -18,7 +19,7 @@ export const beTarask: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.formatFullDate(date);
+      let label = formatFullDate(lib, date);
       if (modifiers.today) label = `Сёньня, ${label}`;
       if (modifiers.selected) label = `${label}, абрана`;
       return label;
@@ -37,7 +38,7 @@ export const beTarask: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.formatFullDate(date);
+      let label = formatFullDate(lib, date);
       if (modifiers?.today) {
         label = `Сёньня, ${label}`;
       }

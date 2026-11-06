@@ -2,6 +2,7 @@ import { bn as dateFnsBn } from "date-fns/locale/bn";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
+import { formatFullDate } from "../helpers/formatFullDate.js";
 import type { Modifiers } from "../types/index.js";
 
 /** Bengali locale extended with DayPicker-specific translations. */
@@ -15,7 +16,7 @@ export const bn: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.formatFullDate(date);
+      let label = formatFullDate(lib, date);
       if (modifiers.today) label = `আজ, ${label}`;
       if (modifiers.selected) label = `${label}, নির্বাচিত`;
       return label;
@@ -34,7 +35,7 @@ export const bn: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.formatFullDate(date);
+      let label = formatFullDate(lib, date);
       if (modifiers?.today) {
         label = `আজ, ${label}`;
       }

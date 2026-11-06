@@ -72,3 +72,22 @@ test("the en-US locale formats without a date library", () => {
     "Thursday, January 22, 2026",
   );
 });
+
+describe("when the date library has no formatFullDate (older copy)", () => {
+  const date = new Date(2026, 0, 22);
+  const legacyDateLib = (locale: DayPickerLocale) => {
+    const dateLib = new DateLib({ locale });
+    (dateLib as Partial<DateLib>).formatFullDate = undefined;
+    return dateLib;
+  };
+
+  test.each([
+    ["default", labelDayButton, enUS, "Thursday, January 22nd, 2026"],
+    ["en-US", localeLabel(enUS), enUS, "Thursday, January 22nd, 2026"],
+    ["de", localeLabel(de), de, "Donnerstag, 22. Januar 2026"],
+  ])("%s falls back to PPPP instead of throwing", (_code, label, locale, expected) => {
+    expect(label(date, dayModifiers, undefined, legacyDateLib(locale))).toBe(
+      expected,
+    );
+  });
+});

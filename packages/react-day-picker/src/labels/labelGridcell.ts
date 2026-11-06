@@ -1,4 +1,5 @@
 import { DateLib, type DateLibOptions } from "../classes/DateLib.js";
+import { formatFullDate } from "../helpers/formatFullDate.js";
 import type { Modifiers } from "../types/index.js";
 
 /**
@@ -18,7 +19,7 @@ export function labelGridcell(
   options?: DateLibOptions,
   dateLib?: DateLib,
 ) {
-  let label = (dateLib ?? new DateLib(options)).formatFullDate(date);
+  let label = formatFullDate(dateLib ?? new DateLib(options), date);
   if (modifiers?.today) {
     label = `Today, ${label}`;
   }

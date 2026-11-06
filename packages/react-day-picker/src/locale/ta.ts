@@ -2,6 +2,7 @@ import { ta as dateFnsTa } from "date-fns/locale/ta";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
+import { formatFullDate } from "../helpers/formatFullDate.js";
 import type { Modifiers } from "../types/index.js";
 
 /** Tamil locale extended with DayPicker-specific translations. */
@@ -15,7 +16,7 @@ export const ta: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.formatFullDate(date);
+      let label = formatFullDate(lib, date);
       if (modifiers.today) label = `இன்று, ${label}`;
       if (modifiers.selected) label = `${label}, தேர்ந்தெடுக்கப்பட்டது`;
       return label;
@@ -34,7 +35,7 @@ export const ta: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.formatFullDate(date);
+      let label = formatFullDate(lib, date);
       if (modifiers?.today) {
         label = `இன்று, ${label}`;
       }

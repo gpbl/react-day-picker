@@ -2,6 +2,7 @@ import { ht as dateFnsHt } from "date-fns/locale/ht";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
+import { formatFullDate } from "../helpers/formatFullDate.js";
 import type { Modifiers } from "../types/index.js";
 
 /** Haitian Creole locale extended with DayPicker-specific translations. */
@@ -15,7 +16,7 @@ export const ht: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.formatFullDate(date);
+      let label = formatFullDate(lib, date);
       if (modifiers.today) label = `Jodi a, ${label}`;
       if (modifiers.selected) label = `${label}, chwazi`;
       return label;
@@ -34,7 +35,7 @@ export const ht: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.formatFullDate(date);
+      let label = formatFullDate(lib, date);
       if (modifiers?.today) {
         label = `Jodi a, ${label}`;
       }

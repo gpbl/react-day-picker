@@ -2,6 +2,7 @@ import { da as dateFnsDa } from "date-fns/locale/da";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
+import { formatFullDate } from "../helpers/formatFullDate.js";
 import type { Modifiers } from "../types/index.js";
 
 /** Danish locale extended with DayPicker-specific translations. */
@@ -15,7 +16,7 @@ export const da: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.formatFullDate(date);
+      let label = formatFullDate(lib, date);
       if (modifiers.today) label = `I dag, ${label}`;
       if (modifiers.selected) label = `${label}, valgt`;
       return label;
@@ -34,7 +35,7 @@ export const da: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.formatFullDate(date);
+      let label = formatFullDate(lib, date);
       if (modifiers?.today) {
         label = `I dag, ${label}`;
       }

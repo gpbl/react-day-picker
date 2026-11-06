@@ -2,6 +2,7 @@ import { mk as dateFnsMk } from "date-fns/locale/mk";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
+import { formatFullDate } from "../helpers/formatFullDate.js";
 import type { Modifiers } from "../types/index.js";
 
 /** Macedonian locale extended with DayPicker-specific translations. */
@@ -15,7 +16,7 @@ export const mk: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.formatFullDate(date);
+      let label = formatFullDate(lib, date);
       if (modifiers.today) label = `Денес, ${label}`;
       if (modifiers.selected) label = `${label}, избрано`;
       return label;
@@ -34,7 +35,7 @@ export const mk: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.formatFullDate(date);
+      let label = formatFullDate(lib, date);
       if (modifiers?.today) {
         label = `Денес, ${label}`;
       }

@@ -6,6 +6,7 @@ import type {
   DateLibOptions,
   DayPickerLocale,
 } from "../classes/DateLib.js";
+import { formatFullDate as formatFullDateWith } from "../helpers/formatFullDate.js";
 import { getFullDatePattern } from "../helpers/getFullDatePattern.js";
 import type { Modifiers } from "../types/index.js";
 
@@ -14,11 +15,8 @@ function formatFullDate(
   options?: DateLibOptions,
   dateLib?: DateLib,
 ): string {
-  if (dateLib && typeof dateLib.formatFullDate === "function") {
-    return dateLib.formatFullDate(date);
-  }
   if (dateLib && typeof dateLib.format === "function") {
-    return dateLib.format(date, "PPPP");
+    return formatFullDateWith(dateLib, date);
   }
   const formatDate = (d: Date, pattern: string) =>
     format(d, pattern, { locale: dateFnsEnUS, ...options });
