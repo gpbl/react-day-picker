@@ -2,6 +2,7 @@ import { ko as dateFnsKo } from "date-fns/locale/ko";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
+import { formatFullDate } from "../helpers/formatFullDate.js";
 import type { Modifiers } from "../types/index.js";
 
 /** Korean locale extended with DayPicker-specific translations. */
@@ -15,7 +16,7 @@ export const ko: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = formatFullDate(lib, date);
       if (modifiers.today) label = `오늘, ${label}`;
       if (modifiers.selected) label = `${label}, 선택됨`;
       return label;
@@ -34,7 +35,7 @@ export const ko: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = formatFullDate(lib, date);
       if (modifiers?.today) {
         label = `오늘, ${label}`;
       }

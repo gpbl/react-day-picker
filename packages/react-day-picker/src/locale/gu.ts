@@ -2,6 +2,7 @@ import { gu as dateFnsGu } from "date-fns/locale/gu";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
+import { formatFullDate } from "../helpers/formatFullDate.js";
 import type { Modifiers } from "../types/index.js";
 
 /** Gujarati locale extended with DayPicker-specific translations. */
@@ -15,7 +16,7 @@ export const gu: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = formatFullDate(lib, date);
       if (modifiers.today) label = `આજે, ${label}`;
       if (modifiers.selected) label = `${label}, પસંદ કરાયેલ`;
       return label;
@@ -34,7 +35,7 @@ export const gu: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = formatFullDate(lib, date);
       if (modifiers?.today) {
         label = `આજે, ${label}`;
       }

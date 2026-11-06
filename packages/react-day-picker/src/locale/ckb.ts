@@ -2,6 +2,7 @@ import { ckb as dateFnsCkb } from "date-fns/locale/ckb";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
+import { formatFullDate } from "../helpers/formatFullDate.js";
 import type { Modifiers } from "../types/index.js";
 
 /**
@@ -18,7 +19,7 @@ export const ckb: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = formatFullDate(lib, date);
       if (modifiers.today) label = `ئەمڕۆ، ${label}`;
       if (modifiers.selected) label = `${label}، هەڵبژێرا`;
       return label;
@@ -37,7 +38,7 @@ export const ckb: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = formatFullDate(lib, date);
       if (modifiers?.today) {
         label = `ئەمڕۆ، ${label}`;
       }

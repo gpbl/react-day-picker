@@ -2,6 +2,7 @@ import { enGB as dateFnsEnGB } from "date-fns/locale/en-GB";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
+import { formatFullDate } from "../helpers/formatFullDate.js";
 import type { Modifiers } from "../types/index.js";
 
 /**
@@ -18,7 +19,7 @@ export const enGB: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = formatFullDate(lib, date);
       if (modifiers.today) label = `Today, ${label}`;
       if (modifiers.selected) label = `${label}, selected`;
       return label;
@@ -37,7 +38,7 @@ export const enGB: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = formatFullDate(lib, date);
       if (modifiers?.today) {
         label = `Today, ${label}`;
       }

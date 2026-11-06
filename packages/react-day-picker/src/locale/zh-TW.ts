@@ -2,6 +2,7 @@ import { zhTW as dateFnsZhTW } from "date-fns/locale/zh-TW";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
+import { formatFullDate } from "../helpers/formatFullDate.js";
 import type { Modifiers } from "../types/index.js";
 
 /**
@@ -18,7 +19,7 @@ export const zhTW: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = formatFullDate(lib, date);
       if (modifiers.today) label = `今天，${label}`;
       if (modifiers.selected) label = `${label}，已選取`;
       return label;
@@ -37,7 +38,7 @@ export const zhTW: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = formatFullDate(lib, date);
       if (modifiers?.today) {
         label = `今天，${label}`;
       }

@@ -2,6 +2,7 @@ import { kk as dateFnsKk } from "date-fns/locale/kk";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
+import { formatFullDate } from "../helpers/formatFullDate.js";
 import type { Modifiers } from "../types/index.js";
 
 /** Kazakh locale extended with DayPicker-specific translations. */
@@ -15,7 +16,7 @@ export const kk: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = formatFullDate(lib, date);
       if (modifiers.today) label = `Бүгін, ${label}`;
       if (modifiers.selected) label = `${label}, таңдалған`;
       return label;
@@ -34,7 +35,7 @@ export const kk: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = formatFullDate(lib, date);
       if (modifiers?.today) {
         label = `Бүгін, ${label}`;
       }

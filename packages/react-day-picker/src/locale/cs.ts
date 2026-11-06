@@ -2,6 +2,7 @@ import { cs as dateFnsCs } from "date-fns/locale/cs";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
+import { formatFullDate } from "../helpers/formatFullDate.js";
 import type { Modifiers } from "../types/index.js";
 
 /** Czech locale extended with DayPicker-specific translations. */
@@ -15,7 +16,7 @@ export const cs: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = formatFullDate(lib, date);
       if (modifiers.today) label = `Dnes, ${label}`;
       if (modifiers.selected) label = `${label}, vybráno`;
       return label;
@@ -34,7 +35,7 @@ export const cs: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = formatFullDate(lib, date);
       if (modifiers?.today) {
         label = `Dnes, ${label}`;
       }

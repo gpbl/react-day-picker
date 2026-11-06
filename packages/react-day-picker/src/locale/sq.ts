@@ -2,6 +2,7 @@ import { sq as dateFnsSq } from "date-fns/locale/sq";
 
 import type { DateLibOptions, DayPickerLocale } from "../classes/DateLib.js";
 import { DateLib } from "../classes/DateLib.js";
+import { formatFullDate } from "../helpers/formatFullDate.js";
 import type { Modifiers } from "../types/index.js";
 
 /** Albanian locale extended with DayPicker-specific translations. */
@@ -15,7 +16,7 @@ export const sq: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = formatFullDate(lib, date);
       if (modifiers.today) label = `Sot, ${label}`;
       if (modifiers.selected) label = `${label}, zgjedhur`;
       return label;
@@ -34,7 +35,7 @@ export const sq: DayPickerLocale = {
       dateLib?: DateLib,
     ) => {
       const lib = dateLib ?? new DateLib(options);
-      let label = lib.format(date, "PPPP");
+      let label = formatFullDate(lib, date);
       if (modifiers?.today) {
         label = `Sot, ${label}`;
       }
