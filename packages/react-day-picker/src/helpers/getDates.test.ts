@@ -235,4 +235,20 @@ describe("when the first month and the last month are different", () => {
       expect(dates[dates.length - 1]).toEqual(new Date(2023, 5, 4));
     });
   });
+  describe("when using broadcastCalendar with maxDate", () => {
+    test("does not drop the last week when month has 5 broadcast weeks", () => {
+      // March 2020 has 5 broadcast weeks (Feb 24 - Mar 29, 2020)
+      const march2020 = new Date(2020, 2, 1);
+      const maxDate = new Date(2020, 2, 31);
+      const dates = getDates(
+        [march2020],
+        maxDate,
+        { broadcastCalendar: true },
+        defaultDateLib,
+      );
+      expect(dates).toHaveLength(35);
+      expect(dates[0]).toEqual(new Date(2020, 1, 24));
+      expect(dates[dates.length - 1]).toEqual(new Date(2020, 2, 29));
+    });
+  });
 });

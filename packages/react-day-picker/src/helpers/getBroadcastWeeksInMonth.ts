@@ -23,7 +23,10 @@ export function getBroadcastWeeksInMonth(month: Date, dateLib: DateLib): 4 | 5 {
   const firstDayOfWeek =
     firstDayOfMonth.getDay() > 0 ? firstDayOfMonth.getDay() : 7;
 
-  const broadcastStartDate = dateLib.addDays(month, -firstDayOfWeek + 1);
+  const broadcastStartDate = dateLib.addDays(
+    firstDayOfMonth,
+    -firstDayOfWeek + 1,
+  );
 
   const lastDateOfLastWeek = dateLib.addDays(
     broadcastStartDate,

@@ -17,6 +17,9 @@ describe("getBroadcastWeeksInMonth", () => {
     ${new Date(2023, 9, 1)}  | ${5}
     ${new Date(2023, 10, 1)} | ${4}
     ${new Date(2023, 11, 1)} | ${5}
+    ${new Date(2020, 2, 1)}  | ${5}
+    ${new Date(2020, 2, 15)} | ${5}
+    ${new Date(2020, 2, 31)} | ${5}
   `("returns $expectedWeeks weeks for $month", ({ month, expectedWeeks }) => {
     expect(getBroadcastWeeksInMonth(month, defaultDateLib)).toBe(expectedWeeks);
   });
