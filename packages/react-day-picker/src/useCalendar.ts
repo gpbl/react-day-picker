@@ -105,7 +105,11 @@ export function useCalendar(
   // biome-ignore lint/correctness/useExhaustiveDependencies: change the initial month when the time zone changes.
   useEffect(() => {
     const newInitialMonth = getInitialMonth(props, navStart, navEnd, dateLib);
-    setFirstMonth(newInitialMonth);
+    setFirstMonth((current) =>
+      current.getTime() === newInitialMonth.getTime()
+        ? current
+        : newInitialMonth,
+    );
   }, [props.timeZone]);
 
   /** The months displayed in the calendar. */

@@ -615,6 +615,43 @@ describe("when the `month` is changed programmatically", () => {
   });
 });
 
+describe("when mounted", () => {
+  const countCommits = (ui: React.ReactElement) => {
+    const onRender = jest.fn();
+    render(
+      <React.Profiler id="daypicker" onRender={onRender}>
+        {ui}
+      </React.Profiler>,
+    );
+    return onRender.mock.calls.length;
+  };
+
+  test("commits once without a month prop", () => {
+    expect(countCommits(<DayPicker />)).toBe(1);
+  });
+
+  test("commits once with a defaultMonth", () => {
+    expect(countCommits(<DayPicker defaultMonth={new Date(2024, 0)} />)).toBe(
+      1,
+    );
+  });
+
+  test("commits once with a controlled month", () => {
+    expect(countCommits(<DayPicker month={new Date(2024, 0)} />)).toBe(1);
+  });
+
+  test("commits once with a timeZone", () => {
+    expect(
+      countCommits(
+        <DayPicker
+          defaultMonth={new Date("2024-01-01T00:30:00.000Z")}
+          timeZone="America/New_York"
+        />,
+      ),
+    ).toBe(1);
+  });
+});
+
 describe("when the timeZone changes after mount", () => {
   const defaultMonth = new Date("2024-01-01T00:30:00.000Z");
   let rerender: ReturnType<typeof render>["rerender"];
