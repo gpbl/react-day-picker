@@ -41,3 +41,15 @@ describe("when the external button changes the month", () => {
     expect(activeElement()).toBe(jumpButton);
   });
 });
+
+describe.each(["d", "n"])("when %s jumps to a disabled month", (key) => {
+  test("keeps focus on a navigation button", async () => {
+    render(<ControlledMonthFocus />);
+    act(() => dateButton(march).focus());
+    await user.keyboard(key);
+    expect(grid()).toHaveAccessibleName("November 2026");
+    expect(activeElement()).toBe(
+      screen.getByRole("button", { name: "Go to the Previous Month" }),
+    );
+  });
+});

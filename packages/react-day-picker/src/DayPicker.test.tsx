@@ -584,6 +584,155 @@ describe("when the `month` is changed programmatically", () => {
     });
   });
 
+  describe("when a controlled month change leaves no enabled days", () => {
+    const initialDay = new Date(2026, 2, 15);
+    const newDay = new Date(2026, 10, 15);
+    const onSelect = jest.fn();
+
+    test.each([
+      false,
+      true,
+    ])("keeps focus on a navigation button with animate=%s", (animate) => {
+      const { rerender } = render(
+        <DayPicker
+          month={initialDay}
+          mode="single"
+          selected={initialDay}
+          onSelect={onSelect}
+          animate={animate}
+        />,
+      );
+      act(() => dateButton(initialDay).focus());
+      rerender(
+        <DayPicker
+          month={newDay}
+          mode="single"
+          selected={newDay}
+          onSelect={onSelect}
+          disabled
+          animate={animate}
+        />,
+      );
+      expect(activeElement()).toBe(
+        screen.getByRole("button", { name: "Go to the Previous Month" }),
+      );
+    });
+
+    test("keeps focus inside when navigation also becomes disabled", () => {
+      const { rerender } = render(
+        <DayPicker
+          month={initialDay}
+          mode="single"
+          selected={initialDay}
+          onSelect={onSelect}
+        />,
+      );
+      act(() => dateButton(initialDay).focus());
+      rerender(
+        <DayPicker
+          month={newDay}
+          mode="single"
+          selected={newDay}
+          onSelect={onSelect}
+          disabled
+          disableNavigation
+        />,
+      );
+      expect(activeElement()).toBe(
+        screen.getByRole("button", { name: "Go to the Previous Month" }),
+      );
+    });
+
+    test("prefers an enabled navigation control", () => {
+      const { rerender } = render(
+        <DayPicker
+          month={initialDay}
+          mode="single"
+          selected={initialDay}
+          onSelect={onSelect}
+        />,
+      );
+      act(() => dateButton(initialDay).focus());
+      rerender(
+        <DayPicker
+          month={newDay}
+          startMonth={newDay}
+          mode="single"
+          selected={newDay}
+          onSelect={onSelect}
+          disabled
+        />,
+      );
+      expect(activeElement()).toBe(
+        screen.getByRole("button", { name: "Go to the Next Month" }),
+      );
+    });
+
+    test("does not take focus back when enabled days return", () => {
+      const { rerender } = render(
+        <DayPicker
+          month={initialDay}
+          mode="single"
+          selected={initialDay}
+          onSelect={onSelect}
+        />,
+      );
+      act(() => dateButton(initialDay).focus());
+      rerender(
+        <DayPicker
+          month={newDay}
+          mode="single"
+          selected={newDay}
+          onSelect={onSelect}
+          disabled
+        />,
+      );
+      const navigation = screen.getByRole("button", {
+        name: "Go to the Previous Month",
+      });
+      expect(activeElement()).toBe(navigation);
+      rerender(
+        <DayPicker
+          month={newDay}
+          mode="single"
+          selected={newDay}
+          onSelect={onSelect}
+        />,
+      );
+      expect(activeElement()).toBe(navigation);
+    });
+
+    test("leaves outside focus alone", () => {
+      const { rerender } = render(
+        <>
+          <button type="button">Outside</button>
+          <DayPicker
+            month={initialDay}
+            mode="single"
+            selected={initialDay}
+            onSelect={onSelect}
+          />
+        </>,
+      );
+      act(() => dateButton(initialDay).focus());
+      const outside = screen.getByRole("button", { name: "Outside" });
+      act(() => outside.focus());
+      rerender(
+        <>
+          <button type="button">Outside</button>
+          <DayPicker
+            month={newDay}
+            mode="single"
+            selected={newDay}
+            onSelect={onSelect}
+            disabled
+          />
+        </>,
+      );
+      expect(activeElement()).toBe(outside);
+    });
+  });
+
   describe("when the month prop is rerendered with non-first-of-month dates", () => {
     const monthDates: unknown[] = [];
     const components = {

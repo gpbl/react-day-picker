@@ -1,5 +1,5 @@
 import type { ChangeEvent, FocusEvent, KeyboardEvent, MouseEvent } from "react";
-import React, { useCallback, useMemo, useRef } from "react";
+import React, { useCallback, useEffect, useMemo, useRef } from "react";
 import type { CalendarDay } from "./classes/CalendarDay.js";
 import { DateLib, defaultLocale } from "./classes/DateLib.js";
 import { createGetModifiers } from "./helpers/createGetModifiers.js";
@@ -375,6 +375,30 @@ export function DayPicker(initialProps: DayPickerProps) {
   };
 
   const rootElRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (
+      !focused ||
+      days.some((day) => day.isEqualTo(focused)) ||
+      days.some(isFocusTarget)
+    ) {
+      return;
+    }
+
+    const root = rootElRef.current;
+    if (root && root.ownerDocument.activeElement === root.ownerDocument.body) {
+      // No day can receive focus. Prefer an enabled control, but keep an
+      // aria-disabled navigation button reachable when navigation is disabled.
+      const enabledControl = root.querySelector<HTMLElement>(
+        'button:not(:disabled):not([aria-disabled="true"]), select:not(:disabled)',
+      );
+      const fallbackControl = root.querySelector<HTMLElement>(
+        "button:not(:disabled)",
+      );
+      (enabledControl ?? fallbackControl)?.focus();
+    }
+    // Do not restore stale day focus if enabled days return later.
+    blur();
+  }, [days, focused, isFocusTarget, blur]);
   useAnimation(rootElRef, Boolean(props.animate), {
     classNames,
     months,
@@ -402,7 +426,7 @@ export function DayPicker(initialProps: DayPickerProps) {
   return (
     <dayPickerContext.Provider value={contextValue}>
       <components.Root
-        rootRef={props.animate ? rootElRef : undefined}
+        rootRef={rootElRef}
         className={className}
         style={style}
         dir={props.dir}
