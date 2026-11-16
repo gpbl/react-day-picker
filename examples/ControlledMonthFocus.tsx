@@ -11,17 +11,23 @@ export function ControlledMonthFocus() {
   const [selected, setSelected] = React.useState<Date | undefined>(march);
   const [focusedDay, setFocusedDay] = React.useState<Date>();
 
-  const jumpToOtherMonth = () => {
+  const [disabled, setDisabled] = React.useState(false);
+  const [disableNavigation, setDisableNavigation] = React.useState(false);
+
+  const jumpToOtherMonth = (disableDays = false, disableNav = false) => {
     const nextDay = isSameMonth(month, march) ? november : march;
     setMonth(nextDay);
     setSelected(nextDay);
+    setDisabled(disableDays);
+    setDisableNavigation(disableNav);
   };
 
   return (
     <fieldset
       onKeyDown={(event) => {
-        if (event.key.toLowerCase() === "j") {
-          jumpToOtherMonth();
+        const key = event.key.toLowerCase();
+        if (key === "j" || key === "d" || key === "n") {
+          jumpToOtherMonth(key !== "j", key === "n");
         }
       }}
     >
@@ -29,11 +35,14 @@ export function ControlledMonthFocus() {
       <p>
         Focus a day and press J to change the controlled month while preserving
         focus. Use the button to change the month while focus is outside the day
-        grid.
+        grid. Press D to jump with all days disabled, or N to disable both days
+        and navigation. Focus should move to a navigation button in those cases.
       </p>
       <DayPicker
         mode="single"
         month={month}
+        disabled={disabled}
+        disableNavigation={disableNavigation}
         onDayBlur={() => setFocusedDay(undefined)}
         onDayFocus={setFocusedDay}
         onMonthChange={setMonth}
@@ -45,7 +54,7 @@ export function ControlledMonthFocus() {
             : "No day has focus"
         }
       />
-      <button type="button" onClick={jumpToOtherMonth}>
+      <button type="button" onClick={() => jumpToOtherMonth()}>
         Jump to {isSameMonth(month, march) ? "November" : "March"}
       </button>
     </fieldset>

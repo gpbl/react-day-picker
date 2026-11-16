@@ -8,7 +8,7 @@ import React, { type HTMLAttributes, type Ref } from "react";
  */
 export function Root(
   props: {
-    /** Ref for the root element, used when `animate` is `true`. */
+    /** Ref for the root element, used for focus recovery and animations. */
     rootRef?: Ref<HTMLDivElement>;
   } & HTMLAttributes<HTMLDivElement>,
 ) {
