@@ -57,7 +57,8 @@ export function rangeContainsModifiers(
           dateLib,
         );
       }
-      return false;
+      const date = matcher.from ?? matcher.to;
+      return date ? rangeIncludesDate(range, date, false, dateLib) : false;
     }
 
     if (isDayOfWeekType(matcher)) {

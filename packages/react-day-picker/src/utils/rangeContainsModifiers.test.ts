@@ -1,5 +1,6 @@
-import { defaultDateLib } from "../classes/DateLib";
-import type { DayOfWeek } from "../types";
+import { TZDate } from "@date-fns/tz";
+import { DateLib, defaultDateLib } from "../classes/DateLib";
+import type { DateRange, DayOfWeek } from "../types";
 
 import { rangeContainsModifiers } from "./rangeContainsModifiers";
 
@@ -96,10 +97,10 @@ describe("when matching date range", () => {
     const result = rangeContainsModifiers(testRange, [matcher], defaultDateLib);
     expect(result).toBe(false);
   });
-  test("should return false if matcher is an incomplete date range", () => {
+  test("should match the defined endpoint of an incomplete date range", () => {
     const matcher = { from: monday };
     const result = rangeContainsModifiers(testRange, [matcher], defaultDateLib);
-    expect(result).toBe(false);
+    expect(result).toBe(true);
   });
 });
 
@@ -226,5 +227,59 @@ describe("when the matcher is a function", () => {
     const matcher = (date: Date) => date.getTime() === nextWeekSunday.getTime();
     const result = rangeContainsModifiers(testRange, [matcher], defaultDateLib);
     expect(result).toBe(false);
+  });
+});
+
+describe("when matching an incomplete date range", () => {
+  const dates = [monday, wednesday, saturday, sunday, nextWeekSunday];
+  const timeZones = ["America/New_York", "UTC"];
+
+  test.each(dates)("matches only its defined date %s", (date) => {
+    const expected = rangeContainsModifiers(testRange, date);
+    for (const matcher of [{ from: date }, { from: undefined, to: date }]) {
+      expect(rangeContainsModifiers(testRange, matcher)).toBe(expected);
+      expect(rangeContainsModifiers(testRange, [false, matcher])).toBe(
+        expected,
+      );
+      expect(
+        rangeContainsModifiers({ from: saturday, to: monday }, matcher),
+      ).toBe(expected);
+    }
+  });
+
+  test("does not match a range with neither endpoint defined", () => {
+    const matcher: DateRange = { from: undefined, to: undefined };
+    expect(rangeContainsModifiers(testRange, matcher)).toBe(false);
+  });
+
+  test.each(timeZones)("uses dates in the %s timezone", (timeZone) => {
+    const dateLib = new DateLib({ timeZone });
+    const range = {
+      from: dateLib.newDate(2026, 10, 7),
+      to: dateLib.newDate(2026, 10, 9),
+    };
+    const date = new TZDate("2026-11-10T01:00:00Z", timeZone);
+    const expected = timeZone === "America/New_York";
+    expect(rangeContainsModifiers(range, { from: date }, dateLib)).toBe(
+      expected,
+    );
+    expect(
+      rangeContainsModifiers(range, { from: undefined, to: date }, dateLib),
+    ).toBe(expected);
+  });
+
+  test("does not walk a long range or evaluate deferred functions", () => {
+    const addDays = jest.fn(defaultDateLib.addDays);
+    const dateLib = new DateLib({}, { addDays });
+    const matcher = jest.fn(() => false);
+    expect(
+      rangeContainsModifiers(
+        { from: new Date(1900, 0, 1), to: new Date(2200, 0, 1) },
+        [matcher, { from: monday }],
+        dateLib,
+      ),
+    ).toBe(true);
+    expect(addDays).not.toHaveBeenCalled();
+    expect(matcher).not.toHaveBeenCalled();
   });
 });
